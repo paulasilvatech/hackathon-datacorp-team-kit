@@ -2,20 +2,33 @@
 title: "Cheat Sheet - Specky SDD v3.4"
 description: "One page. SDD pipeline, 6 EARS patterns, Specky v3.4 agents and commands."
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-22"
-version: "2.0.0"
+date: "2026-04-24"
+version: "2.1.0"
 tags: ["cheat-sheet", "specky", "SDD", "EARS", "hackathon", "DATACORP"]
 ---
 
-# Specky SDD v3.4 - Cheat Sheet
+# 📋 Specky SDD v3.4 — Cheat Sheet
+
+> Spec-Driven Development engine. 13 agents, 57 MCP tools, 16 hooks. The pipeline is enforced — no skipping phases.
 
 > Repo: https://github.com/paulasilvatech/specky | Install: `npm install -g specky-sdd@latest`
 
-## What It Is
+---
 
-Spec-Driven Development engine. 13 agents, 57 MCP tools, 16 hooks. **The pipeline is enforced** - no skipping phases.
+## 📑 Table of Contents
 
-## Quick Setup
+1. [Quick Setup](#-quick-setup)
+2. [The 6 EARS Patterns](#-the-6-ears-patterns)
+3. [Pipeline — 10 Phases](#-pipeline--10-phases)
+4. [Slash Commands](#-slash-commands)
+5. [Most-Used MCP Tools](#-most-used-mcp-tools)
+6. [Hooks That Will Trigger](#-hooks-that-will-trigger)
+7. [Hackathon Flow](#-hackathon-flow)
+8. [Tips](#-tips)
+
+---
+
+## ⚙️ Quick Setup
 
 ```bash
 specky install --ide=copilot   # VS Code + Copilot
@@ -23,7 +36,9 @@ specky install --ide=claude    # Claude Code
 specky doctor                  # Validate installation
 ```
 
-## The 6 EARS Patterns
+---
+
+## 📐 The 6 EARS Patterns
 
 | # | Pattern | Template | SIFAP Example |
 |---|---------|----------|---------------|
@@ -36,7 +51,9 @@ specky doctor                  # Validate installation
 
 Validate: `sdd_validate_ears` (MCP tool) or `@spec-engineer` (agent)
 
-## Pipeline - 10 Phases
+---
+
+## 🔟 Pipeline — 10 Phases
 
 | # | Phase | Agent | Deliverable | Owner Persona | Stage |
 |---|-------|-------|-------------|---------------|-------|
@@ -53,18 +70,22 @@ Validate: `sdd_validate_ears` (MCP tool) or `@spec-engineer` (agent)
 
 LGTM gates: after Specify, Design, and Tasks. Review before advancing.
 
-## Slash Commands
+---
+
+## 🔧 Slash Commands
 
 | Command | When to Use |
 |---------|-------------|
-| `/specky-migration` | **MAIN** - SIFAP modernization |
+| `/specky-migration` | **MAIN** — SIFAP modernization |
 | `/specky-specify` | Write EARS requirements |
 | `/specky-design` | Generate architecture + diagrams |
 | `/specky-tasks` | Break design into tasks |
 | `/specky-verify` | Validate tests vs spec |
 | `/specky-release` | Create final PR |
 
-## Most-Used MCP Tools
+---
+
+## 🛠️ Most-Used MCP Tools
 
 | Tool | What It Does |
 |------|-------------|
@@ -76,7 +97,9 @@ LGTM gates: after Specify, Design, and Tasks. Review before advancing.
 | `sdd_write_tasks` | Generates sequenced TASKS.md |
 | `sdd_check_sync` | Detects drift spec vs code |
 
-## Hooks That Will Trigger
+---
+
+## 🪝 Hooks That Will Trigger
 
 - **no-code-without-spec**: blocks PR without spec reference
 - **EARS-linter**: complains about requirement outside 6 patterns
@@ -85,7 +108,9 @@ LGTM gates: after Specify, Design, and Tasks. Review before advancing.
 
 When a hook blocks: **read the message**. Fix the artifact, don't force override.
 
-## Hackathon Flow
+---
+
+## 🏃 Hackathon Flow
 
 ```
 Stage 2 (2h):
@@ -98,17 +123,23 @@ Stage 4 (1h30):
   @release-engineer -> Release -> PR
 ```
 
-## Tips
+---
+
+## 💡 Tips
 
 - Don't skip to Code without going through Specify + Design
 - `specky doctor` should be all green before starting
-- If Specky is unavailable: write EARS manually - the format is plain text
+- If Specky is unavailable: write EARS manually — the format is plain text
 - Use `@specky-orchestrator` to let the pipeline guide you
 
-- Paula
+— Paula
 
 ---
 
-| Previous | Home |
-|:---------|-----:|
-| [← Cheat Sheets Home](README.md) | [Kit Home](../README.md) |
+## 🧭 Navigation
+
+| Previous | Home | Next |
+|---|---|---|
+| ← [Model Routing](./model-routing.md) | [Kit Root](../README.md) | [Persona Kits](../persona-kits/README.md) → |
+
+> Author: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
