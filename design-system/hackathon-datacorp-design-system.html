@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Hackathon DATACORP, Design System, Microsoft palette</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ── Microsoft logo palette ── */
+    --ms-red:    #F25022;
+    --ms-green:  #7FBA00;
+    --ms-blue:   #00A4EF;
+    --ms-yellow: #FFB900;
+    --ms-gray:   #737373;
+
+    /* ── Tints and shades ── */
+    --ms-red-50:    #FFF0EB;
+    --ms-red-100:   #FFD6C7;
+    --ms-red-500:   #F25022;
+    --ms-red-700:   #B33816;
+
+    --ms-green-50:  #F1F8E3;
+    --ms-green-100: #D8EDA5;
+    --ms-green-500: #7FBA00;
+    --ms-green-700: #5A8500;
+
+    --ms-blue-50:   #E5F6FD;
+    --ms-blue-100:  #B8E5FA;
+    --ms-blue-500:  #00A4EF;
+    --ms-blue-700:  #0076AC;
+
+    --ms-yellow-50: #FFF7E0;
+    --ms-yellow-100:#FFE79C;
+    --ms-yellow-500:#FFB900;
+    --ms-yellow-700:#B88500;
+
+    /* ── Neutrals ── */
+    --ink:     #1A1A1A;
+    --ink-2:   #3A3A3A;
+    --ink-3:   #737373;
+    --paper:   #FFFFFF;
+    --bg:      #F7F7F5;
+    --bg-alt:  #ECECE8;
+    --rule:    #E5E5E0;
+    --rule-2:  #CECEC7;
+
+    /* ── Semantic accents (primary for the hackathon deck) ── */
+    --accent: var(--ms-red-500);
+    --accent-ink: var(--ms-red-700);
+
+    /* ── Type scale (1920×1080 slides) ── */
+    --t-title: 72px;
+    --t-subtitle: 44px;
+    --t-body: 30px;
+    --t-small: 24px;
+    --t-eyebrow: 24px;
+
+    /* ── Spacing ── */
+    --sp-xs: 8px;
+    --sp-sm: 16px;
+    --sp-md: 28px;
+    --sp-lg: 48px;
+    --sp-xl: 80px;
+  }
+
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Inter', -apple-system, Helvetica, sans-serif; }
+  body { padding: 80px 100px 120px 100px; max-width: 1720px; margin: 0 auto; }
+
+  /* ── Header ── */
+  .ds-header { border-bottom: 1px solid var(--rule-2); padding-bottom: 40px; margin-bottom: 64px; display: flex; align-items: end; justify-content: space-between; gap: 40px; }
+  .ds-header h1 { font-size: 68px; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 12px 0; line-height: 1; }
+  .ds-header p { font-size: 24px; color: var(--ink-3); margin: 0; max-width: 800px; line-height: 1.45; }
+  .ds-header .meta { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--ink-3); text-align: right; letter-spacing: 0.05em; }
+  .ds-header .meta strong { display: block; color: var(--ink); font-size: 28px; font-weight: 500; margin-bottom: 4px; letter-spacing: 0; }
+
+  /* ── MS logo ── */
+  .ms-logo { display: inline-grid; grid-template-columns: 28px 28px; grid-template-rows: 28px 28px; gap: 4px; margin-right: 16px; vertical-align: middle; }
+  .ms-logo i { display: block; }
+  .ms-logo .r { background: var(--ms-red); }
+  .ms-logo .g { background: var(--ms-green); }
+  .ms-logo .b { background: var(--ms-blue); }
+  .ms-logo .y { background: var(--ms-yellow); }
+
+  /* ── Section ── */
+  section.ds-section { margin-bottom: 96px; }
+  .ds-section > h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+    margin: 0 0 8px 0;
+  }
+  .ds-section > h2 .num { color: var(--ms-red); margin-right: 14px; }
+  .ds-section > .lede { font-size: 38px; line-height: 1.15; letter-spacing: -0.015em; font-weight: 400; color: var(--ink); max-width: 1400px; margin: 0 0 40px 0; }
+
+  /* ── Color swatches ── */
+  .swatch-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .swatch {
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .swatch .chip { height: 220px; position: relative; }
+  .swatch .chip .label { position: absolute; top: 20px; left: 20px; font-family: 'JetBrains Mono', monospace; font-size: 18px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.92); }
+  .swatch .chip.on-light .label { color: rgba(0,0,0,0.72); }
+  .swatch .meta { padding: 20px 24px; display: flex; flex-direction: column; gap: 4px; }
+  .swatch .meta .name { font-size: 22px; font-weight: 500; }
+  .swatch .meta .hex { font-family: 'JetBrains Mono', monospace; font-size: 18px; color: var(--ink-3); }
+
+  .tint-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--rule); background: var(--paper); }
+  .tint { padding: 28px 24px 20px 24px; border-right: 1px solid var(--rule); }
+  .tint:last-child { border-right: none; }
+  .tint .bar { height: 64px; margin-bottom: 14px; }
+  .tint .step { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase; }
+  .tint .hex { font-family: 'JetBrains Mono', monospace; font-size: 18px; color: var(--ink); margin-top: 4px; }
+
+  /* ── Type specimens ── */
+  .type-list { display: flex; flex-direction: column; border-top: 1px solid var(--rule); }
+  .type-row { display: grid; grid-template-columns: 280px 1fr 260px; padding: 28px 0; border-bottom: 1px solid var(--rule); align-items: baseline; gap: 40px; }
+  .type-row .tag { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase; padding-top: 8px; }
+  .type-row .specimen { color: var(--ink); line-height: 1.1; }
+  .type-row .spec { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: var(--ink-3); text-align: right; line-height: 1.5; }
+  .type-row .spec strong { color: var(--ink); font-weight: 500; }
+
+  /* ── Spacing tokens ── */
+  .space-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid var(--rule); background: var(--paper); }
+  .space { padding: 28px 24px; border-right: 1px solid var(--rule); }
+  .space:last-child { border-right: none; }
+  .space .bar { height: 40px; background: var(--ms-blue-100); border: 1px solid var(--ms-blue-500); }
+  .space .name { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 16px; }
+  .space .val { font-family: 'JetBrains Mono', monospace; font-size: 22px; color: var(--ink); margin-top: 2px; }
+
+  /* ── Components ── */
+  .comp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .comp { border: 1px solid var(--rule); background: var(--paper); padding: 36px; display: flex; flex-direction: column; gap: 20px; }
+  .comp .comp-name { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase; }
+  .comp .comp-body { padding: 24px; background: var(--bg); border: 1px dashed var(--rule-2); display: flex; align-items: center; justify-content: center; min-height: 140px; }
+
+  /* Eyebrow variants */
+  .eye-red { color: var(--ms-red); }
+  .eye-green { color: var(--ms-green-700); }
+  .eye-blue { color: var(--ms-blue-700); }
+  .eye-yellow { color: var(--ms-yellow-700); }
+  .eyebrow-sample { font-family: 'JetBrains Mono', monospace; font-size: 24px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
+
+  /* Pills */
+  .pill-sample { display: inline-flex; padding: 8px 18px; border: 1px solid var(--rule-2); font-family: 'JetBrains Mono', monospace; font-size: 22px; border-radius: 4px; margin: 4px; background: var(--paper); }
+  .pill-red { border-color: var(--ms-red); color: var(--ms-red); }
+  .pill-green { border-color: var(--ms-green-700); color: var(--ms-green-700); }
+  .pill-blue { border-color: var(--ms-blue-700); color: var(--ms-blue-700); }
+  .pill-yellow { border-color: var(--ms-yellow-700); color: var(--ms-yellow-700); }
+
+  /* Block card */
+  .block-sample { border: 1px solid var(--rule-2); padding: 28px 32px; background: var(--paper); display: flex; flex-direction: column; gap: 12px; width: 100%; }
+  .block-sample .label { font-family: 'JetBrains Mono', monospace; font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ms-red); font-weight: 500; }
+  .block-sample .name { font-size: 30px; font-weight: 500; color: var(--ink); }
+  .block-sample .desc { font-size: 20px; color: var(--ink-3); line-height: 1.4; }
+
+  /* Big-number stat */
+  .stat-sample { display: flex; flex-direction: column; gap: 4px; }
+  .stat-sample .sv { font-size: 88px; font-weight: 400; letter-spacing: -0.03em; line-height: 1; color: var(--ink); }
+  .stat-sample .sv.accent { color: var(--ms-red); }
+  .stat-sample .sl { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 10px; }
+
+  /* Accent bar system explainer */
+  .accent-map { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .accent-map .card { border: 1px solid var(--rule); background: var(--paper); padding: 28px; }
+  .accent-map .card .bar { height: 6px; margin-bottom: 20px; }
+  .accent-map .card h3 { font-size: 24px; font-weight: 500; margin: 0 0 8px 0; }
+  .accent-map .card p { font-size: 18px; color: var(--ink-3); margin: 0; line-height: 1.5; }
+  .accent-map .card .mono { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 16px; }
+
+  /* Stage card (hackathon specific) */
+  .stage-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .stage-card { border: 1px solid var(--rule); background: var(--paper); padding: 28px; border-top: 6px solid var(--rule-2); }
+  .stage-card.red { border-top-color: var(--ms-red); }
+  .stage-card.blue { border-top-color: var(--ms-blue); }
+  .stage-card.green { border-top-color: var(--ms-green); }
+  .stage-card.yellow { border-top-color: var(--ms-yellow); }
+  .stage-card .stnum { font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+  .stage-card .stname { font-size: 26px; font-weight: 500; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.01em; }
+  .stage-card .sttime { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: var(--ink-3); margin-bottom: 16px; }
+  .stage-card .stdesc { font-size: 18px; color: var(--ink-3); line-height: 1.4; }
+  .stage-card.red .stnum { color: var(--ms-red); }
+  .stage-card.blue .stnum { color: var(--ms-blue-700); }
+  .stage-card.green .stnum { color: var(--ms-green-700); }
+  .stage-card.yellow .stnum { color: var(--ms-yellow-700); }
+
+  /* Persona pill row */
+  .persona-pill { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border: 1px solid var(--rule-2); background: var(--paper); font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 500; margin: 4px; border-radius: 4px; color: var(--ink); }
+  .persona-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ms-blue); }
+
+  /* Agent block with icon */
+  .agent-block { display: grid; grid-template-columns: 60px 1fr; gap: 20px; align-items: start; border: 1px solid var(--rule-2); background: var(--paper); padding: 24px 28px; width: 100%; }
+  .agent-block .icon-slot { width: 52px; height: 52px; background: var(--ms-yellow-50); border: 1px solid var(--ms-yellow-500); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; color: var(--ms-yellow-700); font-weight: 600; }
+  .agent-block .atitle { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--ms-yellow-700); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; margin-bottom: 6px; }
+  .agent-block .aname { font-size: 24px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+  .agent-block .adesc { font-size: 18px; color: var(--ink-3); line-height: 1.4; }
+
+  /* Legacy vs Modern split */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--rule); }
+  .split .side { padding: 36px 40px; }
+  .split .side.legacy { background: #FAF4F2; border-right: 1px solid var(--rule); }
+  .split .side.modern { background: #F4F8E8; }
+  .split .side .kind { font-family: 'JetBrains Mono', monospace; font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; margin-bottom: 16px; }
+  .split .side.legacy .kind { color: var(--ms-red-700); }
+  .split .side.modern .kind { color: var(--ms-green-700); }
+  .split .side .title-s { font-size: 32px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 12px; line-height: 1.1; }
+  .split .side .meta-s { font-family: 'JetBrains Mono', monospace; font-size: 18px; color: var(--ink-3); margin-bottom: 20px; }
+  .split .side .desc-s { font-size: 20px; color: var(--ink-2); line-height: 1.45; }
+
+  /* Dark swatch */
+  .dark-specimens { background: #141414; border: 1px solid #2a2a2a; padding: 48px; color: #F0F0F0; }
+  .dark-specimens .eyebrow-sample { color: var(--ms-yellow); }
+  .dark-specimens .title-sample { font-size: 56px; font-weight: 500; letter-spacing: -0.02em; margin: 16px 0 20px 0; line-height: 1.05; }
+  .dark-specimens .body-sample { font-size: 22px; color: #BFBFBB; max-width: 900px; line-height: 1.5; }
+
+  footer.ds-foot { border-top: 1px solid var(--rule-2); margin-top: 80px; padding-top: 32px; font-family: 'JetBrains Mono', monospace; font-size: 18px; color: var(--ink-3); display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+  <!-- ─────────── HEADER ─────────── -->
+  <header class="ds-header">
+    <div>
+      <div style="display: flex; align-items: center; margin-bottom: 16px;">
+        <span class="ms-logo" aria-hidden="true"><i class="r"></i><i class="g"></i><i class="b"></i><i class="y"></i></span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 22px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);">Hackathon DATACORP · Design System v1.0</span>
+      </div>
+      <h1>Microsoft palette,<br/>modernization voice.</h1>
+      <p>Sistema de design enxuto derivado das quatro cores do logo Microsoft (vermelho, verde, azul, amarelo), aplicado ao Hackathon DATACORP 2026. Tokens para cor, tipografia, espaçamento e componentes específicos de um evento de modernização agêntica de legado.</p>
+    </div>
+    <div class="meta">
+      <strong>v1.0 · 2026</strong>
+      Slides 1920×1080<br/>
+      Inter · JetBrains Mono<br/>
+      4 hues · 5 neutrals
+    </div>
+  </header>
+
+  <!-- ─────────── BRAND / SEMANTIC MAP ─────────── -->
+  <section class="ds-section">
+    <h2><span class="num">01</span>Marca e semântica</h2>
+    <p class="lede">As quatro cores Microsoft ganham papel semântico fixo no contexto de modernização. Cada hue representa uma dimensão da jornada legacy para modern, nunca ornamento livre.</p>
+    <div class="accent-map">
+      <div class="card">
+        <div class="bar" style="background: var(--ms-red);"></div>
+        <h3>Vermelho, legado e risco</h3>
+        <p>Marca o sistema legado SIFAP, dívida técnica, gaps de cobertura, regras de negócio escondidas, mistérios do código Natural e indicadores de alerta.</p>
+        <div class="mono">#F25022 · MS-RED</div>
+      </div>
+      <div class="card">
+        <div class="bar" style="background: var(--ms-green);"></div>
+        <h3>Verde, moderno e validado</h3>
+        <p>Marca o SIFAP 2.0, código Java Spring Boot entregue, testes passando, gate criteria atingidos, features mergeadas no Estágio 4.</p>
+        <div class="mono">#7FBA00 · MS-GREEN</div>
+      </div>
+      <div class="card">
+        <div class="bar" style="background: var(--ms-blue);"></div>
+        <h3>Azul, tooling e Copilot</h3>
+        <p>Marca ferramentas do hackathon: VS Code, GitHub Copilot (Chat, Edits, Agent), Docker, Terraform, GitHub Actions, Azure. Azul é a superfície onde devs trabalham.</p>
+        <div class="mono">#00A4EF · MS-BLUE</div>
+      </div>
+      <div class="card">
+        <div class="bar" style="background: var(--ms-yellow);"></div>
+        <h3>Amarelo, agentes e IA</h3>
+        <p>Marca os 13 agentes do framework Agentic Legacy Modernization, Specky como plugin SDD, prompts, skills, e toda camada de inteligência artificial no hackathon.</p>
+        <div class="mono">#FFB900 · MS-YELLOW</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── BASE COLORS ─────────── -->
+  <section class="ds-section">
+    <h2><span class="num">02</span>Cores base</h2>
+    <p class="lede">Quatro hues primários com valores exatos do logo Microsoft, mais quatro neutros projetados para alto contraste em slides e documentos densos.</p>
+    <div class="swatch-row" style="margin-bottom: 32px;">
+      <div class="swatch">
+        <div class="chip" style="background: var(--ms-red);"><span class="label">MS-RED</span></div>
+        <div class="meta"><span class="name">Red · 500</span><span class="hex">#F25022</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: var(--ms-green);"><span class="label">MS-GREEN</span></div>
+        <div class="meta"><span class="name">Green · 500</span><span class="hex">#7FBA00</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: var(--ms-blue);"><span class="label">MS-BLUE</span></div>
+        <div class="meta"><span class="name">Blue · 500</span><span class="hex">#00A4EF</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: var(--ms-yellow);"><span class="label">MS-YELLOW</span></div>
+        <div class="meta"><span class="name">Yellow · 500</span><span class="hex">#FFB900</span></div>
+      </div>
+    </div>
+    <div class="swatch-row">
+      <div class="swatch">
+        <div class="chip on-light" style="background: var(--paper); border-bottom: 1px solid var(--rule);"><span class="label">PAPER</span></div>
+        <div class="meta"><span class="name">Paper</span><span class="hex">#FFFFFF</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip on-light" style="background: var(--bg);"><span class="label">BG</span></div>
+        <div class="meta"><span class="name">Background</span><span class="hex">#F7F7F5</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: var(--ink-3);"><span class="label">INK-3</span></div>
+        <div class="meta"><span class="name">Ink · secondary</span><span class="hex">#737373</span></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: var(--ink);"><span class="label">INK</span></div>
+        <div class="meta"><span class="name">Ink · primary</span><span class="hex">#1A1A1A</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── TINT SCALES ─────────── -->
+  <section class="ds-section">
+    <h2><span class="num">03</span>Escalas de tom</h2>
+    <p class="lede">Cada hue tem quatro degraus (50, 100, 500 base, 700). Use 50 e 100 para fundos e badges, 500 para acentos, 700 para texto sobre fundo claro.</p>
+
+    <div class="tint-row" style="margin-bottom: 20px;">
+      <div class="tint"><div class="bar" style="background: var(--ms-red-50);"></div><div class="step">Red · 50</div><div class="hex">#FFF0EB</div></div>
+      <div class="tint"><div class="bar" style="background: var(--ms-red-100);"></div><div class="step">Red · 100</div><div class="hex">#FFD6C7</div></div>
+      <div class="tint"><div class="bar" style="background: var(--ms-red-500);"></div><div class="step">Red · 500</div><div class="hex">#F25022</div></div>
+      <div class="tint"><div class="bar" style="background: var(--ms-red-700);"></div><div class="step">Red · 700</div><div class="hex">#B33816</div></div>
+    </div>
+    <div class="tint-row" style="margin-bottom: 20px;">
+      <div class="tint"><div class="bar" style="background: var(--ms-green-50);"></div><div class="step">Green · 50</div><div class="hex">#F1F8E3</div></div>
+      <div class="tint"><div class="bar" style="background: var(--ms-green-100);"></div><div class="step">Green · 100</div><div class="hex">#D8EDA5</div></div>
+      <div class="tint"><div class="bar" style="background: var(--ms-green-500);"></div><div class="step">Green · 500</div><div class="hex">#7FBA00</div></div>
+      <div class="tint"><div class="bar" style="background: var(--ms-green-700);"></div><div class="step">Green · 700</div><div class="hex">#5A8500</div></div>
+    </div>
+    <div class="tint-row" style="margin-bottom: 20px;">
+      <div class="tint"><div class="bar" style="background: var(--ms-blue-50);"></div><div class="step">Blue · 50</div><div class="hex">#E5F6FD</div></div>
+      <div class="tint"><div class="bar" style="background: var(--ms-blue-100);"></div><div class="step">Blue · 100</div><div class="hex">#B8E5FA</div></div>
+      <div class="tint"><div class="bar" style="background: var(--ms-blue-500);"></div><div class="step">Blue · 500</div><div class="hex">#00A4EF</div></div>
+      <div class="tint"><div class="bar" style="background: var(--ms-blue-700);"></div><div class="step">Blue · 700</div><div class="hex">#0076AC</div></div>
+    </div>
+    <div class="tint-row">
+      <div class="tint"><div class="bar" style="background: var(--ms-yellow-50);"></div><div class="step">Yellow · 50</div><div class="hex">#FFF7E0</div></div>
+      <div class="tint"><div class="bar" style="background: var(--ms-yellow-100);"></div><div class="step">Yellow · 100</div><div class="hex">#FFE79C</div></div>
+      <div class="tint"><div class="bar" style="background: var(--ms-yellow-500);"></div><div class="step">Yellow · 500</div><div class="hex">#FFB900</div></div>
+      <div class="tint"><div class="bar" style="background: var(--ms-yellow-700);"></div><div class="step">Yellow · 700</div><div class="hex">#B88500</div></div>
+    </div>
+  </section>
+
+  <!-- ─────────── TYPOGRAPHY ─────────── -->
+  <section class="ds-section">
+    <h2><span class="num">04</span>Tipografia</h2>
+    <p class="lede">Inter para conteúdo, JetBrains Mono para marcação, números e metadados. Cinco níveis, nunca abaixo de 24px em slides.</p>
+
+    <div class="type-list">
+      <div class="type-row">
+        <div class="tag">Title</div>
+        <div class="specimen" style="font-size: 72px; font-weight: 500; letter-spacing: -0.02em;">Modernização agêntica de legado</div>
+        <div class="spec"><strong>Inter · 500</strong><br/>72px / 1.02<br/>tracking −0.02em</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Subtitle</div>
+        <div class="specimen" style="font-size: 44px; font-weight: 400; color: var(--ink-2); letter-spacing: -0.015em;">De Natural e Adabas para Spring Boot e PostgreSQL.</div>
+        <div class="spec"><strong>Inter · 400</strong><br/>44px / 1.15<br/>tracking −0.015em</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Body</div>
+        <div class="specimen" style="font-size: 30px; font-weight: 400; color: var(--ink-2); line-height: 1.35;">Cem devs DATACORP, dez times, quatro estágios, um dia para entregar um sistema modernizado.</div>
+        <div class="spec"><strong>Inter · 400</strong><br/>30px / 1.35</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Small / caption</div>
+        <div class="specimen" style="font-size: 24px; font-weight: 400; color: var(--ink-3); line-height: 1.4;">Copilot em três modos (Chat, Edits, Agent) mais Specky como plugin SDD central.</div>
+        <div class="spec"><strong>Inter · 400</strong><br/>24px / 1.4</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Eyebrow</div>
+        <div class="specimen eyebrow-sample" style="color: var(--ms-red);">ESTÁGIO 01 · ARQUEOLOGIA DIGITAL</div>
+        <div class="spec"><strong>JetBrains Mono · 500</strong><br/>24px<br/>tracking 0.12em · UPPERCASE</div>
+      </div>
+      <div class="type-row" style="border-bottom: none;">
+        <div class="tag">Mono code</div>
+        <div class="specimen" style="font-family: 'JetBrains Mono', monospace; font-size: 28px; color: var(--ms-blue-700);">@discovery-agent --scope NATURAL</div>
+        <div class="spec"><strong>JetBrains Mono · 500</strong><br/>28px</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── SPACING ─────────── -->
+  <section class="ds-section">
+    <h2><span class="num">05</span>Espaçamento</h2>
+    <p class="lede">Cinco tokens. Slides usam padding xl (80px) no topo e base, itens internos alternam md e lg. Mesma régua do Portal Gov, para consistência entre projetos Paula Silva.</p>
+    <div class="space-row">
+      <div class="space"><div class="bar" style="width: 8px;"></div><div class="name">sp-xs</div><div class="val">8 px</div></div>
+      <div class="space"><div class="bar" style="width: 16px;"></div><div class="name">sp-sm</div><div class="val">16 px</div></div>
+      <div class="space"><div class="bar" style="width: 28px;"></div><div class="name">sp-md</div><div class="val">28 px</div></div>
+      <div class="space"><div class="bar" style="width: 48px;"></div><div class="name">sp-lg</div><div class="val">48 px</div></div>
+      <div class="space"><div class="bar" style="width: 80px;"></div><div class="name">sp-xl</div><div class="val">80 px</div></div>
+    </div>
+  </section>
+
+  <!-- ─────────── BASE COMPONENTS ─────────── -->
+  <section class="ds-section">
+    <h2><span class="num">06</span>Componentes base</h2>
+    <p class="lede">Blocos reutilizáveis que aparecem em qualquer artefato do hackathon (deck, blueprint, briefing, playbook). Cada um ancorado em um par cor e hierarquia.</p>
+
+    <div class="comp-grid">
+      <div class="comp">
+        <div class="comp-name">Eyebrow · por categoria semântica</div>
+        <div class="comp-body" style="flex-direction: column; align-items: flex-start; gap: 14px;">
+          <span class="eyebrow-sample eye-red">LEGADO · SIFAP 1997</span>
+          <span class="eyebrow-sample eye-green">MODERNO · SIFAP 2.0</span>
+          <span class="eyebrow-sample eye-blue">TOOLING · COPILOT</span>
+          <span class="eyebrow-sample eye-yellow">AGENTE · @DISCOVERY</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-name">Pill · por categoria</div>
+        <div class="comp-body" style="flex-wrap: wrap; gap: 0;">
+          <span class="pill-sample pill-red">legacy</span>
+          <span class="pill-sample pill-green">gate passed</span>
+          <span class="pill-sample pill-blue">vscode</span>
+          <span class="pill-sample pill-yellow">@specky</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-name">Block · card informativo</div>
+        <div class="comp-body">
+          <div class="block-sample">
+            <div class="label">Invoke · @discovery-agent</div>
+            <div class="name">discovery-agent</div>
+            <div class="desc">Mapeia programas Natural, rastreia CALLNATs, cataloga DDMs. Produz inventário JSON e relatório Markdown para o Estágio 1.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-name">Big-number stat</div>
+        <div class="comp-body" style="gap: 48px;">
+          <div class="stat-sample"><div class="sv accent">100</div><div class="sl">Devs DATACORP</div></div>
+          <div class="stat-sample"><div class="sv">10</div><div class="sl">Times</div></div>
+          <div class="stat-sample"><div class="sv">15</div><div class="sl">Programas Natural</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── HACKATHON COMPONENTS ─────────── -->
+  <section class="ds-section">
+    <h2><span class="num">07</span>Componentes do hackathon</h2>
+    <p class="lede">Quatro componentes específicos do evento, que não existem em projetos genéricos. Cada um resolve um problema pedagógico concreto do Dia 2.</p>
+
+    <div class="comp-grid">
+      <div class="comp" style="grid-column: span 2;">
+        <div class="comp-name">Stage card · os 4 estágios do Dia 2</div>
+        <div class="comp-body" style="padding: 24px; display: block;">
+          <div class="stage-row">
+            <div class="stage-card red">
+              <div class="stnum">Estágio 01</div>
+              <div class="stname">Arqueologia Digital</div>
+              <div class="sttime">09:00, 12:00 · 3h</div>
+              <div class="stdesc">Times lêem código Natural, mapeiam DDMs, extraem regras escondidas. Agentes ativos, Discovery e Analysis.</div>
+            </div>
+            <div class="stage-card blue">
+              <div class="stnum">Estágio 02</div>
+              <div class="stname">Spec Greenfield</div>
+              <div class="sttime">13:00, 14:00 · 1h</div>
+              <div class="stdesc">Times escrevem specification em EARS via Specky. Decisões de bounded context e carving.</div>
+            </div>
+            <div class="stage-card green">
+              <div class="stnum">Estágio 03</div>
+              <div class="stname">Reconstrução</div>
+              <div class="sttime">14:00, 17:00 · 3h</div>
+              <div class="stdesc">Build moderno com Spring Boot, Next.js, PostgreSQL. Copilot nos 3 modos. Docker compose local.</div>
+            </div>
+            <div class="stage-card yellow">
+              <div class="stnum">Estágio 04</div>
+              <div class="stname">Evolução com Agent</div>
+              <div class="sttime">17:00, 18:30 · 1h30</div>
+              <div class="stdesc">Copilot Agent recebe issues e entrega PRs. Feature mergeada em produção simulada.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-name">Persona pill · as 10 personas dos times</div>
+        <div class="comp-body" style="flex-wrap: wrap; gap: 6px;">
+          <span class="persona-pill"><span class="dot" style="background: var(--ms-red);"></span>Product Owner</span>
+          <span class="persona-pill"><span class="dot" style="background: var(--ms-red);"></span>Requirements Engineer</span>
+          <span class="persona-pill"><span class="dot" style="background: var(--ms-blue);"></span>Enterprise Architect</span>
+          <span class="persona-pill"><span class="dot" style="background: var(--ms-blue);"></span>Software Architect</span>
+          <span class="persona-pill"><span class="dot" style="background: var(--ms-blue);"></span>Technical Lead</span>
+          <span class="persona-pill"><span class="dot" style="background: var(--ms-green);"></span>Developer</span>
+          <span class="persona-pill"><span class="dot" style="background: var(--ms-green);"></span>DBA</span>
+          <span class="persona-pill"><span class="dot" style="background: var(--ms-green);"></span>QA Engineer</span>
+          <span class="persona-pill"><span class="dot" style="background: var(--ms-yellow);"></span>DevOps Engineer</span>
+          <span class="persona-pill"><span class="dot" style="background: var(--ms-yellow);"></span>Tech Writer</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <div class="comp-name">Agent block · agentes do framework</div>
+        <div class="comp-body">
+          <div class="agent-block">
+            <div class="icon-slot">A</div>
+            <div>
+              <div class="atitle">Agent · Analysis</div>
+              <div class="aname">@analysis-agent</div>
+              <div class="adesc">Roda sobre o inventário do Discovery. Gera priorização, risk assessment e recomendação de arquitetura alvo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp" style="grid-column: span 2;">
+        <div class="comp-name">Legacy vs Modern split · dualidade visual SIFAP</div>
+        <div class="comp-body" style="padding: 24px; display: block;">
+          <div class="split">
+            <div class="side legacy">
+              <div class="kind">Legacy · antes do hackathon</div>
+              <div class="title-s">SIFAP 1997</div>
+              <div class="meta-s">Natural 4GL · Adabas · Mainframe</div>
+              <div class="desc-s">Quinze programas, quatro DDMs, documentação parcial de 2008, equipe original aposentada, regras de negócio escondidas no código.</div>
+            </div>
+            <div class="side modern">
+              <div class="kind">Modern · entregue pelo time</div>
+              <div class="title-s">SIFAP 2.0</div>
+              <div class="meta-s">Java 21 · Spring Boot 3.3 · PostgreSQL 16</div>
+              <div class="desc-s">Modular Monolith com bounded contexts, Next.js 15 no frontend, Docker Compose local, Terraform para Azure, CI CD no GitHub Actions.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── DARK VARIANT ─────────── -->
+  <section class="ds-section">
+    <h2><span class="num">08</span>Variante escura, slide divisor</h2>
+    <p class="lede">Em fundos escuros, amarelo é o eyebrow padrão (alto contraste, vínculo com agentes e IA). Usado para separar estágios do Dia 2 ou marcar transições conceituais no deck.</p>
+    <div class="dark-specimens">
+      <span class="eyebrow-sample">ESTÁGIO 04 · EVOLUÇÃO COM AGENT</span>
+      <h3 class="title-sample">O Copilot Agent assume<br/>o ciclo de entrega.</h3>
+      <p class="body-sample">Duas issues bem escritas no GitHub, dois PRs abertos autonomamente pelo <span style="font-family: 'JetBrains Mono', monospace; color: var(--ms-blue);">@copilot-agent</span>, uma feature mergeada e funcional antes do encerramento. Meta-coerência em ação, IA agêntica entregando IA agêntica.</p>
+    </div>
+  </section>
+
+  <!-- ─────────── PRINCIPLES ─────────── -->
+  <section class="ds-section">
+    <h2><span class="num">09</span>Princípios de uso</h2>
+    <p class="lede">Cinco regras para manter o sistema íntegro entre slides, documentos, kits de time e artefatos pedagógicos.</p>
+    <div class="accent-map">
+      <div class="card">
+        <div class="bar" style="background: var(--ms-red);"></div>
+        <h3>Cor é semântica</h3>
+        <p>Vermelho não é só um acento bonito, é legado. Verde não é decoração, é moderno. Cada hue carrega significado fixo, nunca use por variedade visual.</p>
+      </div>
+      <div class="card">
+        <div class="bar" style="background: var(--ms-green);"></div>
+        <h3>Um acento por slide</h3>
+        <p>Escolha o hue dominante conforme o tema do slide (estágio, persona, agente). Use os outros em pills e badges menores que carreguem o mesmo significado.</p>
+      </div>
+      <div class="card">
+        <div class="bar" style="background: var(--ms-blue);"></div>
+        <h3>Neutros fazem o trabalho pesado</h3>
+        <p>Texto, separadores e backgrounds são sempre neutros. Microsoft cores entram como marcadores e badges, nunca como superfícies grandes.</p>
+      </div>
+      <div class="card">
+        <div class="bar" style="background: var(--ms-yellow);"></div>
+        <h3>Legacy e Modern têm dualidade</h3>
+        <p>Quando o slide compara legacy e modern lado a lado, legacy vai à esquerda (vermelho de fundo tênue), modern vai à direita (verde de fundo tênue). Não inverta a direção.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── APPLICATION PER STAGE ─────────── -->
+  <section class="ds-section">
+    <h2><span class="num">10</span>Aplicação, cor dominante por estágio</h2>
+    <p class="lede">No Dia 2 do hackathon, cada estágio tem uma cor dominante. Slides, handouts e placeholders de entregável seguem essa paleta para ajudar os times a se orientarem temporalmente.</p>
+    <div class="stage-row">
+      <div class="stage-card red">
+        <div class="stnum">Dominante · MS-RED</div>
+        <div class="stname">Estágio 01, Arqueologia</div>
+        <div class="sttime">09:00, 12:00</div>
+        <div class="stdesc">Cor do legado. Slides e pôsteres de sala usam vermelho nos eyebrows e big numbers. Pills de mistério e regras escondidas em vermelho.</div>
+      </div>
+      <div class="stage-card blue">
+        <div class="stnum">Dominante · MS-BLUE</div>
+        <div class="stname">Estágio 02, Spec</div>
+        <div class="sttime">13:00, 14:00</div>
+        <div class="stdesc">Cor do tooling. Destaque para Specky, EARS notation, ADRs. Pills de ferramenta em azul, big numbers em azul para quantidades de requirements.</div>
+      </div>
+      <div class="stage-card green">
+        <div class="stnum">Dominante · MS-GREEN</div>
+        <div class="stname">Estágio 03, Reconstrução</div>
+        <div class="sttime">14:00, 17:00</div>
+        <div class="stdesc">Cor do moderno. Código Java, Next.js, testes passando. Pills de gate criteria atingidos em verde, status de build em verde, commits em verde.</div>
+      </div>
+      <div class="stage-card yellow">
+        <div class="stnum">Dominante · MS-YELLOW</div>
+        <div class="stname">Estágio 04, Evolução</div>
+        <div class="sttime">17:00, 18:30</div>
+        <div class="stdesc">Cor da IA. Protagonismo do Copilot Agent. Pills de agentes em amarelo, prompts em blocos amarelos tênues, labels de issue em amarelo.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ds-foot">
+    <span>Hackathon DATACORP · Design System v1.0 · 2026</span>
+    <span>Paula Silva, Americas Software GBB, Microsoft</span>
+  </footer>
+
+</body>
+</html>
