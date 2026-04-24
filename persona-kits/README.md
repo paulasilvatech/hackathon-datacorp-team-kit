@@ -1,8 +1,8 @@
 ---
-title: "Persona Kits - 25 Role-Specific Copilot Packages"
+title: "Persona Kits — 25 Role-Specific Copilot Packages"
 description: "Specialized Copilot agents, skills, prompts and MCP plugins for 25 software delivery personas"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-23"
+date: "2026-04-24"
 version: "1.1.0"
 status: "approved"
 tags: ["personas", "copilot", "agents", "skills", "prompts", "plugins", "mcp"]
@@ -144,10 +144,10 @@ Step by step:
 
 ---
 
-## Navigation
+## 🧭 Navigation
 
 | Previous | Home | Next |
-|---|---|---|
-| [Design System](../design-system/README.md) | [Kit README](../README.md) | [Stage 1: Archaeology](../01-arqueologia/GUIDE.md) |
+|----------|------|------|
+| ← [Cheat Sheets](../cheat-sheets/README.md) | [Kit Root](../README.md) | [Plugins](../plugins/README.md) → |
 
-> Author: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
+> **Author:** Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft
