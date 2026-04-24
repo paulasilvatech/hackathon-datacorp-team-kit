@@ -2,8 +2,8 @@
 title: "Cheat Sheets - Team Kit"
 description: "Quick-reference cards for hackathon participants covering Copilot modes, Specky workflow, and model routing"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-23"
-version: "1.1.0"
+date: "2026-04-24"
+version: "1.2.0"
 status: "approved"
 tags: ["cheat-sheet", "copilot", "specky", "model-routing", "hackathon"]
 ---
@@ -37,8 +37,6 @@ The SIFAP modernization journey moves fast. Teams do not have time to scroll thr
 | "Where am I in the Specky pipeline?" | `specky-workflow.md` |
 | "Which model should I pick for this task?" | `model-routing.md` |
 
-> 💡 **Analogia.** Se o kit completo e o manual do carro, os cheat sheets sao o adesivo colado no painel com os comandos mais usados.
-
 ---
 
 ## 📚 Contents
@@ -60,10 +58,10 @@ The SIFAP modernization journey moves fast. Teams do not have time to scroll thr
 
 ---
 
-## Navigation
+## 🧭 Navigation
 
 | Previous | Home | Next |
 |---|---|---|
-| [Stage 4: Evolution](../04-evolucao/GUIDE.md) | [Kit README](../README.md) | [Design System](../design-system/README.md) |
+| ← [04-evolucao](../04-evolucao/README.md) | [Kit Root](../README.md) | [Copilot Modes](./copilot-3-modes.md) → |
 
 > Author: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
