@@ -34,7 +34,7 @@ The legacy SIFAP system has touched every discipline in the organization over 30
 
 If all of them use the same generic Copilot prompts, they will all get the same generic output. Persona kits solve that.
 
-> 💡 **Analogia.** Um chef nao usa a mesma faca para filetar peixe e cortar legumes. O Copilot tambem precisa de instrumentos diferentes para papeis diferentes.
+> 💡 **Analogy.** A chef doesn't use the same knife to fillet fish and cut vegetables. Copilot also needs different tools for different roles.
 
 ---
 

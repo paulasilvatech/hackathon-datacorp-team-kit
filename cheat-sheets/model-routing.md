@@ -1,77 +1,77 @@
 ---
-title: "Cheat Sheet - Roteamento de Modelos Claude no Copilot"
-description: "Uma página. Quando usar Claude Haiku 4.5, Sonnet 4.6 ou Opus 4.6 dentro do GitHub Copilot. Regras simples, casos típicos."
+title: "Cheat Sheet - Claude Model Routing in Copilot"
+description: "One page. When to use Claude Haiku 4.5, Sonnet 4.6, or Opus 4.6 in GitHub Copilot. Simple rules, typical cases."
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
-tags: ["cheat-sheet", "copilot", "claude", "model-routing", "hackathon", "SERPRO"]
+tags: ["cheat-sheet", "copilot", "claude", "model-routing", "hackathon", "DATACORP"]
 ---
 
-# Roteamento de Modelos Claude - Cheat Sheet
+# Claude Model Routing - Cheat Sheet
 
-## Regra-mãe
+## Golden Rule
 
-> Modelo maior = mais capaz e mais lento. Use o menor que resolve o seu caso. Economize Opus para decisão, não para produção em lote.
+> Bigger model = more capable and slower. Use the smallest one that solves your problem. Save Opus for decisions, not batch production.
 
-## Os três modelos
+## The Three Models
 
-| Modelo | Quando usar | Custo relativo | Velocidade |
+| Model | When to Use | Relative Cost | Speed |
 |---|---|---|---|
-| **Haiku 4.5** | Tarefa mecânica, transformação simples, pequeno contexto | Baixo | Rápido |
-| **Sonnet 4.6** | Padrão do dia a dia. Código, testes, refactor, explicação | Médio | Médio |
-| **Opus 4.6** | Decisão arquitetural, análise de impacto, discussão de trade-off | Alto | Lento |
+| **Haiku 4.5** | Mechanical task, simple transformation, small context | Low | Fast |
+| **Sonnet 4.6** | Daily standard. Code, tests, refactor, explanation | Medium | Medium |
+| **Opus 4.6** | Architectural decision, impact analysis, trade-off discussion | High | Slow |
 
-## Casos típicos por persona
+## Typical Cases by Persona
 
 ### Product Owner / Requirements Engineer
-- Escrever história de usuário → **Sonnet**.
-- Refinar EARS já escritas → **Haiku**.
-- Discutir se um requisito deveria ser v1 ou v2 → **Opus** (uma vez, decidir, seguir).
+- Write user story → **Sonnet**.
+- Refine already-written EARS → **Haiku**.
+- Discuss if a requirement should be v1 or v2 → **Opus** (once, decide, move on).
 
 ### Architects (Enterprise + Software)
-- Desenhar C4 com Mermaid → **Sonnet**.
-- Decidir entre dois padrões (hexagonal vs camadas) → **Opus**.
-- Gerar variação sintática de diagrama que já existe → **Haiku**.
+- Draw C4 with Mermaid → **Sonnet**.
+- Decide between two patterns (hexagonal vs layered) → **Opus**.
+- Generate syntactic variation of existing diagram → **Haiku**.
 
 ### Technical Lead
-- Revisar PR de tamanho médio → **Sonnet**.
-- Decidir padrão global do projeto (estilo de transação, p.ex.) → **Opus** no início; **Sonnet** depois para aplicar.
-- Responder "esse código compila?" → **Haiku**.
+- Review medium-size PR → **Sonnet**.
+- Decide global project pattern (transaction style, etc.) → **Opus** at start; **Sonnet** after to apply.
+- Answer "does this code compile?" → **Haiku**.
 
 ### Developer
-- Gerar implementação de um serviço → **Sonnet**.
-- Escrever teste unitário simples → **Haiku**.
-- Debater estrutura de uma classe antes de escrever → **Opus**.
+- Generate service implementation → **Sonnet**.
+- Write simple unit test → **Haiku**.
+- Debate class structure before writing → **Opus**.
 
 ### DBA
-- Traduzir DDM Adabas → SQL → **Sonnet** (com Opus para o caso mais esquisito).
-- Gerar DDL repetitivo → **Haiku**.
-- Decidir estratégia de particionamento do `payment` → **Opus**.
+- Translate Adabas DDM to SQL → **Sonnet** (with Opus for edge cases).
+- Generate repetitive DDL → **Haiku**.
+- Decide `payment` partitioning strategy → **Opus**.
 
 ### QA Engineer
-- Gerar esqueleto de JUnit 5 → **Haiku**.
-- Escrever teste de integração não-trivial → **Sonnet**.
-- Decidir se dado cenário vale Testcontainers vs mock → **Opus**.
+- Generate JUnit 5 skeleton → **Haiku**.
+- Write non-trivial integration test → **Sonnet**.
+- Decide if scenario warrants Testcontainers vs mock → **Opus**.
 
 ### DevOps Engineer
-- Gerar YAML GitHub Actions padrão → **Sonnet**.
-- Ajustar comandos triviais no workflow → **Haiku**.
-- Decidir topologia Azure → **Opus**.
+- Generate standard GitHub Actions YAML → **Sonnet**.
+- Adjust trivial workflow commands → **Haiku**.
+- Decide Azure topology → **Opus**.
 
 ### Tech Writer
-- Revisar estilo do README → **Haiku**.
-- Redigir ADR → **Sonnet**.
-- Decidir estrutura global da documentação → **Opus**, uma vez.
+- Review README style → **Haiku**.
+- Draft ADR → **Sonnet**.
+- Decide overall documentation structure → **Opus**, once.
 
-## Sinais de que você está no modelo errado
+## Signs You're Using the Wrong Model
 
-- **Está esperando 30s por resposta trivial** → suba para modelo menor.
-- **Resposta veio rasa em decisão crítica** → suba para Opus.
-- **Resposta está corretíssima mas você queria discussão** → suba para Opus.
-- **Você está empilhando prompts para Opus gerar 400 arquivos** → desce para Sonnet ou Haiku.
+- **Waiting 30s for a trivial answer** → go to smaller model.
+- **Answer came shallow on critical decision** → go to Opus.
+- **Answer is perfectly correct but you wanted discussion** → go to Opus.
+- **You're stacking prompts for Opus to generate 400 files** → drop to Sonnet or Haiku.
 
-## Dica de Paula
+## Paula's Tip
 
-Não trate Opus como "o bom" e Haiku como "o ruim". Opus em tarefa mecânica é desperdício; Haiku em decisão é risco. O modelo certo é o mais barato que não te deixa na mão.
+Don't treat Opus as "the good one" and Haiku as "the bad one". Opus on a mechanical task is wasteful; Haiku on a decision is risky. The right model is the cheapest one that doesn't leave you stranded.
 
 - Paula

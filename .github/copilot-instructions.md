@@ -1,29 +1,29 @@
 # GitHub Copilot Instructions - Hackathon DATACORP 2026
 
-## Contexto do Projeto
+## Project Context
 
-Este repositório faz parte do **Hackathon DATACORP 2026 - Agentic DevOps Platform**.  
-Você está modernizando o sistema **SIFAP** (Sistema de Fiscalização e Administração de Pagamentos) de Natural/Adabas para stack moderna.
+This repository is part of the **Hackathon DATACORP 2026 - Agentic DevOps Platform**.  
+You are modernizing the **SIFAP** system (Social Benefits Payment System) from Natural/Adabas to a modern stack.
 
-## Stack Alvo
+## Target Stack
 
 - **Backend:** Java 21 + Spring Boot 3.3 + JPA/Hibernate + PostgreSQL 16
 - **Frontend:** Next.js 15 (App Router) + TypeScript + Tailwind CSS + shadcn/ui
 - **Containers:** Docker + Docker Compose
-- **IaC:** Terraform para Azure
+- **IaC:** Terraform for Azure
 - **CI/CD:** GitHub Actions
 
-## Regras de Geração de Código
+## Code Generation Rules
 
-- Sempre use Java 21 features (records, sealed classes, pattern matching)
-- RESTful APIs seguem convenção: `/api/v1/{resource}`
-- Nomes de classes em inglês, comentários em inglês
-- Testes unitários obrigatórios para lógica de negócio
-- Nunca expor dados sensíveis (CPF, valor de benefício) em logs
+- Always use Java 21 features (records, sealed classes, pattern matching)
+- RESTful APIs follow convention: `/api/v1/{resource}`
+- Class names in English, comments in English
+- Unit tests mandatory for business logic
+- Never expose sensitive data (CPF, benefit amounts) in logs
 
-## Personas Ativas Neste Time
+## Active Personas on This Team
 
-<!-- TODO: Cada time preenche aqui as 10 personas ativas -->
+<!-- TODO: Each team fills in the 10 active personas here -->
 - [ ] Product Owner
 - [ ] Requirements Engineer
 - [ ] Enterprise Architect
@@ -35,14 +35,14 @@ Você está modernizando o sistema **SIFAP** (Sistema de Fiscalização e Admini
 - [ ] DevOps Engineer
 - [ ] Tech Writer
 
-## Como Usar o Copilot
+## How to Use Copilot
 
-1. **Chat** - para explorar o legado e planejar
-2. **Edits** - para implementar multi-arquivo
-3. **Agent** - para features autônomas completas
+1. **Chat** - to explore legacy and plan
+2. **Edits** - to implement multi-file changes
+3. **Agent** - for complete autonomous features
 
-## Referências
+## References
 
 - [Specky SDD Plugin](../../apm_modules/paulasilvatech/specky/README.md)
-- [SIFAP Legado](../../02-cenario-sifap-legado/)
+- [SIFAP Legacy](../../02-cenario-sifap-legado/)
 - [Spec SIFAP 2.0](../../03-spec-sifap-moderno/SPECIFICATION.md)

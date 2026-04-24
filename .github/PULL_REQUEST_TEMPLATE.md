@@ -4,7 +4,7 @@
 
 ## Stage
 
-- [ ] Stage 1 - Arqueologia
+- [ ] Stage 1 - Archaeology
 - [ ] Stage 2 - Spec Moderna
 - [ ] Stage 3 - Implementação
 - [ ] Stage 4 - Evolução (IaC)

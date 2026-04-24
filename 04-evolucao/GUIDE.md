@@ -1,302 +1,714 @@
 ---
-title: "Estagio 4 - Evolucao com Agentes"
-description: "Guia para usar GitHub Copilot Agent Mode e Terraform para evoluir o SIFAP 2.0"
+title: "Stage 4 - Evolution"
+description: "Guide for infrastructure, CI/CD, and deployment of SIFAP 2.0"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-23"
 version: "1.1.0"
 status: "approved"
-tags: ["stage-4", "evolution", "agent-mode", "terraform", "azure"]
+tags: ["stage-4", "evolution", "infrastructure", "terraform", "azure", "ci-cd"]
 ---
 
-# 🚀 Estagio 4: Evolucao com Agentes
+# 🚀 Stage 4: Evolution
 
-> ⏱️ **Duracao.** 3 horas. O estagio onde voces passam o bastao para o agente e provam que o caminho para produçao e viavel.
-
-<p align="center">
-  <img src="../assets/architecture-transformation.svg" alt="Transformacao arquitetural SIFAP legado para SIFAP moderno" width="100%"/>
-</p>
+> ⏱️ **Duration**: 3 hours. Transform your working code into a resilient, scalable production system on Azure with Infrastructure as Code (Terraform) and automated CI/CD pipelines (GitHub Actions).
 
 ---
 
-## 📑 Sumario
+## 📑 Table of Contents
 
-1. [Onde estamos na jornada](#-onde-estamos-na-jornada)
-2. [Objetivo](#-objetivo)
-3. [Parte 1: Copilot Agent Mode](#-parte-1-github-copilot-agent-mode-2-horas)
-4. [Parte 2: Terraform e Infraestrutura](#-parte-2-terraform-e-infraestrutura-1-hora)
-5. [Entregaveis](#-entregaveis-do-estagio-4)
-6. [Navegacao](#-navegacao)
-
----
-
-## 🎬 Onde estamos na jornada
-
-Voces ja fizeram arqueologia, escreveram a spec e implementaram. Agora e hora de mostrar que o SIFAP 2.0 roda na nuvem e que e possivel crescer com agentes fazendo parte do timao. Este estagio junta duas provas: o agente consegue completar uma feature ponta a ponta sozinho e a infraestrutura Azure esta descrita como codigo.
-
-> 💡 **Analogia.** Se os estagios anteriores foram dirigir o carro, este e o estagio onde voce configura o piloto automatico e garante que a estrada esta pavimentada ate o destino.
+1. [Where are we on the journey](#-where-are-we-on-the-journey)
+2. [Objective](#-objective)
+3. [Infrastructure Architecture](#-infrastructure-architecture)
+4. [Terraform Modules](#-terraform-modules)
+5. [GitHub Actions CI/CD](#-github-actions-cicd)
+6. [Deployment Strategy](#-deployment-strategy)
+7. [Monitoring and Observability](#-monitoring-and-observability)
+8. [Definition of Done](#-definition-of-done)
+9. [Navigation](#-navigation)
 
 ---
 
-## 🎯 Objetivo
+## 🎬 Where are we on the journey
 
-Usar o **GitHub Copilot Agent Mode** para implementar features completas via Issues e Pull Requests, e explorar a infraestrutura como codigo (Terraform) para deploy na Azure.
+You've built working code (Stage 3). Now you operationalize it: infrastructure as code, automated testing/building, deployment pipelines, and monitoring. By end of Stage 4, you have a production-ready system on Azure.
 
----
-
-## 🤖 Parte 1: GitHub Copilot Agent Mode (2 horas)
-
-### O que e o Agent Mode?
-
-O **Copilot Agent Mode** e o terceiro modo do GitHub Copilot (alem de Chat e Edits). No Agent Mode, voce:
-
-1. **Escreve uma Issue no GitHub** descrevendo a feature completa
-2. **Aciona o Agent** no VS Code (via painel Copilot → "Start Agent" ou pelo Copilot Workspace no github.com)
-3. **O Agent analisa todo o codebase**, planeja as mudancas, implementa codigo + testes + docs
-4. **Abre um Pull Request** para voce revisar
-
-Pense no Agent como um **dev junior muito rapido** - ele faz o trabalho braçal, mas VOCE precisa revisar tudo antes de mergear.
-
-> **Diferenca entre os 3 modos:**
-> - **Chat**: voce pergunta, Copilot responde (exploração, duvidas)
-> - **Edits**: voce seleciona arquivos e descreve a mudanca, Copilot edita (implementacao guiada)
-> - **Agent**: voce descreve a feature inteira via Issue, Copilot implementa sozinho (delegacao)
-
-### Como escrever uma boa Issue para o Agent
-
-Uma Issue bem escrita e 80% do sucesso. Siga este formato:
+**Key principle**: Infrastructure should be reproducible from code. Every environment (dev, stage, prod) should be identical except for scale.
 
 ---
 
-#### Exemplo Real: Notificacao de Pagamento por Email
+## 🎯 Objective
 
-```markdown
-## Titulo
-Adicionar notificacao por email na confirmacao de pagamento
+Deploy SIFAP 2.0 to Azure with:
+- Infrastructure as Code (Terraform)
+- Automated CI/CD pipeline (GitHub Actions)
+- Multi-environment support (dev, stage, prod)
+- Monitoring and alerting (Azure Application Insights)
+- Secrets management (Azure Key Vault)
+- Compliance and security best practices
 
-## Descricao
-Quando um pagamento for confirmado (status mudando de PENDING para APPROVED),
-o sistema deve enviar um email de notificacao ao beneficiario informando
-o valor e a data do pagamento.
+**Success metric**: One-click deployment to production with zero manual steps.
 
-## Requisitos Funcionais
-- [ ] Quando o status de um pagamento mudar para APPROVED, enviar email
-- [ ] O email deve conter: nome do beneficiario, valor, data, numero do pagamento
-- [ ] Se o envio falhar, registrar no log de auditoria (nao bloquear o pagamento)
-- [ ] O template do email deve ser configuravel
+---
 
-## Requisitos Tecnicos
-- [ ] Criar um EmailService no modulo payment/application
-- [ ] Usar Spring Mail com configuracao via application.yml
-- [ ] Criar teste unitario mockando o envio de email
-- [ ] Criar teste de integracao com MailHog (container Docker)
-- [ ] Adicionar variavel SMTP_HOST no docker-compose.yml
+## 🏗️ Infrastructure Architecture
 
-## Arquitetura
-- Seguir a estrutura modular existente (domain/application/infrastructure)
-- O EmailService deve ser injetado no PaymentService
-- Usar eventos Spring (ApplicationEvent) para desacoplar
+### Azure Services Used
 
-## Criterios de Aceite
-- [ ] Teste unitario passando
-- [ ] Teste de integracao passando
-- [ ] docker compose up funcional com MailHog
-- [ ] Email recebido no MailHog ao aprovar pagamento via Swagger
+| Service | Purpose | SKU/Tier |
+|---------|---------|----------|
+| App Service Plan | Compute for backend | B2 (shared) for dev; P1V2 for prod |
+| App Service (Backend) | Java Spring Boot app | 1 instance (scale with load) |
+| App Service (Frontend) | Next.js static hosting | Standard |
+| PostgreSQL Flexible Server | Managed database | B_Standard_B1ms for dev |
+| Key Vault | Secrets management | Standard |
+| Application Insights | Monitoring/APM | Standard |
+| Storage Account | Logs and backups | Standard_LRS |
+| Virtual Network | Network isolation | Optional (for production) |
 
-## Contexto
-- Backend: Java 21 + Spring Boot 3
-- Modulo relevante: src/.../payment/
-- Referencia: PaymentService.java, PaymentController.java
+### Network Diagram
+
+```
+┌────────────────────────────────────────────────────┐
+│              Azure Subscription                    │
+├────────────────────────────────────────────────────┤
+│                                                    │
+│  ┌─────────────────────────────────────────────┐ │
+│  │         Virtual Network (VNet)              │ │
+│  │                                             │ │
+│  │  ┌─────────────┐      ┌──────────────┐    │ │
+│  │  │ App Service │      │ App Service  │    │ │
+│  │  │  (Backend)  │      │ (Frontend)   │    │ │
+│  │  └─────┬───────┘      └──────┬───────┘    │ │
+│  │        │                     │             │ │
+│  │        └──────────┬──────────┘             │ │
+│  │                   │                        │ │
+│  │        ┌──────────▼────────────┐          │ │
+│  │        │  PostgreSQL Flexible  │          │ │
+│  │        │  Server (Database)    │          │ │
+│  │        └───────────────────────┘          │ │
+│  │                                             │ │
+│  └─────────────────────────────────────────────┘ │
+│                                                    │
+│  ┌────────────────────────────────────────────┐ │
+│  │ Key Vault (Secrets)                        │ │
+│  └────────────────────────────────────────────┘ │
+│                                                    │
+│  ┌────────────────────────────────────────────┐ │
+│  │ Application Insights (Monitoring)          │ │
+│  └────────────────────────────────────────────┘ │
+│                                                    │
+└────────────────────────────────────────────────────┘
 ```
 
 ---
 
-### Checklist para escrever Issues
+## 🏗️ Terraform Modules
 
-Antes de submeter a Issue para o Agent, verifique:
-
-- [ ] **Titulo claro** - descreve a feature em uma frase
-- [ ] **Descricao com contexto** - o Agent precisa entender o "por que"
-- [ ] **Requisitos como checklist** - itens verificaveis
-- [ ] **Requisitos tecnicos** - onde no codigo, quais padroes seguir
-- [ ] **Criterios de aceite** - como saber que esta pronto
-- [ ] **Referencias a arquivos** - ajuda o Agent a encontrar o codigo certo
-
-### Workflow do Agent
-
-1. **Crie a Issue** no GitHub com o formato acima
-2. **Acione o Agent** (via Copilot Workspace ou VS Code)
-3. **Aguarde o PR** - o Agent trabalha e abre um PR
-4. **Revise o PR** usando o checklist abaixo
-5. **Solicite ajustes** se necessario (comente no PR)
-6. **Faca merge** quando estiver satisfeito
-
----
-
-### Como Revisar um PR do Agent (Checklist de Qualidade)
-
-Quando o Agent abrir um PR, revise com cuidado:
-
-#### Corretude
-- [ ] O codigo compila sem erros?
-- [ ] Os testes passam? (`./mvnw test`)
-- [ ] A funcionalidade funciona como descrito na Issue?
-
-#### Arquitetura
-- [ ] Segue a estrutura modular (domain/application/infrastructure)?
-- [ ] Nao ha imports circulares entre modulos?
-- [ ] A camada domain nao importa classes de infrastructure?
-
-#### Qualidade
-- [ ] Nomes de classes, metodos e variaveis sao claros?
-- [ ] Ha tratamento de erros adequado?
-- [ ] Ha validacao de entrada (Bean Validation)?
-- [ ] Nao ha credenciais hardcoded?
-
-#### Testes
-- [ ] Ha testes unitarios para a logica de negocio?
-- [ ] Ha testes de integracao para os endpoints?
-- [ ] Os testes cobrem casos de erro (nao apenas o happy path)?
-
-#### Documentacao
-- [ ] Endpoints novos aparecem no Swagger?
-- [ ] Ha JavaDoc nos metodos publicos?
-- [ ] O README foi atualizado se necessario?
-
----
-
-## ☁️ Parte 2: Terraform e Infraestrutura (1 hora)
-
-### Visao Geral
-
-Os modulos Terraform para deploy na Azure estao em:
+### Directory Structure
 
 ```
 05-terraform-azure/
-|-- main.tf                  # Modulo raiz
-|-- variables.tf             # Variaveis de entrada
-|-- outputs.tf               # Saidas
-|-- modules/
-|   |-- resource-group/      # Grupo de recursos Azure
-|   |-- container-registry/  # ACR para imagens Docker
-|   |-- container-apps/      # Azure Container Apps
-|   |-- postgresql/          # Azure Database for PostgreSQL
-|   |-- key-vault/           # Azure Key Vault para secrets
-|   |-- monitoring/          # Application Insights + Log Analytics
+├─ main.tf
+├─ variables.tf
+├─ outputs.tf
+├─ environments/
+│  ├─ dev.tfvars
+│  ├─ stage.tfvars
+│  └─ prod.tfvars
+├─ modules/
+│  ├─ resource_group/
+│  ├─ networking/
+│  ├─ app_service/
+│  ├─ database/
+│  ├─ keyvault/
+│  └─ monitoring/
+└─ terraform.tfstate (git-ignored)
 ```
 
-### O que explorar
+### Module 1: Resource Group
 
-1. **Leia o `main.tf`** - entenda como os modulos se conectam
-2. **Veja as variaveis** - quais parametros sao configuraveis?
-3. **Estude os outputs** - quais informacoes o Terraform exporta?
-4. **Verifique o Key Vault** - como secrets sao gerenciados?
+**File**: `modules/resource_group/main.tf`
 
-### Terraform na Pratica
+```hcl
+resource "azurerm_resource_group" "rg" {
+  name     = var.resource_group_name
+  location = var.location
+  
+  tags = {
+    project     = "SIFAP"
+    environment = var.environment
+    managed_by  = "terraform"
+  }
+}
 
-Os modulos Terraform estao em `05-terraform-azure/`:
+output "resource_group_id" {
+  value = azurerm_resource_group.rg.id
+}
 
-| Modulo | O que provisiona | Recurso Azure |
-|--------|-----------------|---------------|
-| `compute/` | Backend Java | App Service (B1 dev, P1v3 prod) |
-| `database/` | Banco de dados | PostgreSQL Flexible Server |
-| `frontend/` | Frontend Next.js | Static Web App |
-| `registry/` | Imagens Docker | Azure Container Registry |
-| `security/` | Segredos | Key Vault |
-| `observability/` | Monitoramento | Application Insights + Log Analytics |
-| `identity/` | Identidade | Azure AD / Entra ID |
+output "resource_group_name" {
+  value = azurerm_resource_group.rg.name
+}
+```
 
-#### Para explorar (nao precisa aplicar):
+### Module 2: App Service (Backend)
+
+**File**: `modules/app_service/main.tf`
+
+```hcl
+resource "azurerm_service_plan" "backend" {
+  name                = "plan-sifap-backend-${var.environment}"
+  resource_group_name = var.resource_group_name
+  location            = var.location
+  os_type             = "Linux"
+  sku_name            = var.environment == "prod" ? "P1V2" : "B2"
+  
+  tags = var.tags
+}
+
+resource "azurerm_linux_web_app" "backend" {
+  name                = "app-sifap-backend-${var.environment}"
+  resource_group_name = var.resource_group_name
+  location            = var.location
+  service_plan_id     = azurerm_service_plan.backend.id
+  
+  identity {
+    type = "SystemAssigned"
+  }
+  
+  site_config {
+    application_stack {
+      java_version = "21"
+      java_server  = "TOMCAT"
+      java_server_version = "10.1"
+    }
+    
+    # Enable Application Insights
+    application_insights_connection_string = var.app_insights_connection_string
+  }
+  
+  app_settings = {
+    SPRING_DATASOURCE_URL      = var.db_connection_string
+    SPRING_DATASOURCE_USERNAME = var.db_username
+    SPRING_DATASOURCE_PASSWORD = var.db_password
+    SPRING_PROFILES_ACTIVE     = var.environment
+  }
+  
+  tags = var.tags
+}
+
+resource "azurerm_app_service_managed_identity_certificate_binding" "backend" {
+  app_service_certificate_id = var.certificate_id
+  certificate_binding_type   = "SNI SSL"
+  hostname_binding_id        = azurerm_app_service_custom_hostname_binding.backend.id
+}
+
+output "app_service_uri" {
+  value = azurerm_linux_web_app.backend.default_hostname
+}
+```
+
+### Module 3: PostgreSQL Database
+
+**File**: `modules/database/main.tf`
+
+```hcl
+resource "azurerm_postgresql_flexible_server" "sifap" {
+  name                = "psql-sifap-${var.environment}"
+  resource_group_name = var.resource_group_name
+  location            = var.location
+  version             = "16"
+  
+  administrator_login    = var.db_admin_username
+  administrator_password = var.db_admin_password
+  
+  sku_name = var.environment == "prod" ? "B_Standard_B2s" : "B_Standard_B1ms"
+  storage_mb = 32768
+  
+  backup_retention_days        = var.environment == "prod" ? 35 : 7
+  geo_redundant_backup_enabled = var.environment == "prod" ? true : false
+  
+  tags = var.tags
+}
+
+resource "azurerm_postgresql_flexible_server_database" "sifap" {
+  server_id = azurerm_postgresql_flexible_server.sifap.id
+  name      = "sifapdb"
+  charset   = "UTF8"
+  collation = "en_US.utf8"
+}
+
+# Audit table (immutable)
+resource "null_resource" "audit_table" {
+  provisioner "local-exec" {
+    command = "psql -h ${azurerm_postgresql_flexible_server.sifap.fqdn} -U ${var.db_admin_username} -d sifapdb -c 'CREATE TABLE IF NOT EXISTS audit_log (id BIGSERIAL PRIMARY KEY, entity_type VARCHAR(20), entity_id BIGINT, operation VARCHAR(10), old_value TEXT, new_value TEXT, timestamp TIMESTAMP, user_id VARCHAR(20)); CREATE TRIGGER audit_immutable BEFORE DELETE ON audit_log FOR EACH ROW EXECUTE FUNCTION raise_immutable_error();'"
+  }
+  
+  depends_on = [azurerm_postgresql_flexible_server_database.sifap]
+}
+
+output "db_fqdn" {
+  value = azurerm_postgresql_flexible_server.sifap.fqdn
+}
+
+output "db_connection_string" {
+  value = "jdbc:postgresql://${azurerm_postgresql_flexible_server.sifap.fqdn}:5432/sifapdb"
+  sensitive = true
+}
+```
+
+### Module 4: Key Vault
+
+**File**: `modules/keyvault/main.tf`
+
+```hcl
+resource "azurerm_key_vault" "sifap" {
+  name                = "kv-sifap-${var.environment}"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  tenant_id           = data.azurerm_client_config.current.tenant_id
+  sku_name            = "standard"
+  
+  access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = var.app_service_identity_object_id
+    
+    secret_permissions = [
+      "Get",
+      "List"
+    ]
+  }
+  
+  tags = var.tags
+}
+
+resource "azurerm_key_vault_secret" "db_password" {
+  name         = "db-password"
+  value        = var.db_admin_password
+  key_vault_id = azurerm_key_vault.sifap.id
+}
+
+resource "azurerm_key_vault_secret" "api_key" {
+  name         = "api-key"
+  value        = var.api_key
+  key_vault_id = azurerm_key_vault.sifap.id
+}
+
+output "key_vault_uri" {
+  value = azurerm_key_vault.sifap.vault_uri
+}
+```
+
+### Module 5: Application Insights
+
+**File**: `modules/monitoring/main.tf`
+
+```hcl
+resource "azurerm_application_insights" "sifap" {
+  name                = "appi-sifap-${var.environment}"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  application_type    = "web"
+  
+  tags = var.tags
+}
+
+resource "azurerm_monitor_metric_alert" "high_response_time" {
+  name                = "alert-sifap-response-time"
+  resource_group_name = var.resource_group_name
+  scopes              = [azurerm_application_insights.sifap.id]
+  description         = "Alert when response time exceeds 1000ms"
+  
+  criteria {
+    metric_name      = "requests/duration"
+    operator         = "GreaterThan"
+    threshold        = 1000
+    aggregation      = "Average"
+  }
+  
+  action {
+    action_group_id = var.action_group_id
+  }
+}
+
+output "app_insights_connection_string" {
+  value     = azurerm_application_insights.sifap.connection_string
+  sensitive = true
+}
+```
+
+### Root Configuration
+
+**File**: `main.tf`
+
+```hcl
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.100"
+    }
+  }
+  
+  # Store state in Azure Storage
+  backend "azurerm" {
+    resource_group_name  = "rg-terraform-state"
+    storage_account_name = "sttfstate"
+    container_name       = "tfstate"
+    key                  = "sifap.tfstate"
+  }
+}
+
+provider "azurerm" {
+  features {}
+  subscription_id = var.subscription_id
+}
+
+module "resource_group" {
+  source = "./modules/resource_group"
+  
+  resource_group_name = "rg-sifap-${var.environment}"
+  location            = var.location
+  environment         = var.environment
+}
+
+module "app_service" {
+  source = "./modules/app_service"
+  
+  resource_group_name = module.resource_group.resource_group_name
+  location            = var.location
+  environment         = var.environment
+  
+  depends_on = [module.resource_group]
+}
+
+module "database" {
+  source = "./modules/database"
+  
+  resource_group_name = module.resource_group.resource_group_name
+  location            = var.location
+  environment         = var.environment
+  
+  depends_on = [module.resource_group]
+}
+
+module "keyvault" {
+  source = "./modules/keyvault"
+  
+  resource_group_name             = module.resource_group.resource_group_name
+  location                        = var.location
+  environment                     = var.environment
+  app_service_identity_object_id  = module.app_service.identity_principal_id
+  
+  depends_on = [module.app_service]
+}
+```
+
+---
+
+## 🔄 GitHub Actions CI/CD
+
+### Workflow Structure
+
+**File**: `.github/workflows/deploy.yml`
+
+```yaml
+name: Build & Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main
+      - stage
+  pull_request:
+    branches:
+      - main
+      - stage
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # Job 1: Build and Test Backend (Java)
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+      
+      - name: Build with Maven
+        run: mvn clean package
+      
+      - name: Run tests
+        run: mvn test
+      
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./target/coverage.xml
+  
+  # Job 2: Build and Test Frontend (Next.js)
+  build-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Lint
+        run: npm run lint
+      
+      - name: Run tests
+        run: npm test
+      
+      - name: Build
+        run: npm run build
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-build
+          path: .next
+  
+  # Job 3: Deploy to Azure (triggered on main or stage push)
+  deploy:
+    needs: [build-backend, build-frontend]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      - name: Deploy Infrastructure (Terraform)
+        run: |
+          cd 05-terraform-azure
+          terraform init
+          terraform plan -var-file="environments/${{ github.ref == 'refs/heads/main' && 'prod' || 'stage' }}.tfvars"
+          terraform apply -auto-approve -var-file="environments/${{ github.ref == 'refs/heads/main' && 'prod' || 'stage' }}.tfvars"
+      
+      - name: Deploy Backend to App Service
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: app-sifap-backend-${{ github.ref == 'refs/heads/main' && 'prod' || 'stage' }}
+          publish-profile: ${{ secrets.PUBLISH_PROFILE_BACKEND }}
+          package: ./target/sifap-api.jar
+      
+      - name: Deploy Frontend to App Service
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: app-sifap-frontend-${{ github.ref == 'refs/heads/main' && 'prod' || 'stage' }}
+          publish-profile: ${{ secrets.PUBLISH_PROFILE_FRONTEND }}
+          package: ./sifap-web/.next
+      
+      - name: Run smoke tests
+        run: |
+          npm install -g @playwright/test
+          playwright test tests/smoke.spec.ts --config=playwright.config.ts
+```
+
+---
+
+## 🚀 Deployment Strategy
+
+### Environments
+
+| Environment | Branch | Duration | Auto-deploy |
+|---|---|---|---|
+| Development (dev) | feature/* | Temporary | No (manual) |
+| Staging (stage) | stage | Continuous | Yes (on push) |
+| Production (prod) | main | Indefinite | Yes (on merge) |
+
+### Deployment Steps
+
+#### 1. Feature Development
 
 ```bash
-cd 05-terraform-azure/envs/dev
-terraform init          # Inicializa providers
-terraform plan          # Mostra o que SERIA criado (sem aplicar)
+git checkout -b feature/my-feature
+# ... make changes ...
+git push origin feature/my-feature
+# ... create PR ...
 ```
 
-Exemplo de saida do `terraform plan`:
-```
-Plan: 12 to add, 0 to change, 0 to destroy.
+#### 2. Code Review & Testing (PR Checks)
 
-  + azurerm_resource_group.sifap
-  + azurerm_postgresql_flexible_server.sifap
-  + azurerm_service_plan.sifap
-  + azurerm_linux_web_app.sifap_backend
-  + azurerm_static_web_app.sifap_frontend
-  + azurerm_key_vault.sifap
-  + azurerm_application_insights.sifap
-  + azurerm_container_registry.sifap
-  ...
-```
+GitHub Actions automatically:
+- Builds Java backend
+- Runs unit tests
+- Builds Next.js frontend
+- Lint checks
 
-> **Escopo do hackathon**: Explore e entenda os modulos. NAO aplique (`terraform apply`) - isso criaria recursos Azure com custo real. O `terraform plan` e suficiente para demonstrar conhecimento.
+#### 3. Merge to Staging
 
-### Quando o Agent Falha
-
-O Copilot Agent nao e perfeito. Problemas comuns:
-
-| Sintoma | Causa provavel | O que fazer |
-|---------|---------------|-------------|
-| PR nao compila | Issue sem contexto tecnico suficiente | Adicione: arquitetura esperada, arquivos de referencia, padroes a seguir |
-| Testes faltando no PR | Issue nao pediu testes | Adicione checkbox: "Incluir testes unitarios e de integracao" |
-| Imports cruzam bounded context | Agent ignora fronteiras de modulo | Rejeite o PR, adicione na Issue: "Respeitar fronteiras domain/application/infrastructure" |
-| PR com logica incorreta | Requisito ambiguo | Reescreva o requisito em EARS e abra nova Issue |
-| Agent trava ou demora muito | Codebase grande demais | Restrinja o escopo: aponte arquivos especificos na Issue |
-
-**Regra de ouro**: Se o Agent errou, a causa quase sempre esta na Issue. Melhore a Issue antes de tentar de novo.
-
-### CI/CD: GitHub Actions
-
-Os workflows de CI/CD estao em:
-
-```
-.github/workflows/
-|-- ci.yml            # Build + test em cada PR
-|-- cd-staging.yml    # Deploy automatico para staging
-|-- cd-production.yml # Deploy para producao (manual approval)
+```bash
+# After PR approval:
+git checkout stage
+git merge feature/my-feature
+git push origin stage
 ```
 
-#### Workflow de CI (ci.yml)
+#### 4. GitHub Actions Deploys to Staging
 
-- Roda em cada Pull Request
-- Passos: checkout -> setup Java 21 -> build -> test -> lint
-- Se falhar, o PR nao pode ser mergeado
+- Terraform plan reviewed manually
+- `terraform apply` runs (with approval)
+- Backend and frontend deployed
+- Smoke tests run
 
-#### Workflow de CD (cd-staging.yml)
+#### 5. Verify in Staging
 
-- Roda apos merge na branch `develop`
-- Passos: build Docker image -> push para ACR -> deploy para Container Apps (staging)
+```bash
+curl https://staging-sifap.azurewebsites.net/api/health
+# Response: {"status": "UP"}
+```
+
+#### 6. Merge to Production
+
+```bash
+git checkout main
+git merge stage
+git push origin main
+```
+
+#### 7. GitHub Actions Deploys to Production
+
+- Terraform apply (production environment)
+- Backend and frontend deployed
+- Smoke tests run
+- Canary deployment (optional)
 
 ---
 
-## 📦 Entregaveis do Estagio 4
+## �� Monitoring and Observability
 
-Ao final do Estagio 4, seu time deve ter:
+### Application Insights Integration
 
-- [ ] **2 Issues** criadas no formato adequado para o Agent
-- [ ] **2 PRs** gerados pelo Agent (um para cada Issue)
-- [ ] **1 feature mergeada** - pelo menos um PR deve ser aprovado e mergeado
-- [ ] **Relatorio de experiencia com Agent** (arquivo: `04-evolucao/agent-experience-report.md`)
+**File**: `src/main/java/com/sifap/config/AppInsightsConfig.java`
 
-## 💬 Prompts para Copilot Chat
+```java
+@Configuration
+public class AppInsightsConfig {
+  
+  @Bean
+  public WebClient webClient(WebClient.Builder builder) {
+    return builder.build();
+  }
+  
+  @Bean
+  public RestTemplate restTemplate() {
+    return new RestTemplate();
+  }
+}
+```
 
-1. "Crie uma GitHub Issue para o Copilot Agent implementar [funcionalidade]"
-2. "Revise este PR gerado pelo Agent e liste problemas de qualidade"
-3. "Explique este modulo Terraform: [cole o codigo]"
-4. "Quais recursos Azure este Terraform vai criar?"
-5. "Crie um diagrama dos recursos Azure definidos neste Terraform"
-6. "Como este workflow de CI/CD garante qualidade antes do deploy?"
-7. "Sugira melhorias de seguranca para esta configuracao Terraform"
+**File**: `application.properties`
 
-## 🏆 Dica de Ouro
+```properties
+spring.application.insights.instrumentation-key=${APPINSIGHTS_INSTRUMENTATIONKEY}
+management.endpoints.web.exposure.include=health,metrics,prometheus
+management.metrics.export.prometheus.enabled=true
+```
 
-O Agent e tao bom quanto a Issue que voce escreve. Gaste **mais tempo na Issue** e **menos tempo corrigindo o PR**. Uma Issue com contexto claro, requisitos especificos e referencias a arquivos produz PRs muito melhores.
+### Key Metrics to Monitor
+
+| Metric | Target | Alert Threshold |
+|--------|--------|-----------------|
+| Response time (p99) | < 500ms | > 1000ms |
+| Error rate | < 0.1% | > 1% |
+| Database connection pool | < 80% | > 90% |
+| CPU usage | < 60% | > 80% |
+| Memory usage | < 70% | > 85% |
+
+### Sample Alerts
+
+**High Response Time Alert**:
+```hcl
+resource "azurerm_monitor_metric_alert" "high_response_time" {
+  name = "sifap-high-response-time"
+  criteria {
+    metric_name = "http_request_duration_seconds"
+    operator    = "GreaterThan"
+    threshold   = 1
+    aggregation = "Average"
+  }
+  action {
+    action_group_id = var.action_group_id
+  }
+}
+```
+
+**High Error Rate Alert**:
+```hcl
+resource "azurerm_monitor_metric_alert" "high_error_rate" {
+  name = "sifap-high-error-rate"
+  criteria {
+    metric_name = "requests_failed"
+    operator    = "GreaterThan"
+    threshold   = 100  # > 100 failures
+  }
+}
+```
 
 ---
 
-## Navegacao
+## ✅ Definition of Done
 
-| Anterior | Home | Final |
-|---|---|---|
-| [Estagio 3: Implementacao](../03-implementacao/GUIDE.md) | [README do kit](../README.md) | [Cheat Sheets](../cheat-sheets/README.md) |
+At end of Stage 4, you must have:
 
-> Autoria: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
+- [ ] **Infrastructure as Code**
+  - [ ] All Azure resources defined in Terraform
+  - [ ] Separate tfvars files for dev, stage, prod
+  - [ ] State stored in Azure Storage backend
+  - [ ] Terraform plan and apply tested
+
+- [ ] **CI/CD Pipeline**
+  - [ ] GitHub Actions workflows for build, test, deploy
+  - [ ] Automated tests passing (unit + integration)
+  - [ ] Linting passing (Java + TypeScript)
+  - [ ] Code coverage tracked (70%+ backend, 60%+ frontend)
+
+- [ ] **Deployment**
+  - [ ] One-click deploy to staging
+  - [ ] One-click deploy to production
+  - [ ] Database migrations run automatically
+  - [ ] Rollback plan documented
+
+- [ ] **Monitoring**
+  - [ ] Application Insights enabled
+  - [ ] Key metrics tracked (response time, error rate, etc.)
+  - [ ] Alerts configured
+  - [ ] Runbook for common issues
+
+- [ ] **Documentation**
+  - [ ] Deployment steps documented
+  - [ ] Troubleshooting guide created
+  - [ ] Architecture diagrams (Terraform) documented
+  - [ ] Operations runbook written
+
+---
+
+## Navigation
+
+| Previous | Home |
+|---|---|
+| [Stage 3: Implementation](../03-implementacao/GUIDE.md) | [Kit README](../README.md) |
+
+> Authorship: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.

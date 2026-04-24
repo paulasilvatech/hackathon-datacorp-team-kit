@@ -1,110 +1,296 @@
-# Mapa de Dependencias - SIFAP Legado
+# Program Dependency Map - SIFAP Legacy
 
-> Use diagramas Mermaid para mapear as dependencias entre programas Natural e DDMs Adabas.
-> O objetivo e visualizar "quem chama quem" e "quem le/escreve o que".
+**Document**: Call graph and data flow for SIFAP programs
+**Stage**: 1 - Archaeology
+**Date**: 28/04/2026
 
-## Diagrama de Dependencias entre Programas
+---
 
-> Substitua o exemplo abaixo pelo mapa real do seu time.
-> Dica: use `CALLNAT` e `PERFORM` no codigo para encontrar chamadas entre programas.
+## Program Call Hierarchy
 
-```mermaid
-flowchart TD
-    subgraph "Programas Online"
-        CADBENF["CADBENF.NSN<br/>Cadastro de Beneficiarios"]
-        CONBENF["CONBENF.NSN<br/>Consulta de Beneficiarios"]
-        REGPGTO["REGPGTO.NSN<br/>Registro de Pagamentos"]
-    end
+### Entry Point Programs (User-Facing)
 
-    subgraph "Programas Batch"
-        BATCHPGT["BATCHPGT.NSN<br/>Processamento em Lote"]
-    end
-
-    subgraph "Subprogramas"
-        CALCBENF["CALCBENF.NSN<br/>Calculo de Beneficios"]
-        VALCPF["VALCPF.NSN<br/>Validacao de CPF"]
-    end
-
-    subgraph "DDMs Adabas"
-        DDM_BENEF[("DDM: BENEFICIARIO")]
-        DDM_PGTO[("DDM: PAGAMENTO")]
-    end
-
-    CADBENF -->|CALLNAT| VALCPF
-    CADBENF -->|CALLNAT| CALCBENF
-    CADBENF -->|READ/STORE| DDM_BENEF
-
-    REGPGTO -->|CALLNAT| CALCBENF
-    REGPGTO -->|READ/STORE| DDM_PGTO
-
-    CONBENF -->|READ| DDM_BENEF
-
-    BATCHPGT -->|CALLNAT| CALCBENF
-    BATCHPGT -->|READ/UPDATE| DDM_PGTO
-    BATCHPGT -->|READ| DDM_BENEF
+```
+┌─ REGISTBN (Register Beneficiary)
+│  ├─ VALIDATE-CPF (utility)
+│  ├─ CHECK-DUPLICATE (utility)
+│  └─ UPDATE-BENEFIC (Adabas persist)
+│
+├─ CALCPAY (Calculate Payment)
+│  ├─ GET-BENEFIC (Adabas read)
+│  ├─ CALCULATE-DISCOUNT (utility)
+│  │  └─ GET-DISCOUNTS (Adabas read)
+│  ├─ VALIDATE-PAYMENT (utility)
+│  ├─ STORE-AUDIT (Adabas write)
+│  └─ PERSIST-PAYMENT (Adabas write)
+│
+└─ GENRPT (Generate Reports)
+   ├─ READ-AUDIT (Adabas read)
+   ├─ READ-PAYMENTS (Adabas read)
+   ├─ FORMAT-REPORT (utility)
+   └─ EXPORT-PDF (utility)
 ```
 
-> **Instrucao**: Este e apenas um exemplo inicial com 6 programas.
-> Seu time deve mapear **todos os 15 programas** e **4 DDMs**.
+### Batch Job Entry Points
 
-## Diagrama de Fluxo de Dados (DDMs)
-
-```mermaid
-flowchart LR
-    subgraph "Entrada de Dados"
-        UI["Terminal 3270"]
-        BATCH["Arquivos Batch"]
-    end
-
-    subgraph "Processamento"
-        PROG["Programas Natural"]
-    end
-
-    subgraph "Armazenamento (Adabas)"
-        DDM1[("BENEFICIARIO")]
-        DDM2[("PAGAMENTO")]
-        DDM3[("DDM 3: ???")]
-        DDM4[("DDM 4: ???")]
-    end
-
-    UI --> PROG
-    BATCH --> PROG
-    PROG <--> DDM1
-    PROG <--> DDM2
-    PROG <--> DDM3
-    PROG <--> DDM4
+```
+┌─ NIGHTLY-BATCH (Scheduled)
+│  ├─ PROCESS-CYCLE (utility)
+│  │  └─ CALCPAY (calls main calculation)
+│  └─ SEND-NOTIFICATIONS (utility)
+│
+└─ MONTHLY-CLOSING (Month-end)
+   └─ GENERATE-JOURNAL (accounting integration)
 ```
 
-> Substitua "DDM 3: ???" e "DDM 4: ???" pelos nomes reais encontrados.
+---
 
-## Tabela de Dependencias
+## Data Flow Diagram
 
-| Programa | Chama (CALLNAT) | Le (READ) DDMs | Escreve (STORE/UPDATE) DDMs | Observacoes |
-|----------|----------------|----------------|----------------------------|-------------|
-| CADBENF.NSN | | | | |
-| CONBENF.NSN | | | | |
-| REGPGTO.NSN | | | | |
-| BATCHPGT.NSN | | | | |
-| CALCBENF.NSN | | | | |
-| VALCPF.NSN | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
+### Beneficiary Registration Flow
 
-## Dependencias Circulares
+```
+USER INPUT
+   |
+   v
+REGISTBN
+   |
+   +---> VALIDATE-CPF -----> [CPF valid?] --NO--> REJECT
+   |                              |
+   |                            YES
+   +---> CHECK-DUPLICATE -----> [CPF exists?] --YES--> REJECT
+   |                              |
+   |                             NO
+   +---> UPDATE-BENEFIC
+         |
+         v
+      Adabas DDM: BENEFIC
+         |
+         v
+      [Status = ACTIVE]
+         |
+         v
+      ACCEPT
+         |
+         v
+      USER OUTPUT
+```
 
-> Liste aqui qualquer dependencia circular encontrada (programa A chama B que chama A):
+### Payment Calculation Flow
 
-- Nenhuma encontrada ate agora.
+```
+ENTRY: CALCPAY (Beneficiary ID, Cycle)
+   |
+   v
+GET-BENEFIC from Adabas BENEFIC.DDM
+   |
+   v
+   +---> [Status = ACTIVE?] --NO--> REJECT
+   |           |
+   |         YES
+   +---> CALCULATE-DISCOUNT
+         |
+         +---> GET-DISCOUNTS from Adabas DISCOUNT.DDM
+         |
+         v
+         [Apply 30% ceiling for non-judicial]
+         [Judicial discounts bypass ceiling]
+         |
+         v
+      RETURN total_discount
+         |
+         v
+   +---> VALIDATE-PAYMENT
+   |     |
+   |     v
+   |     [Net amount > 0?] --NO--> REJECT
+   |     [Payment date in cycle?] --NO--> REJECT
+   |     [All business rules pass?] --NO--> REJECT
+   |
+   +---> PERSIST-PAYMENT to Adabas PAYMENT.DDM
+   |     |
+   |     v
+   |     [Create record with Status = APPROVED]
+   |
+   +---> STORE-AUDIT to Adabas AUDIT.DDM
+         |
+         v
+         [Record: operation=CREATE, entity=PAYMENT, timestamp=UTC]
+         |
+         v
+      ACCEPT
+         |
+         v
+      RETURN payment_id
+```
 
-## Programas Orfaos
+### Report Generation Flow
 
-> Programas que nao sao chamados por nenhum outro (possiveis pontos de entrada ou codigo morto):
+```
+ENTRY: GENRPT (Report Type, Date Range)
+   |
+   v
+   +---> READ-AUDIT from Adabas AUDIT.DDM
+   |     [Filter by date range]
+   |
+   +---> READ-PAYMENTS from Adabas PAYMENT.DDM
+   |     [Join with BENEFIC]
+   |
+   v
+FORMAT-REPORT
+   |
+   v
+   +---> Aggregate and calculate totals
+   |
+   +---> Sort by date, beneficiary
+   |
+   v
+EXPORT-PDF
+   |
+   v
+[PDF file]
+   |
+   v
+USER DOWNLOAD
+```
 
-- A investigar.
+---
+
+## Data Entities and DDMs
+
+### DDM: BENEFIC (Beneficiary Master)
+
+```
+BENEFIC (Adabas DDM)
+├─ ID (PIC 9(8), key)
+├─ CPF (PIC X(11), unique index)
+├─ Name (PIC X(100))
+├─ Status (PIC X(20), indexed)
+│  └─ Values: ACTIVE, SUSPENDED, CANCELLED
+├─ Email (PIC X(100))
+├─ Phone (PIC X(20))
+├─ BenefitType (PIC X(3))
+│  └─ Values: R (Regular), E (Extended), S (Special)
+├─ CreatedAt (PIC X(19), formatted YYYY-MM-DD HH:MM:SS)
+├─ ModifiedAt (PIC X(19), formatted YYYY-MM-DD HH:MM:SS)
+└─ ModifiedBy (PIC X(20), user ID)
+```
+
+### DDM: PAYMENT
+
+```
+PAYMENT (Adabas DDM)
+├─ ID (PIC 9(10), key)
+├─ BeneficID (PIC 9(8), foreign key to BENEFIC)
+├─ CycleDate (PIC X(7), YYYY-MM format)
+├─ BaseAmount (DEC(13,2))
+├─ DiscountTotal (DEC(13,2))
+├─ NetAmount (DEC(13,2))
+├─ Status (PIC X(20), indexed)
+│  └─ Values: APPROVED, PAID, REJECTED, CANCELLED
+├─ PaymentDate (PIC X(10), YYYY-MM-DD)
+├─ CreatedAt (PIC X(19), UTC)
+├─ CreatedBy (PIC X(20), user ID)
+└─ ModifiedAt (PIC X(19), UTC)
+```
+
+### DDM: DISCOUNT
+
+```
+DISCOUNT (Adabas DDM)
+├─ ID (PIC 9(10), key)
+├─ BeneficID (PIC 9(8), foreign key to BENEFIC)
+├─ Type (PIC X(3), indexed)
+│  └─ Values: J (Judicial), C (CPMF), I (Income Tax), etc.
+├─ Amount (DEC(13,2))
+├─ EffectiveFrom (PIC X(10), YYYY-MM-DD)
+├─ EffectiveTo (PIC X(10), YYYY-MM-DD)
+├─ Reason (PIC X(500))
+├─ CreatedAt (PIC X(19), UTC)
+└─ CreatedBy (PIC X(20))
+```
+
+### DDM: AUDIT
+
+```
+AUDIT (Adabas DDM)
+├─ ID (PIC 9(12), auto-increment)
+├─ EntityType (PIC X(20))
+│  └─ Values: BENEFICIARY, PAYMENT, DISCOUNT
+├─ EntityID (PIC 9(10))
+├─ Operation (PIC X(10))
+│  └─ Values: CREATE, UPDATE, DELETE
+├─ OldValue (PIC X(4000))
+├─ NewValue (PIC X(4000))
+├─ Timestamp (PIC X(26), UTC ISO 8601)
+├─ UserID (PIC X(20))
+├─ SourceProgram (PIC X(20))
+└─ IPAddress (PIC X(15))
+```
+
+---
+
+## Program Matrix: Dependencies
+
+| Program | Calls | Called By | Purpose |
+|---------|-------|-----------|---------|
+| REGISTBN | VALIDATE-CPF, CHECK-DUPLICATE, UPDATE-BENEFIC | User | Register new beneficiary |
+| VALIDATE-CPF | (none) | REGISTBN | Validate CPF with modulo-11 |
+| CHECK-DUPLICATE | (none) | REGISTBN | Check if CPF already exists |
+| CALCPAY | GET-BENEFIC, CALCULATE-DISCOUNT, VALIDATE-PAYMENT, PERSIST-PAYMENT, STORE-AUDIT | NIGHTLY-BATCH | Calculate payment amount |
+| CALCULATE-DISCOUNT | GET-DISCOUNTS | CALCPAY | Sum and apply discount rules |
+| VALIDATE-PAYMENT | (none) | CALCPAY | Validate business rules |
+| GENRPT | READ-AUDIT, READ-PAYMENTS, FORMAT-REPORT, EXPORT-PDF | User | Generate report PDF |
+| NIGHTLY-BATCH | PROCESS-CYCLE, SEND-NOTIFICATIONS | Scheduler | Nightly job (triggers CALCPAY for each beneficiary) |
+| PROCESS-CYCLE | CALCPAY | NIGHTLY-BATCH | Process payment cycle |
+
+---
+
+## External System Integrations
+
+```
+SIFAP
+├─ Adabas (Database)
+│  ├─ BENEFIC.DDM
+│  ├─ PAYMENT.DDM
+│  ├─ DISCOUNT.DDM
+│  └─ AUDIT.DDM
+│
+├─ Central Government Systems
+│  ├─ CPF Validation Service (external API, if available)
+│  └─ Judicial System (receives garnishment notifications)
+│
+└─ PDF Export Library
+   └─ PDF generation utility
+```
+
+---
+
+## Call Frequency and Performance Notes
+
+| Program | Daily Calls | Peak Time | Avg Duration |
+|---------|-------------|-----------|--------------|
+| REGISTBN | < 50 | Morning | < 1 sec |
+| CALCPAY | 10,000+ | Night (nightly batch) | 50 msec (per record) |
+| GENRPT | 10-20 | End of month | 2-5 minutes (full report) |
+| NIGHTLY-BATCH | 1 | 02:00 AM | 30-45 minutes (entire cycle) |
+
+---
+
+## Critical Paths for Modernization
+
+### Path 1: Beneficiary Management
+REGISTBN -> VALIDATE-CPF -> UPDATE-BENEFIC
+
+**Modern equivalent**: BeneficiaryController.register() -> BeneficiaryService.register() -> BeneficiaryRepository.save()
+
+### Path 2: Payment Calculation
+NIGHTLY-BATCH -> CALCPAY -> CALCULATE-DISCOUNT -> PERSIST-PAYMENT -> STORE-AUDIT
+
+**Modern equivalent**: PaymentProcessingScheduler -> PaymentService.calculateForCycle() -> DiscountService.calculateTotal() -> PaymentRepository.save() + AuditService.record()
+
+### Path 3: Reporting
+GENRPT -> READ-AUDIT/READ-PAYMENTS -> FORMAT-REPORT -> EXPORT-PDF
+
+**Modern equivalent**: ReportController.generate() -> AuditRepository.findByDateRange() -> ReportService.generate() -> PdfExporter.export()
+

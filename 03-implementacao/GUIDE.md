@@ -1,327 +1,696 @@
 ---
-title: "Estagio 3 - Implementacao"
-description: "Guia para implementar o SIFAP 2.0 usando o prototipo como base"
+title: "Stage 3 - Implementation"
+description: "Guide for building SIFAP 2.0 backend and frontend from specification"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-23"
 version: "1.1.0"
 status: "approved"
-tags: ["stage-3", "implementation", "java", "nextjs", "postgres", "prototype"]
+tags: ["stage-3", "implementation", "backend", "frontend", "java", "nextjs"]
 ---
 
-# 💻 Estagio 3: Implementacao
+# 🛠️ Stage 3: Implementation
 
-> ⏱️ **Duracao.** 3 horas. Aqui a especificacao vira codigo que roda. Este e o estagio onde a maior parte dos times passa mais tempo, e onde Copilot Agent brilha mais.
-
-<p align="center">
-  <img src="../assets/stage-flow.svg" alt="Jornada dos 4 estagios do hackathon" width="100%"/>
-</p>
+> ⏱️ **Duration**: 4 hours. This is where specification becomes working code. The backend team builds Java services; the frontend team builds Next.js UI. Both teams work in parallel, communicating through API contracts.
 
 ---
 
-## 📑 Sumario
+## 📑 Table of Contents
 
-1. [Onde estamos na jornada](#-onde-estamos-na-jornada)
-2. [Objetivo](#-objetivo)
-3. [Getting Started](#-getting-started-primeiros-15-minutos)
-4. [Features sugeridas](#-features-sugeridas)
-5. [Testes](#-testes)
-6. [Criterio de Pronto](#-criterio-de-pronto)
-7. [Navegacao](#-navegacao)
-
----
-
-## 🎬 Onde estamos na jornada
-
-O mapa esta desenhado. A spec esta escrita. Agora o time transforma requisitos em algo que roda no navegador e responde no terminal. O prototipo fornecido ja tem a casca: backend Java, frontend Next, banco Postgres, docker-compose. Seu trabalho e vestir a casca com as regras que voces especificaram.
-
-> 💡 **Analogia.** Se o estagio 2 foi a planta do arquiteto, o estagio 3 e o canteiro de obras. Voces nao estao construindo do zero, estao completando os comodos da casa que ja tem fundacao e paredes.
+1. [Where are we on the journey](#-where-are-we-on-the-journey)
+2. [Objective](#-objective)
+3. [Architecture Overview](#-architecture-overview)
+4. [Backend Development](#-backend-development)
+5. [Frontend Development](#-frontend-development)
+6. [Integration Points](#-integration-points)
+7. [Quality and Testing](#-quality-and-testing)
+8. [Definition of Done](#-definition-of-done)
+9. [Navigation](#-navigation)
 
 ---
 
-## 🎯 Objetivo
+## 🎬 Where are we on the journey
 
-Estender o prototipo funcional do SIFAP 2.0, implementando as funcionalidades priorizadas no Estagio 2. O prototipo ja possui a estrutura base. Seu time vai adicionar features, corrigir bugs e escrever testes.
+Archaeology (Stage 1) gave us knowledge. Specification (Stage 2) gave us requirements. Now comes implementation: turning requirements into running code.
+
+**Key principle**: Code should match specification exactly. Every REQ-* requirement should have a corresponding implementation with tests.
 
 ---
 
-## 🚀 Getting Started (primeiros 15 minutos)
+## 🎯 Objective
 
-### 1. Subir o ambiente
+Build a working SIFAP 2.0 prototype with:
+- Backend: Java 21 + Spring Boot services with REST APIs
+- Frontend: Next.js web UI for beneficiary and payment management
+- Database: PostgreSQL with audit logging
+- Testing: Unit and integration tests with 70%+ coverage
+- Documentation: OpenAPI (Swagger) for APIs
 
+**Success metric**: All Priority 1 and Priority 2 requirements from Stage 2 implemented and tested.
+
+---
+
+## 🏗️ Architecture Overview
+
+### Deployment Diagram
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Azure Cloud                              │
+├─────────────────────────────────────────────────────────────┤
+│                                                               │
+│  ┌──────────────────┐              ┌──────────────────┐    │
+│  │   App Service    │              │   App Service    │    │
+│  │  (Backend Java)  │              │ (Frontend Next.js)     │
+│  │   Port 8080      │              │   Port 3000      │    │
+│  └────────┬─────────┘              └──────────┬───────┘    │
+│           │                                    │             │
+│           │    REST APIs                       │             │
+│           │    (OpenAPI/Swagger)               │             │
+│           │                                    │             │
+│           └────────────┬─────────────────────┬─┘            │
+│                        │                     │               │
+│                   Application Logic      User Browser        │
+│                        │                                      │
+│           ┌────────────┴──────────────┐                      │
+│           v                           v                      │
+│      ┌──────────────────────────────────────┐                │
+│      │  PostgreSQL Flexible Server          │                │
+│      │  (Database + Audit Trail)            │                │
+│      │  Port 5432                           │                │
+│      └──────────────────────────────────────┘                │
+│                                                               │
+│      ┌────────────────────────────┐                          │
+│      │  Azure Key Vault           │                          │
+│      │  (Secrets Management)      │                          │
+│      └────────────────────────────┘                          │
+│                                                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Backend Service Architecture
+
+```
+Controller Layer (REST Endpoints)
+├─ BeneficiaryController
+├─ PaymentController
+├─ DeductionController
+└─ ReportController
+
+Service Layer (Business Logic)
+├─ BeneficiaryService
+├─ PaymentService
+├─ DeductionService
+├─ AuditService
+└─ ReportService
+
+Repository Layer (Data Access)
+├─ BeneficiaryRepository (JPA)
+├─ PaymentRepository (JPA)
+├─ DeductionRepository (JPA)
+└─ AuditLogRepository (JPA)
+
+Database Layer
+└─ PostgreSQL (16+)
+   ├─ beneficiary table
+   ├─ payment table
+   ├─ deduction table
+   └─ audit_log table (append-only)
+```
+
+### Frontend Component Structure
+
+```
+Next.js App Router
+├─ /api/route.ts (proxies to backend)
+├─ /beneficiaries
+│  ├─ page.tsx (Beneficiary list)
+│  ├─ [id]
+│  │  └─ page.tsx (Beneficiary detail)
+│  └─ new
+│     └─ page.tsx (Beneficiary registration form)
+├─ /payments
+│  ├─ page.tsx (Payment list)
+│  └─ [id]
+│     └─ page.tsx (Payment detail)
+└─ /audit
+   └─ page.tsx (Audit log dashboard)
+
+Components/
+├─ BeneficiaryForm.tsx
+├─ PaymentTable.tsx
+├─ AuditLog.tsx
+└─ Common UI components
+```
+
+---
+
+## 💼 Backend Development
+
+### Setup
+
+**Prerequisites**:
+- Java 21 JDK
+- Maven 3.9+
+- PostgreSQL 16+
+- IDE: IntelliJ IDEA or VS Code with Java Extension Pack
+
+**Project scaffolding**:
 ```bash
-# Na raiz do repositorio (04-prototipo-sifap-moderno/)
-docker compose up -d
+mvn archetype:generate \
+  -DgroupId=com.sifap \
+  -DartifactId=sifap-api \
+  -DarchetypeArtifactId=maven-archetype-quickstart
 ```
 
-Isso inicia:
-- **PostgreSQL 16** na porta 5432
-- **Backend (Java 21 + Spring Boot 3)** na porta 8080
-- **Frontend (Next.js 15)** na porta **3000** (local) ou **3001** (root docker-compose)
-
-> **ATENCAO**: Se voce executou `docker compose up` da RAIZ do workspace (recomendado), o frontend esta em **http://localhost:3001**. Se executou de dentro de `04-prototipo-sifap-moderno/`, esta em **http://localhost:3000**.
-
-### 2. Verificar que tudo funciona
-
-- Backend health: http://localhost:8080/actuator/health
-- Swagger UI: http://localhost:8080/swagger-ui.html
-- Frontend: http://localhost:3001 (ou 3000 se compose local)
-
-### 3. Credenciais padrao
-
-| Usuario | Senha | Perfil | O que pode fazer |
-|---------|-------|--------|-----------------|
-| `admin` | `serpro2026` | ADMIN | Tudo: gerenciar usuarios, configuracoes |
-| `operator1` | `serpro2026` | OPERADOR | Cadastrar beneficiarios, registrar pagamentos |
-| `auditor1` | `serpro2026` | AUDITOR | Consultar, gerar relatorios, auditar |
-
-### 4. Testar a API no Swagger
-
-Acesse http://localhost:8080/swagger-ui.html e teste:
-1. `POST /api/v1/auth/login` com `{"username": "admin", "password": "serpro2026"}`
-2. Copie o token JWT retornado
-3. Clique em "Authorize" no Swagger e cole o token
-4. Teste os endpoints de beneficiarios e pagamentos
-
----
-
-## 🏗️ Estrutura do Backend
-
-O backend segue uma arquitetura de **monolito modular** com 4 modulos e 3 camadas cada:
-
-```
-src/main/java/br/gov/serpro/sifap/
-|
-|-- beneficiary/          # Modulo: Beneficiarios
-|   |-- domain/           # Entidades e regras de negocio
-|   |-- application/      # Servicos e DTOs
-|   |-- infrastructure/   # Controllers, Repositories, Entities JPA
-|
-|-- payment/              # Modulo: Pagamentos
-|   |-- domain/
-|   |-- application/
-|   |-- infrastructure/
-|
-|-- audit/                # Modulo: Auditoria
-|   |-- domain/
-|   |-- application/
-|   |-- infrastructure/
-|
-|-- admin/                # Modulo: Administracao
-|   |-- domain/
-|   |-- application/
-|   |-- infrastructure/
+Or use Spring Boot CLI:
+```bash
+spring boot new --name sifap-api --type maven-project
 ```
 
-### Camadas (de dentro para fora)
+### Dependencies
 
-| Camada | Responsabilidade | Exemplos |
-|--------|-----------------|----------|
-| **domain** | Regras de negocio puras, sem dependencia de framework | Enums de status, interfaces de repositorio, value objects |
-| **application** | Casos de uso, orquestracao | Services, Request/Response DTOs |
-| **infrastructure** | Detalhes tecnicos, I/O | Controllers REST, Entities JPA, Repositories Spring Data |
+**Recommended pom.xml additions**:
+```xml
+<dependencies>
+  <!-- Spring Boot Starters -->
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+  </dependency>
+  
+  <!-- Database -->
+  <dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.7.0</version>
+  </dependency>
+  
+  <!-- OpenAPI/Swagger -->
+  <dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>2.0.2</version>
+  </dependency>
+  
+  <!-- Testing -->
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+  </dependency>
+</dependencies>
+```
 
-### Regra de ouro
+### Key Entities
 
-A camada `domain` **nunca** importa classes de `infrastructure`. O fluxo e sempre: Controller -> Service -> Repository (interface no domain, implementacao na infrastructure).
-
----
-
-## 🧩 Como Adicionar uma Nova Feature
-
-Siga estes 5 passos para cada funcionalidade:
-
-### Passo 1: Criar/atualizar a entidade de dominio
+**File**: `src/main/java/com/sifap/domain/entity/Beneficiary.java`
 
 ```java
-// src/.../payment/domain/PaymentStatus.java
-public enum PaymentStatus {
-    PENDING, APPROVED, REJECTED, CANCELLED
+@Entity
+@Table(name = "beneficiary")
+public class Beneficiary {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  
+  @Column(unique = true, length = 11)
+  private String cpf;
+  
+  @Column(length = 100)
+  private String name;
+  
+  @Enumerated(EnumType.STRING)
+  private BeneficiaryStatus status;  // ACTIVE, SUSPENDED, CANCELLED
+  
+  @Enumerated(EnumType.STRING)
+  private BenefitType benefitType;  // REGULAR, EXTENDED, SPECIAL
+  
+  @Column(length = 100)
+  private String email;
+  
+  @Column(length = 20)
+  private String phone;
+  
+  @CreationTimestamp
+  private LocalDateTime createdAt;
+  
+  @UpdateTimestamp
+  private LocalDateTime modifiedAt;
+  
+  @Column(length = 20)
+  private String modifiedBy;
+  
+  // Getters, setters, constructors
 }
 ```
 
-### Passo 2: Criar o servico
+**File**: `src/main/java/com/sifap/domain/entity/Payment.java`
 
 ```java
-// src/.../payment/application/PaymentService.java
+@Entity
+@Table(name = "payment")
+public class Payment {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  
+  @ManyToOne
+  @JoinColumn(name = "beneficiary_id", nullable = false)
+  private Beneficiary beneficiary;
+  
+  @Column(length = 7)  // YYYY-MM format
+  private String cycleDate;
+  
+  @Column(precision = 13, scale = 2)
+  private BigDecimal baseAmount;
+  
+  @Column(precision = 13, scale = 2)
+  private BigDecimal discountTotal;
+  
+  @Column(precision = 13, scale = 2)
+  private BigDecimal netAmount;
+  
+  @Enumerated(EnumType.STRING)
+  private PaymentStatus status;  // APPROVED, PAID, REJECTED, CANCELLED
+  
+  @Column(length = 10)  // YYYY-MM-DD format
+  private String paymentDate;
+  
+  @CreationTimestamp
+  private LocalDateTime createdAt;
+  
+  @Column(length = 20)
+  private String createdBy;
+  
+  // Getters, setters
+}
+```
+
+### Service Layer
+
+**File**: `src/main/java/com/sifap/service/BeneficiaryService.java`
+
+```java
 @Service
-public class PaymentService {
-    // Injete o repositorio, implemente a logica
-}
-```
-
-### Passo 3: Criar o controller
-
-```java
-// src/.../payment/infrastructure/PaymentController.java
-@RestController
-@RequestMapping("/api/v1/payments")
-public class PaymentController {
-    // Injete o service, exponha os endpoints
-}
-```
-
-### Passo 4: Criar a migracao de banco
-
-```sql
--- src/main/resources/db/migration/V2__add_payment_status.sql
-ALTER TABLE payments ADD COLUMN status VARCHAR(20) DEFAULT 'PENDING';
-```
-
-> **Importante**: Use Flyway. Nunca altere migracoes existentes - sempre crie novas (V2__, V3__, etc.).
-
-### Passo 5: Escrever testes
-
-```java
-// src/test/.../payment/application/PaymentServiceTest.java
-@SpringBootTest
-class PaymentServiceTest {
-    @Test
-    void shouldCalculatePaymentCorrectly() {
-        // Arrange, Act, Assert
+@Transactional
+public class BeneficiaryService {
+  
+  @Autowired
+  private BeneficiaryRepository repository;
+  
+  @Autowired
+  private AuditService auditService;
+  
+  public Beneficiary register(BeneficiaryRequest request) {
+    // Validate CPF
+    if (!CpfValidator.isValid(request.getCpf())) {
+      throw new InvalidCpfException("CPF validation failed");
     }
+    
+    // Check for duplicates
+    if (repository.existsByCpf(request.getCpf())) {
+      throw new DuplicateCpfException("CPF already registered");
+    }
+    
+    // Create beneficiary
+    Beneficiary beneficiary = new Beneficiary();
+    beneficiary.setCpf(request.getCpf());
+    beneficiary.setName(request.getName());
+    beneficiary.setStatus(BeneficiaryStatus.ACTIVE);
+    beneficiary.setBenefitType(request.getBenefitType());
+    
+    Beneficiary saved = repository.save(beneficiary);
+    
+    // Audit
+    auditService.record(EntityType.BENEFICIARY, saved.getId(), 
+      Operation.CREATE, null, beneficiary);
+    
+    return saved;
+  }
+  
+  public Beneficiary findById(Long id) {
+    return repository.findById(id)
+      .orElseThrow(() -> new BeneficiaryNotFoundException("Not found"));
+  }
+  
+  public Beneficiary suspend(Long id) {
+    Beneficiary beneficiary = findById(id);
+    Beneficiary old = new Beneficiary(beneficiary);  // Copy for audit
+    beneficiary.setStatus(BeneficiaryStatus.SUSPENDED);
+    Beneficiary saved = repository.save(beneficiary);
+    auditService.record(EntityType.BENEFICIARY, id, Operation.UPDATE, old, saved);
+    return saved;
+  }
+}
+```
+
+### REST Controller
+
+**File**: `src/main/java/com/sifap/controller/BeneficiaryController.java`
+
+```java
+@RestController
+@RequestMapping("/api/beneficiaries")
+@OpenAPIDefinition(...)
+public class BeneficiaryController {
+  
+  @Autowired
+  private BeneficiaryService service;
+  
+  @PostMapping
+  @Operation(summary = "Register new beneficiary")
+  public ResponseEntity<BeneficiaryResponse> register(
+    @Valid @RequestBody BeneficiaryRequest request) {
+    Beneficiary beneficiary = service.register(request);
+    return ResponseEntity.status(CREATED).body(toResponse(beneficiary));
+  }
+  
+  @GetMapping("/{id}")
+  @Operation(summary = "Get beneficiary by ID")
+  public ResponseEntity<BeneficiaryResponse> getById(@PathVariable Long id) {
+    Beneficiary beneficiary = service.findById(id);
+    return ResponseEntity.ok(toResponse(beneficiary));
+  }
+  
+  @GetMapping
+  @Operation(summary = "List all beneficiaries with filter")
+  public ResponseEntity<Page<BeneficiaryResponse>> list(
+    @RequestParam(required = false) String cpf,
+    @RequestParam(required = false) BeneficiaryStatus status,
+    @PageableDefault(size = 20) Pageable pageable) {
+    // Implementation
+  }
+  
+  @PutMapping("/{id}/suspend")
+  @Operation(summary = "Suspend beneficiary")
+  public ResponseEntity<BeneficiaryResponse> suspend(@PathVariable Long id) {
+    Beneficiary beneficiary = service.suspend(id);
+    return ResponseEntity.ok(toResponse(beneficiary));
+  }
 }
 ```
 
 ---
 
-## ✏️ Workflow com Copilot Edits
+## 🎨 Frontend Development
 
-Para implementar funcionalidades rapidamente com Copilot:
+### Setup
 
-1. **Selecione os arquivos** relevantes no VS Code (Ctrl+clique)
-2. **Abra Copilot Edits** (Ctrl+Shift+I)
-3. **Descreva a mudanca** em linguagem natural:
-   > "Adicione um endpoint PUT /api/v1/beneficiaries/{id}/status que permite
-   > alterar o status do beneficiario. Valide que a transicao de status e valida
-   > (ATIVO -> SUSPENSO e permitido, INATIVO -> ATIVO nao e). Crie o teste."
-4. **Revise o diff** antes de aceitar - verifique se segue a arquitetura
-5. **Rode os testes** para confirmar
+**Prerequisites**:
+- Node.js 18+ (with npm or pnpm)
+- VS Code or IntelliJ
 
----
-
-## 🧪 Testes
-
-### Rodar todos os testes
-
+**Project scaffolding**:
 ```bash
-cd 04-prototipo-sifap-moderno/backend
-./mvnw test
-```
-
-### Requisitos
-
-- **Docker deve estar rodando** - os testes usam Testcontainers para subir um PostgreSQL real
-- Java 21 instalado (ou use o DevContainer)
-
-### Tipos de teste esperados
-
-| Tipo | Onde | O que testa |
-|------|------|-------------|
-| Unitario | `*ServiceTest.java` | Logica de negocio isolada |
-| Integracao | `*ControllerTest.java` | Endpoint completo (HTTP -> DB) |
-| Repositorio | `*RepositoryTest.java` | Queries customizadas |
-
----
-
-## ⚛️ Frontend
-
-### Rodar o frontend localmente
-
-```bash
-cd 04-prototipo-sifap-moderno/frontend
+npx create-next-app@latest sifap-web --typescript --tailwind
+cd sifap-web
 npm install
-npm run dev
 ```
 
-Acesse http://localhost:3000
+### Environment Configuration
 
-### Arquitetura Frontend
-
-O frontend usa **Next.js 15 com App Router** e **Server Components**:
+**File**: `.env.local`
 
 ```
-src/app/
-|-- layout.tsx              # Layout raiz
-|-- page.tsx                # Pagina inicial
-|-- (auth)/
-|   |-- login/page.tsx      # Pagina de login
-|-- (dashboard)/
-|   |-- beneficiaries/      # CRUD de beneficiarios
-|   |-- payments/           # CRUD de pagamentos
-|   |-- audit/              # Logs de auditoria
-|   |-- admin/              # Gestao de usuarios
+NEXT_PUBLIC_API_URL=http://localhost:8080
+NEXT_PUBLIC_AZURE_CLIENT_ID=[Entra ID App ID]
+NEXT_PUBLIC_AZURE_TENANT_ID=[Entra ID Tenant ID]
 ```
 
-### Padrao de Server Components
+### Key Pages
 
-- **Server Components** (padrao): Buscam dados no servidor, sem JavaScript no cliente
-- **Client Components** (`"use client"`): Apenas quando precisa de interatividade (formularios, modais)
+**File**: `app/beneficiaries/page.tsx`
+
+```typescript
+'use client'
+
+import { useState, useEffect } from 'react'
+import { useFetch } from '@/hooks/useFetch'
+import BeneficiaryTable from '@/components/BeneficiaryTable'
+import BeneficiaryForm from '@/components/BeneficiaryForm'
+
+export default function BeneficiariesPage() {
+  const [mode, setMode] = useState<'list' | 'create'>('list')
+  const { data: beneficiaries, isLoading } = useFetch('/api/beneficiaries')
+  
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-8">Beneficiaries</h1>
+      
+      {mode === 'list' ? (
+        <div>
+          <button
+            onClick={() => setMode('create')}
+            className="mb-4 px-4 py-2 bg-blue-600 text-white rounded"
+          >
+            Register New
+          </button>
+          <BeneficiaryTable 
+            beneficiaries={beneficiaries} 
+            isLoading={isLoading}
+          />
+        </div>
+      ) : (
+        <BeneficiaryForm onSuccess={() => setMode('list')} />
+      )}
+    </div>
+  )
+}
+```
+
+**File**: `components/BeneficiaryTable.tsx`
+
+```typescript
+import Link from 'next/link'
+
+interface Beneficiary {
+  id: number
+  cpf: string
+  name: string
+  status: 'ACTIVE' | 'SUSPENDED' | 'CANCELLED'
+  benefitType: string
+}
+
+export default function BeneficiaryTable({
+  beneficiaries,
+  isLoading,
+}: {
+  beneficiaries: Beneficiary[]
+  isLoading: boolean
+}) {
+  if (isLoading) return <div>Loading...</div>
+  
+  return (
+    <table className="w-full border">
+      <thead>
+        <tr className="bg-gray-100">
+          <th className="p-3">CPF</th>
+          <th className="p-3">Name</th>
+          <th className="p-3">Status</th>
+          <th className="p-3">Benefit Type</th>
+          <th className="p-3">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {beneficiaries.map((b) => (
+          <tr key={b.id} className="border-t hover:bg-gray-50">
+            <td className="p-3">{b.cpf}</td>
+            <td className="p-3">{b.name}</td>
+            <td className="p-3">
+              <span className={`px-2 py-1 rounded ${
+                b.status === 'ACTIVE' ? 'bg-green-100' : 'bg-red-100'
+              }`}>
+                {b.status}
+              </span>
+            </td>
+            <td className="p-3">{b.benefitType}</td>
+            <td className="p-3">
+              <Link href={`/beneficiaries/${b.id}`}>
+                <a className="text-blue-600 hover:underline">View</a>
+              </Link>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )
+}
+```
 
 ---
 
----
+## 🔗 Integration Points
 
-## 🔗 Rastreabilidade: Requisito para Codigo para Teste
+### API Contracts
 
-Para cada feature que implementar, mantenha a rastreabilidade com a spec:
+**Document**: Maintain `api-contracts.md` with all endpoints
 
-| Requisito EARS | Codigo | Teste |
-|---------------|--------|-------|
-| REQ-BEN-01: "O SIFAP deve validar CPF com modulo-11" | `Cpf.java` (domain) | `CpfTest.java` - 11 testes |
-| REQ-PAY-03: "Quando ciclo gerado, criar pagamentos para ATIVOS" | `PaymentCycleService.generate()` | `PaymentCycleServiceTest.generate_openCycle` |
-| REQ-AUD-01: "Quando entidade alterada, gravar auditoria" | `AuditService.record()` | `SifapApplicationIntegrationTest` |
+**Example**:
 
-Ao adicionar uma feature, documente no seu commit: "Implements REQ-XXX". Isso fecha o ciclo spec → code → test.
+```markdown
+## POST /api/beneficiaries
 
----
+Register new beneficiary.
 
-## 🛠️ Troubleshooting
+Request:
+```json
+{
+  "cpf": "123.456.789-10",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "benefitType": "REGULAR"
+}
+```
 
-| Problema | Solucao |
-|----------|---------|
-| `docker compose up` falha | Verifique: Docker Desktop rodando? Portas 5432/8080/3000 livres? Tente `docker compose down && docker compose up -d` |
-| Backend nao conecta ao PostgreSQL | Verifique se o container postgres esta healthy: `docker compose ps` |
-| Frontend mostra "Failed to load" | Backend esta rodando? Teste: `curl http://localhost:8080/actuator/health` |
-| Login retorna "Invalid credentials" | Use: admin / serpro2026. Verifique se V4__auth.sql rodou (Flyway) |
-| Teste falha com Testcontainers | Docker Desktop deve estar rodando. Alternativa: teste unitario com Mockito |
-| Migration falha ao subir | NUNCA edite migration existente. Crie nova (V5__, V6__...) |
-| `mvn test-compile` erro de import | Verifique se o pacote segue a estrutura: domain/ → application/ → infrastructure/ |
-| Swagger UI nao aparece | Acesse: http://localhost:8080/swagger-ui/index.html (caminho alternativo) |
+Response (201 Created):
+```json
+{
+  "id": 1,
+  "cpf": "123.456.789-10",
+  "name": "John Doe",
+  "status": "ACTIVE",
+  "createdAt": "2026-04-28T10:00:00Z"
+}
+```
+```
 
----
+### Frontend-Backend Communication
 
-## ✅ Criterio de Pronto
+Use API layer (`lib/api.ts`):
 
-Ao final do Estagio 3, seu time deve ter:
-
-- [ ] Backend funcional com pelo menos 2 novos endpoints implementados
-- [ ] Frontend com pelo menos 1 nova tela ou melhoria significativa
-- [ ] Testes passando: `./mvnw test` sem falhas
-- [ ] `docker compose up` funcional - qualquer avaliador pode subir o sistema
-- [ ] Swagger UI mostrando todos os endpoints documentados
-- [ ] Pelo menos 1 regra de negocio do Estagio 1 implementada e testada
-
-## 💬 Prompts para Copilot Chat
-
-1. "Crie um endpoint REST para [funcionalidade] seguindo a arquitetura existente"
-2. "Escreva um teste de integracao para o endpoint [endpoint]"
-3. "Adicione validacao Bean Validation no DTO [classe]"
-4. "Crie uma migracao Flyway para adicionar [tabela/coluna]"
-5. "Implemente a regra de negocio BR-XXX: [descricao da regra]"
-6. "Crie um componente React Server Component para listar [entidade]"
-7. "Adicione tratamento de erro para o caso de [cenario]"
-8. "Refatore este service para separar a logica de [responsabilidade]"
-
-## 🏆 Dica de Ouro
-
-Nao tente implementar tudo. Foque em **qualidade sobre quantidade**. Um endpoint bem feito, com testes, validacao e documentacao vale mais do que 5 endpoints quebrados.
+```typescript
+export async function registerBeneficiary(data: BeneficiaryRequest) {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/beneficiaries`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  })
+  
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`)
+  }
+  
+  return response.json()
+}
+```
 
 ---
 
-## Navegacao
+## ✅ Quality and Testing
 
-| Anterior | Home | Proximo |
+### Backend Testing
+
+**File**: `src/test/java/com/sifap/service/BeneficiaryServiceTest.java`
+
+```java
+@SpringBootTest
+public class BeneficiaryServiceTest {
+  
+  @Autowired
+  private BeneficiaryService service;
+  
+  @MockBean
+  private AuditService auditService;
+  
+  @Test
+  public void testRegisterValidBeneficiary() {
+    BeneficiaryRequest request = new BeneficiaryRequest(...);
+    Beneficiary result = service.register(request);
+    assertNotNull(result.getId());
+    assertEquals(ACTIVE, result.getStatus());
+  }
+  
+  @Test
+  public void testRegisterInvalidCpf() {
+    BeneficiaryRequest request = new BeneficiaryRequest("000.000.000-00", ...);
+    assertThrows(InvalidCpfException.class, () -> service.register(request));
+  }
+  
+  @Test
+  public void testRegisterDuplicateCpf() {
+    // Setup: beneficiary already exists
+    BeneficiaryRequest request = new BeneficiaryRequest("123.456.789-10", ...);
+    assertThrows(DuplicateCpfException.class, () -> service.register(request));
+  }
+}
+```
+
+### Frontend Testing
+
+**File**: `__tests__/components/BeneficiaryTable.test.tsx`
+
+```typescript
+import { render, screen } from '@testing-library/react'
+import BeneficiaryTable from '@/components/BeneficiaryTable'
+
+describe('BeneficiaryTable', () => {
+  it('renders beneficiary list', () => {
+    const beneficiaries = [
+      { id: 1, cpf: '123.456.789-10', name: 'John', status: 'ACTIVE', benefitType: 'REGULAR' },
+    ]
+    
+    render(<BeneficiaryTable beneficiaries={beneficiaries} isLoading={false} />)
+    expect(screen.getByText('John')).toBeInTheDocument()
+  })
+  
+  it('shows loading state', () => {
+    render(<BeneficiaryTable beneficiaries={[]} isLoading={true} />)
+    expect(screen.getByText('Loading...')).toBeInTheDocument()
+  })
+})
+```
+
+### Test Coverage Target
+
+- Backend: 70%+ line coverage
+- Frontend: 60%+ component coverage
+- Run: `mvn test` (backend) and `npm test` (frontend)
+
+---
+
+## ✅ Definition of Done
+
+At end of Stage 3, you must have:
+
+- [ ] **Backend (Java)**
+  - [ ] All CRUD endpoints implemented (Beneficiary, Payment, Deduction, Audit)
+  - [ ] All business rules enforced (validation, calculations, state transitions)
+  - [ ] OpenAPI documentation generated
+  - [ ] Unit tests passing with 70%+ coverage
+  - [ ] PostgreSQL database schema created with audit logging
+
+- [ ] **Frontend (Next.js)**
+  - [ ] All Priority 1 pages implemented (beneficiary list/create/detail, payment list)
+  - [ ] Authentication integration with Entra ID
+  - [ ] Responsive design (mobile, tablet, desktop)
+  - [ ] Error handling and user feedback
+  - [ ] Component tests passing
+
+- [ ] **Integration**
+  - [ ] Frontend calls backend APIs successfully
+  - [ ] API response times acceptable (< 500ms p99)
+  - [ ] No console errors or warnings
+  - [ ] CORS configured correctly
+
+- [ ] **Documentation**
+  - [ ] API endpoints documented in OpenAPI/Swagger
+  - [ ] Deployment steps documented
+  - [ ] Database schema documented
+
+---
+
+## Navigation
+
+| Previous | Home | Next |
 |---|---|---|
-| [Estagio 2: Spec Moderna](../02-spec-moderna/GUIDE.md) | [README do kit](../README.md) | [Estagio 4: Evolucao](../04-evolucao/GUIDE.md) |
+| [Stage 2: Modern Spec](../02-spec-moderna/GUIDE.md) | [Kit README](../README.md) | [Stage 4: Evolution](../04-evolucao/GUIDE.md) |
 
-> Autoria: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
+> Authorship: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.

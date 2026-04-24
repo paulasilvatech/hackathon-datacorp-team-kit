@@ -1,59 +1,288 @@
+# Open Mysteries - SIFAP Legacy Archaeology
+
+**Document**: Unresolved questions from Stage 1 exploration
+**Date**: 28/04/2026
+**Status**: Active
+
+> Use this file to track unknowns discovered during code archaeology. Resolve before Stage 2 (specification) begins. Categorize by severity.
+
 ---
-title: "Checklist de Misterios - Quanto seu time descobriu?"
-description: "Lista dos misterios plantados no codigo legado SIFAP. Encontre todos para pontuar!"
+
+## Critical Mysteries (Blocks Stage 2)
+
+These questions must be answered before architecture decisions can be made.
+
+### M-001: Payment Record Archival Strategy
+
+**Question**: How are payment records older than 7 years archived? Are they physically deleted from PAYMENT.DDM or moved to archive tables?
+
+**Why it matters**: Impacts database schema design, backup strategy, and data migration approach for modernization.
+
+**Impact**: HIGH (Must finalize retention policy)
+
+**Discovered by**: [Team member]
+
+**Investigation status**: OPEN
+- [ ] Ask legacy system admin
+- [ ] Check Adabas archival logs
+- [ ] Review compliance documentation
+
+**Resolution**: [Pending]
+
 ---
 
-# Checklist de Misterios do SIFAP
+### M-002: Suspended Beneficiary Payment Workflow
 
-> Ha **10 regras de negocio escondidas** e **3 easter eggs** plantados no codigo legado. Quanto mais seu time encontrar, melhor a nota na rubrica (dimensao A1).
+**Question**: What happens to payment records for a beneficiary who is suspended mid-cycle? Are they automatically rejected, held pending, or sent to manual review?
 
-## Como funciona
+**Why it matters**: Need to handle this scenario in modern system with a clear rule.
 
-- Cada misterio vale 1-3 pontos dependendo da dificuldade
-- Total possivel: **32 pontos**
-- Os misterios estao distribuidos nos 15 programas .NSN e nos 4 DDMs
-- Nenhum misterio esta documentado nos legacy-docs (os docs estao desatualizados de proposito!)
+**Impact**: HIGH (Core payment logic)
 
-## Regras de Negocio Escondidas (10)
+**Discovered by**: [Team member]
 
-Marque [x] quando encontrar:
+**Status quo**: Program code shows status check but unclear what trigger causes suspension.
 
-- [ ] **MYS-001** (★★): Um programa modifica silenciosamente o status do beneficiario baseado em um criterio demografico. Onde? Por que?
-- [ ] **MYS-002** (★): Um limite numerico esta hardcoded no codigo mas contradiz a capacidade definida no DDM. Qual e o limite? Em qual programa?
-- [ ] **MYS-003** (★★★): Uma variavel misteriosa e usada em calculos mas nunca foi documentada - ninguem sabe de onde veio a constante. Qual variavel?
-- [ ] **MYS-004** (★★★): Em um mes especifico do ano, o calculo de beneficio muda completamente. Qual mes? O que muda?
-- [ ] **MYS-005** (★★★): O sistema usa uma tecnica de arredondamento que causa perda sistematica de centavos. Qual tecnica? Onde?
-- [ ] **MYS-006** (★★): Um tipo de desconto ignora uma regra de limite que se aplica a todos os outros. Qual tipo? Por que?
-- [ ] **MYS-007** (★): Certos CPFs sao aceitos sem validacao real. Quais? Isso e um bug ou feature?
-- [ ] **MYS-008** (★): Beneficiarios de uma regiao especifica pulam TODAS as verificacoes de elegibilidade. Qual regiao?
-- [ ] **MYS-009** (★★): O processamento batch segue uma ordem que nao e a mais logica, mas que virou dependencia de outros sistemas. Qual ordem?
-- [ ] **MYS-010** (★★★): Um tipo de evento de auditoria e sistematicamente ocultado dos relatorios. Qual tipo? Isso e intencional ou bug?
+**Investigation status**: OPEN
+- [ ] Trace REGISTBN for suspension logic
+- [ ] Check if there are compensating transactions
+- [ ] Ask operator about manual process
 
-## Easter Eggs (3)
+**Resolution**: [Pending]
 
-- [ ] **EGG-001** (★): Um bloco de codigo comentado referencia uma politica economica dos anos 90 que nunca foi removida. Qual politica?
-- [ ] **EGG-002** (★): Um programa tem uma funcao de validacao especial que aceita certos documentos sem verificacao. Parece um backdoor de teste. Onde?
-- [ ] **EGG-003** (★): Codigo morto referencia uma integracao com uma empresa que nao existe mais. Qual empresa?
+---
 
-## Inconsistencias entre Documentacao e Codigo (bonus)
+### M-003: Multiple Active Discounts Per Beneficiary
 
-- [ ] **INC-001**: Um limite documentado diverge do que o codigo permite
-- [ ] **INC-002**: O documento de arquitetura original nao menciona uma estrutura de dados que foi adicionada depois
-- [ ] **INC-003**: Regras criticas de calculo nao aparecem em nenhum documento
-- [ ] **INC-004**: Dois programas usam metodos de arredondamento diferentes para o mesmo tipo de valor
+**Question**: Can a beneficiary have multiple active discount records of the same type simultaneously (e.g., two judicial discounts)? Or is the maximum one per type?
 
-## Pontuacao
+**Why it matters**: Affects discount aggregation logic during payment calculation.
 
-| Faixa | Classificacao |
-|-------|--------------|
-| 26-32 pontos | Excelente - arqueologia completa! |
-| 18-25 pontos | Solido - bom trabalho de investigacao |
-| 10-17 pontos | Satisfatorio - encontrou o basico |
-| 0-9 pontos | Precisa melhorar - explore mais a fundo |
+**Impact**: MEDIUM (Validation logic)
 
-## Dicas
+**Discovered by**: [Team member]
 
-- Use **Copilot Chat** para perguntar sobre cada programa: "Tem alguma logica escondida neste codigo?"
-- Compare o que a **documentacao diz** com o que o **codigo faz** - as inconsistencias sao intencionais
-- Os DDMs tambem contem pistas em seus comentarios
-- Se travar, levante a mao - o facilitador pode dar uma dica calibrada apos 90 minutos
+**Current assumption**: One discount per type (needs verification)
+
+**Investigation status**: OPEN
+- [ ] Query DISCOUNT.DDM for examples
+- [ ] Review CALCULATE-DISCOUNT logic
+- [ ] Test with sample data
+
+**Resolution**: [Pending]
+
+---
+
+### M-004: Judicial Discount Priority and Stacking
+
+**Question**: When a beneficiary has multiple discount types (judicial + CPMF + income tax), what is the priority order? Does judicial apply first, or is order irrelevant?
+
+**Why it matters**: Affects net amount calculation if there are rounding or maximum amount constraints.
+
+**Impact**: MEDIUM (Calculation correctness)
+
+**Discovered by**: [Team member]
+
+**Investigation status**: OPEN
+- [ ] Review CALCDSCT.NSN line 101-120 in detail
+- [ ] Create test case with 3+ discounts
+- [ ] Ask auditor about historical disputes
+
+**Resolution**: [Pending]
+
+---
+
+## Important Mysteries (Should Clarify Before Stage 3)
+
+These should be resolved to avoid surprises during implementation.
+
+### M-005: Undocumented Discount Types
+
+**Question**: Are there discount types in active use beyond J, C, I, S, O? Check if there are any "hidden" discount codes in live data.
+
+**Why it matters**: Need complete list for modern system; missing types cause bugs in production.
+
+**Impact**: MEDIUM (Missing functionality)
+
+**Discovered by**: [Team member]
+
+**Investigation status**: OPEN
+- [ ] Query DISCOUNT.DDM for distinct type values
+- [ ] Check if any payments have discounts of unknown types
+- [ ] Ask operators for complete list
+
+**Resolution**: [Pending]
+
+**Findings so far**: J, C, I, S, O documented. Need to verify if these are exhaustive.
+
+---
+
+### M-006: Maximum Payment Amount Limits
+
+**Question**: Is there a maximum payment amount that triggers special handling (e.g., fraud detection, extra approval)?
+
+**Why it matters**: Modern system may need similar controls.
+
+**Impact**: MEDIUM (Business logic completeness)
+
+**Discovered by**: [Team member]
+
+**Investigation status**: OPEN
+- [ ] Check VALIDATE-PAYMENT subroutine
+- [ ] Query PAYMENT.DDM for max amounts historically
+- [ ] Ask fraud prevention team
+
+**Resolution**: [Pending]
+
+---
+
+### M-007: Payment Reversal After Finance Dispatch
+
+**Question**: If a payment has been sent to Finance system but an error is later discovered (e.g., wrong CPF), what is the reversal process? Can legacy SIFAP reverse it, or is it manual?
+
+**Why it matters**: Modern system should have clear reversal workflow.
+
+**Impact**: MEDIUM (Error handling)
+
+**Discovered by**: [Team member]
+
+**Investigation status**: OPEN
+- [ ] Check if CALCPAY has reversal logic
+- [ ] Ask Finance team about reconciliation process
+- [ ] Review audit logs for reversal examples
+
+**Resolution**: [Pending]
+
+---
+
+### M-008: CPF Validation External Service
+
+**Question**: Does SIFAP call an external CPF validation service (e.g., Federal Tax Authority API), or is validation purely algorithmic (modulo-11)?
+
+**Why it matters**: Modern system may need to replicate external call or replace with API.
+
+**Impact**: MEDIUM (External dependency)
+
+**Discovered by**: [Team member]
+
+**Investigation status**: OPEN
+- [ ] Check VALIDATE-CPF for external calls
+- [ ] Look for network/API logs
+- [ ] Ask legacy admin about external integrations
+
+**Resolution**: [Pending]
+
+**Current finding**: Appears to be local (modulo-11 only), but needs confirmation.
+
+---
+
+## Nice-to-Know Mysteries (Can Defer Until After Go-Live)
+
+These are interesting but not blocking.
+
+### M-009: Historical System Evolution
+
+**Question**: Why was Natural/Adabas chosen in 2015? Were there other options considered?
+
+**Why it matters**: Historical context; helps understand architectural decisions.
+
+**Impact**: LOW (Historical interest)
+
+**Status**: Deferred (post-go-live)
+
+---
+
+### M-010: Performance Characteristics at Scale
+
+**Question**: Have there been performance issues when beneficiary count exceeded 1M? What was the response time degradation?
+
+**Why it matters**: Helps inform capacity planning for modern system.
+
+**Impact**: LOW (Performance tuning)
+
+**Status**: Deferred (post-go-live)
+
+**Investigation approach**: Review historical load test reports if available.
+
+---
+
+### M-011: Batch Job Failure Recovery
+
+**Question**: If the nightly batch (NIGHTLY-BATCH) fails mid-execution, what is the recovery process? Does it resume from checkpoint or restart?
+
+**Why it matters**: Modern system should have similar resilience.
+
+**Impact**: LOW (Operational knowledge)
+
+**Status**: Deferred (post-go-live)
+
+---
+
+## Resolution Tracking
+
+| Mystery ID | Status | Resolved By | Resolution Date | Answer |
+|---|---|---|---|---|
+| M-001 | OPEN | TBD | TBD | |
+| M-002 | OPEN | TBD | TBD | |
+| M-003 | OPEN | TBD | TBD | |
+| M-004 | OPEN | TBD | TBD | |
+| M-005 | OPEN | TBD | TBD | |
+| M-006 | OPEN | TBD | TBD | |
+| M-007 | OPEN | TBD | TBD | |
+| M-008 | OPEN | TBD | TBD | |
+| M-009 | DEFERRED | TBD | TBD | |
+| M-010 | DEFERRED | TBD | TBD | |
+| M-011 | DEFERRED | TBD | TBD | |
+
+---
+
+## Investigation Methods
+
+### Method 1: Code Reading
+
+Read Natural programs, check for patterns and calls.
+
+**Tools**: Text editor, GitHub Copilot Chat
+
+**Time**: 15-30 minutes per program
+
+---
+
+### Method 2: Data Query
+
+Query Adabas DDM samples to understand real-world variations.
+
+**Tools**: SQL client (if DDM can be queried) or raw file inspection
+
+**Time**: 10-20 minutes per query
+
+---
+
+### Method 3: Stakeholder Interview
+
+Ask business owners or legacy admin directly.
+
+**Stakeholders**: Operations team, auditor, legacy system admin
+
+**Time**: 20-30 minutes per interview
+
+---
+
+### Method 4: Historical Audit Log Analysis
+
+Review AUDIT.DDM for patterns of operations or edge cases.
+
+**Tools**: SQL or report generation
+
+**Time**: 30-60 minutes
+
+---
+
+## Next Steps
+
+1. **Assign investigators** to each critical mystery (M-001 through M-008)
+2. **Schedule interviews** with legacy admin and business stakeholders
+3. **Target resolution date**: Before Stage 2 kickoff (28/04 afternoon)
+4. **Document findings** in discovery-report.md
+5. **Update SPECIFICATION.md** with resolved business rules
+
