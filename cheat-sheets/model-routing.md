@@ -2,18 +2,27 @@
 title: "Cheat Sheet - Claude Model Routing in Copilot"
 description: "One page. When to use Claude Haiku 4.5, Sonnet 4.6, or Opus 4.6 in GitHub Copilot. Simple rules, typical cases."
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-18"
-version: "1.0.0"
+date: "2026-04-24"
+version: "1.1.0"
 tags: ["cheat-sheet", "copilot", "claude", "model-routing", "hackathon", "DATACORP"]
 ---
 
-# Claude Model Routing - Cheat Sheet
-
-## Golden Rule
+# 🧠 Claude Model Routing — Cheat Sheet
 
 > Bigger model = more capable and slower. Use the smallest one that solves your problem. Save Opus for decisions, not batch production.
 
-## The Three Models
+---
+
+## 📑 Table of Contents
+
+1. [The Three Models](#-the-three-models)
+2. [Typical Cases by Persona](#-typical-cases-by-persona)
+3. [Signs You're Using the Wrong Model](#-signs-youre-using-the-wrong-model)
+4. [Paula's Tip](#-paulas-tip)
+
+---
+
+## 🔀 The Three Models
 
 | Model | When to Use | Relative Cost | Speed |
 |---|---|---|---|
@@ -21,7 +30,9 @@ tags: ["cheat-sheet", "copilot", "claude", "model-routing", "hackathon", "DATACO
 | **Sonnet 4.6** | Daily standard. Code, tests, refactor, explanation | Medium | Medium |
 | **Opus 4.6** | Architectural decision, impact analysis, trade-off discussion | High | Slow |
 
-## Typical Cases by Persona
+---
+
+## 👥 Typical Cases by Persona
 
 ### Product Owner / Requirements Engineer
 - Write user story → **Sonnet**.
@@ -63,21 +74,29 @@ tags: ["cheat-sheet", "copilot", "claude", "model-routing", "hackathon", "DATACO
 - Draft ADR → **Sonnet**.
 - Decide overall documentation structure → **Opus**, once.
 
-## Signs You're Using the Wrong Model
+---
+
+## ⚠️ Signs You're Using the Wrong Model
 
 - **Waiting 30s for a trivial answer** → go to smaller model.
 - **Answer came shallow on critical decision** → go to Opus.
 - **Answer is perfectly correct but you wanted discussion** → go to Opus.
 - **You're stacking prompts for Opus to generate 400 files** → drop to Sonnet or Haiku.
 
-## Paula's Tip
+---
+
+## 💡 Paula's Tip
 
 Don't treat Opus as "the good one" and Haiku as "the bad one". Opus on a mechanical task is wasteful; Haiku on a decision is risky. The right model is the cheapest one that doesn't leave you stranded.
 
-- Paula
+— Paula
 
 ---
 
-| Previous | Home |
-|:---------|-----:|
-| [← Cheat Sheets Home](README.md) | [Kit Home](../README.md) |
+## 🧭 Navigation
+
+| Previous | Home | Next |
+|---|---|---|
+| ← [Copilot Modes](./copilot-3-modes.md) | [Kit Root](../README.md) | [Specky Workflow](./specky-workflow.md) → |
+
+> Author: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
