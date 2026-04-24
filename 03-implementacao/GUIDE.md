@@ -1,17 +1,50 @@
 ---
 title: "Estagio 3 - Implementacao"
 description: "Guia para implementar o SIFAP 2.0 usando o prototipo como base"
+author: "Paula Silva, Americas Software GBB, Microsoft"
+date: "2026-04-23"
+version: "1.1.0"
+status: "approved"
+tags: ["stage-3", "implementation", "java", "nextjs", "postgres", "prototype"]
 ---
 
-# Estagio 3 - Implementacao (3 horas)
+# 💻 Estagio 3: Implementacao
 
-## Objetivo
+> ⏱️ **Duracao.** 3 horas. Aqui a especificacao vira codigo que roda. Este e o estagio onde a maior parte dos times passa mais tempo, e onde Copilot Agent brilha mais.
 
-Estender o prototipo funcional do SIFAP 2.0, implementando as funcionalidades priorizadas no Estagio 2. O prototipo ja possui a estrutura base - seu time vai adicionar features, corrigir bugs e escrever testes.
+<p align="center">
+  <img src="../assets/stage-flow.svg" alt="Jornada dos 4 estagios do hackathon" width="100%"/>
+</p>
 
 ---
 
-## Getting Started (primeiros 15 minutos)
+## 📑 Sumario
+
+1. [🎬 Onde estamos na jornada](#-onde-estamos-na-jornada)
+2. [🎯 Objetivo](#-objetivo)
+3. [🚀 Getting Started](#-getting-started-primeiros-15-minutos)
+4. [🧩 Features sugeridas](#-features-sugeridas)
+5. [🧪 Testes](#-testes)
+6. [✅ Criterio de Pronto](#-criterio-de-pronto)
+7. [🧭 Navegacao](#-navegacao)
+
+---
+
+## 🎬 Onde estamos na jornada
+
+O mapa esta desenhado. A spec esta escrita. Agora o time transforma requisitos em algo que roda no navegador e responde no terminal. O prototipo fornecido ja tem a casca: backend Java, frontend Next, banco Postgres, docker-compose. Seu trabalho e vestir a casca com as regras que voces especificaram.
+
+> 💡 **Analogia.** Se o estagio 2 foi a planta do arquiteto, o estagio 3 e o canteiro de obras. Voces nao estao construindo do zero, estao completando os comodos da casa que ja tem fundacao e paredes.
+
+---
+
+## 🎯 Objetivo
+
+Estender o prototipo funcional do SIFAP 2.0, implementando as funcionalidades priorizadas no Estagio 2. O prototipo ja possui a estrutura base. Seu time vai adicionar features, corrigir bugs e escrever testes.
+
+---
+
+## 🚀 Getting Started (primeiros 15 minutos)
 
 ### 1. Subir o ambiente
 
@@ -51,7 +84,7 @@ Acesse http://localhost:8080/swagger-ui.html e teste:
 
 ---
 
-## Estrutura do Backend
+## 🏗️ Estrutura do Backend
 
 O backend segue uma arquitetura de **monolito modular** com 4 modulos e 3 camadas cada:
 
@@ -93,7 +126,7 @@ A camada `domain` **nunca** importa classes de `infrastructure`. O fluxo e sempr
 
 ---
 
-## Como Adicionar uma Nova Feature
+## 🧩 Como Adicionar uma Nova Feature
 
 Siga estes 5 passos para cada funcionalidade:
 
@@ -151,7 +184,7 @@ class PaymentServiceTest {
 
 ---
 
-## Workflow com Copilot Edits
+## ✏️ Workflow com Copilot Edits
 
 Para implementar funcionalidades rapidamente com Copilot:
 
@@ -166,7 +199,7 @@ Para implementar funcionalidades rapidamente com Copilot:
 
 ---
 
-## Testes
+## 🧪 Testes
 
 ### Rodar todos os testes
 
@@ -190,7 +223,7 @@ cd 04-prototipo-sifap-moderno/backend
 
 ---
 
-## Frontend
+## ⚛️ Frontend
 
 ### Rodar o frontend localmente
 
@@ -228,7 +261,7 @@ src/app/
 
 ---
 
-## Rastreabilidade: Requisito → Codigo → Teste
+## 🔗 Rastreabilidade: Requisito para Codigo para Teste
 
 Para cada feature que implementar, mantenha a rastreabilidade com a spec:
 
@@ -242,7 +275,7 @@ Ao adicionar uma feature, documente no seu commit: "Implements REQ-XXX". Isso fe
 
 ---
 
-## Troubleshooting
+## 🛠️ Troubleshooting
 
 | Problema | Solucao |
 |----------|---------|
@@ -257,7 +290,7 @@ Ao adicionar uma feature, documente no seu commit: "Implements REQ-XXX". Isso fe
 
 ---
 
-## Criterio de "Pronto"
+## ✅ Criterio de Pronto
 
 Ao final do Estagio 3, seu time deve ter:
 
@@ -268,7 +301,7 @@ Ao final do Estagio 3, seu time deve ter:
 - [ ] Swagger UI mostrando todos os endpoints documentados
 - [ ] Pelo menos 1 regra de negocio do Estagio 1 implementada e testada
 
-## Prompts para Copilot Chat
+## 💬 Prompts para Copilot Chat
 
 1. "Crie um endpoint REST para [funcionalidade] seguindo a arquitetura existente"
 2. "Escreva um teste de integracao para o endpoint [endpoint]"
@@ -279,6 +312,16 @@ Ao final do Estagio 3, seu time deve ter:
 7. "Adicione tratamento de erro para o caso de [cenario]"
 8. "Refatore este service para separar a logica de [responsabilidade]"
 
-## Dica de Ouro
+## 🏆 Dica de Ouro
 
 Nao tente implementar tudo. Foque em **qualidade sobre quantidade**. Um endpoint bem feito, com testes, validacao e documentacao vale mais do que 5 endpoints quebrados.
+
+---
+
+## 🧭 Navegacao
+
+| ⬅️ Anterior | 🏠 Home | ➡️ Proximo |
+|---|---|---|
+| [📜 Estagio 2: Spec Moderna](../02-spec-moderna/GUIDE.md) | [README do kit](../README.md) | [🚀 Estagio 4: Evolucao](../04-evolucao/GUIDE.md) |
+
+> Autoria: Paula Silva, Americas Software GBB, Microsoft.

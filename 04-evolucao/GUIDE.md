@@ -1,17 +1,49 @@
 ---
 title: "Estagio 4 - Evolucao com Agentes"
 description: "Guia para usar GitHub Copilot Agent Mode e Terraform para evoluir o SIFAP 2.0"
+author: "Paula Silva, Americas Software GBB, Microsoft"
+date: "2026-04-23"
+version: "1.1.0"
+status: "approved"
+tags: ["stage-4", "evolution", "agent-mode", "terraform", "azure"]
 ---
 
-# Estagio 4 - Evolucao com Agentes (3 horas)
+# 🚀 Estagio 4: Evolucao com Agentes
 
-## Objetivo
+> ⏱️ **Duracao.** 3 horas. O estagio onde voces passam o bastao para o agente e provam que o caminho para produçao e viavel.
+
+<p align="center">
+  <img src="../assets/architecture-transformation.svg" alt="Transformacao arquitetural SIFAP legado para SIFAP moderno" width="100%"/>
+</p>
+
+---
+
+## 📑 Sumario
+
+1. [🎬 Onde estamos na jornada](#-onde-estamos-na-jornada)
+2. [🎯 Objetivo](#-objetivo)
+3. [🤖 Parte 1: Copilot Agent Mode](#-parte-1-github-copilot-agent-mode-2-horas)
+4. [☁️ Parte 2: Terraform e Infraestrutura](#-parte-2-terraform-e-infraestrutura-1-hora)
+5. [📦 Entregaveis](#-entregaveis-do-estagio-4)
+6. [🧭 Navegacao](#-navegacao)
+
+---
+
+## 🎬 Onde estamos na jornada
+
+Voces ja fizeram arqueologia, escreveram a spec e implementaram. Agora e hora de mostrar que o SIFAP 2.0 roda na nuvem e que e possivel crescer com agentes fazendo parte do timao. Este estagio junta duas provas: o agente consegue completar uma feature ponta a ponta sozinho e a infraestrutura Azure esta descrita como codigo.
+
+> 💡 **Analogia.** Se os estagios anteriores foram dirigir o carro, este e o estagio onde voce configura o piloto automatico e garante que a estrada esta pavimentada ate o destino.
+
+---
+
+## 🎯 Objetivo
 
 Usar o **GitHub Copilot Agent Mode** para implementar features completas via Issues e Pull Requests, e explorar a infraestrutura como codigo (Terraform) para deploy na Azure.
 
 ---
 
-## Parte 1: GitHub Copilot Agent Mode (2 horas)
+## 🤖 Parte 1: GitHub Copilot Agent Mode (2 horas)
 
 ### O que e o Agent Mode?
 
@@ -132,7 +164,7 @@ Quando o Agent abrir um PR, revise com cuidado:
 
 ---
 
-## Parte 2: Terraform e Infraestrutura (1 hora)
+## ☁️ Parte 2: Terraform e Infraestrutura (1 hora)
 
 ### Visao Geral
 
@@ -236,7 +268,7 @@ Os workflows de CI/CD estao em:
 
 ---
 
-## Entregaveis do Estagio 4
+## 📦 Entregaveis do Estagio 4
 
 Ao final do Estagio 4, seu time deve ter:
 
@@ -245,7 +277,7 @@ Ao final do Estagio 4, seu time deve ter:
 - [ ] **1 feature mergeada** - pelo menos um PR deve ser aprovado e mergeado
 - [ ] **Relatorio de experiencia com Agent** (arquivo: `04-evolucao/agent-experience-report.md`)
 
-## Prompts para Copilot Chat
+## 💬 Prompts para Copilot Chat
 
 1. "Crie uma GitHub Issue para o Copilot Agent implementar [funcionalidade]"
 2. "Revise este PR gerado pelo Agent e liste problemas de qualidade"
@@ -255,6 +287,16 @@ Ao final do Estagio 4, seu time deve ter:
 6. "Como este workflow de CI/CD garante qualidade antes do deploy?"
 7. "Sugira melhorias de seguranca para esta configuracao Terraform"
 
-## Dica de Ouro
+## 🏆 Dica de Ouro
 
 O Agent e tao bom quanto a Issue que voce escreve. Gaste **mais tempo na Issue** e **menos tempo corrigindo o PR**. Uma Issue com contexto claro, requisitos especificos e referencias a arquivos produz PRs muito melhores.
+
+---
+
+## 🧭 Navegacao
+
+| ⬅️ Anterior | 🏠 Home | 🎬 Final |
+|---|---|---|
+| [💻 Estagio 3: Implementacao](../03-implementacao/GUIDE.md) | [README do kit](../README.md) | [🧾 Cheat Sheets](../cheat-sheets/README.md) |
+
+> Autoria: Paula Silva, Americas Software GBB, Microsoft.

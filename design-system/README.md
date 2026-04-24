@@ -91,13 +91,13 @@ Before pasting any prompt, do these three things:
 
 Confirm or create this structure in your project:
 
-```
-hackathon-datacorp/
-├── design-system/
-│   ├── dist/                (empty - Copilot will fill this)
-│   └── showcase.html        (copy hackathon-datacorp-design-system.html here)
-├── prompts-design-system/   (this folder, with the 4 prompts)
-└── README.md
+```mermaid
+graph TD
+    R[hackathon-datacorp/] --> DS[design-system/]
+    DS --> D[dist/ empty, Copilot fills it]
+    DS --> SH[showcase.html]
+    R --> P[prompts-design-system/ this folder]
+    R --> RD[README.md]
 ```
 
 If `design-system/dist/` does not exist, Copilot creates it automatically when needed.

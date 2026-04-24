@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <rect width="1200" height="400" fill="#0f172a"/>
+  <text x="600" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#e2e8f0">A team of 10: 25 persona kits available, pick what your squad needs</text>
+  <text x="600" y="70" text-anchor="middle" font-size="13" fill="#94a3b8">Each persona has its own agents, prompts, skills, and a personalized Copilot setup</text>
+
+  <g transform="translate(60,110)">
+    <circle cx="50" cy="50" r="44" fill="#2563eb"/>
+    <text x="50" y="58" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">PO</text>
+    <text x="50" y="124" text-anchor="middle" font-size="13" font-weight="600" fill="#e2e8f0">Product Owner</text>
+    <text x="50" y="142" text-anchor="middle" font-size="11" fill="#94a3b8">Prioritize value</text>
+  </g>
+
+  <g transform="translate(200,110)">
+    <circle cx="50" cy="50" r="44" fill="#7c3aed"/>
+    <text x="50" y="58" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">EA</text>
+    <text x="50" y="124" text-anchor="middle" font-size="13" font-weight="600" fill="#e2e8f0">Enterprise Arch</text>
+    <text x="50" y="142" text-anchor="middle" font-size="11" fill="#94a3b8">Map capabilities</text>
+  </g>
+
+  <g transform="translate(340,110)">
+    <circle cx="50" cy="50" r="44" fill="#0891b2"/>
+    <text x="50" y="58" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">SA</text>
+    <text x="50" y="124" text-anchor="middle" font-size="13" font-weight="600" fill="#e2e8f0">Software Arch</text>
+    <text x="50" y="142" text-anchor="middle" font-size="11" fill="#94a3b8">Design and ADRs</text>
+  </g>
+
+  <g transform="translate(480,110)">
+    <circle cx="50" cy="50" r="44" fill="#059669"/>
+    <text x="50" y="58" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">TL</text>
+    <text x="50" y="124" text-anchor="middle" font-size="13" font-weight="600" fill="#e2e8f0">Tech Lead</text>
+    <text x="50" y="142" text-anchor="middle" font-size="11" fill="#94a3b8">Guide the build</text>
+  </g>
+
+  <g transform="translate(620,110)">
+    <circle cx="50" cy="50" r="44" fill="#16a34a"/>
+    <text x="50" y="58" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">DEV</text>
+    <text x="50" y="124" text-anchor="middle" font-size="13" font-weight="600" fill="#e2e8f0">Developer</text>
+    <text x="50" y="142" text-anchor="middle" font-size="11" fill="#94a3b8">Implement</text>
+  </g>
+
+  <g transform="translate(760,110)">
+    <circle cx="50" cy="50" r="44" fill="#ca8a04"/>
+    <text x="50" y="58" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">QA</text>
+    <text x="50" y="124" text-anchor="middle" font-size="13" font-weight="600" fill="#e2e8f0">QA Engineer</text>
+    <text x="50" y="142" text-anchor="middle" font-size="11" fill="#94a3b8">Ensure quality</text>
+  </g>
+
+  <g transform="translate(900,110)">
+    <circle cx="50" cy="50" r="44" fill="#ea580c"/>
+    <text x="50" y="58" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">OPS</text>
+    <text x="50" y="124" text-anchor="middle" font-size="13" font-weight="600" fill="#e2e8f0">DevOps</text>
+    <text x="50" y="142" text-anchor="middle" font-size="11" fill="#94a3b8">Ship and automate</text>
+  </g>
+
+  <g transform="translate(1040,110)">
+    <circle cx="50" cy="50" r="44" fill="#dc2626"/>
+    <text x="50" y="58" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">SEC</text>
+    <text x="50" y="124" text-anchor="middle" font-size="13" font-weight="600" fill="#e2e8f0">AppSec</text>
+    <text x="50" y="142" text-anchor="middle" font-size="11" fill="#94a3b8">Shift left</text>
+  </g>
+
+  <g transform="translate(60,280)">
+    <rect width="1080" height="90" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="540" y="34" text-anchor="middle" font-size="14" font-weight="600" fill="#e2e8f0">25 personas total covering product, architecture, engineering, ops, security, and data</text>
+    <text x="540" y="58" text-anchor="middle" font-size="12" fill="#94a3b8">Plus Scrum Master, Project Manager, UX Designer, Tech Writer, DevRel, DBA, SRE, MLE, Data Engineer, Release Manager,</text>
+    <text x="540" y="76" text-anchor="middle" font-size="12" fill="#94a3b8">InfoSec Officer, Compliance Auditor, Platform Architect, UAT Analyst, Engineering Manager, Requirements Engineer, Business Manager</text>
+  </g>
+</svg>

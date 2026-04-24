@@ -1,15 +1,52 @@
 ---
 title: "Estagio 2 - Especificacao Moderna"
 description: "Guia para criar especificacao tecnica usando EARS, ADRs e C4"
+author: "Paula Silva, Americas Software GBB, Microsoft"
+date: "2026-04-23"
+version: "1.1.0"
+status: "approved"
+tags: ["stage-2", "specification", "ears", "adr", "c4", "specky"]
 ---
 
-# Estagio 2 - Especificacao Moderna (3 horas)
+# 📜 Estagio 2: Especificacao Moderna
 
-## Objetivo
+> ⏱️ **Duracao.** 3 horas. Aqui e onde a jornada muda de investigacao para desenho. O que voces descobriram no Estagio 1 vira linguagem formal, testavel e rastreavel.
+
+<p align="center">
+  <img src="../assets/architecture-transformation.svg" alt="Transformacao de arquitetura legada para moderna" width="100%"/>
+</p>
+
+---
+
+## 📑 Sumario
+
+1. [🎬 Onde estamos na jornada](#-onde-estamos-na-jornada)
+2. [🎯 Objetivo](#-objetivo)
+3. [⭐ Referencia Gold Standard](#-referencia-gold-standard)
+4. [📐 Notacao EARS](#-notacao-ears-easy-approach-to-requirements-syntax)
+5. [🏛️ ADRs](#-adrs-architecture-decision-records)
+6. [📊 Diagramas C4](#-diagramas-c4)
+7. [🤖 Specky SDD](#-specky-sdd)
+8. [✅ Criterio de Pronto](#-criterio-de-pronto)
+9. [🧭 Navegacao](#-navegacao)
+
+---
+
+## 🎬 Onde estamos na jornada
+
+Voces ja mapearam o SIFAP legado. Conhecem as regras, as dependencias, os misterios. Agora e hora de responder uma pergunta diferente: **como o novo SIFAP deve se comportar?**
+
+A tentacao e pular direto para o codigo. Resistam. Uma hora desenhando spec economiza 8 horas depurando codigo que ninguem entende. O estagio 2 entrega tres artefatos que alimentam o estagio 3.
+
+> 💡 **Analogia.** Escrever EARS e como escrever uma receita de cozinha precisa. "Sal a gosto" e ambiguo. "5 gramas de sal" e testavel. Requisitos bons sao receitas precisas que qualquer desenvolvedor e qualquer teste automatizado consegue seguir.
+
+---
+
+## 🎯 Objetivo
 
 Transformar as descobertas do Estagio 1 (arqueologia) em uma especificacao tecnica moderna e estruturada, usando notacao EARS para requisitos, ADRs para decisoes de arquitetura, e diagramas C4 para visualizacao.
 
-## Referencia Gold-Standard
+## ⭐ Referencia Gold Standard
 
 Antes de comecar, estude a especificacao de referencia:
 
@@ -21,7 +58,7 @@ Este documento mostra o formato e nivel de detalhe esperados. Sua especificacao 
 
 ---
 
-## Notacao EARS - Easy Approach to Requirements Syntax
+## 📐 Notacao EARS (Easy Approach to Requirements Syntax)
 
 EARS e um metodo para escrever requisitos sem ambiguidade. Sao **6 padroes** que eliminam linguagem vaga. O Specky valida cada requisito programaticamente via `sdd_validate_ears`.
 
@@ -100,7 +137,7 @@ Ao escrever um requisito, pergunte: "Como eu testaria isso automaticamente?" Se 
 
 ---
 
-## Exemplo Completo: Da Regra Legado ao Teste
+## 🔄 Exemplo Completo: Da Regra Legado ao Teste
 
 Veja o ciclo completo de uma regra do SIFAP legado ate o teste automatizado:
 
@@ -193,7 +230,7 @@ void judicialDeductionsBypass30PercentCap() {
 
 ---
 
-## ADRs - Architecture Decision Records
+## 🏛️ ADRs (Architecture Decision Records)
 
 ADRs documentam decisoes de arquitetura importantes. Para cada decisao, crie um arquivo usando o template `ADR-TEMPLATE.md`.
 
@@ -213,7 +250,7 @@ ADRs documentam decisoes de arquitetura importantes. Para cada decisao, crie um 
 
 ---
 
-## Diagramas C4 - Context, Containers, Components
+## 📊 Diagramas C4 (Context, Containers, Components)
 
 Use Mermaid para criar pelo menos o diagrama de **Contexto (C4-L1)** e **Containers (C4-L2)**.
 
@@ -263,13 +300,13 @@ C4Container
 
 ---
 
-## Decisoes de Escopo
+## 🎯 Decisoes de Escopo
 
 Use o arquivo `scope-decisions.md` para registrar o que sera migrado, descartado ou evoluido.
 
 ---
 
-## Workflow com Specky - RECOMENDADO
+## 🤖 Workflow com Specky (recomendado)
 
 > **O que e Specky?** E uma ferramenta CLI que instala dentro do seu projeto (VS Code ou Claude Code) um conjunto de **agents** (assistentes especializados que voce invoca no chat), **slash commands** (atalhos como `/specky-migration`), e **MCP tools** (motores internos que validam seus artefatos). Voce interage com os **agents** e **slash commands** - os MCP tools rodam por baixo automaticamente.
 
@@ -350,7 +387,7 @@ Nao se preocupe - escreva os requisitos EARS manualmente no SPECIFICATION.md seg
 
 ---
 
-## Criterio de "Pronto"
+## ✅ Criterio de Pronto
 
 Ao final do Estagio 2, seu time deve ter:
 
@@ -359,7 +396,7 @@ Ao final do Estagio 2, seu time deve ter:
 - [ ] Diagrama C4 em Mermaid (dentro da SPECIFICATION.md ou arquivo separado)
 - [ ] Decisoes de escopo documentadas (arquivo: `02-spec-moderna/scope-decisions.md`)
 
-## Prompts para Copilot Chat
+## 💬 Prompts para Copilot Chat
 
 1. "Converta esta regra de negocio para notacao EARS: [descreva a regra]"
 2. "Crie um ADR para a decisao de usar [tecnologia X] em vez de [tecnologia Y]"
@@ -369,6 +406,16 @@ Ao final do Estagio 2, seu time deve ter:
 6. "Com base nestas regras de negocio, sugira a estrutura de modulos do backend"
 7. "Crie user stories a partir destes requisitos EARS"
 
-## Dica de Ouro
+## 🏆 Dica de Ouro
 
 Nao tente reinventar a roda. A especificacao de referencia em `03-spec-sifap-moderno/SPECIFICATION.md` ja tem a estrutura ideal. Use-a como base e adapte com as descobertas do seu time.
+
+---
+
+## 🧭 Navegacao
+
+| ⬅️ Anterior | 🏠 Home | ➡️ Proximo |
+|---|---|---|
+| [🔍 Estagio 1: Arqueologia](../01-arqueologia/GUIDE.md) | [README do kit](../README.md) | [💻 Estagio 3: Implementacao](../03-implementacao/GUIDE.md) |
+
+> Autoria: Paula Silva, Americas Software GBB, Microsoft.
