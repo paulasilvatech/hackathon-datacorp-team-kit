@@ -1,11 +1,20 @@
-# Tech Writer - GitHub Copilot Primitives Kit
+---
+title: "Tech Writer — GitHub Copilot Persona Kit"
+description: "Creating clear documentation, API references, and tutorials that make the modernized system accessible to all stakeholders."
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
+date: "2026-04-24"
+version: "1.0.0"
+status: "approved"
+---
+
+# ✍️ Tech Writer - GitHub Copilot Primitives Kit
 
 > API docs, README, CODEMAP.md, changelog, drift detection
 
-## SDLC Phase
+## 🔄 SDLC Phase
 See analysis document
 
-## Kit Contents
+## 📦 Kit Contents
 
 | File | Type | Purpose |
 |------|------|---------|
@@ -14,20 +23,20 @@ See analysis document
 | `.github/prompts/update-codemap.prompt.md` | Prompt | /update-codemap |
 | `.github/prompts/doc-drift.prompt.md` | Prompt | /doc-drift |
 
-## Installation
+## ⚙️ Installation
 ```bash
 cp -r .github/* /path/to/your-repo/.github/
 [ -f hooks.json ] && cp hooks.json /path/to/your-repo/
 [ -f mcp.json ] && cp mcp.json /path/to/your-repo/.vscode/
 ```
 
-## Best Practices
+## 💡 Best Practices
 - Documentation is a feature. Ship it with the code, version it with the code, review it with the code.
 - Write for the reader who has 30 seconds. Lead with the answer, follow with the context.
 - Diagrams compress 1000 words of explanation into one image. Use Mermaid, version it, keep it fresh.
 - Stale docs are worse than no docs. Build a drift check into CI, fix the drift the same sprint.
 
-## References
+## 📚 References
 - [Diátaxis Framework](https://diataxis.fr/)
 - [Google Developer Documentation Style Guide](https://developers.google.com/style)
 - [Write the Docs](https://www.writethedocs.org/)
@@ -35,8 +44,10 @@ cp -r .github/* /path/to/your-repo/.github/
 
 ---
 
-## Navigation
+## 🧭 Navigation
 
-| Parent | Home |
-|--------|------|
-| [Team Kit](../../README.md) | [Workspace Root](../../../README.md) |
+| Previous | Home | Next |
+|----------|------|------|
+| ← [Developer](../22-developer/README.md) | [Kit Root](../../README.md) | [DevRel](../24-devrel/README.md) → |
+
+> **Author:** Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft
