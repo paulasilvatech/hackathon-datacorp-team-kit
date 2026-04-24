@@ -1,18 +1,18 @@
 ---
-title: "Stage 1 - Archaeology"
+title: "Stage 1 — Archaeology"
 description: "Legacy code analysis stage: explore SIFAP Natural programs, extract business rules, and build domain glossary"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-23"
-version: "1.0.0"
+date: "2026-04-24"
+version: "1.1.0"
 status: "approved"
 tags: ["stage-1", "archaeology", "legacy", "analysis", "hackathon"]
 ---
 
-# Stage 1 - Archaeology
+# 🏛️ Stage 1 — Archaeology
 
 > Explore the legacy SIFAP system with Copilot Chat and Specky Research. Extract business rules, build a glossary, and map dependencies.
 
-## Contents
+## 📑 Contents
 
 | File | Purpose |
 |------|---------|
@@ -24,14 +24,8 @@ tags: ["stage-1", "archaeology", "legacy", "analysis", "hackathon"]
 | `mysteries-checklist.md` | Hidden logic checklist for teams |
 | `mysteries-found.md` | Template to log discovered mysteries |
 
-## Navigation
-
-| Parent | Home |
-|----------|------|
-| [06 - Team Kit](../README.md) | [Workspace Root](../../README.md) |
-
 ---
 
-| Home | Next |
-|:-----|-----:|
-| [← Kit Home](../README.md) | [Stage Guide →](GUIDE.md) |
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Kit Home](../README.md) | [Kit Home](../README.md) | [Stage Guide →](GUIDE.md) |

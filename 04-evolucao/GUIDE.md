@@ -1,9 +1,9 @@
 ---
-title: "Stage 4 - Evolution"
+title: "Stage 4 — Evolution Guide"
 description: "Guide for infrastructure, CI/CD, and deployment of SIFAP 2.0"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-23"
-version: "1.1.0"
+date: "2026-04-24"
+version: "1.2.0"
 status: "approved"
 tags: ["stage-4", "evolution", "infrastructure", "terraform", "azure", "ci-cd"]
 ---
@@ -711,10 +711,8 @@ At end of Stage 4, you must have:
 |---|---|
 | [Stage 3: Implementation](../03-implementacao/GUIDE.md) | [Kit README](../README.md) |
 
-> Authorship: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
-
 ---
 
-| Previous | Home |
-|:---------|-----:|
-| [← Stage 3: Implementation](../03-implementacao/GUIDE.md) | [Kit Home](../README.md) |
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Stage Home](README.md) | [Kit Home](../README.md) | [Agent Report →](agent-experience-report.md) |

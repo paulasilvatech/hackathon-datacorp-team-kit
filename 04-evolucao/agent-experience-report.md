@@ -1,19 +1,46 @@
-# GitHub Copilot Agent Experience Report
+---
+title: "Agent Experience Report"
+description: "Lessons learned using GitHub Copilot Agent in SIFAP modernization"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
+date: "2026-04-24"
+version: "1.1.0"
+status: "approved"
+tags: ["stage-4", "copilot", "agent", "experience", "lessons-learned"]
+---
 
-**Document**: Lessons learned using GitHub Copilot Agent in SIFAP modernization
-**Date**: 28/04/2026
-**Prepared by**: [Team]
-**Status**: Preliminary (to be updated after Stage 3-4 completion)
+# 🤖 GitHub Copilot Agent Experience Report
+
+> Captures the team's experience using GitHub Copilot, Copilot CLI, and Agent tools throughout the SIFAP 2.0 modernization hackathon.
 
 ---
 
-## Overview
+## 📑 Table of Contents
+
+1. [📌 Overview](#overview)
+2. [🏛️ Stage 1 - Archaeology (Copilot Chat)](#stage-1-archaeology-copilot-chat)
+3. [📋 Stage 2 - Specification (Copilot + Specky SDD)](#stage-2-specification-copilot-specky-sdd)
+4. [🛠️ Stage 3 - Implementation (Copilot + GitHub Copilot Agent)](#stage-3-implementation-copilot-github-copilot-agent)
+5. [🚀 Stage 4 - Evolution (Copilot for IaC and CI/CD)](#stage-4-evolution-copilot-for-iac-and-cicd)
+6. [⚖️ Copilot vs. Specky SDD Tool](#copilot-vs-specky-sdd-tool)
+7. [📈 Team Productivity Impact](#team-productivity-impact)
+8. [💡 Recommended Copilot Practices](#recommended-copilot-practices)
+9. [❌ What Didn't Work](#what-didnt-work)
+10. [🎓 Lessons Learned](#lessons-learned)
+11. [💡 Recommendations for Future Projects](#recommendations-for-future-projects)
+12. [🎯 Conclusion](#conclusion)
+13. [📎 Appendix: Useful Copilot Prompts](#appendix-useful-copilot-prompts)
+
+---
+
+---
+
+## 📌 Overview
 
 This document captures the team's experience using GitHub Copilot, GitHub Copilot CLI, and GitHub Copilot Agent tools throughout the SIFAP 2.0 modernization hackathon. Purpose: Inform best practices for future Copilot-driven development.
 
 ---
 
-## Stage 1 - Archaeology (Copilot Chat)
+## 🏛️ Stage 1 - Archaeology (Copilot Chat)
 
 ### What We Used
 
@@ -51,7 +78,7 @@ This document captures the team's experience using GitHub Copilot, GitHub Copilo
 
 ---
 
-## Stage 2 - Specification (Copilot + Specky SDD)
+## 📋 Stage 2 - Specification (Copilot + Specky SDD)
 
 ### What We Used
 
@@ -87,7 +114,7 @@ This document captures the team's experience using GitHub Copilot, GitHub Copilo
 
 ---
 
-## Stage 3 - Implementation (Copilot + GitHub Copilot Agent)
+## 🛠️ Stage 3 - Implementation (Copilot + GitHub Copilot Agent)
 
 ### What We Used
 
@@ -140,7 +167,7 @@ This document captures the team's experience using GitHub Copilot, GitHub Copilo
 
 ---
 
-## Stage 4 - Evolution (Copilot for IaC and CI/CD)
+## 🚀 Stage 4 - Evolution (Copilot for IaC and CI/CD)
 
 ### What We Used
 
@@ -172,7 +199,7 @@ This document captures the team's experience using GitHub Copilot, GitHub Copilo
 
 ---
 
-## Copilot vs. Specky SDD Tool
+## ⚖️ Copilot vs. Specky SDD Tool
 
 ### Comparison
 
@@ -190,7 +217,7 @@ This document captures the team's experience using GitHub Copilot, GitHub Copilo
 
 ---
 
-## Team Productivity Impact
+## 📈 Team Productivity Impact
 
 ### Metrics
 
@@ -212,7 +239,7 @@ This document captures the team's experience using GitHub Copilot, GitHub Copilo
 
 ---
 
-## Recommended Copilot Practices
+## 💡 Recommended Copilot Practices
 
 ### General
 
@@ -230,7 +257,7 @@ This document captures the team's experience using GitHub Copilot, GitHub Copilo
 
 ---
 
-## What Didn't Work
+## ❌ What Didn't Work
 
 ### Copilot Attempting to Modernize Legacy Code
 
@@ -260,7 +287,7 @@ This document captures the team's experience using GitHub Copilot, GitHub Copilo
 
 ---
 
-## Lessons Learned
+## 🎓 Lessons Learned
 
 ### 1. Copilot is a Multiplier, Not a Replacement
 
@@ -288,7 +315,7 @@ Specky enforces structure (EARS patterns, traceability). Copilot is fast at draf
 
 ---
 
-## Recommendations for Future Projects
+## 💡 Recommendations for Future Projects
 
 1. **Train team on Copilot best practices**: Provide prompt engineering guidelines before starting.
 
@@ -302,7 +329,7 @@ Specky enforces structure (EARS patterns, traceability). Copilot is fast at draf
 
 ---
 
-## Conclusion
+## 🎯 Conclusion
 
 GitHub Copilot significantly accelerated SIFAP 2.0 modernization, estimated 60-70% time savings on routine coding. Best practices:
 
@@ -315,7 +342,7 @@ Copilot is not a replacement for skilled developers, but it is a powerful force 
 
 ---
 
-## Appendix: Useful Copilot Prompts
+## 📎 Appendix: Useful Copilot Prompts
 
 ### For Code Analysis
 
@@ -375,9 +402,8 @@ Generate a GitHub Actions workflow that:
 Include environment secrets for Azure credentials.
 ```
 
-
 ---
 
-| Previous | Home |
-|:---------|-----:|
-| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) | [Cheat Sheets →](../cheat-sheets/README.md) |

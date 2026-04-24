@@ -1,13 +1,20 @@
-# Scope Decisions - SIFAP 2.0 Modernization
+---
+title: "Scope Decisions"
+description: "What is in, what is out, and what is evolved for SIFAP 2.0 modernization"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
+date: "2026-04-24"
+version: "1.1.0"
+status: "approved"
+tags: ["stage-2", "scope", "decisions", "migration"]
+---
 
-**Document**: What's in, what's out, what's evolved
-**Stage**: 2 - Modern Spec  
-**Date**: 28/04/2026
-**Status**: Approved by Product Owner and Tech Lead
+# 🎯 Scope Decisions — SIFAP 2.0 Modernization
+
+> Defines the scope of SIFAP 2.0: features being migrated, discarded, and evolved.
 
 ---
 
-## Overview
+## 📌 Overview
 
 This document defines the scope of SIFAP 2.0 (modernized version). It specifies what features from legacy SIFAP are being migrated, what's being discarded, and what's being evolved with new capabilities.
 
@@ -15,7 +22,7 @@ This document defines the scope of SIFAP 2.0 (modernized version). It specifies 
 
 ---
 
-## Table of Contents
+## 📑 Table of Contents
 
 1. [What's Being Migrated](#-whats-being-migrated-priority-order)
 2. [What's Being Discarded](#-whats-being-discarded)
@@ -480,7 +487,7 @@ This document defines the scope of SIFAP 2.0 (modernized version). It specifies 
 
 ---
 
-## Sign-Off
+## ✍️ Sign-Off
 
 | Role | Name | Date | Approval |
 |------|------|------|----------|
@@ -489,9 +496,8 @@ This document defines the scope of SIFAP 2.0 (modernized version). It specifies 
 | Architect | [Name] | 28/04/2026 | [ ] |
 | Operations | [Name] | 28/04/2026 | [ ] |
 
-
 ---
 
-| Previous | Home |
-|:---------|-----:|
-| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← ADR Template](ADR-TEMPLATE.md) | [Kit Home](../README.md) | [Stage 3 Home →](../03-implementacao/README.md) |

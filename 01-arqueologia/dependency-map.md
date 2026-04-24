@@ -1,12 +1,34 @@
-# Program Dependency Map - SIFAP Legacy
+---
+title: "Program Dependency Map"
+description: "Call graph and data flow for SIFAP legacy Natural programs"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
+date: "2026-04-24"
+version: "1.1.0"
+status: "approved"
+tags: ["stage-1", "dependencies", "call-graph", "data-flow"]
+---
 
-**Document**: Call graph and data flow for SIFAP programs
-**Stage**: 1 - Archaeology
-**Date**: 28/04/2026
+# 🗺️ Program Dependency Map — SIFAP Legacy
+
+> Visual and textual mapping of program dependencies, call hierarchies, and data flows in legacy SIFAP.
 
 ---
 
-## Program Call Hierarchy
+## 📑 Table of Contents
+
+1. [📊 Program Call Hierarchy](#program-call-hierarchy)
+2. [🔄 Data Flow Diagram](#data-flow-diagram)
+3. [📦 Data Entities and DDMs](#data-entities-and-ddms)
+4. [📋 Program Matrix: Dependencies](#program-matrix-dependencies)
+5. [🔗 External System Integrations](#external-system-integrations)
+6. [⏱️ Call Frequency and Performance Notes](#call-frequency-and-performance-notes)
+7. [🛤️ Critical Paths for Modernization](#critical-paths-for-modernization)
+
+---
+
+---
+
+## 📊 Program Call Hierarchy
 
 ### Entry Point Programs (User-Facing)
 
@@ -45,7 +67,7 @@
 
 ---
 
-## Data Flow Diagram
+## 🔄 Data Flow Diagram
 
 ### Beneficiary Registration Flow
 
@@ -156,7 +178,7 @@ USER DOWNLOAD
 
 ---
 
-## Data Entities and DDMs
+## 📦 Data Entities and DDMs
 
 ### DDM: BENEFIC (Beneficiary Master)
 
@@ -230,7 +252,7 @@ AUDIT (Adabas DDM)
 
 ---
 
-## Program Matrix: Dependencies
+## 📋 Program Matrix: Dependencies
 
 | Program | Calls | Called By | Purpose |
 |---------|-------|-----------|---------|
@@ -246,7 +268,7 @@ AUDIT (Adabas DDM)
 
 ---
 
-## External System Integrations
+## 🔗 External System Integrations
 
 ```
 SIFAP
@@ -266,7 +288,7 @@ SIFAP
 
 ---
 
-## Call Frequency and Performance Notes
+## ⏱️ Call Frequency and Performance Notes
 
 | Program | Daily Calls | Peak Time | Avg Duration |
 |---------|-------------|-----------|--------------|
@@ -277,7 +299,7 @@ SIFAP
 
 ---
 
-## Critical Paths for Modernization
+## 🛤️ Critical Paths for Modernization
 
 ### Path 1: Beneficiary Management
 REGISTBN -> VALIDATE-CPF -> UPDATE-BENEFIC
@@ -294,9 +316,8 @@ GENRPT -> READ-AUDIT/READ-PAYMENTS -> FORMAT-REPORT -> EXPORT-PDF
 
 **Modern equivalent**: ReportController.generate() -> AuditRepository.findByDateRange() -> ReportService.generate() -> PdfExporter.export()
 
-
 ---
 
-| Previous | Home |
-|:---------|-----:|
-| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Business Rules](business-rules-catalog.md) | [Kit Home](../README.md) | [Discovery Report →](discovery-report.md) |

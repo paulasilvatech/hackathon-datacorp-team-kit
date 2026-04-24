@@ -1,12 +1,38 @@
-# ADR-NNN: [Decision Title]
+---
+title: "ADR Template"
+description: "Architecture Decision Record template for SIFAP 2.0 modernization"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
+date: "2026-04-24"
+version: "1.1.0"
+status: "approved"
+tags: ["stage-2", "adr", "architecture", "template"]
+---
 
-**Status**: Proposed | Accepted | Rejected
+# 📝 ADR-NNN: [Decision Title]
 
-**Date**: YYYY-MM-DD
+> Use this template to document major architecture decisions with context, rationale, and consequences.
 
 ---
 
-## Context
+## 📑 Table of Contents
+
+1. [📖 Context](#context)
+2. [⚖️ Decision](#decision)
+3. [💡 Rationale](#rationale)
+4. [📊 Consequences](#consequences)
+5. [🔀 Alternatives Considered](#alternatives-considered)
+6. [🛡️ Risk Mitigation](#risk-mitigation)
+7. [🔗 Reference Links](#reference-links)
+8. [✅ Approval](#approval)
+9. [📝 Revision History](#revision-history)
+10. [⚖️ Notes for Decision Maker](#notes-for-decision-maker)
+11. [📖 Additional Context (Optional)](#additional-context-optional)
+
+---
+
+---
+
+## 📖 Context
 
 **What decision did we need to make?**
 
@@ -21,7 +47,7 @@ Provide background on the problem or challenge that prompted this decision. Incl
 
 ---
 
-## Decision
+## ⚖️ Decision
 
 **What did we decide?**
 
@@ -32,7 +58,7 @@ State the decision clearly and concisely.
 
 ---
 
-## Rationale
+## 💡 Rationale
 
 **Why did we choose this?**
 
@@ -47,7 +73,7 @@ Explain the key reasons for this decision. Reference the business and technical 
 
 ---
 
-## Consequences
+## 📊 Consequences
 
 ### Positive Consequences (What works well)
 
@@ -79,7 +105,7 @@ List recurring costs or efforts.
 
 ---
 
-## Alternatives Considered
+## 🔀 Alternatives Considered
 
 ### Alternative A: [Name]
 
@@ -113,7 +139,7 @@ List recurring costs or efforts.
 
 ---
 
-## Risk Mitigation
+## 🛡️ Risk Mitigation
 
 ### Risk 1: [Risk]
 
@@ -137,7 +163,7 @@ List recurring costs or efforts.
 
 ---
 
-## Reference Links
+## 🔗 Reference Links
 
 - Specification requirement: [Link to REQ-* that this ADR supports]
 - Related ADR: [Link to related decision records]
@@ -150,7 +176,7 @@ List recurring costs or efforts.
 
 ---
 
-## Approval
+## ✅ Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
@@ -160,7 +186,7 @@ List recurring costs or efforts.
 
 ---
 
-## Revision History
+## 📝 Revision History
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
@@ -169,7 +195,7 @@ List recurring costs or efforts.
 
 ---
 
-## Notes for Decision Maker
+## ⚖️ Notes for Decision Maker
 
 **Things to consider**:
 1. Is this decision reversible? (Changing frameworks later is expensive)
@@ -179,7 +205,7 @@ List recurring costs or efforts.
 
 ---
 
-## Additional Context (Optional)
+## 📖 Additional Context (Optional)
 
 Include any additional information that doesn't fit in other sections:
 - Meeting notes from discussion
@@ -187,9 +213,8 @@ Include any additional information that doesn't fit in other sections:
 - Team feedback
 - Customer requirements
 
-
 ---
 
-| Previous | Home |
-|:---------|-----:|
-| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) | [Scope Decisions →](scope-decisions.md) |

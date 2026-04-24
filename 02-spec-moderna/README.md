@@ -1,18 +1,18 @@
 ---
-title: "Stage 2 - Modern Specification"
+title: "Stage 2 — Modern Specification"
 description: "Specification stage: write EARS requirements, create ADRs, and define the modern system architecture"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-23"
-version: "1.0.0"
+date: "2026-04-24"
+version: "1.1.0"
 status: "approved"
 tags: ["stage-2", "specification", "ears", "adr", "hackathon"]
 ---
 
-# Stage 2 - Modern Specification
+# 📋 Stage 2 — Modern Specification
 
 > Write the modernized SIFAP specification using EARS notation, create Architecture Decision Records, and define scope boundaries.
 
-## Contents
+## 📑 Contents
 
 | File | Purpose |
 |------|---------|
@@ -20,14 +20,8 @@ tags: ["stage-2", "specification", "ears", "adr", "hackathon"]
 | `ADR-TEMPLATE.md` | Architecture Decision Record template |
 | `scope-decisions.md` | Scope boundary decisions template |
 
-## Navigation
-
-| Parent | Home |
-|----------|------|
-| [06 - Team Kit](../README.md) | [Workspace Root](../../README.md) |
-
 ---
 
-| Home | Next |
-|:-----|-----:|
-| [← Kit Home](../README.md) | [Stage Guide →](GUIDE.md) |
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Stage 1 Mysteries](../01-arqueologia/mysteries-found.md) | [Kit Home](../README.md) | [Stage Guide →](GUIDE.md) |

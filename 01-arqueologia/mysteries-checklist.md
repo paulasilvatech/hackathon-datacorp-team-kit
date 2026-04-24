@@ -1,14 +1,33 @@
-# Open Mysteries - SIFAP Legacy Archaeology
+---
+title: "Mysteries Checklist"
+description: "Unresolved questions from Stage 1 legacy code exploration"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
+date: "2026-04-24"
+version: "1.1.0"
+status: "approved"
+tags: ["stage-1", "mysteries", "questions", "investigation"]
+---
 
-**Document**: Unresolved questions from Stage 1 exploration
-**Date**: 28/04/2026
-**Status**: Active
+# 🔍 Open Mysteries — SIFAP Legacy Archaeology
 
-> Use this file to track unknowns discovered during code archaeology. Resolve before Stage 2 (specification) begins. Categorize by severity.
+> Track unknowns discovered during code archaeology. Resolve before Stage 2 (specification) begins. Categorize by severity.
 
 ---
 
-## Critical Mysteries (Blocks Stage 2)
+## 📑 Table of Contents
+
+1. [🔍 Critical Mysteries (Blocks Stage 2)](#critical-mysteries-blocks-stage-2)
+2. [🔍 Important Mysteries (Should Clarify Before Stage 3)](#important-mysteries-should-clarify-before-stage-3)
+3. [🔍 Nice-to-Know Mysteries (Can Defer Until After Go-Live)](#nice-to-know-mysteries-can-defer-until-after-go-live)
+4. [📋 Resolution Tracking](#resolution-tracking)
+5. [🔬 Investigation Methods](#investigation-methods)
+6. [➡️ Next Steps](#next-steps)
+
+---
+
+---
+
+## 🔍 Critical Mysteries (Blocks Stage 2)
 
 These questions must be answered before architecture decisions can be made.
 
@@ -92,7 +111,7 @@ These questions must be answered before architecture decisions can be made.
 
 ---
 
-## Important Mysteries (Should Clarify Before Stage 3)
+## 🔍 Important Mysteries (Should Clarify Before Stage 3)
 
 These should be resolved to avoid surprises during implementation.
 
@@ -176,7 +195,7 @@ These should be resolved to avoid surprises during implementation.
 
 ---
 
-## Nice-to-Know Mysteries (Can Defer Until After Go-Live)
+## 🔍 Nice-to-Know Mysteries (Can Defer Until After Go-Live)
 
 These are interesting but not blocking.
 
@@ -218,7 +237,7 @@ These are interesting but not blocking.
 
 ---
 
-## Resolution Tracking
+## 📋 Resolution Tracking
 
 | Mystery ID | Status | Resolved By | Resolution Date | Answer |
 |---|---|---|---|---|
@@ -236,7 +255,7 @@ These are interesting but not blocking.
 
 ---
 
-## Investigation Methods
+## 🔬 Investigation Methods
 
 ### Method 1: Code Reading
 
@@ -278,7 +297,7 @@ Review AUDIT.DDM for patterns of operations or edge cases.
 
 ---
 
-## Next Steps
+## ➡️ Next Steps
 
 1. **Assign investigators** to each critical mystery (M-001 through M-008)
 2. **Schedule interviews** with legacy admin and business stakeholders
@@ -286,9 +305,8 @@ Review AUDIT.DDM for patterns of operations or edge cases.
 4. **Document findings** in discovery-report.md
 5. **Update SPECIFICATION.md** with resolved business rules
 
-
 ---
 
-| Previous | Home |
-|:---------|-----:|
-| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Discovery Report](discovery-report.md) | [Kit Home](../README.md) | [Mysteries Found →](mysteries-found.md) |

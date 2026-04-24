@@ -1,9 +1,9 @@
 ---
-title: "Stage 2 - Modern Spec"
+title: "Stage 2 — Modern Spec Guide"
 description: "Guide for writing EARS specifications and architecture decisions for modernized SIFAP"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-23"
-version: "1.1.0"
+date: "2026-04-24"
+version: "1.2.0"
 status: "approved"
 tags: ["stage-2", "specification", "architecture", "design", "adr"]
 ---
@@ -396,4 +396,8 @@ At the end of Stage 2, you must have:
 |---|---|---|
 | [Stage 1: Archaeology](../01-arqueologia/GUIDE.md) | [Kit README](../README.md) | [Stage 3: Implementation](../03-implementacao/GUIDE.md) |
 
-> Authorship: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
+---
+
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Stage Home](README.md) | [Kit Home](../README.md) | [ADR Template →](ADR-TEMPLATE.md) |

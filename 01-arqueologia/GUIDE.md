@@ -1,9 +1,9 @@
 ---
-title: "Stage 1 - Archaeology"
+title: "Stage 1 — Archaeology Guide"
 description: "Guide for discovering legacy SIFAP domain through code exploration and systematic documentation"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-23"
-version: "1.1.0"
+date: "2026-04-24"
+version: "1.2.0"
 status: "approved"
 tags: ["stage-1", "archaeology", "discovery", "legacy", "natural", "adabas"]
 ---
@@ -426,10 +426,8 @@ At the end of Stage 1, you must deliver:
 |---|---|
 | [Kit README](../README.md) | [Stage 2: Modern Spec](../02-spec-moderna/GUIDE.md) |
 
-> Authorship: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
-
 ---
 
 | Previous | Home | Next |
 |:---------|:----:|-----:|
-| [← Stage Home](README.md) | [Kit Home](../README.md) | [Stage 2: Modern Spec →](../02-spec-moderna/GUIDE.md) |
+| [← Stage Home](README.md) | [Kit Home](../README.md) | [Glossary →](glossary.md) |

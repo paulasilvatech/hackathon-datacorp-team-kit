@@ -1,13 +1,33 @@
-# Business Rules Catalog - SIFAP Legacy
+---
+title: "Business Rules Catalog"
+description: "Extracted business rules from SIFAP legacy Natural programs and Adabas DDMs"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
+date: "2026-04-24"
+version: "1.1.0"
+status: "approved"
+tags: ["stage-1", "business-rules", "legacy", "analysis"]
+---
 
-**Document**: SIFAP Legacy System Business Rules
-**Stage**: 1 - Archaeology
-**Date**: 28/04/2026
-**Status**: Draft
+# 📋 Business Rules Catalog — SIFAP Legacy
+
+> Complete catalog of business rules extracted during Stage 1 archaeology, traced to source programs.
 
 ---
 
-## Beneficiary Rules (BR-BEN-*)
+## 📑 Table of Contents
+
+1. [👤 Beneficiary Rules (BR-BEN-*)](#beneficiary-rules-br-ben-)
+2. [💳 Payment Rules (BR-PAY-*)](#payment-rules-br-pay-)
+3. [🔒 Audit Rules (BR-AUD-*)](#audit-rules-br-aud-)
+4. [🧮 Calculation Rules (BR-CALC-*)](#calculation-rules-br-calc-)
+5. [✅ Data Validation Rules (BR-VAL-*)](#data-validation-rules-br-val-)
+6. [📊 Summary](#summary)
+
+---
+
+---
+
+## 👤 Beneficiary Rules (BR-BEN-*)
 
 ### BR-BEN-001: CPF Validation with Modulo-11
 
@@ -74,7 +94,7 @@ END-IF
 
 ---
 
-## Payment Rules (BR-PAY-*)
+## 💳 Payment Rules (BR-PAY-*)
 
 ### BR-PAY-001: Discount Ceiling (30% Non-Judicial)
 
@@ -152,7 +172,7 @@ END-IF
 
 ---
 
-## Audit Rules (BR-AUD-*)
+## 🔒 Audit Rules (BR-AUD-*)
 
 ### BR-AUD-001: Immutable Audit Trail
 
@@ -190,7 +210,7 @@ END-IF
 
 ---
 
-## Calculation Rules (BR-CALC-*)
+## 🧮 Calculation Rules (BR-CALC-*)
 
 ### BR-CALC-001: 13th Month Bonus
 
@@ -238,7 +258,7 @@ END-IF
 
 ---
 
-## Data Validation Rules (BR-VAL-*)
+## ✅ Data Validation Rules (BR-VAL-*)
 
 ### BR-VAL-001: Email Format (if applicable)
 
@@ -253,7 +273,7 @@ END-IF
 
 ---
 
-## Summary
+## 📊 Summary
 
 **Total Rules Documented**: 13
 - Beneficiary rules: 3
@@ -265,9 +285,8 @@ END-IF
 
 **Critical for Modernization**: BR-BEN-001, BR-BEN-002, BR-PAY-001, BR-PAY-002, BR-PAY-003, BR-CALC-001
 
-
 ---
 
-| Previous | Home |
-|:---------|-----:|
-| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Glossary](glossary.md) | [Kit Home](../README.md) | [Dependency Map →](dependency-map.md) |

@@ -1,12 +1,36 @@
-# SIFAP Domain Glossary
+---
+title: "SIFAP Domain Glossary"
+description: "Portuguese-to-English domain terms and entity mappings for SIFAP legacy system"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
+date: "2026-04-24"
+version: "1.1.0"
+status: "approved"
+tags: ["stage-1", "glossary", "domain", "legacy", "terminology"]
+---
 
-**Document**: SIFAP Legacy System - Portuguese to English Domain Terms
-**Stage**: 1 - Archaeology
-**Date**: 28/04/2026
+# 📖 SIFAP Domain Glossary
+
+> Comprehensive glossary mapping legacy SIFAP domain terms to modern equivalents.
 
 ---
 
-## Entities
+## 📑 Table of Contents
+
+1. [📦 Entities](#entities)
+2. [💰 Benefit Types](#benefit-types)
+3. [🏷️ Discount Types (Desconto Types)](#discount-types-desconto-types)
+4. [🔄 Status Codes](#status-codes)
+5. [⏰ Cycles and Time Concepts](#cycles-and-time-concepts)
+6. [⚙️ Operational Terms](#operational-terms)
+7. [✅ Validation Concepts](#validation-concepts)
+8. [🗄️ Archival and Retention](#archival-and-retention)
+9. [📊 Summary Table: Portuguese to English Mapping](#summary-table-portuguese-to-english-mapping)
+
+---
+
+---
+
+## 📦 Entities
 
 ### Beneficiary (Beneficiário)
 
@@ -90,7 +114,7 @@
 
 ---
 
-## Benefit Types
+## 💰 Benefit Types
 
 ### Type: R (Regular Benefit / Benefício Regular)
 
@@ -127,7 +151,7 @@
 
 ---
 
-## Discount Types (Desconto Types)
+## 🏷️ Discount Types (Desconto Types)
 
 ### Type: C (CPMF / Contribuição Previdenciária)
 
@@ -215,7 +239,7 @@
 
 ---
 
-## Status Codes
+## 🔄 Status Codes
 
 ### Beneficiary Status
 
@@ -238,7 +262,7 @@
 
 ---
 
-## Cycles and Time Concepts
+## ⏰ Cycles and Time Concepts
 
 ### Ciclo de Pagamento (Payment Cycle)
 
@@ -276,7 +300,7 @@ END
 
 ---
 
-## Operational Terms
+## ⚙️ Operational Terms
 
 ### Operador (Operator / Operador de Pagamento)
 
@@ -308,7 +332,7 @@ END
 
 ---
 
-## Validation Concepts
+## ✅ Validation Concepts
 
 ### Validação de CPF (CPF Validation)
 
@@ -336,7 +360,7 @@ END
 
 ---
 
-## Archival and Retention
+## 🗄️ Archival and Retention
 
 ### Arquivamento de Dados (Data Archival)
 
@@ -348,7 +372,7 @@ END
 
 ---
 
-## Summary Table: Portuguese to English Mapping
+## 📊 Summary Table: Portuguese to English Mapping
 
 | Portuguese | English | Category | Modern Equivalent |
 |---|---|---|---|
@@ -368,9 +392,8 @@ END
 | Auditor | Auditor | Role | `ROLE_AUDITOR` |
 | Gestor | Administrator | Role | `ROLE_ADMIN` |
 
-
 ---
 
-| Previous | Home |
-|:---------|-----:|
-| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) | [Business Rules →](business-rules-catalog.md) |

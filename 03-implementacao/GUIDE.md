@@ -1,9 +1,9 @@
 ---
-title: "Stage 3 - Implementation"
+title: "Stage 3 — Implementation Guide"
 description: "Guide for building SIFAP 2.0 backend and frontend from specification"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-23"
-version: "1.1.0"
+date: "2026-04-24"
+version: "1.2.0"
 status: "approved"
 tags: ["stage-3", "implementation", "backend", "frontend", "java", "nextjs"]
 ---
@@ -693,4 +693,8 @@ At end of Stage 3, you must have:
 |---|---|---|
 | [Stage 2: Modern Spec](../02-spec-moderna/GUIDE.md) | [Kit README](../README.md) | [Stage 4: Evolution](../04-evolucao/GUIDE.md) |
 
-> Authorship: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
+---
+
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Stage Home](README.md) | [Kit Home](../README.md) | [Stage 4 Home →](../04-evolucao/README.md) |

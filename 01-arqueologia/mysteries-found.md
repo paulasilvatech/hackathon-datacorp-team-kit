@@ -1,14 +1,30 @@
-# Mysteries Found and Resolved - SIFAP Legacy
+---
+title: "Mysteries Found and Resolved"
+description: "Resolutions to mysteries discovered during Stage 1 archaeology"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
+date: "2026-04-24"
+version: "1.1.0"
+status: "approved"
+tags: ["stage-1", "mysteries", "resolutions", "answers"]
+---
 
-**Document**: Resolutions to mysteries discovered during Stage 1
-**Date**: 28/04/2026
-**Status**: In Progress
+# ✅ Mysteries Found and Resolved — SIFAP Legacy
 
 > As mysteries are investigated and resolved, document the answer here with source and date.
 
 ---
 
-## Format
+## 📑 Table of Contents
+
+1. [📝 Format](#format)
+2. [✅ Resolutions](#resolutions)
+3. [📊 Summary](#summary)
+
+---
+
+---
+
+## 📝 Format
 
 For each resolved mystery, include:
 
@@ -28,7 +44,7 @@ For each resolved mystery, include:
 
 ---
 
-## Resolutions
+## ✅ Resolutions
 
 ### M-001: Payment Record Archival Strategy
 
@@ -126,16 +142,15 @@ For each resolved mystery, include:
 
 ---
 
-## Summary
+## 📊 Summary
 
 **Total Mysteries**: 8 critical
 **Resolved**: 0
 **Pending**: 8
 **Target Resolution Date**: 28/04/2026 EOD
 
-
 ---
 
-| Previous | Home |
-|:---------|-----:|
-| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Mysteries Checklist](mysteries-checklist.md) | [Kit Home](../README.md) | [Stage 2 Home →](../02-spec-moderna/README.md) |
