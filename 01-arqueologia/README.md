@@ -1,7 +1,7 @@
 ---
 title: "Stage 1 - Archaeology"
 description: "Legacy code analysis stage: explore SIFAP Natural programs, extract business rules, and build domain glossary"
-author: "Paula Silva, Americas Software GBB, Microsoft"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-23"
 version: "1.0.0"
 status: "approved"

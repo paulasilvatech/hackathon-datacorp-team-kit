@@ -41,11 +41,8 @@ Você está modernizando o sistema **SIFAP** (Sistema de Fiscalização e Admini
 2. **Edits** - para implementar multi-arquivo
 3. **Agent** - para features autônomas completas
 
-## Referencias
+## Referências
 
-Materiais de referencia sao disponibilizados pelos facilitadores no inicio do evento:
-
-- Specky SDD (plugin)
-- Cenario SIFAP Legado (bundle entregue na Etapa 1, coloque em `02-cenario-sifap-legado/`)
-- Spec SIFAP 2.0 de referencia
-- Prototipo SIFAP 2.0 de referencia
+- [Specky SDD Plugin](../../apm_modules/paulasilvatech/specky/README.md)
+- [SIFAP Legado](../../02-cenario-sifap-legado/)
+- [Spec SIFAP 2.0](../../03-spec-sifap-moderno/SPECIFICATION.md)

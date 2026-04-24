@@ -1,10 +1,10 @@
 ---
 title: "Cheat Sheet - Specky SDD v3.4"
 description: "Uma pagina. Pipeline SDD, 6 padroes EARS, agents e comandos do Specky v3.4."
-author: "Paula Silva"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-22"
 version: "2.0.0"
-tags: ["cheat-sheet", "specky", "SDD", "EARS", "hackathon", "DATACORP"]
+tags: ["cheat-sheet", "specky", "SDD", "EARS", "hackathon", "SERPRO"]
 ---
 
 # Specky SDD v3.4 - Cheat Sheet

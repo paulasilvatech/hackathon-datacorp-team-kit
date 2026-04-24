@@ -1,7 +1,7 @@
 ---
 title: "Estagio 4 - Evolucao com Agentes"
 description: "Guia para usar GitHub Copilot Agent Mode e Terraform para evoluir o SIFAP 2.0"
-author: "Paula Silva, Americas Software GBB, Microsoft"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-23"
 version: "1.1.0"
 status: "approved"
@@ -299,4 +299,4 @@ O Agent e tao bom quanto a Issue que voce escreve. Gaste **mais tempo na Issue**
 |---|---|---|
 | [Estagio 3: Implementacao](../03-implementacao/GUIDE.md) | [README do kit](../README.md) | [Cheat Sheets](../cheat-sheets/README.md) |
 
-> Autoria: Paula Silva, Americas Software GBB, Microsoft.
+> Autoria: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.

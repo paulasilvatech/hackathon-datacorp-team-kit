@@ -1,10 +1,10 @@
 ---
 title: "Cheat Sheet - Roteamento de Modelos Claude no Copilot"
 description: "Uma página. Quando usar Claude Haiku 4.5, Sonnet 4.6 ou Opus 4.6 dentro do GitHub Copilot. Regras simples, casos típicos."
-author: "Paula Silva"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
-tags: ["cheat-sheet", "copilot", "claude", "model-routing", "hackathon", "DATACORP"]
+tags: ["cheat-sheet", "copilot", "claude", "model-routing", "hackathon", "SERPRO"]
 ---
 
 # Roteamento de Modelos Claude - Cheat Sheet

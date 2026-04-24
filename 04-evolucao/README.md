@@ -1,7 +1,7 @@
 ---
 title: "Stage 4 - Evolution"
 description: "Evolution stage: add IaC, CI/CD pipeline, and iterate with agentic workflows"
-author: "Paula Silva, Americas Software GBB, Microsoft"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-23"
 version: "1.0.0"
 status: "approved"

@@ -1,6 +1,6 @@
 ---
 title: Shared Plugins
-author: "Paula Silva, Americas Software GBB, Microsoft"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 version: 1.0.0
 last_updated: 2026-04-23
 ---

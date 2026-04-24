@@ -1,7 +1,7 @@
 ---
 title: "Estagio 3 - Implementacao"
 description: "Guia para implementar o SIFAP 2.0 usando o prototipo como base"
-author: "Paula Silva, Americas Software GBB, Microsoft"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-23"
 version: "1.1.0"
 status: "approved"
@@ -324,4 +324,4 @@ Nao tente implementar tudo. Foque em **qualidade sobre quantidade**. Um endpoint
 |---|---|---|
 | [Estagio 2: Spec Moderna](../02-spec-moderna/GUIDE.md) | [README do kit](../README.md) | [Estagio 4: Evolucao](../04-evolucao/GUIDE.md) |
 
-> Autoria: Paula Silva, Americas Software GBB, Microsoft.
+> Autoria: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.

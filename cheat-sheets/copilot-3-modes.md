@@ -1,10 +1,10 @@
 ---
 title: "Cheat Sheet - GitHub Copilot nos 3 Modos"
 description: "Uma página. Quando usar Chat, Edits ou Agent. Frases que funcionam. Erros típicos."
-author: "Paula Silva"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
-tags: ["cheat-sheet", "copilot", "hackathon", "DATACORP"]
+tags: ["cheat-sheet", "copilot", "hackathon", "SERPRO"]
 ---
 
 # GitHub Copilot nos 3 Modos - Cheat Sheet

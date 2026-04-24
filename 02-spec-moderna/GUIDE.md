@@ -1,7 +1,7 @@
 ---
 title: "Estagio 2 - Especificacao Moderna"
 description: "Guia para criar especificacao tecnica usando EARS, ADRs e C4"
-author: "Paula Silva, Americas Software GBB, Microsoft"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-23"
 version: "1.1.0"
 status: "approved"
@@ -418,4 +418,4 @@ Nao tente reinventar a roda. A especificacao de referencia em `03-spec-sifap-mod
 |---|---|---|
 | [Estagio 1: Arqueologia](../01-arqueologia/GUIDE.md) | [README do kit](../README.md) | [Estagio 3: Implementacao](../03-implementacao/GUIDE.md) |
 
-> Autoria: Paula Silva, Americas Software GBB, Microsoft.
+> Autoria: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.

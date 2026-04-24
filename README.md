@@ -1,7 +1,7 @@
 ---
 title: "Team Repository Kit"
 description: "Starter kit for hackathon team repositories with narrative context, personas, stage guides, cheat sheets, and visual assets"
-author: "Paula Silva, Americas Software GBB, Microsoft"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-23"
 version: "1.2.0"
 status: "approved"
@@ -222,4 +222,4 @@ Reference materials live in the main event repository and are shared by facilita
 |---|---|---|
 | [Main event repo](https://github.com/paulasilvatech/hackathon-datacorp) | This kit | [Stage 1: Archaeology](01-arqueologia/GUIDE.md) |
 
-> Authored by Paula Silva, Americas Software GBB, Microsoft. Version 1.2.0, April 2026.
+> Authored by Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft. Version 1.2.0, April 2026.

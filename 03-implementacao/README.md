@@ -1,7 +1,7 @@
 ---
 title: "Stage 3 - Implementation"
 description: "Implementation stage: build the backend, frontend, and database prototype using Copilot Agent"
-author: "Paula Silva, Americas Software GBB, Microsoft"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-23"
 version: "1.0.0"
 status: "approved"

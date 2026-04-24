@@ -1,7 +1,7 @@
 ---
 title: "Cheat Sheets - Team Kit"
 description: "Quick-reference cards for hackathon participants covering Copilot modes, Specky workflow, and model routing"
-author: "Paula Silva, Americas Software GBB, Microsoft"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-23"
 version: "1.1.0"
 status: "approved"
@@ -66,4 +66,4 @@ The SIFAP modernization journey moves fast. Teams do not have time to scroll thr
 |---|---|---|
 | [Stage 4: Evolution](../04-evolucao/GUIDE.md) | [Kit README](../README.md) | [Design System](../design-system/README.md) |
 
-> Author: Paula Silva, Americas Software GBB, Microsoft.
+> Author: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.

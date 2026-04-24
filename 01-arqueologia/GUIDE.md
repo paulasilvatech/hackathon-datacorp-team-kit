@@ -1,7 +1,7 @@
 ---
 title: "Estagio 1 - Arqueologia Digital"
 description: "Guia passo a passo para analise arqueologica do sistema SIFAP legado"
-author: "Paula Silva, Americas Software GBB, Microsoft"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-23"
 version: "1.1.0"
 status: "approved"
@@ -170,4 +170,4 @@ Seu time e avaliado na rubrica (dimensao A1) pela quantidade e qualidade dos mis
 |---|---|---|
 | [README do kit](../README.md) | [README do kit](../README.md) | [Estagio 2: Spec Moderna](../02-spec-moderna/GUIDE.md) |
 
-> Autoria: Paula Silva, Americas Software GBB, Microsoft.
+> Autoria: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
