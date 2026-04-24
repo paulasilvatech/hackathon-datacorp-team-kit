@@ -60,10 +60,10 @@ The SIFAP modernization journey moves fast. Teams do not have time to scroll thr
 
 ---
 
-## 🧭 Navigation
+## Navigation
 
-| ⬅️ Previous | 🏠 Home | ➡️ Next |
+| Previous | Home | Next |
 |---|---|---|
-| [🚀 Stage 4: Evolution](../04-evolucao/GUIDE.md) | [Kit README](../README.md) | [🎨 Design System](../design-system/README.md) |
+| [Stage 4: Evolution](../04-evolucao/GUIDE.md) | [Kit README](../README.md) | [Design System](../design-system/README.md) |
 
 > Author: Paula Silva, Americas Software GBB, Microsoft.

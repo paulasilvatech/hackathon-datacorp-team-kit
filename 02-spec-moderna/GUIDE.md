@@ -412,10 +412,10 @@ Nao tente reinventar a roda. A especificacao de referencia em `03-spec-sifap-mod
 
 ---
 
-## 🧭 Navegacao
+## Navegacao
 
-| ⬅️ Anterior | 🏠 Home | ➡️ Proximo |
+| Anterior | Home | Proximo |
 |---|---|---|
-| [🔍 Estagio 1: Arqueologia](../01-arqueologia/GUIDE.md) | [README do kit](../README.md) | [💻 Estagio 3: Implementacao](../03-implementacao/GUIDE.md) |
+| [Estagio 1: Arqueologia](../01-arqueologia/GUIDE.md) | [README do kit](../README.md) | [Estagio 3: Implementacao](../03-implementacao/GUIDE.md) |
 
 > Autoria: Paula Silva, Americas Software GBB, Microsoft.

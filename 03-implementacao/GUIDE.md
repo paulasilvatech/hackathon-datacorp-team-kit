@@ -318,10 +318,10 @@ Nao tente implementar tudo. Foque em **qualidade sobre quantidade**. Um endpoint
 
 ---
 
-## 🧭 Navegacao
+## Navegacao
 
-| ⬅️ Anterior | 🏠 Home | ➡️ Proximo |
+| Anterior | Home | Proximo |
 |---|---|---|
-| [📜 Estagio 2: Spec Moderna](../02-spec-moderna/GUIDE.md) | [README do kit](../README.md) | [🚀 Estagio 4: Evolucao](../04-evolucao/GUIDE.md) |
+| [Estagio 2: Spec Moderna](../02-spec-moderna/GUIDE.md) | [README do kit](../README.md) | [Estagio 4: Evolucao](../04-evolucao/GUIDE.md) |
 
 > Autoria: Paula Silva, Americas Software GBB, Microsoft.

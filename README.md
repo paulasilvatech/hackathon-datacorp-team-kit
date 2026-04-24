@@ -216,10 +216,10 @@ Reference materials live in the main event repository and are shared by facilita
 
 ---
 
-## 🧭 Navigation
+## Navigation
 
-| ⬅️ Previous | 🏠 Home | ➡️ Next |
+| Previous | Home | Next |
 |---|---|---|
-| [Main event repo](https://github.com/paulasilvatech/hackathon-datacorp) | This kit | [🔍 Stage 1: Archaeology](01-arqueologia/GUIDE.md) |
+| [Main event repo](https://github.com/paulasilvatech/hackathon-datacorp) | This kit | [Stage 1: Archaeology](01-arqueologia/GUIDE.md) |
 
 > Authored by Paula Silva, Americas Software GBB, Microsoft. Version 1.2.0, April 2026.

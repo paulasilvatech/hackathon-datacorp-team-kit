@@ -144,10 +144,10 @@ Step by step:
 
 ---
 
-## 🧭 Navigation
+## Navigation
 
-| ⬅️ Previous | 🏠 Home | ➡️ Next |
+| Previous | Home | Next |
 |---|---|---|
-| [🎨 Design System](../design-system/README.md) | [Kit README](../README.md) | [🔍 Stage 1: Archaeology](../01-arqueologia/GUIDE.md) |
+| [Design System](../design-system/README.md) | [Kit README](../README.md) | [Stage 1: Archaeology](../01-arqueologia/GUIDE.md) |
 
 > Author: Paula Silva, Americas Software GBB, Microsoft.

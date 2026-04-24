@@ -293,10 +293,10 @@ O Agent e tao bom quanto a Issue que voce escreve. Gaste **mais tempo na Issue**
 
 ---
 
-## 🧭 Navegacao
+## Navegacao
 
-| ⬅️ Anterior | 🏠 Home | 🎬 Final |
+| Anterior | Home | Final |
 |---|---|---|
-| [💻 Estagio 3: Implementacao](../03-implementacao/GUIDE.md) | [README do kit](../README.md) | [🧾 Cheat Sheets](../cheat-sheets/README.md) |
+| [Estagio 3: Implementacao](../03-implementacao/GUIDE.md) | [README do kit](../README.md) | [Cheat Sheets](../cheat-sheets/README.md) |
 
 > Autoria: Paula Silva, Americas Software GBB, Microsoft.

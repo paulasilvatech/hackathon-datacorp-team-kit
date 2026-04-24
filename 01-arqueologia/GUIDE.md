@@ -164,10 +164,10 @@ Seu time e avaliado na rubrica (dimensao A1) pela quantidade e qualidade dos mis
 
 ---
 
-## 🧭 Navegacao
+## Navegacao
 
-| ⬅️ Anterior | 🏠 Home | ➡️ Proximo |
+| Anterior | Home | Proximo |
 |---|---|---|
-| [README do kit](../README.md) | [README do kit](../README.md) | [📜 Estagio 2: Spec Moderna](../02-spec-moderna/GUIDE.md) |
+| [README do kit](../README.md) | [README do kit](../README.md) | [Estagio 2: Spec Moderna](../02-spec-moderna/GUIDE.md) |
 
 > Autoria: Paula Silva, Americas Software GBB, Microsoft.

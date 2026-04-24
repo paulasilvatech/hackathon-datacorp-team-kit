@@ -7,7 +7,7 @@ last_updated: 2026-04-23
 
 # Shared Plugins
 
-[← Persona Kits](../persona-kits/) | [🏠 Kit Home](../) | [Next: Cheat Sheets →](../cheat-sheets/)
+[Persona Kits](../persona-kits/) | [Kit Home](../) | [Next: Cheat Sheets](../cheat-sheets/)
 
 ## What lives here
 
@@ -58,4 +58,4 @@ Every plugin follows these non-negotiables:
 
 ## Navigation
 
-[← Persona Kits](../persona-kits/) | [🏠 Kit Home](../) | [Next: Cheat Sheets →](../cheat-sheets/)
+[Persona Kits](../persona-kits/) | [Kit Home](../) | [Next: Cheat Sheets](../cheat-sheets/)
