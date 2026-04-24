@@ -27,7 +27,7 @@ tags: ["cheat-sheet", "copilot", "specky", "model-routing", "hackathon"]
 
 ---
 
-## �� Why Cheat Sheets
+## 💡 Why Cheat Sheets
 
 The SIFAP modernization journey moves fast. Teams do not have time to scroll through docs while pairing with Copilot. These printable cards answer the three questions we see every hackathon:
 
