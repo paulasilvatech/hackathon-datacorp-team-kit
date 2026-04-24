@@ -2,8 +2,8 @@
 title: "Team Repository Kit"
 description: "Starter kit for hackathon team repositories with narrative context, personas, stage guides, cheat sheets, and visual assets"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-23"
-version: "1.2.0"
+date: "2026-04-24"
+version: "1.3.0"
 status: "approved"
 tags: ["kit", "teams", "templates", "hackathon", "datacorp"]
 ---
@@ -14,7 +14,20 @@ tags: ["kit", "teams", "templates", "hackathon", "datacorp"]
   <img src="assets/hero-sifap-journey.svg" alt="The SIFAP Journey: 30 years of legacy, 1 day to modernize" width="100%"/>
 </p>
 
+<h3 align="center">Hackathon DATACORP 2026 — Team Starter Kit</h3>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/status-approved-brightgreen" alt="status: approved"/>
+  <img src="https://img.shields.io/badge/version-1.3.0-blue" alt="version: 1.3.0"/>
+  <img src="https://img.shields.io/badge/personas-25-orange" alt="personas: 25"/>
+  <img src="https://img.shields.io/badge/stages-4-blue" alt="stages: 4"/>
+  <img src="https://img.shields.io/badge/event-April%2028%202026-green" alt="event: April 28 2026"/>
+  <img src="https://img.shields.io/badge/use-internal-gray" alt="use: internal"/>
+</p>
+
 > **📍 Start here** if you are a hackathon participant. Read the SIFAP story below, open your persona kit in `persona-kits/<your-role>/README.md`, then go to Stage 1 at `01-arqueologia/GUIDE.md`.
+
+[The SIFAP Story](#-the-sifap-story) · [Your Mission](#-your-mission-in-8-hours) · [Your Team](#-your-team) · [Stage Flow](#%EF%B8%8F-the-four-stage-journey) · [Getting Started](#-how-to-use-this-kit)
 
 ---
 
@@ -28,7 +41,8 @@ tags: ["kit", "teams", "templates", "hackathon", "datacorp"]
 6. [From Legacy to Modern](#%EF%B8%8F-from-legacy-to-modern)
 7. [Folder Structure](#-folder-structure)
 8. [How to Use This Kit](#%EF%B8%8F-how-to-use-this-kit)
-9. [References](#-references)
+9. [Related Repositories](#-related-repositories)
+10. [References](#-references)
 
 ---
 
@@ -203,6 +217,15 @@ cat 01-arqueologia/GUIDE.md
 
 ---
 
+## 🔗 Related Repositories
+
+| Repository | Purpose |
+|-----------|---------|
+| [hackathon-datacorp](https://github.com/paulasilvatech/hackathon-datacorp) | 📋 Event blueprint, legacy scenario, specs, prototype, infra, playbook |
+| [hackathon-datacorp-team-kit](https://github.com/paulasilvatech/hackathon-datacorp-team-kit) | 🎒 This repository — team starter kit |
+
+---
+
 ## 📚 References
 
 Reference materials live in the main event repository and are shared by facilitators.
@@ -222,4 +245,4 @@ Reference materials live in the main event repository and are shared by facilita
 |---|---|---|
 | [Main event repo](https://github.com/paulasilvatech/hackathon-datacorp) | This kit | [Stage 1: Archaeology](01-arqueologia/GUIDE.md) |
 
-> Authored by Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft. Version 1.2.0, April 2026.
+> Authored by Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft. Version 1.3.0, April 2026.
