@@ -1,60 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
-  <defs>
-    <linearGradient id="s1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#4338ca"/></linearGradient>
-    <linearGradient id="s2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#1e40af"/></linearGradient>
-    <linearGradient id="s3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#059669"/><stop offset="1" stop-color="#065f46"/></linearGradient>
-    <linearGradient id="s4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ea580c"/><stop offset="1" stop-color="#9a3412"/></linearGradient>
-  </defs>
-  <rect width="1200" height="360" fill="#f8fafc"/>
-  <text x="600" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">The 4 stage journey: 8 hours from legacy to modern</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="Inter, system-ui, sans-serif">
+  <rect width="1200" height="480" fill="#F7F7F5"/>
 
-  <g transform="translate(40,90)">
-    <rect width="260" height="220" rx="14" fill="url(#s1)"/>
-    <text x="130" y="38" text-anchor="middle" font-size="13" fill="#c7d2fe" font-weight="600">STAGE 1 / 3 hours</text>
-    <text x="130" y="70" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">Archaeology</text>
-    <text x="130" y="110" text-anchor="middle" font-size="13" fill="#e0e7ff">Explore SIFAP legacy</text>
-    <text x="130" y="130" text-anchor="middle" font-size="13" fill="#e0e7ff">Map dependencies</text>
-    <text x="130" y="150" text-anchor="middle" font-size="13" fill="#e0e7ff">Extract business rules</text>
-    <text x="130" y="170" text-anchor="middle" font-size="13" fill="#e0e7ff">Find the mysteries</text>
-    <text x="130" y="200" text-anchor="middle" font-size="12" fill="#a5b4fc">Copilot Chat and Claude</text>
+  <text x="60" y="60" fill="#737373" font-family="JetBrains Mono, monospace" font-size="16" font-weight="500" letter-spacing="1.9">DAY 2 · STAGE FLOW</text>
+  <text x="60" y="110" fill="#1A1A1A" font-size="42" font-weight="500" letter-spacing="-0.8">Four stages, one narrative arc</text>
+  <text x="60" y="148" fill="#737373" font-size="20">From exploring the legacy to evolving the modern system with agents</text>
+
+  <g transform="translate(60, 200)">
+    <rect width="260" height="240" fill="#FFFFFF" stroke="#E5E5E0" stroke-width="1"/>
+    <rect x="0" y="0" width="260" height="6" fill="#F25022"/>
+    <text x="24" y="48" fill="#B33816" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" letter-spacing="1.2">ESTAGIO 01</text>
+    <text x="24" y="110" fill="#F25022" font-size="72" font-weight="300" letter-spacing="-3">01</text>
+    <text x="24" y="150" fill="#1A1A1A" font-size="22" font-weight="500">Arqueologia</text>
+    <text x="24" y="174" fill="#1A1A1A" font-size="22" font-weight="500">Digital</text>
+    <text x="24" y="210" fill="#737373" font-size="14">Read the legacy.</text>
+    <text x="24" y="228" fill="#737373" font-size="14">Map business rules.</text>
   </g>
 
-  <g transform="translate(320,90)">
-    <rect width="260" height="220" rx="14" fill="url(#s2)"/>
-    <text x="130" y="38" text-anchor="middle" font-size="13" fill="#bfdbfe" font-weight="600">STAGE 2 / 2 hours</text>
-    <text x="130" y="70" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">Modern spec</text>
-    <text x="130" y="110" text-anchor="middle" font-size="13" fill="#dbeafe">Write EARS requirements</text>
-    <text x="130" y="130" text-anchor="middle" font-size="13" fill="#dbeafe">Capture ADRs</text>
-    <text x="130" y="150" text-anchor="middle" font-size="13" fill="#dbeafe">Design diagrams</text>
-    <text x="130" y="170" text-anchor="middle" font-size="13" fill="#dbeafe">Break into tasks</text>
-    <text x="130" y="200" text-anchor="middle" font-size="12" fill="#93c5fd">Specky SDD pipeline</text>
+  <g transform="translate(340, 200)">
+    <rect width="260" height="240" fill="#FFFFFF" stroke="#E5E5E0" stroke-width="1"/>
+    <rect x="0" y="0" width="260" height="6" fill="#00A4EF"/>
+    <text x="24" y="48" fill="#0076AC" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" letter-spacing="1.2">ESTAGIO 02</text>
+    <text x="24" y="110" fill="#00A4EF" font-size="72" font-weight="300" letter-spacing="-3">02</text>
+    <text x="24" y="150" fill="#1A1A1A" font-size="22" font-weight="500">Spec</text>
+    <text x="24" y="174" fill="#1A1A1A" font-size="22" font-weight="500">Moderna</text>
+    <text x="24" y="210" fill="#737373" font-size="14">Write EARS requirements.</text>
+    <text x="24" y="228" fill="#737373" font-size="14">Define architecture.</text>
   </g>
 
-  <g transform="translate(600,90)">
-    <rect width="260" height="220" rx="14" fill="url(#s3)"/>
-    <text x="130" y="38" text-anchor="middle" font-size="13" fill="#a7f3d0" font-weight="600">STAGE 3 / 2 hours</text>
-    <text x="130" y="70" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">Implementation</text>
-    <text x="130" y="110" text-anchor="middle" font-size="13" fill="#d1fae5">Java Spring Boot backend</text>
-    <text x="130" y="130" text-anchor="middle" font-size="13" fill="#d1fae5">Next.js frontend</text>
-    <text x="130" y="150" text-anchor="middle" font-size="13" fill="#d1fae5">PostgreSQL database</text>
-    <text x="130" y="170" text-anchor="middle" font-size="13" fill="#d1fae5">Test and validate</text>
-    <text x="130" y="200" text-anchor="middle" font-size="12" fill="#6ee7b7">Copilot Agent and Edits</text>
+  <g transform="translate(620, 200)">
+    <rect width="260" height="240" fill="#FFFFFF" stroke="#E5E5E0" stroke-width="1"/>
+    <rect x="0" y="0" width="260" height="6" fill="#7FBA00"/>
+    <text x="24" y="48" fill="#5A8500" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" letter-spacing="1.2">ESTAGIO 03</text>
+    <text x="24" y="110" fill="#7FBA00" font-size="72" font-weight="300" letter-spacing="-3">03</text>
+    <text x="24" y="150" fill="#1A1A1A" font-size="22" font-weight="500">Reconstrucao</text>
+    <text x="24" y="174" fill="#1A1A1A" font-size="22" font-weight="500">SIFAP 2.0</text>
+    <text x="24" y="210" fill="#737373" font-size="14">Java 21 + Spring Boot 3.</text>
+    <text x="24" y="228" fill="#737373" font-size="14">Next.js 15 frontend.</text>
   </g>
 
-  <g transform="translate(880,90)">
-    <rect width="260" height="220" rx="14" fill="url(#s4)"/>
-    <text x="130" y="38" text-anchor="middle" font-size="13" fill="#fed7aa" font-weight="600">STAGE 4 / 1 hour</text>
-    <text x="130" y="70" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">Evolution</text>
-    <text x="130" y="110" text-anchor="middle" font-size="13" fill="#ffedd5">Terraform on Azure</text>
-    <text x="130" y="130" text-anchor="middle" font-size="13" fill="#ffedd5">GitHub Actions pipeline</text>
-    <text x="130" y="150" text-anchor="middle" font-size="13" fill="#ffedd5">Observability setup</text>
-    <text x="130" y="170" text-anchor="middle" font-size="13" fill="#ffedd5">Final demo</text>
-    <text x="130" y="200" text-anchor="middle" font-size="12" fill="#fdba74">Platform and DevOps personas</text>
-  </g>
-
-  <g fill="#64748b">
-    <path d="M300,200 L320,200" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
-    <path d="M580,200 L600,200" stroke="#64748b" stroke-width="2"/>
-    <path d="M860,200 L880,200" stroke="#64748b" stroke-width="2"/>
+  <g transform="translate(900, 200)">
+    <rect width="240" height="240" fill="#FFFFFF" stroke="#E5E5E0" stroke-width="1"/>
+    <rect x="0" y="0" width="240" height="6" fill="#FFB900"/>
+    <text x="24" y="48" fill="#B88500" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" letter-spacing="1.2">ESTAGIO 04</text>
+    <text x="24" y="110" fill="#FFB900" font-size="72" font-weight="300" letter-spacing="-3">04</text>
+    <text x="24" y="150" fill="#1A1A1A" font-size="22" font-weight="500">Evolucao</text>
+    <text x="24" y="174" fill="#1A1A1A" font-size="22" font-weight="500">com Agent</text>
+    <text x="24" y="210" fill="#737373" font-size="14">Apply 13 agents.</text>
+    <text x="24" y="228" fill="#737373" font-size="14">Automate the next cycle.</text>
   </g>
 </svg>
