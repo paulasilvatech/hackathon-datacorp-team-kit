@@ -20,15 +20,15 @@ tags: ["kit", "teams", "templates", "hackathon", "datacorp"]
 
 ## 📑 Table of Contents
 
-1. [🎬 The SIFAP Story](#-the-sifap-story)
-2. [⚠️ Why SIFAP Must Change](#%EF%B8%8F-why-sifap-must-change)
-3. [🎯 Your Mission in 8 Hours](#-your-mission-in-8-hours)
-4. [👥 Your Team](#-your-team)
-5. [🗺️ The Four Stage Journey](#%EF%B8%8F-the-four-stage-journey)
-6. [🏗️ From Legacy to Modern](#%EF%B8%8F-from-legacy-to-modern)
-7. [📂 Folder Structure](#-folder-structure)
-8. [🛠️ How to Use This Kit](#%EF%B8%8F-how-to-use-this-kit)
-9. [📚 References](#-references)
+1. [The SIFAP Story](#-the-sifap-story)
+2. [Why SIFAP Must Change](#%EF%B8%8F-why-sifap-must-change)
+3. [Your Mission in 8 Hours](#-your-mission-in-8-hours)
+4. [Your Team](#-your-team)
+5. [The Four Stage Journey](#%EF%B8%8F-the-four-stage-journey)
+6. [From Legacy to Modern](#%EF%B8%8F-from-legacy-to-modern)
+7. [Folder Structure](#-folder-structure)
+8. [How to Use This Kit](#%EF%B8%8F-how-to-use-this-kit)
+9. [References](#-references)
 
 ---
 

@@ -20,13 +20,13 @@ tags: ["stage-3", "implementation", "java", "nextjs", "postgres", "prototype"]
 
 ## 📑 Sumario
 
-1. [🎬 Onde estamos na jornada](#-onde-estamos-na-jornada)
-2. [🎯 Objetivo](#-objetivo)
-3. [🚀 Getting Started](#-getting-started-primeiros-15-minutos)
-4. [🧩 Features sugeridas](#-features-sugeridas)
-5. [🧪 Testes](#-testes)
-6. [✅ Criterio de Pronto](#-criterio-de-pronto)
-7. [🧭 Navegacao](#-navegacao)
+1. [Onde estamos na jornada](#-onde-estamos-na-jornada)
+2. [Objetivo](#-objetivo)
+3. [Getting Started](#-getting-started-primeiros-15-minutos)
+4. [Features sugeridas](#-features-sugeridas)
+5. [Testes](#-testes)
+6. [Criterio de Pronto](#-criterio-de-pronto)
+7. [Navegacao](#-navegacao)
 
 ---
 

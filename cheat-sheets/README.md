@@ -20,10 +20,10 @@ tags: ["cheat-sheet", "copilot", "specky", "model-routing", "hackathon"]
 
 ## 📑 Table of Contents
 
-1. [🎯 Why Cheat Sheets](#-why-cheat-sheets)
-2. [📚 Contents](#-contents)
-3. [🖨️ How to Use](#-how-to-use)
-4. [🧭 Navigation](#-navigation)
+1. [Why Cheat Sheets](#-why-cheat-sheets)
+2. [Contents](#-contents)
+3. [How to Use](#-how-to-use)
+4. [Navigation](#-navigation)
 
 ---
 

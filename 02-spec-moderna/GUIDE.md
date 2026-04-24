@@ -20,15 +20,15 @@ tags: ["stage-2", "specification", "ears", "adr", "c4", "specky"]
 
 ## 📑 Sumario
 
-1. [🎬 Onde estamos na jornada](#-onde-estamos-na-jornada)
-2. [🎯 Objetivo](#-objetivo)
-3. [⭐ Referencia Gold Standard](#-referencia-gold-standard)
-4. [📐 Notacao EARS](#-notacao-ears-easy-approach-to-requirements-syntax)
-5. [🏛️ ADRs](#-adrs-architecture-decision-records)
-6. [📊 Diagramas C4](#-diagramas-c4)
-7. [🤖 Specky SDD](#-specky-sdd)
-8. [✅ Criterio de Pronto](#-criterio-de-pronto)
-9. [🧭 Navegacao](#-navegacao)
+1. [Onde estamos na jornada](#-onde-estamos-na-jornada)
+2. [Objetivo](#-objetivo)
+3. [Referencia Gold Standard](#-referencia-gold-standard)
+4. [Notacao EARS](#-notacao-ears-easy-approach-to-requirements-syntax)
+5. [ADRs](#-adrs-architecture-decision-records)
+6. [Diagramas C4](#-diagramas-c4)
+7. [Specky SDD](#-specky-sdd)
+8. [Criterio de Pronto](#-criterio-de-pronto)
+9. [Navegacao](#-navegacao)
 
 ---
 

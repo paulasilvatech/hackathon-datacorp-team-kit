@@ -20,11 +20,11 @@ tags: ["personas", "copilot", "agents", "skills", "prompts", "plugins", "mcp"]
 
 ## 📑 Table of Contents
 
-1. [🎯 Why Personas Matter](#-why-personas-matter)
-2. [📦 What Each Kit Contains](#-what-each-kit-contains)
-3. [👥 The 25 Personas](#-the-25-personas)
-4. [🚀 How to Activate a Persona](#-how-to-activate-a-persona)
-5. [🧭 Navigation](#-navigation)
+1. [Why Personas Matter](#-why-personas-matter)
+2. [What Each Kit Contains](#-what-each-kit-contains)
+3. [The 25 Personas](#-the-25-personas)
+4. [How to Activate a Persona](#-how-to-activate-a-persona)
+5. [Navigation](#-navigation)
 
 ---
 

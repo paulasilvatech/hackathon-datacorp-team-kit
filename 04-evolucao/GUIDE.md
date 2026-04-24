@@ -20,12 +20,12 @@ tags: ["stage-4", "evolution", "agent-mode", "terraform", "azure"]
 
 ## 📑 Sumario
 
-1. [🎬 Onde estamos na jornada](#-onde-estamos-na-jornada)
-2. [🎯 Objetivo](#-objetivo)
-3. [🤖 Parte 1: Copilot Agent Mode](#-parte-1-github-copilot-agent-mode-2-horas)
-4. [☁️ Parte 2: Terraform e Infraestrutura](#-parte-2-terraform-e-infraestrutura-1-hora)
-5. [📦 Entregaveis](#-entregaveis-do-estagio-4)
-6. [🧭 Navegacao](#-navegacao)
+1. [Onde estamos na jornada](#-onde-estamos-na-jornada)
+2. [Objetivo](#-objetivo)
+3. [Parte 1: Copilot Agent Mode](#-parte-1-github-copilot-agent-mode-2-horas)
+4. [Parte 2: Terraform e Infraestrutura](#-parte-2-terraform-e-infraestrutura-1-hora)
+5. [Entregaveis](#-entregaveis-do-estagio-4)
+6. [Navegacao](#-navegacao)
 
 ---
 

@@ -20,14 +20,14 @@ tags: ["stage-1", "archaeology", "legacy", "sifap", "natural", "adabas"]
 
 ## 📑 Sumario
 
-1. [🎬 Onde estamos na jornada](#-onde-estamos-na-jornada)
-2. [🎯 Objetivo do estagio](#-objetivo-do-estagio)
-3. [📦 Onde encontrar o codigo legado](#-onde-encontrar-o-codigo-legado)
-4. [🗺️ Workflow das 3 horas](#%EF%B8%8F-workflow-das-3-horas)
-5. [🤖 Prompts para Copilot Chat](#-prompts-para-copilot-chat)
-6. [✅ Criterio de Pronto](#-criterio-de-pronto)
-7. [🏆 Dica de ouro: caca aos misterios](#-dica-de-ouro-caca-aos-misterios)
-8. [🧭 Navegacao](#-navegacao)
+1. [Onde estamos na jornada](#-onde-estamos-na-jornada)
+2. [Objetivo do estagio](#-objetivo-do-estagio)
+3. [Onde encontrar o codigo legado](#-onde-encontrar-o-codigo-legado)
+4. [Workflow das 3 horas](#%EF%B8%8F-workflow-das-3-horas)
+5. [Prompts para Copilot Chat](#-prompts-para-copilot-chat)
+6. [Criterio de Pronto](#-criterio-de-pronto)
+7. [Dica de ouro: caca aos misterios](#-dica-de-ouro-caca-aos-misterios)
+8. [Navegacao](#-navegacao)
 
 ---
 
