@@ -4,7 +4,7 @@ description: "Uma página. Quando usar Chat, Edits ou Agent. Frases que funciona
 author: "Paula Silva"
 date: "2026-04-18"
 version: "1.0.0"
-tags: ["cheat-sheet", "copilot", "hackathon", "SERPRO"]
+tags: ["cheat-sheet", "copilot", "hackathon", "DATACORP"]
 ---
 
 # GitHub Copilot nos 3 Modos - Cheat Sheet

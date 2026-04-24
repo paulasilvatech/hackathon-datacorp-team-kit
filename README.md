@@ -10,7 +10,7 @@ tags: ["kit", "teams", "templates", "hackathon", "datacorp"]
 
 # Team Repository Kit
 
-> **START HERE** if you are a hackathon participant. Read your persona card in `personas/`, then open the Stage 1 guide at `01-arqueologia/GUIDE.md`.
+> **START HERE** if you are a hackathon participant. Read your persona card in `persona-kits/<your-role>/README.md`, then open the Stage 1 guide at `01-arqueologia/GUIDE.md`.
 
 ## Table of Contents
 
@@ -23,9 +23,7 @@ tags: ["kit", "teams", "templates", "hackathon", "datacorp"]
 
 ## Navigation
 
-| Previous | Home | Next |
-|----------|------|------|
-| [05 - Terraform Azure](../05-terraform-azure/README.md) | [Workspace Root](../README.md) | [07 - Facilitation Playbook](../07-playbook-facilitacao/README.md) |
+This is a standalone starter kit. The 4 stage folders are numbered in the order teams will use them during the event.
 
 ---
 
@@ -49,7 +47,7 @@ Each team of 10 has 5 defined personas (2 people per persona). Personas define y
 | **Morgan** | Tech Lead | Specky SDD + Copilot | Architecture decisions, ADRs, code review |
 | **Casey** | QA Engineer | Vitest + pytest | Test stubs, coverage report, quality gates |
 
-> **Not sure which persona you are?** Check the `personas/` folder - each file describes your persona in detail, including what prompts to use with Copilot.
+> **Not sure which persona you are?** Check the `persona-kits/` folder. Each role has a dedicated subfolder with agents, prompts, skills, and a README describing the role in detail.
 
 ---
 
@@ -89,28 +87,39 @@ flowchart LR
 | [`03-implementacao/`](03-implementacao/) | Stage 3 - implementation scaffolding and Copilot Agent prompts |
 | [`04-evolucao/`](04-evolucao/) | Stage 4 - Terraform guides and CI/CD templates |
 | [`cheat-sheets/`](cheat-sheets/) | Quick-reference cards for each stage and each persona |
-| [`personas/`](personas/) | Persona definitions - read yours before starting |
+| [`persona-kits/`](persona-kits/) | 25 persona kits, each with agents, prompts, skills, and README. Read yours before starting |
 | [`.github/`](.github/) | Issue templates, PR template, and Copilot instructions |
 
 ---
 
 ## 5. How to Use This Kit
 
-Copy this entire folder into your team's repository before the event starts. The `.github/` templates should not be modified - they ensure consistent issue and PR formats across all teams.
+### Reference materials provided by facilitators
+
+The stage guides mention these external folders. The facilitators distribute them at the start of the event. Copy each bundle into the root of your team repository so the paths in the guides work:
+
+| Folder teams should create | Provided at | Purpose |
+|---|---|---|
+| `02-cenario-sifap-legado/` | Start of Stage 1 | Natural programs, Adabas DDMs, legacy docs |
+| `03-spec-sifap-moderno/` | Start of Stage 2 | Reference modern specification |
+| `04-prototipo-sifap-moderno/` | Start of Stage 3 | Reference prototype (Java + Next.js) |
+| `05-terraform-azure/` | Start of Stage 4 | Reference Terraform modules for Azure |
+
+### Getting started
+
+This repository already IS your team starter. Clone it into your local machine, rename the folder to your team name, and open the devcontainer.
 
 ```bash
-# Copy kit into a new team repository
-cp -r 06-kit-repositorio-times/ ~/team-01-repo/
-
-# Open your devcontainer (VS Code)
-code ~/team-01-repo
+git clone https://github.com/paulasilvatech/hackathon-datacorp-team-kit.git team-01-repo
+code team-01-repo
 # Then: Ctrl+Shift+P > "Dev Containers: Reopen in Container"
 ```
+
+> The legacy scenario (Natural programs and Adabas DDMs) is provided separately by the facilitators at the start of Stage 1. Do not attempt to fetch it from this repository.
 
 Once inside the devcontainer, start with Stage 1:
 
 ```bash
-# Open the Stage 1 guide
 cat 01-arqueologia/GUIDE.md
 ```
 
@@ -118,7 +127,9 @@ cat 01-arqueologia/GUIDE.md
 
 ## 6. References
 
-- [Hackathon Blueprint](../01-blueprint/HACKATHON-BLUEPRINT.md)
-- [SIFAP Modern Specification](../03-spec-sifap-moderno/README.md)
-- [Reference Prototype](../04-prototipo-sifap-moderno/README.md)
-- [Facilitator Playbook](../07-playbook-facilitacao/README.md)
+Reference materials live in the main event repository and are shared by facilitators:
+
+- Hackathon Blueprint
+- SIFAP Modern Specification
+- Reference Prototype
+- Facilitator Playbook

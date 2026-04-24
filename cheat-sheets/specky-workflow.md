@@ -4,7 +4,7 @@ description: "Uma pagina. Pipeline SDD, 6 padroes EARS, agents e comandos do Spe
 author: "Paula Silva"
 date: "2026-04-22"
 version: "2.0.0"
-tags: ["cheat-sheet", "specky", "SDD", "EARS", "hackathon", "SERPRO"]
+tags: ["cheat-sheet", "specky", "SDD", "EARS", "hackathon", "DATACORP"]
 ---
 
 # Specky SDD v3.4 - Cheat Sheet

@@ -11,6 +11,8 @@ Explorar o sistema legado SIFAP (Natural/Adabas) e extrair regras de negocio, de
 
 ## Onde encontrar o codigo legado
 
+> O cenario legado (SIFAP) sera disponibilizado pelos facilitadores no inicio da Etapa 1. Copie o bundle entregue para dentro da raiz do seu repositorio, na pasta `02-cenario-sifap-legado/`, e use os caminhos abaixo.
+
 | Recurso | Caminho | Quantidade |
 |---------|---------|------------|
 | Programas Natural | `02-cenario-sifap-legado/natural-programs/` | 15 arquivos .NSN |
