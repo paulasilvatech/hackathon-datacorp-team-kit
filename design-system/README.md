@@ -1,7 +1,7 @@
 ---
 title: "Design System - Prompt Package for GitHub Copilot"
 description: "Four-prompt package for generating the complete DATACORP Hackathon 2026 design system using GitHub Copilot with Claude Sonnet 4.6"
-author: "Paula Silva, Americas Software GBB, Microsoft"
+author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-23"
 version: "1.0.2"
 status: "ready_to_execute"
@@ -28,20 +28,19 @@ tags: ["design-system", "hackathon", "DATACORP", "copilot", "prompts"]
 
 | Previous | Home | Next |
 |----------|------|------|
-| [Workspace Root](../README.md) | [Workspace Root](../README.md) | [Workspace Root](../README.md) |
+| [08 - Retrospective](../08-retrospectiva/README.md) | [Workspace Root](../README.md) | [Workspace Root](../README.md) |
 
 ---
 
 ## 1. What Is in This Package
 
-| File | Layer | Output |
-|------|-------|--------|
-| [`01-prompt-tokens-json.md`](01-prompt-tokens-json.md) | Layer 1 - source of truth | `design-system/tokens.json` |
-| [`02-prompt-design-system-md.md`](02-prompt-design-system-md.md) | Layer 2 - textual documentation | `design-system/design-system.md` |
-| [`03-prompt-tokens-css.md`](03-prompt-tokens-css.md) | Layer 4 - CSS variables | `design-system/dist/tokens.css` |
-| [`04-prompt-tailwind-config.md`](04-prompt-tailwind-config.md) | Layer 4 - Tailwind config | `design-system/dist/tailwind.config.js` |
-
-Layer 3 (visual showcase) is already produced: `hackathon-datacorp-design-system.html`.
+| File | Layer | Purpose |
+|------|-------|---------|
+| [`tokens.json`](tokens.json) | Layer 1 - source of truth | All design values in one machine-readable file |
+| [`design-system.md`](design-system.md) | Layer 2 - textual documentation | Human-readable guidelines and usage examples |
+| [`hackathon-datacorp-design-system.html`](hackathon-datacorp-design-system.html) | Layer 3 - visual showcase | Rendered preview of all components |
+| [`dist/tokens.css`](dist/tokens.css) | Layer 4a - CSS variables | Import in any web project |
+| [`dist/tailwind.config.js`](dist/tailwind.config.js) | Layer 4b - Tailwind config | Import in Next.js + Tailwind projects |
 
 ---
 
@@ -91,13 +90,13 @@ Before pasting any prompt, do these three things:
 
 Confirm or create this structure in your project:
 
-```mermaid
-graph TD
-    R[hackathon-datacorp/] --> DS[design-system/]
-    DS --> D[dist/ empty, Copilot fills it]
-    DS --> SH[showcase.html]
-    R --> P[prompts-design-system/ this folder]
-    R --> RD[README.md]
+```
+hackathon-datacorp/
+├── design-system/
+│   ├── dist/                (empty - Copilot will fill this)
+│   └── showcase.html        (copy hackathon-datacorp-design-system.html here)
+├── prompts-design-system/   (this folder, with the 4 prompts)
+└── README.md
 ```
 
 If `design-system/dist/` does not exist, Copilot creates it automatically when needed.
@@ -194,153 +193,6 @@ Modify tokens.json and regenerate the derived files by running prompts 03 and 04
 - Document in a static site (Astro, Next.js, or Storybook)
 - Open for external contributions if relevant
 
-Este pacote contém 4 prompts independentes que, executados em sequência no GitHub Copilot Chat do VS Code com modelo Claude Sonnet 4.6, geram o Design System completo do Hackathon DATACORP 2026 nas suas 4 camadas.
+---
 
-## O que você tem neste pacote
-
-| Arquivo | Camada | Saída |
-|---------|--------|-------|
-| 01-prompt-tokens-json.md | Camada 1, fonte de verdade | design-system/tokens.json |
-| 02-prompt-design-system-md.md | Camada 2, documentação textual | design-system/design-system.md |
-| 03-prompt-tokens-css.md | Camada 4, CSS variables | design-system/dist/tokens.css |
-| 04-prompt-tailwind-config.md | Camada 4, Tailwind config | design-system/dist/tailwind.config.js |
-
-A Camada 3 (showcase visual) já foi produzida e é o arquivo `hackathon-datacorp-design-system.html` que você tem em mãos.
-
-## Ordem de execução
-
-Os prompts são independentes mas têm dependências lógicas. A ordem recomendada é:
-
-1. **Prompt 01 (tokens.json) primeiro**, porque é a fonte de verdade. Os outros 3 consultam este arquivo como referência.
-
-2. **Prompts 02, 03 e 04 depois**, em qualquer ordem entre si. Os três derivam do tokens.json mas não dependem um do outro.
-
-Se preferir rodar os 3 últimos em paralelo (uma janela do VS Code por prompt, em conversas separadas), é totalmente possível e mais rápido.
-
-## Preparação antes de rodar o primeiro prompt
-
-Antes de colar qualquer prompt, faça estas 3 coisas:
-
-**Passo 1, estrutura de pastas do repositório**
-
-No repositório do projeto (ou crie um novo, se ainda não existir), confirme que a estrutura está assim, ou crie ela:
-
-```
-hackathon-datacorp/
-├── design-system/
-│   ├── dist/                (vazio, o Copilot vai preencher)
-│   └── showcase.html        (copie o hackathon-datacorp-design-system.html para cá)
-├── prompts-design-system/   (esta pasta, com os 4 prompts)
-└── README.md                (README geral do repositório, opcional)
-```
-
-Se a pasta `design-system/dist/` não existir, o Copilot cria automaticamente no primeiro prompt que precisar dela.
-
-**Passo 2, configurar o Copilot**
-
-No VS Code, abra o workspace. No painel do Copilot Chat:
-
-- Selecione o modelo **Claude Sonnet 4.6** (se não aparecer na lista, vá em configurações do Copilot e ative o modelo)
-- Configure o modo **Edits** como padrão para este pacote (permite que o Copilot crie e modifique arquivos multi-file)
-- Abra o workspace inteiro no Explorer, porque o Copilot precisa enxergar a estrutura de pastas para criar os arquivos nos lugares certos
-
-**Passo 3, abra um tab com o tokens.json (depois que existir)**
-
-Do prompt 02 em diante, é importante que o arquivo `design-system/tokens.json` esteja aberto em um tab do VS Code ou pelo menos visível no Explorer. Isso faz o Copilot incluir automaticamente o conteúdo como contexto, garantindo que os arquivos derivados tenham valores idênticos aos da fonte de verdade.
-
-## Como executar cada prompt
-
-O procedimento é o mesmo para todos os 4:
-
-1. Abrir o arquivo `XX-prompt-...md` neste pacote
-2. Ir para a seção "Prompt para colar" (aproximadamente no meio do arquivo)
-3. Copiar tudo dentro do bloco de código (entre as três crases)
-4. Colar no Copilot Chat
-5. Aguardar o Copilot gerar o arquivo
-6. Validar contra a checklist que está na seção "Critérios de aceitação" do próprio prompt
-7. Se tudo OK, salvar e commitar
-8. Se algo errado, pedir correção específica (não regenerar o arquivo inteiro)
-
-Cada prompt tem uma seção "Notas pós execução" no final, com dicas de validação rápida (checar hex de cores, testar sintaxe, etc). Use essa checklist antes de dar por pronto.
-
-## Tempo estimado de execução
-
-Estimativa conservadora, assumindo que o Copilot pode levar 1 a 3 minutos por arquivo e você vai levar alguns minutos validando:
-
-| Prompt | Geração Copilot | Validação humana | Total |
-|--------|------------------|-------------------|-------|
-| 01 tokens.json | 3 a 5 min | 5 min | 10 min |
-| 02 design-system.md | 3 a 5 min | 10 min | 15 min |
-| 03 tokens.css | 2 a 3 min | 3 min | 6 min |
-| 04 tailwind.config.js | 2 a 3 min | 3 min | 6 min |
-| **Total sequencial** |  |  | **~40 min** |
-
-Se rodar os prompts 2, 3 e 4 em paralelo (3 janelas de VS Code simultaneamente), o total cai para aproximadamente 25 minutos.
-
-## O que fazer se o Copilot errar
-
-Cenários comuns e como resolver:
-
-**Cenário 1, o Copilot inventa um valor hex** (ex: gera `#F25020` em vez de `#F25022`)
-
-Peça a correção específica: "No arquivo tokens.json, o valor da cor ms.red.500 deveria ser #F25022 mas ficou #F25020. Por favor corrija esse valor e qualquer alias que o referencie."
-
-**Cenário 2, o Copilot pula uma seção**
-
-Identifique a seção faltando e peça diretamente: "Está faltando a seção color.dark no tokens.json. Adicione ela seguindo a especificação: 6 tokens com nomes bg, surface, ink, ink-2, ink-3, rule, com os valores que estão no prompt 01."
-
-**Cenário 3, o Copilot usa formato errado** (ex: JSON com trailing comma, CSS sem aspas)
-
-Peça correção de formato: "O JSON tem trailing commas nas linhas X e Y, remova elas para ficar válido."
-
-**Cenário 4, o arquivo ficou muito grande ou muito pequeno**
-
-Se o arquivo está fora do range esperado (nas especificações), provavelmente alguma seção está incompleta ou duplicada. Peça: "O arquivo deveria ter entre X e Y linhas mas ficou com Z. Revise e remova conteúdo duplicado ou complete seções ausentes."
-
-**Cenário 5, o Copilot gera em lugar errado**
-
-Se o Copilot cria o arquivo na raiz em vez de `design-system/` ou `design-system/dist/`, mova manualmente ou peça: "Por favor mova este arquivo para design-system/dist/ criando a pasta se não existir."
-
-## Integração com outras ferramentas depois dos 4 arquivos prontos
-
-Com os 5 arquivos completos (showcase.html, tokens.json, design-system.md, tokens.css, tailwind.config.js), o Design System está pronto para ser consumido por qualquer ferramenta ou pessoa:
-
-**Para Cowork (artefatos pedagógicos, briefings, decks):**
-Ao pedir qualquer artefato no Cowork, referencie o design system assim: "Ao produzir este documento, siga o design system documentado em design-system/design-system.md. Use os tokens de design-system/tokens.json como referência visual. Aplique semântica de cores: vermelho para legado, verde para moderno, azul para tooling, amarelo para agentes."
-
-**Para Copilot (código Next.js do protótipo SIFAP 2.0):**
-Importe o tailwind.config.js no projeto Next.js. Ao pedir componentes, o Copilot vai sugerir classes Tailwind que consomem os tokens naturalmente (bg-ms-red, text-semantic-legacy, p-sp-md, etc).
-
-**Para Claude Code (fabricação do legado Natural, documentação de sistema):**
-Ao pedir para Claude Code produzir qualquer artefato visual ou documento, referencie o design system. Para fabricação do sistema Natural fictício, não há aplicação visual direta, mas para docs sobre o sistema (manuais legados fictícios) use os tokens ao gerar conteúdo HTML ou PDF.
-
-**Para versões futuras do sistema:**
-Modifique o tokens.json e regenere os arquivos derivados (css, tailwind) rodando os prompts 03 e 04 de novo. O design-system.md pode precisar de ajuste manual se houve mudanças estruturais, ou ser regenerado via prompt 02.
-
-## Roadmap sugerido pós hackathon
-
-Depois do evento dos dias 27 e 28 de abril, vale considerar estes passos para amadurecer o design system:
-
-**Curto prazo (primeira semana pós hackathon):**
-- Capturar feedback dos 10 times sobre o design system (o que funcionou, o que gerou dúvida, o que faltou)
-- Ajustar o design-system.md com aprendizados reais
-- Bumpar versão para 1.1.0 com as correções
-
-**Médio prazo (primeiros 2 meses):**
-- Extrair o design system para repositório próprio (algo como `paulasilvatech-design-system`)
-- Publicar como pacote NPM (privado ou público)
-- Adaptar para servir ao Portal Gov QA e outros projetos seus (não só hackathon)
-- Adicionar Style Dictionary ao pipeline para gerar automaticamente versões CSS, Tailwind, Figma, iOS, Android a partir do tokens.json
-
-**Longo prazo (próximos 6 meses):**
-- Criar componentes React reutilizáveis que encapsulam os componentes do design system (shadcn/ui style)
-- Documentar em um site estático (Astro, Next.js ou Storybook)
-- Abrir para contribuição externa se relevante
-
-Mas isso é horizonte futuro. Agora o foco é executar os 4 prompts, validar outputs, e usar no hackathon.
-
-## Contato e suporte
-
-Se algum prompt não funcionar como esperado, ou se algo no design system precisar de ajuste durante a execução, pode voltar ao Claude.ai no projeto Hackathon DATACORP 2026 e pedir ajuda. Eu mantenho contexto sobre todo o pacote e consigo ajudar a diagnosticar rapidamente.
-
-Boa execução.
+- Paula
