@@ -2,8 +2,8 @@
 title: "Design System, Hackathon DATACORP 2026"
 description: "Textual documentation of the design system applied to Hackathon DATACORP 2026, based on the Microsoft palette with semantic framing for agentic legacy modernization"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-23"
-version: "1.0.1"
+date: "2026-04-24"
+version: "1.1.0"
 status: "approved"
 related:
   - design-system/tokens.json
@@ -13,7 +13,13 @@ related:
 tags: ["design-system", "hackathon", "DATACORP", "microsoft-palette", "modernization"]
 ---
 
-## Change Log
+# 🎨 Design System — Hackathon DATACORP 2026
+
+> Textual documentation of the design system applied to Hackathon DATACORP 2026, based on the Microsoft palette with semantic framing for agentic legacy modernization.
+
+---
+
+## 📝 Change Log
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
@@ -21,26 +27,26 @@ tags: ["design-system", "hackathon", "DATACORP", "microsoft-palette", "moderniza
 
 ---
 
-## Table of Contents
+## 📑 Table of Contents
 
-1. [Introduction](#introduction)
-2. [Philosophy and Principles](#philosophy-and-principles)
-3. [Semantics of the 4 Colors](#semantics-of-the-4-colors)
-4. [Color Tokens](#color-tokens)
-5. [Typography](#typography)
-6. [Spacing](#spacing)
-7. [Base Components](#base-components)
-8. [Hackathon-Specific Components](#hackathon-specific-components)
-9. [Dark Variant, Divider Slide](#dark-variant-divider-slide)
-10. [Application by Day 2 Stage](#application-by-day-2-stage)
-11. [How to Consume the Design System](#how-to-consume-the-design-system)
-12. [Governance Rules](#governance-rules)
-13. [Glossário](#glossário)
-14. [References](#references)
+1. [Introduction](#-introduction)
+2. [Philosophy and Principles](#-philosophy-and-principles)
+3. [Semantics of the 4 Colors](#-semantics-of-the-4-colors)
+4. [Color Tokens](#-color-tokens)
+5. [Typography](#-typography)
+6. [Spacing](#-spacing)
+7. [Base Components](#-base-components)
+8. [Hackathon-Specific Components](#-hackathon-specific-components)
+9. [Dark Variant — Divider Slide](#-dark-variant--divider-slide)
+10. [Application by Day 2 Stage](#-application-by-day-2-stage)
+11. [How to Consume the Design System](#-how-to-consume-the-design-system)
+12. [Governance Rules](#-governance-rules)
+13. [Glossary](#-glossary)
+14. [References](#-references)
 
 ---
 
-## Introduction
+## 📖 Introduction
 
 This document is the textual bridge for the Design System of Hackathon DATACORP 2026. It explains the system in human language: the principles that guide decisions, the semantics behind each visual choice, the rules for using components, and why each token exists as it does. If you have read `tokens.json` and found it too dry, this is where to understand the reasoning. If you opened `hackathon-datacorp-design-system.html` and were curious about the logic, this is also the place.
 
@@ -50,7 +56,7 @@ The design system serves three audiences simultaneously. Developers will find he
 
 ---
 
-## Philosophy and Principles
+## 🧭 Philosophy and Principles
 
 Before diving into tokens, it is worth understanding the four ideas that govern the system. Every rule for using components, every color choice, and every typographic decision originates from one of these principles. When doubt arises about how to apply the design system, come back here.
 
@@ -72,7 +78,7 @@ When an artifact compares the legacy system and modern system side by side, lega
 
 ---
 
-## Semantics of the 4 Colors
+## 🎯 Semantics of the 4 Colors
 
 This section is central to the design system. Everything that appears visually in hackathon artifacts has a justification that begins here. Each color has a fixed role, and knowing that role is what differentiates someone applying the system from someone just using pretty colors.
 
@@ -172,7 +178,7 @@ Stage 4 (Evolution with Agent) uses yellow as the dominant color because it is t
 
 ---
 
-## Color Tokens
+## 🎨 Color Tokens
 
 This section lists all color tokens in the system, organized by group. The values here are exactly the same as in `tokens.json`. Whenever you need a color value for code, consult `tokens.json` directly: it is the source of truth. This document uses the same values so the reference is complete even outside the IDE.
 
@@ -237,7 +243,7 @@ Semantic tokens reference base tokens via aliases (`{color.ms.red.500}`). They e
 
 ---
 
-## Typography
+## ✍️ Typography
 
 The typography of the design system was chosen to work in two very specific contexts: slides projected on large screens for groups (1920x1080, viewed from 4 to 6 meters) and dense documents read on screen. Inter handles content, JetBrains Mono handles markup. The combination creates clear visual hierarchy without needing much extra weight or ornament.
 
@@ -277,7 +283,7 @@ The eyebrow deserves special note: it uses JetBrains Mono with wide letter-spaci
 
 ---
 
-## Spacing
+## 📏 Spacing
 
 The system uses an 8px base grid. All spacing tokens are multiples or compositions of this base value, ensuring that any combination of tokens results in coherent alignments. This is the same grid used in Portal Gov QA and other Paula Silva projects, creating consistency across different systems.
 
@@ -294,7 +300,7 @@ Quick reference: the standard slide (1920x1080) uses `spacing.xl` (80px) as vert
 
 ---
 
-## Base Components
+## 🧩 Base Components
 
 Base components are the building blocks that appear in nearly all hackathon artifacts. Each has a specific function and consumes a defined set of tokens. Understanding when to use each is more important than memorizing tokens: the function guides the choice.
 
@@ -390,7 +396,7 @@ The table follows the design system style: no colored zebra striping, neutral bo
 
 ---
 
-## Hackathon-Specific Components
+## 🏗️ Hackathon-Specific Components
 
 These four components exist exclusively in the context of Hackathon DATACORP 2026. They encapsulate information patterns that repeat during the two days of the event and require visual consistency to work well in room materials, handouts, and slides.
 
@@ -501,7 +507,7 @@ The split is the component that places legacy and modern side by side in a 50/50
 
 ---
 
-## Dark Variant - Divider Slide
+## 🌙 Dark Variant — Divider Slide
 
 The dark variant exists for a specific case: transition slides between stages and major conceptual dividers. It is not the system's standard style, which is light. It is an intentional break in rhythm that signals: "we are moving to a new chapter".
 
@@ -520,7 +526,7 @@ The standard eyebrow on dark is MS-YELLOW (`#FFB900`). The reason is contrast: y
 
 ---
 
-## Application by Day 2 Stage
+## �� Application by Day 2 Stage
 
 This table is the operational map of the design system during Day 2 of the hackathon (April 28). Each stage has a dominant color, and this mapping determines how room materials are visually differentiated. Facilitators can identify which stage they are in just by looking at the slide color.
 
@@ -535,7 +541,7 @@ The times above are Day 2 times and are fixed in the tokens in `meta.stage-map`.
 
 ---
 
-## How to Consume the Design System
+## 🚀 How to Consume the Design System
 
 The design system has four layers, and each consumer has a different entry point. This section explains the correct path for each type of use.
 
@@ -575,7 +581,7 @@ Slide background: #F7F7F5 (color.neutral.bg). Primary text: #1A1A1A (color.neutr
 
 ---
 
-## Governance Rules
+## 📋 Governance Rules
 
 The design system is versioned with semver (major.minor.patch). The current version is 1.0.0.
 
@@ -594,7 +600,7 @@ The design system is versioned with semver (major.minor.patch). The current vers
 
 ---
 
-## Glossário
+## 📚 Glossary
 
 Esta seção define os termos técnicos usados neste documento. Termos de domínio do projeto aparecem com o contexto de uso no hackathon.
 
@@ -632,7 +638,7 @@ Esta seção define os termos técnicos usados neste documento. Termos de domín
 
 ---
 
-## References
+## 📄 References
 
 - **Showcase HTML:** `design-system/hackathon-datacorp-design-system.html` (Layer 3, full visual demonstration of the design system)
 - **Tokens JSON:** `design-system/tokens.json` (Layer 1, programmatic source of truth)
@@ -644,6 +650,10 @@ Esta seção define os termos técnicos usados neste documento. Termos de domín
 
 ---
 
-| Previous | Home |
-|:---------|-----:|
-| [← Design System Home](README.md) | [Workspace Root](../README.md) |
+## 🧭 Navigation
+
+| Previous | Home | Next |
+|---|---|---|
+| ← [Design System README](./README.md) | [Kit Root](../README.md) | — |
+
+> Author: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
