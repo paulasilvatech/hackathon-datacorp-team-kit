@@ -168,12 +168,12 @@ flowchart LR
 
 The stage guides mention these external folders. Facilitators distribute them at the start of the event. Copy each bundle into the root of your team repository so the paths in the guides work.
 
-| 📂 Folder teams should create | 🕐 Provided at | 🎯 Purpose |
-|---|---|---|
-| `02-cenario-sifap-legado/` | Start of Stage 1 | Natural programs, Adabas DDMs, legacy docs |
-| `03-spec-sifap-moderno/` | Start of Stage 2 | Reference modern specification |
-| `04-prototipo-sifap-moderno/` | Start of Stage 3 | Reference prototype (Java + Next.js) |
-| `05-terraform-azure/` | Start of Stage 4 | Reference Terraform modules for Azure |
+| Stage | Folder to create | Purpose |
+|:---:|---|---|
+| 1 | `02-cenario-sifap-legado/` | Natural programs, Adabas DDMs, legacy docs |
+| 2 | `03-spec-sifap-moderno/` | Reference modern specification |
+| 3 | `04-prototipo-sifap-moderno/` | Reference prototype (Java + Next.js) |
+| 4 | `05-terraform-azure/` | Reference Terraform modules for Azure |
 
 ### 🚀 Getting started
 
