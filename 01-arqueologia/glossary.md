@@ -368,3 +368,9 @@ END
 | Auditor | Auditor | Role | `ROLE_AUDITOR` |
 | Gestor | Administrator | Role | `ROLE_ADMIN` |
 
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |

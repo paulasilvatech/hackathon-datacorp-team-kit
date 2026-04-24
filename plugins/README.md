@@ -59,3 +59,9 @@ Every plugin follows these non-negotiables:
 ## Navigation
 
 [Persona Kits](../persona-kits/) | [Kit Home](../) | [Next: Cheat Sheets](../cheat-sheets/)
+
+---
+
+| Home |
+|:-----|
+| [← Kit Home](../README.md) |

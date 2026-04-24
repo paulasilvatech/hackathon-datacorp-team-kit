@@ -187,3 +187,9 @@ Include any additional information that doesn't fit in other sections:
 - Team feedback
 - Customer requirements
 
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |

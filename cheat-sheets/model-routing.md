@@ -75,3 +75,9 @@ tags: ["cheat-sheet", "copilot", "claude", "model-routing", "hackathon", "DATACO
 Don't treat Opus as "the good one" and Haiku as "the bad one". Opus on a mechanical task is wasteful; Haiku on a decision is risky. The right model is the cheapest one that doesn't leave you stranded.
 
 - Paula
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Cheat Sheets Home](README.md) | [Kit Home](../README.md) |

@@ -133,3 +133,9 @@ For each resolved mystery, include:
 **Pending**: 8
 **Target Resolution Date**: 28/04/2026 EOD
 
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |

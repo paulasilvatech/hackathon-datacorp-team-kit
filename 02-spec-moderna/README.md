@@ -25,3 +25,9 @@ tags: ["stage-2", "specification", "ears", "adr", "hackathon"]
 | Parent | Home |
 |----------|------|
 | [06 - Team Kit](../README.md) | [Workspace Root](../../README.md) |
+
+---
+
+| Home | Next |
+|:-----|-----:|
+| [← Kit Home](../README.md) | [Stage Guide →](GUIDE.md) |

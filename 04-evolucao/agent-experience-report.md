@@ -375,3 +375,9 @@ Generate a GitHub Actions workflow that:
 Include environment secrets for Azure credentials.
 ```
 
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |

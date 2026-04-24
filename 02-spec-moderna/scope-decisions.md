@@ -489,3 +489,9 @@ This document defines the scope of SIFAP 2.0 (modernized version). It specifies 
 | Architect | [Name] | 28/04/2026 | [ ] |
 | Operations | [Name] | 28/04/2026 | [ ] |
 
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |

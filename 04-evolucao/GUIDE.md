@@ -712,3 +712,9 @@ At end of Stage 4, you must have:
 | [Stage 3: Implementation](../03-implementacao/GUIDE.md) | [Kit README](../README.md) |
 
 > Authorship: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Stage 3: Implementation](../03-implementacao/GUIDE.md) | [Kit Home](../README.md) |

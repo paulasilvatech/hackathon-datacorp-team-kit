@@ -106,3 +106,9 @@ Stage 4 (1h30):
 - Use `@specky-orchestrator` to let the pipeline guide you
 
 - Paula
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Cheat Sheets Home](README.md) | [Kit Home](../README.md) |

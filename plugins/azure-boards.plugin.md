@@ -74,3 +74,9 @@ Copilot invokes the plugin, the plugin reads the markdown source of truth, and a
 ## Quality gate
 
 Every sync must preserve REQ-ID traceability. If a target system cannot store the REQ-ID (legacy tracker), the plugin refuses to run.
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Plugins Home](README.md) | [Kit Home](../README.md) |

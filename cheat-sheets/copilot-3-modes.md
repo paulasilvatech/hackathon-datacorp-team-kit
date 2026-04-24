@@ -70,3 +70,9 @@ tags: ["cheat-sheet", "copilot", "hackathon", "DATACORP"]
 > If you didn't know it was AI, would you accept this code in your project? If not, reject or refine. Copilot accelerates those who know; it doesn't replace judgment.
 
 - Paula
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Cheat Sheets Home](README.md) | [Kit Home](../README.md) |

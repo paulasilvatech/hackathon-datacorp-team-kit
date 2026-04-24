@@ -294,3 +294,9 @@ GENRPT -> READ-AUDIT/READ-PAYMENTS -> FORMAT-REPORT -> EXPORT-PDF
 
 **Modern equivalent**: ReportController.generate() -> AuditRepository.findByDateRange() -> ReportService.generate() -> PdfExporter.export()
 
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |

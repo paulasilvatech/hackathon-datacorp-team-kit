@@ -286,3 +286,9 @@ Review AUDIT.DDM for patterns of operations or edge cases.
 4. **Document findings** in discovery-report.md
 5. **Update SPECIFICATION.md** with resolved business rules
 
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |

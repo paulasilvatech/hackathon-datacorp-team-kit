@@ -427,3 +427,9 @@ At the end of Stage 1, you must deliver:
 | [Kit README](../README.md) | [Stage 2: Modern Spec](../02-spec-moderna/GUIDE.md) |
 
 > Authorship: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
+
+---
+
+| Previous | Home | Next |
+|:---------|:----:|-----:|
+| [← Stage Home](README.md) | [Kit Home](../README.md) | [Stage 2: Modern Spec →](../02-spec-moderna/GUIDE.md) |

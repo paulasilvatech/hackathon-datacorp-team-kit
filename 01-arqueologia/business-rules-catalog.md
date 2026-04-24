@@ -265,3 +265,9 @@ END-IF
 
 **Critical for Modernization**: BR-BEN-001, BR-BEN-002, BR-PAY-001, BR-PAY-002, BR-PAY-003, BR-CALC-001
 
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |

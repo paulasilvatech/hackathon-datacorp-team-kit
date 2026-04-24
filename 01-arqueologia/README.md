@@ -29,3 +29,9 @@ tags: ["stage-1", "archaeology", "legacy", "analysis", "hackathon"]
 | Parent | Home |
 |----------|------|
 | [06 - Team Kit](../README.md) | [Workspace Root](../../README.md) |
+
+---
+
+| Home | Next |
+|:-----|-----:|
+| [← Kit Home](../README.md) | [Stage Guide →](GUIDE.md) |

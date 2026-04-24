@@ -357,3 +357,9 @@ The system is well-understood through archaeology. Stage 2 (specification) can p
 - Dependency map: `01-arqueologia/dependency-map.md`
 - Domain glossary: `01-arqueologia/glossary.md`
 
+
+---
+
+| Previous | Home |
+|:---------|-----:|
+| [← Stage Guide](GUIDE.md) | [Kit Home](../README.md) |
