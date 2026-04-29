@@ -63,14 +63,12 @@ The team exits Stage 4 when they have:
 
 ## Available Prompts
 
-The following slash commands will be available for this agent (prompt files to be added in a follow-up):
-
-- `/write-issue` — Draft a GitHub Issue optimized for Copilot Agent execution
-- `/review-pr` — Systematic review of an AI-generated pull request
-- `/gen-workflow` — Generate a GitHub Actions CI/CD workflow
-- `/gen-terraform` — Generate a Terraform module for a specific Azure service
-- `/demo-plan` — Create a 3-minute demo script for the team's presentation
-- `/retro-prompt` — Guide a quick team retrospective
+| Command | Purpose |
+|---------|---------|
+| [`/write-github-issue`](../../.github/prompts/evolution/write-github-issue.prompt.md) | Draft a GitHub Issue optimized for Copilot Agent execution |
+| [`/delegate-to-copilot-agent`](../../.github/prompts/evolution/delegate-to-copilot-agent.prompt.md) | Hand off an issue to Copilot Agent and prepare a watch-list |
+| [`/review-agent-pr`](../../.github/prompts/evolution/review-agent-pr.prompt.md) | Review an AI-generated PR with attention to AI failure modes |
+| [`/final-experience-report`](../../.github/prompts/evolution/final-experience-report.prompt.md) | Team retrospective on the agent experience |
 
 ## Anti-Patterns This Agent Refuses
 
