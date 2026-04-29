@@ -1,7 +1,13 @@
 ---
+name: evolution
 description: "Stage 4 agent — writes GitHub issues for Copilot Agent, reviews AI-generated PRs, sets up CI/CD and IaC"
-tools: ['codebase', 'search', 'editFiles', 'fetch', 'githubRepo']
 model: claude-sonnet-4-6
+tools:
+  - codebase
+  - search
+  - editFiles
+  - fetch
+  - githubRepo
 ---
 
 # @evolution-agent

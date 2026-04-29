@@ -90,7 +90,7 @@ This matrix maps every persona to every agent, showing who does what in each sta
 1. Read your **persona card** in [`personas/`](../personas/) — understand what you own
 2. Read your **row in this matrix** — understand your intensity at each stage
 3. When a new stage begins, open the **agent kit README** for that stage in [`agent-kits/`](../agent-kits/)
-4. Activate the **chatmode** for the current stage and begin working
+4. Activate the **agent** for the current stage and begin working
 
 ## References
 
