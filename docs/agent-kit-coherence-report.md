@@ -16,7 +16,7 @@ tags: ["coherence", "quality", "verification", "agent-kits"]
 
 ## Executive Summary
 
-The 4-agent SDLC toolkit is coherent across all layers: chatmodes link to prompts, prompts link to templates, persona cards link to agent-kits, and the persona-agent matrix is consistent in all 4 locations where it appears. Zero forbidden tokens were found. All files have complete YAML frontmatter with the correct author string.
+The 4-agent SDLC toolkit is coherent across all layers: agents link to prompts, prompts link to templates, persona cards link to agent-kits, and the persona-agent matrix is consistent in all 4 locations where it appears. Zero forbidden tokens were found. All files have complete YAML frontmatter with the correct author string.
 
 ---
 
@@ -24,13 +24,13 @@ The 4-agent SDLC toolkit is coherent across all layers: chatmodes link to prompt
 
 | From | To | Status |
 |---|---|---|
-| `agent-kits/README.md` → chatmodes | `.github/chatmodes/*.chatmode.md` | ✅ All 4 resolve |
-| `agent-kits/*/README.md` → chatmodes | `.github/chatmodes/*.chatmode.md` | ✅ All 4 resolve |
-| Chatmode files → 18 prompts | `.github/prompts/*/*.prompt.md` | ✅ All 18 resolve |
+| `agent-kits/README.md` → agents | `.github/agents/*.agent.md` | ✅ All 4 resolve |
+| `agent-kits/*/README.md` → agents | `.github/agents/*.agent.md` | ✅ All 4 resolve |
+| Agent files → 18 prompts | `.github/prompts/*/*.prompt.md` | ✅ All 18 resolve |
 | `generate-adr.prompt.md` → ADR template | `02-spec-moderna/templates/ADR.template.md` | ✅ Resolves |
 | 10 persona cards → agent-kits | `agent-kits/0N-*/README.md` | ✅ All 40 links resolve |
 | `docs/persona-agent-matrix.md` → agent-kits | `agent-kits/README.md` | ✅ Resolves |
-| `docs/4-agents-explained.md` → all layers | Chatmodes, instructions, matrix | ✅ All resolve |
+| `docs/4-agents-explained.md` → all layers | Agents, instructions, matrix | ✅ All resolve |
 
 **Result:** PASS — zero broken links.
 
@@ -59,7 +59,7 @@ Protagonist assignments: Requirements Engineer → @archaeologist, Software Arch
 
 ## 4. Model Routing Consistency
 
-| Agent | Chatmode | Prompts | Consistent? |
+| Agent | Agent | Prompts | Consistent? |
 |---|---|---|---|
 | @archaeologist | `claude-opus-4-7` | All 5: `claude-opus-4-7` | ✅ |
 | @architect | `claude-opus-4-7` | All 4: `claude-opus-4-7` | ✅ |

@@ -1,7 +1,11 @@
 ---
+name: architect
 description: "Stage 2 agent — carves bounded contexts, writes EARS specs, generates ADRs, designs Modular Monolith architecture"
-tools: ['codebase', 'search', 'fetch']
 model: claude-opus-4-7
+tools:
+  - codebase
+  - search
+  - fetch
 ---
 
 # @architect-agent

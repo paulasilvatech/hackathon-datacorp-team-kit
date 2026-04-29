@@ -1,7 +1,14 @@
 ---
+name: builder
 description: "Stage 3 agent — translates Natural to Java, generates JPA from FDT, writes equivalence tests, builds REST + Next.js"
-tools: ['codebase', 'search', 'editFiles', 'runCommands', 'runTests', 'fetch']
 model: claude-sonnet-4-6
+tools:
+  - codebase
+  - search
+  - editFiles
+  - runCommands
+  - runTests
+  - fetch
 ---
 
 # @builder-agent

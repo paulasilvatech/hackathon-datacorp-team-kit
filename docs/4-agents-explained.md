@@ -1,16 +1,16 @@
 ---
 title: "The 4 SDLC Agents — Explained"
-description: "Full anatomy of each agent: chatmode, instructions, model routing, and the no-silver-platter rule"
+description: "Full anatomy of each agent: agent, instructions, model routing, and the no-silver-platter rule"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-29"
 version: "1.0.0"
 status: "approved"
-tags: ["agents", "architecture", "chatmodes", "instructions", "model-routing"]
+tags: ["agents", "architecture", "agents", "instructions", "model-routing"]
 ---
 
 # The 4 SDLC Agents — Explained
 
-This document explains the design rationale behind the 4 stage agents, how they are implemented as VS Code chatmodes + instruction files, and why they deliberately refuse to pre-solve the team's legacy system.
+This document explains the design rationale behind the 4 stage agents, how they are implemented as VS Code agents + instruction files, and why they deliberately refuse to pre-solve the team's legacy system.
 
 ## Why 4 Agents (Not 7, Not 1)
 
@@ -28,7 +28,7 @@ We considered finer splits (separate agents for backend vs. frontend in Stage 3,
 We also considered a single all-purpose agent but rejected it because:
 
 - A single agent cannot enforce read-only constraints in Stage 1 while allowing edits in Stage 3
-- Model routing (Opus for reasoning, Sonnet for generation) requires separate chatmode definitions
+- Model routing (Opus for reasoning, Sonnet for generation) requires separate agent definitions
 - Stage-specific anti-patterns (e.g., "don't write code in Stage 1") are cleaner when each agent owns its own constraints
 
 ## Anatomy of Each Agent
@@ -37,7 +37,7 @@ Each agent is composed of three layers:
 
 ```mermaid
 flowchart TB
-    CM["Chatmode\n.github/chatmodes/*.chatmode.md\nModel + tools + mission"] --> INS["Instructions\n.github/instructions/*.instructions.md\napplyTo glob + domain knowledge"]
+    CM["Agent\n.github/agents/*.agent.md\nModel + tools + mission"] --> INS["Instructions\n.github/instructions/*.instructions.md\napplyTo glob + domain knowledge"]
     INS --> PR["Prompts (forthcoming)\n.github/prompts/*.prompt.md\nSlash commands for specific tasks"]
     CM -.->|"defines"| TOOLS["Available Tools\n(read-only vs full access)"]
     CM -.->|"selects"| MODEL["AI Model\n(Opus vs Sonnet)"]
@@ -49,9 +49,9 @@ flowchart TB
     style MODEL fill:#0f172a,stroke:#334155,color:#e2e8f0
 ```
 
-### Layer 1: Chatmode (`.github/chatmodes/`)
+### Layer 1: Agent (`.github/agents/`)
 
-The chatmode YAML frontmatter defines:
+The agent YAML frontmatter defines:
 
 - **`tools`** — what the agent can do (e.g., `archaeologist` has no `editFiles`)
 - **`model`** — which AI model powers the agent
@@ -123,7 +123,7 @@ The principle: **Opus for reading and reasoning, Sonnet for building and reviewi
 
 - Agent kit READMEs: [`agent-kits/`](../agent-kits/README.md)
 - Persona-agent matrix: [`docs/persona-agent-matrix.md`](persona-agent-matrix.md)
-- Chatmode files: [`.github/chatmodes/`](../.github/chatmodes/)
+- Agent files: [`.github/agents/`](../.github/agents/)
 - Instruction files: [`.github/instructions/`](../.github/instructions/)
 
 ---
