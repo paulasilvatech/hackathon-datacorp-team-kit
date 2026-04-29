@@ -169,6 +169,8 @@ See [`docs/persona-agent-matrix.md`](docs/persona-agent-matrix.md) for the full 
 
 See [`docs/4-agents-explained.md`](docs/4-agents-explained.md) for the anatomy of each agent.
 
+See [`docs/sdlc-flow-guide.md`](docs/sdlc-flow-guide.md) for the **complete integration map** — who does what, with which agent, at which stage, with every handoff and deliverable in sequence.
+
 ---
 
 ## 🏗️ From Legacy to Modern

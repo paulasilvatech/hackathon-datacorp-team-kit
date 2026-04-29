@@ -42,6 +42,8 @@ Every persona uses every agent, with varying intensity. **PROTAGONIST** drives t
 
 For detailed per-cell guidance, see [`../docs/persona-agent-matrix.md`](../docs/persona-agent-matrix.md).
 
+For the **full SDLC integration map** — timeline, handoffs, prompts per persona, and deliverables per stage — see [`../docs/sdlc-flow-guide.md`](../docs/sdlc-flow-guide.md). Print that page.
+
 ## How to Activate an Agent
 
 ```mermaid
