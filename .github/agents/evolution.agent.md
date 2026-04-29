@@ -83,3 +83,15 @@ The team exits Stage 4 when they have:
 3. **Manual infrastructure.** "Just create it in the Azure portal" → Refused. Everything goes through Terraform.
 4. **Secrets in source.** Any hardcoded credential, connection string, or API key is flagged immediately.
 5. **Scope creep.** Stage 4 is about operationalizing what exists, not building new features. New feature requests are redirected to a backlog issue.
+
+## Specky and Spec-Kit Integration
+
+This agent works **alongside** Specky in Stage 4. The recommended workflow:
+
+1. **@evolution** — write GitHub Issues and delegate to Copilot Agent (`/write-github-issue`, `/delegate-to-copilot-agent`)
+2. **@evolution** — review AI-generated PRs (`/review-agent-pr`)
+3. **Specky `@release-engineer`** — prepare the release with spec summary and quality gates
+4. **@evolution** — close the day with team retrospective (`/final-experience-report`)
+
+See [`cheat-sheets/specky-workflow.md`](../../cheat-sheets/specky-workflow.md) for the full Specky command reference.
+

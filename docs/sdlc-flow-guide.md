@@ -227,6 +227,99 @@ Your **persona-kit agent** (e.g., `@developer`) knows your role deeply — Java 
 
 ---
 
+## How the 4 Stage Agents Work With Specky SDD and Spec-Kit
+
+The kit has three layers of AI tooling. They are not alternatives — they are complementary and used at specific moments.
+
+| Tool | What It Is | When to Use | Cheat Sheet |
+|------|-----------|-------------|-------------|
+| **4 Stage Agents** (`@archaeologist`, `@architect`, `@builder`, `@evolution`) | VS Code Copilot agents with stage-specific prompts | Throughout the day — one agent per stage | [`agent-kits/`](agent-kits/README.md) |
+| **Specky SDD** (`@spec-engineer`, `@design-architect`, `@implementer`, etc.) | 10-phase pipeline engine with quality gates and LGTM reviews | Primarily in Stages 2 and 3 for formal artifacts | [`cheat-sheets/specky-workflow.md`](cheat-sheets/specky-workflow.md) |
+| **Spec-Kit** (`spec-kit new`, `spec-kit init`) | Quick natural-language drafting tool | First 15 minutes of Stage 2 for brain-dump | [`SETUP.md` Step 9](SETUP.md) |
+
+### The Recommended Flow
+
+```mermaid
+flowchart LR
+    subgraph S1["Stage 1"]
+        A1["@archaeologist<br/>(discovery prompts)"]
+    end
+    subgraph S2["Stage 2"]
+        B1["Spec-Kit<br/>(15 min brain-dump)"] --> B2["Specky: @spec-engineer<br/>(formal EARS spec)"]
+        B2 --> B3["@architect<br/>(bounded contexts + ADRs)"]
+        B3 --> B4["Specky: @design-architect<br/>(DESIGN.md + C4)"]
+    end
+    subgraph S3["Stage 3"]
+        C1["Specky: @task-planner<br/>(TASKS.md)"] --> C2["@builder<br/>(translate + generate code)"]
+        C2 --> C3["Specky: @test-verifier<br/>(coverage check)"]
+    end
+    subgraph S4["Stage 4"]
+        D1["@evolution<br/>(issues + delegation)"] --> D2["Specky: @release-engineer<br/>(PR + deploy)"]
+    end
+
+    S1 --> S2 --> S3 --> S4
+
+    classDef stage fill:#0f172a,stroke:#334155,color:#e2e8f0
+    class S1,S2,S3,S4 stage
+```
+
+### Stage-by-Stage: When to Use What
+
+**Stage 1 — Archaeology**
+Use only `@archaeologist`. Specky is not involved — there are no formal artifacts to pipeline yet. This is pure discovery.
+
+**Stage 2 — Modern Spec** (this is where all three tools converge)
+
+| Step | Tool | What It Produces |
+|------|------|-----------------|
+| 1. Brain-dump (15 min) | **Spec-Kit** `spec-kit new "feature"` | Quick draft spec in natural language |
+| 2. PO review (10 min) | Human | Confirmed priorities and scope |
+| 3. Initialize pipeline | **Specky** `/specky-migration` or `sdd_init` | `.specs/` folder + CONSTITUTION.md |
+| 4. Carve bounded contexts | **@architect** `/carve-bounded-contexts` | `bounded-contexts.md` with Mermaid diagram |
+| 5. Write formal EARS spec | **Specky** `@spec-engineer` + **@architect** `/write-ears-spec` | SPECIFICATION.md with REQ-IDs |
+| 6. Generate ADRs | **@architect** `/generate-adr` | `ADRs/adr-NNN-*.md` |
+| 7. Design modular monolith | **@architect** `/design-modular-monolith` + **Specky** `@design-architect` | DESIGN.md + openapi.yaml |
+| 8. Quality gate | **Specky** `@quality-reviewer` | ANALYSIS.md (LGTM review) |
+
+The `@architect` agent and Specky's `@spec-engineer` / `@design-architect` work together: the stage agent guides the team's thinking (carving, deciding, evaluating), while Specky formalizes the output into pipeline-compliant artifacts.
+
+**Stage 3 — Implementation**
+
+| Step | Tool | What It Produces |
+|------|------|-----------------|
+| 1. Plan tasks | **Specky** `@task-planner` | TASKS.md with dependency order |
+| 2. Translate + build | **@builder** prompts | Java services, JPA entities, REST API, Next.js pages |
+| 3. Generate tests | **@builder** `/generate-equivalence-tests` | JUnit + Vitest test files |
+| 4. Verify coverage | **Specky** `@test-verifier` | Coverage report against REQ-IDs |
+| 5. Security review | **@builder** `/security-self-review` | OWASP checklist |
+
+The `@builder` agent writes code. Specky ensures the code traces to requirements and meets quality gates.
+
+**Stage 4 — Evolution**
+
+| Step | Tool | What It Produces |
+|------|------|-----------------|
+| 1. Write + delegate issues | **@evolution** prompts | GitHub Issues for Copilot Agent |
+| 2. Review AI PRs | **@evolution** `/review-agent-pr` | Review with classified findings |
+| 3. Release prep | **Specky** `@release-engineer` | PR with spec summary + release gate |
+| 4. Team retro | **@evolution** `/final-experience-report` | Agent experience report |
+
+### Quick Decision: Which Tool Right Now?
+
+| I need to... | Use |
+|---|---|
+| Explore legacy code | `@archaeologist` |
+| Quick-draft a feature idea | **Spec-Kit** |
+| Write formal EARS requirements | **Specky** `@spec-engineer` + `@architect` `/write-ears-spec` |
+| Draw C4 diagrams | **Specky** `@design-architect` |
+| Decide on bounded contexts | `@architect` `/carve-bounded-contexts` |
+| Translate Natural to Java | `@builder` `/translate-natural-to-java` |
+| Check test coverage against REQs | **Specky** `@test-verifier` |
+| Write a GitHub Issue for Copilot | `@evolution` `/write-github-issue` |
+| Run the full 10-phase pipeline | **Specky** `/specky-orchestrate` |
+
+---
+
 ## Where to Find Everything
 
 | What you need | Where it lives |
@@ -237,6 +330,8 @@ Your **persona-kit agent** (e.g., `@developer`) knows your role deeply — Java 
 | The agent file Copilot loads | [`.github/agents/<agent>.agent.md`](.github/agents/) |
 | The prompts you invoke | [`.github/prompts/<agent>/`](.github/prompts/) |
 | The deliverable templates | `01-arqueologia/templates/`, `02-spec-moderna/templates/`, `04-evolucao/templates/` |
+| Specky SDD cheat sheet | [`cheat-sheets/specky-workflow.md`](cheat-sheets/specky-workflow.md) |
+| Spec-Kit quick start | [`SETUP.md` Step 9](SETUP.md) |
 | Full 10×4 persona-agent matrix | [`docs/persona-agent-matrix.md`](docs/persona-agent-matrix.md) |
 | Agent architecture explanation | [`docs/4-agents-explained.md`](docs/4-agents-explained.md) |
 | Daily timeline and handoff rules | [`TEAM-FLOW.md`](TEAM-FLOW.md) |

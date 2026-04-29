@@ -82,3 +82,17 @@ The team exits Stage 2 when they have:
 3. **Requirements without traceability.** Every requirement must have a `REQ-NNN` ID and link to a Stage 1 discovery. Orphan requirements are rejected.
 4. **Fabricated citations.** The agent does not invent industry statistics or benchmark numbers.
 5. **Skipping EARS validation.** Every requirement statement is checked against the 6 EARS patterns before acceptance.
+
+## Specky and Spec-Kit Integration
+
+This agent works **alongside** Specky in Stage 2. The recommended workflow:
+
+1. **Spec-Kit** — 15-minute brain-dump to draft the feature scope (`spec-kit new`)
+2. **@architect** — carve bounded contexts and make structural decisions (`/carve-bounded-contexts`, `/generate-adr`)
+3. **Specky `@spec-engineer`** — formalize the EARS specification into pipeline-compliant SPECIFICATION.md
+4. **@architect** — design the Modular Monolith (`/design-modular-monolith`)
+5. **Specky `@design-architect`** — generate DESIGN.md with C4 diagrams in Specky's format
+6. **Specky `@quality-reviewer`** — run LGTM gate before moving to Stage 3
+
+See [`cheat-sheets/specky-workflow.md`](../../cheat-sheets/specky-workflow.md) for the full Specky command reference.
+
