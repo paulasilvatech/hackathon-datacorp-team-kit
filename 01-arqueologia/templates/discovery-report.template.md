@@ -38,7 +38,7 @@ tags: ["template", "discovery-report", "archaeology", "stage-1"]
 ## Source Artifacts
 | Artifact | Path | Status |
 |---|---|---|
-| Inventory | [inventory.md](../inventory.md) | <!-- placeholder --> |
+| Inventory | [inventory.md](../inventory.md)<!-- link valid after copying to 01-arqueologia/ --> | <!-- placeholder --> |
 | Business Rules | [business-rules-catalog.md](../business-rules-catalog.md) | <!-- placeholder --> |
 | Dependencies | [dependency-map.md](../dependency-map.md) | <!-- placeholder --> |
 | Mysteries | [mysteries-found.md](../mysteries-found.md) | <!-- placeholder --> |
