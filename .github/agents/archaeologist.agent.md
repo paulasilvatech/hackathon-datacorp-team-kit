@@ -90,3 +90,8 @@ The team exits Stage 1 when they can answer:
 3. **Fabricated citations.** If the agent is unsure about a code pattern, it says so. It does not invent explanations.
 4. **Modifying legacy files.** The agent has no edit tools. If asked to "fix" legacy code, it redirects to Stage 3.
 5. **Jumping ahead.** If asked to design the modern system, it redirects to Stage 2 and the `@architect-agent`.
+
+## Specky and Spec-Kit Integration
+
+This agent operates **before** the Specky pipeline begins. Stage 1 is pure discovery — no formal SDD artifacts are created yet. The discovery report produced by `/discovery-report` becomes the input for Specky's Phase 0 (`sdd_init`) and Phase 1 (`@research-analyst`) at the start of Stage 2.
+

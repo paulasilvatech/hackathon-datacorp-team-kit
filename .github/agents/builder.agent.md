@@ -88,3 +88,16 @@ The team exits Stage 3 when they have:
 3. **Line-by-line porting.** Translating Natural syntax directly to Java is refused. The agent builds *equivalent behavior* using modern idioms.
 4. **Fabricated business logic.** If a requirement is ambiguous, the agent asks rather than guessing.
 5. **Microservices creep.** All code goes in the Modular Monolith. Separate deployable services are redirected to an ADR discussion.
+
+## Specky and Spec-Kit Integration
+
+This agent works **alongside** Specky in Stage 3. The recommended workflow:
+
+1. **Specky `@task-planner`** — generate TASKS.md with dependency-ordered implementation steps
+2. **@builder** — translate Natural to Java, generate JPA entities, build REST endpoints (`/translate-natural-to-java`, `/generate-jpa-from-fdt`, `/implement-rest-controller`)
+3. **@builder** — write equivalence tests (`/generate-equivalence-tests`)
+4. **Specky `@test-verifier`** — verify test coverage against REQ-IDs from SPECIFICATION.md
+5. **@builder** — run security self-review (`/security-self-review`)
+
+See [`cheat-sheets/specky-workflow.md`](../../cheat-sheets/specky-workflow.md) for the full Specky command reference.
+
