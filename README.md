@@ -221,26 +221,29 @@ The stage guides mention these external folders. Facilitators distribute them at
 
 ### 🚀 Getting started
 
-**Full step-by-step setup is in [`SETUP.md`](SETUP.md)** — covers GitHub repo creation, Copilot activation, Spec-Kit + Specky installation, branch strategy, and the 12-item smoke test.
+**Full step-by-step setup is in [`SETUP.md`](SETUP.md)** — covers GitHub repo creation, Copilot activation, Spec-Kit + Specky installation, branch strategy, and the 13-item smoke test.
 
 Quick summary (full instructions in `SETUP.md`):
 
 ```bash
-# 1. Create your team's GitHub repo (one person, once)
-gh repo create paulasilvatech/hackathon-team-XX --private --add-readme
+# 1. Create your team's GitHub repo — empty, under YOUR account (one person, once)
+gh repo create hackathon-team-XX --private
 
 # 2. Bootstrap from this kit
 git clone https://github.com/paulasilvatech/hackathon-datacorp-team-kit.git kit
-git clone https://github.com/paulasilvatech/hackathon-team-XX.git
+cp -R kit hackathon-team-XX
 cd hackathon-team-XX
-cp -R ../kit/. . && rm -rf .git
+rm -rf .git
 git init -b main
-git remote add origin https://github.com/paulasilvatech/hackathon-team-XX.git
+git remote add origin https://github.com/<YOUR_GITHUB_USER>/hackathon-team-XX.git
 
 # 3. Bootstrap script (clones sifap-legacy, sets up symlinks)
 ./scripts/setup.sh
 
-# 4. Open in VS Code with the dev container
+# 4. First commit and push
+git add -A && git commit -m "chore: bootstrap team kit" && git push -u origin main
+
+# 5. Open in VS Code with the dev container
 code .
 # Then: Ctrl+Shift+P > "Dev Containers: Reopen in Container"
 ```
