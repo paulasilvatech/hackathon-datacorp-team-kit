@@ -11,7 +11,7 @@ tags: ["kit", "teams", "templates", "hackathon", "datacorp"]
 # 🚀 Team Repository Kit
 
 <p align="center">
-  <img src="assets/hero-sifap-journey.svg" alt="The SIFAP Journey: 30 years of legacy, 1 day to modernize" width="100%"/>
+  <img src="https://raw.githubusercontent.com/paulasilvatech/hackathon-datacorp-team-kit/main/assets/hero-sifap-journey.svg" alt="The SIFAP Journey: 30 years of legacy, 1 day to modernize" width="100%"/>
 </p>
 
 <h3 align="center">Hackathon DATACORP 2026 — Team Starter Kit</h3>
@@ -75,7 +75,7 @@ Welcome to the Hackathon DATACORP 2026.
 ## ⚠️ Why SIFAP Must Change
 
 <p align="center">
-  <img src="assets/sifap-pain-points.svg" alt="5 pain points of the legacy SIFAP system" width="100%"/>
+  <img src="https://raw.githubusercontent.com/paulasilvatech/hackathon-datacorp-team-kit/main/assets/sifap-pain-points.svg" alt="5 pain points of the legacy SIFAP system" width="100%"/>
 </p>
 
 | # | Pain Point | Business Impact |
@@ -107,7 +107,7 @@ Your team has one clear goal. Rebuild SIFAP with a modern stack, prove that AI a
 ## 👥 Your Team
 
 <p align="center">
-  <img src="assets/personas-team.svg" alt="25 persona kits available for your team" width="100%"/>
+  <img src="https://raw.githubusercontent.com/paulasilvatech/hackathon-datacorp-team-kit/main/assets/personas-team.svg" alt="25 persona kits available for your team" width="100%"/>
 </p>
 
 Each team has 10 people. The facilitators provide **25 persona kits**. You can pick any combination that fits your team and the work you need to do.
@@ -129,7 +129,7 @@ Each team has 10 people. The facilitators provide **25 persona kits**. You can p
 ## 🗺️ The Four Stage Journey
 
 <p align="center">
-  <img src="assets/stage-flow.svg" alt="4 stage flow from archaeology to evolution" width="100%"/>
+  <img src="https://raw.githubusercontent.com/paulasilvatech/hackathon-datacorp-team-kit/main/assets/stage-flow.svg" alt="4 stage flow from archaeology to evolution" width="100%"/>
 </p>
 
 ```mermaid
@@ -156,7 +156,7 @@ flowchart LR
 ## 🏗️ From Legacy to Modern
 
 <p align="center">
-  <img src="assets/architecture-transformation.svg" alt="Legacy to modern architecture transformation" width="100%"/>
+  <img src="https://raw.githubusercontent.com/paulasilvatech/hackathon-datacorp-team-kit/main/assets/architecture-transformation.svg" alt="Legacy to modern architecture transformation" width="100%"/>
 </p>
 
 > 💡 **Think of it as a kitchen renovation.** The legacy SIFAP is a kitchen from 1995: functional, but tight, hard to clean, with appliances only one brand still services. The modern SIFAP is an open, modular kitchen where every appliance speaks a standard protocol, and anyone can plug in new devices.
