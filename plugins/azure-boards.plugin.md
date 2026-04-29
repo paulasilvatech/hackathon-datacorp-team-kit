@@ -115,6 +115,6 @@ Every sync must preserve REQ-ID traceability. If a target system cannot store th
 
 | Previous | Home | Next |
 |---|---|---|
-| ← [GitHub Issues](./github-issues.plugin.md) | [Kit Root](../README.md) | [Design System](../design-system/README.md) → |
+| ← [GitHub Issues](./github-issues.plugin.md) | [Kit Root](../README.md) | [Plugins](./README.md) → |
 
 > Author: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.

@@ -170,7 +170,6 @@ flowchart LR
 | [`cheat-sheets/`](cheat-sheets/) | ⚡ Quick reference cards: Copilot modes, Specky workflow, model routing |
 | [`persona-kits/`](persona-kits/) | 👤 25 persona kits, each with agents, prompts, skills, and a README |
 | [`plugins/`](plugins/) | 🔌 Shared Copilot plugins (GitHub Issues, Azure Boards sync) |
-| [`design-system/`](design-system/) | 🎨 Design tokens and UI guidelines for the modern frontend |
 | [`assets/`](assets/) | 🖼️ SVG illustrations used across this kit |
 | [`.github/`](.github/) | ⚙️ Issue templates, PR template, Copilot instructions, workflows |
 
