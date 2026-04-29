@@ -87,7 +87,7 @@ You will end up with **3 repositories on your laptop**:
 
 1. Open <https://github.com/new> in your browser.
 2. Fill in:
-   - **Owner**: `paulasilvatech` (or use your own org if you have one)
+   - **Owner**: **your own GitHub username** (do **not** pick `paulasilvatech` — teams do not have admin rights there). If your team has its own GitHub org and you are an admin of it, you can use that instead.
    - **Repository name**: `hackathon-team-XX` (replace XX with your team number, e.g., `hackathon-team-01`)
    - **Description**: `Hackathon DATACORP 2026 — Team XX`
    - **Visibility**: **Private** ✅
@@ -108,7 +108,8 @@ Open a terminal and run:
 gh auth login
 
 # Create the repo (replace 01 with your team number)
-gh repo create paulasilvatech/hackathon-team-01 \
+# Use just the repo name — no owner prefix. Creates the repo under YOUR GitHub user.
+gh repo create hackathon-team-01 \
   --private \
   --description "Hackathon DATACORP 2026 — Team 01" \
   --add-readme \
