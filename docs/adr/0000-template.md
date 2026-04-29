@@ -21,7 +21,7 @@ status: "template"
 What is the issue we're seeing that motivates this decision? Reference the
 business goal, the legacy constraint, or the stakeholder need.
 
-Be specific. Cite REQ-IDs or `02-cenario-sifap-legado/` programs when relevant.
+Be specific. Cite REQ-IDs or `legacy/` programs when relevant.
 
 ## Decision
 

@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - Tech Writer"
-description: "What the Tech Writer does inside the team of 10 during Day 2 of Hackathon SERPRO 2026."
+description: "What the Tech Writer does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "10"
-tags: ["persona", "tech-writer", "hackathon", "SERPRO"]
+tags: ["persona", "tech-writer", "hackathon", "DATACORP"]
 ---
 
 # Persona - Tech Writer
@@ -20,7 +20,7 @@ Keep documentation alive throughout the day - not at the end. A README that grow
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/HACKATHON-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
+This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the [Hackathon Blueprint](https://github.com/paulasilvatech/hackathon-datacorp/blob/main/01-blueprint/HACKATHON-BLUEPRINT.md). Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Documentation Agent (cross-cutting)
 - **Framework phase**: All phases (continuous documentation)

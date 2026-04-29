@@ -107,7 +107,7 @@ Deploy SIFAP 2.0 to Azure with:
 ### Directory Structure
 
 ```
-05-terraform-azure/
+infra/
 ├─ main.tf
 ├─ variables.tf
 ├─ outputs.tf
@@ -501,7 +501,7 @@ jobs:
       
       - name: Deploy Infrastructure (Terraform)
         run: |
-          cd 05-terraform-azure
+          cd infra
           terraform init
           terraform plan -var-file="environments/${{ github.ref == 'refs/heads/main' && 'prod' || 'stage' }}.tfvars"
           terraform apply -auto-approve -var-file="environments/${{ github.ref == 'refs/heads/main' && 'prod' || 'stage' }}.tfvars"

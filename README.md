@@ -93,7 +93,7 @@ Your team has one clear goal. Rebuild SIFAP with a modern stack, prove that AI a
 | Deliverable | Format | Stage |
 |-------------|--------|-------|
 | 🗺️ **Legacy map and glossary** | Markdown in `01-arqueologia/` | Stage 1 |
-| 📜 **Modern specification** | EARS requirements + ADRs in `03-spec-sifap-moderno/` | Stage 2 |
+| 📜 **Modern specification** | EARS requirements + ADRs in [the modern spec](https://github.com/paulasilvatech/hackathon-datacorp/tree/main/03-spec-sifap-moderno/) | Stage 2 |
 | 💻 **Working prototype** | Java 21 + Next.js 15 code | Stage 3 |
 | ☁️ **Infrastructure and CI/CD** | Terraform + GitHub Actions | Stage 4 |
 | 🎤 **Final pitch** | 5 minute demo | End of day |
@@ -180,14 +180,14 @@ flowchart LR
 
 ### 📦 Reference materials provided by facilitators
 
-The stage guides mention these external folders. Facilitators distribute them at the start of the event. Copy each bundle into the root of your team repository so the paths in the guides work.
+The stage guides mention these external folders. Facilitators distribute them at the start of the event, or you run `./scripts/setup.sh` to clone them as symlinks. Either way, the paths in the guides will work.
 
-| Stage | Folder to create | Purpose |
+| Stage | Folder | Purpose |
 |:---:|---|---|
-| 1 | `02-cenario-sifap-legado/` | Natural programs, Adabas DDMs, legacy docs |
-| 2 | `03-spec-sifap-moderno/` | Reference modern specification |
-| 3 | `04-prototipo-sifap-moderno/` | Reference prototype (Java + Next.js) |
-| 4 | `05-terraform-azure/` | Reference Terraform modules for Azure |
+| 1 | `legacy/` | Natural programs, Adabas DDMs, legacy docs ([sifap-legacy](https://github.com/paulasilvatech/sifap-legacy)) |
+| 2 | — | Reference modern specification (read on GitHub: [hackathon-datacorp/03-spec-sifap-moderno](https://github.com/paulasilvatech/hackathon-datacorp/tree/main/03-spec-sifap-moderno)) |
+| 3 | `prototype/` | Reference prototype (Java + Next.js) |
+| 4 | `infra/` | Reference Terraform modules for Azure |
 
 ### 🚀 Getting started
 

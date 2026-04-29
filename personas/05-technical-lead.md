@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - Technical Lead"
-description: "What the Technical Lead does inside the team of 10 during Day 2 of Hackathon SERPRO 2026."
+description: "What the Technical Lead does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "05"
-tags: ["persona", "technical-lead", "hackathon", "SERPRO"]
+tags: ["persona", "technical-lead", "hackathon", "DATACORP"]
 ---
 
 # Persona - Technical Lead
@@ -20,7 +20,7 @@ Maintain execution velocity in Stage 3. Pick technical battles that are worth fi
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/HACKATHON-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
+This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the [Hackathon Blueprint](https://github.com/paulasilvatech/hackathon-datacorp/blob/main/01-blueprint/HACKATHON-BLUEPRINT.md). Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Review Agent (S3), Test Gen Agent (S3)
 - **Framework phase**: Translation and Test Generation

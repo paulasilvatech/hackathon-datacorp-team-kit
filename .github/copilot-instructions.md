@@ -43,6 +43,6 @@ You are modernizing the **SIFAP** system (Social Benefits Payment System) from N
 
 ## References
 
-- [Specky SDD Plugin](../../apm_modules/paulasilvatech/specky/README.md)
-- [SIFAP Legacy](../../02-cenario-sifap-legado/)
-- [Spec SIFAP 2.0](../../03-spec-sifap-moderno/SPECIFICATION.md)
+- [Specky SDD Plugin](https://github.com/paulasilvatech/specky)
+- [SIFAP Legacy](https://github.com/paulasilvatech/sifap-legacy)
+- [Spec SIFAP 2.0](https://github.com/paulasilvatech/hackathon-datacorp/blob/main/03-spec-sifap-moderno/SPECIFICATION.md)

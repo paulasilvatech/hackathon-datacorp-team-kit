@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - Requirements Engineer"
-description: "What the Requirements Engineer does inside the team of 10 during Day 2 of Hackathon SERPRO 2026."
+description: "What the Requirements Engineer does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "02"
-tags: ["persona", "requirements-engineer", "hackathon", "SERPRO", "EARS"]
+tags: ["persona", "requirements-engineer", "hackathon", "DATACORP", "EARS"]
 ---
 
 # Persona - Requirements Engineer
@@ -20,7 +20,7 @@ Convert what was discovered in Stage 1 into formal, testable requirements in Sta
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/HACKATHON-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
+This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the [Hackathon Blueprint](https://github.com/paulasilvatech/hackathon-datacorp/blob/main/01-blueprint/HACKATHON-BLUEPRINT.md). Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Analysis Agent (S1-S2), Spec Engineer (S2)
 - **Framework phase**: Application Carving → Translation

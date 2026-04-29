@@ -354,7 +354,7 @@ The system is well-understood through archaeology. Stage 2 (specification) can p
 ### A. File Locations
 
 ```
-02-cenario-sifap-legado/
+legacy/
 ├─ Programs/
 │  ├─ REGISTBN.NSN    (Beneficiary registration)
 │  ├─ CALCPAY.NSN     (Payment calculation)
@@ -377,7 +377,7 @@ The system is well-understood through archaeology. Stage 2 (specification) can p
 
 ### C. References
 
-- System architecture documentation: `02-cenario-sifap-legado/README.md`
+- System architecture documentation: `legacy/README.md`
 - Detailed business rules: `01-arqueologia/business-rules-catalog.md`
 - Dependency map: `01-arqueologia/dependency-map.md`
 - Domain glossary: `01-arqueologia/glossary.md`

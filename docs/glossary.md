@@ -34,7 +34,7 @@ tags: ["glossary", "domain", "sifap", "stage-1"]
 ### Adabas
 - **Source:** Legacy data store
 - **Definition:** Multi-value NoSQL-style mainframe database used by the legacy SIFAP system. Adabas DDMs (Data Definition Modules) describe records.
-- **Used in:** all `.NSN` programs in `02-cenario-sifap-legado/natural-programs/`
+- **Used in:** all `.NSN` programs in `legacy/natural-programs/`
 
 ## B
 

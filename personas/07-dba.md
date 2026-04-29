@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - DBA"
-description: "What the DBA does inside the team of 10 during Day 2 of Hackathon SERPRO 2026."
+description: "What the DBA does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "07"
-tags: ["persona", "dba", "hackathon", "SERPRO", "PostgreSQL"]
+tags: ["persona", "dba", "hackathon", "DATACORP", "PostgreSQL"]
 ---
 
 # Persona - DBA
@@ -20,7 +20,7 @@ Translate the Adabas model into a relational schema that works. Ensure idempoten
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/HACKATHON-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
+This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the [Hackathon Blueprint](https://github.com/paulasilvatech/hackathon-datacorp/blob/main/01-blueprint/HACKATHON-BLUEPRINT.md). Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Analysis Agent (S1), Translation Agent (S3)
 - **Framework phase**: Assessment → Translation (data layer)
@@ -74,7 +74,7 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 
 ## If you get stuck (emergency defaults)
 
-- Don't know the DDM format? Open `02-cenario-sifap-legado/adabas-ddms/BENEFICIARIO.ddm` - it has comments explaining each field.
+- Don't know the DDM format? Open `legacy/adabas-ddms/BENEFICIARIO.ddm` - it has comments explaining each field.
 - Migration broke? NEVER edit an existing migration. Create a new one: `V5__fix_xxx.sql`.
 - Which index to create? Rule: "If it appears in WHERE or JOIN and the table has >100K rows, create an index."
 - PostgreSQL offline? Check whether Docker is running: `docker ps | grep postgres`.

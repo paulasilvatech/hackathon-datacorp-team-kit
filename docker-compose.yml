@@ -20,7 +20,7 @@ services:
 
   backend:
     build:
-      context: ./04-prototipo-sifap-moderno/backend
+      context: ./prototype/backend
       dockerfile: Dockerfile
     container_name: sifap-backend
     environment:
@@ -45,7 +45,7 @@ services:
 
   frontend:
     build:
-      context: ./04-prototipo-sifap-moderno/frontend
+      context: ./prototype/frontend
       dockerfile: Dockerfile
     container_name: sifap-frontend
     environment:

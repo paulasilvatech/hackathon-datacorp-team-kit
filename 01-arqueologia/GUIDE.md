@@ -60,7 +60,7 @@ Systematically explore the legacy SIFAP codebase (Natural programs, Adabas DDMs)
 ### Folder Structure
 
 ```
-02-cenario-sifap-legado/
+legacy/
 ├─ DDM/                      # Adabas data definitions
 │  ├─ BENEFIC.DDM            # Beneficiary master data
 │  ├─ PAYMENT.DDM            # Payment records
@@ -84,7 +84,7 @@ Systematically explore the legacy SIFAP codebase (Natural programs, Adabas DDMs)
 
 ### Natural Program Example
 
-**File: `02-cenario-sifap-legado/Programs/CALCPAY.NSN`**
+**File: `legacy/natural-programs/CALCPAY.NSN`**
 
 ```natural
 * Program: CALCPAY
@@ -153,11 +153,11 @@ END-PERFORM
 ### Phase 1: Initial Exploration (30 mins)
 
 1. **Read the README**
-   - `02-cenario-sifap-legado/README.md` - Overview and history
+   - `legacy/README.md` - Overview and history
    - Understand the domain: What is SIFAP? Who uses it? What problems does it solve?
 
 2. **Map the programs**
-   - List all Natural programs in `02-cenario-sifap-legado/Programs/`
+   - List all Natural programs in `legacy/natural-programs/`
    - Note the naming convention (REGISTBN, CALCPAY, etc.)
    - Identify entry points (programs called by users vs. utility programs)
 

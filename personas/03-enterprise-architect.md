@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - Enterprise Architect"
-description: "What the Enterprise Architect does inside the team of 10 during Day 2 of Hackathon SERPRO 2026."
+description: "What the Enterprise Architect does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "03"
-tags: ["persona", "enterprise-architect", "hackathon", "SERPRO"]
+tags: ["persona", "enterprise-architect", "hackathon", "DATACORP"]
 ---
 
 # Persona - Enterprise Architect
@@ -20,7 +20,7 @@ Make sure SIFAP 2.0 doesn't break the world around it. Draw the dependency map. 
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/HACKATHON-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
+This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the [Hackathon Blueprint](https://github.com/paulasilvatech/hackathon-datacorp/blob/main/01-blueprint/HACKATHON-BLUEPRINT.md). Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Discovery Agent (S1), Deployment Agent (S4)
 - **Framework phase**: Assessment → Coexistence and Traffic Migration
@@ -51,7 +51,7 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 
 - The C4 level 1 is readable by any non-technical person on the team in 30 seconds.
 - Your ADRs name the "path not taken" and say why.
-- You anchor Modular Monolith in the argument - not as fashion, but because of fit with the SERPRO context.
+- You anchor Modular Monolith in the argument - not as fashion, but because of fit with the DATACORP context.
 - You align with the Software Architect on where your scope ends and theirs begins.
 
 ## How you get lost

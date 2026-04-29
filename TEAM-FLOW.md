@@ -131,15 +131,15 @@ After 09:30, the **lead personas** for Stage 1 start work; the others prepare fo
 
 | Persona | 09:30 action |
 |---------|--------------|
-| Product Owner | Read `01-blueprint/HACKATHON-BLUEPRINT.md` + decide initial scope priorities |
-| Requirements Engineer | Open `02-cenario-sifap-legado/natural-programs/` and start the rule catalog |
-| Enterprise Architect | Open `02-cenario-sifap-legado/legacy-docs/` and start C4 Level 1 |
+| Product Owner | Read the [Hackathon Blueprint](https://github.com/paulasilvatech/hackathon-datacorp/blob/main/01-blueprint/HACKATHON-BLUEPRINT.md) + decide initial scope priorities |
+| Requirements Engineer | Open `legacy/natural-programs/` and start the rule catalog |
+| Enterprise Architect | Open `legacy/legacy-docs/` and start C4 Level 1 |
 | Software Architect | Pair with EA on system context; prepare bounded-context candidates |
 | Technical Lead | Set team conventions: branch strategy, PR template, definition of done |
-| Developer | Read `04-prototipo-sifap-moderno/README.md`; run `docker compose up` |
-| DBA | Open `02-cenario-sifap-legado/adabas-ddms/` and map fields to PostgreSQL |
-| QA Engineer | Read `04-prototipo-sifap-moderno/backend/src/test/`; plan test strategy |
-| DevOps Engineer | Open `05-terraform-azure/` and read modules; plan IaC approach |
+| Developer | Read `prototype/README.md`; run `docker compose up` |
+| DBA | Open `legacy/adabas-ddms/` and map fields to PostgreSQL |
+| QA Engineer | Read `prototype/backend/src/test/`; plan test strategy |
+| DevOps Engineer | Open `infra/` and read modules; plan IaC approach |
 | Tech Writer | Open `01-arqueologia/glossary.md` and start the glossary template |
 
 ---
@@ -210,8 +210,8 @@ Each of the 3 major handoffs has a clear contract.
 
 | Artifact | Located at | Done means |
 |----------|-----------|------------|
-| Working backend | `04-prototipo-sifap-moderno/backend/` | `mvn test` green; OpenAPI documented |
-| Working frontend | `04-prototipo-sifap-moderno/frontend/` | `npm test` green; main flows usable |
+| Working backend | `prototype/backend/` | `mvn test` green; OpenAPI documented |
+| Working frontend | `prototype/frontend/` | `npm test` green; main flows usable |
 | Migrations | `backend/src/main/resources/db/migration/` | Flyway scripts numbered; idempotent |
 | Coverage report | CI artifact | Backend ≥ 70%, frontend ≥ 60% lines |
 

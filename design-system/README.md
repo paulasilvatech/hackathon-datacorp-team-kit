@@ -26,9 +26,9 @@ tags: ["design-system", "hackathon", "DATACORP", "copilot", "prompts"]
 
 ## Navigation
 
-| Previous | Home | Next |
-|----------|------|------|
-| [08 - Retrospective](../08-retrospectiva/README.md) | [Workspace Root](../README.md) | [Workspace Root](../README.md) |
+| Previous | Home |
+|----------|------|
+| [Cheat Sheets](../cheat-sheets/README.md) | [Kit Root](../README.md) |
 
 ---
 
