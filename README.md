@@ -25,9 +25,13 @@ tags: ["kit", "teams", "templates", "hackathon", "datacorp"]
   <img src="https://img.shields.io/badge/use-internal-gray" alt="use: internal"/>
 </p>
 
-> **📍 Start here** if you are a hackathon participant. Read the SIFAP story below, open your persona kit in `persona-kits/<your-role>/README.md`, then go to Stage 1 at `01-arqueologia/GUIDE.md`.
+> **📍 Start here** if you are a hackathon participant.
+>
+> 1. **First**: follow [`SETUP.md`](SETUP.md) to create your team's GitHub repo, configure Copilot, and install Spec-Kit + Specky (30 minutes).
+> 2. **Then**: read [`TEAM-FLOW.md`](TEAM-FLOW.md) to understand how the 10 of you work together.
+> 3. **Finally**: open your persona kit in `persona-kits/<your-role>/README.md`, then go to Stage 1 at `01-arqueologia/GUIDE.md`.
 
-[The SIFAP Story](#-the-sifap-story) · [Your Mission](#-your-mission-in-8-hours) · [Your Team](#-your-team) · [Stage Flow](#%EF%B8%8F-the-four-stage-journey) · [Getting Started](#-how-to-use-this-kit)
+[Setup Guide](SETUP.md) · [Team Flow](TEAM-FLOW.md) · [The SIFAP Story](#-the-sifap-story) · [Your Mission](#-your-mission-in-8-hours) · [Your Team](#-your-team) · [Stage Flow](#%EF%B8%8F-the-four-stage-journey)
 
 ---
 
@@ -163,15 +167,21 @@ flowchart LR
 
 | 📁 Path | 🎯 Purpose |
 |------|---------|
+| [`SETUP.md`](SETUP.md) | 🚀 **Read first.** Step-by-step: create repo, configure Copilot, install Spec-Kit + Specky |
+| [`TEAM-FLOW.md`](TEAM-FLOW.md) | 🤝 Daily timeline, handoffs, the 20-minute rule |
+| [`personas/`](personas/) | 👤 The 10 persona cards — read your role |
 | [`01-arqueologia/`](01-arqueologia/) | 🔍 Stage 1: legacy code archaeology guides and Copilot prompts |
 | [`02-spec-moderna/`](02-spec-moderna/) | 📜 Stage 2: EARS specification templates and ADR scaffolds |
 | [`03-implementacao/`](03-implementacao/) | 💻 Stage 3: implementation scaffolding and Copilot Agent prompts |
 | [`04-evolucao/`](04-evolucao/) | 🚀 Stage 4: Terraform guides and CI/CD templates |
 | [`cheat-sheets/`](cheat-sheets/) | ⚡ Quick reference cards: Copilot modes, Specky workflow, model routing |
-| [`persona-kits/`](persona-kits/) | 👤 25 persona kits, each with agents, prompts, skills, and a README |
+| [`persona-kits/`](persona-kits/) | 🤖 25 Copilot agent kits, each with agents, prompts, skills, and a README |
 | [`plugins/`](plugins/) | 🔌 Shared Copilot plugins (GitHub Issues, Azure Boards sync) |
+| [`scripts/`](scripts/) | 🛠️ `setup.sh` (bootstrap) and `check.sh` (run all CI gates locally) |
+| [`docs/`](docs/) | 📚 Team-curated docs: ADRs, glossary, runbook |
 | [`assets/`](assets/) | 🖼️ SVG illustrations used across this kit |
 | [`.github/`](.github/) | ⚙️ Issue templates, PR template, Copilot instructions, workflows |
+| [`.devcontainer/`](.devcontainer/) | 📦 Pre-configured dev environment (Java 21, Node 20, Docker) |
 
 ---
 
@@ -190,29 +200,40 @@ The stage guides mention these external folders. Facilitators distribute them at
 
 ### 🚀 Getting started
 
-This repository already IS your team starter. Clone it, rename the folder to your team name, and open the devcontainer.
+**Full step-by-step setup is in [`SETUP.md`](SETUP.md)** — covers GitHub repo creation, Copilot activation, Spec-Kit + Specky installation, branch strategy, and the 12-item smoke test.
+
+Quick summary (full instructions in `SETUP.md`):
 
 ```bash
-git clone https://github.com/paulasilvatech/hackathon-datacorp-team-kit.git team-01-repo
-cd team-01-repo
+# 1. Create your team's GitHub repo (one person, once)
+gh repo create paulasilvatech/hackathon-team-XX --private --add-readme
+
+# 2. Bootstrap from this kit
+git clone https://github.com/paulasilvatech/hackathon-datacorp-team-kit.git kit
+git clone https://github.com/paulasilvatech/hackathon-team-XX.git
+cd hackathon-team-XX
+cp -R ../kit/. . && rm -rf .git
+git init -b main
+git remote add origin https://github.com/paulasilvatech/hackathon-team-XX.git
+
+# 3. Bootstrap script (clones sifap-legacy, sets up symlinks)
+./scripts/setup.sh
+
+# 4. Open in VS Code with the dev container
 code .
 # Then: Ctrl+Shift+P > "Dev Containers: Reopen in Container"
 ```
 
-> ⚠️ **Heads up.** The legacy scenario (Natural programs and Adabas DDMs) is delivered separately by facilitators at the start of Stage 1. Do not attempt to fetch it from this repository.
-
-Once inside the devcontainer, start with Stage 1:
-
-```bash
-cat 01-arqueologia/GUIDE.md
-```
+> ⚠️ **Heads up.** The reference prototype and Terraform modules are delivered by facilitators at the start of Stages 3 and 4 respectively. Do not attempt to fetch them from this repository.
 
 ### 🎯 Recommended reading order
 
-1. ✅ This README (the one you are reading)
-2. 📖 Your persona kit in `persona-kits/<your-role>/README.md`
-3. ⚡ Cheat sheets in `cheat-sheets/` (keep them open in a tab)
-4. 🔍 Stage 1 guide in `01-arqueologia/GUIDE.md`
+1. 🚀 [`SETUP.md`](SETUP.md) — get your environment ready (30 min)
+2. 🤝 [`TEAM-FLOW.md`](TEAM-FLOW.md) — understand how the 10 of you collaborate
+3. 📖 Your persona card in [`personas/<your-role>.md`](personas/)
+4. 🤖 Your Copilot agent kit in [`persona-kits/<your-role>/README.md`](persona-kits/)
+5. ⚡ Cheat sheets in [`cheat-sheets/`](cheat-sheets/) (keep them open in a tab)
+6. 🔍 Stage 1 guide in [`01-arqueologia/GUIDE.md`](01-arqueologia/GUIDE.md)
 
 ---
 
