@@ -64,14 +64,12 @@ The team exits Stage 2 when they have:
 
 ## Available Prompts
 
-The following slash commands will be available for this agent (prompt files to be added in a follow-up):
-
-- `/carve-context` — Identify a bounded context from the legacy data map
-- `/write-ears` — Draft an EARS requirement from a business rule
-- `/write-adr` — Create an Architecture Decision Record
-- `/map-entity` — Design a JPA entity from an Adabas DDM structure
-- `/draw-c4` — Generate a C4 Mermaid diagram at a specified level
-- `/strangler-plan` — Outline a Strangler Fig migration strategy for a specific module
+| Command | Purpose |
+|---------|---------|
+| [`/carve-bounded-contexts`](../../.github/prompts/architect/carve-bounded-contexts.prompt.md) | Evaluate carving hypotheses and decide on bounded contexts |
+| [`/write-ears-spec`](../../.github/prompts/architect/write-ears-spec.prompt.md) | Translate confirmed business rules into EARS requirements |
+| [`/generate-adr`](../../.github/prompts/architect/generate-adr.prompt.md) | Draft an Architecture Decision Record for a design choice |
+| [`/design-modular-monolith`](../../.github/prompts/architect/design-modular-monolith.prompt.md) | Produce the Modular Monolith design with C4 diagram and OpenAPI skeleton |
 
 ## Anti-Patterns This Agent Refuses
 

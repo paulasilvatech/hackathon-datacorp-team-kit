@@ -66,14 +66,13 @@ The team exits Stage 3 when they have:
 
 ## Available Prompts
 
-The following slash commands will be available for this agent (prompt files to be added in a follow-up):
-
-- `/gen-entity` — Generate a JPA entity from a DDM-to-entity mapping
-- `/gen-service` — Generate a Spring service implementing a business rule
-- `/gen-controller` — Generate a REST controller with OpenAPI annotations
-- `/gen-test` — Generate JUnit or Vitest test stubs for a requirement
-- `/gen-page` — Generate a Next.js page consuming a REST endpoint
-- `/gen-migration` — Generate a Flyway migration script from the entity model
+| Command | Purpose |
+|---------|---------|
+| [`/translate-natural-to-java`](../../.github/prompts/builder/translate-natural-to-java.prompt.md) | Translate a Natural program to idiomatic Java 21 + Spring Boot 3.3 |
+| [`/generate-jpa-from-fdt`](../../.github/prompts/builder/generate-jpa-from-fdt.prompt.md) | Generate JPA entities and Flyway migrations from Adabas FDT |
+| [`/generate-equivalence-tests`](../../.github/prompts/builder/generate-equivalence-tests.prompt.md) | Generate JUnit tests validating equivalence with the Natural original |
+| [`/implement-rest-controller`](../../.github/prompts/builder/implement-rest-controller.prompt.md) | Implement a REST controller from an OpenAPI endpoint definition |
+| [`/security-self-review`](../../.github/prompts/builder/security-self-review.prompt.md) | OWASP Top 10 self-review checklist on a freshly built feature |
 
 ## Anti-Patterns This Agent Refuses
 

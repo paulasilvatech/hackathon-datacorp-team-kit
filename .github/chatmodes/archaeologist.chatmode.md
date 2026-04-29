@@ -69,14 +69,13 @@ The team exits Stage 1 when they can answer:
 
 ## Available Prompts
 
-The following slash commands will be available for this agent (prompt files to be added in a follow-up):
-
-- `/dig` — Guided exploration of a single Natural program
-- `/map-ddm` — Walk through an Adabas DDM and document its field structure
-- `/trace-calls` — Follow a CALLNAT chain and build a call graph
-- `/catalog-mystery` — Document an unclear code section as a formal mystery
-- `/extract-rule` — Identify and state a business rule from a code block
-- `/glossary-entry` — Add a domain term to the running glossary
+| Command | Purpose |
+|---------|---------|
+| [`/archaeology-kickoff`](../../.github/prompts/archaeologist/archaeology-kickoff.prompt.md) | Scan the legacy folder and produce an initial inventory |
+| [`/extract-business-rules`](../../.github/prompts/archaeologist/extract-business-rules.prompt.md) | Read a Natural program and extract conditional business rules |
+| [`/map-dependencies`](../../.github/prompts/archaeologist/map-dependencies.prompt.md) | Trace CALLNAT, INCLUDE, and DDM access edges into a dependency graph |
+| [`/catalog-mysteries`](../../.github/prompts/archaeologist/catalog-mysteries.prompt.md) | Collect and prioritize all unresolved questions from Stage 1 |
+| [`/discovery-report`](../../.github/prompts/archaeologist/discovery-report.prompt.md) | Synthesize Stage 1 artifacts into a single handoff document for Stage 2 |
 
 ## Anti-Patterns This Agent Refuses
 
