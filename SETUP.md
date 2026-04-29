@@ -49,7 +49,7 @@ You will end up with **3 repositories on your laptop**:
 |------|---------------------|----------------|
 | `team-kit` | You read its docs and copy parts of it once at start | github.com/paulasilvatech/hackathon-datacorp-team-kit (public) |
 | `sifap-legacy` | You read it during Stage 1 — never edit | github.com/paulasilvatech/sifap-legacy (public) |
-| `hackathon-team-XX` | **All your work goes here** | github.com/paulasilvatech/hackathon-team-XX (private, you create it) |
+| `hackathon-team-XX` | **All your work goes here** | github.com/<YOUR_GITHUB_USER>/hackathon-team-XX (private, you create it) |
 
 > **Key rule.** Never push to the kit or sifap-legacy. Your team's commits go only to `hackathon-team-XX`.
 
@@ -126,7 +126,7 @@ The lead invites the rest of the team so everyone can push and pull.
 
 ### Option A — using the website
 
-1. Go to your repo on GitHub: `https://github.com/paulasilvatech/hackathon-team-XX`
+1. Go to your repo on GitHub: `https://github.com/<YOUR_GITHUB_USER>/hackathon-team-XX`
 2. Click **Settings** (top tab — needs admin permission, the lead has it).
 3. Left sidebar: click **Collaborators**.
 4. Click **Add people**.
@@ -143,7 +143,7 @@ Once per teammate:
 
 ```bash
 # Replace alice with the actual GitHub username
-gh api -X PUT "repos/paulasilvatech/hackathon-team-01/collaborators/alice" \
+gh api -X PUT "repos/<YOUR_GITHUB_USER>/hackathon-team-01/collaborators/alice" \
   -f permission=write
 ```
 
@@ -151,7 +151,7 @@ Or in a loop:
 
 ```bash
 for user in alice bob carla dani eve felipe gabi hugo ivone juliana; do
-  gh api -X PUT "repos/paulasilvatech/hackathon-team-01/collaborators/${user}" \
+  gh api -X PUT "repos/<YOUR_GITHUB_USER>/hackathon-team-01/collaborators/${user}" \
     -f permission=write
 done
 ```
@@ -176,7 +176,7 @@ This prevents anyone (including you) from pushing broken code straight to `main`
 ### Using the CLI
 
 ```bash
-gh api -X PUT "repos/paulasilvatech/hackathon-team-01/branches/main/protection" \
+gh api -X PUT "repos/<YOUR_GITHUB_USER>/hackathon-team-01/branches/main/protection" \
   --input - <<'JSON'
 {
   "required_status_checks": null,
@@ -203,7 +203,7 @@ mkdir -p ~/Code && cd ~/Code
 git clone https://github.com/paulasilvatech/hackathon-datacorp-team-kit.git kit
 
 # 3. Clone YOUR empty team repo (where work happens)
-git clone https://github.com/paulasilvatech/hackathon-team-01.git
+git clone https://github.com/<YOUR_GITHUB_USER>/hackathon-team-01.git
 cd hackathon-team-01
 
 # 4. Copy everything from the kit into your team repo
@@ -213,7 +213,7 @@ cp -R ../kit/. .
 # 5. Don't bring the kit's git history. Your team has its own.
 rm -rf .git
 git init -b main
-git remote add origin https://github.com/paulasilvatech/hackathon-team-01.git
+git remote add origin https://github.com/<YOUR_GITHUB_USER>/hackathon-team-01.git
 
 # 6. Make scripts executable (one-time fix)
 chmod +x scripts/*.sh
@@ -267,7 +267,7 @@ git push -u origin develop
 mkdir -p ~/Code && cd ~/Code
 
 # Replace 01 with your actual team number
-git clone https://github.com/paulasilvatech/hackathon-team-01.git
+git clone https://github.com/<YOUR_GITHUB_USER>/hackathon-team-01.git
 cd hackathon-team-01
 ```
 
