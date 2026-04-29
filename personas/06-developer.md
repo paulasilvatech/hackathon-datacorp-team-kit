@@ -98,4 +98,14 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - Rubric A4 (Conscious Use of Copilot): deliberate switching between Chat, Edits, and Agent
 - Criterion: "Small commits, reviewable PRs, tests written alongside the code"
 
+
+## Agents I Use
+
+| Agent | My Role | What I Do |
+|---|---|---|
+| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Observer | Follow along, contribute when code patterns need explanation |
+| [@architect](../agent-kits/02-architect/README.md) | Observer | Review the emerging specification, flag inconsistencies |
+| [@builder](../agent-kits/03-builder/README.md) | **Protagonist** | Write and review implementation code across backend and frontend |
+| [@evolution](../agent-kits/04-evolution/README.md) | Secondary | Review AI-generated code for correctness |
+
 - Paula

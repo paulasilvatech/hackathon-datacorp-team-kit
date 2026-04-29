@@ -94,4 +94,14 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - **Rubric A3 (Technical Integrity):** bounded contexts respected in the code.
 - Criterion: "No import crosses a context boundary without justification."
 
+
+## Agents I Use
+
+| Agent | My Role | What I Do |
+|---|---|---|
+| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Observer | Follow along, ready to validate cross-system patterns |
+| [@architect](../agent-kits/02-architect/README.md) | **Protagonist** | Drive bounded context carving, C4 diagrams, Modular Monolith design |
+| [@builder](../agent-kits/03-builder/README.md) | Secondary | Validate implementation matches the Stage 2 design |
+| [@evolution](../agent-kits/04-evolution/README.md) | Observer | Watch the delegation pattern, learn for future use |
+
 - Paula

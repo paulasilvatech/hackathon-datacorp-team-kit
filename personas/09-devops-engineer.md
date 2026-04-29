@@ -96,4 +96,14 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - Rubric A4 (Copilot): use of Agent for complex pipelines
 - Criterion: "Reproducible build. Any machine on the team runs the compose in under 60s."
 
+
+## Agents I Use
+
+| Agent | My Role | What I Do |
+|---|---|---|
+| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Observer | Observe infrastructure patterns in legacy system |
+| [@architect](../agent-kits/02-architect/README.md) | Observer | Note deployment and infrastructure requirements |
+| [@builder](../agent-kits/03-builder/README.md) | Secondary | Support Docker and build pipeline setup |
+| [@evolution](../agent-kits/04-evolution/README.md) | Secondary | Write Terraform modules, configure GitHub Actions |
+
 - Paula

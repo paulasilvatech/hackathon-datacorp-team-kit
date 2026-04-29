@@ -94,4 +94,14 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - **Rubric A7 (Agent Experience):** issues with enough context for the Agent to produce a useful PR.
 - Indirectly evaluated in **A6 (Collaboration):** PO who protects the team's focus.
 
+
+## Agents I Use
+
+| Agent | My Role | What I Do |
+|---|---|---|
+| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Observer | Follow along, validate domain understanding |
+| [@architect](../agent-kits/02-architect/README.md) | Secondary | Prioritize requirements, validate scope decisions |
+| [@builder](../agent-kits/03-builder/README.md) | Observer | Available for domain clarification when needed |
+| [@evolution](../agent-kits/04-evolution/README.md) | Secondary | Help prioritize demo scope, prepare presentation narrative |
+
 - Paula

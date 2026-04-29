@@ -95,4 +95,14 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - Rubric A7 (Agent): honest and detailed report
 - Criterion: "README evolved every hour. ADRs have context, decision, and consequences. Nothing says TODO."
 
+
+## Agents I Use
+
+| Agent | My Role | What I Do |
+|---|---|---|
+| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Secondary | Build the domain glossary from legacy code discoveries |
+| [@architect](../agent-kits/02-architect/README.md) | Observer | Ensure ADRs and specs are clearly written |
+| [@builder](../agent-kits/03-builder/README.md) | Observer | Review Javadoc and code documentation |
+| [@evolution](../agent-kits/04-evolution/README.md) | Secondary | Polish READMEs, demo script, retrospective notes |
+
 - Paula

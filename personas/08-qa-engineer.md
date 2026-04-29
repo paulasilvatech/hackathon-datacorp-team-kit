@@ -96,4 +96,14 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - Rubric A2 (Spec): every requirement has a verification criterion
 - Criterion: "Tests that break on the first bug, not tests that always pass"
 
+
+## Agents I Use
+
+| Agent | My Role | What I Do |
+|---|---|---|
+| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Observer | Note testability concerns in legacy patterns |
+| [@architect](../agent-kits/02-architect/README.md) | Observer | Review acceptance criteria for testability |
+| [@builder](../agent-kits/03-builder/README.md) | Secondary | Write tests, validate acceptance criteria, monitor coverage |
+| [@evolution](../agent-kits/04-evolution/README.md) | Secondary | Validate quality gates in the CI pipeline |
+
 - Paula
