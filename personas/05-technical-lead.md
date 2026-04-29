@@ -96,4 +96,14 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - **Rubric A6 (Collaboration):** nobody stuck for more than 20 minutes.
 - Criterion: "`main` green at all times, PRs reviewed in under 15 minutes."
 
+
+## Agents I Use
+
+| Agent | My Role | What I Do |
+|---|---|---|
+| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Observer | Start planning implementation approach for Stage 3 |
+| [@architect](../agent-kits/02-architect/README.md) | Secondary | Review architectural decisions, prepare for code standards |
+| [@builder](../agent-kits/03-builder/README.md) | Secondary | Review code quality, ensure standards compliance |
+| [@evolution](../agent-kits/04-evolution/README.md) | **Protagonist** | Dispatch issues to Copilot Agent, review AI PRs, own integration |
+
 - Paula

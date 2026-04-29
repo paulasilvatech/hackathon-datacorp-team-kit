@@ -60,7 +60,7 @@ A Markdown file at `02-spec-moderna/ADRs/adr-NNN-<slug>.md`:
 - Related Requirements: REQ-NNN
 ```
 
-<!-- TODO: confirm template path after Wave 3 -->
+See [`02-spec-moderna/templates/ADR.template.md`](../../../02-spec-moderna/templates/ADR.template.md) for the skeleton.
 
 ## Definition of Done
 

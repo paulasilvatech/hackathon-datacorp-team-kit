@@ -94,4 +94,14 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - **Rubric A2 (Spec Coherence):** ADRs name the "path not taken".
 - Criterion: "C4 L1 understood in 30 seconds by anyone on the team."
 
+
+## Agents I Use
+
+| Agent | My Role | What I Do |
+|---|---|---|
+| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Secondary | Identify system boundaries and external integrations |
+| [@architect](../agent-kits/02-architect/README.md) | Secondary | Validate system context, integration patterns, security architecture |
+| [@builder](../agent-kits/03-builder/README.md) | Observer | Ensure implementation aligns with enterprise patterns |
+| [@evolution](../agent-kits/04-evolution/README.md) | Observer | Review infrastructure decisions for enterprise fit |
+
 - Paula

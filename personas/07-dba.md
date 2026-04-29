@@ -94,4 +94,14 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - Rubric A1 (Archaeology): DDM → relational entity map documented
 - Criterion: "Audit store is append-only. No DELETE in the audit schema."
 
+
+## Agents I Use
+
+| Agent | My Role | What I Do |
+|---|---|---|
+| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Secondary | Focus on DDMs, field types, data structures, relationships |
+| [@architect](../agent-kits/02-architect/README.md) | Observer | Validate data model decisions in bounded context design |
+| [@builder](../agent-kits/03-builder/README.md) | Secondary | Own schema design, migrations, data integrity validation |
+| [@evolution](../agent-kits/04-evolution/README.md) | Observer | Review database-related changes in AI PRs |
+
 - Paula

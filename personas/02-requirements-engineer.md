@@ -94,4 +94,14 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - **Rubric A1 (Archaeology):** rule catalog with classification.
 - Criterion: "Every requirement has an active verb and is testable."
 
+
+## Agents I Use
+
+| Agent | My Role | What I Do |
+|---|---|---|
+| [@archaeologist](../agent-kits/01-archaeologist/README.md) | **Protagonist** | Drive legacy exploration, capture business rules as draft requirements |
+| [@architect](../agent-kits/02-architect/README.md) | Secondary | Write EARS requirements, ensure traceability to Stage 1 discoveries |
+| [@builder](../agent-kits/03-builder/README.md) | Observer | Available to clarify requirements during implementation |
+| [@evolution](../agent-kits/04-evolution/README.md) | Observer | Observe the delegation pattern for future use |
+
 - Paula
