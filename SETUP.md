@@ -3,7 +3,7 @@ title: "Setup Guide — From Zero to Coding"
 description: "Complete beginner-friendly step-by-step: create the team's GitHub repository, add members, activate Copilot, install Spec-Kit and Specky, set branch strategy, and configure each persona's Copilot kit"
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-29"
-version: "2.0.0"
+version: "2.1.0"
 status: "approved"
 tags: ["setup", "onboarding", "github", "copilot", "spec-kit", "specky", "hackathon", "datacorp", "beginner"]
 ---
@@ -13,15 +13,17 @@ tags: ["setup", "onboarding", "github", "copilot", "spec-kit", "specky", "hackat
 > **You are 10 people. You have one workday.** This guide takes you from "we have nothing yet" to "first commit pushed, Copilot working, every persona ready" in **45 minutes**.
 >
 > **Everyone in the team should follow along on their own laptop.** One person screen-shares the steps, the other 9 mirror them. By the end, every laptop is fully configured.
+>
+> ⚠️ **Windows users**: all terminal commands below assume **Git Bash** or **WSL**. Do **not** use PowerShell or CMD — `cp -R`, `chmod`, `rm -rf`, and heredoc syntax will not work.
 
 ## Table of Contents
 
 - [📋 Before You Start — Mental Model](#-before-you-start--mental-model)
 - [✅ Step 1 — Verify your laptop has the prerequisites](#-step-1--verify-your-laptop-has-the-prerequisites)
 - [👥 Step 2 — Create the team's GitHub repository (lead only)](#-step-2--create-the-teams-github-repository-lead-only)
-- [🎟️ Step 3 — Add the other 9 team members (lead only)](#%EF%B8%8F-step-3--add-the-other-9-team-members-lead-only)
+- [📥 Step 3 — Bootstrap your team repo from this kit (lead only)](#-step-3--bootstrap-your-team-repo-from-this-kit-lead-only)
 - [🛡️ Step 4 — Protect the `main` branch (lead only)](#%EF%B8%8F-step-4--protect-the-main-branch-lead-only)
-- [📥 Step 5 — Bootstrap your team repo from this kit (lead only)](#-step-5--bootstrap-your-team-repo-from-this-kit-lead-only)
+- [🎟️ Step 5 — Add the other 9 team members (lead only)](#%EF%B8%8F-step-5--add-the-other-9-team-members-lead-only)
 - [💻 Step 6 — Each member clones the team repo](#-step-6--each-member-clones-the-team-repo)
 - [🤖 Step 7 — Activate GitHub Copilot in VS Code (everyone)](#-step-7--activate-github-copilot-in-vs-code-everyone)
 - [🎭 Step 8 — Install your persona's Copilot kit (everyone)](#-step-8--install-your-personas-copilot-kit-everyone)
@@ -91,13 +93,15 @@ You will end up with **3 repositories on your laptop**:
    - **Repository name**: `hackathon-team-XX` (replace XX with your team number, e.g., `hackathon-team-01`)
    - **Description**: `Hackathon DATACORP 2026 — Team XX`
    - **Visibility**: **Private** ✅
-3. Initialize this repository with:
-   - **Add a README file** ✅
-   - **Add .gitignore**: pick `Java`
-   - **Choose a license**: leave **None**
+3. **Do NOT** check any of the initialization boxes. Leave them all unchecked:
+   - ❌ Add a README file
+   - ❌ Add .gitignore
+   - ❌ Choose a license
 4. Click the green **Create repository** button.
 
-You should now see your empty repo with a README. Keep this browser tab open — you'll come back to it.
+> **Why empty?** In Step 3, the lead will push the full team-kit content as the first commit. Starting empty avoids merge conflicts.
+
+You should now see GitHub's "Quick setup" page with push instructions. Keep this browser tab open.
 
 ### Option B — using the GitHub CLI (faster, but typing-heavy)
 
@@ -109,18 +113,112 @@ gh auth login
 
 # Create the repo (replace 01 with your team number)
 # Use just the repo name — no owner prefix. Creates the repo under YOUR GitHub user.
+# The repo must be empty (no --add-readme) so the bootstrap push in Step 3 works.
 gh repo create hackathon-team-01 \
   --private \
-  --description "Hackathon DATACORP 2026 — Team 01" \
-  --add-readme \
-  --gitignore Java
+  --description "Hackathon DATACORP 2026 — Team 01"
 ```
 
 If the command prints a URL ending in `hackathon-team-01`, you're done.
 
 ---
 
-## 🎟️ Step 3 — Add the other 9 team members (lead only)
+## 📥 Step 3 — Bootstrap your team repo from this kit (lead only)
+
+Now we copy everything from this team-kit into the empty team repo so you have all the templates, personas, scripts, and CI workflows ready.
+
+```bash
+# 1. Pick a folder for all your code
+mkdir -p ~/Code && cd ~/Code
+
+# 2. Clone this team kit (read-only reference)
+git clone https://github.com/paulasilvatech/hackathon-datacorp-team-kit.git kit
+
+# 3. Create a local repo from the kit (excluding kit's git history)
+cp -R kit hackathon-team-01
+cd hackathon-team-01
+rm -rf .git
+git init -b main
+git remote add origin https://github.com/<YOUR_GITHUB_USER>/hackathon-team-01.git
+
+# 4. Make scripts executable (one-time fix)
+chmod +x scripts/*.sh
+```
+
+### Run the bootstrap script
+
+This clones the read-only `sifap-legacy` repository into `reference/`, creates the `legacy/` symlink, and initializes an empty `.specs/` folder for Specky.
+
+```bash
+./scripts/setup.sh
+```
+
+If it ends with **"Done."** and lists "Next steps", you are good. If it errors, check the [Troubleshooting](#-troubleshooting) section.
+
+### First commit and push
+
+```bash
+git add -A
+git commit -m "chore: bootstrap team kit"
+git push -u origin main
+```
+
+You should see "Branch 'main' set up to track remote branch 'main' from 'origin'." That means the push worked.
+
+> ⚠️ **Important.** From now on you should never push directly to `main`. Step 4 protects it.
+
+### Create the `develop` integration branch
+
+```bash
+git checkout -b develop
+git push -u origin develop
+```
+
+`develop` is where everyone's feature branches will merge. Promotions to `main` happen via PR after each stage.
+
+---
+
+## 🛡️ Step 4 — Protect the `main` branch (lead only)
+
+This prevents anyone (except the repo admin) from pushing directly to `main`. Every change must go through a Pull Request.
+
+> ⚠️ **GitHub Free accounts**: branch protection on **private** repos requires **GitHub Pro**, **GitHub Team**, or **GitHub Enterprise**. If your account is on the free plan, either make the repo **public** or skip this step (honor the no-direct-push rule by convention).
+
+### Using the website
+
+1. Go to **Settings** → **Branches** (left sidebar).
+2. Under **Branch protection rules**, click **Add rule**.
+3. Branch name pattern: `main`
+4. Tick:
+   - **Require a pull request before merging** ✅
+   - **Require approvals** — set to `1`
+   - **Require conversation resolution before merging** ✅
+5. Click **Create**.
+
+### Using the CLI
+
+```bash
+gh api -X PUT "repos/<YOUR_GITHUB_USER>/hackathon-team-01/branches/main/protection" \
+  --input - <<'JSON'
+{
+  "required_status_checks": null,
+  "enforce_admins": true,
+  "required_pull_request_reviews": {
+    "required_approving_review_count": 1,
+    "dismiss_stale_reviews": false,
+    "require_code_owner_reviews": false
+  },
+  "restrictions": null,
+  "required_conversation_resolution": true
+}
+JSON
+```
+
+> **Why this matters.** Without this rule, someone in the team will eventually push a typo to `main` at minute 90 and the demo will fail at minute 480. Cost: 30 seconds. Saves: hours.
+
+---
+
+## 🎟️ Step 5 — Add the other 9 team members (lead only)
 
 The lead invites the rest of the team so everyone can push and pull.
 
@@ -158,117 +256,26 @@ done
 
 ---
 
-## 🛡️ Step 4 — Protect the `main` branch (lead only)
-
-This prevents anyone (including you) from pushing broken code straight to `main`. Every change must go through a Pull Request.
-
-### Using the website
-
-1. Go to **Settings** → **Branches** (left sidebar).
-2. Under **Branch protection rules**, click **Add rule**.
-3. Branch name pattern: `main`
-4. Tick:
-   - **Require a pull request before merging** ✅
-   - **Require approvals** — set to `1`
-   - **Require conversation resolution before merging** ✅
-5. Click **Create**.
-
-### Using the CLI
-
-```bash
-gh api -X PUT "repos/<YOUR_GITHUB_USER>/hackathon-team-01/branches/main/protection" \
-  --input - <<'JSON'
-{
-  "required_status_checks": null,
-  "enforce_admins": false,
-  "required_pull_request_reviews": { "required_approving_review_count": 1 },
-  "restrictions": null
-}
-JSON
-```
-
-> **Why this matters.** Without this rule, someone in the team will eventually push a typo to `main` at minute 90 and the demo will fail at minute 480. Cost: 30 seconds. Saves: hours.
-
----
-
-## 📥 Step 5 — Bootstrap your team repo from this kit (lead only)
-
-Now we copy everything from this team-kit into the empty team repo so you have all the templates, personas, scripts, and CI workflows ready.
-
-```bash
-# 1. Pick a folder for all your code
-mkdir -p ~/Code && cd ~/Code
-
-# 2. Clone this team kit (read-only reference)
-git clone https://github.com/paulasilvatech/hackathon-datacorp-team-kit.git kit
-
-# 3. Clone YOUR empty team repo (where work happens)
-git clone https://github.com/<YOUR_GITHUB_USER>/hackathon-team-01.git
-cd hackathon-team-01
-
-# 4. Copy everything from the kit into your team repo
-#    The trailing /. and the dot at the end matter — they copy hidden files too
-cp -R ../kit/. .
-
-# 5. Don't bring the kit's git history. Your team has its own.
-rm -rf .git
-git init -b main
-git remote add origin https://github.com/<YOUR_GITHUB_USER>/hackathon-team-01.git
-
-# 6. Make scripts executable (one-time fix)
-chmod +x scripts/*.sh
-```
-
-### Run the bootstrap script
-
-This clones the read-only `sifap-legacy` repository into `reference/`, creates the `legacy/` symlink, and initializes an empty `.specs/` folder for Specky.
-
-```bash
-./scripts/setup.sh
-```
-
-If it ends with **"Done."** and lists "Next steps", you are good. If it errors, check the [Troubleshooting](#-troubleshooting) section.
-
-### First commit and push
-
-```bash
-git add -A
-git commit -m "chore: bootstrap team kit"
-git push -u origin main
-```
-
-You should see "main set up to track origin/main" and "Branch 'main' set up to track remote branch 'main' from 'origin'." That means the push worked.
-
-> ⚠️ **Important.** From now on you should never push directly to `main`. Step 4 protects it. The next sections show how to use feature branches.
-
-### Create the `develop` integration branch
-
-```bash
-git checkout -b develop
-git push -u origin develop
-```
-
-`develop` is where everyone's feature branches will merge. Promotions to `main` happen via PR after each stage.
-
----
-
 ## 💻 Step 6 — Each member clones the team repo
 
 **Now everyone joins.** The 9 other team members do this.
 
 ### 6.1 Accept the invitation
 
-1. Open the email from GitHub titled **"Paula Nunes invited you to ..."** (or check the bell icon at github.com).
+1. Open the email from GitHub titled **"[username] invited you to ..."** (or check the bell icon 🔔 at github.com).
 2. Click **View invitation** → **Accept invitation**.
 
-### 6.2 Clone
+### 6.2 Clone and switch to `develop`
 
 ```bash
 mkdir -p ~/Code && cd ~/Code
 
-# Replace 01 with your actual team number
+# Replace 01 with your actual team number, and <YOUR_GITHUB_USER> with the lead's username
 git clone https://github.com/<YOUR_GITHUB_USER>/hackathon-team-01.git
 cd hackathon-team-01
+
+# Switch to the develop branch (where day-to-day work happens)
+git checkout develop
 ```
 
 ### 6.3 Open in VS Code
@@ -690,13 +697,13 @@ Each persona has a **default daily loop**. Run it as many times as needed during
 The team lead reads each item out loud. Each person confirms on their laptop.
 
 - [ ] Every member has cloned `hackathon-team-XX`
-- [ ] Every member can run `git push origin develop` (write access confirmed)
+- [ ] Every member can run `git checkout develop && git pull origin develop` (write access confirmed)
 - [ ] CI ran on the bootstrap commit — green check in **Actions** tab
 - [ ] `docker compose up -d` succeeds (or facilitator hands you the prototype tarball at Stage 3)
 - [ ] Every Copilot Chat answers "What stack are we using?" with the right answer
 - [ ] Every member has installed Specky: `specky doctor` reports no errors
 - [ ] `spec-kit --version` prints a version on every laptop
-- [ ] `gh issue list` works (returns the 3 issue templates: spec, adr, task)
+- [ ] Open **New issue** on GitHub and verify 3 templates appear (spec, adr, task)
 - [ ] All 10 team members visible in repo Settings → Collaborators
 - [ ] Each persona has read their card in `personas/XX-role.md`
 - [ ] Team lead has updated `.github/copilot-instructions.md` with everyone's names
