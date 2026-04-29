@@ -233,9 +233,9 @@ The kit has three layers of AI tooling. They are not alternatives — they are c
 
 | Tool | What It Is | When to Use | Cheat Sheet |
 |------|-----------|-------------|-------------|
-| **4 Stage Agents** (`@archaeologist`, `@architect`, `@builder`, `@evolution`) | VS Code Copilot agents with stage-specific prompts | Throughout the day — one agent per stage | [`agent-kits/`](agent-kits/README.md) |
-| **Specky SDD** (`@spec-engineer`, `@design-architect`, `@implementer`, etc.) | 10-phase pipeline engine with quality gates and LGTM reviews | Primarily in Stages 2 and 3 for formal artifacts | [`cheat-sheets/specky-workflow.md`](cheat-sheets/specky-workflow.md) |
-| **Spec-Kit** (`spec-kit new`, `spec-kit init`) | Quick natural-language drafting tool | First 15 minutes of Stage 2 for brain-dump | [`SETUP.md` Step 9](SETUP.md) |
+| **4 Stage Agents** (`@archaeologist`, `@architect`, `@builder`, `@evolution`) | VS Code Copilot agents with stage-specific prompts | Throughout the day — one agent per stage | [`agent-kits/`](../agent-kits/README.md) |
+| **Specky SDD** (`@spec-engineer`, `@design-architect`, `@implementer`, etc.) | 10-phase pipeline engine with quality gates and LGTM reviews | Primarily in Stages 2 and 3 for formal artifacts | [`cheat-sheets/specky-workflow.md`](../cheat-sheets/specky-workflow.md) |
+| **Spec-Kit** (`spec-kit new`, `spec-kit init`) | Quick natural-language drafting tool | First 15 minutes of Stage 2 for brain-dump | [`SETUP.md` Step 9](../SETUP.md) |
 
 ### The Recommended Flow
 
@@ -324,20 +324,20 @@ The `@builder` agent writes code. Specky ensures the code traces to requirements
 
 | What you need | Where it lives |
 |---|---|
-| Your role and handoffs | [`personas/<your-role>.md`](personas/) |
-| Your Copilot agent + prompts + skills | [`persona-kits/<your-role>/`](persona-kits/) |
-| The stage agent for the current stage | [`agent-kits/<NN>-<stage>/README.md`](agent-kits/) |
-| The agent file Copilot loads | [`.github/agents/<agent>.agent.md`](.github/agents/) |
-| The prompts you invoke | [`.github/prompts/<agent>/`](.github/prompts/) |
+| Your role and handoffs | [`personas/<your-role>.md`](../personas/) |
+| Your Copilot agent + prompts + skills | [`persona-kits/<your-role>/`](../persona-kits/) |
+| The stage agent for the current stage | [`agent-kits/<NN>-<stage>/README.md`](../agent-kits/) |
+| The agent file Copilot loads | [`.github/agents/<agent>.agent.md`](../.github/agents/) |
+| The prompts you invoke | [`.github/prompts/<agent>/`](../.github/prompts/) |
 | The deliverable templates | `01-arqueologia/templates/`, `02-spec-moderna/templates/`, `04-evolucao/templates/` |
-| Specky SDD cheat sheet | [`cheat-sheets/specky-workflow.md`](cheat-sheets/specky-workflow.md) |
-| Spec-Kit quick start | [`SETUP.md` Step 9](SETUP.md) |
-| Full 10×4 persona-agent matrix | [`docs/persona-agent-matrix.md`](docs/persona-agent-matrix.md) |
-| Agent architecture explanation | [`docs/4-agents-explained.md`](docs/4-agents-explained.md) |
-| Daily timeline and handoff rules | [`TEAM-FLOW.md`](TEAM-FLOW.md) |
+| Specky SDD cheat sheet | [`cheat-sheets/specky-workflow.md`](../cheat-sheets/specky-workflow.md) |
+| Spec-Kit quick start | [`SETUP.md` Step 9](../SETUP.md) |
+| Full 10×4 persona-agent matrix | [`docs/persona-agent-matrix.md`](persona-agent-matrix.md) |
+| Agent architecture explanation | [`docs/4-agents-explained.md`](4-agents-explained.md) |
+| Daily timeline and handoff rules | [`TEAM-FLOW.md`](../TEAM-FLOW.md) |
 
 ---
 
 | Previous | Home | Next |
 |----------|------|------|
-| [Team Flow](TEAM-FLOW.md) | [Team Kit Home](README.md) | [Agent Kits](agent-kits/README.md) |
+| [Team Flow](../TEAM-FLOW.md) | [Team Kit Home](../README.md) | [Agent Kits](../agent-kits/README.md) |

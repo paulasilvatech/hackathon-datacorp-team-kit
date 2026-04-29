@@ -275,6 +275,6 @@ Which Specky agent?  → cheat-sheets/specky-workflow.md
 
 | Parent | Home |
 |--------|------|
-| [Team Kit](README.md) | [Workspace Root](../README.md) |
+| [Team Kit](README.md) | [Workspace Root](README.md) |
 
 — Paula
