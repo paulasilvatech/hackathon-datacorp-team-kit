@@ -127,6 +127,9 @@ Grouped by domain for easier navigation.
 ## 🚀 How to Activate a Persona
 
 ```mermaid
+## 🚀 How to Activate a Persona
+
+```mermaid
 flowchart LR
     A[📁 Open persona folder] --> B[📖 Read README.md]
     B --> C[🧩 Install plugins from mcp.json]
@@ -134,13 +137,42 @@ flowchart LR
     D --> E[🎯 Paste prompt or run skill]
 ```
 
-Step by step:
+### Step by step (beginner-friendly)
 
-1. Pick the role you are playing in this hackathon.
-2. Open the persona README to understand the day-in-the-life context.
-3. Install MCP plugins from `mcp.json` if your Copilot client supports MCP.
-4. Copy the relevant agent to your chat mode library.
-5. Use the prompts from the `prompts/` folder for recurring tasks.
+> **Prerequisite.** You have already followed [SETUP.md](../SETUP.md) to bootstrap your team repo and activate Copilot.
+
+1. **Identify your role.** Open your persona card in `../personas/XX-your-role.md`. The mapping table is in [SETUP.md §8.3](../SETUP.md#83-persona-to-kit-mapping).
+
+2. **Install your kit.** From the root of your team repo, run:
+
+   ```bash
+   # Replace XX-your-role with your kit ID, e.g., 22-developer
+   cp -r persona-kits/XX-your-role/.github/* .github/
+
+   # If your kit has mcp.json, copy it to .vscode/
+   [ -f persona-kits/XX-your-role/mcp.json ] && \
+     mkdir -p .vscode && \
+     cp persona-kits/XX-your-role/mcp.json .vscode/mcp.json
+   ```
+
+3. **Reload Copilot.** Open Command Palette → **Developer: Reload Window**. Copilot will pick up the new agents, prompts, and skills.
+
+4. **Verify the kit is loaded.** In Copilot Chat, type `@` — you should see your role's agent (e.g., `@developer`, `@dba`). Type `/` and you should see your role's slash commands (e.g., `/implement`, `/migration`, `/coverage-gaps`).
+
+5. **Use a slash command.** Try one of your kit's prompts. Each one has a `Goal → Inputs → Process → Output → Worked Example → Anti-patterns` structure. Just paste the slash command name.
+
+   Example for the Developer kit:
+
+   ```
+   /implement
+   Task: T-007 in .specs/003-payment-cycle-generation/TASKS.md
+   ```
+
+6. **Read your kit's skills.** Skills are reusable mental models, not commands. Open `.github/skills/<skill-name>/SKILL.md` and use them as reference when Copilot asks "how should I approach this?"
+
+7. **Pair the kit with the persona card.** The persona card answers "what does my role do today?" The kit gives you Copilot tools. Use them together.
+
+> 💡 **Tip.** Every team member follows steps 1–6 once at the start of the day. After that, the kit "just works" inside Copilot Chat.
 
 ---
 

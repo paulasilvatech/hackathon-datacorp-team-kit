@@ -1,102 +1,181 @@
 ---
 title: "Setup Guide — From Zero to Coding"
-description: "Step-by-step guide for each hackathon team to create their GitHub repository, configure Copilot, install Spec-Kit and Specky, and start working as a team of 10"
+description: "Complete beginner-friendly step-by-step: create the team's GitHub repository, add members, activate Copilot, install Spec-Kit and Specky, set branch strategy, and configure each persona's Copilot kit"
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-29"
-version: "1.0.0"
+version: "2.0.0"
 status: "approved"
-tags: ["setup", "onboarding", "github", "copilot", "spec-kit", "specky", "hackathon", "datacorp"]
+tags: ["setup", "onboarding", "github", "copilot", "spec-kit", "specky", "hackathon", "datacorp", "beginner"]
 ---
 
 # Setup Guide — From Zero to Coding
 
-> **You are 10 people.** You have one workday. The goal of this guide is to take you from "no repository yet" to "first commit pushed and Copilot working" in **30 minutes**.
+> **You are 10 people. You have one workday.** This guide takes you from "we have nothing yet" to "first commit pushed, Copilot working, every persona ready" in **45 minutes**.
 >
-> Read this **once, together, at 09:00**. One person screen-shares, the rest follow on their laptops.
+> **Everyone in the team should follow along on their own laptop.** One person screen-shares the steps, the other 9 mirror them. By the end, every laptop is fully configured.
 
 ## Table of Contents
 
-- [1. Prerequisites — what every laptop needs](#1-prerequisites--what-every-laptop-needs)
-- [2. Step 1 — Create the team's GitHub repository](#2-step-1--create-the-teams-github-repository)
-- [3. Step 2 — Bootstrap your repo from this kit](#3-step-2--bootstrap-your-repo-from-this-kit)
-- [4. Step 3 — Configure `.github/` and team conventions](#4-step-3--configure-github-and-team-conventions)
-- [5. Step 4 — Activate GitHub Copilot in VS Code](#5-step-4--activate-github-copilot-in-vs-code)
-- [6. Step 5 — Install and use Spec-Kit](#6-step-5--install-and-use-spec-kit)
-- [7. Step 6 — Install and use Specky](#7-step-6--install-and-use-specky)
-- [8. Step 7 — How a team of 10 works in one repository](#8-step-7--how-a-team-of-10-works-in-one-repository)
-- [9. Smoke test — prove everything works](#9-smoke-test--prove-everything-works)
-- [10. Troubleshooting](#10-troubleshooting)
+- [📋 Before You Start — Mental Model](#-before-you-start--mental-model)
+- [✅ Step 1 — Verify your laptop has the prerequisites](#-step-1--verify-your-laptop-has-the-prerequisites)
+- [👥 Step 2 — Create the team's GitHub repository (lead only)](#-step-2--create-the-teams-github-repository-lead-only)
+- [🎟️ Step 3 — Add the other 9 team members (lead only)](#%EF%B8%8F-step-3--add-the-other-9-team-members-lead-only)
+- [🛡️ Step 4 — Protect the `main` branch (lead only)](#%EF%B8%8F-step-4--protect-the-main-branch-lead-only)
+- [📥 Step 5 — Bootstrap your team repo from this kit (lead only)](#-step-5--bootstrap-your-team-repo-from-this-kit-lead-only)
+- [💻 Step 6 — Each member clones the team repo](#-step-6--each-member-clones-the-team-repo)
+- [🤖 Step 7 — Activate GitHub Copilot in VS Code (everyone)](#-step-7--activate-github-copilot-in-vs-code-everyone)
+- [🎭 Step 8 — Install your persona's Copilot kit (everyone)](#-step-8--install-your-personas-copilot-kit-everyone)
+- [📐 Step 9 — Install Spec-Kit (everyone)](#-step-9--install-spec-kit-everyone)
+- [🎯 Step 10 — Install Specky (everyone)](#-step-10--install-specky-everyone)
+- [🌿 Step 11 — Understand the branch strategy](#-step-11--understand-the-branch-strategy)
+- [🔄 Step 12 — Daily workflow per persona](#-step-12--daily-workflow-per-persona)
+- [🚦 Step 13 — Run the smoke test (whole team, at 09:30)](#-step-13--run-the-smoke-test-whole-team-at-0930)
+- [🆘 Troubleshooting](#-troubleshooting)
 
 ---
 
-## 1. Prerequisites — what every laptop needs
+## 📋 Before You Start — Mental Model
 
-| Tool | Min version | Verify |
-|------|-------------|--------|
-| **Git** | 2.40+ | `git --version` |
-| **GitHub account** | — | logged in to `github.com` in the browser |
-| **GitHub CLI** | 2.40+ | `gh --version` |
-| **VS Code** | 1.93+ (or VS Code Insiders) | `code --version` |
-| **Docker Desktop** | 4.30+ | `docker --version` (must be running) |
-| **Java JDK** | 21 | `java -version` |
-| **Node.js** | 20 LTS | `node --version` |
-| **Python** | 3.11+ | `python3 --version` |
+You will end up with **3 repositories on your laptop**:
 
-> **Don't have all of these?** Open the dev container instead (see [§5](#5-step-4--activate-github-copilot-in-vs-code)). It bundles every required tool.
+```
+~/Code/
+├── kit/                            (this team-kit, READ-ONLY reference)
+├── reference/sifap-legacy/         (legacy SIFAP code, READ-ONLY reference)
+└── hackathon-team-XX/              (YOUR team's working repo — where you commit)
+```
 
-### License check (one person per team)
+| Repo | What you do with it | Where it lives |
+|------|---------------------|----------------|
+| `team-kit` | You read its docs and copy parts of it once at start | github.com/paulasilvatech/hackathon-datacorp-team-kit (public) |
+| `sifap-legacy` | You read it during Stage 1 — never edit | github.com/paulasilvatech/sifap-legacy (public) |
+| `hackathon-team-XX` | **All your work goes here** | github.com/paulasilvatech/hackathon-team-XX (private, you create it) |
 
-- [ ] **GitHub Copilot license** — go to <https://github.com/settings/copilot>. You must see "Active subscription" or "Business plan".
-- [ ] **Specky access** — `npx -y specky-sdd@latest --version` should print a version number.
-
-If either fails, raise a hand for the blue-cord facilitator team.
+> **Key rule.** Never push to the kit or sifap-legacy. Your team's commits go only to `hackathon-team-XX`.
 
 ---
 
-## 2. Step 1 — Create the team's GitHub repository
+## ✅ Step 1 — Verify your laptop has the prerequisites
 
-Each team gets **one private repository** for the day. Pick a team lead to do this once; the other 9 join afterwards.
+**Every team member runs this checklist on their own laptop.**
 
-### Option A — using the GitHub CLI (preferred)
+| Tool | Min version | How to verify | If missing |
+|------|-------------|---------------|------------|
+| **Git** | 2.40+ | Open a terminal, type `git --version` | <https://git-scm.com/downloads> |
+| **GitHub account** | — | Go to github.com, sign in | <https://github.com/signup> |
+| **GitHub CLI** | 2.40+ | `gh --version` | <https://cli.github.com> |
+| **VS Code** | 1.93+ | Open VS Code, **Help → About** | <https://code.visualstudio.com/download> |
+| **Docker Desktop** | 4.30+ | `docker --version` AND open Docker app | <https://www.docker.com/products/docker-desktop> |
+| **Java 21 JDK** | 21 | `java -version` | <https://learn.microsoft.com/java/openjdk/download> |
+| **Node.js** | 20 LTS | `node --version` | <https://nodejs.org/en/download> |
+
+> **Have most of these missing?** The fastest path is to use the **dev container** (Step 6.4). It bundles every tool. You only need Docker Desktop running.
+
+### License check (one person checks for the team)
+
+1. Open <https://github.com/settings/copilot> in your browser.
+2. You must see **"Active subscription"** (Individual) or **"Business plan"** at the top.
+3. If you see "Get GitHub Copilot" instead, raise a hand for the blue-cord facilitator team.
+
+---
+
+## 👥 Step 2 — Create the team's GitHub repository (lead only)
+
+**Pick one person to be the team lead** (usually the Tech Lead persona). Only the lead does Steps 2–5. The other 9 wait and follow from Step 6.
+
+### Option A — using the website (easier for beginners)
+
+1. Open <https://github.com/new> in your browser.
+2. Fill in:
+   - **Owner**: `paulasilvatech` (or use your own org if you have one)
+   - **Repository name**: `hackathon-team-XX` (replace XX with your team number, e.g., `hackathon-team-01`)
+   - **Description**: `Hackathon DATACORP 2026 — Team XX`
+   - **Visibility**: **Private** ✅
+3. Initialize this repository with:
+   - **Add a README file** ✅
+   - **Add .gitignore**: pick `Java`
+   - **Choose a license**: leave **None**
+4. Click the green **Create repository** button.
+
+You should now see your empty repo with a README. Keep this browser tab open — you'll come back to it.
+
+### Option B — using the GitHub CLI (faster, but typing-heavy)
+
+Open a terminal and run:
 
 ```bash
-# Replace XX with your team number (01..10)
-TEAM=team-01
+# Sign in once per laptop — opens a browser to authorize
+gh auth login
 
-gh auth login                         # sign in once per laptop
-gh repo create paulasilvatech/hackathon-${TEAM} \
+# Create the repo (replace 01 with your team number)
+gh repo create paulasilvatech/hackathon-team-01 \
   --private \
-  --description "Hackathon DATACORP 2026 — ${TEAM}" \
+  --description "Hackathon DATACORP 2026 — Team 01" \
   --add-readme \
   --gitignore Java
 ```
 
-### Option B — using the GitHub website
+If the command prints a URL ending in `hackathon-team-01`, you're done.
 
-1. Open <https://github.com/new>
-2. Owner: **paulasilvatech**, Repository name: `hackathon-team-XX`
-3. Visibility: **Private**
-4. Initialize with: README ✅, `.gitignore` Java ✅
-5. Create repository
+---
 
-### Add the other 9 team members
+## 🎟️ Step 3 — Add the other 9 team members (lead only)
+
+The lead invites the rest of the team so everyone can push and pull.
+
+### Option A — using the website
+
+1. Go to your repo on GitHub: `https://github.com/paulasilvatech/hackathon-team-XX`
+2. Click **Settings** (top tab — needs admin permission, the lead has it).
+3. Left sidebar: click **Collaborators**.
+4. Click **Add people**.
+5. Type the GitHub username (e.g., `alice-builder`) and pick from the dropdown.
+6. **Choose the role**: pick **Write** (not Admin, not Read).
+7. Click **Add ... to this repository**.
+8. Repeat for the other 8 people.
+
+> **Tip.** Each invited person receives an email and an in-app notification. They must click **Accept invitation** before they can push.
+
+### Option B — using the CLI
+
+Once per teammate:
 
 ```bash
-# Once, by the team lead
+# Replace alice with the actual GitHub username
+gh api -X PUT "repos/paulasilvatech/hackathon-team-01/collaborators/alice" \
+  -f permission=write
+```
+
+Or in a loop:
+
+```bash
 for user in alice bob carla dani eve felipe gabi hugo ivone juliana; do
-  gh api -X PUT "repos/paulasilvatech/hackathon-${TEAM}/collaborators/${user}" \
+  gh api -X PUT "repos/paulasilvatech/hackathon-team-01/collaborators/${user}" \
     -f permission=write
 done
 ```
 
-Or, in the GitHub UI: **Settings → Collaborators → Add people**.
+---
 
-### Branch protection (recommended)
+## 🛡️ Step 4 — Protect the `main` branch (lead only)
 
-Protect `main` so nothing merges without review:
+This prevents anyone (including you) from pushing broken code straight to `main`. Every change must go through a Pull Request.
+
+### Using the website
+
+1. Go to **Settings** → **Branches** (left sidebar).
+2. Under **Branch protection rules**, click **Add rule**.
+3. Branch name pattern: `main`
+4. Tick:
+   - **Require a pull request before merging** ✅
+   - **Require approvals** — set to `1`
+   - **Require conversation resolution before merging** ✅
+5. Click **Create**.
+
+### Using the CLI
 
 ```bash
-gh api -X PUT "repos/paulasilvatech/hackathon-${TEAM}/branches/main/protection" \
+gh api -X PUT "repos/paulasilvatech/hackathon-team-01/branches/main/protection" \
   --input - <<'JSON'
 {
   "required_status_checks": null,
@@ -107,51 +186,49 @@ gh api -X PUT "repos/paulasilvatech/hackathon-${TEAM}/branches/main/protection" 
 JSON
 ```
 
+> **Why this matters.** Without this rule, someone in the team will eventually push a typo to `main` at minute 90 and the demo will fail at minute 480. Cost: 30 seconds. Saves: hours.
+
 ---
 
-## 3. Step 2 — Bootstrap your repo from this kit
+## 📥 Step 5 — Bootstrap your team repo from this kit (lead only)
 
-### 3.1 Clone the team kit and the new team repo
+Now we copy everything from this team-kit into the empty team repo so you have all the templates, personas, scripts, and CI workflows ready.
 
 ```bash
-cd ~/Code  # or wherever you keep projects
+# 1. Pick a folder for all your code
+mkdir -p ~/Code && cd ~/Code
 
-# 1. The team kit (this repository)
+# 2. Clone this team kit (read-only reference)
 git clone https://github.com/paulasilvatech/hackathon-datacorp-team-kit.git kit
 
-# 2. Your team's empty repo
+# 3. Clone YOUR empty team repo (where work happens)
 git clone https://github.com/paulasilvatech/hackathon-team-01.git
-```
-
-### 3.2 Copy the kit content into the team repo
-
-```bash
 cd hackathon-team-01
 
-# Copy everything from the kit (including hidden dotfiles)
+# 4. Copy everything from the kit into your team repo
+#    The trailing /. and the dot at the end matter — they copy hidden files too
 cp -R ../kit/. .
 
-# Don't bring the kit's git history — your team has its own
+# 5. Don't bring the kit's git history. Your team has its own.
 rm -rf .git
 git init -b main
 git remote add origin https://github.com/paulasilvatech/hackathon-team-01.git
+
+# 6. Make scripts executable (one-time fix)
+chmod +x scripts/*.sh
 ```
 
-### 3.3 Run the bootstrap script
+### Run the bootstrap script
+
+This clones the read-only `sifap-legacy` repository into `reference/`, creates the `legacy/` symlink, and initializes an empty `.specs/` folder for Specky.
 
 ```bash
-chmod +x scripts/setup.sh
 ./scripts/setup.sh
 ```
 
-This will:
+If it ends with **"Done."** and lists "Next steps", you are good. If it errors, check the [Troubleshooting](#-troubleshooting) section.
 
-- Verify Java, Node, Docker, gh
-- Clone [`sifap-legacy`](https://github.com/paulasilvatech/sifap-legacy) into `reference/sifap-legacy/`
-- Create the symlink `legacy/ → reference/sifap-legacy/`
-- Initialize `.specs/` (empty — Specky will fill it)
-
-### 3.4 Initial commit
+### First commit and push
 
 ```bash
 git add -A
@@ -159,201 +236,278 @@ git commit -m "chore: bootstrap team kit"
 git push -u origin main
 ```
 
-You now have a working team repository.
+You should see "main set up to track origin/main" and "Branch 'main' set up to track remote branch 'main' from 'origin'." That means the push worked.
 
----
+> ⚠️ **Important.** From now on you should never push directly to `main`. Step 4 protects it. The next sections show how to use feature branches.
 
-## 4. Step 3 — Configure `.github/` and team conventions
-
-The kit ships with a starting `.github/`. Customize it for your team.
-
-### 4.1 Update `.github/copilot-instructions.md`
-
-Open the file and **fill in the active personas** (one name per row):
-
-```markdown
-## Active Personas in This Team
-
-- [x] 01 — Product Owner — Maria Santos
-- [x] 02 — Requirements Engineer — João Silva
-- [x] 03 — Enterprise Architect — Ana Costa
-- [x] 04 — Software Architect — Bruno Lima
-- [x] 05 — Technical Lead — Carolina Souza
-...
-```
-
-This makes Copilot aware of which roles exist on your team — it will produce better suggestions.
-
-### 4.2 Verify these files exist (they came from the kit)
-
-| File | Purpose |
-|------|---------|
-| `.github/copilot-instructions.md` | Project-wide rules for Copilot |
-| `.github/PULL_REQUEST_TEMPLATE.md` | Forces every PR to link a REQ-ID |
-| `.github/ISSUE_TEMPLATE/spec.yml` | Specification request (Stage 2) |
-| `.github/ISSUE_TEMPLATE/adr.yml` | Architecture Decision Record |
-| `.github/ISSUE_TEMPLATE/task.yml` | Implementation task (Stage 3) |
-| `.github/ISSUE_TEMPLATE/config.yml` | Helper links shown above the templates |
-| `.github/workflows/ci.yml` | Auto-runs tests on every push and PR |
-| `.github/workflows/spec-quality.yml` | Lints markdown and checks REQ-ID traceability |
-
-### 4.3 Set up labels (one-time)
-
-Issue templates assume these labels exist:
-
-```bash
-for label in spec adr task stage-1 stage-2 stage-3 stage-4 architecture; do
-  gh label create "$label" --force
-done
-```
-
-### 4.4 Pick the branch strategy
-
-```text
-main          ← release-ready, protected
-develop       ← integration of features
-spec/NNN-foo  ← specification work (Stage 2)
-impl/NNN-foo  ← implementation work (Stage 3)
-```
-
-Create the `develop` branch and push:
+### Create the `develop` integration branch
 
 ```bash
 git checkout -b develop
 git push -u origin develop
 ```
 
+`develop` is where everyone's feature branches will merge. Promotions to `main` happen via PR after each stage.
+
 ---
 
-## 5. Step 4 — Activate GitHub Copilot in VS Code
+## 💻 Step 6 — Each member clones the team repo
 
-### 5.1 Open the project
+**Now everyone joins.** The 9 other team members do this.
+
+### 6.1 Accept the invitation
+
+1. Open the email from GitHub titled **"Paula Nunes invited you to ..."** (or check the bell icon at github.com).
+2. Click **View invitation** → **Accept invitation**.
+
+### 6.2 Clone
+
+```bash
+mkdir -p ~/Code && cd ~/Code
+
+# Replace 01 with your actual team number
+git clone https://github.com/paulasilvatech/hackathon-team-01.git
+cd hackathon-team-01
+```
+
+### 6.3 Open in VS Code
 
 ```bash
 code .
 ```
 
-If prompted, **Reopen in Container**. The `.devcontainer/` brings Java 21, Node 20, Docker-in-Docker, and the Copilot extensions.
+### 6.4 Reopen in Dev Container (highly recommended)
 
-### 5.2 Sign in to Copilot
+The repo includes `.devcontainer/devcontainer.json`. The dev container has Java 21, Node 20, Docker-in-Docker, and the Copilot extensions already pinned to known-good versions.
 
-1. Click the **Copilot** icon in the bottom status bar
-2. Choose **Sign in to GitHub**
-3. Authorize VS Code
-4. Wait for "Copilot ready" in the bottom-right
+1. VS Code shows a popup at the bottom-right: **"Folder contains a Dev Container configuration. Reopen in Container?"** → click **Reopen in Container**.
+2. If you missed the popup: open the Command Palette (`Ctrl+Shift+P` on Windows/Linux, `Cmd+Shift+P` on Mac) and pick **Dev Containers: Reopen in Container**.
+3. Wait 2-5 minutes the first time. VS Code rebuilds.
+4. When the bottom-left shows **"Dev Container: SIFAP 2.0 …"**, you're inside.
 
-### 5.3 Verify the 3 modes are available
+### 6.5 Bootstrap on your machine too
 
-| Mode | How to invoke |
-|------|---------------|
-| **Chat** | `Ctrl+Alt+I` (Windows/Linux) · `Cmd+Ctrl+I` (Mac) |
-| **Edits** | Open Copilot Chat panel, switch the dropdown to **Edits** |
-| **Agent** | Open Copilot Chat panel, switch the dropdown to **Agent** |
+Even though the lead bootstrapped the repo, each member needs to materialize the `legacy/` symlink locally:
 
-> See [`cheat-sheets/copilot-3-modes.md`](cheat-sheets/copilot-3-modes.md) for when to use each.
+```bash
+./scripts/setup.sh
+```
 
-### 5.4 Confirm Copilot is reading your instructions
+---
 
-Open Chat and ask:
+## 🤖 Step 7 — Activate GitHub Copilot in VS Code (everyone)
+
+Each person does this on their own laptop.
+
+### 7.1 Sign in
+
+1. In VS Code, look at the bottom status bar. Click the **Copilot** icon (🤖).
+2. Pick **Sign in with GitHub**.
+3. A browser window opens. Click **Authorize Visual Studio Code**.
+4. Return to VS Code. Wait for "Copilot ready" near the bottom-right.
+
+### 7.2 Open the Copilot Chat panel
+
+| OS | Shortcut |
+|----|----------|
+| Mac | `Cmd+Ctrl+I` |
+| Windows / Linux | `Ctrl+Alt+I` |
+
+A panel opens on the right.
+
+### 7.3 Verify the 3 modes are available
+
+At the top of the chat panel there is a dropdown:
+
+| Mode | When to use |
+|------|-------------|
+| **Chat** (default) | Ask questions, explore code, brainstorm |
+| **Edits** | Multi-file edits with you reviewing the diff |
+| **Agent** | Delegate a full feature via an Issue, then merge the PR |
+
+Click the dropdown to confirm all three are listed. If **Agent** is missing, update VS Code to **1.93 or later** (or use VS Code Insiders, which always has the latest).
+
+### 7.4 Smoke test Copilot
+
+In the Chat panel, type:
 
 ```
 What stack are we using on this project?
 ```
 
-It must answer with **Java 21 + Spring Boot 3.3 + Next.js 15 + PostgreSQL 16**. If it doesn't, the `copilot-instructions.md` isn't being loaded — see [§10. Troubleshooting](#10-troubleshooting).
+It should answer with **Java 21 + Spring Boot 3.3 + Next.js 15 + PostgreSQL 16**. If it doesn't, the project's `.github/copilot-instructions.md` file isn't being loaded — see [Troubleshooting](#-troubleshooting).
 
 ---
 
-## 6. Step 5 — Install and use Spec-Kit
+## 🎭 Step 8 — Install your persona's Copilot kit (everyone)
 
-[**Spec-Kit**](https://github.com/github/spec-kit) is the GitHub-official toolkit for spec-driven development. It generates structured specs in `.spec-kit/` (different from Specky's `.specs/`).
+Each of the 10 team members has a **persona** (Product Owner, Developer, DBA, etc.). The team kit ships with 25 different Copilot agent packages — one per persona. You install the one for your role.
 
-### 6.1 Install
+### 8.1 Find your role
+
+Open `personas/` in VS Code. You'll see 10 cards, numbered 01-10. Read your card top to bottom (~10 minutes). It tells you:
+
+- What you do across the 4 stages
+- Which Copilot mode to use
+- Specific prompts you can copy/paste
+- Who you depend on, who depends on you
+
+### 8.2 Install your kit
+
+Each persona has a corresponding **kit** in `persona-kits/`. The kit contains:
+
+- `.github/agents/<role>.agent.md` — pre-configured Copilot agent
+- `.github/prompts/<command>.prompt.md` — slash commands for recurring tasks
+- `.github/skills/<skill>/SKILL.md` — reusable mental models
+- `mcp.json` — MCP server config (if any)
+
+To install your kit, copy its `.github/` content into the team repo's `.github/`:
 
 ```bash
-# Once per laptop
+# Replace XX-your-role with your actual persona id
+# e.g., 06-developer, 09-devops-engineer, 13-qa-engineer
+cp -r persona-kits/XX-your-role/.github/* .github/
+
+# If your kit has mcp.json, copy it into .vscode/
+[ -f persona-kits/XX-your-role/mcp.json ] && \
+  mkdir -p .vscode && \
+  cp persona-kits/XX-your-role/mcp.json .vscode/mcp.json
+```
+
+### 8.3 Persona-to-kit mapping
+
+The 10 personas map to these specific kits:
+
+| Persona card (`personas/`) | Kit (`persona-kits/`) |
+|----------------------------|------------------------|
+| `01-product-owner.md` | `01-product-owner/` |
+| `02-requirements-engineer.md` | `03-requirements-engineer/` |
+| `03-enterprise-architect.md` | `04-enterprise-architect/` |
+| `04-software-architect.md` | `05-software-architect/` |
+| `05-technical-lead.md` | `06-technical-lead/` |
+| `06-developer.md` | `22-developer/` |
+| `07-dba.md` | `21-dba/` |
+| `08-qa-engineer.md` | `13-qa-engineer/` |
+| `09-devops-engineer.md` | `11-devops-engineer/` |
+| `10-tech-writer.md` | `23-tech-writer/` |
+
+### 8.4 Update the team's `copilot-instructions.md`
+
+Once each persona has installed their kit, the **team lead** updates the file `.github/copilot-instructions.md` with everyone's names. Find this section:
+
+```markdown
+## Active Personas on This Team
+
+- [ ] 01 — Product Owner
+- [ ] 02 — Requirements Engineer
+...
+```
+
+Tick the boxes and write the name next to each role:
+
+```markdown
+- [x] 01 — Product Owner — Maria Santos
+- [x] 02 — Requirements Engineer — João Silva
+- [x] 03 — Enterprise Architect — Ana Costa
+...
+```
+
+Commit and push to `develop`. Now Copilot suggestions know who is on your team.
+
+---
+
+## 📐 Step 9 — Install Spec-Kit (everyone)
+
+[**Spec-Kit**](https://github.com/github/spec-kit) is GitHub's official toolkit for spec-driven development. Use it for **quick feature drafts** in Stage 2.
+
+### 9.1 Install globally on your laptop
+
+```bash
 npm install -g @github/spec-kit
 spec-kit --version
 ```
 
-### 6.2 Initialize in your team repo
+### 9.2 Initialize in the team repo
+
+Run this once, in the root of your team repo:
 
 ```bash
-cd hackathon-team-01
 spec-kit init
 ```
 
-This creates `.spec-kit/` with a starter project file.
+This creates a `.spec-kit/` folder with a starter project file.
 
-### 6.3 Author a feature spec
+### 9.3 Author a feature
 
 ```bash
 spec-kit new "payment-cycle-generation"
 ```
 
-Spec-Kit opens an interactive prompt that walks you through:
+Spec-Kit asks you (interactively):
 
-1. Goal (1 sentence)
-2. Personas (who benefits?)
-3. Acceptance criteria
-4. Out-of-scope notes
+1. **Goal** — write one sentence: *"Allow operators to generate a monthly payment cycle for active beneficiaries."*
+2. **Personas** — who benefits? (the operator, the beneficiary)
+3. **Acceptance criteria** — list what must be true when this is done
+4. **Out-of-scope** — what we are explicitly NOT doing now
 
-Output: `.spec-kit/payment-cycle-generation/spec.md`.
+Output: `.spec-kit/payment-cycle-generation/spec.md` — a clean spec your whole team can read.
 
-### 6.4 When to prefer Spec-Kit vs Specky
+### 9.4 When to use Spec-Kit vs Specky
 
 | Use Spec-Kit | Use Specky |
 |--------------|------------|
-| Quick natural-language spec | Full 10-phase SDD pipeline |
+| Quick natural-language draft | Full 10-phase pipeline |
+| 30-minute brain-dump in Stage 2 | Engineering rigor in Stage 2 → 3 → 4 |
 | Stakeholder-friendly | Engineering-friendly |
-| Stage 1 → 2 transition | Stage 2 → 3 → 4 |
-| Single feature in 30 min | Modular monolith with REQ-IDs |
+| Single feature | Modular monolith with REQ-IDs |
 
-> **Recommended for the hackathon:** start in Spec-Kit (Stage 2 brain-dump), then promote the validated requirements into Specky for full pipeline tracking.
+> **Hackathon recommendation.** Start in Spec-Kit (15 minutes to draft), validate with the Product Owner, then promote into Specky for the full pipeline.
 
 ---
 
-## 7. Step 6 — Install and use Specky
+## 🎯 Step 10 — Install Specky (everyone)
 
-[**Specky**](https://github.com/paulasilvatech/specky) is the SDD pipeline engine used in this hackathon. It is **already configured** for the team kit — see `.github/agents/`, `.github/prompts/`, `.github/skills/` inside each persona-kit.
+[**Specky**](https://github.com/paulasilvatech/specky) is the SDD pipeline engine used in this hackathon. It enforces a 10-phase pipeline with quality gates.
 
-### 7.1 Install
+### 10.1 Install globally
 
 ```bash
-# Once per laptop
 npm install -g specky-sdd@latest
 specky --version
-specky doctor                    # verifies environment
+specky doctor          # verifies your environment
 ```
 
-### 7.2 Install Specky into your team repo
+### 10.2 Install Specky into the team repo
+
+This populates `.github/agents/`, `.github/prompts/`, `.github/skills/`, and `.specky/`:
 
 ```bash
-cd hackathon-team-01
-specky install --ide=copilot     # installs agents, prompts, skills, hooks
+cd ~/Code/hackathon-team-01
+specky install --ide=copilot
 ```
 
-This populates:
+> **Note.** This is on top of any persona-kit you installed. Specky and persona-kits coexist — they install into different sub-folders of `.github/`.
 
-- `.github/agents/` — the 13 SDD agents (sdd-init, research-analyst, spec-engineer, …)
-- `.github/prompts/` — slash commands like `/specky-init`, `/sdd-clarify`
-- `.github/skills/` — reusable skill files
-- `.specky/config.yml` — pipeline configuration
+### 10.3 Initialize a feature in Specky
 
-### 7.3 Initialize a feature
+In Copilot Chat, type:
 
-```bash
-# Inside Copilot Chat
+```
 @specky-onboarding
 ```
 
 Or directly:
 
-```bash
+```
 @sdd-init
 ```
 
-The agent asks for: feature name, sponsoring persona, target stage. It writes:
+The agent asks:
+- Feature name (e.g., `payment-cycle-generation`)
+- Sponsoring persona
+- Target stage
+
+Specky writes:
 
 ```
 .specs/001-payment-cycle-generation/
@@ -362,181 +516,255 @@ The agent asks for: feature name, sponsoring persona, target stage. It writes:
 └── (others created in later phases)
 ```
 
-### 7.4 The 10-phase pipeline at a glance
+### 10.4 The 10-phase pipeline
 
 | Phase | Agent | Output | Owner persona |
 |-------|-------|--------|---------------|
 | 0 Init | `@sdd-init` | CONSTITUTION.md | Tech Lead |
-| 1 Discover | `@research-analyst` | RESEARCH.md | RE + EA |
-| 2 Specify | `@spec-engineer` | SPECIFICATION.md (EARS) | RE |
-| 3 Clarify | `@sdd-clarify` | CLARIFICATION-LOG.md | RE + PO |
-| 4 Design | `@design-architect` | DESIGN.md + ADRs + diagrams | SA + EA |
-| 5 Tasks | `@task-planner` | TASKS.md + CHECKLIST.md | TL |
-| 6 Analyze | `@quality-reviewer` | ANALYSIS.md | QA |
+| 1 Discover | `@research-analyst` | RESEARCH.md | Requirements Engineer + Enterprise Architect |
+| 2 Specify | `@spec-engineer` | SPECIFICATION.md (EARS) | Requirements Engineer |
+| 3 Clarify | `@sdd-clarify` | CLARIFICATION-LOG.md | Requirements Engineer + Product Owner |
+| 4 Design | `@design-architect` | DESIGN.md + ADRs + diagrams | Software Architect + Enterprise Architect |
+| 5 Tasks | `@task-planner` | TASKS.md + CHECKLIST.md | Tech Lead |
+| 6 Analyze | `@quality-reviewer` | ANALYSIS.md | QA Engineer |
 | 7 Implement | `@implementer` | code | Developer |
-| 8 Verify | `@test-verifier` | tests + coverage | QA |
-| 9 Release | `@release-engineer` | PR + deploy | DevOps |
+| 8 Verify | `@test-verifier` | tests + coverage | QA Engineer |
+| 9 Release | `@release-engineer` | PR + deploy | DevOps Engineer |
 
-> **LGTM gates** after Specify, Design, and Tasks — the team must explicitly approve before advancing.
+> **LGTM gates** after Specify, Design, and Tasks. The team must explicitly approve before advancing.
 
-### 7.5 Daily Specky workflow
+---
+
+## 🌿 Step 11 — Understand the branch strategy
+
+Your team has **5 categories of branches**. Use the right type for the right work.
+
+```
+main                    ← release-ready, protected, 1 reviewer required
+develop                 ← integration of all features
+spec/NNN-feature        ← Specification work (Stage 2)
+impl/NNN-feature        ← Implementation work (Stage 3)
+infra/NNN-azure         ← Infrastructure work (Stage 4)
+```
+
+### Naming convention
+
+| Type | Pattern | Example |
+|------|---------|---------|
+| Spec | `spec/NNN-kebab-name` | `spec/001-payment-cycle-generation` |
+| Implementation | `impl/NNN-kebab-name` | `impl/001-payment-cycle-generation` |
+| Infrastructure | `infra/NNN-kebab-name` | `infra/001-azure-deployment` |
+
+`NNN` is the feature number (matches the folder in `.specs/NNN-...`).
+
+### Creating a feature branch
 
 ```bash
-# Check current pipeline status
-@specky-orchestrator status
+# Make sure you're on develop with latest changes
+git checkout develop
+git pull
 
-# Advance one phase
-@specky-orchestrator advance
+# Create your feature branch
+git checkout -b spec/001-payment-cycle-generation
 
-# See all available agents
-specky list-agents
+# Work, commit
+git add -A
+git commit -m "feat(payments): draft EARS requirements for cycle generation"
+
+# Push to origin
+git push -u origin spec/001-payment-cycle-generation
 ```
 
-> See [`cheat-sheets/specky-workflow.md`](cheat-sheets/specky-workflow.md) for the full reference card.
+### Opening a Pull Request
+
+1. After pushing, GitHub prints a URL like `https://github.com/.../pull/new/spec/001-...`. Click it (or paste in your browser).
+2. Title: use Conventional Commits — `feat(payments): add cycle generation spec`
+3. Description: GitHub auto-loads the template (`.github/PULL_REQUEST_TEMPLATE.md`). Fill in:
+   - **What changed** (one paragraph)
+   - **REQ-IDs implemented** (e.g., `REQ-PAY-014, REQ-PAY-015`)
+   - **How to test** (the reviewer pulls and runs this)
+   - **Linked issues** (e.g., `Closes #12`)
+4. **Reviewers**: add at least one teammate from a different persona.
+5. Click **Create pull request**.
+6. CI runs (the workflow `.github/workflows/ci.yml`). Wait for the green check.
+7. After approval, click **Rebase and merge** (not Merge commit, not Squash).
+8. Delete the feature branch when prompted.
 
 ---
 
-## 8. Step 7 — How a team of 10 works in one repository
+## 🔄 Step 12 — Daily workflow per persona
 
-You are 10 people in one repository for 8 hours. Without rules, you'll trip over each other. With these rules, you won't.
+Each persona has a **default daily loop**. Run it as many times as needed during the day.
 
-### 8.1 Branching
-
-| Branch | Who creates | Lifetime |
-|--------|-------------|----------|
-| `main` | nobody (protected) | always |
-| `develop` | team lead, day 0 | always |
-| `spec/NNN-feature` | Requirements Engineer | until Stage 2 ends |
-| `impl/NNN-feature` | Developer | until Stage 3 ends |
-| `infra/NNN-azure` | DevOps Engineer | until Stage 4 ends |
-
-Naming examples:
+### 🧠 Product Owner / Requirements Engineer
 
 ```
-spec/001-payment-cycle-generation
-impl/001-payment-cycle-generation
-infra/001-azure-deployment
+1. Read the Stage 1 findings (glossary, business rules catalog)
+2. Open Spec-Kit: spec-kit new "feature-name"
+3. Validate the draft with stakeholder personas (PO + EA)
+4. Promote to Specky: @sdd-init feature-name
+5. Run @spec-engineer to produce SPECIFICATION.md (EARS)
+6. Open a PR on branch spec/NNN-feature-name
+7. Hand off to Software Architect (LGTM gate)
 ```
 
-### 8.2 PR rules
+### 🏗️ Enterprise Architect / Software Architect
 
-1. **One PR per feature**, never per file.
-2. PR title uses Conventional Commits: `feat(payments): add cycle generation`.
-3. PR body must reference at least one `REQ-ID` (the issue template enforces this).
-4. **At least 1 reviewer** from a different persona.
-5. CI must be green before merge (the `ci.yml` workflow checks).
-6. **Rebase, don't merge.** Use `Rebase and merge` button to keep history linear.
-
-### 8.3 Issue → Branch → PR flow
-
-```mermaid
-flowchart LR
-    A[Open Issue<br/>spec.yml] --> B[Branch<br/>spec/001-...]
-    B --> C[Author SPECIFICATION.md]
-    C --> D[Open PR<br/>references REQ-ID]
-    D --> E[Pair review]
-    E --> F[Rebase + merge]
-    F --> G[Open task issue<br/>task.yml]
-    G --> H[Branch<br/>impl/001-...]
-    H --> I[Code + tests]
-    I --> J[PR with green CI]
-    J --> E
+```
+1. Pull latest develop
+2. git checkout spec/NNN-feature-name (read the EARS spec)
+3. Run @design-architect → produces DESIGN.md + Mermaid C4 diagrams
+4. Add ADRs in docs/adr/ for non-trivial decisions
+5. Open a PR — review the spec PR's design section
+6. Hand off to Tech Lead (LGTM gate)
 ```
 
-### 8.4 Persona pairings (who works with whom)
+### 🧠 Technical Lead
 
-| Pair | Time of day | Output |
-|------|-------------|--------|
-| RE + Tech Writer | Stage 1 | Glossary, business rules catalog |
-| EA + SA | Stage 2 | C4 diagrams, bounded contexts |
-| SA + TL | Stage 2 → 3 boundary | Architecture handoff |
-| Developer + DBA | Stage 3 first hour | Schema + migrations |
-| Developer + QA | Stage 3 | Tests-first |
-| QA + DevOps | Stage 4 | Coverage gates in CI |
-| PO + TL | Demo prep | Demo script |
+```
+1. Read the merged DESIGN.md
+2. Run @task-planner → produces TASKS.md with task IDs (T-001, T-002, ...)
+3. Open a GitHub Issue per task using .github/ISSUE_TEMPLATE/task.yml
+4. Assign each issue to a Developer / DBA / QA
+5. Watch CI green/red, unblock people
+```
 
-> Full daily timeline + the 20-minute escalation rule are in [`TEAM-FLOW.md`](TEAM-FLOW.md).
+### 💻 Developer
 
-### 8.5 Communication channels
+```
+1. Pick a task issue (T-NNN) from the team board
+2. git checkout -b impl/NNN-task-name (from develop)
+3. In Copilot, run /implement (your prompt is in 22-developer/.github/prompts/)
+4. Tests first (red), code (green), refactor
+5. ./scripts/check.sh (mirrors CI)
+6. git commit, git push, open PR
+7. Tag the issue with "Closes #NN" in the PR body
+```
 
-| Channel | Purpose |
-|---------|---------|
-| **GitHub Issues** | All tasks, specs, ADRs, and decisions |
-| **PR comments** | Code-level discussion |
-| **Voice (in person)** | The 4 stage-transition stand-ups (max 2 minutes each) |
-| **Slack `#team-XX`** | Side discussions, links to Issues |
-| **Raise a hand** | When stuck >20 minutes — for the blue-cord facilitator |
+### 🗃️ DBA
+
+```
+1. Pick a schema/migration task
+2. git checkout -b impl/NNN-migration-name
+3. Add Flyway migration in backend/src/main/resources/db/migration/
+4. Run /migration prompt (in 21-dba/.github/prompts/)
+5. Test locally with docker compose up
+6. Open PR, request Developer review
+```
+
+### 🧪 QA Engineer
+
+```
+1. Watch every implementation PR
+2. Run /coverage-gaps prompt to find uncovered REQ-IDs
+3. Add tests on the implementation branch (pair with Developer)
+4. /test-strategy prompt produces a test plan for new features
+5. Block merge if coverage drops below 70%
+```
+
+### ⚙️ DevOps Engineer
+
+```
+1. Pick an infra task (Azure setup, CI/CD, deployment)
+2. git checkout -b infra/NNN-azure-foo
+3. Edit infra/ Terraform modules
+4. terraform fmt + terraform validate locally
+5. Run /iac-module prompt (in 11-devops-engineer/.github/prompts/)
+6. Open PR, the workflows/ci.yml runs Terraform validation
+```
+
+### 📝 Tech Writer
+
+```
+1. After every merge to develop, scan for ADR/glossary drift
+2. Run /doc-drift prompt (in 23-tech-writer/.github/prompts/)
+3. Update docs/glossary.md, docs/adr/, READMEs
+4. Open a small PR per documentation update
+```
 
 ---
 
-## 9. Smoke test — prove everything works
+## 🚦 Step 13 — Run the smoke test (whole team, at 09:30)
 
-Run this checklist together at **09:30**. Any item that fails goes straight to the blue-cord team.
+The team lead reads each item out loud. Each person confirms on their laptop.
 
-- [ ] `git push origin develop` works (write access confirmed)
-- [ ] CI ran on the bootstrap commit (Actions tab → green checkmark)
-- [ ] `docker compose up -d` succeeds (or facilitator hands you the prototype tarball later)
-- [ ] Copilot Chat answers "What stack are we using?" with the right answer
-- [ ] `specky doctor` reports no errors
-- [ ] `spec-kit --version` prints a version
-- [ ] `gh issue list` works (returns the templates)
-- [ ] You can see all 10 team members in the repo's Collaborators page
+- [ ] Every member has cloned `hackathon-team-XX`
+- [ ] Every member can run `git push origin develop` (write access confirmed)
+- [ ] CI ran on the bootstrap commit — green check in **Actions** tab
+- [ ] `docker compose up -d` succeeds (or facilitator hands you the prototype tarball at Stage 3)
+- [ ] Every Copilot Chat answers "What stack are we using?" with the right answer
+- [ ] Every member has installed Specky: `specky doctor` reports no errors
+- [ ] `spec-kit --version` prints a version on every laptop
+- [ ] `gh issue list` works (returns the 3 issue templates: spec, adr, task)
+- [ ] All 10 team members visible in repo Settings → Collaborators
 - [ ] Each persona has read their card in `personas/XX-role.md`
-- [ ] The team lead has updated `.github/copilot-instructions.md` with everyone's names
-- [ ] Each persona has run `cp -r persona-kits/XX-role/.github/* .github/` to install their kit
-- [ ] [`TEAM-FLOW.md`](TEAM-FLOW.md) has been read aloud once
+- [ ] Team lead has updated `.github/copilot-instructions.md` with everyone's names
+- [ ] Each persona has installed their kit: `cp -r persona-kits/XX/.github/* .github/`
+- [ ] [`TEAM-FLOW.md`](TEAM-FLOW.md) read aloud once (the daily timeline)
 
-When all 12 are checked, your team is ready for **Stage 1: Archaeology**.
+When all 13 are green, your team is ready for **Stage 1: Archaeology**.
 
 ---
 
-## 10. Troubleshooting
+## 🆘 Troubleshooting
 
 ### Copilot doesn't read `copilot-instructions.md`
 
-- Make sure VS Code is opened **at the repo root**, not inside a sub-folder.
+- VS Code must be opened **at the repo root**, not inside a sub-folder.
 - Restart VS Code after editing the file.
-- In Settings, confirm `github.copilot.chat.useProjectInstructions` is `true` (it is by default in 1.93+).
-
-### `specky install` fails with "Cannot resolve plugin"
-
-- Run `specky doctor` to see which dependency is missing.
-- Manually clear cache: `rm -rf ~/.specky-cache && specky install --ide=copilot`.
+- In Settings, check `github.copilot.chat.useProjectInstructions` is `true` (default in 1.93+).
 
 ### `gh repo create` returns 422
 
 - The name is already taken. Bump the number (`hackathon-team-01b`).
-- Or create from the website (Option B in [§2](#2-step-1--create-the-teams-github-repository)).
+- Or create from the website (Option A in [§2](#-step-2--create-the-teams-github-repository-lead-only)).
+
+### `specky install` fails with "Cannot resolve plugin"
+
+- Run `specky doctor` to see which dependency is missing.
+- Clear the cache: `rm -rf ~/.specky-cache && specky install --ide=copilot`.
+- If it still fails, ask a facilitator. Specky can be installed manually.
 
 ### CI fails on first push with "no tests found"
 
-- Expected on the bootstrap commit. The `ci.yml` only runs jobs whose paths changed. Once the team adds backend or frontend code, the relevant job runs.
+- Expected. The `ci.yml` workflow only runs jobs whose paths changed. Once backend/frontend code lands, the relevant jobs run.
 
-### Docker compose up hangs
+### Docker compose up hangs or fails
 
-- Port 5432 / 8080 / 3000 already used. Run:
+- Ports 5432, 8080, or 3000 may be in use. Run:
 
   ```bash
   lsof -i :5432 -i :8080 -i :3000
   ```
 
-  Kill the offending process, then retry.
+  Kill the offending process (`kill -9 <PID>`) and retry.
+- Make sure Docker Desktop is **running** (its menu bar icon should be steady, not animated).
 
-### Copilot Agent mode does not appear
+### Copilot Agent mode doesn't appear in the dropdown
 
-- Update VS Code to **1.93 or later** (Insiders preferred during hackathon).
-- Reload window: `Cmd+Shift+P → Reload Window`.
+- Update VS Code to **1.93 or later** (or install **VS Code Insiders**, which always has it).
+- Reload the window: Command Palette → **Developer: Reload Window**.
 
-### "Permission denied" pushing to `main`
+### "Permission denied" when pushing to `main`
 
-- Branch protection is working as designed. Open a PR from `develop` instead.
+- Branch protection (Step 4) is doing its job. Open a Pull Request from your feature branch instead.
+
+### Pulled latest `develop` but my IDE still shows old code
+
+- Reload the VS Code window: Command Palette → **Developer: Reload Window**.
+- If you're inside a dev container, sometimes you also need: Command Palette → **Dev Containers: Rebuild Container**.
+
+### Persona kit installation broke my `.github/` folder
+
+- The kit's `.github/` is meant to **add to** what's already there, not overwrite.
+- If something looks broken: `git checkout main -- .github/` to restore, then `cp -r persona-kits/XX/.github/* .github/` again.
 
 ---
 
-## Navigation
+## 🧭 Navigation
 
-| Parent | Home |
-|--------|------|
-| [README](README.md) | [Repository Root](README.md) |
+| Parent | Home | Next |
+|--------|------|------|
+| [README](README.md) | [Repository Root](README.md) | [TEAM-FLOW.md](TEAM-FLOW.md) |
 
 — Paula
