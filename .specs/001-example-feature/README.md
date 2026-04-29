@@ -42,4 +42,4 @@ tags: ["specky", "sdd", "example"]
 
 ## Reference
 
-Look at any of the 5 complete specs in [`hackathon-datacorp/.specs/`](https://github.com/paulasilvatech/hackathon-datacorp/tree/main/.specs) for examples of fully-populated artifacts.
+Look at the complete reference specs **provided by facilitators** for examples of fully-populated artifacts.

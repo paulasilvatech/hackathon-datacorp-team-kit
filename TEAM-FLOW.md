@@ -131,7 +131,7 @@ After 09:30, the **lead personas** for Stage 1 start work; the others prepare fo
 
 | Persona | 09:30 action |
 |---------|--------------|
-| Product Owner | Read the [Hackathon Blueprint](https://github.com/paulasilvatech/hackathon-datacorp/blob/main/01-blueprint/HACKATHON-BLUEPRINT.md) + decide initial scope priorities |
+| Product Owner | Read the **Hackathon Blueprint** (provided separately by the facilitators) + decide initial scope priorities |
 | Requirements Engineer | Open `legacy/natural-programs/` and start the rule catalog |
 | Enterprise Architect | Open `legacy/legacy-docs/` and start C4 Level 1 |
 | Software Architect | Pair with EA on system context; prepare bounded-context candidates |

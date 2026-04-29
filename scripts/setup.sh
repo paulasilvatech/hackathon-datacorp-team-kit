@@ -83,18 +83,19 @@ clone_or_pull() {
   fi
 }
 
-# Adjust these URLs to your fork or org
-HACKATHON_REPO="${HACKATHON_REPO:-https://github.com/paulasilvatech/hackathon-datacorp.git}"
+# Public read-only legacy code
+LEGACY_REPO="${LEGACY_REPO:-https://github.com/paulasilvatech/sifap-legacy.git}"
 
-if [ ! -d "reference/hackathon-datacorp" ]; then
-  clone_or_pull "$HACKATHON_REPO" "reference/hackathon-datacorp"
+if [ ! -d "reference/sifap-legacy" ]; then
+  clone_or_pull "$LEGACY_REPO" "reference/sifap-legacy"
 fi
 
-# Symlink the parts teams need most
-ln -sfn "../reference/hackathon-datacorp/02-cenario-sifap-legado" legacy 2>/dev/null || true
-ln -sfn "../reference/hackathon-datacorp/04-prototipo-sifap-moderno" prototype 2>/dev/null || true
-ln -sfn "../reference/hackathon-datacorp/05-terraform-azure" infra 2>/dev/null || true
-ok "Linked legacy/, prototype/, infra/"
+# Create the legacy/ symlink. prototype/ and infra/ are provided by facilitators
+# at the start of Stages 3 and 4 (you'll get a tarball or archive).
+ln -sfn "reference/sifap-legacy" legacy 2>/dev/null || true
+ok "Linked legacy/ -> reference/sifap-legacy"
+[ -d "prototype" ] || warn "prototype/ not present yet — facilitators provide it at Stage 3"
+[ -d "infra" ] || warn "infra/ not present yet — facilitators provide it at Stage 4"
 
 # 3. Initialize .specs/ for Specky
 echo
@@ -115,6 +116,6 @@ fi
 
 echo
 echo "Done. Next steps:"
-echo "  1. Read 06-kit-repositorio-times/TEAM-FLOW.md"
-echo "  2. Read your persona card in 06-kit-repositorio-times/personas/"
-echo "  3. Open Stage 1 guide: 06-kit-repositorio-times/01-arqueologia/GUIDE.md"
+echo "  1. Read TEAM-FLOW.md"
+echo "  2. Read your persona card in personas/"
+echo "  3. Open Stage 1 guide: 01-arqueologia/GUIDE.md"

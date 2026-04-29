@@ -91,7 +91,7 @@ Before pasting any prompt, do these three things:
 Confirm or create this structure in your project:
 
 ```
-hackathon-datacorp/
+your-team-repo/
 ├── design-system/
 │   ├── dist/                (empty - Copilot will fill this)
 │   └── showcase.html        (copy hackathon-datacorp-design-system.html here)

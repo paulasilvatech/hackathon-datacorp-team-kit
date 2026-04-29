@@ -93,7 +93,7 @@ Your team has one clear goal. Rebuild SIFAP with a modern stack, prove that AI a
 | Deliverable | Format | Stage |
 |-------------|--------|-------|
 | 🗺️ **Legacy map and glossary** | Markdown in `01-arqueologia/` | Stage 1 |
-| 📜 **Modern specification** | EARS requirements + ADRs in [the modern spec](https://github.com/paulasilvatech/hackathon-datacorp/tree/main/03-spec-sifap-moderno/) | Stage 2 |
+| 📜 **Modern specification** | EARS requirements + ADRs in the **reference modern spec** (provided by facilitators) | Stage 2 |
 | 💻 **Working prototype** | Java 21 + Next.js 15 code | Stage 3 |
 | ☁️ **Infrastructure and CI/CD** | Terraform + GitHub Actions | Stage 4 |
 | 🎤 **Final pitch** | 5 minute demo | End of day |
@@ -185,7 +185,7 @@ The stage guides mention these external folders. Facilitators distribute them at
 | Stage | Folder | Purpose |
 |:---:|---|---|
 | 1 | `legacy/` | Natural programs, Adabas DDMs, legacy docs ([sifap-legacy](https://github.com/paulasilvatech/sifap-legacy)) |
-| 2 | — | Reference modern specification (read on GitHub: [hackathon-datacorp/03-spec-sifap-moderno](https://github.com/paulasilvatech/hackathon-datacorp/tree/main/03-spec-sifap-moderno)) |
+| 2 | — | Reference modern specification (read on GitHub: **reference modern spec** (shared by facilitators)) |
 | 3 | `prototype/` | Reference prototype (Java + Next.js) |
 | 4 | `infra/` | Reference Terraform modules for Azure |
 
@@ -221,8 +221,8 @@ cat 01-arqueologia/GUIDE.md
 
 | Repository | Purpose |
 |-----------|---------|
-| [hackathon-datacorp](https://github.com/paulasilvatech/hackathon-datacorp) | 📋 Event blueprint, legacy scenario, specs, prototype, infra, playbook |
 | [hackathon-datacorp-team-kit](https://github.com/paulasilvatech/hackathon-datacorp-team-kit) | 🎒 This repository — team starter kit |
+| [sifap-legacy](https://github.com/paulasilvatech/sifap-legacy) | 🗄️ Read-only legacy SIFAP code (Natural + Adabas) for Stage 1 |
 
 ---
 
@@ -243,6 +243,6 @@ Reference materials live in the main event repository and are shared by facilita
 
 | Previous | Home | Next |
 |---|---|---|
-| [Main event repo](https://github.com/paulasilvatech/hackathon-datacorp) | This kit | [Stage 1: Archaeology](01-arqueologia/GUIDE.md) |
+| [Team Flow](TEAM-FLOW.md) | This kit | [Stage 1: Archaeology](01-arqueologia/GUIDE.md) |
 
 > Authored by Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft. Version 1.3.0, April 2026.

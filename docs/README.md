@@ -25,7 +25,7 @@ This folder is owned by the **Tech Writer** persona but contributed to by everyo
 
 - One ADR per decision. Number them sequentially: `0001-title.md`, `0002-title.md`.
 - Glossary terms in alphabetical order, with citations to the legacy program where the term originated.
-- Every README in subfolders has YAML frontmatter and follows the project's [markdown standard](https://github.com/paulasilvatech/hackathon-datacorp/blob/main/06-kit-repositorio-times/.github/copilot-instructions.md).
+- Every README in subfolders has YAML frontmatter and follows the project's markdown standard (see [`.github/copilot-instructions.md`](../.github/copilot-instructions.md)).
 
 ## Quick links
 

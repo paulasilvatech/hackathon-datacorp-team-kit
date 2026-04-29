@@ -289,7 +289,7 @@ Before moving to Stage 3, ensure your specification meets these criteria:
 
 ### Artifact 1: SPECIFICATION.md
 
-**Location**: the [SIFAP 2.0 Spec](https://github.com/paulasilvatech/hackathon-datacorp/blob/main/03-spec-sifap-moderno/SPECIFICATION.md)
+**Location**: the **reference SIFAP 2.0 Spec** (shared by facilitators at start of Stage 2)
 
 **Structure**:
 ```markdown
@@ -333,7 +333,7 @@ Before moving to Stage 3, ensure your specification meets these criteria:
 
 ### Artifact 2: Architecture Decision Records
 
-**Location**: the [reference ADRs](https://github.com/paulasilvatech/hackathon-datacorp/tree/main/03-spec-sifap-moderno/ADRs)
+**Location**: the **reference ADRs** (provided by facilitators)
 
 **Naming**: ADR-001-java21.md, ADR-002-nextjs15.md, etc.
 

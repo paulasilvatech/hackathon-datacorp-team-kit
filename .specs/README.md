@@ -48,6 +48,6 @@ mv .specs/001-example-feature .specs/001-payment-cycle-generation
 ## Reference
 
 The main workspace has 5 complete reference specs at:
-[`hackathon-datacorp/.specs/`](https://github.com/paulasilvatech/hackathon-datacorp/tree/main/.specs)
+[`<facilitator-provided>`]
 
 Use them as gold-standard examples of how each artifact should look.
