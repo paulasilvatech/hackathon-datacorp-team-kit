@@ -42,11 +42,12 @@ tags: ["kit", "teams", "templates", "hackathon", "datacorp"]
 3. [Your Mission in 8 Hours](#-your-mission-in-8-hours)
 4. [Your Team](#-your-team)
 5. [The Four Stage Journey](#%EF%B8%8F-the-four-stage-journey)
-6. [From Legacy to Modern](#%EF%B8%8F-from-legacy-to-modern)
-7. [Folder Structure](#-folder-structure)
-8. [How to Use This Kit](#%EF%B8%8F-how-to-use-this-kit)
-9. [Related Repositories](#-related-repositories)
-10. [References](#-references)
+6. [The 4 SDLC Agents](#-the-4-sdlc-agents)
+7. [From Legacy to Modern](#%EF%B8%8F-from-legacy-to-modern)
+8. [Folder Structure](#-folder-structure)
+9. [How to Use This Kit](#%EF%B8%8F-how-to-use-this-kit)
+10. [Related Repositories](#-related-repositories)
+11. [References](#-references)
 
 ---
 
@@ -153,6 +154,23 @@ flowchart LR
 
 ---
 
+## 🤖 The 4 SDLC Agents
+
+If the persona-kits are the **vertical axis** — one kit per role — the 4 stage agents are the **horizontal axis** — one agent per stage of the day. Every persona uses every agent, but the spotlight shifts as the clock advances. Agents know *how* to modernize Natural/Adabas systems; they do *not* know anything specific about your legacy system. That knowledge emerges from your investigation.
+
+| Agent | Stage | Mission | Kit |
+|-------|-------|---------|-----|
+| `@archaeologist-agent` | 1 — Archaeology | Read legacy code, extract rules, map dependencies, catalog mysteries | [`agent-kits/01-archaeologist/`](agent-kits/01-archaeologist/README.md) |
+| `@architect-agent` | 2 — Modern Spec | Carve bounded contexts, write EARS, generate ADRs, design Modular Monolith | [`agent-kits/02-architect/`](agent-kits/02-architect/README.md) |
+| `@builder-agent` | 3 — Implementation | Translate legacy to Java 21, generate JPA, write tests, build REST + Next.js | [`agent-kits/03-builder/`](agent-kits/03-builder/README.md) |
+| `@evolution-agent` | 4 — Evolution | Write GitHub Issues for Copilot Agent, review AI PRs, set up CI/CD and IaC | [`agent-kits/04-evolution/`](agent-kits/04-evolution/README.md) |
+
+See [`docs/persona-agent-matrix.md`](docs/persona-agent-matrix.md) for the full 10×4 mapping of who uses what.
+
+See [`docs/4-agents-explained.md`](docs/4-agents-explained.md) for the anatomy of each agent.
+
+---
+
 ## 🏗️ From Legacy to Modern
 
 <p align="center">
@@ -176,9 +194,10 @@ flowchart LR
 | [`04-evolucao/`](04-evolucao/) | 🚀 Stage 4: Terraform guides and CI/CD templates |
 | [`cheat-sheets/`](cheat-sheets/) | ⚡ Quick reference cards: Copilot modes, Specky workflow, model routing |
 | [`persona-kits/`](persona-kits/) | 🤖 25 Copilot agent kits, each with agents, prompts, skills, and a README |
+| [`agent-kits/`](agent-kits/) | 🤖 4 SDLC stage agents (archaeologist, architect, builder, evolution) |
 | [`plugins/`](plugins/) | 🔌 Shared Copilot plugins (GitHub Issues, Azure Boards sync) |
 | [`scripts/`](scripts/) | 🛠️ `setup.sh` (bootstrap) and `check.sh` (run all CI gates locally) |
-| [`docs/`](docs/) | 📚 Team-curated docs: ADRs, glossary, runbook |
+| [`docs/`](docs/) | 📚 Team-curated docs: ADRs, glossary, runbook, agent guides |
 | [`assets/`](assets/) | 🖼️ SVG illustrations used across this kit |
 | [`.github/`](.github/) | ⚙️ Issue templates, PR template, Copilot instructions, workflows |
 | [`.devcontainer/`](.devcontainer/) | 📦 Pre-configured dev environment (Java 21, Node 20, Docker) |
