@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - DBA"
-description: "What the DBA does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
+description: "What the DBA does inside the team of 10 during Day 2 of Legacy Modernization Workshop."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "07"
-tags: ["persona", "dba", "hackathon", "DATACORP", "PostgreSQL"]
+tags: ["persona", "dba", "workshop", "PostgreSQL"]
 ---
 
 # Persona - DBA
@@ -14,13 +14,13 @@ tags: ["persona", "dba", "hackathon", "DATACORP", "PostgreSQL"]
 
 Owner of the data. In legacy SIFAP, that means understanding the 4 Adabas DDMs with MU and PE, with pragmatic denormalization, with ancestral indexes. In SIFAP 2.0 it means designing a PostgreSQL 16 schema that preserves the logical integrity of the business without inheriting the scars of Adabas.
 
-## Mission in the hackathon
+## Mission in the workshop
 
 Translate the Adabas model into a relational schema that works. Ensure idempotent migrations (Flyway). Design indexes and partitioning so the monthly cycle fits in 2 hours. Protect traceability (audit store).
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the **Hackathon Blueprint** (provided separately by the facilitators). Your persona maps to the pipeline as follows:
+This workshop applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/WORKSHOP-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Analysis Agent (S1), Translation Agent (S3)
 - **Framework phase**: Assessment → Translation (data layer)
@@ -74,7 +74,7 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 
 ## If you get stuck (emergency defaults)
 
-- Don't know the DDM format? Open `legacy/adabas-ddms/BENEFICIARIO.ddm` - it has comments explaining each field.
+- Don't know the DDM format? Open `02-cenario-sifap-legado/adabas-ddms/BENEFICIARIO.ddm` - it has comments explaining each field.
 - Migration broke? NEVER edit an existing migration. Create a new one: `V5__fix_xxx.sql`.
 - Which index to create? Rule: "If it appears in WHERE or JOIN and the table has >100K rows, create an index."
 - PostgreSQL offline? Check whether Docker is running: `docker ps | grep postgres`.
@@ -93,15 +93,5 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - Rubric A3 (Technical Integrity): idempotent migrations, schema consistent with JPA entities
 - Rubric A1 (Archaeology): DDM → relational entity map documented
 - Criterion: "Audit store is append-only. No DELETE in the audit schema."
-
-
-## Agents I Use
-
-| Agent | My Role | What I Do |
-|---|---|---|
-| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Secondary | Focus on DDMs, field types, data structures, relationships |
-| [@architect](../agent-kits/02-architect/README.md) | Observer | Validate data model decisions in bounded context design |
-| [@builder](../agent-kits/03-builder/README.md) | Secondary | Own schema design, migrations, data integrity validation |
-| [@evolution](../agent-kits/04-evolution/README.md) | Observer | Review database-related changes in AI PRs |
 
 - Paula

@@ -2,46 +2,20 @@
 name: GitHub Issues
 type: plugin
 description: "Create and sync GitHub issues from SDD specification tasks. Bulk-create issues from TASKS.md, maintain REQ-ID traceability, manage labels and milestones."
-author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-24"
-version: "1.1.0"
 audience: persona-kits (all roles)
 ---
 
-# 🎫 GitHub Issues Plugin
+# GitHub Issues Plugin
 
-> Create and sync GitHub issues from SDD specification tasks. Bulk-create issues from TASKS.md, maintain REQ-ID traceability, manage labels and milestones.
-
----
-
-## 📑 Table of Contents
-
-1. [What It Does](#-what-it-does)
-2. [Use This Plugin When](#-use-this-plugin-when)
-3. [Tools Provided](#-tools-provided)
-4. [Configuration](#-configuration)
-5. [Usage Pattern](#-usage-pattern)
-6. [Security](#-security)
-7. [Anti-Patterns](#-anti-patterns)
-8. [Quality Gate](#-quality-gate)
-
----
-
-## 🎯 What It Does
-
+## What it does
 Create and sync GitHub issues from SDD specification tasks. Bulk-create issues from TASKS.md, maintain REQ-ID traceability, manage labels and milestones.
 
----
-
-## 📌 Use This Plugin When
-
+## Use this plugin when
 - Creating issues from TASKS.md
 - Syncing SDD artefacts to a GitHub project board
-- Opening a set of issues for parallel team work in the hackathon
+- Opening a set of issues for parallel team work in the workshop
 
----
-
-## 🛠️ Tools Provided
+## Tools provided
 
 ### `create_issue`
 Create a single GitHub issue from a task description.
@@ -56,11 +30,9 @@ Add labels (persona role, priority, area) to an existing issue.
 Add `Depends on #N` references between issues to mirror task dependencies.
 
 ### `move_to_milestone`
-Attach issues to a milestone (e.g., 'Stage 3 — Implementation').
+Attach issues to a milestone (e.g., 'Stage 3 - Implementation').
 
----
-
-## ⚙️ Configuration
+## Configuration
 
 ### Required configuration
 - `repo`: `owner/repo` target of issue creation.
@@ -68,13 +40,11 @@ Attach issues to a milestone (e.g., 'Stage 3 — Implementation').
 - `tasks_file`: path to `TASKS.md` (default `.specs/001-*/TASKS.md`).
 
 ### Optional configuration
-- `label_map`: mapping of persona folder to label (e.g., `01-product-owner` → `role/po`).
+- `label_map`: mapping of persona folder to label (e.g., `01-product-owner` -> `role/po`).
 - `milestone`: milestone to attach.
 - `dry_run`: preview without creating (default `true`).
 
----
-
-## 🚀 Usage Pattern
+## Usage pattern
 
 ```text
 @copilot using github-issues plugin, sync TASKS.md to <target>.
@@ -82,34 +52,18 @@ Attach issues to a milestone (e.g., 'Stage 3 — Implementation').
 
 Copilot invokes the plugin, the plugin reads the markdown source of truth, and applies changes to the target system.
 
----
-
-## 🔒 Security
+## Security
 
 - Always read credentials from environment variables. Never inline a PAT in a prompt or config file committed to the repo.
 - Default `dry_run` to `true`. Only set to `false` after previewing output.
 - Every operation logs the REQ-ID trace it acted on, so you can correlate changes with specification history.
 
----
-
-## ⚠️ Anti-Patterns
+## Anti-patterns
 
 - Using the plugin as the source of truth. The source of truth lives in markdown under `.specs/`; the plugin is a sync mechanism.
 - Running with `dry_run: false` before reviewing the preview.
 - Committing PATs to the repo.
 
----
-
-## ✅ Quality Gate
+## Quality gate
 
 Every sync must preserve REQ-ID traceability. If a target system cannot store the REQ-ID (legacy tracker), the plugin refuses to run.
-
----
-
-## 🧭 Navigation
-
-| Previous | Home | Next |
-|---|---|---|
-| ← [Plugins](./README.md) | [Kit Root](../README.md) | [Azure Boards](./azure-boards.plugin.md) → |
-
-> Author: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.

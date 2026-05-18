@@ -1,156 +1,71 @@
----
-title: "Mysteries Found and Resolved"
-description: "Resolutions to mysteries discovered during Stage 1 archaeology"
-author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-24"
-version: "1.1.0"
-status: "approved"
-tags: ["stage-1", "mysteries", "resolutions", "answers"]
----
+# Misterios Encontrados - SIFAP Legado
 
-# ✅ Mysteries Found and Resolved — SIFAP Legacy
+> Registre aqui toda logica, comportamento ou codigo que o time nao conseguiu explicar.
+> "Misterios" sao trechos de codigo sem documentacao, com logica nao-obvia ou que parecem workarounds.
 
-> As mysteries are investigated and resolved, document the answer here with source and date.
+## O que conta como "misterio"?
 
----
+- Codigo que faz algo inesperado sem comentario explicando por que
+- Valores hardcoded sem explicacao (numeros magicos)
+- Logica condicional que parece um workaround ou gambiarra
+- Campos no DDM que nao sao usados por nenhum programa
+- Programas que existem mas nao sao chamados por ninguem
+- Comportamento diferente entre o que a documentacao diz e o que o codigo faz
+- Easter eggs deixados pelos desenvolvedores originais
 
-## 📑 Table of Contents
+## Niveis de Confianca
 
-1. [📝 Format](#format)
-2. [✅ Resolutions](#resolutions)
-3. [📊 Summary](#summary)
+| Nivel | Significado |
+|-------|-------------|
+| **ALTA** | Temos certeza de que ha algo estranho aqui |
+| **MEDIA** | Parece suspeito, mas pode ter explicacao |
+| **BAIXA** | Pode ser intencional, mas nao conseguimos confirmar |
 
----
+## Misterios Catalogados
 
----
+| ID | Descricao | Onde Encontrado | Impacto Potencial | Confianca |
+|----|-----------|-----------------|-------------------|-----------|
+| MYS-001 | | | | |
+| MYS-002 | | | | |
+| MYS-003 | | | | |
+| MYS-004 | | | | |
+| MYS-005 | | | | |
+| MYS-006 | | | | |
+| MYS-007 | | | | |
+| MYS-008 | | | | |
+| MYS-009 | | | | |
+| MYS-010 | | | | |
 
-## 📝 Format
+## Detalhamento dos Misterios
 
-For each resolved mystery, include:
+### MYS-001: [Titulo do Misterio]
 
-```markdown
-### [Mystery ID]: [Question]
-
-**Resolution**: [Answer]
-
-**Source**: [Where/who did this come from?]
-
-**Date Resolved**: YYYY-MM-DD
-
-**Investigator**: [Team member]
-
-**Details**: [Extended explanation if needed]
+- **Arquivo**: [nome do arquivo e linha]
+- **Trecho de codigo**:
+```natural
+* Cole aqui o trecho relevante
 ```
+- **O que esperavamos**: [comportamento esperado]
+- **O que o codigo faz**: [comportamento real]
+- **Hipotese do time**: [melhor palpite]
+- **Risco se ignorarmos**: [o que pode dar errado na migracao]
 
 ---
 
-## ✅ Resolutions
+> Copie o bloco acima para cada misterio encontrado.
 
-### M-001: Payment Record Archival Strategy
+## Easter Eggs
 
-**Resolution**: Pending - awaiting legacy admin confirmation
+> Dica: existem **3 easter eggs** escondidos no codigo legado. Registre aqui os que encontrar:
 
-**Source**: TBD
+1. [ ] Easter Egg 1: ___
+2. [ ] Easter Egg 2: ___
+3. [ ] Easter Egg 3: ___
 
-**Date Resolved**: TBD
+## Resumo
 
-**Details**: [To be filled]
-
----
-
-### M-002: Suspended Beneficiary Payment Workflow
-
-**Resolution**: Pending
-
-**Source**: TBD
-
-**Date Resolved**: TBD
-
-**Details**: [To be filled]
-
----
-
-### M-003: Multiple Active Discounts Per Beneficiary
-
-**Resolution**: Pending
-
-**Source**: TBD
-
-**Date Resolved**: TBD
-
-**Details**: [To be filled]
-
----
-
-### M-004: Judicial Discount Priority and Stacking
-
-**Resolution**: Pending
-
-**Source**: TBD
-
-**Date Resolved**: TBD
-
-**Details**: [To be filled]
-
----
-
-### M-005: Undocumented Discount Types
-
-**Resolution**: Pending
-
-**Source**: TBD
-
-**Date Resolved**: TBD
-
-**Details**: [To be filled]
-
----
-
-### M-006: Maximum Payment Amount Limits
-
-**Resolution**: Pending
-
-**Source**: TBD
-
-**Date Resolved**: TBD
-
-**Details**: [To be filled]
-
----
-
-### M-007: Payment Reversal After Finance Dispatch
-
-**Resolution**: Pending
-
-**Source**: TBD
-
-**Date Resolved**: TBD
-
-**Details**: [To be filled]
-
----
-
-### M-008: CPF Validation External Service
-
-**Resolution**: Pending
-
-**Source**: TBD
-
-**Date Resolved**: TBD
-
-**Details**: [To be filled]
-
----
-
-## 📊 Summary
-
-**Total Mysteries**: 8 critical
-**Resolved**: 0
-**Pending**: 8
-**Target Resolution Date**: 28/04/2026 EOD
-
----
-
-| Previous | Home | Next |
-|:---------|:----:|-----:|
-| [← Mysteries Checklist](mysteries-checklist.md) | [Kit Home](../README.md) | [Stage 2 Home →](../02-spec-moderna/README.md) |
+- Total de misterios encontrados: ___
+- Confianca alta: ___
+- Confianca media: ___
+- Confianca baixa: ___
+- Easter eggs encontrados: ___ / 3

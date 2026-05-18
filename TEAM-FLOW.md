@@ -1,152 +1,178 @@
 ---
-title: "Team Flow — How the 10 of You Work Together"
-description: "Daily timeline, persona handoffs, swimlane map, first-30-minutes onboarding, and escalation rules for teams of 10"
+title: "Team Flow — How the 5 of You Cover 10 Personas"
+description: "this edition: 20 teams of 5 people. Each person wears 2 personas (1 pair). SDLC phase ownership, handoffs, and first-30-minutes onboarding."
 author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-04-29"
-version: "1.0.0"
+date: "2026-05-18"
+version: "2.0.0"
 status: "approved"
-tags: ["team", "flow", "handoffs", "onboarding", "personas", "hackathon", "datacorp"]
+tags: ["team", "flow", "handoffs", "onboarding", "personas", "workshop"]
 ---
 
-# Team Flow — How the 10 of You Work Together
+# Team Flow — How the 5 of You Cover 10 Personas
 
-> **Read this before you read your persona card.** Your individual role makes sense only inside the team flow.
+> **Read this before you read your persona cards.** Your two personas only make sense inside the team flow.
 
-A team of 10 with 10 different personas only works if you all know:
+**this edition: 20 teams · 5 people per team · 2 personas per person · 5 pairs covering the full SDLC.**
 
-1. **When you start** working (not everyone codes at 09:00).
-2. **Who you receive from** (your inputs come from another persona).
-3. **Who you hand off to** (your output unblocks another persona).
-4. **When you ask for help** (the 20-minute rule).
+A team of 5 with 10 personas only works if every person knows:
+
+1. **Which SDLC phase** each of their two personas leads.
+2. **Who feeds them work** (the upstream pair).
+3. **Who they hand off to** (the downstream pair).
+4. **When to ask for help** (the 20-minute rule).
 
 This document answers all four. Pin it to your screen.
 
 ---
 
-## 1. The Daily Timeline (8 hours)
+## 1. The 5 Pairs and Their SDLC Phase
 
-```
-09:00  09:30                   12:00         13:00              16:00     17:00
-  |-----|----------------------|              |-----|------------|---------|
-  |  S1   Stage 1 Archaeology  |   LUNCH      | S2  Spec       S3 Implem  S4 Evol
-```
+Each person picks **one pair** (two personas). The two personas in a pair are co-responsible — no internal handoff between them, they collaborate continuously.
 
-| Time | Block | Lead Personas | Everyone Else |
-|------|-------|---------------|---------------|
-| **09:00–09:30** | Opening + setup | Tech Lead | Read TEAM-FLOW.md, your persona card, copy your kit |
-| **09:30–10:30** | Stage 1 — Archaeology | Tech Writer + Requirements Engineer + Enterprise Architect | Pair-read legacy code, mine your domain |
-| **10:30–11:30** | Stage 1 — Synthesis | Requirements Engineer + Product Owner | Consolidate findings, prioritize what to modernize |
-| **11:30–12:00** | **Handoff #1**: legacy → spec | RE + Architects | PO confirms priorities |
-| **12:00–13:00** | LUNCH | — | — |
-| **13:00–14:30** | Stage 2 — Modern Spec | Requirements Engineer + Software Architect | Write EARS, draw C4, write ADRs |
-| **14:30–14:45** | **Handoff #2**: spec → code | Software Architect | Tech Lead + Developer pick up the spec |
-| **14:45–17:00** | Stage 3 — Implementation | Developer + DBA + QA | Code, test, migrate, integrate |
-| **17:00–17:15** | **Handoff #3**: code → ops | Tech Lead | DevOps takes over, QA continues |
-| **17:15–18:00** | Stage 4 — Evolution | DevOps + Tech Lead | Terraform, CI/CD, Agent-mode delegation |
-| **18:00–18:30** | Demo prep | Tech Lead + Product Owner | Everyone rehearses 30 seconds |
-| **18:30–19:10** | **Demos** (10 teams × 4 min) | Whole team | — |
-| **19:10–19:50** | Retrospective | — | Each persona fills their form |
-| **19:50–20:00** | Closing | — | — |
+| # | Pair | Personas | SDLC phase owned | Color |
+|---|------|----------|------------------|-------|
+| 1 | **Vision** | Product Owner + Requirements Engineer | Discovery + Specification | Red |
+| 2 | **Architecture** | Enterprise Architect + Software Architect | Specification + Design | Yellow |
+| 3 | **Implementation** | Technical Lead + Developer | Implementation + Evolution | Green |
+| 4 | **Quality** | DBA + QA Engineer | Implementation (data + tests) | Blue |
+| 5 | **Operations** | DevOps Engineer + Tech Writer | Cross-cutting + Evolution | Black |
+
+> Persona cards: see [`personas/`](personas/). Full kits (prompts, MCP, hooks): see [`persona-kits/`](persona-kits/).
+
+### Pair internal split (suggested, not enforced)
+
+| Pair | Persona A focus | Persona B focus |
+|------|-----------------|-----------------|
+| 1 · Vision | **PO**: scope, value, priorities, demo script | **RE**: EARS requirements, acceptance criteria, REQ-IDs |
+| 2 · Architecture | **EA**: C4 L1 (system context), topology ADRs | **SA**: C4 L2/L3 (containers + components), bounded contexts |
+| 3 · Implementation | **TL**: standards, PR review, agent orchestration | **Dev**: Java + TypeScript code, unit tests |
+| 4 · Quality | **DBA**: PostgreSQL schema, Flyway migrations | **QA**: BDD scenarios, coverage gates, contract tests |
+| 5 · Operations | **DevOps**: Terraform, GitHub Actions, secrets | **TW**: glossary, ADR clarity pass, runbook, README |
+
+Rotate inside the pair every ~45 min so no single person owns all the knowledge.
 
 ---
 
-## 2. The Handoff Map (Swimlanes)
+## 2. Daily Timeline (8 hours, Day 2)
+
+```
+09:00 09:30 12:00 13:00 16:00 17:00
+ |-----|-----------------------| |-----|------------|---------|
+ | S1 Stage 1 Archaeology | LUNCH | S2 Spec S3 Implem S4 Evol
+```
+
+| Time | Block | Lead pairs | Supporting pairs |
+|------|-------|------------|------------------|
+| **09:00–09:30** | Opening + setup | All | Read TEAM-FLOW, your persona cards, copy your kit |
+| **09:30–10:30** | Stage 1 — Archaeology (mine) | **Pair 1** (PO+RE), **Pair 5** (TW) | Pair 2 maps system context; Pairs 3, 4 read prototype |
+| **10:30–11:30** | Stage 1 — Synthesis | **Pair 1** (PO+RE) | Pair 2 starts C4 L1 draft; Pair 5 consolidates glossary |
+| **11:30–12:00** | **Handoff #1** legacy → spec | Pair 1 → Pair 2 | Pair 5 supports ADR clarity |
+| **12:00–13:00** | LUNCH | — | — |
+| **13:00–14:30** | Stage 2 — Modern Spec | **Pair 2** (EA+SA) | Pair 1 validates scope; Pair 5 ADR clarity |
+| **14:30–14:45** | **Handoff #2** spec → code | Pair 2 → Pairs 3 + 4 | Pair 1 signs off scope |
+| **14:45–17:00** | Stage 3 — Implementation | **Pair 3** (TL+Dev), **Pair 4** (DBA+QA) | Pair 5 starts pipeline draft |
+| **17:00–17:15** | **Handoff #3** code → ops | Pair 3 → Pair 5 | Pair 4 continues final tests |
+| **17:15–18:00** | Stage 4 — Evolution | **Pair 5** (DevOps+TW), **Pair 3** (TL+Dev) | Pair 4 final coverage gate |
+| **18:00–18:30** | Demo prep | Pair 1 + Pair 3 | All rehearse 30 seconds each |
+| **18:30–19:10** | **Demos** (20 teams × ~3 min) | Whole team | — |
+| **19:10–19:50** | Retrospective | All | Each persona fills their form |
+| **19:50–20:00** | Closing | — | — |
+
+> No one is idle. Pairs that are not "lead" in a stage have concrete supporting work — see §4.
+
+---
+
+## 3. Handoff Map (Pair-Level Swimlanes)
 
 ```mermaid
 flowchart TD
-    subgraph S1["Stage 1 — Archaeology"]
-        TW1[Tech Writer<br/>builds glossary]
-        RE1[Requirements Engineer<br/>extracts business rules]
-        EA1[Enterprise Architect<br/>maps system context]
-        PO1[Product Owner<br/>prioritizes findings]
-    end
+ subgraph S1["Stage 1 — Archaeology (09:30–12:00)"]
+ P1A[Pair 1 · Vision<br/>extract rules, prioritize]
+ P5A[Pair 5 · Operations<br/>glossary, runbook seed]
+ P2A[Pair 2 · Architecture<br/>system context map]
+ end
 
-    subgraph S2["Stage 2 — Modern Spec"]
-        RE2[Requirements Engineer<br/>writes EARS specs]
-        EA2[Enterprise Architect<br/>C4 Level 1 + topology ADRs]
-        SA2[Software Architect<br/>C4 Levels 2-3 + bounded contexts]
-        TW2[Tech Writer<br/>ADR clarity pass]
-        PO2[Product Owner<br/>signs off scope]
-    end
+ subgraph S2["Stage 2 — Spec (13:00–14:30)"]
+ P1B[Pair 1 · Vision<br/>EARS + scope sign-off]
+ P2B[Pair 2 · Architecture<br/>C4 L2/L3 + ADRs]
+ P5B[Pair 5 · Operations<br/>ADR clarity pass]
+ end
 
-    subgraph S3["Stage 3 — Implementation"]
-        TL3[Tech Lead<br/>code standards + reviews]
-        DEV3[Developer<br/>Java + TypeScript]
-        DBA3[DBA<br/>schema + migrations]
-        QA3[QA Engineer<br/>tests + coverage]
-    end
+ subgraph S3["Stage 3 — Implementation (14:45–17:00)"]
+ P3A[Pair 3 · Implementation<br/>Java + Next.js + reviews]
+ P4A[Pair 4 · Quality<br/>schema, migrations, tests]
+ P5C[Pair 5 · Operations<br/>CI pipeline draft]
+ end
 
-    subgraph S4["Stage 4 — Evolution"]
-        DO4[DevOps<br/>Terraform + CI/CD]
-        TL4[Tech Lead<br/>integration + demo prep]
-        QA4[QA Engineer<br/>final quality gate]
-        DEV4[Developer<br/>Agent-mode PR review]
-    end
+ subgraph S4["Stage 4 — Evolution (17:15–18:00)"]
+ P5D[Pair 5 · Operations<br/>Terraform + CI/CD]
+ P3B[Pair 3 · Implementation<br/>Agent-mode PR review]
+ P4B[Pair 4 · Quality<br/>final gate, coverage]
+ end
 
-    TW1 --> RE2
-    RE1 --> RE2
-    EA1 --> EA2
-    PO1 --> PO2
+ P1A --> P1B
+ P5A --> P5B
+ P2A --> P2B
 
-    RE2 --> SA2
-    EA2 --> SA2
-    SA2 --> TW2
-    TW2 --> PO2
+ P1B --> P2B
+ P2B --> P3A
+ P2B --> P4A
 
-    PO2 --> TL3
-    SA2 --> TL3
-    TL3 --> DEV3
-    SA2 --> DBA3
-    DEV3 --> QA3
-    DBA3 --> QA3
-
-    QA3 --> DO4
-    TL3 --> TL4
-    DO4 --> QA4
-    DO4 --> DEV4
+ P3A --> P3B
+ P4A --> P4B
+ P3A --> P5D
+ P4A --> P5D
+ P5C --> P5D
 ```
 
-### How to read this map
+### Reading the map
 
-- **Arrows are blocking dependencies.** If RE has not delivered EARS specs, SA cannot finalize C4 L2.
-- **Vertical position is time.** Higher = earlier.
-- **Handoffs cross stage boundaries.** Each handoff needs a 5-minute "walkthrough" between the two personas.
+- **Arrows are blocking dependencies.** Without Pair 2 delivering ADRs, Pairs 3 and 4 cannot start the right work.
+- **Vertical position is time.** Higher = earlier in the day.
+- **Each handoff is a 5-minute walkthrough** between the outgoing and incoming pair. No "just read the doc". Talk it through.
 
 ---
 
-## 3. First 30 Minutes — Per-Persona Checklist
+## 4. What Each Pair Does in Every Stage
 
-At 09:00, **every persona** does the same 4 things in the first 30 minutes. Then specialization starts.
+No pair sits idle. Even when not "leading", each pair has explicit support work.
+
+| Pair | Stage 1 (Archaeology) | Stage 2 (Spec) | Stage 3 (Implementation) | Stage 4 (Evolution) |
+|------|----------------------|---------------|--------------------------|---------------------|
+| **1 · Vision** | **Lead.** Extract rules; PO prioritizes scope. | Validates EARS; signs off scope at H2. | On-call to clarify requirements. Builds demo narrative. | Demo dry-run. |
+| **2 · Architecture** | Map system context (C4 L1 draft). | **Lead.** C4 L2/L3 + ADRs. | On-call for boundary questions; reviews PRs touching contracts. | Validates IaC against ADRs. |
+| **3 · Implementation** | Read prototype, set conventions (branches, PR template, DoD). | Comment on feasibility; estimate complexity. | **Lead.** Code, tests, integration. | **Co-lead.** Agent-mode delegation, PR review. |
+| **4 · Quality** | Read DDMs, plan schema mapping. | Comment on data implications; write first BDD scenarios. | **Lead.** Schema, migrations, test coverage. | Final coverage gate; contract tests in CI. |
+| **5 · Operations** | Glossary, runbook seed, README skeleton. | ADR clarity pass; consistent writing voice. | Draft CI pipeline scaffolding. | **Lead.** Terraform + CI/CD complete; runbook finalized. |
+
+---
+
+## 5. First 30 Minutes — Per-Pair Checklist
+
+At 09:00, **every pair** does the same 4 things in the first 30 minutes. Then specialization starts.
 
 | Step | Action | Time |
 |------|--------|------|
 | 1 | Read [`TEAM-FLOW.md`](TEAM-FLOW.md) (this file) | 10 min |
-| 2 | Read your card in [`personas/XX-your-role.md`](personas/) | 10 min |
-| 3 | Copy your Copilot kit: `cp -r persona-kits/XX-your-role/.github/* .github/` | 5 min |
-| 4 | Open Copilot Chat, run a smoke-test prompt from your card | 5 min |
+| 2 | Read your two cards in [`personas/`](personas/) | 10 min |
+| 3 | Copy your Copilot kit: `cp -r persona-kits/XX-persona-A/.github/* .github/` (repeat for persona B) | 5 min |
+| 4 | Open Copilot Chat, run the smoke-test prompt from one of your cards | 5 min |
 
-After 09:30, the **lead personas** for Stage 1 start work; the others prepare for their stage.
+### 09:30 starting move by pair
 
-### What each persona does in the first 30 minutes after onboarding
-
-| Persona | 09:30 action |
-|---------|--------------|
-| Product Owner | Read the **Hackathon Blueprint** (provided separately by the facilitators) + decide initial scope priorities |
-| Requirements Engineer | Open `legacy/natural-programs/` and start the rule catalog |
-| Enterprise Architect | Open `legacy/legacy-docs/` and start C4 Level 1 |
-| Software Architect | Pair with EA on system context; prepare bounded-context candidates |
-| Technical Lead | Set team conventions: branch strategy, PR template, definition of done |
-| Developer | Read `prototype/README.md`; run `docker compose up` |
-| DBA | Open `legacy/adabas-ddms/` and map fields to PostgreSQL |
-| QA Engineer | Read `prototype/backend/src/test/`; plan test strategy |
-| DevOps Engineer | Open `infra/` and read modules; plan IaC approach |
-| Tech Writer | Open `01-arqueologia/glossary.md` and start the glossary template |
+| Pair | 09:30 action |
+|------|--------------|
+| **1 · Vision** | PO opens [`01-blueprint/WORKSHOP-BLUEPRINT.md`](../01-blueprint/WORKSHOP-BLUEPRINT.md); RE opens [`02-cenario-sifap-legado/natural-programs/`](../02-cenario-sifap-legado/natural-programs/) and starts the rule catalog. |
+| **2 · Architecture** | EA opens [`02-cenario-sifap-legado/legacy-docs/`](../02-cenario-sifap-legado/legacy-docs/) and starts C4 L1; SA prepares bounded-context candidates. |
+| **3 · Implementation** | TL sets branch strategy, PR template, definition of done; Dev runs `docker compose up` on the prototype. |
+| **4 · Quality** | DBA opens [`02-cenario-sifap-legado/adabas-ddms/`](../02-cenario-sifap-legado/adabas-ddms/) and starts field mapping; QA reads existing test layout in [`04-prototipo-sifap-moderno/`](../04-prototipo-sifap-moderno/). |
+| **5 · Operations** | DevOps opens [`05-terraform-azure/`](../05-terraform-azure/) and reviews modules; TW opens [`01-arqueologia/glossary.md`](01-arqueologia/glossary.md) template. |
 
 ---
 
-## 4. The 20-Minute Rule
+## 6. The 20-Minute Rule
 
-> **If you are stuck on the same problem for 20 minutes, stop and ask.**
+> **If you (or your pair) are stuck on the same problem for 20 minutes, stop and ask.**
 
 The rule applies to everyone. Asking is not weakness; silent struggle is.
 
@@ -154,119 +180,99 @@ The rule applies to everyone. Asking is not weakness; silent struggle is.
 
 | Stuck for | Talk to |
 |-----------|---------|
-| 5 min | Try Copilot Chat with a different framing |
-| 10 min | Talk to your direct upstream/downstream persona (see swimlane map) |
-| 20 min | Talk to the Technical Lead (if they're stuck, talk to a facilitator) |
+| 5 min | Try Copilot Chat with a different framing, or your pair partner |
+| 10 min | Talk to your direct upstream/downstream **pair** (see §3) |
+| 20 min | Talk to **Pair 3** (TL drives team coordination) |
 | 30 min | Raise your hand for a facilitator (blue-cord) |
 
-### What to say when you escalate
-
-Use this 3-line format:
+### How to escalate (3-line format)
 
 ```
-1. Goal:    What I'm trying to achieve
-2. Tried:   What I already attempted (with results)
-3. Block:   What's stopping me right now
+1. Goal: What I'm trying to achieve
+2. Tried: What I already attempted (with results)
+3. Block: What's stopping me right now
 ```
 
-Bad escalation: *"This isn't working."*
-
-Good escalation: *"Goal: validate CPF in `BeneficiaryService`. Tried: regex check + Copilot suggestion (both fail on edge case 0000000000). Block: not sure if mod-11 algorithm should reject all-zeros explicitly."*
+Bad: *"This isn't working."*
+Good: *"Goal: validate CPF in `BeneficiaryService`. Tried: regex + Copilot suggestion (both fail on all-zeros). Block: not sure if mod-11 should reject 00000000000 explicitly."*
 
 ---
 
-## 5. Definition of Done — Per Handoff
+## 7. Definition of Done — Per Handoff
 
-Each of the 3 major handoffs has a clear contract.
+### Handoff #1 — Legacy → Spec (end of Stage 1, ~12:00)
 
-### Handoff #1: Legacy → Spec (end of Stage 1)
-
-**Owner:** Requirements Engineer
-**Receivers:** Software Architect, Tech Lead
+**Owner:** Pair 1 (Vision)
+**Receivers:** Pair 2 (Architecture), Pair 5 (Operations)
 
 | Artifact | Located at | Done means |
 |----------|-----------|------------|
-| Glossary | `01-arqueologia/glossary.md` | ≥ 30 terms with definitions |
-| Business rules catalog | `01-arqueologia/business-rules-catalog.md` | ≥ 15 rules with source program references |
-| Dependency map | `01-arqueologia/dependency-map.md` | Mermaid diagram covering all 15 Naturals |
-| Mysteries found | `01-arqueologia/mysteries-found.md` | ≥ 5 hidden rules identified with evidence |
+| Glossary | [`01-arqueologia/glossary.md`](01-arqueologia/glossary.md) | ≥ 30 terms with definitions (Pair 5 owns voice) |
+| Business rules catalog | [`01-arqueologia/business-rules-catalog.md`](01-arqueologia/business-rules-catalog.md) | ≥ 15 rules with source program references |
+| Dependency map | [`01-arqueologia/dependency-map.md`](01-arqueologia/dependency-map.md) | Mermaid diagram covering all 15 Naturals |
+| Mysteries found | [`01-arqueologia/mysteries-found.md`](01-arqueologia/mysteries-found.md) | ≥ 5 hidden rules identified with evidence |
 
-### Handoff #2: Spec → Code (end of Stage 2)
+### Handoff #2 — Spec → Code (end of Stage 2, ~14:30)
 
-**Owner:** Software Architect
-**Receivers:** Technical Lead, Developer, DBA
+**Owner:** Pair 2 (Architecture)
+**Receivers:** Pair 3 (Implementation), Pair 4 (Quality)
 
 | Artifact | Located at | Done means |
 |----------|-----------|------------|
-| EARS specifications | `02-spec-moderna/` (per Specky) | ≥ 12 requirements with REQ-IDs |
+| EARS specifications | [`02-spec-moderna/`](02-spec-moderna/) (per Spec-Kit) | ≥ 12 requirements with REQ-IDs |
 | C4 diagrams | `02-spec-moderna/diagrams/` | Levels 1, 2, 3 in Mermaid |
 | ADRs | `02-spec-moderna/ADRs/` | ≥ 3 ADRs (modular monolith, persistence, auth) |
-| Scope sign-off | Recorded in PR | Product Owner approved scope |
+| Scope sign-off | Recorded in PR | Pair 1 (PO) approved scope |
 
-### Handoff #3: Code → Ops (end of Stage 3)
+### Handoff #3 — Code → Ops (end of Stage 3, ~17:00)
 
-**Owner:** Technical Lead
-**Receivers:** DevOps, QA
+**Owner:** Pair 3 (Implementation)
+**Receivers:** Pair 5 (Operations)
 
 | Artifact | Located at | Done means |
 |----------|-----------|------------|
-| Working backend | `prototype/backend/` | `mvn test` green; OpenAPI documented |
-| Working frontend | `prototype/frontend/` | `npm test` green; main flows usable |
-| Migrations | `backend/src/main/resources/db/migration/` | Flyway scripts numbered; idempotent |
-| Coverage report | CI artifact | Backend ≥ 70%, frontend ≥ 60% lines |
+| Working backend | `04-prototipo-sifap-moderno/backend/` | `mvn test` green; OpenAPI documented |
+| Working frontend | `04-prototipo-sifap-moderno/frontend/` | `npm test` green; main flows usable |
+| Migrations | `backend/src/main/resources/db/migration/` | Flyway scripts numbered; idempotent (Pair 4 owns) |
+| Coverage report | CI artifact | Backend ≥ 70%, frontend ≥ 60% lines (Pair 4 verifies) |
 
 ---
 
-## 6. Persona Pairings — Who Pairs With Whom
-
-Some personas are individual contributors. Some pair naturally. Use this guide to spend less time figuring out collaboration.
-
-| Pair | When to pair | What they produce together |
-|------|--------------|----------------------------|
-| Requirements Engineer + Tech Writer | Stage 1 entire | Glossary + rule catalog |
-| Enterprise Architect + Software Architect | Stage 2 first hour | C4 Levels 1, 2, 3 |
-| Software Architect + Technical Lead | Stage 2 → Stage 3 boundary | Architecture handoff walkthrough |
-| Developer + DBA | Stage 3 first hour | Schema + first migration |
-| Developer + QA | Stage 3 entire | Tests-first or shortly after |
-| QA + DevOps | Stage 4 first 30 min | Pipeline coverage gates |
-| Product Owner + Tech Lead | Demo prep | Demo script |
-
----
-
-## 7. Communication Patterns
+## 8. Communication Patterns
 
 | Pattern | When | Example |
 |---------|------|---------|
-| **Stand-up** | At each stage transition (4×) | 2-min round: "I finished X, doing Y, blocked by Z" |
-| **Pair check-in** | Every 30 min within a stage | "Are we still aligned?" |
-| **PR comments** | Async between personas | Tag the receiving persona explicitly |
+| **Stand-up** | At each stage transition (4×) | 2-min round, one sentence per pair: "We finished X, doing Y, blocked by Z" |
+| **Pair check-in** | Every 30 min inside a stage | "Are the two of us still aligned?" |
+| **Pair-to-pair sync** | At handoffs | 5-minute walkthrough, no slides |
+| **PR comments** | Async between pairs | Tag the receiving pair explicitly (`@par-3`) |
 | **Quiet hour** | Last 30 min of Stage 3 | No meetings; everyone codes/tests |
 
 ---
 
-## 8. Anti-Patterns (Don't Do This)
+## 9. Anti-Patterns (Don't Do This)
 
 | ❌ Anti-pattern | ✅ Do instead |
 |----------------|---------------|
-| One person writes everything in stages 1+2 alone | Lead personas drive, but the rest contribute concrete artifacts |
-| Skipping handoffs — "I'll figure out their part too" | 5-minute handoff walkthrough at every transition |
-| Code merged without review by Tech Lead | Every PR has at least one persona-pair review |
-| QA waits until end of Stage 3 to start | QA writes test stubs as soon as REQ-IDs exist |
-| Tech Writer waits to be asked | Tech Writer pulls ADRs and READMEs continuously |
-| Product Owner disappears after Stage 1 | PO validates demo and scope at every handoff |
+| One persona in the pair does everything | Rotate every ~45 min; the other persona stays warm |
+| Skipping a handoff — "I'll figure out their part too" | 5-minute pair-to-pair walkthrough at every transition |
+| Pair 4 (Quality) waits until end of Stage 3 to start | Pair 4 writes BDD scenarios as soon as REQ-IDs exist (mid-Stage 2) |
+| Pair 5 (Operations) idle until Stage 4 | Pair 5 drives glossary in S1, ADR clarity in S2, CI scaffolding in S3 |
+| Pair 1 (Vision) disappears after Stage 1 | PO validates scope at H2 and runs demo dry-run in S4 |
+| Pair 3 merges without review | Every PR has at least one cross-pair review |
 
 ---
 
-## 9. Quick Reference
+## 10. Quick Reference
 
 ```
-Stuck?               → 20-minute rule (see §4)
-Need to hand off?    → Done-criteria (see §5)
-Pair partner?        → Pairings table (see §6)
-Where's my work?     → Folder by stage (01-arqueologia, 02-spec-moderna, …)
-Which Copilot mode?  → cheat-sheets/copilot-3-modes.md
-Which model?         → cheat-sheets/model-routing.md
-Which Specky agent?  → cheat-sheets/specky-workflow.md
+Which pair am I? → §1 (5 pairs table)
+What does my pair do in stage N? → §4 (per-pair per-stage matrix)
+Stuck? → 20-minute rule (§6)
+Need to hand off? → Done-criteria (§7)
+Which Copilot mode? → cheat-sheets/copilot-3-modes.md
+Which model? → cheat-sheets/model-routing.md
+Which Spec-Kit agent? → cheat-sheets/specky-workflow.md
 ```
 
 ---
@@ -275,6 +281,6 @@ Which Specky agent?  → cheat-sheets/specky-workflow.md
 
 | Parent | Home |
 |--------|------|
-| [Team Kit](README.md) | [Workspace Root](README.md) |
+| [Team Kit](README.md) | [Workspace Root](../README.md) |
 
 — Paula

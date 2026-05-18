@@ -1,40 +1,29 @@
-# OS / editor
-.DS_Store
-.idea/
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
+# Reference materials cloned by scripts/setup.sh — never commit these.
+# Note: legacy/ is bundled with the kit (real folder) and IS committed.
+reference/
+prototype
+infra
 
-# Env
+# OS files
+.DS_Store
+**/.DS_Store
+
+# Environment / secrets
 .env
 .env.local
 .env.*.local
 
-# Dependencies
-node_modules/
-dist/
-build/
-coverage/
-.next/
-out/
+# Java
+**/target/
 
-# Java / Maven
-target/
-*.class
+# Node
+**/node_modules/
+**/.next/
+**/.pnpm-store/
 
-# Python
-__pycache__/
-*.pyc
-.venv/
-venv/
-
-# Terraform
-.terraform/
-*.tfstate
-*.tfstate.backup
-*.tfplan
+# Coverage
+**/coverage/
+**/.nyc_output/
 
 # Logs
 *.log
-npm-debug.log*
-pnpm-debug.log*

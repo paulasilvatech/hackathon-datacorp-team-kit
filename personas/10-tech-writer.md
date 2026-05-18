@@ -1,26 +1,26 @@
 ---
 title: "Persona Card - Tech Writer"
-description: "What the Tech Writer does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
+description: "What the Tech Writer does inside the team of 10 during Day 2 of Legacy Modernization Workshop."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "10"
-tags: ["persona", "tech-writer", "hackathon", "DATACORP"]
+tags: ["persona", "tech-writer", "workshop"]
 ---
 
 # Persona - Tech Writer
 
 ## Who this person is
 
-The one who turns a decision into durable memory. Without a deliberate Tech Writer, ADRs become empty files, the README stays at "install the dependencies", and nothing of what was discovered survives the last hour of the hackathon.
+The one who turns a decision into durable memory. Without a deliberate Tech Writer, ADRs become empty files, the README stays at "install the dependencies", and nothing of what was discovered survives the last hour of the workshop.
 
-## Mission in the hackathon
+## Mission in the workshop
 
 Keep documentation alive throughout the day - not at the end. A README that grows, ADRs written at the moment of the decision, a present change log. Write the Agent experience report in Stage 4.
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the **Hackathon Blueprint** (provided separately by the facilitators). Your persona maps to the pipeline as follows:
+This workshop applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/WORKSHOP-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Documentation Agent (cross-cutting)
 - **Framework phase**: All phases (continuous documentation)
@@ -94,15 +94,5 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - Rubric A2 (Spec): consistent documentation, standardized terminology
 - Rubric A7 (Agent): honest and detailed report
 - Criterion: "README evolved every hour. ADRs have context, decision, and consequences. Nothing says TODO."
-
-
-## Agents I Use
-
-| Agent | My Role | What I Do |
-|---|---|---|
-| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Secondary | Build the domain glossary from legacy code discoveries |
-| [@architect](../agent-kits/02-architect/README.md) | Observer | Ensure ADRs and specs are clearly written |
-| [@builder](../agent-kits/03-builder/README.md) | Observer | Review Javadoc and code documentation |
-| [@evolution](../agent-kits/04-evolution/README.md) | Secondary | Polish READMEs, demo script, retrospective notes |
 
 - Paula

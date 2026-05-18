@@ -1,5 +1,5 @@
 {
-  "name": "SIFAP 2.0 Hackathon Dev Container",
+  "name": "SIFAP 2.0 Workshop Dev Container",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
@@ -32,5 +32,5 @@
     }
   },
   "forwardPorts": [3000, 8080, 5432],
-  "postCreateCommand": "echo 'Welcome to SIFAP 2.0 Hackathon Environment!'"
+  "postCreateCommand": "echo 'Welcome to SIFAP 2.0 Workshop Environment!'"
 }
