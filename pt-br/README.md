@@ -20,6 +20,40 @@ tags: ["kit", "pt-br", "didatico", "workshop"]
 > 2. Leia suas duas cartas de persona em [`personas/`](personas/) (15 minutos)
 > 3. Abra o guia do Stage 1 em [`01-arqueologia/GUIDE.md`](01-arqueologia/GUIDE.md)
 
+## Ferramentas aprovadas — somente estas
+
+O workshop roda em **stack fixa**. Misturar ferramentas alternativas fragmenta o time e quebra a rastreabilidade spec → código → teste.
+
+| Use | Não use |
+|-----|---------|
+| **VS Code** (ou Insiders) | Cursor, Windsurf, IntelliJ, Eclipse, Sublime, plugins de Neovim |
+| **GitHub Copilot** — modos Chat + Edits + Agent (Copilot Workspace OK) | Cline, Continue, Aider, Codeium, Tabnine |
+| **GitHub Copilot CLI** *(opcional)* | ChatGPT / Claude.ai na web para gerar código (quebra o histórico do Copilot Chat) |
+| **Spec-Kit** (plugin `specky-sdd`) — o motor de SDD | Kiro, GitHub Spec, pipelines de SDD em YAML custom |
+| **GitHub** (Issues, PRs, Actions, Projects) | — |
+| **Docker / Docker Compose** | instalações locais de Postgres/Node/Java que divergem do devcontainer |
+| **Terraform** (Azure provider) | — |
+
+O racional completo e o que o CI verifica estão em [`../.github/copilot-instructions.md`](../.github/copilot-instructions.md).
+
+## Duas camadas de agente — ambas obrigatórias
+
+O kit traz **duas camadas de agente** que cobrem eixos diferentes (papel × estágio). Use as duas.
+
+| Camada | O que | Quando | Como |
+|--------|-------|--------|------|
+| [`../persona-kits/`](../persona-kits/) | Um kit por persona (agent + prompts + skills + MCP) | Instalado às 09:00, vive o dia inteiro | Cada pessoa copia seus 2 kits via `cp -r ../persona-kits/XX-*/.github/* .github/` |
+| [`../agent-kits/`](../agent-kits/) | Quatro agentes por estágio: `@archaeologist`, `@architect`, `@builder`, `@evolution` | Selecionado a cada estágio pelo time | Abra o Copilot Chat → seletor de agentes → escolha o agente do estágio → cole o prompt de abertura do README do kit |
+
+**Não são duplicados.** `persona-kits/` configura **seu Copilot para o seu papel**. `agent-kits/` coordena **o time para o estágio atual**. Um Stage 1 típico fica assim:
+
+1. Você já carregou seu persona-kit (ex.: Requirements Engineer) → slash commands como `/ears-convert` funcionam.
+2. O time seleciona `@archaeologist` no chat → a conversa entra em modo arqueologia.
+3. Você pergunta ao `@archaeologist` para resumir `BATCHPGT.NSN` → resposta com enquadramento de arqueologia.
+4. Você roda `/ears-convert` sobre o que descobriu → seu persona-kit de RE assume e devolve YAML com a linha `source_legacy:`.
+
+O diagrama completo da integração está em [`../.github/copilot-instructions.md`](../.github/copilot-instructions.md).
+
 ## Como este folder se organiza
 
 O kit é **trilíngue**, mas usa **estrutura híbrida**: apenas a documentação instrucional é traduzida; os assets técnicos ficam no raiz do kit e são compartilhados.

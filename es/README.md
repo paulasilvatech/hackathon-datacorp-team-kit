@@ -20,6 +20,40 @@ tags: ["kit", "es", "didactico", "workshop", "personas"]
 > 2. Lee tus dos cartas de persona en [`personas/`](personas/) (15 minutos)
 > 3. Abre la guía del Stage 1 en [`01-arqueologia/GUIDE.md`](01-arqueologia/GUIDE.md)
 
+## Herramientas aprobadas — solo estas
+
+El workshop corre sobre un **stack fijo**. Mezclar herramientas alternativas fragmenta el equipo y rompe la trazabilidad spec → código → test.
+
+| Usa | NO uses |
+|-----|---------|
+| **VS Code** (o Insiders) | Cursor, Windsurf, IntelliJ, Eclipse, Sublime, plugins de Neovim |
+| **GitHub Copilot** — modos Chat + Edits + Agent (Copilot Workspace OK) | Cline, Continue, Aider, Codeium, Tabnine |
+| **GitHub Copilot CLI** *(opcional)* | ChatGPT / Claude.ai en la web para generar código (rompe el historial de Copilot Chat) |
+| **Spec-Kit** (plugin `specky-sdd`) — el motor de SDD | Kiro, GitHub Spec, pipelines SDD en YAML custom |
+| **GitHub** (Issues, PRs, Actions, Projects) | — |
+| **Docker / Docker Compose** | instalaciones locales de Postgres/Node/Java que divergen del devcontainer |
+| **Terraform** (Azure provider) | — |
+
+La lógica completa y lo que el CI verifica está en [`../.github/copilot-instructions.md`](../.github/copilot-instructions.md).
+
+## Dos capas de agente — ambas obligatorias
+
+El kit trae **dos capas de agente** que cubren ejes diferentes (rol × stage). Usa ambas.
+
+| Capa | Qué | Cuándo | Cómo |
+|------|-----|--------|------|
+| [`../persona-kits/`](../persona-kits/) | Un kit por persona (agent + prompts + skills + MCP) | Instalado a las 09:00, vive todo el día | Cada persona copia sus 2 kits con `cp -r ../persona-kits/XX-*/.github/* .github/` |
+| [`../agent-kits/`](../agent-kits/) | Cuatro agentes por stage: `@archaeologist`, `@architect`, `@builder`, `@evolution` | Seleccionado en cada stage por el equipo | Abre Copilot Chat → selector de agentes → elige el agente del stage → pega el prompt de apertura del README |
+
+**No son duplicados.** `persona-kits/` configura **tu Copilot para tu rol**. `agent-kits/` coordina **al equipo para el stage actual**. Un Stage 1 típico se ve así:
+
+1. Tú ya tienes tu persona-kit cargado (ej. Requirements Engineer) → los slash commands como `/ears-convert` funcionan.
+2. El equipo selecciona `@archaeologist` en el chat → la conversación entra en modo arqueología.
+3. Tú le pides al `@archaeologist` que resuma `BATCHPGT.NSN` → respuesta con encuadre de arqueología.
+4. Tú corres `/ears-convert` sobre lo que encontraste → tu persona-kit de RE toma el control y devuelve YAML con la línea `source_legacy:`.
+
+El diagrama completo de la integración está en [`../.github/copilot-instructions.md`](../.github/copilot-instructions.md).
+
 ## Cómo se organiza esta carpeta
 
 El kit es **trilingüe**, pero usa una **estructura híbrida**: solo la documentación instruccional se traduce; los assets técnicos viven en la raíz del kit y se comparten.

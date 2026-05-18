@@ -4,12 +4,80 @@
 > what conventions to follow, and what NOT to do. They apply to the entire team
 > repository.
 
+## Approved Tools — Only These
+
+This workshop runs on a **fixed toolchain**. Using anything else fragments the team and breaks the demos.
+
+| Use these | Why |
+|-----------|-----|
+| **VS Code** (or VS Code Insiders) | Single editor across the team. The devcontainer + extensions assume it. |
+| **GitHub Copilot** (Chat + Edits + Agent modes) | Primary AI assistant. Copilot Workspace is also allowed for Issue → PR delegation. |
+| **GitHub Copilot CLI** *(optional)* | For terminal-flow tasks. Same model routing rules apply. |
+| **Spec-Kit** (`specky-sdd` plugin) | The Spec-Driven Development engine. Validates EARS, manages the 10-phase pipeline. |
+| **GitHub** (Issues, PRs, Actions, Projects) | Source of truth for work, code, and CI. |
+| **Docker / Docker Compose** | Local environment parity. |
+| **Terraform** | IaC (Azure provider). |
+
+**Do not use** other AI assistants, IDEs, or SDD frameworks during the workshop. Specifically:
+
+- ❌ No Cursor, Windsurf, Cline, Continue, Aider, Codeium, Tabnine, or other Copilot competitors
+- ❌ No ChatGPT / Claude.ai web UIs for code generation (your prompts and outputs must stay traceable via Copilot Chat history)
+- ❌ No IntelliJ, Eclipse, Sublime, Neovim plugins as primary editor
+- ❌ No alternative SDD frameworks (Kiro, GitHub Spec, custom YAML pipelines, etc.)
+
+Why this is strict: the workshop measures **agentic engineering with the official Microsoft + GitHub stack**. Mixing tools breaks team handoffs, fragments the rubric, and makes the trace from spec → code → test impossible to validate.
+
 ## Project Context
 
 This repository belongs to a workshop team modernizing the legacy **SIFAP**
 (Sistema de Fiscalização e Administração de Pagamentos) from Natural/Adabas to
 a modern stack. The reference workspace lives in
 [`workshop-legacy-modernization-datacorp`](https://github.com/paulasilvatech/workshop-legacy-modernization-datacorp).
+
+## Two Agent Layers — Both Required
+
+This kit ships **two complementary agent layers**. They are not duplicates; they cover orthogonal axes (role × stage). Use both.
+
+```mermaid
+flowchart TB
+    classDef person fill:#E5F6FD,stroke:#00A4EF,color:#0A0A0A
+    classDef stage fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
+    classDef tool fill:#F1F8E3,stroke:#7FBA00,color:#0A0A0A
+
+    P1[Person · Par 1<br/>2 personas]:::person
+    P2[Person · Par 2<br/>2 personas]:::person
+    P3[Person · Par 3<br/>2 personas]:::person
+    P4[Person · Par 4<br/>2 personas]:::person
+    P5[Person · Par 5<br/>2 personas]:::person
+
+    PK[persona-kits/NN-*/<br/>Copilot agent + prompts + skills + MCP<br/>per persona, all day]:::tool
+    AK[agent-kits/<br/>@archaeologist · @architect ·<br/>@builder · @evolution<br/>per stage, time-bound]:::tool
+
+    P1 & P2 & P3 & P4 & P5 -- "copy own 2 kits into .github/" --> PK
+    P1 & P2 & P3 & P4 & P5 -- "select in Copilot chat for current stage" --> AK
+```
+
+### `persona-kits/NN-*/` — installed once, runs all day
+
+- One kit per persona (Product Owner, Requirements Engineer, …, Tech Writer).
+- Each kit contains: 1 `agent.md` + 2–4 `prompts/*.prompt.md` + 1–2 `skills/*/SKILL.md` + optional `instructions/*.instructions.md` + `mcp.json`.
+- Each person in your team copies **both** of their persona kits into the team repo's `.github/` folder via `cp -r persona-kits/XX-*/.github/* .github/`.
+- After that, Copilot is configured for that person's role for the whole day. Slash commands (`/spec`, `/ears-convert`, …) become available.
+
+### `agent-kits/` — selected fresh each stage
+
+- One agent per stage: `@archaeologist` (Stage 1) · `@architect` (Stage 2) · `@builder` (Stage 3) · `@evolution` (Stage 4).
+- Shared by the entire team. Defines a "protagonist persona" + "secondary personas" + "observer personas" for that stage.
+- Activated in Copilot Chat: open the chat panel, click the agent selector, pick the stage agent. Paste the opening prompt from that kit's README.
+- The agent guides the **team's coordination** during the stage: which artifacts to produce, how to walk through the legacy code, when to escalate, etc.
+
+### How they combine in a typical 30-minute window
+
+1. **You** opened Copilot Chat with your persona-kit loaded → slash commands like `/ears-convert` work because your `.github/prompts/` is populated.
+2. **Your team** selected the `@archaeologist` stage agent → the chat is in archaeology mode, walking the team through legacy reading.
+3. You ask `@archaeologist` to summarize what `BATCHPGT.NSN` does → it answers in archaeology framing.
+4. You then run `/ears-convert` on your discoveries → your persona-kit (RE) takes over and outputs YAML with `source_legacy:` lines.
+5. Both layers worked together. Neither is optional.
 
 ## Target Stack
 

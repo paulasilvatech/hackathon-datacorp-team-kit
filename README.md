@@ -23,6 +23,40 @@ tags: ["kit", "teams", "templates", "workshop", "personas"]
 > 2. Read your two persona cards in [`personas/`](personas/) (15 minutes)
 > 3. Open the Stage 1 guide at [`01-arqueologia/GUIDE.md`](01-arqueologia/GUIDE.md)
 
+## Approved tools — only these
+
+This workshop runs on a **fixed toolchain**. Mixing in alternative tools fragments the team and breaks the spec → code → test trace.
+
+| Use | Don't use |
+|-----|-----------|
+| **VS Code** (or Insiders) | Cursor, Windsurf, IntelliJ, Eclipse, Sublime, Neovim plugins |
+| **GitHub Copilot** — Chat + Edits + Agent modes (Copilot Workspace OK) | Cline, Continue, Aider, Codeium, Tabnine |
+| **GitHub Copilot CLI** *(optional)* | ChatGPT / Claude.ai web UIs for code (breaks Copilot Chat history trace) |
+| **Spec-Kit** (`specky-sdd` plugin) — the SDD engine | Kiro, GitHub Spec, custom YAML SDD pipelines |
+| **GitHub** (Issues, PRs, Actions, Projects) | — |
+| **Docker / Docker Compose** | local installs of Postgres/Node/Java that diverge from the devcontainer |
+| **Terraform** (Azure provider) | — |
+
+Full rationale and CI enforcement in [`.github/copilot-instructions.md`](.github/copilot-instructions.md).
+
+## Two agent layers — both required
+
+This kit ships **two agent layers** that cover different axes (role × stage). Use both.
+
+| Layer | What | When | How |
+|-------|------|------|-----|
+| [`persona-kits/`](persona-kits/) | One kit per persona (agent + prompts + skills + MCP) | Installed at 09:00, runs all day | Each person copies their 2 kits via `cp -r persona-kits/XX-*/.github/* .github/` |
+| [`agent-kits/`](agent-kits/) | Four stage agents: `@archaeologist`, `@architect`, `@builder`, `@evolution` | Selected fresh in each stage by the team | Open Copilot Chat → agent selector → pick the stage agent → paste opening prompt |
+
+**They are not duplicates.** `persona-kits/` configures **your Copilot for your role**. `agent-kits/` coordinates **the team for the current stage**. A typical Stage 1 looks like:
+
+1. You already have your persona-kit loaded (e.g. Requirements Engineer) → slash commands like `/ears-convert` work.
+2. Team selects `@archaeologist` in chat → chat is in archaeology mode.
+3. You ask `@archaeologist` to summarize `BATCHPGT.NSN` → archaeology framing.
+4. You run `/ears-convert` on what you found → your RE persona-kit takes over and outputs YAML with `source_legacy:` lines.
+
+See [`.github/copilot-instructions.md`](.github/copilot-instructions.md) for the diagram and full integration model.
+
 ## Table of Contents
 
 - [Team Repository Kit](#team-repository-kit)
