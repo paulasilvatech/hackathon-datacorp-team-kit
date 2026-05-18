@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - Developer"
-description: "What the Developer does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
+description: "What the Developer does inside the team of 10 during Day 2 of Legacy Modernization Workshop."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "06"
-tags: ["persona", "developer", "hackathon", "DATACORP"]
+tags: ["persona", "developer", "workshop"]
 ---
 
 # Persona - Developer
@@ -14,13 +14,13 @@ tags: ["persona", "developer", "hackathon", "DATACORP"]
 
 You write the code. More than that: you are the one using Copilot all day across all three modes and translating ideas into diff. In Stage 3 you carry the heavy weight of production.
 
-## Mission in the hackathon
+## Mission in the workshop
 
 Turn the spec into running code. Use Copilot deliberately - Chat to understand, Edits to produce, Agent to delegate. Push every day.
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the **Hackathon Blueprint** (provided separately by the facilitators). Your persona maps to the pipeline as follows:
+This workshop applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/WORKSHOP-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Translation Agent (S3), Review Agent (S3)
 - **Framework phase**: Translation and Test Generation
@@ -97,15 +97,5 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - Rubric A3 (Technical Integrity): functional endpoints, passing tests
 - Rubric A4 (Conscious Use of Copilot): deliberate switching between Chat, Edits, and Agent
 - Criterion: "Small commits, reviewable PRs, tests written alongside the code"
-
-
-## Agents I Use
-
-| Agent | My Role | What I Do |
-|---|---|---|
-| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Observer | Follow along, contribute when code patterns need explanation |
-| [@architect](../agent-kits/02-architect/README.md) | Observer | Review the emerging specification, flag inconsistencies |
-| [@builder](../agent-kits/03-builder/README.md) | **Protagonist** | Write and review implementation code across backend and frontend |
-| [@evolution](../agent-kits/04-evolution/README.md) | Secondary | Review AI-generated code for correctness |
 
 - Paula

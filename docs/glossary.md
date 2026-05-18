@@ -16,13 +16,13 @@ tags: ["glossary", "domain", "sifap", "stage-1"]
 
 1. Use this format:
 
-   ```markdown
-   ### Term
-   - **Source:** Natural program or DDM where the term originates (e.g., `CADBENEF.NSN:42`)
-   - **Definition:** Short definition (1–2 sentences)
-   - **English equivalent:** If the legacy term is in Portuguese
-   - **Used in:** REQ-IDs, files, modules
-   ```
+ ```markdown
+ ### Term
+ - **Source:** Natural program or DDM where the term originates (e.g., `CADBENEF.NSN:42`)
+ - **Definition:** Short definition (1–2 sentences)
+ - **English equivalent:** If the legacy term is in Portuguese
+ - **Used in:** REQ-IDs, files, modules
+ ```
 
 2. Keep terms in alphabetical order within each section.
 3. If two team members disagree on a definition, log it as a decision and ping the Requirements Engineer.
@@ -34,7 +34,7 @@ tags: ["glossary", "domain", "sifap", "stage-1"]
 ### Adabas
 - **Source:** Legacy data store
 - **Definition:** Multi-value NoSQL-style mainframe database used by the legacy SIFAP system. Adabas DDMs (Data Definition Modules) describe records.
-- **Used in:** all `.NSN` programs in `legacy/natural-programs/`
+- **Used in:** all `.NSN` programs in `02-cenario-sifap-legado/natural-programs/`
 
 ## B
 

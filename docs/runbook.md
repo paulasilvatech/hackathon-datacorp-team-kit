@@ -15,8 +15,8 @@ tags: ["runbook", "operations", "devops", "deploy"]
 ## Local — first time
 
 ```bash
-./scripts/setup.sh         # checks tools, clones reference, sets up symlinks
-docker compose up -d       # spins up Postgres + backend + frontend
+./scripts/setup.sh # checks tools, clones reference, sets up symlinks
+docker compose up -d # spins up Postgres + backend + frontend
 ```
 
 Then:
@@ -29,9 +29,9 @@ Default credentials are documented in `prototype/README.md`.
 ## Local — daily
 
 ```bash
-docker compose up -d        # if it's down
-./scripts/check.sh          # before pushing
-git status                  # never commit symlinks (legacy/, prototype/, infra/)
+docker compose up -d # if it's down
+./scripts/check.sh # before pushing
+git status # never commit symlinks (legacy/, prototype/, infra/)
 ```
 
 ## CI

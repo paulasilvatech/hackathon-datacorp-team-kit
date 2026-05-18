@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - QA Engineer"
-description: "What the QA Engineer does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
+description: "What the QA Engineer does inside the team of 10 during Day 2 of Legacy Modernization Workshop."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "08"
-tags: ["persona", "qa-engineer", "hackathon", "DATACORP", "testing"]
+tags: ["persona", "qa-engineer", "workshop", "testing"]
 ---
 
 # Persona - QA Engineer
@@ -14,13 +14,13 @@ tags: ["persona", "qa-engineer", "hackathon", "DATACORP", "testing"]
 
 The one who turns a requirement into an executable test. In SIFAP 2.0, the one who makes sure the payment calculation rule survives any Stage 3 refactor and that the monthly cycle batch works within the expected boundaries.
 
-## Mission in the hackathon
+## Mission in the workshop
 
 Define the project's testing strategy. Write critical tests (not 100% coverage; the right ones). Validate spec → test traceability. Protect the team from a false green CI.
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the **Hackathon Blueprint** (provided separately by the facilitators). Your persona maps to the pipeline as follows:
+This workshop applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/WORKSHOP-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Test Gen Agent (S3), Security Agent (S3)
 - **Framework phase**: Translation and Test Generation → Validation
@@ -95,15 +95,5 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - Rubric A3 (Technical Integrity): tests passing, CI green
 - Rubric A2 (Spec): every requirement has a verification criterion
 - Criterion: "Tests that break on the first bug, not tests that always pass"
-
-
-## Agents I Use
-
-| Agent | My Role | What I Do |
-|---|---|---|
-| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Observer | Note testability concerns in legacy patterns |
-| [@architect](../agent-kits/02-architect/README.md) | Observer | Review acceptance criteria for testability |
-| [@builder](../agent-kits/03-builder/README.md) | Secondary | Write tests, validate acceptance criteria, monitor coverage |
-| [@evolution](../agent-kits/04-evolution/README.md) | Secondary | Validate quality gates in the CI pipeline |
 
 - Paula

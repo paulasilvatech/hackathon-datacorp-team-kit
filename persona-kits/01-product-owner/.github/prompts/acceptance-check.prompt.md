@@ -16,4 +16,4 @@ description: "Verify code matches SPECIFICATION.md acceptance criteria. Use duri
 ## Output
 | Criterion | Implemented | Tested | Status |
 |-----------|-------------|--------|--------|
-| [text]    | Yes/No      | Yes/No | Pass/Fail/Gap |
+| [text] | Yes/No | Yes/No | Pass/Fail/Gap |

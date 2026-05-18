@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - Requirements Engineer"
-description: "What the Requirements Engineer does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
+description: "What the Requirements Engineer does inside the team of 10 during Day 2 of Legacy Modernization Workshop."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "02"
-tags: ["persona", "requirements-engineer", "hackathon", "DATACORP", "EARS"]
+tags: ["persona", "requirements-engineer", "workshop", "EARS"]
 ---
 
 # Persona - Requirements Engineer
@@ -14,13 +14,13 @@ tags: ["persona", "requirements-engineer", "hackathon", "DATACORP", "EARS"]
 
 The one who takes loose conversation and turns it into a testable requirement. Alongside the PO, the one who keeps the team from writing code for a poorly framed problem. In a legacy system like SIFAP, this role is critical: the rules are tacitly encoded in Natural and nobody articulates them anymore.
 
-## Mission in the hackathon
+## Mission in the workshop
 
 Convert what was discovered in Stage 1 into formal, testable requirements in Stage 2. Make sure requirements are written in EARS, that they are numbered, and that each one has a verification criterion.
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the **Hackathon Blueprint** (provided separately by the facilitators). Your persona maps to the pipeline as follows:
+This workshop applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/WORKSHOP-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Analysis Agent (S1-S2), Spec Engineer (S2)
 - **Framework phase**: Application Carving → Translation
@@ -93,15 +93,5 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - **Rubric A2 (Spec Coherence):** requirements in EARS, numbered, traceable to the legacy.
 - **Rubric A1 (Archaeology):** rule catalog with classification.
 - Criterion: "Every requirement has an active verb and is testable."
-
-
-## Agents I Use
-
-| Agent | My Role | What I Do |
-|---|---|---|
-| [@archaeologist](../agent-kits/01-archaeologist/README.md) | **Protagonist** | Drive legacy exploration, capture business rules as draft requirements |
-| [@architect](../agent-kits/02-architect/README.md) | Secondary | Write EARS requirements, ensure traceability to Stage 1 discoveries |
-| [@builder](../agent-kits/03-builder/README.md) | Observer | Available to clarify requirements during implementation |
-| [@evolution](../agent-kits/04-evolution/README.md) | Observer | Observe the delegation pattern for future use |
 
 - Paula

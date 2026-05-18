@@ -1,292 +1,222 @@
 ---
 title: "Team Repository Kit"
-description: "Starter kit for hackathon team repositories with narrative context, personas, stage guides, cheat sheets, and visual assets"
-author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-24"
-version: "1.3.0"
+description: "Starter kit for workshop team repositories (this edition): 5 people × 2 personas each, 10 personas total in 5 pairs covering the full SDLC, plus 10 matching Copilot agent kits, stage guides, cheat sheets, and team integration map"
+author: "Paula Silva, Americas Software GBB, Microsoft"
+date: "2026-05-18"
+version: "3.0.0"
 status: "approved"
-tags: ["kit", "teams", "templates", "hackathon", "datacorp"]
+tags: ["kit", "teams", "templates", "workshop", "personas"]
 ---
 
-# 🚀 Team Repository Kit
+# Team Repository Kit
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/paulasilvatech/hackathon-datacorp-team-kit/main/assets/hero-sifap-journey.svg" alt="The SIFAP Journey: 30 years of legacy, 1 day to modernize" width="100%"/>
-</p>
-
-<h3 align="center">Hackathon DATACORP 2026 — Team Starter Kit</h3>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/status-approved-brightgreen" alt="status: approved"/>
-  <img src="https://img.shields.io/badge/version-1.3.0-blue" alt="version: 1.3.0"/>
-  <img src="https://img.shields.io/badge/personas-25-orange" alt="personas: 25"/>
-  <img src="https://img.shields.io/badge/stages-4-blue" alt="stages: 4"/>
-  <img src="https://img.shields.io/badge/event-April%2028%202026-green" alt="event: April 28 2026"/>
-  <img src="https://img.shields.io/badge/use-internal-gray" alt="use: internal"/>
-</p>
-
-> **📍 Start here** if you are a hackathon participant.
+> 🌐 **Choose your language / Escolha seu idioma / Elige tu idioma:**
+> - **English** → [`en/README.md`](en/README.md)
+> - **Português (BR)** → [`pt-br/README.md`](pt-br/README.md)
+> - **Español (LATAM)** → [`es/README.md`](es/README.md)
 >
-> 1. **First**: follow [`SETUP.md`](SETUP.md) to create your team's GitHub repo, configure Copilot, and install Spec-Kit + Specky (30 minutes).
-> 2. **Then**: read [`TEAM-FLOW.md`](TEAM-FLOW.md) to understand how the 10 of you work together.
-> 3. **Finally**: open your persona kit in `persona-kits/<your-role>/README.md`, then go to Stage 1 at `01-arqueologia/GUIDE.md`.
-
-[Setup Guide](SETUP.md) · [Team Flow](TEAM-FLOW.md) · [The SIFAP Story](#-the-sifap-story) · [Your Mission](#-your-mission-in-8-hours) · [Your Team](#-your-team) · [Stage Flow](#%EF%B8%8F-the-four-stage-journey)
-
----
-
-## 📑 Table of Contents
-
-1. [The SIFAP Story](#-the-sifap-story)
-2. [Why SIFAP Must Change](#%EF%B8%8F-why-sifap-must-change)
-3. [Your Mission in 8 Hours](#-your-mission-in-8-hours)
-4. [Your Team](#-your-team)
-5. [The Four Stage Journey](#%EF%B8%8F-the-four-stage-journey)
-6. [The 4 SDLC Agents](#-the-4-sdlc-agents)
-7. [From Legacy to Modern](#%EF%B8%8F-from-legacy-to-modern)
-8. [Folder Structure](#-folder-structure)
-9. [How to Use This Kit](#%EF%B8%8F-how-to-use-this-kit)
-10. [Related Repositories](#-related-repositories)
-11. [References](#-references)
-
----
-
-## 🎬 The SIFAP Story
-
-Picture this. It is 1995. A small team of engineers at DATACORP builds a system to pay social benefits to millions of citizens. They pick the best tools available at the time: **Natural**, a language designed for fast data processing, and **Adabas**, a hierarchical database known for reliability. They name it **SIFAP**, the *Sistema Integrado de Folha de Pagamentos*.
-
-The system works. It pays citizens on time, month after month. The people who built it move on. New people are hired. The business changes. Laws change. Payments rules change. Every few years, someone patches SIFAP to handle a new rule, a new benefit category, a new exception. Nobody rewrites it. Nobody dares to. It just keeps running.
-
-Fast forward to **2026**. SIFAP is still running. It processes millions of payments every month. But it is not the quiet hero it used to be. It has become a burden.
-
-- The original architects are long gone.
-- The source code has abbreviations nobody remembers the meaning of.
-- Every change requires a week of testing, because there are no automated tests.
-- The mainframe licenses cost the company more every year.
-- Citizens want to check their benefits from a phone. SIFAP has no API.
-- Partners want to integrate. SIFAP has no modern endpoint.
-- Operators still use green screen terminals. Nobody under 35 knows how to navigate them.
-
-**That is where your team comes in.** You have 1 day, 100 developers, 10 teams, and a box full of AI tools. Your mission is to prove that legacy modernization, the kind that used to take 2 years and a consulting army, can now happen in hours, with the right approach.
-
-Welcome to the Hackathon DATACORP 2026.
-
----
-
-## ⚠️ Why SIFAP Must Change
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/paulasilvatech/hackathon-datacorp-team-kit/main/assets/sifap-pain-points.svg" alt="5 pain points of the legacy SIFAP system" width="100%"/>
-</p>
-
-| # | Pain Point | Business Impact |
-|---|------------|-----------------|
-| 1️⃣ | **Knowledge silos** | A handful of people know how SIFAP works. When they leave, the company is exposed. |
-| 2️⃣ | **Cryptic code** | 8 character abbreviations, no comments, no docs. Every change starts with archaeology. |
-| 3️⃣ | **Zero tests** | Changes are gambles. A fix in one module silently breaks another from 15 years ago. |
-| 4️⃣ | **Costly licenses** | Mainframe licenses consume budget that should fund innovation. |
-| 5️⃣ | **No integrations** | Mobile, partners, modern channels. All blocked by the monolith. |
-
-> 💡 **Analogy.** Legacy SIFAP is like a 30 year old family car that still runs but needs a full tank of gas, a carburetor adjustment every month, and only one mechanic in town can service it. Modernizing is not about buying a faster car. It is about trading it for a reliable electric vehicle the whole family can drive.
-
----
-
-## 🎯 Your Mission in 8 Hours
-
-Your team has one clear goal. Rebuild SIFAP with a modern stack, prove that AI assisted Spec Driven Development delivers, and ship something demo worthy by the end of the day.
-
-| Deliverable | Format | Stage |
-|-------------|--------|-------|
-| 🗺️ **Legacy map and glossary** | Markdown in `01-arqueologia/` | Stage 1 |
-| 📜 **Modern specification** | EARS requirements + ADRs in the **reference modern spec** (provided by facilitators) | Stage 2 |
-| 💻 **Working prototype** | Java 21 + Next.js 15 code | Stage 3 |
-| ☁️ **Infrastructure and CI/CD** | Terraform + GitHub Actions | Stage 4 |
-| 🎤 **Final pitch** | 5 minute demo | End of day |
-
----
-
-## 👥 Your Team
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/paulasilvatech/hackathon-datacorp-team-kit/main/assets/personas-team.svg" alt="25 persona kits available for your team" width="100%"/>
-</p>
-
-Each team has 10 people. The facilitators provide **25 persona kits**. You can pick any combination that fits your team and the work you need to do.
-
-### 🌟 Recommended Core (5 personas, 2 people each)
-
-| Persona | Role | Primary Tool | Delivers |
-|---------|------|-------------|---------|
-| 🧠 **Tech Lead** | Architecture and decisions | Specky SDD + Copilot Chat | ADRs, reviews, alignment |
-| ☕ **Backend Developer** | Services and APIs | Java 21 + Spring Boot | REST API, domain, services |
-| ⚛️ **Frontend Developer** | Web experience | Next.js 15 + TypeScript | UI, pages, API integration |
-| 🛠️ **DevOps Engineer** | Infra and pipelines | Terraform + GitHub Actions | IaC modules, CI/CD |
-| 🧪 **QA Engineer** | Quality and coverage | Vitest + pytest | Test suite, quality gates |
-
-> 🎒 **Need more specialized roles?** The `persona-kits/` folder has 25 kits including Product Owner, UX Designer, DBA, SRE, AppSec Engineer, Compliance Auditor, and more. Pick what your team needs.
-
----
-
-## 🗺️ The Four Stage Journey
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/paulasilvatech/hackathon-datacorp-team-kit/main/assets/stage-flow.svg" alt="4 stage flow from archaeology to evolution" width="100%"/>
-</p>
-
-```mermaid
-flowchart LR
-    S1["🔍 Stage 1<br/>Archaeology<br/>3h"]
-    S2["📜 Stage 2<br/>Modern Spec<br/>2h"]
-    S3["💻 Stage 3<br/>Implementation<br/>2h"]
-    S4["🚀 Stage 4<br/>Evolution<br/>1h"]
-    S1 --> S2 --> S3 --> S4
-    S4 --> D["🎤 Demo<br/>and Pitch"]
-    classDef stage fill:#0f172a,stroke:#334155,color:#e2e8f0
-    class S1,S2,S3,S4,D stage
-```
-
-| Stage | Folder | What your team does |
-|-------|--------|---------------------|
-| 🔍 **Archaeology** | [`01-arqueologia/`](01-arqueologia/) | Explore SIFAP, map rules, find the hidden mysteries |
-| 📜 **Modern Spec** | [`02-spec-moderna/`](02-spec-moderna/) | Write EARS requirements, capture ADRs, design the target |
-| 💻 **Implementation** | [`03-implementacao/`](03-implementacao/) | Build Java backend, Next.js frontend, PostgreSQL schema |
-| 🚀 **Evolution** | [`04-evolucao/`](04-evolucao/) | Terraform to Azure, GitHub Actions pipeline, final demo |
-
----
-
-## 🤖 The 4 SDLC Agents
-
-If the persona-kits are the **vertical axis** — one kit per role — the 4 stage agents are the **horizontal axis** — one agent per stage of the day. Every persona uses every agent, but the spotlight shifts as the clock advances. Agents know *how* to modernize Natural/Adabas systems; they do *not* know anything specific about your legacy system. That knowledge emerges from your investigation.
-
-| Agent | Stage | Mission | Kit |
-|-------|-------|---------|-----|
-| `@archaeologist-agent` | 1 — Archaeology | Read legacy code, extract rules, map dependencies, catalog mysteries | [`agent-kits/01-archaeologist/`](agent-kits/01-archaeologist/README.md) |
-| `@architect-agent` | 2 — Modern Spec | Carve bounded contexts, write EARS, generate ADRs, design Modular Monolith | [`agent-kits/02-architect/`](agent-kits/02-architect/README.md) |
-| `@builder-agent` | 3 — Implementation | Translate legacy to Java 21, generate JPA, write tests, build REST + Next.js | [`agent-kits/03-builder/`](agent-kits/03-builder/README.md) |
-| `@evolution-agent` | 4 — Evolution | Write GitHub Issues for Copilot Agent, review AI PRs, set up CI/CD and IaC | [`agent-kits/04-evolution/`](agent-kits/04-evolution/README.md) |
-
-See [`docs/persona-agent-matrix.md`](docs/persona-agent-matrix.md) for the full 10×4 mapping of who uses what.
-
-See [`docs/4-agents-explained.md`](docs/4-agents-explained.md) for the anatomy of each agent.
-
-See [`docs/sdlc-flow-guide.md`](docs/sdlc-flow-guide.md) for the **complete integration map** — who does what, with which agent, at which stage, with every handoff and deliverable in sequence.
-
----
-
-## 🏗️ From Legacy to Modern
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/paulasilvatech/hackathon-datacorp-team-kit/main/assets/architecture-transformation.svg" alt="Legacy to modern architecture transformation" width="100%"/>
-</p>
-
-> 💡 **Think of it as a kitchen renovation.** The legacy SIFAP is a kitchen from 1995: functional, but tight, hard to clean, with appliances only one brand still services. The modern SIFAP is an open, modular kitchen where every appliance speaks a standard protocol, and anyone can plug in new devices.
-
----
-
-## 📂 Folder Structure
-
-| 📁 Path | 🎯 Purpose |
-|------|---------|
-| [`SETUP.md`](SETUP.md) | 🚀 **Read first.** Step-by-step: create repo, configure Copilot, install Spec-Kit + Specky |
-| [`TEAM-FLOW.md`](TEAM-FLOW.md) | 🤝 Daily timeline, handoffs, the 20-minute rule |
-| [`personas/`](personas/) | 👤 The 10 persona cards — read your role |
-| [`01-arqueologia/`](01-arqueologia/) | 🔍 Stage 1: legacy code archaeology guides and Copilot prompts |
-| [`02-spec-moderna/`](02-spec-moderna/) | 📜 Stage 2: EARS specification templates and ADR scaffolds |
-| [`03-implementacao/`](03-implementacao/) | 💻 Stage 3: implementation scaffolding and Copilot Agent prompts |
-| [`04-evolucao/`](04-evolucao/) | 🚀 Stage 4: Terraform guides and CI/CD templates |
-| [`cheat-sheets/`](cheat-sheets/) | ⚡ Quick reference cards: Copilot modes, Specky workflow, model routing |
-| [`persona-kits/`](persona-kits/) | 🤖 25 Copilot agent kits, each with agents, prompts, skills, and a README |
-| [`agent-kits/`](agent-kits/) | 🤖 4 SDLC stage agents (archaeologist, architect, builder, evolution) |
-| [`plugins/`](plugins/) | 🔌 Shared Copilot plugins (GitHub Issues, Azure Boards sync) |
-| [`scripts/`](scripts/) | 🛠️ `setup.sh` (bootstrap) and `check.sh` (run all CI gates locally) |
-| [`docs/`](docs/) | 📚 Team-curated docs: ADRs, glossary, runbook, agent guides |
-| [`assets/`](assets/) | 🖼️ SVG illustrations used across this kit |
-| [`.github/`](.github/) | ⚙️ Issue templates, PR template, Copilot instructions, workflows |
-| [`.devcontainer/`](.devcontainer/) | 📦 Pre-configured dev environment (Java 21, Node 20, Docker) |
-
----
-
-## 🛠️ How to Use This Kit
-
-### 📦 Reference materials provided by facilitators
-
-The stage guides mention these external folders. Facilitators distribute them at the start of the event, or you run `./scripts/setup.sh` to clone them as symlinks. Either way, the paths in the guides will work.
-
-| Stage | Folder | Purpose |
-|:---:|---|---|
-| 1 | `legacy/` | Natural programs, Adabas DDMs, legacy docs ([sifap-legacy](https://github.com/paulasilvatech/sifap-legacy)) |
-| 2 | — | Reference modern specification (read on GitHub: **reference modern spec** (shared by facilitators)) |
-| 3 | `prototype/` | Reference prototype (Java + Next.js) |
-| 4 | `infra/` | Reference Terraform modules for Azure |
-
-### 🚀 Getting started
-
-**Full step-by-step setup is in [`SETUP.md`](SETUP.md)** — covers GitHub repo creation, Copilot activation, Spec-Kit + Specky installation, branch strategy, and the 13-item smoke test.
-
-Quick summary (full instructions in `SETUP.md`):
-
-```bash
-# 1. Create your team's GitHub repo — empty, under YOUR account (one person, once)
-gh repo create hackathon-team-XX --private
-
-# 2. Bootstrap from this kit
-git clone https://github.com/paulasilvatech/hackathon-datacorp-team-kit.git kit
-cp -R kit hackathon-team-XX
-cd hackathon-team-XX
-rm -rf .git
-git init -b main
-git remote add origin https://github.com/<YOUR_GITHUB_USER>/hackathon-team-XX.git
-
-# 3. Bootstrap script (clones sifap-legacy, sets up symlinks)
-./scripts/setup.sh
-
-# 4. First commit and push
-git add -A && git commit -m "chore: bootstrap team kit" && git push -u origin main
-
-# 5. Open in VS Code with the dev container
-code .
-# Then: Ctrl+Shift+P > "Dev Containers: Reopen in Container"
-```
-
-> ⚠️ **Heads up.** The reference prototype and Terraform modules are delivered by facilitators at the start of Stages 3 and 4 respectively. Do not attempt to fetch them from this repository.
-
-### 🎯 Recommended reading order
-
-1. 🚀 [`SETUP.md`](SETUP.md) — get your environment ready (30 min)
-2. 🤝 [`TEAM-FLOW.md`](TEAM-FLOW.md) — understand how the 10 of you collaborate
-3. 📖 Your persona card in [`personas/<your-role>.md`](personas/)
-4. 🤖 Your Copilot agent kit in [`persona-kits/<your-role>/README.md`](persona-kits/)
-5. ⚡ Cheat sheets in [`cheat-sheets/`](cheat-sheets/) (keep them open in a tab)
-6. 🔍 Stage 1 guide in [`01-arqueologia/GUIDE.md`](01-arqueologia/GUIDE.md)
-
----
-
-## 🔗 Related Repositories
-
-| Repository | Purpose |
-|-----------|---------|
-| [hackathon-datacorp-team-kit](https://github.com/paulasilvatech/hackathon-datacorp-team-kit) | 🎒 This repository — team starter kit |
-| [sifap-legacy](https://github.com/paulasilvatech/sifap-legacy) | 🗄️ Read-only legacy SIFAP code (Natural + Adabas) for Stage 1 |
-
----
-
-## 📚 References
-
-Reference materials live in the main event repository and are shared by facilitators.
-
-| 📖 Resource | 🎯 What you get |
-|-------------|-----------------|
-| Hackathon Blueprint | Event plan, schedule, rubric |
-| SIFAP Modern Specification | Complete EARS spec for the target system |
-| Reference Prototype | Working Java + Next.js implementation |
-| Facilitator Playbook | Session scripts, coaching cues, fallback plans |
-
----
+> Each locale contains the same 35 didactic docs. Shared assets (`legacy/`, `persona-kits/`, `.github/`, `scripts/`, `.devcontainer/`) live at this root and are not duplicated per language.
+
+> **START HERE** if you are a workshop participant.
+>
+> 1. Pick your language above, OR read [`TEAM-FLOW.md`](TEAM-FLOW.md) (English, kit root) — how the 5 of you cover 10 personas in 5 pairs (10 minutes)
+> 2. Read your two persona cards in [`personas/`](personas/) (15 minutes)
+> 3. Open the Stage 1 guide at [`01-arqueologia/GUIDE.md`](01-arqueologia/GUIDE.md)
+
+## Approved tools — only these
+
+This workshop runs on a **fixed toolchain**. Mixing in alternative tools fragments the team and breaks the spec → code → test trace.
+
+| Use | Don't use |
+|-----|-----------|
+| **VS Code** (or Insiders) | Cursor, Windsurf, IntelliJ, Eclipse, Sublime, Neovim plugins |
+| **GitHub Copilot** — Chat + Edits + Agent modes (Copilot Workspace OK) | Cline, Continue, Aider, Codeium, Tabnine |
+| **GitHub Copilot CLI** *(optional)* | ChatGPT / Claude.ai web UIs for code (breaks Copilot Chat history trace) |
+| **Spec-Kit** (`specky-sdd` plugin) — the SDD engine | Kiro, GitHub Spec, custom YAML SDD pipelines |
+| **GitHub** (Issues, PRs, Actions, Projects) | — |
+| **Docker / Docker Compose** | local installs of Postgres/Node/Java that diverge from the devcontainer |
+| **Terraform** (Azure provider) | — |
+
+Full rationale and CI enforcement in [`.github/copilot-instructions.md`](.github/copilot-instructions.md).
+
+## Two agent layers — both required
+
+This kit ships **two agent layers** that cover different axes (role × stage). Use both.
+
+| Layer | What | When | How |
+|-------|------|------|-----|
+| [`persona-kits/`](persona-kits/) | One kit per persona (agent + prompts + skills + MCP) | Installed at 09:00, runs all day | Each person copies their 2 kits via `cp -r persona-kits/XX-*/.github/* .github/` |
+| [`agent-kits/`](agent-kits/) | Four stage agents: `@archaeologist`, `@architect`, `@builder`, `@evolution` | Selected fresh in each stage by the team | Open Copilot Chat → agent selector → pick the stage agent → paste opening prompt |
+
+**They are not duplicates.** `persona-kits/` configures **your Copilot for your role**. `agent-kits/` coordinates **the team for the current stage**. A typical Stage 1 looks like:
+
+1. You already have your persona-kit loaded (e.g. Requirements Engineer) → slash commands like `/ears-convert` work.
+2. Team selects `@archaeologist` in chat → chat is in archaeology mode.
+3. You ask `@archaeologist` to summarize `BATCHPGT.NSN` → archaeology framing.
+4. You run `/ears-convert` on what you found → your RE persona-kit takes over and outputs YAML with `source_legacy:` lines.
+
+See [`.github/copilot-instructions.md`](.github/copilot-instructions.md) for the diagram and full integration model.
+
+## Table of Contents
+
+- [Team Repository Kit](#team-repository-kit)
+ - [Table of Contents](#table-of-contents)
+ - [Navigation](#navigation)
+ - [1. Overview](#1-overview)
+ - [2. The 5 Pairs and 10 Personas](#2-the-5-pairs-and-10-personas)
+ - [3. Stage Flow](#3-stage-flow)
+ - [4. Folder Structure](#4-folder-structure)
+ - [5. How to Use This Kit](#5-how-to-use-this-kit)
+ - [6. References](#6-references)
 
 ## Navigation
 
 | Previous | Home | Next |
-|---|---|---|
-| [Team Flow](TEAM-FLOW.md) | This kit | [Stage 1: Archaeology](01-arqueologia/GUIDE.md) |
+|----------|------|------|
+| [05 - Terraform Azure](../05-terraform-azure/README.md) | [Workspace Root](../README.md) | [07 - Facilitation Playbook](../07-playbook-facilitacao/README.md) |
 
-> Authored by Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft. Version 1.3.0, April 2026.
+---
+
+## 1. Overview
+
+This kit is distributed to each team at the start of the workshop. It provides a ready-to-use repository scaffold with GitHub templates, Copilot instructions, 10 persona cards, 10 matching Copilot agent kits, and stage-by-stage workflow guides — so teams spend their time learning and building, not configuring.
+
+> **Think of this kit like a toolbox.** Each persona has its own specialized tools (Copilot agents, prompts, skills), and each stage has its own workflow. Your job is to pick up the right tool at the right time and hand off cleanly to the next pair.
+
+**this edition:** 20 teams · 5 people per team · 2 personas per person (1 pair) · 5 pairs covering the full SDLC.
+
+---
+
+## 2. The 5 Pairs and 10 Personas
+
+Each team has 5 people. Each person picks **one pair** (two personas) and stays in that pair the whole day. The two personas in a pair are co-responsible — no internal handoff, continuous collaboration. Read **both** of your persona cards in [`personas/`](personas/) before the event starts.
+
+| # | Pair | Personas (one person) | Owns | SDLC phase | Hands off to |
+|---|------|-----------------------|------|------------|--------------|
+| 1 | **Vision** | Product Owner + Requirements Engineer | Scope, priorities, EARS specs with REQ-IDs | Discovery + Specification (S1, S2) | Pair 2 |
+| 2 | **Architecture** | Enterprise Architect + Software Architect | C4 L1/L2/L3, bounded contexts, ADRs | Specification + Design (S2) | Pairs 3 & 4 |
+| 3 | **Implementation** | Technical Lead + Developer | Code standards, Java + TypeScript, PR review, agent orchestration | Implementation + Evolution (S3, S4) | Pair 5 |
+| 4 | **Quality** | DBA + QA Engineer | Schema, Flyway migrations, BDD scenarios, coverage gates | Implementation (S3) | Pair 5 |
+| 5 | **Operations** | DevOps Engineer + Tech Writer | Terraform, CI/CD, glossary, ADR clarity, runbook | Cross-cutting + Evolution (S1–S4) | Demo |
+
+> **Each persona has a corresponding Copilot agent kit in [`persona-kits/`](persona-kits/).** The kit gives you a pre-configured agent (`.github/agents/*.agent.md`), prompts (`.github/prompts/*.prompt.md`), and skills (`.github/skills/*/SKILL.md`) — copy **both** of your personas' kits into your team repo's `.github/` folder.
+
+> **Coordination is in [`TEAM-FLOW.md`](TEAM-FLOW.md)**: pair-level handoff diagrams, daily timeline, first-30-minutes onboarding, and "stuck for 20 minutes" escalation rules.
+
+---
+
+## 3. Stage Flow
+
+The 8-hour event flows through 4 stages. Each persona contributes at every stage, but the **lead persona** changes per stage.
+
+```mermaid
+flowchart LR
+ subgraph S1["Stage 1 — Archaeology (60 min)<br/>Lead: Pair 1 (Vision) + Pair 5 (Operations)"]
+ A1["Read legacy SIFAP<br/>(Natural + Adabas)<br/>with Copilot Chat"]
+ A2["Build glossary<br/>+ business-rules catalog"]
+ A3["Discover hidden<br/>mysteries"]
+ end
+ subgraph S2["Stage 2 — Modern Spec (45 min)<br/>Lead: Pair 2 (Architecture)"]
+ B1["EARS specifications<br/>with Spec-Kit"]
+ B2["C4 diagrams<br/>+ ADRs"]
+ B3["Bounded contexts<br/>+ API contracts"]
+ end
+ subgraph S3["Stage 3 — Implementation (120 min)<br/>Lead: Pair 3 (Implementation) + Pair 4 (Quality)"]
+ C1["Java backend<br/>(Copilot Agent)"]
+ C2["Next.js frontend<br/>(Copilot Agent)"]
+ C3["Tests + migrations<br/>+ green CI"]
+ end
+ subgraph S4["Stage 4 — Evolution (45 min)<br/>Lead: Pair 5 (Operations) + Pair 3 (Implementation)"]
+ D1["Terraform IaC<br/>+ GitHub Actions"]
+ D2["Agent-mode<br/>delegation via Issues"]
+ D3["Demo prep<br/>+ retrospective"]
+ end
+
+ S1 --> S2 --> S3 --> S4
+```
+
+---
+
+## 4. Folder Structure
+
+### Inside the kit (what you own and edit)
+
+| Path | Purpose |
+|------|---------|
+| [`TEAM-FLOW.md`](TEAM-FLOW.md) | **READ FIRST.** Daily timeline, handoffs, escalation rules |
+| [`legacy/`](legacy/) | **MANDATORY EXPLORATION.** Bundled copy of the SIFAP legacy (15 .NSN programs + 4 DDMs + 3 outdated docs). Every EARS in Stage 2 must trace back here. |
+| [`01-arqueologia/`](01-arqueologia/) | Stage 1 — legacy code archaeology guide, templates, and the [`LEGACY-EXPLORATION-CHECKLIST.md`](01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md) hard gate |
+| [`02-spec-moderna/`](02-spec-moderna/) | Stage 2 — EARS specification (every REQ needs `source_legacy:`), ADR template, scope decisions |
+| [`03-implementacao/`](03-implementacao/) | Stage 3 — implementation scaffolding and Copilot Agent prompts |
+| [`04-evolucao/`](04-evolucao/) | Stage 4 — Terraform IaC and CI/CD evolution guide |
+| [`cheat-sheets/`](cheat-sheets/) | Quick-reference cards: Copilot 3 modes, Specky, model routing |
+| [`personas/`](personas/) | The 10 persona cards (read yours before starting) |
+| [`persona-kits/`](persona-kits/) | 10 Copilot agent kits (one per persona) with agents, prompts, instructions, and skills |
+| [`plugins/`](plugins/) | Optional integrations (GitHub Issues, Azure Boards) |
+| [`scripts/`](scripts/) | `setup.sh` (bootstrap) and `check.sh` (run all CI gates locally) |
+| [`docs/`](docs/) | Team-curated docs: ADRs, glossary, runbook (Tech Writer owns) |
+| [`.specs/`](.specs/) | Specky SDD pipeline artifacts (one folder per feature) |
+| [`.github/`](.github/) | Workflows (incl. `legacy-traceability` gate), issue templates, PR template, copilot-instructions |
+| [`.devcontainer/`](.devcontainer/) | Pre-configured dev environment (Java 21, Node 20, Docker) |
+
+> **Why a copy of the legacy is bundled.** In the previous workshop edition some teams wrote specs without reading the legacy code. Their prototypes lost real business rules from 29 years of SIFAP. This time the legacy lives next to you and Stage 2 cannot close without traceability.
+
+### Reference materials (cloned read-only by `scripts/setup.sh`)
+
+After running `./scripts/setup.sh`, the following symlinks point to the main workshop repo:
+
+| Symlink | Source | Purpose |
+|---------|--------|---------|
+| `prototype/` | [`04-prototipo-sifap-moderno/`](https://github.com/paulasilvatech/workshop-legacy-modernization-datacorp/tree/main/04-prototipo-sifap-moderno) | Reference Java + Next.js prototype — clone into your repo as starting point |
+| `infra/` | [`05-terraform-azure/`](https://github.com/paulasilvatech/workshop-legacy-modernization-datacorp/tree/main/05-terraform-azure) | Terraform Azure modules — copy what you need into your `infra/` folder |
+
+> **Don't edit anything inside `legacy/`.** Treat it as a museum exhibit.
+> The prototype and infra are starting points — copy the parts you need into your team's working tree.
+
+---
+
+## 5. How to Use This Kit
+
+```bash
+# 1. Copy the kit into your team's empty repository
+cp -r 06-kit-repositorio-times/. ~/team-XX-repo/
+
+# 2. Bootstrap (clones reference materials, sets up symlinks, verifies tools)
+cd ~/team-XX-repo
+./scripts/setup.sh
+
+# 3. Open in VS Code
+code .
+
+# Then: Ctrl+Shift+P > "Dev Containers: Reopen in Container"
+```
+
+Once inside the devcontainer:
+
+```bash
+# 1. Read the team flow first (10 minutes)
+cat TEAM-FLOW.md
+
+# 2. Read BOTH of your persona cards (15 minutes) — one per persona in your pair
+cat personas/XX-persona-A.md
+cat personas/YY-persona-B.md
+
+# 3. Copy BOTH Copilot agent kits into your repo's .github/
+cp -r persona-kits/XX-persona-A/.github/* .github/
+cp -r persona-kits/YY-persona-B/.github/* .github/
+
+# 4. Open the Stage 1 guide and start
+cat 01-arqueologia/GUIDE.md
+```
+
+---
+
+## 6. References
+
+- [Workshop Blueprint](../01-blueprint/WORKSHOP-BLUEPRINT.md) — overall event design
+- [SIFAP Modern Specification](../03-spec-sifap-moderno/SPECIFICATION.md) — gold-standard spec example
+- [Reference Prototype](../04-prototipo-sifap-moderno/README.md) — running Java + Next.js codebase
+- [Facilitator Playbook](../07-playbook-facilitacao/README.md) — what facilitators are doing
+- [Evaluation Rubric](../07-playbook-facilitacao/EVALUATION-RUBRIC.md) — how your team is scored
+
+— Paula

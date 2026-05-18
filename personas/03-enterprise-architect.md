@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - Enterprise Architect"
-description: "What the Enterprise Architect does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
+description: "What the Enterprise Architect does inside the team of 10 during Day 2 of Legacy Modernization Workshop."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "03"
-tags: ["persona", "enterprise-architect", "hackathon", "DATACORP"]
+tags: ["persona", "enterprise-architect", "workshop"]
 ---
 
 # Persona - Enterprise Architect
@@ -14,13 +14,13 @@ tags: ["persona", "enterprise-architect", "hackathon", "DATACORP"]
 
 The one who sees the system inside its ecosystem. In SIFAP, that means: SIAFI, Banco do Brasil, INCRA, MDA, and other government internals. The EA knows where the contracts are, which ones are fragile, and which can be touched without triggering the entire chain.
 
-## Mission in the hackathon
+## Mission in the workshop
 
 Make sure SIFAP 2.0 doesn't break the world around it. Draw the dependency map. Validate that the target architecture respects external contracts (synchronous with SIAFI, asynchronous with BB) and that the coexistence strategy with the legacy is feasible.
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the **Hackathon Blueprint** (provided separately by the facilitators). Your persona maps to the pipeline as follows:
+This workshop applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/WORKSHOP-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Discovery Agent (S1), Deployment Agent (S4)
 - **Framework phase**: Assessment → Coexistence and Traffic Migration
@@ -51,7 +51,7 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 
 - The C4 level 1 is readable by any non-technical person on the team in 30 seconds.
 - Your ADRs name the "path not taken" and say why.
-- You anchor Modular Monolith in the argument - not as fashion, but because of fit with the DATACORP context.
+- You anchor Modular Monolith in the argument - not as fashion, but because of fit with the client context.
 - You align with the Software Architect on where your scope ends and theirs begins.
 
 ## How you get lost
@@ -93,15 +93,5 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - **Rubric A1 (Archaeology):** dependency map readable by non-technical readers.
 - **Rubric A2 (Spec Coherence):** ADRs name the "path not taken".
 - Criterion: "C4 L1 understood in 30 seconds by anyone on the team."
-
-
-## Agents I Use
-
-| Agent | My Role | What I Do |
-|---|---|---|
-| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Secondary | Identify system boundaries and external integrations |
-| [@architect](../agent-kits/02-architect/README.md) | Secondary | Validate system context, integration patterns, security architecture |
-| [@builder](../agent-kits/03-builder/README.md) | Observer | Ensure implementation aligns with enterprise patterns |
-| [@evolution](../agent-kits/04-evolution/README.md) | Observer | Review infrastructure decisions for enterprise fit |
 
 - Paula

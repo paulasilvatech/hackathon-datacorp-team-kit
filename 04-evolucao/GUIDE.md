@@ -1,718 +1,260 @@
 ---
-title: "Stage 4 — Evolution Guide"
-description: "Guide for infrastructure, CI/CD, and deployment of SIFAP 2.0"
-author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-24"
-version: "1.2.0"
-status: "approved"
-tags: ["stage-4", "evolution", "infrastructure", "terraform", "azure", "ci-cd"]
+title: "Stage 4 - Evolution with Agents"
+description: "Guide to using GitHub Copilot Agent Mode and Terraform to evolve SIFAP 2.0"
 ---
 
-# 🚀 Stage 4: Evolution
+# Stage 4 - Evolution with Agents (3 hours)
 
-> ⏱️ **Duration**: 3 hours. Transform your working code into a resilient, scalable production system on Azure with Infrastructure as Code (Terraform) and automated CI/CD pipelines (GitHub Actions).
+## Objective
+
+Use **GitHub Copilot Agent Mode** to implement complete features via Issues and Pull Requests, and explore infrastructure as code (Terraform) for deployment to Azure.
 
 ---
 
-## 📑 Table of Contents
+## Part 1: GitHub Copilot Agent Mode (2 hours)
 
-1. [Where are we on the journey](#-where-are-we-on-the-journey)
-2. [Objective](#-objective)
-3. [Infrastructure Architecture](#-infrastructure-architecture)
-4. [Terraform Modules](#-terraform-modules)
-5. [GitHub Actions CI/CD](#-github-actions-cicd)
-6. [Deployment Strategy](#-deployment-strategy)
-7. [Monitoring and Observability](#-monitoring-and-observability)
-8. [Definition of Done](#-definition-of-done)
-9. [Navigation](#-navigation)
+### What is Agent Mode?
 
----
+**Copilot Agent Mode** is the third mode of GitHub Copilot (in addition to Chat and Edits). In Agent Mode, you:
 
-## 🎬 Where are we on the journey
+1. **Write a GitHub Issue** describing the complete feature
+2. **Trigger the Agent** in VS Code (via the Copilot panel → "Start Agent" or through Copilot Workspace on github.com)
+3. **The Agent analyzes the entire codebase**, plans the changes, and implements code + tests + docs
+4. **Opens a Pull Request** for you to review
 
-You've built working code (Stage 3). Now you operationalize it: infrastructure as code, automated testing/building, deployment pipelines, and monitoring. By end of Stage 4, you have a production-ready system on Azure.
+Think of the Agent as a **very fast junior developer** — it does the heavy lifting, but YOU need to review everything before merging.
 
-**Key principle**: Infrastructure should be reproducible from code. Every environment (dev, stage, prod) should be identical except for scale.
+> **Difference between the 3 modes:**
+> - **Chat**: you ask, Copilot answers (exploration, questions)
+> - **Edits**: you select files and describe the change, Copilot edits (guided implementation)
+> - **Agent**: you describe the entire feature via an Issue, Copilot implements it on its own (delegation)
 
----
+### How to write a good Issue for the Agent
 
-## 🎯 Objective
-
-Deploy SIFAP 2.0 to Azure with:
-- Infrastructure as Code (Terraform)
-- Automated CI/CD pipeline (GitHub Actions)
-- Multi-environment support (dev, stage, prod)
-- Monitoring and alerting (Azure Application Insights)
-- Secrets management (Azure Key Vault)
-- Compliance and security best practices
-
-**Success metric**: One-click deployment to production with zero manual steps.
+A well-written Issue is 80% of success. Follow this format:
 
 ---
 
-## 🏗️ Infrastructure Architecture
+#### Real Example: Payment Notification by Email
 
-### Azure Services Used
+```markdown
+## Title
+Add email notification on payment confirmation
 
-| Service | Purpose | SKU/Tier |
-|---------|---------|----------|
-| App Service Plan | Compute for backend | B2 (shared) for dev; P1V2 for prod |
-| App Service (Backend) | Java Spring Boot app | 1 instance (scale with load) |
-| App Service (Frontend) | Next.js static hosting | Standard |
-| PostgreSQL Flexible Server | Managed database | B_Standard_B1ms for dev |
-| Key Vault | Secrets management | Standard |
-| Application Insights | Monitoring/APM | Standard |
-| Storage Account | Logs and backups | Standard_LRS |
-| Virtual Network | Network isolation | Optional (for production) |
+## Description
+When a payment is confirmed (status changing from PENDING to APPROVED),
+the system must send a notification email to the beneficiary informing
+them of the amount and the payment date.
 
-### Network Diagram
+## Functional Requirements
+- [ ] When a payment's status changes to APPROVED, send an email
+- [ ] The email must contain: beneficiary name, amount, date, payment number
+- [ ] If sending fails, log it in the audit log (do not block the payment)
+- [ ] The email template must be configurable
 
-```
-┌────────────────────────────────────────────────────┐
-│              Azure Subscription                    │
-├────────────────────────────────────────────────────┤
-│                                                    │
-│  ┌─────────────────────────────────────────────┐ │
-│  │         Virtual Network (VNet)              │ │
-│  │                                             │ │
-│  │  ┌─────────────┐      ┌──────────────┐    │ │
-│  │  │ App Service │      │ App Service  │    │ │
-│  │  │  (Backend)  │      │ (Frontend)   │    │ │
-│  │  └─────┬───────┘      └──────┬───────┘    │ │
-│  │        │                     │             │ │
-│  │        └──────────┬──────────┘             │ │
-│  │                   │                        │ │
-│  │        ┌──────────▼────────────┐          │ │
-│  │        │  PostgreSQL Flexible  │          │ │
-│  │        │  Server (Database)    │          │ │
-│  │        └───────────────────────┘          │ │
-│  │                                             │ │
-│  └─────────────────────────────────────────────┘ │
-│                                                    │
-│  ┌────────────────────────────────────────────┐ │
-│  │ Key Vault (Secrets)                        │ │
-│  └────────────────────────────────────────────┘ │
-│                                                    │
-│  ┌────────────────────────────────────────────┐ │
-│  │ Application Insights (Monitoring)          │ │
-│  └────────────────────────────────────────────┘ │
-│                                                    │
-└────────────────────────────────────────────────────┘
+## Technical Requirements
+- [ ] Create an EmailService in the payment/application module
+- [ ] Use Spring Mail configured via application.yml
+- [ ] Create a unit test mocking the email send
+- [ ] Create an integration test with MailHog (Docker container)
+- [ ] Add the SMTP_HOST variable to docker-compose.yml
+
+## Architecture
+- Follow the existing modular structure (domain/application/infrastructure)
+- The EmailService must be injected into PaymentService
+- Use Spring events (ApplicationEvent) to decouple
+
+## Acceptance Criteria
+- [ ] Unit test passing
+- [ ] Integration test passing
+- [ ] Working docker compose up with MailHog
+- [ ] Email received in MailHog when approving a payment via Swagger
+
+## Context
+- Backend: Java 21 + Spring Boot 3
+- Relevant module: src/.../payment/
+- References: PaymentService.java, PaymentController.java
 ```
 
 ---
 
-## 🏗️ Terraform Modules
+### Checklist for writing Issues
 
-### Directory Structure
+Before submitting the Issue to the Agent, check that:
 
-```
-infra/
-├─ main.tf
-├─ variables.tf
-├─ outputs.tf
-├─ environments/
-│  ├─ dev.tfvars
-│  ├─ stage.tfvars
-│  └─ prod.tfvars
-├─ modules/
-│  ├─ resource_group/
-│  ├─ networking/
-│  ├─ app_service/
-│  ├─ database/
-│  ├─ keyvault/
-│  └─ monitoring/
-└─ terraform.tfstate (git-ignored)
-```
+- [ ] **Clear title** — describes the feature in one sentence
+- [ ] **Description with context** — the Agent needs to understand the "why"
+- [ ] **Requirements as a checklist** — verifiable items
+- [ ] **Technical requirements** — where in the code, which patterns to follow
+- [ ] **Acceptance criteria** — how to know it's done
+- [ ] **File references** — help the Agent find the right code
 
-### Module 1: Resource Group
+### Agent workflow
 
-**File**: `modules/resource_group/main.tf`
-
-```hcl
-resource "azurerm_resource_group" "rg" {
-  name     = var.resource_group_name
-  location = var.location
-  
-  tags = {
-    project     = "SIFAP"
-    environment = var.environment
-    managed_by  = "terraform"
-  }
-}
-
-output "resource_group_id" {
-  value = azurerm_resource_group.rg.id
-}
-
-output "resource_group_name" {
-  value = azurerm_resource_group.rg.name
-}
-```
-
-### Module 2: App Service (Backend)
-
-**File**: `modules/app_service/main.tf`
-
-```hcl
-resource "azurerm_service_plan" "backend" {
-  name                = "plan-sifap-backend-${var.environment}"
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  os_type             = "Linux"
-  sku_name            = var.environment == "prod" ? "P1V2" : "B2"
-  
-  tags = var.tags
-}
-
-resource "azurerm_linux_web_app" "backend" {
-  name                = "app-sifap-backend-${var.environment}"
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  service_plan_id     = azurerm_service_plan.backend.id
-  
-  identity {
-    type = "SystemAssigned"
-  }
-  
-  site_config {
-    application_stack {
-      java_version = "21"
-      java_server  = "TOMCAT"
-      java_server_version = "10.1"
-    }
-    
-    # Enable Application Insights
-    application_insights_connection_string = var.app_insights_connection_string
-  }
-  
-  app_settings = {
-    SPRING_DATASOURCE_URL      = var.db_connection_string
-    SPRING_DATASOURCE_USERNAME = var.db_username
-    SPRING_DATASOURCE_PASSWORD = var.db_password
-    SPRING_PROFILES_ACTIVE     = var.environment
-  }
-  
-  tags = var.tags
-}
-
-resource "azurerm_app_service_managed_identity_certificate_binding" "backend" {
-  app_service_certificate_id = var.certificate_id
-  certificate_binding_type   = "SNI SSL"
-  hostname_binding_id        = azurerm_app_service_custom_hostname_binding.backend.id
-}
-
-output "app_service_uri" {
-  value = azurerm_linux_web_app.backend.default_hostname
-}
-```
-
-### Module 3: PostgreSQL Database
-
-**File**: `modules/database/main.tf`
-
-```hcl
-resource "azurerm_postgresql_flexible_server" "sifap" {
-  name                = "psql-sifap-${var.environment}"
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  version             = "16"
-  
-  administrator_login    = var.db_admin_username
-  administrator_password = var.db_admin_password
-  
-  sku_name = var.environment == "prod" ? "B_Standard_B2s" : "B_Standard_B1ms"
-  storage_mb = 32768
-  
-  backup_retention_days        = var.environment == "prod" ? 35 : 7
-  geo_redundant_backup_enabled = var.environment == "prod" ? true : false
-  
-  tags = var.tags
-}
-
-resource "azurerm_postgresql_flexible_server_database" "sifap" {
-  server_id = azurerm_postgresql_flexible_server.sifap.id
-  name      = "sifapdb"
-  charset   = "UTF8"
-  collation = "en_US.utf8"
-}
-
-# Audit table (immutable)
-resource "null_resource" "audit_table" {
-  provisioner "local-exec" {
-    command = "psql -h ${azurerm_postgresql_flexible_server.sifap.fqdn} -U ${var.db_admin_username} -d sifapdb -c 'CREATE TABLE IF NOT EXISTS audit_log (id BIGSERIAL PRIMARY KEY, entity_type VARCHAR(20), entity_id BIGINT, operation VARCHAR(10), old_value TEXT, new_value TEXT, timestamp TIMESTAMP, user_id VARCHAR(20)); CREATE TRIGGER audit_immutable BEFORE DELETE ON audit_log FOR EACH ROW EXECUTE FUNCTION raise_immutable_error();'"
-  }
-  
-  depends_on = [azurerm_postgresql_flexible_server_database.sifap]
-}
-
-output "db_fqdn" {
-  value = azurerm_postgresql_flexible_server.sifap.fqdn
-}
-
-output "db_connection_string" {
-  value = "jdbc:postgresql://${azurerm_postgresql_flexible_server.sifap.fqdn}:5432/sifapdb"
-  sensitive = true
-}
-```
-
-### Module 4: Key Vault
-
-**File**: `modules/keyvault/main.tf`
-
-```hcl
-resource "azurerm_key_vault" "sifap" {
-  name                = "kv-sifap-${var.environment}"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  tenant_id           = data.azurerm_client_config.current.tenant_id
-  sku_name            = "standard"
-  
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = var.app_service_identity_object_id
-    
-    secret_permissions = [
-      "Get",
-      "List"
-    ]
-  }
-  
-  tags = var.tags
-}
-
-resource "azurerm_key_vault_secret" "db_password" {
-  name         = "db-password"
-  value        = var.db_admin_password
-  key_vault_id = azurerm_key_vault.sifap.id
-}
-
-resource "azurerm_key_vault_secret" "api_key" {
-  name         = "api-key"
-  value        = var.api_key
-  key_vault_id = azurerm_key_vault.sifap.id
-}
-
-output "key_vault_uri" {
-  value = azurerm_key_vault.sifap.vault_uri
-}
-```
-
-### Module 5: Application Insights
-
-**File**: `modules/monitoring/main.tf`
-
-```hcl
-resource "azurerm_application_insights" "sifap" {
-  name                = "appi-sifap-${var.environment}"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  application_type    = "web"
-  
-  tags = var.tags
-}
-
-resource "azurerm_monitor_metric_alert" "high_response_time" {
-  name                = "alert-sifap-response-time"
-  resource_group_name = var.resource_group_name
-  scopes              = [azurerm_application_insights.sifap.id]
-  description         = "Alert when response time exceeds 1000ms"
-  
-  criteria {
-    metric_name      = "requests/duration"
-    operator         = "GreaterThan"
-    threshold        = 1000
-    aggregation      = "Average"
-  }
-  
-  action {
-    action_group_id = var.action_group_id
-  }
-}
-
-output "app_insights_connection_string" {
-  value     = azurerm_application_insights.sifap.connection_string
-  sensitive = true
-}
-```
-
-### Root Configuration
-
-**File**: `main.tf`
-
-```hcl
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~> 3.100"
-    }
-  }
-  
-  # Store state in Azure Storage
-  backend "azurerm" {
-    resource_group_name  = "rg-terraform-state"
-    storage_account_name = "sttfstate"
-    container_name       = "tfstate"
-    key                  = "sifap.tfstate"
-  }
-}
-
-provider "azurerm" {
-  features {}
-  subscription_id = var.subscription_id
-}
-
-module "resource_group" {
-  source = "./modules/resource_group"
-  
-  resource_group_name = "rg-sifap-${var.environment}"
-  location            = var.location
-  environment         = var.environment
-}
-
-module "app_service" {
-  source = "./modules/app_service"
-  
-  resource_group_name = module.resource_group.resource_group_name
-  location            = var.location
-  environment         = var.environment
-  
-  depends_on = [module.resource_group]
-}
-
-module "database" {
-  source = "./modules/database"
-  
-  resource_group_name = module.resource_group.resource_group_name
-  location            = var.location
-  environment         = var.environment
-  
-  depends_on = [module.resource_group]
-}
-
-module "keyvault" {
-  source = "./modules/keyvault"
-  
-  resource_group_name             = module.resource_group.resource_group_name
-  location                        = var.location
-  environment                     = var.environment
-  app_service_identity_object_id  = module.app_service.identity_principal_id
-  
-  depends_on = [module.app_service]
-}
-```
+1. **Create the Issue** on GitHub using the format above
+2. **Trigger the Agent** (via Copilot Workspace or VS Code)
+3. **Wait for the PR** — the Agent works and opens a PR
+4. **Review the PR** using the checklist below
+5. **Request changes** if needed (comment on the PR)
+6. **Merge** when you're satisfied
 
 ---
 
-## 🔄 GitHub Actions CI/CD
+### How to Review an Agent PR (Quality Checklist)
 
-### Workflow Structure
+When the Agent opens a PR, review it carefully:
 
-**File**: `.github/workflows/deploy.yml`
+#### Correctness
+- [ ] Does the code compile without errors?
+- [ ] Do the tests pass? (`./mvnw test`)
+- [ ] Does the feature work as described in the Issue?
 
-```yaml
-name: Build & Deploy to Azure
+#### Architecture
+- [ ] Does it follow the modular structure (domain/application/infrastructure)?
+- [ ] Are there no circular imports between modules?
+- [ ] Does the domain layer avoid importing classes from infrastructure?
 
-on:
-  push:
-    branches:
-      - main
-      - stage
-  pull_request:
-    branches:
-      - main
-      - stage
+#### Quality
+- [ ] Are class, method, and variable names clear?
+- [ ] Is there proper error handling?
+- [ ] Is there input validation (Bean Validation)?
+- [ ] Are there no hardcoded credentials?
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+#### Tests
+- [ ] Are there unit tests for the business logic?
+- [ ] Are there integration tests for the endpoints?
+- [ ] Do the tests cover error cases (not only the happy path)?
 
-jobs:
-  # Job 1: Build and Test Backend (Java)
-  build-backend:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-          cache: maven
-      
-      - name: Build with Maven
-        run: mvn clean package
-      
-      - name: Run tests
-        run: mvn test
-      
-      - name: Upload coverage
-        uses: codecov/codecov-action@v3
-        with:
-          files: ./target/coverage.xml
-  
-  # Job 2: Build and Test Frontend (Next.js)
-  build-frontend:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Lint
-        run: npm run lint
-      
-      - name: Run tests
-        run: npm test
-      
-      - name: Build
-        run: npm run build
-      
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: frontend-build
-          path: .next
-  
-  # Job 3: Deploy to Azure (triggered on main or stage push)
-  deploy:
-    needs: [build-backend, build-frontend]
-    if: github.event_name == 'push'
-    runs-on: ubuntu-latest
-    environment:
-      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}
-    
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-      
-      - name: Deploy Infrastructure (Terraform)
-        run: |
-          cd infra
-          terraform init
-          terraform plan -var-file="environments/${{ github.ref == 'refs/heads/main' && 'prod' || 'stage' }}.tfvars"
-          terraform apply -auto-approve -var-file="environments/${{ github.ref == 'refs/heads/main' && 'prod' || 'stage' }}.tfvars"
-      
-      - name: Deploy Backend to App Service
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: app-sifap-backend-${{ github.ref == 'refs/heads/main' && 'prod' || 'stage' }}
-          publish-profile: ${{ secrets.PUBLISH_PROFILE_BACKEND }}
-          package: ./target/sifap-api.jar
-      
-      - name: Deploy Frontend to App Service
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: app-sifap-frontend-${{ github.ref == 'refs/heads/main' && 'prod' || 'stage' }}
-          publish-profile: ${{ secrets.PUBLISH_PROFILE_FRONTEND }}
-          package: ./sifap-web/.next
-      
-      - name: Run smoke tests
-        run: |
-          npm install -g @playwright/test
-          playwright test tests/smoke.spec.ts --config=playwright.config.ts
-```
+#### Documentation
+- [ ] Do new endpoints appear in Swagger?
+- [ ] Is there JavaDoc on public methods?
+- [ ] Has the README been updated if needed?
 
 ---
 
-## 🚀 Deployment Strategy
+## Part 2: Terraform and Infrastructure (1 hour)
 
-### Environments
+### Overview
 
-| Environment | Branch | Duration | Auto-deploy |
-|---|---|---|---|
-| Development (dev) | feature/* | Temporary | No (manual) |
-| Staging (stage) | stage | Continuous | Yes (on push) |
-| Production (prod) | main | Indefinite | Yes (on merge) |
+The Terraform modules for deployment to Azure are in:
 
-### Deployment Steps
+```
+05-terraform-azure/
+|-- main.tf # Root module
+|-- variables.tf # Input variables
+|-- outputs.tf # Outputs
+|-- modules/
+| |-- resource-group/ # Azure resource group
+| |-- container-registry/ # ACR for Docker images
+| |-- container-apps/ # Azure Container Apps
+| |-- postgresql/ # Azure Database for PostgreSQL
+| |-- key-vault/ # Azure Key Vault for secrets
+| |-- monitoring/ # Application Insights + Log Analytics
+```
 
-#### 1. Feature Development
+### What to explore
+
+1. **Read `main.tf`** — understand how the modules connect
+2. **Look at the variables** — which parameters are configurable?
+3. **Study the outputs** — which information does Terraform export?
+4. **Check Key Vault** — how are secrets managed?
+
+### Terraform in Practice
+
+The Terraform modules are in `05-terraform-azure/`:
+
+| Module | What it provisions | Azure resource |
+|--------|-------------------|----------------|
+| `compute/` | Java backend | App Service (B1 dev, P1v3 prod) |
+| `database/` | Database | PostgreSQL Flexible Server |
+| `frontend/` | Next.js frontend | Static Web App |
+| `registry/` | Docker images | Azure Container Registry |
+| `security/` | Secrets | Key Vault |
+| `observability/` | Monitoring | Application Insights + Log Analytics |
+| `identity/` | Identity | Azure AD / Entra ID |
+
+#### To explore (you don't need to apply):
 
 ```bash
-git checkout -b feature/my-feature
-# ... make changes ...
-git push origin feature/my-feature
-# ... create PR ...
+cd 05-terraform-azure/envs/dev
+terraform init # Initialize providers
+terraform plan # Show what WOULD be created (without applying)
 ```
 
-#### 2. Code Review & Testing (PR Checks)
+Example `terraform plan` output:
+```
+Plan: 12 to add, 0 to change, 0 to destroy.
 
-GitHub Actions automatically:
-- Builds Java backend
-- Runs unit tests
-- Builds Next.js frontend
-- Lint checks
-
-#### 3. Merge to Staging
-
-```bash
-# After PR approval:
-git checkout stage
-git merge feature/my-feature
-git push origin stage
+ + azurerm_resource_group.sifap
+ + azurerm_postgresql_flexible_server.sifap
+ + azurerm_service_plan.sifap
+ + azurerm_linux_web_app.sifap_backend
+ + azurerm_static_web_app.sifap_frontend
+ + azurerm_key_vault.sifap
+ + azurerm_application_insights.sifap
+ + azurerm_container_registry.sifap
+ ...
 ```
 
-#### 4. GitHub Actions Deploys to Staging
+> **Workshop scope**: Explore and understand the modules. DO NOT apply (`terraform apply`) — that would create real Azure resources with real cost. `terraform plan` is enough to demonstrate knowledge.
 
-- Terraform plan reviewed manually
-- `terraform apply` runs (with approval)
-- Backend and frontend deployed
-- Smoke tests run
+### When the Agent Fails
 
-#### 5. Verify in Staging
+The Copilot Agent is not perfect. Common problems:
 
-```bash
-curl https://staging-sifap.azurewebsites.net/api/health
-# Response: {"status": "UP"}
+| Symptom | Likely cause | What to do |
+|---------|--------------|-----------|
+| PR does not compile | Issue lacked enough technical context | Add: expected architecture, reference files, patterns to follow |
+| Tests missing in the PR | Issue did not ask for tests | Add a checkbox: "Include unit and integration tests" |
+| Imports cross bounded contexts | Agent ignores module boundaries | Reject the PR; add to the Issue: "Respect domain/application/infrastructure boundaries" |
+| PR has incorrect logic | Ambiguous requirement | Rewrite the requirement in EARS and open a new Issue |
+| Agent stalls or takes too long | Codebase too large | Narrow the scope: point to specific files in the Issue |
+
+**Golden rule**: When the Agent gets it wrong, the cause is almost always in the Issue. Improve the Issue before trying again.
+
+### CI/CD: GitHub Actions
+
+The CI/CD workflows are in:
+
+```
+.github/workflows/
+|-- ci.yml # Build + test on every PR
+|-- cd-staging.yml # Automatic deploy to staging
+|-- cd-production.yml # Production deploy (manual approval)
 ```
 
-#### 6. Merge to Production
+#### CI workflow (ci.yml)
 
-```bash
-git checkout main
-git merge stage
-git push origin main
-```
+- Runs on every Pull Request
+- Steps: checkout -> setup Java 21 -> build -> test -> lint
+- If it fails, the PR cannot be merged
 
-#### 7. GitHub Actions Deploys to Production
+#### CD workflow (cd-staging.yml)
 
-- Terraform apply (production environment)
-- Backend and frontend deployed
-- Smoke tests run
-- Canary deployment (optional)
+- Runs after merge to the `develop` branch
+- Steps: build Docker image -> push to ACR -> deploy to Container Apps (staging)
 
 ---
 
-## �� Monitoring and Observability
+## Stage 4 Deliverables
 
-### Application Insights Integration
+By the end of Stage 4, your team must have:
 
-**File**: `src/main/java/com/sifap/config/AppInsightsConfig.java`
+- [ ] **2 Issues** created in the right format for the Agent
+- [ ] **2 PRs** generated by the Agent (one for each Issue)
+- [ ] **1 merged feature** — at least one PR must be approved and merged
+- [ ] **Agent experience report** (file: `04-evolucao/agent-experience-report.md`)
 
-```java
-@Configuration
-public class AppInsightsConfig {
-  
-  @Bean
-  public WebClient webClient(WebClient.Builder builder) {
-    return builder.build();
-  }
-  
-  @Bean
-  public RestTemplate restTemplate() {
-    return new RestTemplate();
-  }
-}
-```
+## Prompts for Copilot Chat
 
-**File**: `application.properties`
+1. "Create a GitHub Issue for the Copilot Agent to implement [functionality]"
+2. "Review this Agent-generated PR and list quality issues"
+3. "Explain this Terraform module: [paste the code]"
+4. "Which Azure resources will this Terraform create?"
+5. "Create a diagram of the Azure resources defined in this Terraform"
+6. "How does this CI/CD workflow ensure quality before deploy?"
+7. "Suggest security improvements for this Terraform configuration"
 
-```properties
-spring.application.insights.instrumentation-key=${APPINSIGHTS_INSTRUMENTATIONKEY}
-management.endpoints.web.exposure.include=health,metrics,prometheus
-management.metrics.export.prometheus.enabled=true
-```
+## Golden Tip
 
-### Key Metrics to Monitor
-
-| Metric | Target | Alert Threshold |
-|--------|--------|-----------------|
-| Response time (p99) | < 500ms | > 1000ms |
-| Error rate | < 0.1% | > 1% |
-| Database connection pool | < 80% | > 90% |
-| CPU usage | < 60% | > 80% |
-| Memory usage | < 70% | > 85% |
-
-### Sample Alerts
-
-**High Response Time Alert**:
-```hcl
-resource "azurerm_monitor_metric_alert" "high_response_time" {
-  name = "sifap-high-response-time"
-  criteria {
-    metric_name = "http_request_duration_seconds"
-    operator    = "GreaterThan"
-    threshold   = 1
-    aggregation = "Average"
-  }
-  action {
-    action_group_id = var.action_group_id
-  }
-}
-```
-
-**High Error Rate Alert**:
-```hcl
-resource "azurerm_monitor_metric_alert" "high_error_rate" {
-  name = "sifap-high-error-rate"
-  criteria {
-    metric_name = "requests_failed"
-    operator    = "GreaterThan"
-    threshold   = 100  # > 100 failures
-  }
-}
-```
-
----
-
-## ✅ Definition of Done
-
-At end of Stage 4, you must have:
-
-- [ ] **Infrastructure as Code**
-  - [ ] All Azure resources defined in Terraform
-  - [ ] Separate tfvars files for dev, stage, prod
-  - [ ] State stored in Azure Storage backend
-  - [ ] Terraform plan and apply tested
-
-- [ ] **CI/CD Pipeline**
-  - [ ] GitHub Actions workflows for build, test, deploy
-  - [ ] Automated tests passing (unit + integration)
-  - [ ] Linting passing (Java + TypeScript)
-  - [ ] Code coverage tracked (70%+ backend, 60%+ frontend)
-
-- [ ] **Deployment**
-  - [ ] One-click deploy to staging
-  - [ ] One-click deploy to production
-  - [ ] Database migrations run automatically
-  - [ ] Rollback plan documented
-
-- [ ] **Monitoring**
-  - [ ] Application Insights enabled
-  - [ ] Key metrics tracked (response time, error rate, etc.)
-  - [ ] Alerts configured
-  - [ ] Runbook for common issues
-
-- [ ] **Documentation**
-  - [ ] Deployment steps documented
-  - [ ] Troubleshooting guide created
-  - [ ] Architecture diagrams (Terraform) documented
-  - [ ] Operations runbook written
-
----
-
-## Navigation
-
-| Previous | Home |
-|---|---|
-| [Stage 3: Implementation](../03-implementacao/GUIDE.md) | [Kit README](../README.md) |
-
----
-
-| Previous | Home | Next |
-|:---------|:----:|-----:|
-| [← Stage Home](README.md) | [Kit Home](../README.md) | [Agent Report →](agent-experience-report.md) |
+The Agent is only as good as the Issue you write. Spend **more time on the Issue** and **less time fixing the PR**. An Issue with clear context, specific requirements, and file references produces much better PRs.

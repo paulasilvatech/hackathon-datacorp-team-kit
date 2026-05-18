@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - Technical Lead"
-description: "What the Technical Lead does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
+description: "What the Technical Lead does inside the team of 10 during Day 2 of Legacy Modernization Workshop."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "05"
-tags: ["persona", "technical-lead", "hackathon", "DATACORP"]
+tags: ["persona", "technical-lead", "workshop"]
 ---
 
 # Persona - Technical Lead
@@ -14,13 +14,13 @@ tags: ["persona", "technical-lead", "hackathon", "DATACORP"]
 
 The link between architecture and day-to-day code. Decides implementation patterns (code conventions, test style, module structure), unblocks the team when someone gets stuck on a technical detail, and is responsible for making sure that at the end of Stage 3 the application actually starts with `docker compose up`.
 
-## Mission in the hackathon
+## Mission in the workshop
 
 Maintain execution velocity in Stage 3. Pick technical battles that are worth fighting. Unblock quickly. Review PRs with rigor but without obstruction.
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the **Hackathon Blueprint** (provided separately by the facilitators). Your persona maps to the pipeline as follows:
+This workshop applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/WORKSHOP-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Review Agent (S3), Test Gen Agent (S3)
 - **Framework phase**: Translation and Test Generation
@@ -95,15 +95,5 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - **Rubric A3 (Technical Integrity):** the application starts with `docker compose up`.
 - **Rubric A6 (Collaboration):** nobody stuck for more than 20 minutes.
 - Criterion: "`main` green at all times, PRs reviewed in under 15 minutes."
-
-
-## Agents I Use
-
-| Agent | My Role | What I Do |
-|---|---|---|
-| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Observer | Start planning implementation approach for Stage 3 |
-| [@architect](../agent-kits/02-architect/README.md) | Secondary | Review architectural decisions, prepare for code standards |
-| [@builder](../agent-kits/03-builder/README.md) | Secondary | Review code quality, ensure standards compliance |
-| [@evolution](../agent-kits/04-evolution/README.md) | **Protagonist** | Dispatch issues to Copilot Agent, review AI PRs, own integration |
 
 - Paula

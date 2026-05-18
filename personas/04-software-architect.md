@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - Software Architect"
-description: "What the Software Architect does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
+description: "What the Software Architect does inside the team of 10 during Day 2 of Legacy Modernization Workshop."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "04"
-tags: ["persona", "software-architect", "hackathon", "DATACORP"]
+tags: ["persona", "software-architect", "workshop"]
 ---
 
 # Persona - Software Architect
@@ -14,13 +14,13 @@ tags: ["persona", "software-architect", "hackathon", "DATACORP"]
 
 Owner of the system's internal structure. Decides how modules are organized, where bounded contexts begin and end, which abstractions are exposed and which stay private. The one who keeps the Modular Monolith truly modular.
 
-## Mission in the hackathon
+## Mission in the workshop
 
 Produce C4 Levels 2 and 3 coherent with the spec. Define the bounded contexts of SIFAP 2.0 (Beneficiary, Agreement, Payment, Adjustment, Cycle, Audit) and the communication pattern between them. Make sure the Stage 3 code respects the boundaries that were drawn.
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the **Hackathon Blueprint** (provided separately by the facilitators). Your persona maps to the pipeline as follows:
+This workshop applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/WORKSHOP-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Analysis Agent (S2), Review Agent (S3)
 - **Framework phase**: Application Carving → Translation
@@ -93,15 +93,5 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - **Rubric A2 (Spec):** C4 L2/L3 coherent with requirements.
 - **Rubric A3 (Technical Integrity):** bounded contexts respected in the code.
 - Criterion: "No import crosses a context boundary without justification."
-
-
-## Agents I Use
-
-| Agent | My Role | What I Do |
-|---|---|---|
-| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Observer | Follow along, ready to validate cross-system patterns |
-| [@architect](../agent-kits/02-architect/README.md) | **Protagonist** | Drive bounded context carving, C4 diagrams, Modular Monolith design |
-| [@builder](../agent-kits/03-builder/README.md) | Secondary | Validate implementation matches the Stage 2 design |
-| [@evolution](../agent-kits/04-evolution/README.md) | Observer | Watch the delegation pattern, learn for future use |
 
 - Paula

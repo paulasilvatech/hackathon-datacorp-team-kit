@@ -1,26 +1,26 @@
 ---
 title: "Persona Card - DevOps Engineer"
-description: "What the DevOps Engineer does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
+description: "What the DevOps Engineer does inside the team of 10 during Day 2 of Legacy Modernization Workshop."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "09"
-tags: ["persona", "devops-engineer", "hackathon", "DATACORP", "terraform", "github-actions"]
+tags: ["persona", "devops-engineer", "workshop", "terraform", "github-actions"]
 ---
 
 # Persona - DevOps Engineer
 
 ## Who this person is
 
-Owner of the path from code to something that runs. In the hackathon, you are the one who makes sure `docker compose up` works on any machine on the team, that CI checks what matters, and that Terraform describes the target topology in Azure even if it isn't applied on the day.
+Owner of the path from code to something that runs. In the workshop, you are the one who makes sure `docker compose up` works on any machine on the team, that CI checks what matters, and that Terraform describes the target topology in Azure even if it isn't applied on the day.
 
-## Mission in the hackathon
+## Mission in the workshop
 
 Green pipeline. Reproducible build. Deploy described as code. Minimum functional observability (health check, structured logs).
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the **Hackathon Blueprint** (provided separately by the facilitators). Your persona maps to the pipeline as follows:
+This workshop applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/WORKSHOP-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Deployment Agent (S4), Security Agent (S3)
 - **Framework phase**: Coexistence and Traffic Migration
@@ -95,15 +95,5 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - Rubric A3 (Technical Integrity): `docker compose up` works, green CI
 - Rubric A4 (Copilot): use of Agent for complex pipelines
 - Criterion: "Reproducible build. Any machine on the team runs the compose in under 60s."
-
-
-## Agents I Use
-
-| Agent | My Role | What I Do |
-|---|---|---|
-| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Observer | Observe infrastructure patterns in legacy system |
-| [@architect](../agent-kits/02-architect/README.md) | Observer | Note deployment and infrastructure requirements |
-| [@builder](../agent-kits/03-builder/README.md) | Secondary | Support Docker and build pipeline setup |
-| [@evolution](../agent-kits/04-evolution/README.md) | Secondary | Write Terraform modules, configure GitHub Actions |
 
 - Paula

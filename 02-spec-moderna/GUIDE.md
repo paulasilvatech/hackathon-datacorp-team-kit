@@ -1,403 +1,378 @@
 ---
-title: "Stage 2 — Modern Spec Guide"
-description: "Guide for writing EARS specifications and architecture decisions for modernized SIFAP"
-author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-24"
-version: "1.2.0"
-status: "approved"
-tags: ["stage-2", "specification", "architecture", "design", "adr"]
+title: "Stage 2 - Modern Specification"
+description: "Guide to building a technical specification using EARS, ADRs, and C4. Every requirement MUST trace back to legacy code or be explicitly marked greenfield."
 ---
 
-# 📋 Stage 2: Modern Spec
+# Stage 2 - Modern Specification (3 hours)
 
-> ⏱️ **Duration**: 3 hours. This is where we distill what we learned in Stage 1 into a precise, testable specification that will guide implementation. Every requirement must be written in EARS notation with a unique ID (REQ-*) and measurable acceptance criteria.
+> **HARD RULE.** Every EARS requirement in your `SPECIFICATION.md` must include a `source_legacy:` line pointing to a `.NSN` or `.ddm` file inside [`legacy/`](../legacy/), **or** be marked `source_legacy: "[GREENFIELD] <one-line justification>"`. CI rejects PRs that violate this. Facilitators sample at Handoff #2 (~14:30).
+>
+> Why? In the previous edition some teams wrote specs from the modernization brief alone, skipping legacy reading. Their prototypes lost real business rules. This time, traceability is the gate.
 
----
+## Objective
 
-## 📑 Table of Contents
+Transform the discoveries from Stage 1 (archaeology) into a modern, structured technical specification, using EARS notation for requirements, ADRs for architecture decisions, and C4 diagrams for visualization. Every artifact must trace back to legacy evidence or declare its greenfield nature.
 
-1. [Where are we on the journey](#-where-are-we-on-the-journey)
-2. [Objective](#-objective)
-3. [EARS Notation Primer](#-ears-notation-primer)
-4. [Specification Workflow](#-specification-workflow)
-5. [ADR Template](#-adr-template)
-6. [Quality Checklist](#-quality-checklist)
-7. [Output Artifacts](#-output-artifacts)
-8. [Definition of Done](#-definition-of-done)
-9. [Navigation](#-navigation)
+## Gold-Standard Reference
+
+Before you start, study the reference specification:
+
+```
+03-spec-sifap-moderno/SPECIFICATION.md
+```
+
+This document shows the format and level of detail expected. Your specification should follow the same structure — including the `source_legacy:` field on every requirement.
 
 ---
 
-## 🎬 Where are we on the journey
+## EARS Notation - Easy Approach to Requirements Syntax
 
-You've completed archaeology (Stage 1). You have 13 business rules documented, dependencies mapped, mysteries mostly resolved. Now comes specification: translating this knowledge into a precise, unambiguous requirements document that developers can implement.
+EARS is a method for writing requirements without ambiguity. There are **6 patterns** that eliminate vague language. Specky validates each requirement programmatically via `sdd_validate_ears`.
 
-**Key principle**: A good specification is testable. If you can't write a test for it, it's not specific enough.
+### Pattern 1: Ubiquitous (always true)
 
----
+> **The [system] shall [action].**
 
-## 🎯 Objective
+SIFAP example:
+> The SIFAP shall store all payment records with a UTC timestamp.
 
-Write a complete SPECIFICATION.md using EARS (Easy Approach to Requirements Syntax) notation, establish architecture decisions through Architecture Decision Records (ADRs), and document scope decisions (what's in/out of modern SIFAP).
+Use when: the rule ALWAYS holds, with no condition.
 
-**Deliverables**:
-1. SPECIFICATION.md with 30+ EARS requirements (REQ-*)
-2. 5-8 Architecture Decision Records (ADR-*)
-3. Scope decisions document (migrations, deletions, evolutions)
-4. Cross-referenced with Stage 1 artifacts
+### Pattern 2: Event-Driven (when something happens)
 
----
+> **When [event], the [system] shall [action].**
 
-## 📖 EARS Notation Primer
+SIFAP example:
+> When a beneficiary is registered, the SIFAP shall validate the CPF using the modulo-11 algorithm from Receita Federal.
 
-EARS is a structured way to write requirements so they're unambiguous and testable.
+Use when: the rule only applies after a specific event.
 
-### The 6 EARS Patterns
+### Pattern 3: State-Driven (while a condition holds)
 
-#### Pattern 1: Ubiquitous Requirement
+> **While [condition], the [system] shall [action].**
 
-**Trigger**: Something that must always be true about the system.
+SIFAP example:
+> While a payment has status PENDING, the SIFAP shall allow cancellation by a user with the OPERATOR profile.
 
-**Format**: **The system shall** [action]
+Use when: the rule only holds during a state.
 
-**Examples**:
-- REQ-BEN-001: The system shall validate beneficiary CPF using modulo-11 algorithm.
-- REQ-AUD-001: The system shall maintain an immutable audit trail of all changes.
+### Pattern 4: Optional (if the user chooses)
 
-**Test**: "Does the system always do this? Yes/No?"
+> **Where [optional condition], the [system] shall [action].**
 
----
+SIFAP example:
+> Where the operator chooses to export the report, the SIFAP shall generate a CSV file with UTF-8 encoding.
 
-#### Pattern 2: Event-Driven Requirement
+Use when: the functionality is not mandatory — it depends on a user choice.
 
-**Trigger**: When something happens, the system must respond.
+### Pattern 5: Unwanted Behavior (what shall NOT happen)
 
-**Format**: **When [event], the system shall** [action]
+> **The [system] shall not [unwanted action].**
 
-**Examples**:
-- REQ-PAY-001: When a payment is created, the system shall apply all discount rules.
-- REQ-BEN-002: When a beneficiary is suspended, the system shall reject any pending payments.
+SIFAP example:
+> The SIFAP shall not allow deletion of records from the audit table.
+> The SIFAP shall not process payments for beneficiaries with status CANCELLED.
 
-**Test**: "If event happens, does the system respond correctly? Yes/No?"
+Use when: you need to document explicit restrictions or prohibitions.
 
----
+### Pattern 6: Complex Scenario (combination of conditions)
 
-#### Pattern 3: State-Driven Requirement
+> **While [condition], when [event], where [optional condition], the [system] shall [action].**
 
-**Trigger**: While the system is in a particular state, something must be true.
+SIFAP example:
+> While the beneficiary has status ACTIVE, when a payment cycle is generated in December, the SIFAP shall calculate the 13th salary using a differentiated formula.
 
-**Format**: **While [state], the system shall** [action]
+Use when: multiple conditions combine.
 
-**Examples**:
-- REQ-BEN-003: While a beneficiary is in SUSPENDED state, the system shall prevent payment processing.
-- REQ-AUD-002: While in production, the system shall retain audit logs for 7 years minimum.
+### Example: BAD vs. GOOD requirement
 
-**Test**: "In this state, is this true? Yes/No?"
+| Bad (vague) | Good (EARS) |
+|-------------|-------------|
+| "The system must be secure" | "The SIFAP shall mask CPF in logs using the format \*\*\*.\*\*\*.XXX-\*\*" |
+| "Payments must be processed" | "When a cycle is generated, the SIFAP shall create payment records for all beneficiaries with status ACTIVE" |
+| "Complete audit" | "When any entity is changed, the SIFAP shall write an audit record with prior and posterior state in JSON format" |
 
----
+### Tip: Every requirement must be TESTABLE
 
-#### Pattern 4: Optional Requirement
+When writing a requirement, ask: "How would I test this automatically?" If you can't answer, the requirement is too vague.
 
-**Trigger**: Under specific conditions, the system must do something.
-
-**Format**: **Where [condition], the system shall** [action]
-
-**Examples**:
-- REQ-PAY-002: Where a discount type is JUDICIAL, the system shall bypass the 30% discount ceiling.
-- REQ-CALC-001: Where the payment cycle is December, the system shall add a 13th month bonus.
-
-**Test**: "If condition is met, does this apply? Yes/No?"
+| Requirement | Test |
+|-------------|------|
+| REQ-BEN-01: "The SIFAP shall validate CPF with modulo-11" | Test: invalid CPF returns error 400 |
+| REQ-PAY-03: "When a cycle is generated, create payments for ACTIVE beneficiaries" | Test: 10 active + 2 suspended = 10 payments |
+| REQ-AUD-01: "The SIFAP shall not allow DELETE on audit" | Test: DELETE returns error 403 |
 
 ---
 
-#### Pattern 5: Unwanted Behavior
+## Complete Example: From Legacy Rule to Test
 
-**Trigger**: The system must NOT do something, even if provoked.
+See the full cycle of a SIFAP rule from legacy code to automated test:
 
-**Format**: **If [condition], then the system shall NOT** [action]
+### 1. Rule found in Stage 1
 
-**Examples**:
-- REQ-AUD-003: If a user attempts to delete an audit record, then the system shall NOT permit the deletion.
-- REQ-PAY-003: If the net payment becomes zero or negative, then the system shall NOT create the payment record.
+In the program `CALCDSCT.NSN`, the team discovers:
+```natural
+* CHECK DEDUCTION CAP
+IF #TIPO-DSCT NE 'J'
+ IF #VLR-TOTAL-DSCT > (#VLR-BRUTO * 0.30)
+ COMPUTE #VLR-TOTAL-DSCT = #VLR-BRUTO * 0.30
+ END-IF
+END-IF
+```
 
-**Test**: "Can the system be made to do this? No."
+**Interpretation**: Deductions have a cap of 30% of the gross amount, EXCEPT judicial deductions (type 'J'), which have no cap.
 
----
+### 2. EARS requirement (Stage 2)
 
-#### Pattern 6: Complex Requirement
+Using the **Unwanted Behavior** + **Event** patterns:
 
-**Trigger**: Combination of state, event, and condition.
-
-**Format**: **While [state], when [event], where [condition], the system shall** [action]
-
-**Examples**:
-- REQ-PAY-004: While processing a payment cycle, when calculating discounts, where the beneficiary has judicial deductions, the system shall apply them before other discounts.
-
----
-
-### Writing Good Acceptance Criteria
-
-Each EARS requirement needs 2-3 acceptance criteria - measurable test cases.
-
-**Template**:
-
-```markdown
-### REQ-BEN-001: Validate beneficiary CPF
-
-**Type**: Ubiquitous
-
-**Statement**: The system shall validate beneficiary CPF using modulo-11 algorithm.
+> **REQ-PAY-DSCT-01**: The SIFAP shall not allow the total of non-judicial deductions to exceed 30% of the payment's gross amount.
+>
+> **REQ-PAY-DSCT-02**: When a judicial deduction is applied, the SIFAP shall add the value to the total deductions without applying the 30% cap.
 
 **Acceptance Criteria**:
-1. Given valid CPF "123.456.789-10", when registering beneficiary, then registration succeeds
-2. Given invalid CPF "123.456.789-11", when registering beneficiary, then registration fails with error "Invalid CPF"
-3. Given all-zero CPF "000.000.000-00", when registering beneficiary, then registration fails
+- AC-01: Non-judicial deduction of 35% is truncated to 30%
+- AC-02: Judicial deduction of 50% is accepted in full
+- AC-03: Mix of judicial (20%) + non-judicial (25%) = 45% total accepted
 
-**Traceability**: Maps to BR-BEN-001 from Stage 1
+### 3. Code (Stage 3)
+
+```java
+// payment/application/PaymentService.java
+public BigDecimal calculateTotalDeductions(List<Deduction> deductions, BigDecimal grossAmount) {
+ BigDecimal judicialTotal = deductions.stream()
+ .filter(d -> "JUDICIAL".equals(d.type()))
+ .map(Deduction::amount)
+ .reduce(BigDecimal.ZERO, BigDecimal::add);
+ 
+ BigDecimal otherTotal = deductions.stream()
+ .filter(d -> !"JUDICIAL".equals(d.type()))
+ .map(Deduction::amount)
+ .reduce(BigDecimal.ZERO, BigDecimal::add);
+ 
+ BigDecimal maxOther = grossAmount.multiply(new BigDecimal("0.30"));
+ otherTotal = otherTotal.min(maxOther); // Cap at 30%
+ 
+ return judicialTotal.add(otherTotal); // Judicial has no cap
+}
 ```
 
----
+### 4. Test (Stage 3)
 
-## 🔄 Specification Workflow
+```java
+// payment/application/PaymentServiceTest.java
+@Test
+@DisplayName("REQ-PAY-DSCT-01: Non-judicial deductions capped at 30%")
+void nonJudicialDeductionsCappedAt30Percent() {
+ var deductions = List.of(new Deduction("TAX", new BigDecimal("350.00")));
+ var gross = new BigDecimal("1000.00");
+ 
+ var total = service.calculateTotalDeductions(deductions, gross);
+ 
+ assertThat(total).isEqualByComparingTo("300.00"); // 35% capped to 30%
+}
 
-### Phase 1: Organize Legacy Business Rules (45 minutes)
-
-Start with Stage 1 artifacts:
-- Business Rules Catalog (BR-*)
-- Dependency Map
-- Glossary
-
-For each business rule, write EARS requirements:
-
-| BR ID | BR Description | EARS Pattern | REQ ID | REQ Statement |
-|-------|---|---|---|---|
-| BR-BEN-001 | CPF validation | Ubiquitous | REQ-BEN-001 | The system shall validate CPF with modulo-11 |
-| BR-PAY-001 | 30% discount ceiling | Optional | REQ-PAY-001 | Where discount type is non-judicial, the system shall limit discount to 30% |
-| BR-AUD-001 | Immutable audit | Ubiquitous | REQ-AUD-001 | The system shall maintain immutable audit trail |
-
-**Output**: 15-20 REQ-* statements
-
----
-
-### Phase 2: Add Modern Requirements (45 minutes)
-
-Write new requirements for features not in legacy SIFAP:
-
-1. **User experience**
-   - REQ-UI-001: The system shall provide a responsive web interface accessible on mobile devices
-   - REQ-UI-002: The system shall support dark mode theme
-
-2. **Integration**
-   - REQ-API-001: The system shall expose REST APIs with OpenAPI documentation
-   - REQ-AUTH-001: The system shall authenticate users via OAuth2/Entra ID
-
-3. **Performance**
-   - REQ-PERF-001: The system shall calculate payments for 10,000 beneficiaries within 15 minutes
-   - REQ-PERF-002: The system shall respond to beneficiary queries within 500ms (p99)
-
-4. **Security**
-   - REQ-SEC-001: The system shall encrypt all secrets using Azure Key Vault
-   - REQ-SEC-002: The system shall log all access for audit purposes
-
-**Output**: 10-15 additional REQ-* statements
-
----
-
-### Phase 3: Architecture Decisions (60 minutes)
-
-For each major design choice, write an ADR:
-
-1. **Technology choices**
-   - ADR-001: Why Java 21 + Spring Boot?
-   - ADR-002: Why Next.js 15 for frontend?
-   - ADR-003: Why PostgreSQL over legacy Adabas?
-
-2. **Architecture patterns**
-   - ADR-004: Monolith vs. microservices?
-   - ADR-005: Real-time processing vs. batch?
-
-3. **Data handling**
-   - ADR-006: How to migrate 7 years of payment history?
-   - ADR-007: How to maintain audit trail across systems?
-
-**Output**: 5-8 ADR-* documents
-
----
-
-## 📝 ADR Template
-
-Use the `ADR-TEMPLATE.md` file in this directory as a starting point.
-
-**Minimal ADR structure**:
-
-```markdown
-# ADR-NNN: [Title]
-
-**Status**: Proposed | Accepted | Rejected
-
-**Context**: Why did we need to make a decision?
-
-**Decision**: What did we decide?
-
-**Rationale**: Why this choice over alternatives?
-
-**Consequences**: What are the trade-offs?
-
-**Alternatives Considered**:
-- Alternative A: [description] - Rejected because...
-- Alternative B: [description] - Rejected because...
-
-**Approval**: [Tech Lead, Product Owner, Architect signatures]
+@Test
+@DisplayName("REQ-PAY-DSCT-02: Judicial deductions bypass 30% cap")
+void judicialDeductionsBypass30PercentCap() {
+ var deductions = List.of(new Deduction("JUDICIAL", new BigDecimal("500.00")));
+ var gross = new BigDecimal("1000.00");
+ 
+ var total = service.calculateTotalDeductions(deductions, gross);
+ 
+ assertThat(total).isEqualByComparingTo("500.00"); // No cap for judicial
+}
 ```
-
----
-
-## ✅ Quality Checklist
-
-Before moving to Stage 3, ensure your specification meets these criteria:
-
-### Completeness
-
-- [ ] All Stage 1 business rules mapped to REQ-*
-- [ ] All modern requirements documented
-- [ ] REQ-* count is 30+ (covers beneficiary, payment, audit, UI, API, security, performance)
-- [ ] Every REQ has 2-3 acceptance criteria
-- [ ] Every REQ has EARS pattern label
-
-### Clarity
-
-- [ ] Every REQ written in active voice ("the system shall", not "should be")
-- [ ] No ambiguous words ("may", "might", "could")
-- [ ] No domain jargon without glossary reference
-- [ ] Every acceptance criterion is testable (use Given/When/Then format)
 
 ### Traceability
 
-- [ ] Every modern REQ-* traces back to BR-* or new capability
-- [ ] Every ADR references the requirements it impacts
-- [ ] Dependencies between requirements documented (if A, then B)
+| Artifact | ID | Reference |
+|----------|-----|-----------|
+| Legacy rule | BR-006 | CALCDSCT.NSN lines 101-105 |
+| Requirement | REQ-PAY-DSCT-01/02 | SPECIFICATION.md |
+| Code | PaymentService.calculateTotalDeductions() | payment/application/ |
+| Test | PaymentServiceTest (2 methods) | payment/application/ |
 
-### Architecture
-
-- [ ] 5-8 ADRs covering major decisions
-- [ ] Each ADR includes alternatives considered
-- [ ] Risk/mitigation documented for each ADR
+**This cycle is what Specky enforces automatically via `sdd_check_sync`.** If the code diverges from the spec, the hook detects it.
 
 ---
 
-## 📊 Output Artifacts
+## ADRs - Architecture Decision Records
 
-### Artifact 1: SPECIFICATION.md
+ADRs document important architecture decisions. For each decision, create a file using the `ADR-TEMPLATE.md` template.
 
-**Location**: the **reference SIFAP 2.0 Spec** (shared by facilitators at start of Stage 2)
+### When to create an ADR?
 
-**Structure**:
-```markdown
-# SIFAP 2.0 Specification
+- Technology choice (database, framework, etc.)
+- Architecture pattern (modular monolith vs. microservices)
+- Migration strategy (big bang vs. incremental)
+- Significant trade-offs (performance vs. simplicity)
 
-## Overview
-[Brief description of system scope and objectives]
+### Expected ADRs (minimum 3)
 
-## Functional Requirements
+1. **ADR-001**: Architecture choice (e.g., modular monolith)
+2. **ADR-002**: Data migration strategy
+3. **ADR-003**: Authentication and authorization approach
+4. ADR-004 to ADR-005: Additional team decisions
 
-### Beneficiary Management (REQ-BEN-*)
-[List all beneficiary-related requirements]
+---
 
-### Payment Processing (REQ-PAY-*)
-[List all payment-related requirements]
+## C4 Diagrams - Context, Containers, Components
 
-### Audit and Compliance (REQ-AUD-*)
-[List all audit-related requirements]
+Use Mermaid to create at least the **Context (C4-L1)** and **Containers (C4-L2)** diagrams.
 
-### User Interface (REQ-UI-*)
-[List all UI requirements]
+### Example C4-L1: Context Diagram
 
-### API and Integration (REQ-API-*)
-[List all API requirements]
+```mermaid
+C4Context
+ title Context Diagram - SIFAP 2.0
 
-### Security (REQ-SEC-*)
-[List all security requirements]
+ Person(operator, "Operator", "Employee who registers payments")
+ Person(auditor, "Auditor", "Audits operations and generates reports")
+ Person(admin, "Administrator", "Manages users and configurations")
 
-### Performance (REQ-PERF-*)
-[List all performance requirements]
+ System(sifap, "SIFAP 2.0", "Payment Oversight and Tracking System")
 
-## Non-Functional Requirements
-[Cross-cutting concerns: scalability, availability, etc.]
+ System_Ext(govbr, "Gov.br", "Authentication via Single Sign-On")
+ System_Ext(siafi, "SIAFI", "Federal Financial Administration System")
 
-## Glossary
-[Reference to 01-arqueologia/glossary.md]
-
-## Traceability Matrix
-[Table showing REQ -> BR -> Test mapping]
+ Rel(operator, sifap, "Registers payments")
+ Rel(auditor, sifap, "Queries and audits")
+ Rel(admin, sifap, "Manages the system")
+ Rel(sifap, govbr, "Authenticates users")
+ Rel(sifap, siafi, "Sends financial data")
 ```
 
-### Artifact 2: Architecture Decision Records
+### Example C4-L2: Container Diagram
 
-**Location**: the **reference ADRs** (provided by facilitators)
+```mermaid
+C4Container
+ title Container Diagram - SIFAP 2.0
 
-**Naming**: ADR-001-java21.md, ADR-002-nextjs15.md, etc.
+ Person(user, "User", "Operator, Auditor, or Admin")
 
-### Artifact 3: Scope Decisions
+ Container_Boundary(sifap, "SIFAP 2.0") {
+ Container(frontend, "Frontend", "Next.js 15", "Responsive web interface")
+ Container(backend, "Backend API", "Java 21 + Spring Boot 3", "REST API with domain modules")
+ ContainerDb(db, "Database", "PostgreSQL 16", "Beneficiary, payment, and audit data")
+ }
 
-**Location**: `02-spec-moderna/scope-decisions.md`
+ System_Ext(govbr, "Gov.br", "SSO")
 
-**Content**:
-- What's being migrated from legacy? (With priority)
-- What's being discarded? (With rationale)
-- What's being evolved? (With improvements)
-- Timeline and phases
-
----
-
-## ✅ Definition of Done
-
-At the end of Stage 2, you must have:
-
-- [ ] SPECIFICATION.md with 30+ EARS requirements (REQ-*)
-  - [ ] Each REQ has ID (REQ-XXX-NNN format)
-  - [ ] Each REQ labeled with EARS pattern (Ubiquitous, Event-driven, State-driven, Optional, Unwanted, Complex)
-  - [ ] Each REQ has 2-3 acceptance criteria in Given/When/Then format
-  - [ ] Each REQ traces to Stage 1 business rule (BR-*) or new capability
-
-- [ ] 5-8 Architecture Decision Records (ADR-*)
-  - [ ] Each ADR covers a major technical decision
-  - [ ] Each ADR includes context, decision, rationale, and consequences
-  - [ ] Each ADR documents alternatives considered
-  - [ ] Each ADR is approved by tech lead and architect
-
-- [ ] Scope Decisions document showing:
-  - [ ] What will be migrated (with techniques)
-  - [ ] What will be discarded (with reasons)
-  - [ ] What will be evolved (with improvements)
-  - [ ] Migration timeline and phases
-  - [ ] Known risks and mitigations
-
-- [ ] Quality checklist completed:
-  - [ ] No ambiguous wording
-  - [ ] Every requirement testable
-  - [ ] Full traceability (REQ -> BR -> Test)
-  - [ ] All Stage 1 mysteries resolved
+ Rel(user, frontend, "Accesses via browser", "HTTPS")
+ Rel(frontend, backend, "Consumes API", "REST/JSON")
+ Rel(backend, db, "Persists data", "JDBC")
+ Rel(backend, govbr, "Authenticates", "OAuth2/OIDC")
+```
 
 ---
 
-## 💡 Pro Tips
+## Scope Decisions
 
-1. **Use GitHub Copilot Chat to draft requirements**: "Based on this business rule, write 3 EARS requirements in different patterns"
-2. **Validate EARS syntax**: Each REQ should start with "The system shall", "When", "While", or "Where"
-3. **Get stakeholder review early**: Have business owners review REQ drafts before Stage 3 implementation starts
-4. **Create acceptance criteria as test cases**: Write them so QA can turn them into automated tests
-5. **Leverage Specky SDD tool**: Use `sdd_write_spec` to generate structured spec template
+Use the `scope-decisions.md` file to record what will be migrated, dropped, or evolved.
 
 ---
 
-## Navigation
+## Specky Workflow - RECOMMENDED
 
-| Previous | Home | Next |
-|---|---|---|
-| [Stage 1: Archaeology](../01-arqueologia/GUIDE.md) | [Kit README](../README.md) | [Stage 3: Implementation](../03-implementacao/GUIDE.md) |
+> **What is Specky?** It is a CLI tool that installs inside your project (VS Code or Claude Code) a set of **agents** (specialized assistants you invoke in chat), **slash commands** (shortcuts like `/specky-migration`), and **MCP tools** (internal engines that validate your artifacts). You interact with the **agents** and **slash commands** — the MCP tools run underneath automatically.
+
+**Specky** (https://github.com/paulasilvatech/specky) is the workshop's Spec-Driven Development engine. It validates your EARS requirements programmatically and enforces quality.
+
+### Installation (if not in the devcontainer)
+
+```bash
+npm install -g specky-sdd@latest
+specky install --ide=copilot # VS Code + GitHub Copilot
+# OR
+specky install --ide=claude # Claude Code
+```
+
+### Verify the installation
+
+```bash
+specky doctor # All checks should be green
+specky status # Shows the current pipeline phase
+```
+
+### Specky Agents (invoke in chat)
+
+| Agent | What it does | When to use |
+|-------|--------------|-------------|
+| `@specky-orchestrator` | Coordinates the full pipeline | To run the complete flow |
+| `@spec-engineer` | Writes SPECIFICATION.md in EARS | Phase 2 - requirements |
+| `@design-architect` | Generates DESIGN.md + C4 diagrams | Phase 4 - architecture |
+| `@sdd-clarify` | Resolves EARS ambiguities | When a requirement is confusing |
+| `@requirements-engineer` | Extracts requirements from docs/code | Convert Stage 1 → requirements |
+
+### Slash Commands (shortcuts)
+
+| Command | Description |
+|---------|-------------|
+| `/specky-greenfield` | New project from scratch |
+| `/specky-brownfield` | Feature in an existing system |
+| `/specky-migration` | Legacy modernization ← **USE THIS ONE** |
+| `/specky-specify` | Specify EARS requirements |
+
+### MCP Tools (used internally by the agents)
+
+| Tool | What it does |
+|------|--------------|
+| `sdd_init` | Initialize the project in `.specs/NNN-feature/` |
+| `sdd_discover` | Discovery phase (uses Stage 1 data) |
+| `sdd_write_spec` | Generate a structured SPECIFICATION.md |
+| `sdd_write_design` | Generate DESIGN.md with diagrams |
+| `sdd_validate_ears` | **Validate requirements against the EARS pattern** (6 patterns) |
+| `sdd_generate_diagram` | Generate C4 diagrams in Mermaid |
+| `sdd_clarify` | Resolve ambiguities between requirements |
+
+### Recommended workflow for Stage 2
+
+```
+1. @specky-orchestrator "run migration pipeline for SIFAP 2.0"
+ → Creates the structure in .specs/001-sifap-modernization/
+
+2. @requirements-engineer
+ → Imports rules from Stage 1 and converts them to EARS
+
+3. @spec-engineer
+ → Generates a complete SPECIFICATION.md with 20-30 EARS requirements
+
+4. sdd_validate_ears
+ → Validates that each requirement follows one of the 6 EARS patterns
+
+5. @design-architect
+ → Generates DESIGN.md with C4 L1+L2 and ADRs
+
+6. @sdd-clarify (if needed)
+ → Resolves detected ambiguities
+```
+
+### If Specky is NOT available
+
+Don't worry — write the EARS requirements manually in SPECIFICATION.md following the 6 patterns above. The format is plain text.
 
 ---
 
-| Previous | Home | Next |
-|:---------|:----:|-----:|
-| [← Stage Home](README.md) | [Kit Home](../README.md) | [ADR Template →](ADR-TEMPLATE.md) |
+## Definition of Done
+
+By the end of Stage 2, your team must have:
+
+- [ ] Complete SPECIFICATION.md with EARS requirements (file: `02-spec-moderna/SPECIFICATION.md`)
+- [ ] 3 to 5 ADRs (files: `02-spec-moderna/ADR-001.md`, `ADR-002.md`, etc.)
+- [ ] C4 diagram in Mermaid (inside SPECIFICATION.md or in a separate file)
+- [ ] Documented scope decisions (file: `02-spec-moderna/scope-decisions.md`)
+
+## Prompts for Copilot Chat
+
+1. "Convert this business rule to EARS notation: [describe the rule]"
+2. "Create an ADR for the decision to use [technology X] instead of [technology Y]"
+3. "Generate a C4 context diagram in Mermaid for a system that [description]"
+4. "Review this EARS requirement and suggest clarity improvements"
+5. "Which quality attributes (NFRs) should we consider for this system?"
+6. "Based on these business rules, suggest the backend module structure"
+7. "Create user stories from these EARS requirements"
+
+## Golden Tip
+
+Don't try to reinvent the wheel. The reference specification at `03-spec-sifap-moderno/SPECIFICATION.md` already has the ideal structure. Use it as a base and adapt it with your team's discoveries.

@@ -1,62 +1,45 @@
 ---
-title: "Cheat Sheet - Specky SDD v3.4"
-description: "One page. SDD pipeline, 6 EARS patterns, Specky v3.4 agents and commands."
-author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-24"
-version: "2.1.0"
-tags: ["cheat-sheet", "specky", "SDD", "EARS", "hackathon", "DATACORP"]
+title: "Cheat sheet - Specky SDD v3.4"
+description: "One page. SDD pipeline, 6 EARS patterns, agents, and Specky v3.4 commands."
+author: "Paula Silva"
+date: "2026-04-22"
+version: "2.0.0"
+tags: ["cheat-sheet", "specky", "SDD", "EARS", "workshop"]
 ---
 
-# 📋 Specky SDD v3.4 — Cheat Sheet
-
-> Spec-Driven Development engine. 13 agents, 57 MCP tools, 16 hooks. The pipeline is enforced — no skipping phases.
+# Specky SDD v3.4 - Cheat sheet
 
 > Repo: https://github.com/paulasilvatech/specky | Install: `npm install -g specky-sdd@latest`
 
----
+## What it is
 
-## 📑 Table of Contents
+A Spec-Driven Development engine. 13 agents, 57 MCP tools, 16 hooks. **The pipeline is enforced** - you don't skip a phase.
 
-1. [Quick Setup](#-quick-setup)
-2. [The 6 EARS Patterns](#-the-6-ears-patterns)
-3. [Pipeline — 10 Phases](#-pipeline--10-phases)
-4. [Slash Commands](#-slash-commands)
-5. [Most-Used MCP Tools](#-most-used-mcp-tools)
-6. [Hooks That Will Trigger](#-hooks-that-will-trigger)
-7. [Hackathon Flow](#-hackathon-flow)
-8. [Tips](#-tips)
-
----
-
-## ⚙️ Quick Setup
+## Quick setup
 
 ```bash
-specky install --ide=copilot   # VS Code + Copilot
-specky install --ide=claude    # Claude Code
-specky doctor                  # Validate installation
+specky install --ide=copilot # VS Code + Copilot
+specky install --ide=claude # Claude Code
+specky doctor # Validate installation
 ```
 
----
+## The 6 EARS patterns
 
-## 📐 The 6 EARS Patterns
-
-| # | Pattern | Template | SIFAP Example |
-|---|---------|----------|---------------|
-| 1 | **Ubiquitous** | The system shall [action] | SIFAP shall record audit on every change |
-| 2 | **Event-driven** | When [X], the system shall [action] | When cycle is generated, create payments for ACTIVE |
-| 3 | **State-driven** | While [X], the system shall [action] | While PENDING, allow cancellation |
-| 4 | **Optional** | Where [condition], the system shall [action] | Where exporting, generate UTF-8 CSV |
-| 5 | **Unwanted** | If [X], the system shall not [action] | Do not allow DELETE on audit records |
-| 6 | **Complex** | While [X], when [Y], where [Z], shall [action] | In December, for ACTIVE, calculate 13th month |
+| # | Pattern | Template | SIFAP example |
+|---|--------|----------|---------------|
+| 1 | **Ubiquitous** | The system shall [action] | The SIFAP shall record an audit entry on every change |
+| 2 | **Event-Driven** | When [X], the system shall [action] | When a cycle is generated, create payments for ACTIVE beneficiaries |
+| 3 | **State-Driven** | While [X], the system shall [action] | While PENDING, allow cancellation |
+| 4 | **Optional** | Where [choice], the system shall [action] | Where the user exports, generate UTF-8 CSV |
+| 5 | **Unwanted** | The system shall not [action] | Do not allow DELETE on the audit log |
+| 6 | **Complex** | While [X], when [Y], where [Z], the system shall [action] | In December, while ACTIVE, calculate the 13th-month bonus |
 
 Validate: `sdd_validate_ears` (MCP tool) or `@spec-engineer` (agent)
 
----
+## Pipeline - 10 phases
 
-## 🔟 Pipeline — 10 Phases
-
-| # | Phase | Agent | Deliverable | Owner Persona | Stage |
-|---|-------|-------|-------------|---------------|-------|
+| # | Phase | Agent | Deliverable | Owner persona | Stage |
+|---|------|-------|---------|-------------|---------|
 | 0 | Init | `@sdd-init` | CONSTITUTION.md | TL | 2 |
 | 1 | Discover | `@research-analyst` | RESEARCH.md | RE + EA | 2 |
 | 2 | Specify | `@spec-engineer` | SPECIFICATION.md (EARS) | RE | 2 |
@@ -68,78 +51,58 @@ Validate: `sdd_validate_ears` (MCP tool) or `@spec-engineer` (agent)
 | 8 | Verify | `@test-verifier` | Tests + coverage | QA | 3 |
 | 9 | Release | `@release-engineer` | PR + deploy | DevOps | 4 |
 
-LGTM gates: after Specify, Design, and Tasks. Review before advancing.
+LGTM gates: after Specify, Design, and Tasks. Review before moving on.
 
----
+## Slash commands
 
-## 🔧 Slash Commands
-
-| Command | When to Use |
+| Command | When to use |
 |---------|-------------|
-| `/specky-migration` | **MAIN** — SIFAP modernization |
+| `/specky-migration` | **MAIN** - SIFAP modernization |
 | `/specky-specify` | Write EARS requirements |
 | `/specky-design` | Generate architecture + diagrams |
-| `/specky-tasks` | Break design into tasks |
-| `/specky-verify` | Validate tests vs spec |
-| `/specky-release` | Create final PR |
+| `/specky-tasks` | Break the design into tasks |
+| `/specky-verify` | Validate tests against the spec |
+| `/specky-release` | Create the final PR |
 
----
+## Most-used MCP tools
 
-## 🛠️ Most-Used MCP Tools
-
-| Tool | What It Does |
-|------|-------------|
+| Tool | What it does |
+|------|----------|
 | `sdd_init` | Creates `.specs/NNN-feature/` |
 | `sdd_write_spec` | Generates SPECIFICATION.md |
-| `sdd_validate_ears` | Validates 6 EARS patterns |
+| `sdd_validate_ears` | Validates the 6 EARS patterns |
 | `sdd_generate_diagram` | Generates C4 in Mermaid |
 | `sdd_write_design` | Generates DESIGN.md + ADRs |
 | `sdd_write_tasks` | Generates sequenced TASKS.md |
-| `sdd_check_sync` | Detects drift spec vs code |
+| `sdd_check_sync` | Detects drift between spec and code |
 
----
+## Hooks that will fire
 
-## 🪝 Hooks That Will Trigger
+- **no-code-without-spec**: blocks PRs without a spec reference
+- **EARS-linter**: complains about requirements outside the 6 patterns
+- **ADR-completeness**: requires the "path not chosen"
+- **traceability-check**: ties requirement → test
 
-- **no-code-without-spec**: blocks PR without spec reference
-- **EARS-linter**: complains about requirement outside 6 patterns
-- **ADR-completeness**: requires "path not chosen"
-- **traceability-check**: ties requirement to test
+When a hook blocks you: **read the message**. Adjust the artifact, don't force an override.
 
-When a hook blocks: **read the message**. Fix the artifact, don't force override.
-
----
-
-## 🏃 Hackathon Flow
+## Workshop flow
 
 ```
 Stage 2 (2h):
-  @specky-orchestrator -> Init -> Discover -> Specify -> Clarify -> Design
-  
+ @specky-orchestrator → Init → Discover → Specify → Clarify → Design
+ 
 Stage 3 (3h):
-  @task-planner -> Tasks -> @implementer -> Code -> @test-verifier -> Verify
+ @task-planner → Tasks → @implementer → Code → @test-verifier → Verify
 
 Stage 4 (1h30):
-  @release-engineer -> Release -> PR
+ @release-engineer → Release → PR
 ```
 
----
+## Tips
 
-## 💡 Tips
-
-- Don't skip to Code without going through Specify + Design
-- `specky doctor` should be all green before starting
-- If Specky is unavailable: write EARS manually — the format is plain text
+- Don't jump to Code without going through Specify + Design
+- `specky doctor` should be all green before you start
+- If Specky isn't available: write EARS by hand - the format is plain text
 - Use `@specky-orchestrator` to let the pipeline guide you
 
-— Paula
-
----
-
-## 🧭 Navigation
-
-| Previous | Home | Next |
-|---|---|---|
-| ← [Model Routing](./model-routing.md) | [Kit Root](../README.md) | [Persona Kits](../persona-kits/README.md) → |
-
-> Author: Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft.
+- Paula

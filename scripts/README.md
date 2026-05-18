@@ -5,7 +5,7 @@ author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-29"
 version: "1.0.0"
 status: "approved"
-tags: ["scripts", "bootstrap", "ci", "hackathon"]
+tags: ["scripts", "bootstrap", "ci", "workshop"]
 ---
 
 # Scripts
@@ -29,6 +29,6 @@ chmod +x scripts/*.sh
 
 ## Notes
 
-- `setup.sh` clones the [sifap-legacy](https://github.com/paulasilvatech/sifap-legacy) repo into `reference/` and creates the `legacy/` symlink. The `prototype/` and `infra/` symlinks are populated by facilitators at the start of Stages 3 and 4 respectively.
+- `setup.sh` clones [`workshop-legacy-modernization-datacorp`](https://github.com/paulasilvatech/workshop-legacy-modernization-datacorp) into `reference/` and symlinks `legacy/`, `prototype/`, `infra/`. Override the source repo with `WORKSHOP_REPO=...`.
 - The symlinks are gitignored — they're for your local convenience only.
 - `check.sh` skips any check whose folder doesn't exist yet (so it works during early stages).

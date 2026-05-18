@@ -1,11 +1,11 @@
 ---
 title: "Persona Card - Product Owner"
-description: "What the Product Owner does inside the team of 10 during Day 2 of Hackathon DATACORP 2026."
+description: "What the Product Owner does inside the team of 10 during Day 2 of Legacy Modernization Workshop."
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-18"
 version: "1.0.0"
 persona_id: "01"
-tags: ["persona", "product-owner", "hackathon", "DATACORP"]
+tags: ["persona", "product-owner", "workshop"]
 ---
 
 # Persona - Product Owner
@@ -14,13 +14,13 @@ tags: ["persona", "product-owner", "hackathon", "DATACORP"]
 
 Owner of the "why". The one who keeps the team from getting lost building beautiful code for the wrong problem. In the SIFAP 2.0 context, the PO knows that 2.3 million beneficiaries depend on the system, knows that the monthly cycle is sacred, and carries that priority into every technical decision.
 
-## Mission in the hackathon
+## Mission in the workshop
 
 Translate the SIFAP scenario into executable scope across the eight hours of the day. Protect business value when the team starts wanting to rebuild the legacy line by line. Prioritize, cut, explain.
 
 ## Your role in the Agentic Legacy Modernization framework
 
-This hackathon applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in the **Hackathon Blueprint** (provided separately by the facilitators). Your persona maps to the pipeline as follows:
+This workshop applies the **Agentic Legacy Modernization** framework — an approach to legacy system modernization using AI agents specialized in each phase. The full pipeline is described in `01-blueprint/WORKSHOP-BLUEPRINT.md`. Your persona maps to the pipeline as follows:
 
 - **Relevant agents**: Discovery Agent (S1), Analysis Agent (S1-S2)
 - **Framework phase**: Assessment and Code Archaeology → Application Carving
@@ -93,15 +93,5 @@ This hackathon applies the **Agentic Legacy Modernization** framework — an app
 - **Rubric A2 (Spec Coherence):** clear scope, documented non-scope.
 - **Rubric A7 (Agent Experience):** issues with enough context for the Agent to produce a useful PR.
 - Indirectly evaluated in **A6 (Collaboration):** PO who protects the team's focus.
-
-
-## Agents I Use
-
-| Agent | My Role | What I Do |
-|---|---|---|
-| [@archaeologist](../agent-kits/01-archaeologist/README.md) | Observer | Follow along, validate domain understanding |
-| [@architect](../agent-kits/02-architect/README.md) | Secondary | Prioritize requirements, validate scope decisions |
-| [@builder](../agent-kits/03-builder/README.md) | Observer | Available for domain clarification when needed |
-| [@evolution](../agent-kits/04-evolution/README.md) | Secondary | Help prioritize demo scope, prepare presentation narrative |
 
 - Paula

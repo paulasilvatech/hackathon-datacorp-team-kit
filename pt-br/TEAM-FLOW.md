@@ -1,0 +1,320 @@
+---
+title: "Team Flow — Como os 5 de Você Cobrem 10 Personas"
+description: "Edição: 20 times de 5 pessoas. Cada pessoa veste 2 personas (1 par). Donos de fase no SDLC, handoffs e onboarding dos primeiros 30 minutos."
+locale: "pt-br"
+canonical_path: "06-kit-repositorio-times/TEAM-FLOW.md"
+author: "Paula Silva, Americas Software GBB, Microsoft"
+date: "2026-05-18"
+version: "2.0.0"
+status: "approved"
+tags: ["team", "flow", "handoffs", "onboarding", "personas", "workshop"]
+---
+
+# Team Flow — Como os 5 de Você Cobrem 10 Personas
+
+> **Leia este documento antes de ler os cards de persona.** Suas duas personas só fazem sentido dentro do fluxo do time.
+
+**Edição: 20 times · 5 pessoas por time · 2 personas por pessoa · 5 pares cobrindo todo o SDLC.**
+
+Um time de 5 pessoas com 10 personas só funciona se cada pessoa souber:
+
+1. **Qual fase do SDLC** cada uma de suas duas personas lidera.
+2. **Quem alimenta o trabalho dela** (o par anterior).
+3. **Para quem ela faz handoff** (o par seguinte).
+4. **Quando pedir ajuda** (regra dos 20 minutos).
+
+Este documento responde às quatro. Fixe na sua tela.
+
+---
+
+## Onde isso encaixa no SDLC
+
+```mermaid
+flowchart LR
+ classDef discover fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
+ classDef spec fill:#FFB900,stroke:#B38600,color:#0A0A0A
+ classDef impl fill:#7FBA00,stroke:#5C8700,color:#fff
+ classDef ops fill:#1B1B1F,stroke:#000,color:#fff
+ classDef demo fill:#00A4EF,stroke:#0078D4,color:#fff
+
+ D[Discovery<br/>S1 · 09:30–12:00]:::discover
+ SP[Specification<br/>S2 · 13:00–14:30]:::spec
+ IM[Implementation<br/>S3 · 14:45–17:00]:::impl
+ EV[Evolution<br/>S4 · 17:15–18:00]:::ops
+ DM[Demo + Retro<br/>18:00–19:50]:::demo
+
+ D -- H1: legado → spec --> SP
+ SP -- H2: spec → código --> IM
+ IM -- H3: código → ops --> EV
+ EV --> DM
+```
+
+Os 5 pares trabalham **em paralelo dentro de cada fase**, alternando liderança conforme o SDLC avança. Ninguém fica ocioso, ninguém repete trabalho.
+
+---
+
+## 1. Os 5 Pares e Suas Fases no SDLC
+
+Cada pessoa escolhe **um par** (duas personas). As duas personas de um par são corresponsáveis — não há handoff interno entre elas, elas colaboram continuamente.
+
+| # | Par | Personas | Fase do SDLC liderada | Cor |
+|---|-----|----------|------------------------|-----|
+| 1 | **Visão** (Vision) | Product Owner + Requirements Engineer | Discovery + Specification | Vermelho |
+| 2 | **Arquitetura** (Architecture) | Enterprise Architect + Software Architect | Specification + Design | Amarelo |
+| 3 | **Implementação** (Implementation) | Technical Lead + Developer | Implementation + Evolution | Verde |
+| 4 | **Qualidade** (Quality) | DBA + QA Engineer | Implementation (dados + testes) | Azul |
+| 5 | **Operações** (Operations) | DevOps Engineer + Tech Writer | Cross-cutting + Evolution | Preto |
+
+> Cards de persona: veja [`personas/`](personas/). Kits completos (prompts, MCP, hooks): veja [`../persona-kits/`](../persona-kits/).
+
+### Divisão interna do par (sugerida, não obrigatória)
+
+| Par | Foco da persona A | Foco da persona B |
+|-----|-------------------|-------------------|
+| 1 · Visão | **PO**: escopo, valor, prioridades, roteiro do demo | **RE**: requisitos EARS, critérios de aceitação, REQ-IDs |
+| 2 · Arquitetura | **EA**: C4 L1 (contexto do sistema), ADRs de topologia | **SA**: C4 L2/L3 (containers + components), bounded contexts |
+| 3 · Implementação | **TL**: padrões, review de PR, orquestração do agent | **Dev**: código Java + TypeScript, testes unitários |
+| 4 · Qualidade | **DBA**: schema PostgreSQL, migrações Flyway | **QA**: cenários BDD, gates de cobertura, contract tests |
+| 5 · Operações | **DevOps**: Terraform, GitHub Actions, secrets | **TW**: glossário, revisão de clareza de ADR, runbook, README |
+
+Faça rotação dentro do par a cada ~45 min para nenhuma pessoa monopolizar conhecimento.
+
+---
+
+## 2. Linha do Tempo (8 horas, Dia 2)
+
+```
+09:00 09:30 12:00 13:00 17:00 18:00
+ |-----|-----------------------| |-----|------------|---------|
+ | S1 Estágio 1 Arqueologia | ALMOÇO | S2 Spec S3 Impl S4 Evol
+```
+
+| Horário | Bloco | Pares líderes | Pares de suporte |
+|---------|-------|---------------|------------------|
+| **09:00–09:30** | Abertura + setup | Todos | Leiam TEAM-FLOW, seus cards de persona, copiem seu kit |
+| **09:30–10:30** | Estágio 1 — Arqueologia (mineração) | **Par 1** (PO+RE), **Par 5** (TW) | Par 2 mapeia contexto do sistema; Pares 3, 4 leem protótipo |
+| **10:30–11:30** | Estágio 1 — Síntese | **Par 1** (PO+RE) | Par 2 inicia draft de C4 L1; Par 5 consolida glossário |
+| **11:30–12:00** | **Handoff #1** legado → spec | Par 1 → Par 2 | Par 5 dá suporte de clareza de ADR |
+| **12:00–13:00** | ALMOÇO | — | — |
+| **13:00–14:30** | Estágio 2 — Spec Moderna | **Par 2** (EA+SA) | Par 1 valida escopo; Par 5 cuida da clareza dos ADRs |
+| **14:30–14:45** | **Handoff #2** spec → código | Par 2 → Pares 3 + 4 | Par 1 assina o escopo |
+| **14:45–17:00** | Estágio 3 — Implementação | **Par 3** (TL+Dev), **Par 4** (DBA+QA) | Par 5 inicia rascunho do pipeline |
+| **17:00–17:15** | **Handoff #3** código → ops | Par 3 → Par 5 | Par 4 continua testes finais |
+| **17:15–18:00** | Estágio 4 — Evolution | **Par 5** (DevOps+TW), **Par 3** (TL+Dev) | Par 4 gate final de cobertura |
+| **18:00–18:30** | Preparação do demo | Par 1 + Par 3 | Todos ensaiam 30 segundos cada |
+| **18:30–19:10** | **Demos** (20 times × ~3 min) | Time todo | — |
+| **19:10–19:50** | Retrospectiva | Todos | Cada persona preenche seu form |
+| **19:50–20:00** | Encerramento | — | — |
+
+> Ninguém fica parado. Pares que não estão "liderando" um estágio têm trabalho concreto de suporte — veja §4.
+
+---
+
+## 3. Mapa de Handoffs (raias por par)
+
+```mermaid
+flowchart TD
+ classDef vision fill:#F25022,stroke:#B33816,color:#fff
+ classDef arch fill:#FFB900,stroke:#B38600,color:#0A0A0A
+ classDef impl fill:#7FBA00,stroke:#5C8700,color:#fff
+ classDef qual fill:#00A4EF,stroke:#0078D4,color:#fff
+ classDef ops fill:#1B1B1F,stroke:#000,color:#fff
+
+ subgraph S1["Estágio 1 — Arqueologia (09:30–12:00)"]
+ P1A[Par 1 · Visão<br/>extrair regras, priorizar]:::vision
+ P5A[Par 5 · Operações<br/>glossário, semente do runbook]:::ops
+ P2A[Par 2 · Arquitetura<br/>mapa de contexto do sistema]:::arch
+ end
+
+ subgraph S2["Estágio 2 — Spec (13:00–14:30)"]
+ P1B[Par 1 · Visão<br/>EARS + sign-off de escopo]:::vision
+ P2B[Par 2 · Arquitetura<br/>C4 L2/L3 + ADRs]:::arch
+ P5B[Par 5 · Operações<br/>revisão de clareza]:::ops
+ end
+
+ subgraph S3["Estágio 3 — Implementação (14:45–17:00)"]
+ P3A[Par 3 · Implementação<br/>Java + Next.js + reviews]:::impl
+ P4A[Par 4 · Qualidade<br/>schema, migrações, testes]:::qual
+ P5C[Par 5 · Operações<br/>rascunho do pipeline CI]:::ops
+ end
+
+ subgraph S4["Estágio 4 — Evolution (17:15–18:00)"]
+ P5D[Par 5 · Operações<br/>Terraform + CI/CD]:::ops
+ P3B[Par 3 · Implementação<br/>PR review em modo Agent]:::impl
+ P4B[Par 4 · Qualidade<br/>gate final, cobertura]:::qual
+ end
+
+ P1A --> P1B
+ P5A --> P5B
+ P2A --> P2B
+
+ P1B --> P2B
+ P2B --> P3A
+ P2B --> P4A
+
+ P3A --> P3B
+ P4A --> P4B
+ P3A --> P5D
+ P4A --> P5D
+ P5C --> P5D
+```
+
+### Como ler o mapa
+
+- **Setas são dependências bloqueantes.** Sem o Par 2 entregar os ADRs, os Pares 3 e 4 não conseguem começar o trabalho certo.
+- **Posição vertical = tempo.** Mais alto = mais cedo no dia.
+- **Cada handoff é uma conversa de 5 minutos** entre o par que sai e o par que entra. Não vale "só leia o documento". Fale ao vivo.
+
+---
+
+## 4. O Que Cada Par Faz em Cada Estágio
+
+Nenhum par fica parado. Mesmo quando não está "liderando", cada par tem trabalho explícito de suporte.
+
+| Par | Estágio 1 (Arqueologia) | Estágio 2 (Spec) | Estágio 3 (Implementação) | Estágio 4 (Evolution) |
+|-----|--------------------------|------------------|----------------------------|------------------------|
+| **1 · Visão** | **Lidera.** Extrai regras; PO prioriza escopo. | Valida EARS; assina escopo no H2. | Em standby para esclarecer requisitos. Constrói narrativa do demo. | Ensaio do demo. |
+| **2 · Arquitetura** | Mapeia contexto do sistema (draft C4 L1). | **Lidera.** C4 L2/L3 + ADRs. | Em standby para perguntas de fronteira; revisa PRs que tocam contratos. | Valida IaC contra ADRs. |
+| **3 · Implementação** | Lê protótipo, define convenções (branches, template de PR, DoD). | Comenta sobre viabilidade; estima complexidade. | **Lidera.** Código, testes, integração. | **Co-lidera.** Delegação em modo Agent, review de PR. |
+| **4 · Qualidade** | Lê DDMs, planeja mapeamento de schema. | Comenta sobre implicações de dados; escreve primeiros cenários BDD. | **Lidera.** Schema, migrações, cobertura de testes. | Gate final de cobertura; contract tests no CI. |
+| **5 · Operações** | Glossário, semente do runbook, esqueleto do README. | Revisão de clareza dos ADRs; voz consistente de escrita. | Rascunho do scaffolding do pipeline CI. | **Lidera.** Terraform + CI/CD completos; runbook finalizado. |
+
+---
+
+## 5. Primeiros 30 Minutos — Checklist por Par
+
+Às 09:00, **todo par** faz as mesmas 4 coisas nos primeiros 30 minutos. Depois começa a especialização.
+
+| Passo | Ação | Tempo |
+|-------|------|-------|
+| 1 | Leia [`TEAM-FLOW.md`](TEAM-FLOW.md) (este arquivo) | 10 min |
+| 2 | Leia seus dois cards em [`personas/`](personas/) | 10 min |
+| 3 | Copie seu kit Copilot: `cp -r ../persona-kits/XX-persona-A/.github/* ../.github/` (repita para persona B) | 5 min |
+| 4 | Abra o Copilot Chat, rode o prompt smoke-test de um dos seus cards | 5 min |
+
+### Primeira ação de cada par às 09:30
+
+| Par | Ação às 09:30 |
+|-----|----------------|
+| **1 · Visão** | PO abre [`../../01-blueprint/WORKSHOP-BLUEPRINT.md`](../../01-blueprint/WORKSHOP-BLUEPRINT.md); RE abre [`../legacy/natural-programs/`](../legacy/natural-programs/) e começa o catálogo de regras. |
+| **2 · Arquitetura** | EA abre [`../legacy/legacy-docs/`](../legacy/legacy-docs/) e começa C4 L1; SA prepara candidatos a bounded context. |
+| **3 · Implementação** | TL define estratégia de branches, template de PR, definição de pronto; Dev roda `docker compose up` no protótipo. |
+| **4 · Qualidade** | DBA abre [`../legacy/adabas-ddms/`](../legacy/adabas-ddms/) e começa o mapeamento de campos; QA lê o layout dos testes em [`../../04-prototipo-sifap-moderno/`](../../04-prototipo-sifap-moderno/). |
+| **5 · Operações** | DevOps abre [`../../05-terraform-azure/`](../../05-terraform-azure/) e revisa módulos; TW abre o template em [`01-arqueologia/glossary.md`](01-arqueologia/glossary.md). |
+
+---
+
+## 6. A Regra dos 20 Minutos
+
+> **Se você (ou seu par) está travado no mesmo problema por 20 minutos, pare e peça ajuda.**
+
+A regra vale para todo mundo. Pedir não é fraqueza; sofrer calado é.
+
+### Escala de escalação
+
+| Travado há | Fale com |
+|------------|----------|
+| 5 min | Tente Copilot Chat com framing diferente, ou com o parceiro do seu par |
+| 10 min | Fale com o **par** imediatamente anterior ou posterior (veja §3) |
+| 20 min | Fale com o **Par 3** (TL coordena o time) |
+| 30 min | Levante a mão para um facilitador (cordão azul) |
+
+### Como escalar (formato de 3 linhas)
+
+```
+1. Objetivo: O que estou tentando alcançar
+2. Tentei: O que já tentei (com o resultado)
+3. Bloqueio: O que está me impedindo agora
+```
+
+Ruim: *"Isso não está funcionando."*
+Bom: *"Objetivo: validar CPF em `BeneficiaryService`. Tentei: regex + sugestão do Copilot (ambos falham em zeros). Bloqueio: não sei se o mod-11 deve rejeitar 00000000000 explicitamente."*
+
+---
+
+## 7. Definition of Done — Por Handoff
+
+### Handoff #1 — Legado → Spec (fim do Estágio 1, ~12:00)
+
+**Dono:** Par 1 (Visão)
+**Receptores:** Par 2 (Arquitetura), Par 5 (Operações)
+
+| Artefato | Caminho | Pronto significa |
+|----------|---------|------------------|
+| Glossário | [`01-arqueologia/glossary.md`](01-arqueologia/glossary.md) | ≥ 30 termos com definições (voz pelo Par 5) |
+| Catálogo de regras | [`01-arqueologia/business-rules-catalog.md`](01-arqueologia/business-rules-catalog.md) | ≥ 15 regras com referência ao programa-fonte |
+| Mapa de dependências | [`01-arqueologia/dependency-map.md`](01-arqueologia/dependency-map.md) | Diagrama Mermaid cobrindo os 15 Naturals |
+| Mistérios encontrados | [`01-arqueologia/mysteries-found.md`](01-arqueologia/mysteries-found.md) | ≥ 5 regras escondidas identificadas com evidência |
+
+### Handoff #2 — Spec → Código (fim do Estágio 2, ~14:30)
+
+**Dono:** Par 2 (Arquitetura)
+**Receptores:** Par 3 (Implementação), Par 4 (Qualidade)
+
+| Artefato | Caminho | Pronto significa |
+|----------|---------|------------------|
+| Especificações EARS | [`02-spec-moderna/`](02-spec-moderna/) (via Spec-Kit) | ≥ 12 requisitos com REQ-IDs |
+| Diagramas C4 | `02-spec-moderna/diagrams/` | Níveis 1, 2, 3 em Mermaid |
+| ADRs | `02-spec-moderna/ADRs/` | ≥ 3 ADRs (monólito modular, persistência, auth) |
+| Sign-off de escopo | Registrado no PR | Par 1 (PO) aprovou escopo |
+
+### Handoff #3 — Código → Ops (fim do Estágio 3, ~17:00)
+
+**Dono:** Par 3 (Implementação)
+**Receptores:** Par 5 (Operações)
+
+| Artefato | Caminho | Pronto significa |
+|----------|---------|------------------|
+| Backend funcionando | `04-prototipo-sifap-moderno/backend/` | `mvn test` verde; OpenAPI documentada |
+| Frontend funcionando | `04-prototipo-sifap-moderno/frontend/` | `npm test` verde; fluxos principais usáveis |
+| Migrações | `backend/src/main/resources/db/migration/` | Scripts Flyway numerados; idempotentes (Par 4 cuida) |
+| Relatório de cobertura | Artefato do CI | Backend ≥ 70%, frontend ≥ 60% de linhas (Par 4 verifica) |
+
+---
+
+## 8. Padrões de Comunicação
+
+| Padrão | Quando | Exemplo |
+|--------|--------|---------|
+| **Stand-up** | A cada transição de estágio (4×) | Rodada de 2 min, uma frase por par: "Terminamos X, estamos fazendo Y, bloqueados por Z" |
+| **Check-in do par** | A cada 30 min dentro de um estágio | "Nós dois ainda estamos alinhados?" |
+| **Sync par-a-par** | Nos handoffs | Walkthrough de 5 minutos, sem slide |
+| **Comentários em PR** | Assíncrono entre pares | Marque o par receptor explicitamente (`@par-3`) |
+| **Hora silenciosa** | Últimos 30 min do Estágio 3 | Sem reuniões; todo mundo codifica/testa |
+
+---
+
+## 9. Anti-padrões (Não faça isso)
+
+| ❌ Anti-padrão | ✅ Faça assim |
+|----------------|----------------|
+| Uma persona do par faz tudo | Rotacione a cada ~45 min; a outra fica aquecida |
+| Pular um handoff — "eu descubro a parte deles também" | Walkthrough par-a-par de 5 min em toda transição |
+| Par 4 (Qualidade) espera o fim do Estágio 3 para começar | Par 4 escreve cenários BDD assim que existirem REQ-IDs (meio do Estágio 2) |
+| Par 5 (Operações) ocioso até o Estágio 4 | Par 5 conduz glossário no S1, clareza de ADR no S2, scaffold de CI no S3 |
+| Par 1 (Visão) some depois do Estágio 1 | PO valida escopo no H2 e ensaia demo no S4 |
+| Par 3 dá merge sem review | Todo PR tem pelo menos um review entre pares |
+
+---
+
+## 10. Referência rápida
+
+```
+Que par eu sou? → §1 (tabela dos 5 pares)
+O que meu par faz no estágio N? → §4 (matriz por par e por estágio)
+Travado? → regra dos 20 minutos (§6)
+Preciso fazer handoff? → critérios de pronto (§7)
+Qual modo do Copilot? → cheat-sheets/copilot-3-modes.md
+Qual modelo? → cheat-sheets/model-routing.md
+Qual agente do Spec-Kit? → cheat-sheets/specky-workflow.md
+```
+
+---
+
+## Navegação
+
+| Pai | Início |
+|-----|--------|
+| [Kit do Time (PT-BR)](README.md) | [Workspace](../../README.md) |
+
+— Paula
