@@ -14,6 +14,14 @@ tags: ["estagio-1", "arqueologia", "legado", "didatico", "pt-br"]
 
 # Estágio 1 — Arqueologia Digital
 
+> 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
+>
+> - **Primeiro contato?** Leia [`../FIRST-15-MINUTES.md`](../FIRST-15-MINUTES.md) primeiro.
+> - **Não programa em Natural?** [`../legado-natural/COMO-LER-NATURAL.md`](../legado-natural/COMO-LER-NATURAL.md) ensina a extrair regras dos `.NSN` sem saber a sintaxe.
+> - **Tropeçou em alguma sigla** (DDM, MU, PE, BR-NNN)? [`../docs/glossario-visual.md`](../docs/glossario-visual.md) explica em 3 linhas.
+> - **Quer ver como fica o entregável**? [`../exemplos-preenchidos/business-rules-catalog-exemplo.md`](../exemplos-preenchidos/business-rules-catalog-exemplo.md) mostra um catálogo bem feito.
+> - **Cheat-sheet do Copilot** (Ask vs Plan vs Agent): [`../cheat-sheets/copilot-3-modes.md`](../cheat-sheets/copilot-3-modes.md).
+
 > **Esta é a única etapa do dia que você não pode pular.** Tudo o que vem depois — a especificação, o código, o deploy — depende do que sua dupla extrair daqui. Na edição anterior do workshop, vários times escreveram especificações sem ler o legado e descobriram tarde demais que perderam regras de negócio de 29 anos. Desta vez, o portão é obrigatório: o CI e a rubrica não deixam você seguir sem rastrear cada requisito até um arquivo `.NSN` ou `.ddm`.
 
 ## Onde isso encaixa no SDLC

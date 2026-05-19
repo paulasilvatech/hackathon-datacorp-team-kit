@@ -14,6 +14,14 @@ tags: ["estagio-4", "evolution", "agent", "terraform", "didatico", "pt-br"]
 
 # Estágio 4 — Evolução com Agentes (3 horas)
 
+> 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
+>
+> - **Agent, Terraform, IaC, ACR, Key Vault** — termos novos? [`../docs/glossario-visual.md`](../docs/glossario-visual.md).
+> - **Issue completa para o Agent** (modelo): [`../exemplos-preenchidos/issue-para-agent-exemplo.md`](../exemplos-preenchidos/issue-para-agent-exemplo.md). **Esta é a peça mais importante deste estágio.**
+> - **Diferença entre Ask, Plan e Agent:** [`../cheat-sheets/copilot-3-modes.md`](../cheat-sheets/copilot-3-modes.md). No Estágio 4 é Agent.
+> - **PR do Agent veio ruim?** A causa quase sempre é a Issue. Volte ao exemplo acima antes de tentar de novo.
+> - **`terraform apply`?** ❌ NÃO. Só `plan` no workshop — recurso Azure real custa dinheiro.
+
 ## Onde isso encaixa no SDLC
 
 ```mermaid

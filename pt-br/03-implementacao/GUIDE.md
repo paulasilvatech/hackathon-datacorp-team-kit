@@ -14,6 +14,14 @@ tags: ["estagio-3", "implementacao", "codigo", "didatico", "pt-br"]
 
 # Estágio 3 — Implementação (3 horas)
 
+> 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
+>
+> - **JPA, Flyway, Testcontainers, Server Component, Bean Validation, Swagger** — siglas novas? [`../docs/glossario-visual.md`](../docs/glossario-visual.md).
+> - **Service Java pronto como referência:** [`../exemplos-preenchidos/PaymentService-exemplo.java`](../exemplos-preenchidos/PaymentService-exemplo.java) (implementa REQ-PAY-001/002 com rastreabilidade).
+> - **Migração Flyway bem feita** (com PE → tabela filha): [`../exemplos-preenchidos/V1__init_payment_module-exemplo.sql`](../exemplos-preenchidos/V1__init_payment_module-exemplo.sql).
+> - **Quando usar Plan vs Agent?** [`../cheat-sheets/copilot-3-modes.md`](../cheat-sheets/copilot-3-modes.md). Para features pequenas, Plan; Agent fica para o Estágio 4.
+> - **Travou no setup?** Vá direto à seção `Troubleshooting` mais abaixo.
+
 ## Onde isso encaixa no SDLC
 
 ```mermaid
