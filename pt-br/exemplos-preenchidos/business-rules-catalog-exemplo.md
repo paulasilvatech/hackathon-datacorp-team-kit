@@ -115,11 +115,10 @@ tags: ["exemplo", "business-rules", "estagio-1", "pt-br"]
 - ✅ **Campos DDM listados** — facilita o trabalho do DBA no Estágio 3.
 - ✅ **Risco classificado** — Estágio 2 prioriza pelos CRÍTICOS.
 - ❌ Sem genericismos do tipo *"o sistema deve estar correto"*. Toda regra é específica e testável.
-
 ---
 
-## Navegação
+### Navegação
 
-| Anterior | Início | Próximo |
-| --- | --- | --- |
-| [Exemplos](README.md) | [Kit PT-BR](../README.md) | [SPECIFICATION (exemplo)](SPECIFICATION-exemplo.md) |
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **ÍNDICE EXEMPLOS**<br/>[Exemplos preenchidos](README.md) | [Kit PT-BR](../README.md) | **PRÓXIMO EXEMPLO**<br/>[SPECIFICATION](SPECIFICATION-exemplo.md) |

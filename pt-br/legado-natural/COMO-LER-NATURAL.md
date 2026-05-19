@@ -299,8 +299,8 @@ Esse pedido nunca atrapalha — é o trabalho do facilitador.
 
 ---
 
-## Navegação
+### Navegação
 
-| Anterior | Início | Próximo |
-| --- | --- | --- |
-| [Legado Natural](README.md) | [Kit PT-BR](../README.md) | [Estágio 1 — Arqueologia](../01-arqueologia/GUIDE.md) |
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **VEM DE**<br/>[Legado Natural](README.md) | [Kit PT-BR](../README.md) | **EM SEGUIDA**<br/>[Estágio 1 — Arqueologia](../01-arqueologia/GUIDE.md) |

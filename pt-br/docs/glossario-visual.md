@@ -288,23 +288,14 @@ tags: ["glossario", "didatico", "iniciante", "pt-br"]
 
 ## Atalhos visuais
 
-```mermaid
-flowchart LR
- classDef stage fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
-
- L["Legado<br/>(.NSN + .ddm)"]:::stage --> BR["BR-NNN<br/>(regra de negócio)"]:::stage
- BR --> REQ["REQ-ID + EARS<br/>(spec moderna)"]:::stage
- REQ --> CODE["Service + Controller<br/>+ Repository (Java)"]:::stage
- CODE --> TEST["Teste com Testcontainers"]:::stage
- TEST --> PR["PR no GitHub<br/>com 'Implements REQ-XXX'"]:::stage
-```
+![Cadeia de rastreabilidade: legado .NSN/.ddm vira BR-NNN, depois REQ-ID em EARS, depois código Java, teste com Testcontainers, e PR no GitHub](../assets/traceability-chain.svg)
 
 Essa cadeia é a **rastreabilidade** que o CI verifica. Sempre que tiver dúvida do que está fazendo, volte ao elo anterior.
 
 ---
 
-## Navegação
+### Navegação
 
-| Anterior | Início | Próximo |
-| --- | --- | --- |
-| [Docs](README.md) | [Kit PT-BR](../README.md) | [Como ler Natural](../legado-natural/COMO-LER-NATURAL.md) |
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **VEM DE**<br/>[Documentação](README.md) | [Kit PT-BR](../README.md) | **EM SEGUIDA**<br/>[Como ler Natural](../legado-natural/COMO-LER-NATURAL.md) |

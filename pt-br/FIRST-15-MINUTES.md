@@ -64,21 +64,7 @@ O time tem **5 pessoas e 10 personas** (cada pessoa cobre 2 personas, em um "par
 
 Abra [`TEAM-FLOW.md`](TEAM-FLOW.md) em uma aba. Olhe **apenas** o cronograma. O dia tem 4 estágios:
 
-```mermaid
-flowchart LR
- classDef stage fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef demo fill:#00A4EF,stroke:#0078D4,color:#fff
- classDef setup fill:#7FBA00,stroke:#5C8700,color:#fff
-
- SETUP[Setup<br/>09:00–12:00]:::setup
- S1[Estágio 1 · Arqueologia<br/>13:00–14:30]:::stage
- S2[Estágio 2 · Spec Moderna<br/>14:45–16:00]:::stage
- S3[Estágio 3 · Implementação<br/>16:15–17:30]:::stage
- S4[Estágio 4 · Evolução<br/>17:45–18:15]:::stage
- DEMO[Demo + Retro<br/>18:15–19:50]:::demo
-
- SETUP --> S1 --> S2 --> S3 --> S4 --> DEMO
-```
+![Linha do tempo do dia: pré-evento, 4 estágios e demo, com as três passagens H1, H2, H3](assets/timeline-stages.svg)
 
 **O que prestar atenção:**
 
@@ -185,11 +171,10 @@ Se tudo está marcado, **você está pronto**. Vá para o setup técnico (`SETUP
 | VS Code/Copilot não abre | Vá para `SETUP.md` § "Passo 1 — Pré-requisitos" |
 | O cronograma parece muito apertado | É apertado mesmo. Confie na divisão por par — você não vai fazer tudo sozinho(a) |
 | Não programo. Vou ficar perdida(o)? | Não. Veja `legado-natural/COMO-LER-NATURAL.md` (para o Estágio 1) e os defaults da sua `PERSONA.md` |
-
 ---
 
-## Navegação
+### Navegação
 
-| Anterior | Início | Próximo |
-| --- | --- | --- |
-| — | [Kit PT-BR](README.md) | [Team Flow](TEAM-FLOW.md) |
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **ÍNDICE**<br/>[Kit PT-BR](README.md) | [Kit PT-BR](README.md) | **EM SEGUIDA**<br/>[Team Flow](TEAM-FLOW.md) |

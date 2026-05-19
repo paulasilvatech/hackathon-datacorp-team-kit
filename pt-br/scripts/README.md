@@ -34,12 +34,10 @@ chmod +x scripts/*.sh
 - `setup.sh` clona os materiais de referência em `reference/` e cria symlinks para `prototype/` e `infra/`. A pasta `legado-natural/` já vem incluída no kit. Sobrescreva o repositório de origem com `WORKSHOP_REPO=...`.
 - Os symlinks estão no gitignore — eles servem apenas para conveniência local.
 - `check.sh` ignora qualquer verificação cuja pasta ainda não exista (assim ele funciona durante os estágios iniciais).
-
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo |
-| --- | --- | --- |
-| [← Kit PT-BR](../README.md) | [Kit PT-BR](../README.md) | [Setup completo →](../SETUP.md) |
-
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **VEM DE**<br/>[Kit PT-BR](../README.md) | [Kit PT-BR](../README.md) | **EM SEGUIDA**<br/>[Setup completo](../SETUP.md) |

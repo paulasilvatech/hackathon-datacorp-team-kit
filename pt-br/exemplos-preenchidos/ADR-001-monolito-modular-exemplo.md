@@ -135,11 +135,10 @@ Quando 2+ desses sinais coexistirem, abrir ADR-NNN para extrair o primeiro micro
 - ✅ **Consequências positivas E negativas** — honesto, não vendedor
 - ✅ **Critério de envelhecimento** ("se isso acontecer, revisitar") — único item que muitos ADRs esquecem
 - ✅ Referências reais e localizáveis (livro + página, canal de chat + horário)
-
 ---
 
-## Navegação
+### Navegação
 
-| Anterior | Início | Próximo |
-| --- | --- | --- |
-| [SPECIFICATION (exemplo)](SPECIFICATION-exemplo.md) | [Kit PT-BR](../README.md) | [Flyway V1 (exemplo)](V1__init_payment_module-exemplo.sql) |
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **EXEMPLO ANTERIOR**<br/>[SPECIFICATION](SPECIFICATION-exemplo.md) | [Kit PT-BR](../README.md) | **PRÓXIMO EXEMPLO**<br/>[Flyway V1 (SQL)](V1__init_payment_module-exemplo.sql) |

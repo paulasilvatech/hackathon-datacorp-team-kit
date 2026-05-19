@@ -46,8 +46,10 @@ Olhe estes critérios em qualquer artefato:
 - [ ] **Sem placeholders.** Se você vê `TODO`, `XXX`, `???`, o artefato não está pronto.
 - [ ] **Nomes consistentes.** Se chamou "ciclo" uma vez, não chama "rodada" depois.
 
-## Navegação
+---
 
-| Anterior | Início | Próximo |
-| --- | --- | --- |
-| [Kit PT-BR](../README.md) | [Kit PT-BR](../README.md) | [Catálogo de Regras (exemplo)](business-rules-catalog-exemplo.md) |
+### Navegação
+
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **ÍNDICE**<br/>[Kit PT-BR](../README.md) | [Kit PT-BR](../README.md) | **PRIMEIRO EXEMPLO**<br/>[Catálogo de Regras](business-rules-catalog-exemplo.md) |

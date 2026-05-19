@@ -232,11 +232,10 @@ C4Container
 - ✅ Notas históricas preservadas (TCU 2002, auditorias 2018)
 - ✅ NFRs separados dos requisitos funcionais
 - ✅ Diagrama C4 L2 do módulo isolado
-
 ---
 
-## Navegação
+### Navegação
 
-| Anterior | Início | Próximo |
-| --- | --- | --- |
-| [Catálogo de Regras (exemplo)](business-rules-catalog-exemplo.md) | [Kit PT-BR](../README.md) | [ADR-001 (exemplo)](ADR-001-monolito-modular-exemplo.md) |
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **EXEMPLO ANTERIOR**<br/>[Catálogo de Regras](business-rules-catalog-exemplo.md) | [Kit PT-BR](../README.md) | **PRÓXIMO EXEMPLO**<br/>[ADR-001](ADR-001-monolito-modular-exemplo.md) |

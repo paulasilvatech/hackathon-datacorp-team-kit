@@ -59,13 +59,7 @@ Cada pasta de persona segue uma estrutura consistente:
 
 ## Como ativar uma persona
 
-```mermaid
-flowchart LR
-   A[Leia PERSONA.md no kit] --> B[Revise o README do kit]
-   B --> C[Copie .github do mesmo kit]
-    C --> D[Copie mcp.json se existir]
-    D --> E[Recarregue o Copilot]
-```
+![Cinco passos para instalar seu persona kit: leia PERSONA.md, revise README, copie .github, copie mcp.json, recarregue o Copilot](../assets/persona-onboarding.svg)
 
 ### Passo a passo
 

@@ -172,11 +172,10 @@ Quando um pagamento é aprovado (transição `PENDING → APPROVED`), o sistema 
 3. **Aguarde** ~5-15 minutos. O Agent vai analisar o codebase, escrever o plano e abrir um PR.
 4. **Revise** o PR usando o checklist em `04-evolucao/GUIDE.md`.
 5. **Comente correções** no PR — o Agent re-itera com os comentários.
-
 ---
 
-## Navegação
+### Navegação
 
-| Anterior | Início | Próximo |
-| --- | --- | --- |
-| [PaymentService (exemplo)](PaymentService-exemplo.java) | [Kit PT-BR](../README.md) | [Estágio 4 — GUIDE](../04-evolucao/GUIDE.md) |
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **EXEMPLO ANTERIOR**<br/>[PaymentService (Java)](PaymentService-exemplo.java) | [Kit PT-BR](../README.md) | **EM SEGUIDA**<br/>[Estágio 4 — Evolução](../04-evolucao/GUIDE.md) |

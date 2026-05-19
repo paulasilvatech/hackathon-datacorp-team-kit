@@ -36,18 +36,7 @@ Você está no **Estágio 2**. A saída deste estágio (REQ-IDs, ADRs, C4) alime
 
 ## Quem trabalha aqui
 
-```mermaid
-flowchart TB
- classDef lead fill:#FFB900,stroke:#B38600,color:#0A0A0A,font-weight:bold
- classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
- classDef writing fill:#E5F6FD,stroke:#00A4EF,color:#0A0A0A
-
- P2[Par 2 · Arquitetura<br/>LIDERA<br/>C4 L1/L2/L3 + ADRs]:::lead
- P1[Par 1 · Visão<br/>EARS + escopo<br/>sign-off final]:::support
- P5[Par 5 · Operações<br/>revisão de clareza<br/>ADR de deploy]:::writing
- P3[Par 3 · Implementação<br/>flag de "isso não cabe em 2h"]:::support
- P4[Par 4 · Qualidade<br/>BDD seed + modelo de dados]:::support
-```
+![Distribuição dos 5 pares: visão, arquitetura, implementação, qualidade e operações](assets/personas-team.svg)
 
 ## Objetivo
 

@@ -18,33 +18,11 @@ tags: ["estagio-3", "implementacao", "codigo", "prototipo", "workshop", "pt-br"]
 
 ## Onde isso encaixa no SDLC
 
-```mermaid
-flowchart LR
- classDef done fill:#7FBA00,stroke:#5C8700,color:#fff
- classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
-
- SP[Especificação ✓<br/>EARS + ADRs + C4]:::done
- IM[Implementação<br/>VOCÊ ESTÁ AQUI]:::current
- EV[Evolução<br/>Estágio 4]:::next
-
- SP --> IM --> EV
-```
+![Linha do tempo do dia: pré-evento, 4 estágios e demo, com as três passagens H1, H2, H3](assets/timeline-stages.svg)
 
 ## Quem trabalha aqui
 
-```mermaid
-flowchart TB
- classDef lead fill:#7FBA00,stroke:#5C8700,color:#fff,font-weight:bold
- classDef qual fill:#00A4EF,stroke:#0078D4,color:#fff,font-weight:bold
- classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
-
- P3[Par 3 · Implementação<br/>TL + Dev<br/>LIDERA — código + reviews]:::lead
- P4[Par 4 · Qualidade<br/>DBA + QA<br/>LIDERA — schema + testes]:::qual
- P5[Par 5 · Operações<br/>scaffold do pipeline CI]:::support
- P1[Par 1 · Visão<br/>de plantão para clarificar requisitos]:::support
- P2[Par 2 · Arquitetura<br/>review de PRs que tocam contratos]:::support
-```
+![Distribuição de personas por par: visão, arquitetura, implementação, qualidade e operações](assets/personas-team.svg)
 
 ## Conteúdo
 
