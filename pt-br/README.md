@@ -200,14 +200,6 @@ cp -r persona-kits/YY-persona-B/.github/* .github/
 cat pt-br/01-arqueologia/GUIDE.md
 ```
 
-## Referências
-
-- [Workshop Blueprint](../../01-blueprint/WORKSHOP-BLUEPRINT.md) — design geral do evento
-- [SIFAP Modern Especificação](../../03-spec-sifap-moderno/SPECIFICATION.md) — exemplo de spec gold-standard
-- [Protótipo de referência](../../04-prototipo-sifap-moderno/README.md) — codebase Java + Next.js rodando
-- [Playbook do facilitador](../../07-playbook-facilitacao/README.md) — o que os facilitadores estão fazendo
-- [Rubrica de avaliação](../../07-playbook-facilitacao/EVALUATION-RUBRIC.md) — como seu time é avaliado
-
 ## Navegação
 
 | Anterior               | Início                            | Próximo                   |
