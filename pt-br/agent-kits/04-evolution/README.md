@@ -1,0 +1,79 @@
+---
+title: "@evolution — Estágio 4: Evolution"
+description: "Guia didático do agente de evolução: issues para Copilot Agent, revisão de PR, CI/CD, Terraform e handoff operacional"
+author: "Paula Silva, Americas Software GBB, Microsoft"
+date: "2026-05-18"
+version: "2.0.0"
+status: "approved"
+tags: ["agent", "evolution", "devops", "terraform", "cicd", "stage-4", "pt-br"]
+---
+
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
+# @evolution — Estágio 4: Evolution
+
+> Use este agente quando o protótipo já existe e o time precisa transformar trabalho local em entrega revisável: issues, PRs, CI/CD, IaC, runbook e relatório final.
+
+## Objetivo da etapa
+
+Operacionalizar o que foi construído: criar issues claras para Agent Mode, revisar PRs gerados por IA, preparar pipeline, organizar Terraform e documentar como rodar e evoluir o sistema.
+
+## Quando usar
+
+- **Horário:** 17:45–18:15.
+- **Protagonista:** Technical Lead.
+- **Suporte forte:** DevOps Engineer, Tech Writer, Developer e QA Engineer.
+- **Pré-requisito:** Handoff #3 com backend/frontend funcionando, testes relevantes e pendências conhecidas.
+
+## Passo a passo com o agente
+
+1. Selecione o agente `@evolution` no Copilot Chat.
+2. Cole o prompt de abertura abaixo.
+3. Transforme pendências em GitHub Issues pequenas e revisáveis.
+4. Use Agent Mode somente para tasks com acceptance criteria claro.
+5. Revise o PR como se fosse de uma pessoa do time.
+6. Atualize CI/CD, Terraform e runbook.
+7. Feche com relatório de experiência do Agent.
+
+```text
+Estou iniciando o Estágio 4 — Evolution.
+Temos um protótipo com backend, frontend e testes.
+Ajude a criar issues para Copilot Agent, revisar PRs, preparar CI/CD,
+organizar Terraform e escrever o runbook final do SIFAP 2.0.
+```
+
+## O que perguntar
+
+| Situação | Prompt útil |
+| --- | --- |
+| Issue para Agent Mode | "Escreva uma issue pequena, com contexto, arquivos relevantes, acceptance criteria e fora de escopo." |
+| Revisão de PR | "Revise este PR priorizando bug, risco, regressão e teste faltante." |
+| CI/CD | "Crie workflow GitHub Actions para build, test e validação de Terraform." |
+| Runbook | "Transforme estes comandos em runbook para pessoa on-call iniciante." |
+| Relatório final | "Escreva o agent-experience-report com o que funcionou, falhou e aprendemos." |
+
+## Definition of Done
+
+- [ ] Pelo menos 2 issues prontas para Agent Mode ou backlog pós-workshop.
+- [ ] PRs gerados por IA revisados com critérios humanos.
+- [ ] Workflow CI/CD documentado ou criado.
+- [ ] Terraform validado ou pendências registradas.
+- [ ] Runbook atualizado com comandos de execução e troubleshooting.
+- [ ] Relatório de experiência do Agent preenchido.
+
+## Anti-padrões
+
+| Não faça | Faça |
+| --- | --- |
+| Delegar issue vaga para Agent Mode | Escreva contexto, escopo e acceptance criteria |
+| Aceitar PR de IA sem revisão | Revise como PR humano |
+| Criar feature nova no final | Coloque no backlog |
+| Esconder pendência do demo | Documente risco e workaround |
+
+## Navegação
+
+| Anterior | Início | Próximo |
+| --- | --- | --- |
+| [@builder](../03-builder/README.md) | [Kit PT-BR](../../README.md) | [04-evolucao](../../04-evolucao/README.md) |
+
+— Paula

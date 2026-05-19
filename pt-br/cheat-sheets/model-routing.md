@@ -9,6 +9,8 @@ version: "1.0.0"
 tags: ["cheat-sheet", "copilot", "claude", "model-routing", "workshop", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Roteamento de modelos Claude — Cheat sheet
 
 ## Quando usar isso
@@ -39,50 +41,58 @@ flowchart TB
 
 ## Os três modelos
 
-| Modelo | Quando usar | Custo relativo | Velocidade |
-|--------|-------------|----------------|------------|
-| **Haiku 4.5** | Tarefa mecânica, transformação simples, contexto pequeno | Baixo | Rápida |
-| **Sonnet 4.6** | Default do dia a dia. Código, testes, refactor, explicação | Médio | Média |
-| **Opus 4.6** | Decisão arquitetural, análise de impacto, discussão de trade-off | Alto | Lenta |
+| Modelo         | Quando usar                                                      | Custo relativo | Velocidade |
+| -------------- | ---------------------------------------------------------------- | -------------- | ---------- |
+| **Haiku 4.5**  | Tarefa mecânica, transformação simples, contexto pequeno         | Baixo          | Rápida     |
+| **Sonnet 4.6** | Default do dia a dia. Código, testes, refactor, explicação       | Médio          | Média      |
+| **Opus 4.6**   | Decisão arquitetural, análise de impacto, discussão de trade-off | Alto           | Lenta      |
 
 ## Casos comuns por persona
 
 ### Product Owner / Requirements Engineer
+
 - Escrever uma user story → **Sonnet**.
 - Refinar EARS que já estão escritas → **Haiku**.
 - Discutir se um requisito é v1 ou v2 → **Opus** (uma vez, decida, siga).
 
 ### Arquitetos (Enterprise + Software)
+
 - Desenhar C4 em Mermaid → **Sonnet**.
 - Escolher entre dois padrões (hexagonal vs. camadas) → **Opus**.
 - Gerar variação sintática de um diagrama existente → **Haiku**.
 
 ### Technical Lead
+
 - Revisar PR médio → **Sonnet**.
 - Decidir padrão do projeto inteiro (estilo de transação, por exemplo) → **Opus** no início; **Sonnet** depois para aplicar.
 - Responder "esse código compila?" → **Haiku**.
 
 ### Developer
+
 - Gerar implementação de um service → **Sonnet**.
 - Escrever teste unitário simples → **Haiku**.
 - Debater a estrutura de uma classe antes de escrever → **Opus**.
 
 ### DBA
+
 - Traduzir um DDM Adabas → SQL → **Sonnet** (com Opus para o caso mais estranho).
 - Gerar DDL repetitiva → **Haiku**.
 - Decidir estratégia de particionamento para `payment` → **Opus**.
 
 ### QA Engineer
+
 - Gerar esqueleto JUnit 5 → **Haiku**.
 - Escrever teste de integração não-trivial → **Sonnet**.
 - Decidir se um cenário vale Testcontainers vs. mock → **Opus**.
 
 ### DevOps Engineer
+
 - Gerar YAML padrão de GitHub Actions → **Sonnet**.
 - Ajustar comandos triviais no workflow → **Haiku**.
 - Decidir topologia Azure → **Opus**.
 
 ### Tech Writer
+
 - Revisar o estilo do README → **Haiku**.
 - Redigir um ADR → **Sonnet**.
 - Decidir a estrutura global de documentação → **Opus**, uma vez.

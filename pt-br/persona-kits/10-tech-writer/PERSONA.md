@@ -1,0 +1,118 @@
+---
+title: "Card de Persona — Tech Writer"
+description: "O que o Tech Writer faz dentro do time de 10 durante o Dia 2 do Legacy Modernization Workshop."
+locale: "pt-br"
+canonical_path: "pt-br/persona-kits/10-tech-writer/PERSONA.md"
+author: "Paula Silva, Americas Software GBB, Microsoft"
+date: "2026-05-18"
+version: "1.0.0"
+persona_id: "10"
+tags: ["persona", "tech-writer", "workshop", "pt-br"]
+---
+
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
+# Persona — Tech Writer
+
+## Onde você atua no SDLC
+
+```mermaid
+flowchart LR
+ classDef current fill:#1B1B1F,stroke:#000,color:#fff,font-weight:bold
+ classDef cross fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
+
+ D[Discovery<br/>S1 — glossário]:::cross
+ SP[Specification<br/>S2 — clareza de ADR]:::cross
+ IM[Implementation<br/>S3 — README evolui]:::cross
+ EV[Evolution<br/>S4 — LIDERA relatório do Agent]:::current
+```
+
+- **Par**: 5 · Operações (junto com DevOps Engineer)
+- **Fases lideradas**: Cross-cutting (todas as fases) + Evolution (S4) — relatório do Agent
+- **Recebe de**: todos os pares — decisões e código para documentar
+- **Faz handoff para**: facilitadores (Paula) — relatório final
+
+## Quem é essa pessoa
+
+Quem transforma uma decisão em memória durável. Sem um Tech Writer deliberado, ADRs viram arquivos vazios, o README fica em "instale as dependências", e nada do que foi descoberto sobrevive à última hora do workshop.
+
+## Missão no workshop
+
+Manter documentação viva durante o dia inteiro — não no final. README que cresce, ADRs escritos no momento da decisão, change log presente. Escrever o relatório de experiência com o Agent no Estágio 4.
+
+## Seu papel no framework Agentic Legacy Modernization
+
+- **Agentes relevantes**: Documentation Agent (cross-cutting)
+- **Fase do framework**: todas as fases (documentação contínua)
+- **Seu papel**: manter rastreabilidade e documentar decisões para o audit trail
+
+## Onde você aparece em cada estágio
+
+| Estágio                | Você faz isso                                                                                                               | Entregável que depende de você |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| 1. Arqueologia         | Mantém glossário e catálogo em formato legível. Escreve o relatório de descoberta no fim do estágio.                        | Relatório do Estágio 1         |
+| 2. Spec Moderna        | Revisa a spec por consistência, terminologia e clareza. Formata ADRs com o template.                                        | Spec e ADRs em formato padrão  |
+| 3. Implementação       | O README do projeto vira real, não placeholder. Documenta decisões em `docs/` conforme emergem.                             | README populado + `docs/`      |
+| 4. Evolution com Agent | Acompanha o Agent trabalhando e escreve relatório honesto da experiência (o que foi bom, o que foi ruim, o que aprenderam). | Relatório final do Estágio 4   |
+
+## Ferramentas e primitivas
+
+- **Copilot Chat** para revisão de estilo e clareza.
+- **Cowork** se precisar escrever documento mais longo.
+- Skill **markdown-writer** para READMEs e ADRs estruturados.
+- **GitHub MCP** para commits no `docs/` enquanto outros mexem no código.
+
+## Cheat-sheets que você usa
+
+- [`../cheat-sheets/spec-kit-workflow.md`](../../cheat-sheets/spec-kit-workflow.md) — o Specify CLI gera `spec.md`, `plan.md`, `tasks.md` e você mantém consistência com a documentação do time.
+- [`../cheat-sheets/model-routing.md`](../../cheat-sheets/model-routing.md) — Haiku 4.5 para revisão de estilo, Sonnet 4.6 para escrita.
+
+## Como você se sai bem
+
+- Cada ADR tem: contexto, decisão, consequências. Não mais, não menos.
+- O README evolui a cada hora, não só no final.
+- Terminologia do projeto é consistente (se foi "ciclo", não vira "rodada" no parágrafo seguinte).
+- O relatório do Estágio 4 é honesto sobre o Agent — não tenta vender.
+
+## Como você se perde
+
+- Espera o Estágio 3 terminar para começar a escrever.
+- ADRs de uma linha ("decidimos usar X").
+- README que continua dizendo "TODO: add instructions" no final.
+- Relatório do Agent que só diz "funcionou bem".
+
+## Se você pegou duas personas
+
+- **Tech Writer + Product Owner** — você escreve o "por quê" do projeto.
+- **Tech Writer + DevOps Engineer** — você documenta enquanto o pipeline roda.
+- **Tech Writer + Requirements Engineer** é forte para time pequeno — você estrutura e escreve.
+
+## 3 prompts de exemplo
+
+1. **(Chat)** _"Revise este README e identifique: seções com TODO, terminologia inconsistente, informação desatualizada (portas, credenciais, endpoints). Proponha correções."_
+2. **(Plan)** _"No arquivo ADR-001.md, planeje como completar as seções Contexto, Decisão e Consequências usando o template em 02-spec-moderna/ADR-TEMPLATE.md."_
+3. **(Chat)** _"Crie um relatório honesto da experiência com Copilot Agent: o que funcionou, o que surpreendeu, o que falhou. Base no template em 04-evolucao/agent-experience-report.md."_
+
+## Se travar (defaults de emergência)
+
+- Não conhece o formato ADR? Abra [`../02-spec-moderna/ADR-TEMPLATE.md`](../../02-spec-moderna/ADR-TEMPLATE.md) — copie e preencha.
+- README vazio? Comece com: (1) o que o sistema é, (2) como rodar, (3) endpoints disponíveis. O resto pode crescer.
+- Glossário travado? Pergunte ao Copilot: _"Liste todas as abreviações encontradas nos arquivos `.NSN` do SIFAP e expanda cada uma."_
+- Relatório do Agent vazio? Abra [`../04-evolucao/agent-experience-report.md`](../../04-evolucao/agent-experience-report.md) — o template tem seções prontas para preencher.
+
+## Dependências — Quem depende de você
+
+| Persona             | Relação                    | Artefato                          |
+| ------------------- | -------------------------- | --------------------------------- |
+| Todo mundo          | VOCÊ depende deles         | Decisões e código para documentar |
+| Product Owner       | Depende de VOCÊ            | Glossário e relatórios legíveis   |
+| QA Engineer         | Depende de VOCÊ (indireto) | Terminologia consistente na spec  |
+| Facilitador (Paula) | Depende de VOCÊ            | Relatório final do Estágio 4      |
+
+## Como você é avaliado
+
+- Rubrica A2 (Spec): documentação consistente, terminologia padronizada
+- Rubrica A7 (Agent): relatório honesto e detalhado
+- Critério: "README evoluiu a cada hora. ADRs têm contexto, decisão e consequências. Nada diz TODO."
+
+— Paula

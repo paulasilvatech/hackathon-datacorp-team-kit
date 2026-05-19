@@ -10,6 +10,8 @@ status: "approved"
 tags: ["estagio-1", "arqueologia", "legado", "didatico", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Estágio 1 — Arqueologia Digital
 
 > **Esta é a única etapa do dia que você não pode pular.** Tudo o que vem depois — a especificação, o código, o deploy — depende do que sua dupla extrair daqui. Na edição anterior do workshop, vários times escreveram especificações sem ler o legado e descobriram tarde demais que perderam regras de negócio de 29 anos. Desta vez, o portão é obrigatório: o CI e a rubrica não deixam você seguir sem rastrear cada requisito até um arquivo `.NSN` ou `.ddm`.
@@ -22,11 +24,11 @@ flowchart LR
  classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
  classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
 
- S1[Estágio 1<br/>Discovery<br/>09:30–12:00]:::current
- S2[Estágio 2<br/>Specification<br/>13:00–14:30]:::next
- S3[Estágio 3<br/>Implementation<br/>14:45–17:00]:::later
- S4[Estágio 4<br/>Evolution<br/>17:15–18:00]:::later
- DEMO[Demo + Retro<br/>18:00–19:50]:::later
+ S1[Estágio 1<br/>Discovery<br/>13:00–14:30]:::current
+ S2[Estágio 2<br/>Specification<br/>14:45–16:00]:::next
+ S3[Estágio 3<br/>Implementation<br/>16:15–17:30]:::later
+ S4[Estágio 4<br/>Evolution<br/>17:45–18:15]:::later
+ DEMO[Demo + Retro<br/>18:15–19:50]:::later
 
  S1 -- H1: legado → spec --> S2
  S2 -- H2: spec → código --> S3
@@ -74,7 +76,7 @@ Ao final do Estágio 1 sua dupla terá produzido **cinco artefatos verificáveis
 4. `mysteries-found.md` — pelo menos 5 regras escondidas com evidência (arquivo + linha).
 5. `discovery-report.md` — síntese consolidada que vai virar input do Estágio 2.
 
-Um facilitador (cordão azul) passa por volta de **11h45** e valida esses artefatos contra a [`LEGACY-EXPLORATION-CHECKLIST.md`](LEGACY-EXPLORATION-CHECKLIST.md). Se algo estiver vermelho, sua dupla não pode abrir o Estágio 2.
+Um facilitador (cordão azul) passa por volta de **14h20** e valida esses artefatos contra a [`LEGACY-EXPLORATION-CHECKLIST.md`](LEGACY-EXPLORATION-CHECKLIST.md). Se algo estiver vermelho, sua dupla não pode abrir o Estágio 2.
 
 ---
 
@@ -105,13 +107,13 @@ O resultado bom não é "eu li tudo". O resultado bom é "extraí o que importa 
 
 Está dentro do próprio kit, em [`../legacy/`](../../legacy/):
 
-| Recurso | Caminho | Quantidade |
-|---------|---------|-----------|
-| Programas Natural | [`../legacy/natural-programs/`](../../legacy/natural-programs/) | 15 arquivos `.NSN` |
-| DDMs Adabas | [`../legacy/adabas-ddms/`](../../legacy/adabas-ddms/) | 4 arquivos `.ddm` |
-| Documentação parcial (1997-2018) | [`../legacy/legacy-docs/`](../../legacy/legacy-docs/) | 3 documentos desatualizados |
-| README do sistema | [`../legacy/README.md`](../../legacy/README.md) | 1 arquivo |
-| Demo de terminal | [`../legacy/demo/sifap-terminal.html`](../../legacy/demo/sifap-terminal.html) | abra no navegador |
+| Recurso                          | Caminho                                                                    | Quantidade                  |
+| -------------------------------- | -------------------------------------------------------------------------- | --------------------------- |
+| Programas Natural                | [`../legacy/natural-programs/`](../../legacy/natural-programs/)            | 15 arquivos `.NSN`          |
+| DDMs Adabas                      | [`../legacy/adabas-ddms/`](../../legacy/adabas-ddms/)                      | 4 arquivos `.ddm`           |
+| Documentação parcial (1997-2018) | [`../legacy/legacy-docs/`](../../legacy/legacy-docs/)                      | 3 documentos desatualizados |
+| README do sistema                | [`../legacy/README.md`](../legacy/README.md)                               | 1 arquivo                   |
+| Demo de terminal                 | [`../legacy/demo/sifap-terminal.html`](../legacy/demo/sifap-terminal.html) | abra no navegador           |
 
 > Os documentos em `legacy-docs/` estão em português de propósito — são parte da imersão. Eles representam o que o cliente tinha guardado entre 1997 e 2018.
 
@@ -121,13 +123,13 @@ Está dentro do próprio kit, em [`../legacy/`](../../legacy/):
 
 Cada par lidera 3 programas. **Nenhum programa pode ficar sem leitor.**
 
-| Par | Programas | Por que esses |
-|-----|-----------|---------------|
-| **1 · Visão** (PO + RE) | `CADBENEF.NSN`, `CADDEPEND.NSN`, `CADPROG.NSN` | Cadastros são as **entidades** que viram subject das EARS. Se você não ler isso, não há REQ-ID para o resto. |
-| **2 · Arquitetura** (EA + SA) | `BATCHPGT.NSN`, `BATCHREL.NSN`, `BATCHCON.NSN` | Os batches revelam o **fluxo de negócio inteiro**. Bounded contexts saem daqui. |
+| Par                              | Programas                                      | Por que esses                                                                                                                  |
+| -------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **1 · Visão** (PO + RE)          | `CADBENEF.NSN`, `CADDEPEND.NSN`, `CADPROG.NSN` | Cadastros são as **entidades** que viram subject das EARS. Se você não ler isso, não há REQ-ID para o resto.                   |
+| **2 · Arquitetura** (EA + SA)    | `BATCHPGT.NSN`, `BATCHREL.NSN`, `BATCHCON.NSN` | Os batches revelam o **fluxo de negócio inteiro**. Bounded contexts saem daqui.                                                |
 | **3 · Implementação** (TL + Dev) | `CALCBENF.NSN`, `CALCCORR.NSN`, `CALCDSCT.NSN` | Cálculos são o **núcleo financeiro**. Você vai reproduzi-los em Java no Estágio 3 — precisa saber exatamente o que eles fazem. |
-| **4 · Qualidade** (DBA + QA) | `VALBENEF.NSN`, `VALDOCS.NSN`, `VALELEG.NSN` | Validações **viram testes**. Quem lê as regras de validação aqui está escrevendo a estratégia de testes do Estágio 3. |
-| **5 · Operação** (DevOps + TW) | `CONSBENF.NSN`, `RELPGT.NSN`, `RELAUDIT.NSN` | Consultas e relatórios revelam **o que o usuário vê** — informação que vai para o glossário e o runbook. |
+| **4 · Qualidade** (DBA + QA)     | `VALBENEF.NSN`, `VALDOCS.NSN`, `VALELEG.NSN`   | Validações **viram testes**. Quem lê as regras de validação aqui está escrevendo a estratégia de testes do Estágio 3.          |
+| **5 · Operação** (DevOps + TW)   | `CONSBENF.NSN`, `RELPGT.NSN`, `RELAUDIT.NSN`   | Consultas e relatórios revelam **o que o usuário vê** — informação que vai para o glossário e o runbook.                       |
 
 > Os 4 DDMs ficam com o Par 4 (DBA + QA), com revisão dos demais. Cada DDM vira uma tabela PostgreSQL e a forma como você mapeia hoje define se haverá retrabalho no Estágio 3.
 
@@ -139,11 +141,11 @@ Cada par lidera 3 programas. **Nenhum programa pode ficar sem leitor.**
 
 **O objetivo da primeira hora é apenas entender o terreno.** Você ainda não vai extrair regras, só vai criar o mapa.
 
-1. **Todo o time, primeiros 15 minutos:** abra [`../legacy/README.md`](../../legacy/README.md) e leia o histórico do SIFAP. **Por que esse passo existe:** se você não sabe que o `RELPGT.NSN` é o relatório aceito pelo TCU desde 2003, você pode propor "modernizar o layout" e quebrar uma auditoria externa. Contexto evita decisão burra.
+1. **Todo o time, primeiros 15 minutos:** abra [`../legacy/README.md`](../legacy/README.md) e leia o histórico do SIFAP. **Por que esse passo existe:** se você não sabe que o `RELPGT.NSN` é o relatório aceito pelo TCU desde 2003, você pode propor "modernizar o layout" e quebrar uma auditoria externa. Contexto evita decisão burra.
 
 2. **Pares 1 e 5 em colaboração:** abra cada um dos 15 programas `.NSN` em modo leitura rápida (só os comentários e as constantes) e comece a popular [`glossary.md`](glossary.md). **Como pensar:** vocês não estão entendendo programas, estão **catalogando vocabulário**. Qualquer abreviação críptica (`DSCT`, `BENF`, `PE`, `MU`, `CTC`) é entrada de glossário. Meta: 30+ termos ao fim do dia.
 
-3. **Par 2:** comece a desenhar o [`dependency-map.md`](dependency-map.md). Use o Copilot Chat com o prompt: *"Liste todas as ocorrências de CALLNAT nestes 15 arquivos e desenhe um diagrama Mermaid."* Você vai descobrir, por exemplo, que `BATCHPGT` chama `VALELEG`, `CALCBENF`, `CALCCORR` e `CALCDSCT`. Esse grafo é a base dos bounded contexts do Estágio 2.
+3. **Par 2:** comece a desenhar o [`dependency-map.md`](dependency-map.md). Use o Copilot Chat com o prompt: _"Liste todas as ocorrências de CALLNAT nestes 15 arquivos e desenhe um diagrama Mermaid."_ Você vai descobrir, por exemplo, que `BATCHPGT` chama `VALELEG`, `CALCBENF`, `CALCCORR` e `CALCDSCT`. Esse grafo é a base dos bounded contexts do Estágio 2.
 
 4. **Par 4 com Par 3 como revisor:** abra os 4 DDMs em [`../legacy/adabas-ddms/`](../../legacy/adabas-ddms/). Para cada DDM, liste todos os campos com tipo e tamanho, marcando `MU` (multi-valor) e `PE` (grupo periódico). **Por que isso importa:** esses dois construtos não existem em PostgreSQL relacional puro. Onde você ver `MU TELEFONES`, sabe que vai virar uma tabela `beneficiary_phone` no Estágio 3.
 
@@ -154,28 +156,31 @@ Cada par lidera 3 programas. **Nenhum programa pode ficar sem leitor.**
 **Agora vocês entram em modo extração.** Cada par lê profundamente seus 3 programas e documenta regras de negócio.
 
 5. **Cada par em paralelo, 3 programas cada:** abra os arquivos `.NSN` da sua lista (ver tabela acima) e procure regras de negócio. **O que conta como regra de negócio:**
- - Um `IF` que decide algo no domínio (ex.: *"se a UF é do Nordeste e o programa é Seca, valor base × 1.2"*)
- - Uma constante numérica sem explicação (ex.: `0.075` no cálculo de imposto)
- - Uma transição de status com regra (ex.: *"só de A para S, nunca de I para A"*)
- - Um tratamento especial para um caso (ex.: *"se o CPF começa com 999, é teste"*)
 
- **O que NÃO é regra de negócio:** paginação de relatório, formatação de saída, manipulação de cursor Adabas, abertura de arquivo. Ignore.
+- Um `IF` que decide algo no domínio (ex.: _"se a UF é do Nordeste e o programa é Seca, valor base × 1.2"_)
+- Uma constante numérica sem explicação (ex.: `0.075` no cálculo de imposto)
+- Uma transição de status com regra (ex.: _"só de A para S, nunca de I para A"_)
+- Um tratamento especial para um caso (ex.: _"se o CPF começa com 999, é teste"_)
+
+**O que NÃO é regra de negócio:** paginação de relatório, formatação de saída, manipulação de cursor Adabas, abertura de arquivo. Ignore.
 
 6. **Prompts úteis para Copilot Chat** (cole o conteúdo do `.NSN` no chat e use cada prompt depois):
- - *"Explique este programa Natural linha por linha. Foque em decisões de negócio, ignore IO."*
- - *"Quais regras de negócio este código implementa? Liste cada uma com a faixa de linhas."*
- - *"Existe alguma constante numérica sem explicação? Para cada uma, sugira o que ela representa."*
- - *"Há alguma condição que parece um workaround ou caso especial não documentado?"*
- - *"Compare este programa com `outro-arquivo.NSN`. Existe lógica duplicada?"*
+
+- _"Explique este programa Natural linha por linha. Foque em decisões de negócio, ignore IO."_
+- _"Quais regras de negócio este código implementa? Liste cada uma com a faixa de linhas."_
+- _"Existe alguma constante numérica sem explicação? Para cada uma, sugira o que ela representa."_
+- _"Há alguma condição que parece um workaround ou caso especial não documentado?"_
+- _"Compare este programa com `outro-arquivo.NSN`. Existe lógica duplicada?"_
 
 7. **Documentação imediata.** Toda regra encontrada vira **uma linha** em [`business-rules-catalog.md`](business-rules-catalog.md) com:
- - `BR-NNN` (numeração sequencial)
- - Descrição da regra em uma frase
- - **`Programa Fonte` preenchido** com `legacy/natural-programs/ARQUIVO.NSN#L<início>-L<fim>` (formato preferido) ou no mínimo o nome do arquivo
- - Campos DDM envolvidos
- - Nível de risco (CRÍTICO / ALTO / MÉDIO / BAIXO)
 
- **Linhas com `Programa Fonte` vazio são inválidas e derrubam o time na rubrica.** Sem exceção.
+- `BR-NNN` (numeração sequencial)
+- Descrição da regra em uma frase
+- **`Programa Fonte` preenchido** com `legacy/natural-programs/ARQUIVO.NSN#L<início>-L<fim>` (formato preferido) ou no mínimo o nome do arquivo
+- Campos DDM envolvidos
+- Nível de risco (CRÍTICO / ALTO / MÉDIO / BAIXO)
+
+**Linhas com `Programa Fonte` vazio são inválidas e derrubam o time na rubrica.** Sem exceção.
 
 ### Hora 3 — Síntese (11:15 → 12:00)
 
@@ -190,9 +195,10 @@ Cada par lidera 3 programas. **Nenhum programa pode ficar sem leitor.**
 11. **Par 1 (Product Owner lidera):** priorize as regras em `discovery-report.md`. Quais 5–8 são as **essenciais** que o protótipo do Estágio 3 precisa preservar? Decisão difícil mas necessária — você não vai conseguir migrar tudo em 2 horas de código.
 
 12. **Par 4 (QA Engineer lidera):** consolide `mysteries-found.md`. Liste pelo menos 5 mistérios com:
- - O mistério (uma frase)
- - Onde está (arquivo + faixa de linhas)
- - Por que importa (o que quebra se a regra não for preservada)
+
+- O mistério (uma frase)
+- Onde está (arquivo + faixa de linhas)
+- Por que importa (o que quebra se a regra não for preservada)
 
 ---
 
@@ -213,9 +219,9 @@ A regra que está escondida aqui é: **descontos têm teto de 30% do valor bruto
 
 **Uma linha em `business-rules-catalog.md`:**
 
-| ID | Regra | Programa Fonte | Campos DDM | Nível de Risco | Notas |
-|----|-------|----------------|------------|----------------|-------|
-| BR-013 | Desconto total não pode exceder 30% do valor bruto, exceto descontos judiciais (tipo J) | `legacy/natural-programs/CALCDSCT.NSN#L142-L148` | `PAGAMENTO.VLR-BRUTO`, `PAGAMENTO.VLR-TOTAL-DSCT`, `PAGAMENTO.TIPO-DSCT` | CRÍTICO | Regra financeira, viola limite cria prejuízo. Tipo 'J' = exceção legal. |
+| ID     | Regra                                                                                   | Programa Fonte                                   | Campos DDM                                                               | Nível de Risco | Notas                                                                   |
+| ------ | --------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------ | -------------- | ----------------------------------------------------------------------- |
+| BR-013 | Desconto total não pode exceder 30% do valor bruto, exceto descontos judiciais (tipo J) | `legacy/natural-programs/CALCDSCT.NSN#L142-L148` | `PAGAMENTO.VLR-BRUTO`, `PAGAMENTO.VLR-TOTAL-DSCT`, `PAGAMENTO.TIPO-DSCT` | CRÍTICO        | Regra financeira, viola limite cria prejuízo. Tipo 'J' = exceção legal. |
 
 **Uma futura REQ-ID no Estágio 2** (já no formato com `source_legacy`):
 
@@ -246,20 +252,20 @@ Se sua dupla travar depois de 90 minutos sem achar nenhum mistério, levante a m
 
 ## Armadilhas comuns (o que NÃO fazer)
 
-| ❌ Se você está fazendo isso | ✅ Faça assim |
-|-----------------------------|---------------|
-| Lendo os programas em ordem alfabética sem dividir entre pares | Cada par fica com 3 programas conforme a tabela. 15 ÷ 5 = 3. |
-| Tentando entender cada `MOVE` e cada `READ LOGICAL` | Foca só em `IF`, constantes, transições de status. Ignora IO. |
-| Documentando regra sem citar arquivo e linha | Toda linha do catálogo precisa de `Programa Fonte`. Vazio = inválido. |
-| Ignorando os 3 documentos antigos em `legacy-docs/` | Eles estão desatualizados, mas mostram o que o time original *pensava* na época. Vale ler. |
-| Deixando para a Hora 3 começar a escrever no catálogo | Documente conforme descobre. Memória de curto prazo trai. |
-| Considerando "regra de negócio" qualquer linha de código | Regra de negócio = decisão do **domínio**, não da implementação. |
+| ❌ Se você está fazendo isso                                   | ✅ Faça assim                                                                              |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Lendo os programas em ordem alfabética sem dividir entre pares | Cada par fica com 3 programas conforme a tabela. 15 ÷ 5 = 3.                               |
+| Tentando entender cada `MOVE` e cada `READ LOGICAL`            | Foca só em `IF`, constantes, transições de status. Ignora IO.                              |
+| Documentando regra sem citar arquivo e linha                   | Toda linha do catálogo precisa de `Programa Fonte`. Vazio = inválido.                      |
+| Ignorando os 3 documentos antigos em `legacy-docs/`            | Eles estão desatualizados, mas mostram o que o time original _pensava_ na época. Vale ler. |
+| Deixando para a Hora 3 começar a escrever no catálogo          | Documente conforme descobre. Memória de curto prazo trai.                                  |
+| Considerando "regra de negócio" qualquer linha de código       | Regra de negócio = decisão do **domínio**, não da implementação.                           |
 
 ---
 
 ## Como saber que terminou (Definition of Done)
 
-Antes do facilitador chegar às 11h45, sua dupla deve poder marcar **todas** essas caixas:
+Antes do facilitador chegar às 14h20, sua dupla deve poder marcar **todas** essas caixas:
 
 - [ ] [`glossary.md`](glossary.md) com 30+ termos, cada um com definição em 1 frase.
 - [ ] [`business-rules-catalog.md`](business-rules-catalog.md) com ≥ 15 regras, **100% com `Programa Fonte` preenchido**.
@@ -273,7 +279,7 @@ Se houver vermelho em qualquer item, o time **não abre o Estágio 2**. Não é 
 
 ## Próximo passo
 
-Quando o facilitador validar o checklist às 11h45, o **Par 2 (Arquitetura)** lidera o Estágio 2 com os artefatos do Estágio 1 como entrada. O **Par 1 (Visão)** acompanha o sign-off de escopo. Os demais pares continuam contribuindo conforme [`02-spec-moderna/GUIDE.md`](../02-spec-moderna/GUIDE.md).
+Quando o facilitador validar o checklist às 14h20, o **Par 2 (Arquitetura)** lidera o Estágio 2 com os artefatos do Estágio 1 como entrada. O **Par 1 (Visão)** acompanha o sign-off de escopo. Os demais pares continuam contribuindo conforme [`02-spec-moderna/GUIDE.md`](../02-spec-moderna/GUIDE.md).
 
 O `business-rules-catalog.md` que vocês produziram agora **é** o input do `SPECIFICATION.md`. Cada regra vira (ou não, com justificativa) uma REQ-ID. Sem o catálogo bem feito, o Estágio 2 vira chute.
 
@@ -294,8 +300,8 @@ Modelo certo (Haiku/Sonnet)? → cheat-sheets/model-routing.md
 
 ## Navegação
 
-| Anterior | Início | Próximo |
-|----------|--------|---------|
-| [Team Flow (PT-BR)](../TEAM-FLOW.md) *(em produção)* | [Kit PT-BR](../README.md) *(em produção)* | [Estágio 2 — Spec Moderna](../02-spec-moderna/GUIDE.md) *(em produção)* |
+| Anterior                                             | Início                                    | Próximo                                                                 |
+| ---------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------------------------- |
+| [Team Flow (PT-BR)](../TEAM-FLOW.md) _(em produção)_ | [Kit PT-BR](../README.md) _(em produção)_ | [Estágio 2 — Spec Moderna](../02-spec-moderna/GUIDE.md) _(em produção)_ |
 
 — Paula

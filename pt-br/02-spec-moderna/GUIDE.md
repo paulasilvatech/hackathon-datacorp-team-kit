@@ -10,9 +10,11 @@ status: "approved"
 tags: ["estagio-2", "especificacao", "ears", "adr", "c4", "didatico", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Estágio 2 — Spec Moderna (3 horas)
 
-> **REGRA DURA.** Todo requisito EARS no seu `SPECIFICATION.md` precisa incluir uma linha `source_legacy:` apontando para um arquivo `.NSN` ou `.ddm` dentro de [`../legacy/`](../../legacy/), **ou** ser marcado `source_legacy: "[GREENFIELD] <justificativa de uma linha>"`. O CI rejeita PRs que violem isso. Facilitadores verificam por amostragem no Handoff #2 (~14:30).
+> **REGRA DURA.** Todo requisito EARS no seu `SPECIFICATION.md` precisa incluir uma linha `source_legacy:` apontando para um arquivo `.NSN` ou `.ddm` dentro de [`../legacy/`](../../legacy/), **ou** ser marcado `source_legacy: "[GREENFIELD] <justificativa de uma linha>"`. O CI rejeita PRs que violem isso. Facilitadores verificam por amostragem no Handoff #2 (~16:00).
 >
 > Por quê? Na edição anterior alguns times escreveram specs só a partir do brief de modernização, pulando a leitura do legado. Os protótipos perderam regras de negócio reais. Desta vez, rastreabilidade é o portão.
 
@@ -81,13 +83,14 @@ Esse documento mostra o formato e o nível de detalhe esperado. Sua spec deve se
 
 ## Notação EARS — Easy Approach to Requirements Syntax
 
-EARS é um método para escrever requisitos sem ambiguidade. São **6 padrões** que eliminam linguagem vaga. O Specky valida cada requisito programaticamente via `sdd_validate_ears`.
+EARS é um método para escrever requisitos sem ambiguidade. São **6 padrões** que eliminam linguagem vaga. No fluxo Spec-Kit, use `/speckit.clarify` e `/speckit.analyze` para detectar ambiguidades, lacunas e inconsistências antes da implementação.
 
 ### Padrão 1: Ubiquitous (sempre vale)
 
 > **The [system] shall [action].**
 
 Exemplo SIFAP:
+
 > The SIFAP shall store all payment records with a UTC timestamp.
 
 Use quando: a regra vale SEMPRE, sem condição.
@@ -97,6 +100,7 @@ Use quando: a regra vale SEMPRE, sem condição.
 > **When [event], the [system] shall [action].**
 
 Exemplo SIFAP:
+
 > When a beneficiary is registered, the SIFAP shall validate the CPF using the modulo-11 algorithm from Receita Federal.
 
 Use quando: a regra só vale após um evento específico.
@@ -106,6 +110,7 @@ Use quando: a regra só vale após um evento específico.
 > **While [condition], the [system] shall [action].**
 
 Exemplo SIFAP:
+
 > While a payment has status PENDING, the SIFAP shall allow cancellation by a user with the OPERATOR profile.
 
 Use quando: a regra só vale durante um estado.
@@ -115,6 +120,7 @@ Use quando: a regra só vale durante um estado.
 > **Where [optional condition], the [system] shall [action].**
 
 Exemplo SIFAP:
+
 > Where the operator chooses to export the report, the SIFAP shall generate a CSV file with UTF-8 encoding.
 
 Use quando: a funcionalidade não é obrigatória — depende de escolha do usuário.
@@ -124,6 +130,7 @@ Use quando: a funcionalidade não é obrigatória — depende de escolha do usu�
 > **The [system] shall not [unwanted action].**
 
 Exemplo SIFAP:
+
 > The SIFAP shall not allow deletion of records from the audit table.
 > The SIFAP shall not process payments for beneficiaries with status CANCELLED.
 
@@ -134,27 +141,28 @@ Use quando: você precisa documentar restrições ou proibições explícitas.
 > **While [condition], when [event], where [optional condition], the [system] shall [action].**
 
 Exemplo SIFAP:
+
 > While the beneficiary has status ACTIVE, when a payment cycle is generated in December, the SIFAP shall calculate the 13th salary using a differentiated formula.
 
 Use quando: múltiplas condições se combinam.
 
 ### Exemplo: requisito RUIM vs. BOM
 
-| Ruim (vago) | Bom (EARS) |
-|-------------|-------------|
-| "O sistema deve ser seguro" | "The SIFAP shall mask CPF in logs using the format \*\*\*.\*\*\*.XXX-\*\*" |
-| "Pagamentos devem ser processados" | "When a cycle is generated, the SIFAP shall create payment records for all beneficiaries with status ACTIVE" |
-| "Auditoria completa" | "When any entity is changed, the SIFAP shall write an audit record with prior and posterior state in JSON format" |
+| Ruim (vago)                        | Bom (EARS)                                                                                                        |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| "O sistema deve ser seguro"        | "The SIFAP shall mask CPF in logs using the format \*\*\*.\*\*\*.XXX-\*\*"                                        |
+| "Pagamentos devem ser processados" | "When a cycle is generated, the SIFAP shall create payment records for all beneficiaries with status ACTIVE"      |
+| "Auditoria completa"               | "When any entity is changed, the SIFAP shall write an audit record with prior and posterior state in JSON format" |
 
 ### Dica: todo requisito precisa ser TESTÁVEL
 
-Ao escrever um requisito, pergunte: *"Como eu testaria isso automaticamente?"* Se não souber responder, o requisito está vago demais.
+Ao escrever um requisito, pergunte: _"Como eu testaria isso automaticamente?"_ Se não souber responder, o requisito está vago demais.
 
-| Requisito | Teste |
-|-----------|-------|
-| REQ-BEN-01: "The SIFAP shall validate CPF with modulo-11" | CPF inválido retorna erro 400 |
+| Requisito                                                                         | Teste                                   |
+| --------------------------------------------------------------------------------- | --------------------------------------- |
+| REQ-BEN-01: "The SIFAP shall validate CPF with modulo-11"                         | CPF inválido retorna erro 400           |
 | REQ-PAY-03: "When a cycle is generated, create payments for ACTIVE beneficiaries" | 10 ativos + 2 suspensos = 10 pagamentos |
-| REQ-AUD-01: "The SIFAP shall not allow DELETE on audit" | DELETE retorna erro 403 |
+| REQ-AUD-01: "The SIFAP shall not allow DELETE on audit"                           | DELETE retorna erro 403                 |
 
 ---
 
@@ -165,6 +173,7 @@ Veja o ciclo completo de uma regra do SIFAP, do código legado até o teste auto
 ### 1. Regra encontrada no Estágio 1
 
 No programa `CALCDSCT.NSN`, o time descobre:
+
 ```natural
 * CHECK DEDUCTION CAP
 IF #TIPO-DSCT NE 'J'
@@ -248,14 +257,14 @@ void judicialDeductionsBypass30PercentCap() {
 
 ### Rastreabilidade
 
-| Artefato | ID | Referência |
-|----------|-----|------------|
-| Regra legada | BR-006 | CALCDSCT.NSN linhas 142–148 |
-| Requisito | REQ-PAY-DSCT-01/02 | SPECIFICATION.md |
-| Código | `PaymentService.calculateTotalDeductions()` | payment/application/ |
-| Teste | `PaymentServiceTest` (2 métodos) | payment/application/ |
+| Artefato     | ID                                          | Referência                  |
+| ------------ | ------------------------------------------- | --------------------------- |
+| Regra legada | BR-006                                      | CALCDSCT.NSN linhas 142–148 |
+| Requisito    | REQ-PAY-DSCT-01/02                          | SPECIFICATION.md            |
+| Código       | `PaymentService.calculateTotalDeductions()` | payment/application/        |
+| Teste        | `PaymentServiceTest` (2 métodos)            | payment/application/        |
 
-**Esse ciclo é o que o Specky impõe automaticamente via `sdd_check_sync`.** Se o código divergir da spec, o hook detecta.
+Esse ciclo é o que o Spec-Kit torna explícito em `spec.md`, `plan.md` e `tasks.md`. Se o código divergir da spec, volte ao artefato de origem antes de implementar mais.
 
 ---
 
@@ -335,82 +344,60 @@ Use o arquivo [`scope-decisions.md`](scope-decisions.md) para registrar o que se
 
 ---
 
-## Workflow do Specky — RECOMENDADO
+## Workflow do Spec-Kit — RECOMENDADO
 
-> **O que é Specky?** É uma CLI que instala dentro do seu projeto (VS Code ou Claude Code) um conjunto de **agentes** (assistentes especializados invocados no chat), **slash commands** (atalhos como `/specky-migration`) e **ferramentas MCP** (engines internos que validam seus artefatos). Você interage com os **agentes** e **slash commands** — as MCP rodam por baixo automaticamente.
+> **O que é Spec-Kit?** É o toolkit oficial do GitHub para Spec-Driven Development. O `Specify CLI` instala templates, scripts e slash commands `/speckit.*` para seu agente de codificação.
 
-**Specky** (https://github.com/paulasilvatech/specky) é o engine de Spec-Driven Development do workshop. Ele valida seus requisitos EARS programaticamente e impõe qualidade.
+**Spec-Kit** (<https://github.com/github/spec-kit>) é o motor de SDD usado neste workshop. Ele transforma uma intenção em `spec.md`, `plan.md`, `tasks.md` e implementação guiada.
 
 ### Instalação (se não estiver no devcontainer)
 
 ```bash
-npm install -g specky-sdd@latest
-specky install --ide=copilot # VS Code + GitHub Copilot
-# OU
-specky install --ide=claude # Claude Code
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@vX.Y.Z
+specify init . --integration copilot
 ```
 
 ### Verifique a instalação
 
 ```bash
-specky doctor # todos os checks devem estar verdes
-specky status # mostra a fase atual do pipeline
+specify version
 ```
 
-### Agentes do Specky (invoque no chat)
-
-| Agente | O que faz | Quando usar |
-|--------|-----------|-------------|
-| `@specky-orchestrator` | Coordena o pipeline completo | Para rodar o fluxo inteiro |
-| `@spec-engineer` | Escreve SPECIFICATION.md em EARS | Fase 2 — requisitos |
-| `@design-architect` | Gera DESIGN.md + diagramas C4 | Fase 4 — arquitetura |
-| `@sdd-clarify` | Resolve ambiguidades em EARS | Quando um requisito está confuso |
-| `@requirements-engineer` | Extrai requisitos de docs/código | Converter Estágio 1 → requisitos |
-
-### Slash Commands (atalhos)
+### Slash commands do Spec-Kit
 
 | Comando | Descrição |
-|---------|-----------|
-| `/specky-greenfield` | Projeto novo do zero |
-| `/specky-brownfield` | Feature em sistema existente |
-| `/specky-migration` | Modernização de legado ← **USE ESTE** |
-| `/specky-specify` | Especifica requisitos EARS |
-
-### Ferramentas MCP (usadas internamente pelos agentes)
-
-| Ferramenta | O que faz |
-|------------|-----------|
-| `sdd_init` | Inicializa o projeto em `.specs/NNN-feature/` |
-| `sdd_discover` | Fase de discovery (usa dados do Estágio 1) |
-| `sdd_write_spec` | Gera SPECIFICATION.md estruturado |
-| `sdd_write_design` | Gera DESIGN.md com diagramas |
-| `sdd_validate_ears` | **Valida requisitos contra o padrão EARS** (6 padrões) |
-| `sdd_generate_diagram` | Gera diagramas C4 em Mermaid |
-| `sdd_clarify` | Resolve ambiguidades entre requisitos |
+| --- | --- |
+| `/speckit.constitution` | Cria princípios e regras do projeto |
+| `/speckit.specify` | Escreve `specs/<feature>/spec.md` |
+| `/speckit.clarify` | Resolve ambiguidades antes do plano |
+| `/speckit.plan` | Gera `plan.md`, pesquisa e contratos |
+| `/speckit.tasks` | Gera `tasks.md` implementável |
+| `/speckit.analyze` | Analisa consistência e cobertura |
+| `/speckit.implement` | Implementa a feature guiada pelos artefatos |
 
 ### Fluxo recomendado para o Estágio 2
 
 ```
-1. @specky-orchestrator "run migration pipeline for SIFAP 2.0"
- → Cria estrutura em .specs/001-sifap-modernization/
+1. /speckit.constitution
+ → Cria ou atualiza `.specify/memory/constitution.md`
 
-2. @requirements-engineer
- → Importa regras do Estágio 1 e converte para EARS
+2. /speckit.specify "Modernize SIFAP payment cycle preserving source_legacy traceability"
+ → Cria estrutura em `specs/001-sifap-payment-cycle/`
 
-3. @spec-engineer
- → Gera SPECIFICATION.md completa com 20-30 requisitos EARS
+3. /speckit.clarify
+ → Resolve ambiguidades da spec antes do design
 
-4. sdd_validate_ears
- → Valida que cada requisito segue um dos 6 padrões
+4. /speckit.plan "Use Java 21, Spring Boot 3.3, PostgreSQL 16, Next.js 15 and modular monolith"
+ → Gera plano técnico e decisões rastreáveis
 
-5. @design-architect
- → Gera DESIGN.md com C4 L1+L2 e ADRs
+5. /speckit.tasks
+ → Gera tarefas para implementação
 
-6. @sdd-clarify (se necessário)
- → Resolve ambiguidades detectadas
+6. /speckit.analyze
+ → Verifica lacunas antes de implementar
 ```
 
-### Se o Specky NÃO estiver disponível
+### Se o Spec-Kit NÃO estiver disponível
 
 Sem pânico — escreva os requisitos EARS manualmente em SPECIFICATION.md seguindo os 6 padrões acima. O formato é texto puro.
 
@@ -418,14 +405,14 @@ Sem pânico — escreva os requisitos EARS manualmente em SPECIFICATION.md segui
 
 ## Armadilhas comuns
 
-| ❌ Se você está fazendo isso | ✅ Faça assim |
-|------------------------------|----------------|
-| Escrevendo EARS sem `source_legacy:` | Toda REQ-ID aponta para `.NSN`/`.ddm` ou `[GREENFIELD]` com justificativa |
-| Requisito vago ("o sistema deve ser performático") | EARS com critério testável: "p95 < 200ms para queries de listagem" |
-| Reescrevendo o brief de modernização em forma de requisito | Volte ao catálogo do Estágio 1; o brief não é a fonte da verdade |
-| ADR de 1 linha ("decidimos usar X") | ADR com contexto + decisão + alternativas rejeitadas + consequências |
-| Pulando o Specky `validate_ears` | Rode antes de fazer commit; o CI rejeita PRs com EARS inválidas |
-| C4 nível 3 antes de finalizar o nível 1 | L1 e L2 são suficientes para 95% dos casos. L3 só se sobrar tempo |
+| ❌ Se você está fazendo isso                               | ✅ Faça assim                                                             |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Escrevendo EARS sem `source_legacy:`                       | Toda REQ-ID aponta para `.NSN`/`.ddm` ou `[GREENFIELD]` com justificativa |
+| Requisito vago ("o sistema deve ser performático")         | EARS com critério testável: "p95 < 200ms para queries de listagem"        |
+| Reescrevendo o brief de modernização em forma de requisito | Volte ao catálogo do Estágio 1; o brief não é a fonte da verdade          |
+| ADR de 1 linha ("decidimos usar X")                        | ADR com contexto + decisão + alternativas rejeitadas + consequências      |
+| Pulando `/speckit.clarify` e `/speckit.analyze`             | Rode antes de fazer commit; o CI rejeita PRs com EARS inválidas           |
+| C4 nível 3 antes de finalizar o nível 1                    | L1 e L2 são suficientes para 95% dos casos. L3 só se sobrar tempo         |
 
 ---
 
@@ -444,16 +431,16 @@ Ao final do Estágio 2, seu time deve ter:
 
 ## Próximo passo
 
-No Handoff #2 (~14:30), o **Par 2 (Arquitetura)** entrega EARS + ADRs + C4 para os **Pares 3 (Implementação) e 4 (Qualidade)**. O Par 1 (PO) assina o escopo. Conversa de 5 minutos por par receptor — não vale "leia o documento depois". Vocês caminham juntos para o Estágio 3 ([`../03-implementacao/GUIDE.md`](../03-implementacao/GUIDE.md)).
+No Handoff #2 (~16:00), o **Par 2 (Arquitetura)** entrega EARS + ADRs + C4 para os **Pares 3 (Implementação) e 4 (Qualidade)**. O Par 1 (PO) assina o escopo. Conversa de 5 minutos por par receptor — não vale "leia o documento depois". Vocês caminham juntos para o Estágio 3 ([`../03-implementacao/GUIDE.md`](../03-implementacao/GUIDE.md)).
 
 ## Prompts para Copilot Chat
 
-1. *"Converta esta regra de negócio para notação EARS: [descreva a regra]. Identifique qual dos 6 padrões EARS se aplica e justifique."*
-2. *"Crie um ADR para a decisão de usar [tecnologia X] em vez de [tecnologia Y]. Inclua o 'caminho não tomado' e as consequências negativas."*
-3. *"Gere um diagrama C4 de contexto em Mermaid para um sistema que [descrição]."*
-4. *"Revise este requisito EARS e sugira melhorias de clareza. Aponte ambiguidades."*
-5. *"Quais atributos de qualidade (NFRs) devemos considerar para este sistema?"*
-6. *"Com base nestas regras de negócio, sugira a estrutura de módulos do backend (bounded contexts)."*
+1. _"Converta esta regra de negócio para notação EARS: [descreva a regra]. Identifique qual dos 6 padrões EARS se aplica e justifique."_
+2. _"Crie um ADR para a decisão de usar [tecnologia X] em vez de [tecnologia Y]. Inclua o 'caminho não tomado' e as consequências negativas."_
+3. _"Gere um diagrama C4 de contexto em Mermaid para um sistema que [descrição]."_
+4. _"Revise este requisito EARS e sugira melhorias de clareza. Aponte ambiguidades."_
+5. _"Quais atributos de qualidade (NFRs) devemos considerar para este sistema?"_
+6. _"Com base nestas regras de negócio, sugira a estrutura de módulos do backend (bounded contexts)."_
 
 ## Dica de ouro
 
@@ -463,8 +450,8 @@ Não reinvente a roda. A especificação de referência em `03-spec-sifap-modern
 
 ## Navegação
 
-| Anterior | Início | Próximo |
-|----------|--------|---------|
+| Anterior                                        | Início                    | Próximo                                           |
+| ----------------------------------------------- | ------------------------- | ------------------------------------------------- |
 | [Estágio 1 — GUIDE](../01-arqueologia/GUIDE.md) | [Kit PT-BR](../README.md) | [Estágio 3 — GUIDE](../03-implementacao/GUIDE.md) |
 
 — Paula

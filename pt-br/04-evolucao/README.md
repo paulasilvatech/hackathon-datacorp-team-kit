@@ -7,8 +7,11 @@ author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-05-18"
 version: "2.0.0"
 status: "approved"
-tags: ["estagio-4", "evolution", "terraform", "cicd", "agent", "workshop", "pt-br"]
+tags:
+  ["estagio-4", "evolution", "terraform", "cicd", "agent", "workshop", "pt-br"]
 ---
+
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Estágio 4 — Evolution
 
@@ -44,15 +47,15 @@ flowchart TB
 
 ## Conteúdo
 
-| Arquivo | Propósito |
-|---------|-----------|
-| [`GUIDE.md`](GUIDE.md) | Guia passo a passo deste estágio |
+| Arquivo                                                    | Propósito                                        |
+| ---------------------------------------------------------- | ------------------------------------------------ |
+| [`GUIDE.md`](GUIDE.md)                                     | Guia passo a passo deste estágio                 |
 | [`agent-experience-report.md`](agent-experience-report.md) | Template de relatório de experiência com o Agent |
 
 ## Navegação
 
-| Anterior | Início | Próximo |
-|----------|--------|---------|
+| Anterior                                                   | Início                    | Próximo              |
+| ---------------------------------------------------------- | ------------------------- | -------------------- |
 | [Estágio 3 — Implementação](../03-implementacao/README.md) | [Kit PT-BR](../README.md) | Demo + Retrospectiva |
 
 — Paula

@@ -10,6 +10,8 @@ status: "template"
 tags: ["estagio-2", "escopo", "template", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Decisões de Escopo — SIFAP 2.0
 
 > Para cada funcionalidade encontrada no Estágio 1, decida: **Migrar**, **Descartar** ou **Evoluir**.
@@ -20,7 +22,7 @@ tags: ["estagio-2", "escopo", "template", "pt-br"]
 
 **Time**: [Nome do Time]
 **Data**: 19/05/2026
-**Edição**: 
+**Edição**:
 **Par 1 (Product Owner) responsável**: [Nome]
 
 ## Por que isso importa
@@ -40,20 +42,20 @@ Pergunte de cada funcionalidade:
 
 ## Decisões por Funcionalidade
 
-| # | Funcionalidade | Decisão | Justificativa | Regra de Negócio (BR-XXX) | Prioridade |
-|---|----------------|---------|---------------|-----------------------------|------------|
-| 1 | Cadastro de Beneficiários | Migrar / Descartar / Evoluir | | | Alta / Média / Baixa |
-| 2 | Consulta de Beneficiários | | | | |
-| 3 | Registro de Pagamentos | | | | |
-| 4 | Processamento Batch | | | | |
-| 5 | Cálculo de Benefícios | | | | |
-| 6 | Validação de CPF | | | | |
-| 7 | Relatórios | | | | |
-| 8 | Auditoria | | | | |
-| 9 | Gestão de Usuários | | | | |
-| 10 | | | | | |
-| 11 | | | | | |
-| 12 | | | | | |
+| #   | Funcionalidade            | Decisão                      | Justificativa | Regra de Negócio (BR-XXX) | Prioridade           |
+| --- | ------------------------- | ---------------------------- | ------------- | ------------------------- | -------------------- |
+| 1   | Cadastro de Beneficiários | Migrar / Descartar / Evoluir |               |                           | Alta / Média / Baixa |
+| 2   | Consulta de Beneficiários |                              |               |                           |                      |
+| 3   | Registro de Pagamentos    |                              |               |                           |                      |
+| 4   | Processamento Batch       |                              |               |                           |                      |
+| 5   | Cálculo de Benefícios     |                              |               |                           |                      |
+| 6   | Validação de CPF          |                              |               |                           |                      |
+| 7   | Relatórios                |                              |               |                           |                      |
+| 8   | Auditoria                 |                              |               |                           |                      |
+| 9   | Gestão de Usuários        |                              |               |                           |                      |
+| 10  |                           |                              |               |                           |                      |
+| 11  |                           |                              |               |                           |                      |
+| 12  |                           |                              |               |                           |                      |
 
 > Adicione linhas para cada funcionalidade identificada no `discovery-report.md` do Estágio 1.
 
@@ -63,30 +65,30 @@ Pergunte de cada funcionalidade:
 
 > Liste funcionalidades que o SIFAP 2.0 deveria ter e que não existem no sistema legado. Cada uma vira REQ-ID com `source_legacy: [GREENFIELD] <justificativa>`.
 
-| # | Funcionalidade Nova | Justificativa | Prioridade | Complexidade |
-|---|---------------------|---------------|------------|---------------|
-| N1 | | | | |
-| N2 | | | | |
-| N3 | | | | |
+| #   | Funcionalidade Nova | Justificativa | Prioridade | Complexidade |
+| --- | ------------------- | ------------- | ---------- | ------------ |
+| N1  |                     |               |            |              |
+| N2  |                     |               |            |              |
+| N3  |                     |               |            |              |
 
 ---
 
 ## Resumo de Escopo
 
-| Decisão | Quantidade | Percentual |
-|---------|------------|------------|
-| Migrar | | |
-| Descartar | | |
-| Evoluir | | |
-| **Total** | | 100% |
+| Decisão   | Quantidade | Percentual |
+| --------- | ---------- | ---------- |
+| Migrar    |            |            |
+| Descartar |            |            |
+| Evoluir   |            |            |
+| **Total** |            | 100%       |
 
 ## Riscos de Escopo
 
 > Liste os riscos das decisões tomadas:
 
-| Risco | Probabilidade | Impacto | Mitigação |
-|-------|---------------|---------|------------|
-| | Alta / Média / Baixa | Alto / Médio / Baixo | |
+| Risco | Probabilidade        | Impacto              | Mitigação |
+| ----- | -------------------- | -------------------- | --------- |
+|       | Alta / Média / Baixa | Alto / Médio / Baixo |           |
 
 ## Aprovação
 
@@ -95,6 +97,6 @@ Pergunte de cada funcionalidade:
 - [ ] Par 3 (Technical Lead) confirmou que cabe nas 3 horas do Estágio 3
 - [ ] Time concordou com as prioridades
 
-> **Sign-off obrigatório no Handoff #2** (~14:30). Sem ele, o Estágio 3 não começa.
+> **Sign-off obrigatório no Handoff #2** (~16:00). Sem ele, o Estágio 3 não começa.
 
 — Paula

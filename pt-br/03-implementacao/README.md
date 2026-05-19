@@ -10,6 +10,8 @@ status: "approved"
 tags: ["estagio-3", "implementacao", "codigo", "prototipo", "workshop", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Estágio 3 — Implementação
 
 > Construa o protótipo do SIFAP 2.0 — backend Java 21 + Spring Boot 3, frontend Next.js 15, PostgreSQL 16 — usando o modo Agent do GitHub Copilot.
@@ -46,14 +48,14 @@ flowchart TB
 
 ## Conteúdo
 
-| Arquivo | Propósito |
-|---------|-----------|
+| Arquivo                | Propósito                        |
+| ---------------------- | -------------------------------- |
 | [`GUIDE.md`](GUIDE.md) | Guia passo a passo deste estágio |
 
 ## Navegação
 
-| Anterior | Início | Próximo |
-|----------|--------|---------|
+| Anterior                                                 | Início                    | Próximo                                           |
+| -------------------------------------------------------- | ------------------------- | ------------------------------------------------- |
 | [Estágio 2 — Spec Moderna](../02-spec-moderna/README.md) | [Kit PT-BR](../README.md) | [Estágio 4 — Evolution](../04-evolucao/README.md) |
 
 — Paula

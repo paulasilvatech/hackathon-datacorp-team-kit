@@ -10,6 +10,8 @@ status: "template"
 tags: ["estagio-1", "relatorio", "descoberta", "template", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Relatório de Descoberta — Estágio 1: Arqueologia Digital
 
 > Este documento consolida todas as descobertas do Estágio 1.
@@ -17,7 +19,7 @@ tags: ["estagio-1", "relatorio", "descoberta", "template", "pt-br"]
 
 **Time**: [Nome do Time]
 **Data**: 19/05/2026
-**Edição**: 
+**Edição**:
 **Participantes**: [Liste os membros e suas personas]
 
 ---
@@ -34,12 +36,15 @@ tags: ["estagio-1", "relatorio", "descoberta", "template", "pt-br"]
 ## 2. Visão Geral do Sistema
 
 ### 2.1 Propósito do SIFAP
+
 [Descreva o que o sistema faz com base na análise do código]
 
 ### 2.2 Arquitetura Legada
+
 [Descreva a arquitetura: quantos programas, DDMs, fluxos principais]
 
 ### 2.3 Usuários e Perfis
+
 [Quem usa o sistema? Quais perfis de acesso existem?]
 
 ---
@@ -47,6 +52,7 @@ tags: ["estagio-1", "relatorio", "descoberta", "template", "pt-br"]
 ## 3. Principais Descobertas
 
 ### 3.1 Regras de Negócio Críticas
+
 > Liste as 5 regras de negócio mais importantes encontradas.
 
 1. [Regra + referência ao catálogo BR-XXX]
@@ -56,11 +62,13 @@ tags: ["estagio-1", "relatorio", "descoberta", "template", "pt-br"]
 5.
 
 ### 3.2 Dependências Complexas
+
 > Quais programas estão mais acoplados? Onde há risco de efeito cascata?
 
 [Descreva]
 
 ### 3.3 Dívida Técnica Identificada
+
 > Que problemas no código legado vão complicar a migração?
 
 - [ ] [Problema 1]
@@ -68,6 +76,7 @@ tags: ["estagio-1", "relatorio", "descoberta", "template", "pt-br"]
 - [ ] [Problema 3]
 
 ### 3.4 Gaps de Documentação
+
 > O que a documentação existente NÃO cobre?
 
 [Descreva]
@@ -77,13 +86,15 @@ tags: ["estagio-1", "relatorio", "descoberta", "template", "pt-br"]
 ## 4. Mistérios e Riscos
 
 ### 4.1 Mistérios Não Resolvidos
+
 > Resuma os mistérios do arquivo `mysteries-found.md` que permanecem sem explicação.
 
-| ID | Descrição | Risco para Migração |
-|----|-----------|----------------------|
-| | | |
+| ID  | Descrição | Risco para Migração |
+| --- | --------- | ------------------- |
+|     |           |                     |
 
 ### 4.2 Riscos para o Estágio 2
+
 > O que o time de especificação precisa saber antes de começar?
 
 1. [Risco 1]
@@ -95,20 +106,23 @@ tags: ["estagio-1", "relatorio", "descoberta", "template", "pt-br"]
 ## 5. Recomendações
 
 ### 5.1 O que migrar primeiro
+
 > Com base na priorização do Par 1 (Product Owner), quais funcionalidades devem ser migradas primeiro?
 
 | Prioridade | Funcionalidade | Justificativa |
-|------------|----------------|---------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
+| ---------- | -------------- | ------------- |
+| 1          |                |               |
+| 2          |                |               |
+| 3          |                |               |
 
 ### 5.2 O que descartar
+
 > Funcionalidades que provavelmente não precisam ser migradas:
 
 - [Funcionalidade]: [Motivo para descartar]
 
 ### 5.3 O que evoluir
+
 > Funcionalidades que devem ser migradas E melhoradas:
 
 - [Funcionalidade]: [Como melhorar]
@@ -117,16 +131,16 @@ tags: ["estagio-1", "relatorio", "descoberta", "template", "pt-br"]
 
 ## 6. Métricas do Estágio
 
-| Métrica | Valor |
-|---------|-------|
-| Programas analisados | ___ / 15 |
-| DDMs mapeados | ___ / 4 |
-| Regras de negócio encontradas | ___ |
-| Regras escondidas encontradas | ___ / 10 |
-| Easter eggs encontrados | ___ / 3 |
-| Termos no glossário | ___ |
-| Mistérios catalogados | ___ |
-| Tempo total gasto | ___ horas |
+| Métrica                       | Valor        |
+| ----------------------------- | ------------ |
+| Programas analisados          | \_\_\_ / 15  |
+| DDMs mapeados                 | \_\_\_ / 4   |
+| Regras de negócio encontradas | \_\_\_       |
+| Regras escondidas encontradas | \_\_\_ / 10  |
+| Easter eggs encontrados       | \_\_\_ / 3   |
+| Termos no glossário           | \_\_\_       |
+| Mistérios catalogados         | \_\_\_       |
+| Tempo total gasto             | \_\_\_ horas |
 
 ---
 

@@ -10,6 +10,8 @@ status: "approved"
 tags: ["estagio-2", "especificacao", "ears", "adr", "workshop", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Estágio 2 — Spec Moderna
 
 > Escreva a especificação modernizada do SIFAP usando notação EARS, crie Architecture Decision Records (ADRs) e defina as fronteiras de escopo.
@@ -44,23 +46,23 @@ flowchart TB
  P3[Par 3 · Implementação<br/>TL + Dev<br/>calibração de viabilidade]:::support
  P4[Par 4 · Qualidade<br/>DBA + QA<br/>cenários BDD + modelo de dados]:::support
 
- P2 --> H2{Handoff #2<br/>~14:30<br/>spec → código}
+ P2 --> H2{Handoff #2<br/>~16:00<br/>spec → código}
  P1 --> H2
  P5 --> H2
 ```
 
 ## Conteúdo
 
-| Arquivo | Propósito |
-|---------|-----------|
-| [`GUIDE.md`](GUIDE.md) | Guia passo a passo deste estágio |
-| [`ADR-TEMPLATE.md`](ADR-TEMPLATE.md) | Template de Architecture Decision Record |
-| [`scope-decisions.md`](scope-decisions.md) | Template de decisões de escopo |
+| Arquivo                                    | Propósito                                |
+| ------------------------------------------ | ---------------------------------------- |
+| [`GUIDE.md`](GUIDE.md)                     | Guia passo a passo deste estágio         |
+| [`ADR-TEMPLATE.md`](ADR-TEMPLATE.md)       | Template de Architecture Decision Record |
+| [`scope-decisions.md`](scope-decisions.md) | Template de decisões de escopo           |
 
 ## Navegação
 
-| Anterior | Início | Próximo |
-|----------|--------|---------|
+| Anterior                                               | Início                    | Próximo                                                    |
+| ------------------------------------------------------ | ------------------------- | ---------------------------------------------------------- |
 | [Estágio 1 — Arqueologia](../01-arqueologia/README.md) | [Kit PT-BR](../README.md) | [Estágio 3 — Implementação](../03-implementacao/README.md) |
 
 — Paula

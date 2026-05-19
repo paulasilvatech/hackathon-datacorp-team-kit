@@ -10,6 +10,8 @@ status: "approved"
 tags: ["legado", "exploracao", "gate", "estagio-1", "obrigatorio", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Checklist de Exploração do Legado
 
 > **HARD GATE ANTES DO ESTÁGIO 2.** Nenhum requisito EARS é aceito sem referência a um arquivo de programa Natural ou DDM. Requisitos greenfield (sem paralelo no legado) precisam ser marcados `[GREENFIELD]` e justificados por escrito na spec.
@@ -28,7 +30,7 @@ aponte para um dos seguintes:
  - a string literal [GREENFIELD] com justificativa de 1 linha
 ```
 
-O CI rejeita PRs para `develop` se algum REQ-ID estiver sem a linha `source_legacy`. Facilitadores verificam por amostragem no H2 (Handoff #2, ~14:30).
+O CI rejeita PRs para `develop` se algum REQ-ID estiver sem a linha `source_legacy`. Facilitadores verificam por amostragem no H2 (Handoff #2, ~16:00).
 
 ---
 
@@ -36,13 +38,13 @@ O CI rejeita PRs para `develop` se algum REQ-ID estiver sem a linha `source_lega
 
 Cada par fica com 3 programas. **Nenhum programa pode ficar sem leitor.**
 
-| Par | Programas para ler | Por quê |
-|-----|---------------------|---------|
-| **1 · Visão** (PO + RE) | `CADBENEF.NSN`, `CADDEPEND.NSN`, `CADPROG.NSN` | Lógica de cadastro = entidades centrais que viram sujeitos das EARS |
-| **2 · Arquitetura** (EA + SA) | `BATCHPGT.NSN`, `BATCHREL.NSN`, `BATCHCON.NSN` | Fluxos batch revelam fronteiras de módulo (bounded contexts) |
+| Par                              | Programas para ler                             | Por quê                                                                    |
+| -------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------- |
+| **1 · Visão** (PO + RE)          | `CADBENEF.NSN`, `CADDEPEND.NSN`, `CADPROG.NSN` | Lógica de cadastro = entidades centrais que viram sujeitos das EARS        |
+| **2 · Arquitetura** (EA + SA)    | `BATCHPGT.NSN`, `BATCHREL.NSN`, `BATCHCON.NSN` | Fluxos batch revelam fronteiras de módulo (bounded contexts)               |
 | **3 · Implementação** (TL + Dev) | `CALCBENF.NSN`, `CALCCORR.NSN`, `CALCDSCT.NSN` | Cálculos são onde o código moderno vai morar; vocês precisam reproduzi-los |
-| **4 · Qualidade** (DBA + QA) | `VALBENEF.NSN`, `VALDOCS.NSN`, `VALELEG.NSN` | Validações viram testes; o DBA também mapeia campos dos DDMs |
-| **5 · Operações** (DevOps + TW) | `CONSBENF.NSN`, `RELPGT.NSN`, `RELAUDIT.NSN` | Caminhos de leitura alimentam o glossário e o runbook |
+| **4 · Qualidade** (DBA + QA)     | `VALBENEF.NSN`, `VALDOCS.NSN`, `VALELEG.NSN`   | Validações viram testes; o DBA também mapeia campos dos DDMs               |
+| **5 · Operações** (DevOps + TW)  | `CONSBENF.NSN`, `RELPGT.NSN`, `RELAUDIT.NSN`   | Caminhos de leitura alimentam o glossário e o runbook                      |
 
 ### Checklist por programa (marque em `01-arqueologia/business-rules-catalog.md`)
 
@@ -62,12 +64,12 @@ Para cada programa do seu par, preencha estes 5 campos:
 
 O Par 4 (DBA + QA) lidera. Todos os outros pares contribuem com revisão.
 
-| DDM | Dono | Artefato-alvo em PostgreSQL |
-|-----|------|------------------------------|
-| `BENEFICIARIO.ddm` | Par 4 | Tabela `beneficiary` |
-| `PAGAMENTO.ddm` | Par 4 | Tabela `payment` |
-| `PROGRAMA-SOCIAL.ddm` | Par 4 | Tabela `social_program` |
-| `AUDITORIA.ddm` | Par 4 | Tabela `audit_event` |
+| DDM                   | Dono  | Artefato-alvo em PostgreSQL |
+| --------------------- | ----- | --------------------------- |
+| `BENEFICIARIO.ddm`    | Par 4 | Tabela `beneficiary`        |
+| `PAGAMENTO.ddm`       | Par 4 | Tabela `payment`            |
+| `PROGRAMA-SOCIAL.ddm` | Par 4 | Tabela `social_program`     |
+| `AUDITORIA.ddm`       | Par 4 | Tabela `audit_event`        |
 
 Para cada DDM:
 
@@ -92,15 +94,15 @@ Existem **10 regras de negócio escondidas**, **3 easter eggs** e **4 inconsist�
 
 ## 5. Verificação Antes de Abrir o Estágio 2
 
-Por volta de 11h45 um facilitador vai checar o trabalho do seu par contra esta matriz. Não dá para passar para o Estágio 2 com linha vermelha.
+Por volta de 14h20 um facilitador vai checar o trabalho do seu par contra esta matriz. Não dá para passar para o Estágio 2 com linha vermelha.
 
-| Artefato | Caminho | Critério do portão |
-|----------|---------|---------------------|
-| Glossário | `01-arqueologia/glossary.md` | ≥ 30 termos, cada um com `legacy source` se veio do código |
-| Catálogo de regras de negócio | `01-arqueologia/business-rules-catalog.md` | ≥ 15 regras, **100% com `Programa Fonte` não-vazio** |
-| Mapa de dependências | `01-arqueologia/dependency-map.md` | Grafo Mermaid cobrindo todos os 15 programas .NSN (sem órfãos) |
-| Mistérios encontrados | `01-arqueologia/mysteries-found.md` | ≥ 5 mistérios com evidência arquivo+linha |
-| Relatório de descoberta | `01-arqueologia/discovery-report.md` | Todas as seções preenchidas (sem placeholders) |
+| Artefato                      | Caminho                                    | Critério do portão                                             |
+| ----------------------------- | ------------------------------------------ | -------------------------------------------------------------- |
+| Glossário                     | `01-arqueologia/glossary.md`               | ≥ 30 termos, cada um com `legacy source` se veio do código     |
+| Catálogo de regras de negócio | `01-arqueologia/business-rules-catalog.md` | ≥ 15 regras, **100% com `Programa Fonte` não-vazio**           |
+| Mapa de dependências          | `01-arqueologia/dependency-map.md`         | Grafo Mermaid cobrindo todos os 15 programas .NSN (sem órfãos) |
+| Mistérios encontrados         | `01-arqueologia/mysteries-found.md`        | ≥ 5 mistérios com evidência arquivo+linha                      |
+| Relatório de descoberta       | `01-arqueologia/discovery-report.md`       | Todas as seções preenchidas (sem placeholders)                 |
 
 ---
 
@@ -121,20 +123,20 @@ Caso greenfield (sem paralelo no legado):
 
 ```yaml
 REQ-AUTH-001:
- pattern: ubiquitous
- text: "The SIFAP shall authenticate users via OAuth2 with JWT tokens."
- source_legacy: "[GREENFIELD] Legacy used terminal session auth; modern API needs token auth."
- acceptance: "Unauthenticated requests return 401."
+  pattern: ubiquitous
+  text: "The SIFAP shall authenticate users via OAuth2 with JWT tokens."
+  source_legacy: "[GREENFIELD] Legacy used terminal session auth; modern API needs token auth."
+  acceptance: "Unauthenticated requests return 401."
 ```
 
-> Spec sem linha `source_legacy` = inválida. Os validadores do Specky no CI bloqueiam.
+> Spec sem linha `source_legacy` = inválida. Os validadores de traceabilidade no CI bloqueiam.
 
 ---
 
 ## Navegação
 
-| Anterior | Início | Próximo |
-|----------|--------|---------|
+| Anterior                        | Início                    | Próximo                        |
+| ------------------------------- | ------------------------- | ------------------------------ |
 | [Estágio 1 — README](README.md) | [Kit PT-BR](../README.md) | [GUIDE do Estágio 1](GUIDE.md) |
 
 — Paula

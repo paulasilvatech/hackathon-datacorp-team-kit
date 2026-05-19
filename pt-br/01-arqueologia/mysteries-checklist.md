@@ -10,6 +10,8 @@ status: "approved"
 tags: ["estagio-1", "misterios", "gamificacao", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Checklist de Mistérios do SIFAP
 
 > Há **10 regras de negócio escondidas** e **3 easter eggs** plantados no código legado. Quanto mais seu time encontrar, melhor a nota na rubrica (dimensão A1).
@@ -55,16 +57,16 @@ Marque [x] quando encontrar:
 
 ## Pontuação
 
-| Faixa | Classificação |
-|-------|---------------|
-| 26–32 pontos | Excelente — arqueologia completa! |
-| 18–25 pontos | Sólido — bom trabalho de investigação |
-| 10–17 pontos | Satisfatório — encontrou o básico |
-| 0–9 pontos | Precisa melhorar — explore mais a fundo |
+| Faixa        | Classificação                           |
+| ------------ | --------------------------------------- |
+| 26–32 pontos | Excelente — arqueologia completa!       |
+| 18–25 pontos | Sólido — bom trabalho de investigação   |
+| 10–17 pontos | Satisfatório — encontrou o básico       |
+| 0–9 pontos   | Precisa melhorar — explore mais a fundo |
 
 ## Dicas
 
-- Use **Copilot Chat** para perguntar sobre cada programa: *"Tem alguma lógica escondida neste código? Existe alguma condição que parece um workaround ou caso especial não documentado?"*
+- Use **Copilot Chat** para perguntar sobre cada programa: _"Tem alguma lógica escondida neste código? Existe alguma condição que parece um workaround ou caso especial não documentado?"_
 - Compare o que a **documentação diz** com o que o **código faz** — as inconsistências são intencionais
 - Os DDMs também contêm pistas em seus comentários
 - Se travar, levante a mão — o facilitador pode dar uma dica calibrada após 90 minutos

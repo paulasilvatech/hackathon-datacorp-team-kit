@@ -10,6 +10,8 @@ status: "approved"
 tags: ["estagio-3", "implementacao", "codigo", "didatico", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Estágio 3 — Implementação (3 horas)
 
 ## Onde isso encaixa no SDLC
@@ -46,7 +48,7 @@ Estender o protótipo funcional do SIFAP 2.0 implementando as features priorizad
 
 ## Por que isso importa
 
-O Estágio 3 é onde a spec encontra a realidade. EARS escrita bonita no Estágio 2 fica preto-no-branco aqui: ou o teste passa, ou não passa. **Cada commit traz uma referência `Implements REQ-XXX:` no message.** Sem isso, a rastreabilidade morre e o Specky `sdd_check_sync` detecta drift entre spec e código no Estágio 4.
+O Estágio 3 é onde a spec encontra a realidade. EARS escrita bonita no Estágio 2 fica preto-no-branco aqui: ou o teste passa, ou não passa. **Cada commit traz uma referência `Implements REQ-XXX:` no message.** Sem isso, a rastreabilidade morre e `/speckit.analyze` ajuda a encontrar drift entre spec, tasks e código antes do handoff.
 
 ## Como pensar nisso
 
@@ -70,6 +72,7 @@ docker compose up -d
 ```
 
 Isso sobe:
+
 - **PostgreSQL 16** na porta 5432
 - **Backend (Java 21 + Spring Boot 3)** na porta 8080
 - **Frontend (Next.js 15)** na porta **3000** (local) ou **3001** (docker-compose do root)
@@ -84,15 +87,16 @@ Isso sobe:
 
 ### 3. Credenciais padrão
 
-| Usuário | Senha | Perfil | O que pode fazer |
-|---------|-------|--------|-------------------|
-| `admin` | `client2026` | ADMIN | Tudo: gerir usuários, configurações |
+| Usuário     | Senha        | Perfil   | O que pode fazer                              |
+| ----------- | ------------ | -------- | --------------------------------------------- |
+| `admin`     | `client2026` | ADMIN    | Tudo: gerir usuários, configurações           |
 | `operator1` | `client2026` | OPERATOR | Cadastrar beneficiários, registrar pagamentos |
-| `auditor1` | `client2026` | AUDITOR | Consultar, gerar relatórios, auditar |
+| `auditor1`  | `client2026` | AUDITOR  | Consultar, gerar relatórios, auditar          |
 
 ### 4. Teste a API no Swagger
 
 Abra http://localhost:8080/swagger-ui.html e teste:
+
 1. `POST /api/v1/auth/login` com `{"username": "admin", "password": "client2026"}`
 2. Copie o token JWT retornado
 3. Clique em "Authorize" no Swagger e cole o token
@@ -130,11 +134,11 @@ src/main/java/br/gov/client/sifap/
 
 ### Camadas (de dentro para fora)
 
-| Camada | Responsabilidade | Exemplos |
-|--------|-------------------|----------|
-| **domain** | Regras de negócio puras, sem dependência de framework | Enums de status, interfaces de repositório, value objects |
-| **application** | Casos de uso, orquestração | Services, DTOs de Request/Response |
-| **infrastructure** | Detalhes técnicos, I/O | Controllers REST, JPA Entities, Spring Data Repositories |
+| Camada             | Responsabilidade                                      | Exemplos                                                  |
+| ------------------ | ----------------------------------------------------- | --------------------------------------------------------- |
+| **domain**         | Regras de negócio puras, sem dependência de framework | Enums de status, interfaces de repositório, value objects |
+| **application**    | Casos de uso, orquestração                            | Services, DTOs de Request/Response                        |
+| **infrastructure** | Detalhes técnicos, I/O                                | Controllers REST, JPA Entities, Spring Data Repositories  |
 
 ### Regra de ouro
 
@@ -183,7 +187,7 @@ public class PaymentController {
 ALTER TABLE payments ADD COLUMN status VARCHAR(20) DEFAULT 'PENDING';
 ```
 
-> **Importante**: use Flyway. Nunca modifique migrações existentes — sempre crie novas (V2__, V3__, etc.).
+> **Importante**: use Flyway. Nunca modifique migrações existentes — sempre crie novas (V2**, V3**, etc.).
 
 ### Passo 5: escreva os testes
 
@@ -201,17 +205,17 @@ class PaymentServiceTest {
 
 ---
 
-## Fluxo com Copilot Edits
+## Fluxo com Copilot Plan
 
 Para implementar features rapidamente:
 
 1. **Selecione os arquivos relevantes** no VS Code (Ctrl+click)
-2. **Abra o Copilot Edits** (Ctrl+Shift+I)
-3. **Descreva a mudança** em linguagem natural:
- > "Adicione um endpoint PUT /api/v1/beneficiaries/{id}/status que permita
- > mudar o status do beneficiário. Valide que a transição é válida
- > (ACTIVE -> SUSPENDED é permitido, INACTIVE -> ACTIVE não é). Crie o teste."
-4. **Revise o diff** antes de aceitar — verifique que segue a arquitetura
+2. **Abra o Copilot em modo Plan**
+3. **Descreva a mudança** em linguagem natural e peça um plano antes da execução:
+   > "Adicione um endpoint PUT /api/v1/beneficiaries/{id}/status que permita
+   > mudar o status do beneficiário. Valide que a transição é válida
+   > (ACTIVE -> SUSPENDED é permitido, INACTIVE -> ACTIVE não é). Crie o teste."
+4. **Revise o plano e o diff** antes de aceitar — verifique que segue a arquitetura
 5. **Rode os testes** para confirmar
 
 ---
@@ -232,11 +236,11 @@ cd 04-prototipo-sifap-moderno/backend
 
 ### Tipos de teste esperados
 
-| Tipo | Onde | O que testa |
-|------|------|-------------|
-| Unit | `*ServiceTest.java` | Lógica de negócio isolada |
+| Tipo        | Onde                   | O que testa                   |
+| ----------- | ---------------------- | ----------------------------- |
+| Unit        | `*ServiceTest.java`    | Lógica de negócio isolada     |
 | Integration | `*ControllerTest.java` | Endpoint completo (HTTP → DB) |
-| Repository | `*RepositoryTest.java` | Queries customizadas |
+| Repository  | `*RepositoryTest.java` | Queries customizadas          |
 
 ---
 
@@ -280,11 +284,11 @@ src/app/
 
 Para cada feature que você implementa, mantenha rastreabilidade com a spec:
 
-| Requisito EARS | Código | Teste |
-|----------------|--------|-------|
-| REQ-BEN-01: "The SIFAP shall validate CPF with modulo-11" | `Cpf.java` (domain) | `CpfTest.java` — 11 testes |
+| Requisito EARS                                                                    | Código                           | Teste                                        |
+| --------------------------------------------------------------------------------- | -------------------------------- | -------------------------------------------- |
+| REQ-BEN-01: "The SIFAP shall validate CPF with modulo-11"                         | `Cpf.java` (domain)              | `CpfTest.java` — 11 testes                   |
 | REQ-PAY-03: "When a cycle is generated, create payments for ACTIVE beneficiaries" | `PaymentCycleService.generate()` | `PaymentCycleServiceTest.generate_openCycle` |
-| REQ-AUD-01: "When an entity is changed, write an audit record" | `AuditService.record()` | `SifapApplicationIntegrationTest` |
+| REQ-AUD-01: "When an entity is changed, write an audit record"                    | `AuditService.record()`          | `SifapApplicationIntegrationTest`            |
 
 Quando adicionar uma feature, documente no commit: `Implements REQ-XXX`. Isso fecha o ciclo spec → código → teste.
 
@@ -296,9 +300,9 @@ Suponha que o Estágio 2 produziu este REQ-ID:
 
 ```yaml
 REQ-PAY-DSCT-01:
- pattern: unwanted
- text: "The SIFAP shall not allow non-judicial deductions to exceed 30% of gross."
- source_legacy: legacy/natural-programs/CALCDSCT.NSN#L142-L148
+  pattern: unwanted
+  text: "The SIFAP shall not allow non-judicial deductions to exceed 30% of gross."
+  source_legacy: legacy/natural-programs/CALCDSCT.NSN#L142-L148
 ```
 
 Sua implementação no Estágio 3:
@@ -314,30 +318,30 @@ Pronto. Rastreabilidade fechada.
 
 ## Armadilhas comuns
 
-| ❌ Se você está fazendo isso | ✅ Faça assim |
-|------------------------------|----------------|
-| Branch única gigante de 8 horas | Commits pequenos, PRs pequenos. 1 feature = 1 PR |
-| Implementar sem teste, "depois eu faço" | Escreva o teste junto com o código. "Depois" não existe |
-| Editar uma migração Flyway antiga | NUNCA. Sempre nova migração (V5__, V6__...) |
-| Criar endpoint sem `@Valid` no DTO | Bean Validation no controller. Sempre |
-| Misturar lógica de domínio no controller | Controller chama service. Lógica fica em service ou domain |
-| Importar classes de `payment.infrastructure` em `beneficiary.domain` | Bounded contexts não se cruzam |
-| Commit sem `Implements REQ-XXX` | Rastreabilidade é o que valida o trabalho do estágio anterior |
+| ❌ Se você está fazendo isso                                         | ✅ Faça assim                                                 |
+| -------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Branch única gigante de 8 horas                                      | Commits pequenos, PRs pequenos. 1 feature = 1 PR              |
+| Implementar sem teste, "depois eu faço"                              | Escreva o teste junto com o código. "Depois" não existe       |
+| Editar uma migração Flyway antiga                                    | NUNCA. Sempre nova migração (V5**, V6**...)                   |
+| Criar endpoint sem `@Valid` no DTO                                   | Bean Validation no controller. Sempre                         |
+| Misturar lógica de domínio no controller                             | Controller chama service. Lógica fica em service ou domain    |
+| Importar classes de `payment.infrastructure` em `beneficiary.domain` | Bounded contexts não se cruzam                                |
+| Commit sem `Implements REQ-XXX`                                      | Rastreabilidade é o que valida o trabalho do estágio anterior |
 
 ---
 
 ## Troubleshooting
 
-| Problema | Solução |
-|----------|---------|
-| `docker compose up` falha | Verifique: Docker Desktop ligado? Portas 5432/8080/3000 livres? Tente `docker compose down && docker compose up -d` |
-| Backend não conecta no PostgreSQL | Verifique que o container postgres está healthy: `docker compose ps` |
-| Frontend mostra "Failed to load" | O backend está rodando? Teste: `curl http://localhost:8080/actuator/health` |
-| Login retorna "Invalid credentials" | Use: admin / client2026. Verifique que V4__auth.sql rodou (Flyway) |
-| Teste falha com Testcontainers | Docker Desktop precisa estar rodando. Alternativa: unit test com Mockito |
-| Migração falha no startup | NUNCA edite uma migração existente. Crie uma nova (V5__, V6__...) |
-| `mvn test-compile` erro de import | Verifique que o pacote segue a estrutura: domain/ → application/ → infrastructure/ |
-| Swagger UI não aparece | Tente: http://localhost:8080/swagger-ui/index.html (caminho alternativo) |
+| Problema                            | Solução                                                                                                             |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `docker compose up` falha           | Verifique: Docker Desktop ligado? Portas 5432/8080/3000 livres? Tente `docker compose down && docker compose up -d` |
+| Backend não conecta no PostgreSQL   | Verifique que o container postgres está healthy: `docker compose ps`                                                |
+| Frontend mostra "Failed to load"    | O backend está rodando? Teste: `curl http://localhost:8080/actuator/health`                                         |
+| Login retorna "Invalid credentials" | Use: admin / client2026. Verifique que V4\_\_auth.sql rodou (Flyway)                                                |
+| Teste falha com Testcontainers      | Docker Desktop precisa estar rodando. Alternativa: unit test com Mockito                                            |
+| Migração falha no startup           | NUNCA edite uma migração existente. Crie uma nova (V5**, V6**...)                                                   |
+| `mvn test-compile` erro de import   | Verifique que o pacote segue a estrutura: domain/ → application/ → infrastructure/                                  |
+| Swagger UI não aparece              | Tente: http://localhost:8080/swagger-ui/index.html (caminho alternativo)                                            |
 
 ---
 
@@ -360,14 +364,14 @@ No Handoff #3 (~17:00), o **Par 3 (Implementação)** entrega o código rodando 
 
 ## Prompts para Copilot Chat
 
-1. *"Crie um endpoint REST para [funcionalidade] seguindo a arquitetura existente."*
-2. *"Escreva um teste de integração para o endpoint [endpoint]."*
-3. *"Adicione Bean Validation ao DTO [classe]."*
-4. *"Crie uma migração Flyway para adicionar [tabela/coluna]."*
-5. *"Implemente a regra de negócio BR-XXX: [descrição da regra]."*
-6. *"Crie um React Server Component para listar [entidade]."*
-7. *"Adicione tratamento de erro para o caso de [cenário]."*
-8. *"Refatore este service para separar a lógica de [responsabilidade]."*
+1. _"Crie um endpoint REST para [funcionalidade] seguindo a arquitetura existente."_
+2. _"Escreva um teste de integração para o endpoint [endpoint]."_
+3. _"Adicione Bean Validation ao DTO [classe]."_
+4. _"Crie uma migração Flyway para adicionar [tabela/coluna]."_
+5. _"Implemente a regra de negócio BR-XXX: [descrição da regra]."_
+6. _"Crie um React Server Component para listar [entidade]."_
+7. _"Adicione tratamento de erro para o caso de [cenário]."_
+8. _"Refatore este service para separar a lógica de [responsabilidade]."_
 
 ## Dica de ouro
 
@@ -377,8 +381,8 @@ Não tente implementar tudo. Foque em **qualidade sobre quantidade**. Um endpoin
 
 ## Navegação
 
-| Anterior | Início | Próximo |
-|----------|--------|---------|
+| Anterior                                         | Início                    | Próximo                                      |
+| ------------------------------------------------ | ------------------------- | -------------------------------------------- |
 | [Estágio 2 — GUIDE](../02-spec-moderna/GUIDE.md) | [Kit PT-BR](../README.md) | [Estágio 4 — GUIDE](../04-evolucao/GUIDE.md) |
 
 — Paula

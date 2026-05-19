@@ -1,6 +1,6 @@
 ---
 title: "Kit do Time — Português (BR)"
-description: "Versão didática em português do kit do workshop. Os assets técnicos (legacy/, persona-kits/, .github/, scripts/) ficam no raiz do kit e não são duplicados por idioma."
+description: "Espelho didático em PT-BR do kit do time. As 5 pessoas do grupo cobrem 10 personas em 5 pares e 4 estágios, modernizando o SIFAP de Natural/Adabas para Java + Next.js + Azure em um dia."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/README.md"
 author: "Paula Silva, Americas Software GBB, Microsoft"
@@ -10,128 +10,208 @@ status: "approved"
 tags: ["kit", "pt-br", "didatico", "workshop"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Kit do Time — Português (BR)
+
+![Jornada de modernização do SIFAP: de Natural e Adabas para Java 21 e Next.js 15](assets/hero-sifap-journey.svg)
 
 > 🌐 **Idiomas:** [English 🇬🇧](../en/README.md) · **Português 🇧🇷 (aqui)** · [Español 🇲🇽](../es/README.md)
 
-> **COMECE AQUI** se você é participante do workshop.
+> **Comece aqui se você é participante do workshop.**
 >
-> 1. Leia [`TEAM-FLOW.md`](TEAM-FLOW.md) — como vocês 5 cobrem 10 personas em 5 pares (10 minutos)
-> 2. Leia suas duas cartas de persona em [`personas/`](personas/) (15 minutos)
-> 3. Abra o guia do Stage 1 em [`01-arqueologia/GUIDE.md`](01-arqueologia/GUIDE.md)
+> 1. Leia [`TEAM-FLOW.md`](TEAM-FLOW.md) — como 5 pessoas cobrem 10 personas em 5 pares (10 minutos).
+> 2. Abra suas duas pastas em [`persona-kits/`](persona-kits/) e leia o `PERSONA.md` de cada uma (15 minutos).
+> 3. Abra o guia do Estágio 1 em [`01-arqueologia/GUIDE.md`](01-arqueologia/GUIDE.md).
 
 ## Ferramentas aprovadas — somente estas
 
 O workshop roda em **stack fixa**. Misturar ferramentas alternativas fragmenta o time e quebra a rastreabilidade spec → código → teste.
 
-| Use | Não use |
-|-----|---------|
-| **VS Code** (ou Insiders) | Cursor, Windsurf, IntelliJ, Eclipse, Sublime, plugins de Neovim |
-| **GitHub Copilot** — modos Chat + Edits + Agent (Copilot Workspace OK) | Cline, Continue, Aider, Codeium, Tabnine |
-| **GitHub Copilot CLI** *(opcional)* | ChatGPT / Claude.ai na web para gerar código (quebra o histórico do Copilot Chat) |
-| **Spec-Kit** (plugin `specky-sdd`) — o motor de SDD | Kiro, GitHub Spec, pipelines de SDD em YAML custom |
-| **GitHub** (Issues, PRs, Actions, Projects) | — |
-| **Docker / Docker Compose** | instalações locais de Postgres/Node/Java que divergem do devcontainer |
-| **Terraform** (Azure provider) | — |
+| Use                                                                    | Não use                                                                           |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| **VS Code** (ou Insiders)                                              | Cursor, Windsurf, Antigravity, IntelliJ, Eclipse, Sublime, plugins de Neovim      |
+| **GitHub Copilot** — modos Ask + Plan + Agent (Copilot Workspace OK)   | Codex, Claude Code, Cline, Continue, Aider, Codeium, Tabnine                      |
+| **GitHub Copilot CLI** _(opcional)_                                    | ChatGPT / Claude.ai na web para gerar código (quebra o histórico do Copilot Chat) |
+| **Spec-Kit** oficial do GitHub (`Specify CLI` + `/speckit.*`)           | Kiro, frameworks SDD alternativos e pipelines de SDD em YAML custom               |
+| **GitHub** (Issues, PRs, Actions, Projects)                            | —                                                                                 |
+| **Docker / Docker Compose**                                            | instalações locais de Postgres/Node/Java que divergem do devcontainer             |
+| **Terraform** (Azure provider)                                         | —                                                                                 |
 
-O racional completo e o que o CI verifica estão em [`../.github/copilot-instructions.md`](../.github/copilot-instructions.md).
+O racional completo e o que o CI verifica estão em [`.github/copilot-instructions.md`](.github/copilot-instructions.md).
 
 ## Duas camadas de agente — ambas obrigatórias
 
 O kit traz **duas camadas de agente** que cobrem eixos diferentes (papel × estágio). Use as duas.
 
-| Camada | O que | Quando | Como |
-|--------|-------|--------|------|
-| [`../persona-kits/`](../persona-kits/) | Um kit por persona (agent + prompts + skills + MCP) | Instalado às 09:00, vive o dia inteiro | Cada pessoa copia seus 2 kits via `cp -r ../persona-kits/XX-*/.github/* .github/` |
-| [`../agent-kits/`](../agent-kits/) | Quatro agentes por estágio: `@archaeologist`, `@architect`, `@builder`, `@evolution` | Selecionado a cada estágio pelo time | Abra o Copilot Chat → seletor de agentes → escolha o agente do estágio → cole o prompt de abertura do README do kit |
+| Camada                                 | O que                                                                                | Quando                                 | Como                                                                                                                |
+| -------------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| [`persona-kits/`](persona-kits/)       | Dez kits, um por persona do workshop (agent + prompts + skills + MCP)                | Instalado às 09:00, vive o dia inteiro | Cada pessoa copia seus 2 kits via `cp -r persona-kits/XX-*/.github/* .github/`                                      |
+| [`agent-kits/`](agent-kits/)           | Quatro agentes por estágio: `@archaeologist`, `@architect`, `@builder`, `@evolution` | Selecionado a cada estágio pelo time   | Abra o Copilot Chat → seletor de agentes → escolha o agente do estágio → cole o prompt de abertura do README do kit |
 
-**Não são duplicados.** `persona-kits/` configura **seu Copilot para o seu papel**. `agent-kits/` coordena **o time para o estágio atual**. Um Stage 1 típico fica assim:
+**Não são duplicados.** `persona-kits/` configura **seu Copilot para o seu papel**. `agent-kits/` coordena **o time para o estágio atual**. Um Estágio 1 típico fica assim:
 
 1. Você já carregou seu persona-kit (ex.: Requirements Engineer) → slash commands como `/ears-convert` funcionam.
 2. O time seleciona `@archaeologist` no chat → a conversa entra em modo arqueologia.
 3. Você pergunta ao `@archaeologist` para resumir `BATCHPGT.NSN` → resposta com enquadramento de arqueologia.
 4. Você roda `/ears-convert` sobre o que descobriu → seu persona-kit de RE assume e devolve YAML com a linha `source_legacy:`.
 
-O diagrama completo da integração está em [`../.github/copilot-instructions.md`](../.github/copilot-instructions.md).
+Diagrama completo da integração em [`.github/copilot-instructions.md`](.github/copilot-instructions.md).
 
-## Como este folder se organiza
+Você e quatro colegas têm um dia para modernizar um sistema de pagamentos de 29 anos. Cinco pares, quatro estágios, dez artefatos, um demo. Este folder é o kit que mantém os cinco caminhando na mesma direção.
 
-O kit é **trilíngue**, mas usa **estrutura híbrida**: apenas a documentação instrucional é traduzida; os assets técnicos ficam no raiz do kit e são compartilhados.
+## Onde isso encaixa no SDLC
 
-```
-06-kit-repositorio-times/
-│
-├── pt-br/ ← VOCÊ ESTÁ AQUI
-│ ├── README.md
-│ ├── TEAM-FLOW.md
-│ ├── 01-arqueologia/
-│ │ ├── GUIDE.md
-│ │ ├── LEGACY-EXPLORATION-CHECKLIST.md
-│ │ └── ...
-│ ├── 02-spec-moderna/
-│ ├── 03-implementacao/
-│ ├── 04-evolucao/
-│ ├── personas/
-│ ├── cheat-sheets/
-│ └── docs/
-│
-├── es/ (espelho em espanhol latam neutro)
-├── en/ (espelho em inglês)
-│
-├── legacy/ ← compartilhado, NÃO traduzido (parte da imersão 1997)
-├── persona-kits/ ← compartilhado, NÃO traduzido (definições de agentes Copilot)
-├── .github/ ← compartilhado, NÃO traduzido (workflows e templates)
-├── scripts/ ← compartilhado, NÃO traduzido (setup.sh e check.sh)
-├── .devcontainer/ ← compartilhado, NÃO traduzido
-└── plugins/ ← compartilhado (em produção)
+```mermaid
+flowchart LR
+ classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
+ classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
+ classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
+
+ PRE[Pré-evento<br/>setup + onboarding]:::next
+ S1[Estágio 1<br/>Descoberta<br/>13:00–14:30]:::current
+ S2[Estágio 2<br/>Especificação<br/>14:45–16:00]:::later
+ S3[Estágio 3<br/>Implementação<br/>16:15–17:30]:::later
+ S4[Estágio 4<br/>Evolução<br/>17:45–18:15]:::later
+ DEMO[Demo + Retro<br/>18:15–19:50]:::later
+
+ PRE --> S1 --> S2 --> S3 --> S4 --> DEMO
 ```
 
-## Por que estrutura híbrida
+Este kit cobre tudo do momento em que você clona o repositório até o momento em que seu time faz o demo de um SIFAP 2.0 rodando. A manhã é para setup, instalação dos kits e orientação; a arqueologia começa na parte da tarde, às 13:00.
 
-- **Sem duplicação de código.** Os 15 programas Natural, 4 DDMs e os 10 persona-kits ficam em um lugar só. Atualização em 1 lugar, não em 3.
-- **Imersão preservada.** Os documentos em `legacy/legacy-docs/` estão em português de 1997-2018 de propósito. Traduzir quebraria a autenticidade do cenário.
-- **Agentes Copilot são código.** Os arquivos em `.github/` e `persona-kits/` são consumidos por ferramentas, não por humanos. Tradução não ajuda.
-- **Cada idioma é navegável.** Dentro de `pt-br/` você tem um kit completo de conteúdo didático, com links relativos para os assets compartilhados (`../legacy/`, `../persona-kits/`).
+![Fluxo dos quatro estágios do Dia 2: arqueologia, spec moderna, reconstrução e evolução com Agent](assets/stage-flow.svg)
 
-## O que está traduzido nesta amostra
+## Quem trabalha aqui (os 5 pares)
 
-| Arquivo | Status |
-|---------|--------|
-| [`01-arqueologia/GUIDE.md`](01-arqueologia/GUIDE.md) | ✅ Reescrito no padrão didático completo |
-| Todos os outros 27 arquivos | ⏳ Aguardando aprovação do padrão |
+```mermaid
+flowchart TB
+ classDef vision fill:#F25022,stroke:#B33816,color:#fff
+ classDef arch fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
+ classDef impl fill:#E6F7E1,stroke:#7FBA00,color:#0A0A0A
+ classDef qual fill:#E5F6FD,stroke:#00A4EF,color:#0A0A0A
+ classDef ops fill:#EEEEEE,stroke:#1B1B1F,color:#0A0A0A
 
-## O padrão didático aplicado
+ P1[Par 1 · Visão<br/>PO + RE<br/>Discovery → Specification]:::vision
+ P2[Par 2 · Arquitetura<br/>EA + SA<br/>Specification → Design]:::arch
+ P3[Par 3 · Implementação<br/>TL + Dev<br/>Implementation → Evolution]:::impl
+ P4[Par 4 · Qualidade<br/>DBA + QA<br/>Implementation (dados + testes)]:::qual
+ P5[Par 5 · Operações<br/>DevOps + TW<br/>Cross-cutting + Evolution]:::ops
 
-Todo arquivo traduzido segue esta estrutura:
+ P1 -- H1 --> P2
+ P2 -- H2 --> P3
+ P2 -- H2 --> P4
+ P3 -- H3 --> P5
+ P4 -- H3 --> P5
+```
 
-1. **Eyebrow + frase-chave** — em uma frase, o que você vai fazer aqui
-2. **Por que isso importa** — contexto narrativo, não burocrático
-3. **Como pensar nisso** — modelo mental antes do passo a passo
-4. **Passo a passo numerado** — cada passo com o comando, o output esperado e o "porque"
-5. **Exemplo concreto** — um caso completo do início ao fim
-6. **Armadilhas comuns** — "se você está fazendo X, está errado, faça Y"
-7. **Como saber que terminou** — DoD verificável
-8. **Próximo passo** — handoff explícito para qual par
+Cada pessoa do time escolhe **um par (duas personas)** e fica nele o dia inteiro. As duas personas em um par são corresponsáveis — sem handoff interno, colaboração contínua. Os handoffs horizontais (H1, H2, H3) são onde o dia flui ou quebra.
 
-## Regras de tradução
+## Por que isso importa
 
-| Mantém em inglês | Traduz |
-|------------------|--------|
-| Nomes de produtos: GitHub Copilot, Spec-Kit, Next.js, Spring Boot, Terraform, PostgreSQL, Azure, Docker | Verbos, narrativa, exemplos |
-| Termos técnicos consagrados: REQ-ID, EARS, ADR, C4, CI/CD, PR, commit, branch, MCP, DDM, OAuth2, JWT, IaC | Conceitos pedagógicos: "uma especificação é como…" |
-| Comandos shell, código, paths, nomes de arquivo | Banners, headings, listas |
-| Conteúdo do `.github/`, `persona-kits/`, `legacy/` | Definições, "Por que", "Como pensar" |
+A maioria dos projetos de modernização falha não porque o time não sabe escrever Java, mas porque escreve Java para o problema errado. Modernizam o brief, não o sistema. Perdem 29 anos de regras de negócio enterradas em código que ninguém lê. Demoam algo bonito que não substitui nada de real.
 
-## Como esta amostra deve ser avaliada
+![Quatro dores do SIFAP legado: dívida técnica, perda de conhecimento, baixa cobertura de testes e baixa velocidade](assets/sifap-pain-points.svg)
 
-Por favor, leia [`01-arqueologia/GUIDE.md`](01-arqueologia/GUIDE.md) com essas perguntas em mente:
+Este kit existe para impedir que isso aconteça com você. O código legado vai junto com vocês. A rastreabilidade é exigida pelo CI. Os handoffs estão agendados. Os papéis são explícitos. Você não precisa inventar o processo; precisa executá-lo.
 
-1. **Um dev sênior brasileiro entende o que precisa fazer?** Se sim, padrão aprovado.
-2. **O "por que" está claro em cada decisão importante?** Não basta dizer o que fazer.
-3. **O exemplo concreto da seção "do legado à linha do catálogo" ajuda a fixar o padrão de rastreabilidade?** Esse é o conceito mais importante do dia.
-4. **As armadilhas batem com o que você viu na edição anterior?** Adicionar / remover conforme sua memória do workshop anterior.
-5. **O tom está adequado?** Optei por "você" direto, parceiro, sem formalidade excessiva.
+## Como pensar neste kit
 
-Após sua aprovação (ou pedido de ajustes), aplico o mesmo padrão para os 27 arquivos restantes × 3 idiomas.
+Pense nele como uma **caixa de ferramentas mais um mapa**. A caixa são os persona-kits, prompts, devcontainer, scripts e gates de CI — tudo pré-configurado. O mapa é o `TEAM-FLOW.md` mais os quatro guias de estágio — o que o time faz junto, hora a hora.
+
+![Transformação arquitetural do SIFAP 1.0 no mainframe para o SIFAP 2.0 nativo de nuvem no Azure](assets/architecture-transformation.svg)
+
+Você não lê este kit de capa a capa. Lê as partes que seu par precisa, quando precisa. Três regras:
+
+1. **Leia o `PERSONA.md` dos seus dois kits primeiro.** Sem isso, você vai pegar a ferramenta errada no estágio errado.
+2. **Confie nos handoffs.** O trabalho do Par 1 não é "terminar" a spec — é entregar para o Par 2 uma spec limpa. O Par 3 não faz deploy — quem faz é o Par 5. Cada par tem um receptor downstream.
+3. **O legado é obrigatório.** Todo requisito no Estágio 2 traça de volta para um arquivo `.NSN` ou `.ddm`. O CI verifica. Pular o Estágio 1 = falhar no gate às 14:30.
+
+## Estrutura de pastas
+
+| Caminho                                  | Propósito                                                                                             |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| [`TEAM-FLOW.md`](TEAM-FLOW.md)           | **Leia primeiro.** Linha do tempo do dia, handoffs, regras de escalação                               |
+| [`01-arqueologia/`](01-arqueologia/)     | Estágio 1 — guia de arqueologia do código legado, templates e o gate forte                            |
+| [`02-spec-moderna/`](02-spec-moderna/)   | Estágio 2 — especificação EARS (todo REQ precisa de `source_legacy:`), ADRs, escopo                   |
+| [`03-implementacao/`](03-implementacao/) | Estágio 3 — guia de implementação Java + Next.js                                                      |
+| [`04-evolucao/`](04-evolucao/)           | Estágio 4 — Terraform IaC, CI/CD, Copilot Agent Mode                                                  |
+| [`docs/`](docs/)                         | Documentação transversal: fluxo SDLC, matriz persona-agente, glossário, runbook e ADRs                |
+| [`legacy/`](legacy/)                     | Cópia local do legado SIFAP para exploração em português: Natural, DDMs, demo e documentos históricos |
+| [`assets/`](assets/)                     | Imagens SVG localizadas em PT-BR para README, fluxo dos estágios, personas e transformação arquitetural |
+| [`persona-kits/`](persona-kits/)         | Os 10 kits consolidados para as 5 pessoas do time: `PERSONA.md`, agentes, prompts, skills e MCP       |
+| [`cheat-sheets/`](cheat-sheets/)         | Cartões de referência rápida: 3 modos do Copilot, Spec-Kit e model routing                            |
+| [`specs/`](specs/)                       | Exemplo de estrutura Spec-Kit/SDD para orientar specs do time                                         |
+| [`scripts/`](scripts/)                   | Scripts locais `setup.sh` e `check.sh`, com README em português                                       |
+
+Este folder foi preparado para ser **navegável por conta própria**: a documentação, o legado usado na arqueologia, os templates, os scripts auxiliares, `.github/`, `persona-kits/`, `agent-kits/`, `plugins/` e `assets/` estão dentro de `pt-br/`.
+
+## O que tem neste espelho PT-BR
+
+Este folder é a versão **didática** em português. Os arquivos originais em `06-kit-repositorio-times/<caminho-original>` são referências enxutas; os arquivos aqui são as versões expandidas, em tom de parceiro, que um dev pode ler e agir em cima.
+
+Todo conteúdo PT-BR segue o mesmo contrato didático:
+
+1. **Contexto primeiro.** Cada guia explica onde o assunto entra no SDLC e por que importa.
+2. **Passo a passo executável.** Sempre que há uma ação, há comandos, checklist ou sequência numerada.
+3. **Exemplo concreto.** Templates, prompts e guias mostram exemplos SIFAP em vez de instruções abstratas.
+4. **Critério de pronto.** Handoffs, stages e templates deixam claro como saber que terminou.
+5. **Troubleshooting.** Onde há risco operacional, há seção de problemas comuns e como resolver.
+
+| Você quer…                                    | Vá para                                             |
+| --------------------------------------------- | --------------------------------------------------- |
+| A resposta de 10 minutos "o que eu faço hoje" | [`TEAM-FLOW.md`](TEAM-FLOW.md)                      |
+| Seu papel em detalhe                          | [`persona-kits/`](persona-kits/) (abra o `PERSONA.md` das duas personas do seu par) |
+| Instruções passo a passo do estágio atual     | [`0X-estagio/GUIDE.md`](01-arqueologia/GUIDE.md)    |
+| Um lembrete de 1 página durante o dia         | [`cheat-sheets/`](cheat-sheets/)                    |
+| O código legado e os DDMs para investigar     | [`legacy/`](legacy/)                                |
+| Templates e scripts auxiliares                | [`scripts/`](scripts/)                              |
+
+## Como usar este kit
+
+```bash
+# 1. Copie o kit para o repositório vazio do seu time
+cp -r 06-kit-repositorio-times/. ~/team-XX-repo/
+
+# 2. Bootstrap (clona materiais de referência, configura symlinks, verifica ferramentas)
+cd ~/team-XX-repo
+./scripts/setup.sh
+
+# 3. Abra no VS Code
+code .
+# Depois: Ctrl+Shift+P > "Dev Containers: Reopen in Container"
+```
+
+Dentro do devcontainer:
+
+```bash
+# 1. Leia o team flow primeiro (10 minutos)
+cat pt-br/TEAM-FLOW.md
+
+# 2. Leia AS DUAS cartas de persona (15 minutos) — uma por persona do seu par
+cat pt-br/persona-kits/XX-persona-A/PERSONA.md
+cat pt-br/persona-kits/YY-persona-B/PERSONA.md
+
+# 3. Copie OS DOIS kits de agente Copilot para o .github/ do seu repo
+cp -r persona-kits/XX-persona-A/.github/* .github/
+cp -r persona-kits/YY-persona-B/.github/* .github/
+
+# 4. Abra o guia do Estágio 1 e comece
+cat pt-br/01-arqueologia/GUIDE.md
+```
+
+## Referências
+
+- [Workshop Blueprint](../../01-blueprint/WORKSHOP-BLUEPRINT.md) — design geral do evento
+- [SIFAP Modern Specification](../../03-spec-sifap-moderno/SPECIFICATION.md) — exemplo de spec gold-standard
+- [Protótipo de referência](../../04-prototipo-sifap-moderno/README.md) — codebase Java + Next.js rodando
+- [Playbook do facilitador](../../07-playbook-facilitacao/README.md) — o que os facilitadores estão fazendo
+- [Rubrica de avaliação](../../07-playbook-facilitacao/EVALUATION-RUBRIC.md) — como seu time é avaliado
+
+## Navegação
+
+| Anterior               | Início                            | Próximo                   |
+| ---------------------- | --------------------------------- | ------------------------- |
+| [Kit PT-BR](README.md) | [Workspace raiz](../../README.md) | [Team Flow](TEAM-FLOW.md) |
 
 — Paula

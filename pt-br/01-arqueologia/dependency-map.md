@@ -10,6 +10,8 @@ status: "template"
 tags: ["estagio-1", "dependencias", "mermaid", "template", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Mapa de Dependências — SIFAP Legado
 
 > Use diagramas Mermaid para mapear as dependências entre programas Natural e DDMs Adabas.
@@ -18,7 +20,7 @@ tags: ["estagio-1", "dependencias", "mermaid", "template", "pt-br"]
 ## Como descobrir dependências
 
 - Use `grep` ou Copilot Chat para listar todas as ocorrências de `CALLNAT` nos 15 arquivos `.NSN`.
-- Prompt útil: *"Liste todas as ocorrências de CALLNAT nestes arquivos e desenhe um diagrama Mermaid."*
+- Prompt útil: _"Liste todas as ocorrências de CALLNAT nestes arquivos e desenhe um diagrama Mermaid."_
 - Para leitura/escrita em DDMs: procure por `READ`, `READ LOGICAL`, `STORE`, `UPDATE`, `DELETE`.
 
 ## Diagrama de Dependências entre Programas
@@ -96,23 +98,23 @@ flowchart LR
 
 ## Tabela de Dependências
 
-| Programa | Chama (CALLNAT) | Lê (READ) DDMs | Escreve (STORE/UPDATE) DDMs | Observações |
-|----------|------------------|----------------|------------------------------|-------------|
-| CADBENF.NSN | | | | |
-| CONBENF.NSN | | | | |
-| REGPGTO.NSN | | | | |
-| BATCHPGT.NSN | | | | |
-| CALCBENF.NSN | | | | |
-| VALCPF.NSN | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
+| Programa     | Chama (CALLNAT) | Lê (READ) DDMs | Escreve (STORE/UPDATE) DDMs | Observações |
+| ------------ | --------------- | -------------- | --------------------------- | ----------- |
+| CADBENF.NSN  |                 |                |                             |             |
+| CONBENF.NSN  |                 |                |                             |             |
+| REGPGTO.NSN  |                 |                |                             |             |
+| BATCHPGT.NSN |                 |                |                             |             |
+| CALCBENF.NSN |                 |                |                             |             |
+| VALCPF.NSN   |                 |                |                             |             |
+|              |                 |                |                             |             |
+|              |                 |                |                             |             |
+|              |                 |                |                             |             |
+|              |                 |                |                             |             |
+|              |                 |                |                             |             |
+|              |                 |                |                             |             |
+|              |                 |                |                             |             |
+|              |                 |                |                             |             |
+|              |                 |                |                             |             |
 
 ## Dependências Circulares
 

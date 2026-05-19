@@ -10,6 +10,8 @@ status: "template"
 tags: ["estagio-1", "misterios", "template", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Mistérios Encontrados — SIFAP Legado
 
 > Registre aqui toda lógica, comportamento ou código que o time não conseguiu explicar.
@@ -29,26 +31,26 @@ tags: ["estagio-1", "misterios", "template", "pt-br"]
 
 ## Níveis de Confiança
 
-| Nível | Significado |
-|-------|-------------|
-| **ALTA** | Temos certeza de que há algo estranho aqui |
-| **MÉDIA** | Parece suspeito, mas pode ter explicação |
+| Nível     | Significado                                         |
+| --------- | --------------------------------------------------- |
+| **ALTA**  | Temos certeza de que há algo estranho aqui          |
+| **MÉDIA** | Parece suspeito, mas pode ter explicação            |
 | **BAIXA** | Pode ser intencional, mas não conseguimos confirmar |
 
 ## Mistérios Catalogados
 
-| ID | Descrição | Onde Encontrado | Impacto Potencial | Confiança |
-|----|-----------|-----------------|-------------------|-----------|
-| MYS-001 | | | | |
-| MYS-002 | | | | |
-| MYS-003 | | | | |
-| MYS-004 | | | | |
-| MYS-005 | | | | |
-| MYS-006 | | | | |
-| MYS-007 | | | | |
-| MYS-008 | | | | |
-| MYS-009 | | | | |
-| MYS-010 | | | | |
+| ID      | Descrição | Onde Encontrado | Impacto Potencial | Confiança |
+| ------- | --------- | --------------- | ----------------- | --------- |
+| MYS-001 |           |                 |                   |           |
+| MYS-002 |           |                 |                   |           |
+| MYS-003 |           |                 |                   |           |
+| MYS-004 |           |                 |                   |           |
+| MYS-005 |           |                 |                   |           |
+| MYS-006 |           |                 |                   |           |
+| MYS-007 |           |                 |                   |           |
+| MYS-008 |           |                 |                   |           |
+| MYS-009 |           |                 |                   |           |
+| MYS-010 |           |                 |                   |           |
 
 ## Detalhamento dos Mistérios
 
@@ -56,9 +58,11 @@ tags: ["estagio-1", "misterios", "template", "pt-br"]
 
 - **Arquivo**: `legacy/natural-programs/ARQUIVO.NSN#L<inicio>-L<fim>`
 - **Trecho de código**:
+
 ```natural
 * Cole aqui o trecho relevante
 ```
+
 - **O que esperávamos**: [comportamento esperado]
 - **O que o código faz**: [comportamento real]
 - **Hipótese do time**: [melhor palpite]
@@ -72,14 +76,14 @@ tags: ["estagio-1", "misterios", "template", "pt-br"]
 
 > Dica: existem **3 easter eggs** escondidos no código legado. Registre aqui os que encontrar:
 
-1. [ ] Easter Egg 1: ___
-2. [ ] Easter Egg 2: ___
-3. [ ] Easter Egg 3: ___
+1. [ ] Easter Egg 1: \_\_\_
+2. [ ] Easter Egg 2: \_\_\_
+3. [ ] Easter Egg 3: \_\_\_
 
 ## Resumo
 
-- Total de mistérios encontrados: ___
-- Confiança alta: ___
-- Confiança média: ___
-- Confiança baixa: ___
-- Easter eggs encontrados: ___ / 3
+- Total de mistérios encontrados: \_\_\_
+- Confiança alta: \_\_\_
+- Confiança média: \_\_\_
+- Confiança baixa: \_\_\_
+- Easter eggs encontrados: \_\_\_ / 3

@@ -10,6 +10,8 @@ status: "template"
 tags: ["estagio-4", "agent", "relatorio", "template", "pt-br"]
 ---
 
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
 # Relatório de Experiência com GitHub Copilot Agent
 
 > Preencha este relatório ao final do Estágio 4.
@@ -17,7 +19,7 @@ tags: ["estagio-4", "agent", "relatorio", "template", "pt-br"]
 
 **Time**: [Nome do Time]
 **Data**: 19/05/2026
-**Edição**: 
+**Edição**:
 **Participantes**: [Liste os membros]
 
 ---
@@ -25,33 +27,37 @@ tags: ["estagio-4", "agent", "relatorio", "template", "pt-br"]
 ## 1. Issues Criadas
 
 ### Issue 1
+
 - **Título**: [Título da Issue]
 - **Link**: [URL da Issue no GitHub]
 - **Descrição resumida**: [1–2 frases]
-- **Tempo para escrever a Issue**: ___ minutos
+- **Tempo para escrever a Issue**: \_\_\_ minutos
 
 ### Issue 2
+
 - **Título**: [Título da Issue]
 - **Link**: [URL da Issue no GitHub]
 - **Descrição resumida**: [1–2 frases]
-- **Tempo para escrever a Issue**: ___ minutos
+- **Tempo para escrever a Issue**: \_\_\_ minutos
 
 ---
 
 ## 2. PRs Gerados pelo Agent
 
 ### PR 1 (da Issue 1)
+
 - **Link**: [URL do PR]
-- **Tempo que o Agent levou**: ___ minutos
-- **Arquivos modificados**: ___
+- **Tempo que o Agent levou**: \_\_\_ minutos
+- **Arquivos modificados**: \_\_\_
 - **Testes criados**: Sim / Não
 - **Precisou de ajustes manuais?**: Sim / Não
 - **Foi mergeado?**: Sim / Não
 
 ### PR 2 (da Issue 2)
+
 - **Link**: [URL do PR]
-- **Tempo que o Agent levou**: ___ minutos
-- **Arquivos modificados**: ___
+- **Tempo que o Agent levou**: \_\_\_ minutos
+- **Arquivos modificados**: \_\_\_
 - **Testes criados**: Sim / Não
 - **Precisou de ajustes manuais?**: Sim / Não
 - **Foi mergeado?**: Sim / Não
@@ -95,20 +101,20 @@ tags: ["estagio-4", "agent", "relatorio", "template", "pt-br"]
 - [ ] Lógica de negócio errada
 - [ ] Faltou tratamento de erros
 - [ ] Credenciais ou dados sensíveis no código
-- [ ] Outro: ___
+- [ ] Outro: \_\_\_
 
 ---
 
 ## 6. Qualidade dos PRs (nota 1–5)
 
-| Critério | Nota (1–5) | Comentário |
-|----------|------------|------------|
-| Corretude do código | | |
-| Aderência à arquitetura | | |
-| Qualidade dos testes | | |
-| Documentação gerada | | |
-| Clareza do código | | |
-| **Média geral** | | |
+| Critério                | Nota (1–5) | Comentário |
+| ----------------------- | ---------- | ---------- |
+| Corretude do código     |            |            |
+| Aderência à arquitetura |            |            |
+| Qualidade dos testes    |            |            |
+| Documentação gerada     |            |            |
+| Clareza do código       |            |            |
+| **Média geral**         |            |            |
 
 Escala: 1=Péssimo, 2=Ruim, 3=Aceitável, 4=Bom, 5=Excelente
 
@@ -138,13 +144,13 @@ Escala: 1=Péssimo, 2=Ruim, 3=Aceitável, 4=Bom, 5=Excelente
 
 ## 9. Comparação: Agent vs. Copilot Chat vs. Implementação Manual
 
-| Aspecto | Agent Mode | Copilot Chat | Manual |
-|---------|------------|--------------|--------|
-| Velocidade | | | |
-| Qualidade | | | |
-| Controle | | | |
-| Aprendizado | | | |
-| Quando usar | | | |
+| Aspecto     | Agent Mode | Copilot Chat | Manual |
+| ----------- | ---------- | ------------ | ------ |
+| Velocidade  |            |              |        |
+| Qualidade   |            |              |        |
+| Controle    |            |              |        |
+| Aprendizado |            |              |        |
+| Quando usar |            |              |        |
 
 ---
 
