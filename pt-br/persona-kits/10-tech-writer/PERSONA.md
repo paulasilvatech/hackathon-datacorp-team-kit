@@ -93,6 +93,21 @@ Manter documentação viva durante o dia inteiro — não no final. README que c
 2. **(Plan)** _"No arquivo ADR-001.md, planeje como completar as seções Contexto, Decisão e Consequências usando o template em 02-spec-moderna/ADR-TEMPLATE.md."_
 3. **(Chat)** _"Crie um relatório honesto da experiência com Copilot Agent: o que funcionou, o que surpreendeu, o que falhou. Base no template em 04-evolucao/agent-experience-report.md."_
 
+## Checkpoints horários (você não fica perdida(o))
+
+Tech Writer é a persona mais transversal do time — você participa de todos os estágios. Para não ficar "esperando algo para documentar", siga estes checkpoints:
+
+| Hora | O que você está fazendo | Entregável visível |
+|---|---|---|
+| **13:00–13:30** | Lê comentários e cabeçalhos dos 15 `.NSN` em paralelo com Par 5 (programas de Consulta/Relatório) | Primeiras 10 entradas do `glossary.md` |
+| **13:30–14:30** | Consolida glossário com termos vindos de **todos os pares** (peça contribuições a cada 20 min) | Glossário ≥30 termos com `Fonte:` em cada um |
+| **14:45–15:30** | Formata os ADRs do Par 2 usando `02-spec-moderna/ADR-TEMPLATE.md`; revisa terminologia da spec | ADRs sem `TODO`, terminologia consistente |
+| **15:30–16:00** | Escreve o `README.md` do projeto evoluído — o que é, como rodar, endpoints | README real (não placeholder) |
+| **16:15–17:30** | Acompanha Estágio 3 do lado do Par 5; documenta endpoints novos no `docs/` conforme aparecem | `docs/api-endpoints.md` evoluindo |
+| **17:45–18:15** | Observa o Agent trabalhando, escreve `agent-experience-report.md` em tempo real | Relatório honesto preenchido até o fim do dia |
+
+> **Regra:** se em 30 minutos você "não tem nada para documentar", pergunte ao par líder do estágio: *"O que você decidiu nos últimos 30 minutos que ainda não está escrito?"*. Quase sempre tem coisa.
+
 ## Se travar (defaults de emergência)
 
 - Não conhece o formato ADR? Abra [`../02-spec-moderna/ADR-TEMPLATE.md`](../../02-spec-moderna/ADR-TEMPLATE.md) — copie e preencha.

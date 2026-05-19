@@ -1,0 +1,53 @@
+---
+title: "Exemplos Preenchidos — Veja Como Fica Pronto"
+description: "Coleção de artefatos completos e plausíveis (não templates vazios) que mostram o nível de profundidade esperado em cada estágio. Use como referência ao escrever os seus."
+locale: "pt-br"
+canonical_path: "pt-br/exemplos-preenchidos/README.md"
+author: "Paula Silva, Americas Software GBB, Microsoft"
+date: "2026-05-19"
+version: "1.0.0"
+status: "approved"
+tags: ["exemplos", "didatico", "referencia", "pt-br"]
+---
+
+<!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
+
+# Exemplos Preenchidos — Veja Como Fica Pronto
+
+> **Por que esta pasta existe.** Templates vazios assustam. Quando você abre `SPECIFICATION.md` em branco e precisa preencher do zero, é fácil travar. Esta pasta mostra como cada artefato **fica quando bem feito** — você copia o padrão, troca os detalhes.
+>
+> **Aviso.** Os exemplos abaixo são **plausíveis mas ficcionais** — foram escritos para o caso SIFAP do workshop e refletem o que um time experiente entregaria. Não copie literalmente; use como modelo de profundidade e estilo.
+
+## Índice
+
+| Arquivo | Estágio | Para quem usa | O que mostra |
+|---|---|---|---|
+| [`business-rules-catalog-exemplo.md`](business-rules-catalog-exemplo.md) | 1 | RE, PO, Tech Writer | Catálogo com 5 regras bem documentadas com `Programa Fonte` |
+| [`SPECIFICATION-exemplo.md`](SPECIFICATION-exemplo.md) | 2 | RE, SA | Spec com 8 REQ-IDs em EARS, com `source_legacy:` e `acceptance:` |
+| [`ADR-001-monolito-modular-exemplo.md`](ADR-001-monolito-modular-exemplo.md) | 2 | EA, SA | ADR completa com Contexto + Decisão + Alternativas + Consequências |
+| [`V1__init_payment_module-exemplo.sql`](V1__init_payment_module-exemplo.sql) | 3 | DBA, Dev | Migração Flyway que respeita MU/PE → tabela filha |
+| [`PaymentService-exemplo.java`](PaymentService-exemplo.java) | 3 | Dev, TL | Service Java implementando uma REQ-ID rastreável |
+| [`issue-para-agent-exemplo.md`](issue-para-agent-exemplo.md) | 4 | TL, Dev | Issue completa, pronta para o Copilot Agent |
+
+## Como usar
+
+1. **No início do seu estágio**, abra o exemplo correspondente em uma aba.
+2. **Compare o nível de detalhe** com o que você está prestes a escrever.
+3. **Copie a estrutura**, não o conteúdo — troque programas, regras, IDs por aqueles do **seu** par.
+4. **Se ficar mais raso que o exemplo, refaça.** O exemplo é o piso de qualidade, não o teto.
+
+## O que torna um exemplo "bom"
+
+Olhe estes critérios em qualquer artefato:
+
+- [ ] **Rastreabilidade.** Toda regra cita `arquivo.NSN#L<inicio>-L<fim>`.
+- [ ] **Testabilidade.** Cada requisito vira pelo menos um teste de aceitação concreto.
+- [ ] **Decisão explícita.** ADR registra o que foi rejeitado, não só o que foi escolhido.
+- [ ] **Sem placeholders.** Se você vê `TODO`, `XXX`, `???`, o artefato não está pronto.
+- [ ] **Nomes consistentes.** Se chamou "ciclo" uma vez, não chama "rodada" depois.
+
+## Navegação
+
+| Anterior | Início | Próximo |
+| --- | --- | --- |
+| [Kit PT-BR](../README.md) | [Kit PT-BR](../README.md) | [Catálogo de Regras (exemplo)](business-rules-catalog-exemplo.md) |

@@ -14,6 +14,14 @@ tags: ["estagio-2", "especificacao", "ears", "adr", "c4", "didatico", "pt-br"]
 
 # Estágio 2 — Spec Moderna (3 horas)
 
+> 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
+>
+> - **EARS, ADR, REQ-ID, bounded context, source_legacy** — termos novos? [`../docs/glossario-visual.md`](../docs/glossario-visual.md) tem cada um com analogia.
+> - **Quer ver uma spec pronta?** [`../exemplos-preenchidos/SPECIFICATION-exemplo.md`](../exemplos-preenchidos/SPECIFICATION-exemplo.md) (8 REQ-IDs reais com `source_legacy` e `acceptance`).
+> - **ADR completo de referência:** [`../exemplos-preenchidos/ADR-001-monolito-modular-exemplo.md`](../exemplos-preenchidos/ADR-001-monolito-modular-exemplo.md).
+> - **Spec-Kit travado?** [`../cheat-sheets/spec-kit-workflow.md`](../cheat-sheets/spec-kit-workflow.md) cobre `/speckit.specify → clarify → plan → tasks`.
+> - **Confuso entre Ask, Plan e Agent?** [`../cheat-sheets/copilot-3-modes.md`](../cheat-sheets/copilot-3-modes.md).
+
 > **REGRA DURA.** Todo requisito EARS no seu `SPECIFICATION.md` precisa incluir uma linha `source_legacy:` apontando para um arquivo `.NSN` ou `.ddm` dentro de [`../legado-natural/`](../legado-natural/), **ou** ser marcado `source_legacy: "[GREENFIELD] <justificativa de uma linha>"`. O CI rejeita PRs que violem isso. Facilitadores verificam por amostragem no Passagem #2 (~16:00).
 >
 > Por quê? Na edição anterior alguns times escreveram specs só a partir do brief de modernização, pulando a leitura do legado. Os protótipos perderam regras de negócio reais. Desta vez, rastreabilidade é o portão.

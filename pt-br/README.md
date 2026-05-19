@@ -8,9 +8,16 @@
 
 > **Comece aqui se você é participante do workshop.**
 >
+> 0. 🆕 **Primeira vez aqui ou não-técnico?** Comece por [`FIRST-15-MINUTES.md`](FIRST-15-MINUTES.md) — roteiro de 15 minutos que te leva de "recém-cheguei" até "sei o que faço hoje".
 > 1. Leia [`TEAM-FLOW.md`](TEAM-FLOW.md) — como 5 pessoas cobrem 10 personas em 5 pares (10 minutos).
 > 2. Abra suas duas pastas em [`persona-kits/`](persona-kits/) e leia o `PERSONA.md` de cada uma (15 minutos).
 > 3. Abra o guia do Estágio 1 em [`01-arqueologia/GUIDE.md`](01-arqueologia/GUIDE.md).
+>
+> 📖 **Recursos didáticos transversais** (consulte quando precisar):
+>
+> - [`docs/glossario-visual.md`](docs/glossario-visual.md) — 30+ termos técnicos com analogia em 3 linhas (EARS, ADR, DDM, JPA, Flyway, MU, PE...).
+> - [`legado-natural/COMO-LER-NATURAL.md`](legado-natural/COMO-LER-NATURAL.md) — como extrair regras de `.NSN` sem saber Natural.
+> - [`exemplos-preenchidos/`](exemplos-preenchidos/) — artefatos completos (spec, ADR, Flyway, service, Issue) que mostram o nível de profundidade esperado.
 
 ## Ferramentas aprovadas — somente estas
 
@@ -131,6 +138,7 @@ Você não lê este kit de capa a capa. Lê as partes que seu par precisa, quand
 | [`cheat-sheets/`](cheat-sheets/)         | Cartões de referência rápida: 3 modos do Copilot, Spec-Kit e model routing                            |
 | [`specs/`](specs/)                       | Exemplo de estrutura Spec-Kit/SDD para orientar specs do time                                         |
 | [`scripts/`](scripts/)                   | Scripts locais `setup.sh` e `check.sh`, com README em português                                       |
+| [`exemplos-preenchidos/`](exemplos-preenchidos/) | **🆕 Artefatos completos prontos** (spec EARS, ADR, Flyway, service Java, Issue para Agent) — referência de profundidade ao escrever os seus |
 
 Este folder foi preparado para ser **navegável por conta própria**: a documentação, o legado usado na arqueologia, os templates, os scripts auxiliares, `.github/`, `persona-kits/`, `agent-kits/`, `plugins/` e `assets/` estão dentro de `pt-br/`.
 
@@ -148,8 +156,12 @@ Todo conteúdo PT-BR segue o mesmo contrato didático:
 
 | Você quer…                                    | Vá para                                             |
 | --------------------------------------------- | --------------------------------------------------- |
+| 🆕 Os 15 primeiros minutos passo a passo       | [`FIRST-15-MINUTES.md`](FIRST-15-MINUTES.md)        |
 | A resposta de 10 minutos "o que eu faço hoje" | [`TEAM-FLOW.md`](TEAM-FLOW.md)                      |
 | Instruções passo a passo do estágio atual     | [`0X-estagio/GUIDE.md`](01-arqueologia/GUIDE.md)    |
+| 🆕 Decodificar siglas técnicas                 | [`docs/glossario-visual.md`](docs/glossario-visual.md) |
+| 🆕 Ler programas Natural sem ser dev           | [`legado-natural/COMO-LER-NATURAL.md`](legado-natural/COMO-LER-NATURAL.md) |
+| 🆕 Ver artefatos completos como exemplo        | [`exemplos-preenchidos/`](exemplos-preenchidos/)    |
 | Um lembrete de 1 página durante o dia         | [`cheat-sheets/`](cheat-sheets/)                    |
 | O código legado e os DDMs para investigar     | [`legado-natural/`](legado-natural/)                                |
 | Templates e scripts auxiliares                | [`scripts/`](scripts/)                              |
