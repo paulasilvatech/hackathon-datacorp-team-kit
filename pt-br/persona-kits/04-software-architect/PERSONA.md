@@ -116,4 +116,15 @@ Produzir C4 Níveis 2 e 3 coerentes com a spec. Definir os bounded contexts do S
 - **Rubrica A3 (Integridade Técnica):** bounded contexts respeitados no código.
 - Critério: "Nenhum import cruza fronteira de contexto sem justificativa."
 
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo passo do dia | Próxima persona |
+| --- | --- | --- | --- |
+| [← Enterprise Architect](../03-enterprise-architect/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [Technical Lead →](../05-technical-lead/PERSONA.md) |
+
+> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
+
+
 — Paula

@@ -43,3 +43,12 @@ Não escreva ADR para: nomes de variáveis, configurações de formatter, versõ
 4. Abra um PR; exija pelo menos 1 revisão de uma persona de arquitetura
 5. Faça merge com status `accepted`
 6. Atualize este índice
+
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo |
+| --- | --- | --- |
+| [← Documentação Transversal](../README.md) | [Kit PT-BR](../../README.md) | [Estágio 2 — Spec Moderna](../../02-spec-moderna/GUIDE.md) |
+

@@ -118,4 +118,15 @@ Definir a estratégia de testes do projeto. Escrever testes críticos (não 100%
 - Rubrica A2 (Spec): todo requisito tem critério de verificação
 - Critério: "Testes que quebram no primeiro bug, não testes que sempre passam"
 
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo passo do dia | Próxima persona |
+| --- | --- | --- | --- |
+| [← DBA](../07-dba/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [DevOps Engineer →](../09-devops-engineer/PERSONA.md) |
+
+> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
+
+
 — Paula

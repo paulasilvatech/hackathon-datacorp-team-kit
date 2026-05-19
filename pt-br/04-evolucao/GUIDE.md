@@ -14,6 +14,10 @@ tags: ["estagio-4", "evolution", "agent", "terraform", "didatico", "pt-br"]
 
 # Estágio 4 — Evolução com Agentes (3 horas)
 
+> **📍 Você está aqui:** Estágio 4 de 4 · ⏰ 17:45–18:15 (30 min) · 🏷️ Evolução com Agentes
+>
+> **Quem trabalha agora:** Par 5 (Operações) lidera · Par 3 (Impl) escreve Issues + revisa PRs
+
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
 > - **Agent, Terraform, IaC, ACR, Key Vault** — termos novos? [`../docs/glossario-visual.md`](../docs/glossario-visual.md).

@@ -117,4 +117,15 @@ Garantir que o SIFAP 2.0 não quebre o mundo ao redor. Desenhar o mapa de depend
 - **Rubrica A2 (Coerência de Spec):** ADRs nomeiam o "caminho não tomado".
 - Critério: "C4 L1 entendido em 30 segundos por qualquer pessoa do time."
 
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo passo do dia | Próxima persona |
+| --- | --- | --- | --- |
+| [← Requirements Engineer](../02-requirements-engineer/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [Software Architect →](../04-software-architect/PERSONA.md) |
+
+> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
+
+
 — Paula

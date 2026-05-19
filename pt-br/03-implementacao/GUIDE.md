@@ -14,6 +14,10 @@ tags: ["estagio-3", "implementacao", "codigo", "didatico", "pt-br"]
 
 # Estágio 3 — Implementação (3 horas)
 
+> **📍 Você está aqui:** Estágio 3 de 4 · ⏰ 16:15–17:30 (75 min) · 🏷️ Implementação
+>
+> **Quem trabalha agora:** Pares 3 (Impl) + 4 (Qualidade) lideram · Par 5 esqueleta CI
+
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
 > - **JPA, Flyway, Testcontainers, Server Component, Bean Validation, Swagger** — siglas novas? [`../docs/glossario-visual.md`](../docs/glossario-visual.md).

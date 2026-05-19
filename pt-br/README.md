@@ -15,6 +15,8 @@
 >
 > 📖 **Recursos didáticos transversais** (consulte quando precisar):
 >
+> - 🗺 [`SITEMAP.md`](SITEMAP.md) — mapa visual do kit inteiro com caminho recomendado por persona.
+> - 👥 [`persona-kits/OVERVIEW.md`](persona-kits/OVERVIEW.md) — tabela das 10 personas em uma página (par, líder, defaults).
 > - [`docs/glossario-visual.md`](docs/glossario-visual.md) — 30+ termos técnicos com analogia em 3 linhas (EARS, ADR, DDM, JPA, Flyway, MU, PE...).
 > - [`legado-natural/COMO-LER-NATURAL.md`](legado-natural/COMO-LER-NATURAL.md) — como extrair regras de `.NSN` sem saber Natural.
 > - [`exemplos-preenchidos/`](exemplos-preenchidos/) — artefatos completos (spec, ADR, Flyway, service, Issue) que mostram o nível de profundidade esperado.

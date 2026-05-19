@@ -108,4 +108,13 @@ flowchart TB
 
 Não trate o Opus como "o bom" e o Haiku como "o ruim". Opus em tarefa mecânica é desperdício; Haiku em decisão é risco. O modelo certo é o mais barato que não te decepciona.
 
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo |
+| --- | --- | --- |
+| [← Spec-Kit em 1 página](spec-kit-workflow.md) | [Kit PT-BR](../README.md) | [Cartões de Referência](README.md) |
+
+
 — Paula

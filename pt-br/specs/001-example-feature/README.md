@@ -79,4 +79,13 @@ Acceptance: 10 ativos + 2 suspensos geram 10 pagamentos.
 - [Cartão de referência do Spec-Kit](../../cheat-sheets/spec-kit-workflow.md)
 - [Spec-Kit oficial](https://github.com/github/spec-kit)
 
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo |
+| --- | --- | --- |
+| [← Estrutura specs/](../README.md) | [Kit PT-BR](../../README.md) | [Estágio 2 — Spec Moderna](../../02-spec-moderna/GUIDE.md) |
+
+
 — Paula

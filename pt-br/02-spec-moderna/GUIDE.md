@@ -14,6 +14,10 @@ tags: ["estagio-2", "especificacao", "ears", "adr", "c4", "didatico", "pt-br"]
 
 # Estágio 2 — Spec Moderna (3 horas)
 
+> **📍 Você está aqui:** Estágio 2 de 4 · ⏰ 14:45–16:00 (75 min) · 🏷️ Especificação
+>
+> **Quem trabalha agora:** Par 2 (Arquitetura) lidera · Par 1 (Visão) assina escopo · Par 5 dá revisão
+
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
 > - **EARS, ADR, REQ-ID, bounded context, source_legacy** — termos novos? [`../docs/glossario-visual.md`](../docs/glossario-visual.md) tem cada um com analogia.

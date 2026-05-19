@@ -14,6 +14,10 @@ tags: ["estagio-1", "arqueologia", "legado", "didatico", "pt-br"]
 
 # Estágio 1 — Arqueologia Digital
 
+> **📍 Você está aqui:** Estágio 1 de 4 · ⏰ 13:00–14:30 (90 min) · 🏷️ Descoberta
+>
+> **Quem trabalha agora:** Todos os 5 pares trabalham em paralelo (3 programas Natural cada)
+
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
 > - **Primeiro contato?** Leia [`../FIRST-15-MINUTES.md`](../FIRST-15-MINUTES.md) primeiro.

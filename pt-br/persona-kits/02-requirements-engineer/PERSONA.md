@@ -117,4 +117,15 @@ Converter o que foi descoberto no Estágio 1 em requisitos formais e testáveis 
 - **Rubrica A1 (Arqueologia):** catálogo de regras com classificação.
 - Critério: "Todo requisito tem verbo ativo e é testável."
 
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo passo do dia | Próxima persona |
+| --- | --- | --- | --- |
+| [← Product Owner](../01-product-owner/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [Enterprise Architect →](../03-enterprise-architect/PERSONA.md) |
+
+> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
+
+
 — Paula
