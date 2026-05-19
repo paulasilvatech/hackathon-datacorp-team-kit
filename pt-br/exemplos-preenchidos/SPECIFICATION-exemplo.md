@@ -27,7 +27,7 @@ tags: ["exemplo", "spec", "ears", "estagio-2", "pt-br"]
 
 ## 1. Escopo deste módulo
 
-O módulo **`payment`** cobre o ciclo de vida de pagamentos: geração mensal, aplicação de descontos, aprovação, cancelamento e auditoria de cada transição. **Fora de escopo:** integração com SIAFI (REQ-INT-* em outro módulo) e relatórios analíticos (REQ-RPT-*).
+O módulo **`payment`** cobre o ciclo de vida de pagamentos: geração mensal, aplicação de descontos, aprovação, cancelamento e auditoria de cada transição. **Fora de escopo:** integração com SIAFI (`REQ-INT-*` em outro módulo) e relatórios analíticos (`REQ-RPT-*`).
 
 ## 2. Requisitos (EARS)
 

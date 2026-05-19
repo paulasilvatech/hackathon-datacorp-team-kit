@@ -106,7 +106,7 @@ Tech Writer é a persona mais transversal do time — você participa de todos o
 | **16:15–17:30** | Acompanha Estágio 3 do lado do Par 5; documenta endpoints novos no `docs/` conforme aparecem | `docs/api-endpoints.md` evoluindo |
 | **17:45–18:15** | Observa o Agent trabalhando, escreve `agent-experience-report.md` em tempo real | Relatório honesto preenchido até o fim do dia |
 
-> **Regra:** se em 30 minutos você "não tem nada para documentar", pergunte ao par líder do estágio: *"O que você decidiu nos últimos 30 minutos que ainda não está escrito?"*. Quase sempre tem coisa.
+> **Regra:** se em 30 minutos você "não tem nada para documentar", pergunte ao par líder do estágio: _"O que você decidiu nos últimos 30 minutos que ainda não está escrito?"_. Quase sempre tem coisa.
 
 ## Se travar (defaults de emergência)
 
