@@ -1,15 +1,3 @@
----
-title: "Kit do Time — Português (BR)"
-description: "Espelho didático em PT-BR do kit do time. As 5 pessoas do grupo cobrem 10 personas em 5 pares e 4 estágios, modernizando o SIFAP de Natural/Adabas para Java + Next.js + Azure em um dia."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/README.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-status: "approved"
-tags: ["kit", "pt-br", "didatico", "workshop"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Kit do Time — Português (BR)
@@ -46,7 +34,7 @@ O kit traz **duas camadas de agente** que cobrem eixos diferentes (papel × est�
 
 | Camada                                 | O que                                                                                | Quando                                 | Como                                                                                                                |
 | -------------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| [`persona-kits/`](persona-kits/)       | Dez kits, um por persona do workshop (agent + prompts + skills + MCP)                | Instalado às 09:00, vive o dia inteiro | Cada pessoa copia seus 2 kits via `cp -r persona-kits/XX-*/.github/* .github/`                                      |
+| [`persona-kits/`](persona-kits/)       | Dez kits, um por persona do workshop (agent + prompts + skills + MCP)                |  Cada pessoa copia seus 2 kits via `cp -r persona-kits/XX-*/.github/* .github/`                                      |
 | [`agent-kits/`](agent-kits/)           | Quatro agentes por estágio: `@archaeologist`, `@architect`, `@builder`, `@evolution` | Selecionado a cada estágio pelo time   | Abra o Copilot Chat → seletor de agentes → escolha o agente do estágio → cole o prompt de abertura do README do kit |
 
 **Não são duplicados.** `persona-kits/` configura **seu Copilot para o seu papel**. `agent-kits/` coordena **o time para o estágio atual**. Um Estágio 1 típico fica assim:
@@ -161,7 +149,6 @@ Todo conteúdo PT-BR segue o mesmo contrato didático:
 | Você quer…                                    | Vá para                                             |
 | --------------------------------------------- | --------------------------------------------------- |
 | A resposta de 10 minutos "o que eu faço hoje" | [`TEAM-FLOW.md`](TEAM-FLOW.md)                      |
-| Seu papel em detalhe                          | [`persona-kits/`](persona-kits/) (abra o `PERSONA.md` das duas personas do seu par) |
 | Instruções passo a passo do estágio atual     | [`0X-estagio/GUIDE.md`](01-arqueologia/GUIDE.md)    |
 | Um lembrete de 1 página durante o dia         | [`cheat-sheets/`](cheat-sheets/)                    |
 | O código legado e os DDMs para investigar     | [`legado-natural/`](legado-natural/)                                |
