@@ -92,11 +92,11 @@ flowchart TB
  classDef qual fill:#E5F6FD,stroke:#00A4EF,color:#0A0A0A
  classDef ops fill:#EEEEEE,stroke:#1B1B1F,color:#0A0A0A
 
-P1[Par 1 · Visão<br/>PO + RE<br/>Descoberta → Especificação]:::vision
-P2[Par 2 · Arquitetura<br/>EA + SA<br/>Especificação → Design]:::arch
-P3[Par 3 · Implementação<br/>TL + Dev<br/>Implementação → Evolução]:::impl
- P4[Par 4 · Qualidade<br/>DBA + QA<br/>Implementação (dados + testes)]:::qual
-P5[Par 5 · Operações<br/>DevOps + TW<br/>Transversal + Evolução]:::ops
+ P1["Par 1 · Visão<br/>PO + RE<br/>Descoberta → Especificação"]:::vision
+ P2["Par 2 · Arquitetura<br/>EA + SA<br/>Especificação → Design"]:::arch
+ P3["Par 3 · Implementação<br/>TL + Dev<br/>Implementação → Evolução"]:::impl
+ P4["Par 4 · Qualidade<br/>DBA + QA<br/>Implementação (dados + testes)"]:::qual
+ P5["Par 5 · Operações<br/>DevOps + TW<br/>Transversal + Evolução"]:::ops
 
  P1 -- H1 --> P2
  P2 -- H2 --> P3
