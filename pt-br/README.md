@@ -34,7 +34,7 @@ O kit traz **duas camadas de agente** que cobrem eixos diferentes (papel × est�
 
 | Camada                                 | O que                                                                                | Quando                                 | Como                                                                                                                |
 | -------------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| [`persona-kits/`](persona-kits/)       | Dez kits, um por persona do workshop (agent + prompts + skills + MCP)                |  Cada pessoa copia seus 2 kits via `cp -r persona-kits/XX-*/.github/* .github/`                                      |
+| [`persona-kits/`](persona-kits/)       | Dez kits, um por persona do workshop (agent + prompts + skills + MCP)                | Carregado uma vez no setup, antes do Estágio 1 | Cada pessoa copia seus 2 kits via `cp -r persona-kits/XX-*/.github/* .github/`                                       |
 | [`agent-kits/`](agent-kits/)           | Quatro agentes por estágio: `@archaeologist`, `@architect`, `@builder`, `@evolution` | Selecionado a cada estágio pelo time   | Abra o Copilot Chat → seletor de agentes → escolha o agente do estágio → cole o prompt de abertura do README do kit |
 
 **Não são duplicados.** `persona-kits/` configura **seu Copilot para o seu papel**. `agent-kits/` coordena **o time para o estágio atual**. Um Estágio 1 típico fica assim:
