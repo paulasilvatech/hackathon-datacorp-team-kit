@@ -1,119 +1,119 @@
 ---
 mode: agent
 model: claude-sonnet-4-6
-description: "Generate or refresh CODEMAP.md — a navigable index of the SIFAP 2.0 codebase showing modules, owners, and entry points."
+description: "Gerar ou atualizar CODEMAP.md — um índice navegável da base de código do SIFAP 2.0 mostrando módulos, proprietários e pontos de entrada."
 ---
 
 # /update-codemap
 
-## Goal
+## Objetivo
 
-You produce or update `docs/CODEMAP.md`, a one-page navigation aid that a new team member can read in 10 minutes and use to find any module, its owner, its entry points, and its tests. The codemap is **not** auto-generated documentation; it is curated. It complements `DESIGN.md` (architecture) and the spec (requirements).
+Você produz ou atualiza `docs/CODEMAP.md`, um guia de navegação de uma página que uma nova pessoa do time consegue ler em 10 minutos e usar para encontrar qualquer módulo, seu proprietário, seus pontos de entrada e seus testes. O codemap **não** é documentação gerada automaticamente; ele é curado. Ele complementa `DESIGN.md` (arquitetura) e a spec (requisitos).
 
-## Inputs
+## Entradas
 
-Ask the user for what is missing.
+Peça à pessoa usuária o que estiver faltando.
 
-- The repo root path (this workspace).
-- Whether to refresh in place (`update`) or rebuild (`rebuild`).
-- The persona owners table — usually defined in `pt-br/persona-kits/`.
-- A previous version of `CODEMAP.md` if one exists.
+- O caminho raiz do repositório (este workspace).
+- Se deve atualizar no lugar (`update`) ou reconstruir (`rebuild`).
+- A tabela de proprietários das personas, normalmente definida em `pt-br/persona-kits/`.
+- Uma versão anterior de `CODEMAP.md`, se existir.
 
-## Process
+## Processo
 
-1. **List the top-level service folders.** Backend services under `04-prototipo-sifap-moderno/backend/src/main/java/br/gov/sifap/<service>/`, frontend routes under `04-prototipo-sifap-moderno/frontend/app/<route>/`, infra under `05-terraform-azure/modules/<name>/`.
-2. **For each module, capture five facts.**
- - Purpose (one sentence).
- - Public entry points (REST endpoints, page routes, CLI commands, IaC inputs).
- - Persistent state (tables, queues, blob containers).
- - Linked `REQ-ID` ranges (for example `REQ-PAY-001..024`).
- - Owner persona (`alex`, `sam`, `jordan`, `morgan`, `casey`).
-3. **Find tests.** For each module, find the corresponding test directory and link it.
-4. **Find the legacy mapping.** When a module corresponds to a Natural program from `02-cenario-sifap-legado/natural-programs/`, name the program (`CALCBENF.NSN`, etc.). This makes the modernization lineage explicit.
-5. **Find non-obvious dependencies.** Cross-module imports, shared libraries (`commons-*`), and external Azure services. Highlight any module that depends on more than three others — that is a smell.
-6. **Sort modules by user-visible value.** Critical user paths first (registration, disbursement, audit), supporting modules next, infra last.
-7. **Render as a single navigable markdown file.** Keep it under 200 lines. If it grows past that, split sub-codemaps per service area and link them.
+1. **Liste as pastas de serviço de nível superior.** Serviços backend em `04-prototipo-sifap-moderno/backend/src/main/java/br/gov/sifap/<service>/`, rotas frontend em `04-prototipo-sifap-moderno/frontend/app/<route>/`, infra em `05-terraform-azure/modules/<name>/`.
+2. **Para cada módulo, capture cinco fatos.**
+ - Propósito (uma frase).
+ - Pontos de entrada públicos (endpoints REST, rotas de página, comandos CLI, entradas de IaC).
+ - Estado persistente (tabelas, filas, blob containers).
+ - Faixas de `REQ-ID` vinculadas (por exemplo, `REQ-PAY-001..024`).
+ - Persona proprietária (`alex`, `sam`, `jordan`, `morgan`, `casey`).
+3. **Encontre testes.** Para cada módulo, encontre o diretório de testes correspondente e crie um link para ele.
+4. **Encontre o mapeamento legado.** Quando um módulo corresponder a um programa Natural de `02-cenario-sifap-legado/natural-programs/`, nomeie o programa (`CALCBENF.NSN` etc.). Isso explicita a linhagem da modernização.
+5. **Encontre dependências não óbvias.** Imports entre módulos, bibliotecas compartilhadas (`commons-*`) e serviços externos do Azure. Destaque qualquer módulo que dependa de mais de três outros, pois isso é um cheiro de design.
+6. **Ordene módulos por valor visível à pessoa usuária.** Caminhos críticos de uso primeiro (cadastro, desembolso, auditoria), módulos de suporte depois, infra por último.
+7. **Renderize como um único arquivo markdown navegável.** Mantenha abaixo de 200 linhas. Se passar disso, divida sub-codemaps por área de serviço e crie links para eles.
 
-## Output
+## Saída
 
-The deliverable is `docs/CODEMAP.md` (or sub-files), with this structure:
+O entregável é `docs/CODEMAP.md` (ou subarquivos), com esta estrutura:
 
 ```markdown
-# SIFAP 2.0 Codemap
+# Mapa do Código do SIFAP 2.0
 
-> Last updated: <YYYY-MM-DD>. Owners: see `pt-br/persona-kits/`.
+> Última atualização: <YYYY-MM-DD>. Donos: veja `pt-br/persona-kits/`.
 
-## 1. Reading guide
-- Critical paths: payments, beneficiaries, audit.
-- See `DESIGN.md` for architecture rationale; see `SPECIFICATION.md` for requirements.
+## 1. Guia de leitura
+- Caminhos críticos: pagamentos, beneficiários, auditoria.
+- Veja `DESIGN.md` para o racional arquitetural; veja `SPECIFICATION.md` para requisitos.
 
-## 2. Backend services
+## 2. Serviços de backend
 
-### payments — disbursement orchestration
-- **Purpose**: Issue, retry, and reconcile beneficiary disbursements.
+### payments — orquestração de desembolsos
+- **Propósito**: emitir, tentar novamente e reconciliar desembolsos de beneficiários.
 - **Path**: `04-prototipo-sifap-moderno/backend/src/main/java/br/gov/sifap/payments/`
-- **Tests**: `04-prototipo-sifap-moderno/backend/src/test/java/br/gov/sifap/payments/`
-- **Entry points**: `POST /api/v1/payments`, `GET /api/v1/payments/{id}`, `POST /api/v1/payments/{id}/retry`
-- **State**: Postgres tables `payment`, `payment_attempt`, `disbursement_lock`. Service Bus queue `payments-out`.
+- **Testes**: `04-prototipo-sifap-moderno/backend/src/test/java/br/gov/sifap/payments/`
+- **Pontos de entrada**: `POST /api/v1/payments`, `GET /api/v1/payments/{id}`, `POST /api/v1/payments/{id}/retry`
+- **Estado**: tabelas Postgres `payment`, `payment_attempt`, `disbursement_lock`. Fila Service Bus `payments-out`.
 - **REQ-IDs**: REQ-PAY-001..024
-- **Owner**: @alex
-- **Legacy lineage**: `CALCBENF.NSN`, `CALCDSCT.NSN`, `BATCHPGT.NSN`
-- **Cross-module deps**: `beneficiaries` (read), `audit` (write).
+- **Dono**: @alex
+- **Linhagem legada**: `CALCBENF.NSN`, `CALCDSCT.NSN`, `BATCHPGT.NSN`
+- **Dependências entre módulos**: `beneficiaries` (leitura), `audit` (escrita).
 
-### beneficiaries — registry and lifecycle
+### beneficiaries — cadastro e ciclo de vida
 - ...
 
-## 3. Frontend routes
+## 3. Rotas de frontend
 
-### /beneficiaries — listing & detail
+### /beneficiaries — listagem e detalhe
 - **Path**: `04-prototipo-sifap-moderno/frontend/app/beneficiaries/`
-- **Tests**: `04-prototipo-sifap-moderno/frontend/app/beneficiaries/__tests__/`
+- **Testes**: `04-prototipo-sifap-moderno/frontend/app/beneficiaries/__tests__/`
 - **REQ-IDs**: REQ-UI-007..014
-- **Owner**: @sam
-- **API consumer of**: `payments`, `beneficiaries`
+- **Dono**: @sam
+- **Consome API de**: `payments`, `beneficiaries`
 - ...
 
-## 4. Infrastructure modules
+## 4. Módulos de infraestrutura
 
 ### postgres
 - **Path**: `05-terraform-azure/modules/postgres/`
 - **REQ-IDs**: REQ-OPS-014..018
-- **Owner**: @jordan
+- **Dono**: @jordan
 - ...
 
-## 5. Cross-cutting libraries
-- `br.gov.sifap.shared.audit` — used by payments, beneficiaries, programs.
-- `br.gov.sifap.shared.money` — `BigDecimal` wrappers for ICMS calculations.
+## 5. Bibliotecas transversais
+- `br.gov.sifap.shared.audit` — usada por pagamentos, beneficiários e programas.
+- `br.gov.sifap.shared.money` — wrappers `BigDecimal` para cálculos de ICMS.
 
-## 6. Smells noted
-- `beneficiaries` imports from 4 other modules — review for tighter responsibility boundary.
+## 6. Pontos de atenção observados
+- `beneficiaries` importa de 4 outros módulos — revisar para uma fronteira de responsabilidade mais estreita.
 
-## 7. How to update this file
-Run `/update-codemap` after any module add/rename. Do not auto-generate; curate.
+## 7. Como atualizar este arquivo
+Rode `/update-codemap` após adicionar ou renomear qualquer módulo. Não gere automaticamente; faça curadoria.
 ```
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** Refresh after adding the new `audit` service and the `audit-log` Postgres migration.
+**Entrada:** atualizar depois de adicionar o novo serviço `audit` e a migração Postgres `audit-log`.
 
-**Expected reply skeleton:** the structure above with the new section for `audit`, updated `payments` cross-module deps, and a new "Smells noted" line if appropriate.
+**Esqueleto de resposta esperado:** a estrutura acima com a nova seção de `audit`, as dependências entre módulos de `payments` atualizadas e uma nova linha em "Pontos de atenção observados", se apropriado.
 
-## Anti-patterns
+## Antipadrões
 
-- Generating from `find . -type d` — that is a directory listing, not a map.
-- Including every file. The codemap names modules, not lines.
-- Listing endpoints as `*` — be specific.
-- Forgetting the legacy lineage column for SIFAP — modernization without lineage is invisible.
-- Owners as teams. The on-call human is the owner.
-- Skipping the "Smells noted" section. The codemap is also a health check.
-- Letting it drift > 30 days. Out-of-date codemap is worse than no codemap.
+- Gerar a partir de `find . -type d`: isso é uma listagem de diretórios, não um mapa.
+- Incluir todos os arquivos. O codemap nomeia módulos, não linhas.
+- Listar endpoints como `*`. Seja específico.
+- Esquecer a coluna de linhagem legada para SIFAP. Modernização sem linhagem fica invisível.
+- Usar times como proprietários. A pessoa de plantão é a proprietária.
+- Pular a seção "Smells observados". O codemap também é uma verificação de saúde.
+- Deixar o arquivo sofrer drift por mais de 30 dias. Codemap desatualizado é pior que nenhum codemap.
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] Every backend service, frontend route, and IaC module is listed.
-- [ ] Each entry has Purpose, Path, Tests, Entry points, State, REQ-IDs, Owner.
-- [ ] Legacy lineage is named for any module that maps to a Natural program.
-- [ ] Cross-module dependencies are stated; modules with > 3 deps are flagged.
-- [ ] File length stays under 200 lines (or is split with linked sub-files).
-- [ ] Last-updated date is set to today.
-- [ ] Owner persona names match `pt-br/persona-kits/`.
+- [ ] Todo serviço backend, rota frontend e módulo IaC está listado.
+- [ ] Cada entrada tem Finalidade, Path, Testes, Pontos de entrada, Estado, REQ-IDs, Owner.
+- [ ] A linhagem legada está nomeada para qualquer módulo que mapeie para um programa Natural.
+- [ ] Dependências entre módulos estão declaradas; módulos com > 3 dependências estão sinalizados.
+- [ ] O arquivo permanece abaixo de 200 linhas (ou é dividido com subarquivos vinculados).
+- [ ] A data de última atualização está definida como hoje.
+- [ ] Os nomes das personas proprietárias correspondem a `pt-br/persona-kits/`.

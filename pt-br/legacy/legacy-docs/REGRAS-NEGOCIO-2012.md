@@ -27,7 +27,7 @@ revision_history:
 <!-- REGRAS DE NEGÓCIO DO SIFAP - LEVANTAMENTO PARCIAL -->
 <!-- Sistema de Fiscalização e Administração de Pagamentos -->
 <!-- SENARC - Secretaria Nacional de Renda de Cidadania -->
-<!-- Em colaboração com SUPDE/DESIF (the organization) -->
+<!-- Em colaboração com SUPDE/DESIF (a organização) -->
 <!-- ====================================================================== -->
 
 # REGRAS DE NEGÓCIO DO SIFAP - LEVANTAMENTO PARCIAL
@@ -58,7 +58,7 @@ revision_history:
 > - Documentação existente (Manual Técnico SIFAP v2.3.1, 2008);
 > - Conhecimento institucional da equipe SENARC/CGPB.
 >
-> **Este documento NÃO foi validado pela equipe técnica do the organization e pode conter imprecisões.**
+> **Este documento NÃO foi validado pela equipe técnica do a organização e pode conter imprecisões.**
 
 ---
 
@@ -311,7 +311,7 @@ A continuidade deste trabalho depende de:
 
 ---
 
-**Documento interno the organization/SENARC - Classificação: RESTRITO - Reprodução proibida**
+**Documento interno a organização/SENARC - Classificação: RESTRITO - Reprodução proibida**
 
 ---
 

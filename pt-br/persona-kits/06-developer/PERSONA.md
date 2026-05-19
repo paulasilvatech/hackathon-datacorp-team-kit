@@ -1,6 +1,6 @@
 ---
 title: "Card de Persona — Developer"
-description: "O que o Developer faz dentro do time de 10 durante o Dia 2 do Legacy Modernization Workshop."
+description: "O que o Developer faz dentro do time de 10 durante o Dia 2 do Workshop de Modernização de Legado."
 locale: "pt-br"
 canonical_path: "pt-br/persona-kits/06-developer/PERSONA.md"
 author: "Paula Silva, Americas Software GBB, Microsoft"
@@ -21,18 +21,18 @@ flowchart LR
  classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
  classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
 
- D[Discovery<br/>S1 — lê Naturals]:::support
- SP[Specification<br/>S2 — antecipa problemas]:::support
- IM[Implementation<br/>S3 — LIDERA código]:::current
- EV[Evolution<br/>S4 — completa Agent PR]:::current
+ D[Descoberta<br/>S1 — lê Naturals]:::support
+ SP[Especificação<br/>S2 — antecipa problemas]:::support
+ IM[Implementação<br/>S3 — LIDERA código]:::current
+ EV[Evolução<br/>S4 — completa Agent PR]:::current
 
  D --> SP --> IM --> EV
 ```
 
 - **Par**: 3 · Implementação (junto com Technical Lead)
-- **Fases lideradas**: Implementation (S3) + Evolution (S4)
+- **Fases lideradas**: Implementação (S3) + Evolução (S4)
 - **Recebe de**: Par 2 (Arquitetura) no H2 — REQ-IDs + estrutura de pacotes
-- **Faz handoff para**: Par 4 (Qualidade) — código testável; Par 5 (Operações) no H3 — build estável
+- **Faz passagem para**: Par 4 (Qualidade) — código testável; Par 5 (Operações) no H3 — build estável
 
 ## Quem é essa pessoa
 
@@ -45,7 +45,7 @@ Transformar spec em código rodando. Usar o Copilot deliberadamente — Ask para
 ## Seu papel no framework Agentic Legacy Modernization
 
 - **Agentes relevantes**: Translation Agent (S3), Review Agent (S3)
-- **Fase do framework**: Translation and Test Generation
+- **Fase do framework**: Tradução e geração de testes
 - **Seu papel**: implementar a tradução Natural → Java guiada pela spec EARS
 
 ## Onde você aparece em cada estágio
@@ -55,7 +55,7 @@ Transformar spec em código rodando. Usar o Copilot deliberadamente — Ask para
 | 1. Arqueologia         | Lê programas Natural com Copilot Chat. Produz resumo legível para o resto do time.            | Resumos narrativos dos programas |
 | 2. Spec Moderna        | Pareia com o Requirements Engineer para antecipar problemas de implementação.                 | Sinais preventivos na spec       |
 | 3. Implementação       | Implementa, testa, abre PR, revisa PR, implementa de novo.                                    | Backend + frontend da sua fatia  |
-| 4. Evolution com Agent | Acompanha o Agent trabalhando. Intervém quando ele se perde. Termina o que ele não completou. | PR do Agent em estado mergeável  |
+| 4. Evolução com Agent | Acompanha o Agent trabalhando. Intervém quando ele se perde. Termina o que ele não completou. | PR do Agent em estado mergeável  |
 
 ## Ferramentas e primitivas
 

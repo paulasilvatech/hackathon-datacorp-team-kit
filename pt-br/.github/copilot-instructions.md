@@ -1,42 +1,42 @@
-# GitHub Copilot Instructions — Legacy Modernization Workshop
+# Instruções do GitHub Copilot — Workshop de Modernização de Legado
 
-> These instructions tell Copilot what your team is building, what stack to use,
-> what conventions to follow, and what NOT to do. They apply to the entire team
-> repository.
+> Estas instruções dizem ao Copilot o que sua equipe está construindo, qual stack usar,
+> quais convenções seguir e o que NÃO fazer. Elas se aplicam a todo o repositório
+> da equipe.
 
-## Approved Tools — Only These
+## Ferramentas Aprovadas — Somente Estas
 
-This workshop runs on a **fixed toolchain**. Using anything else fragments the team and breaks the demos.
+Este workshop roda com uma **toolchain fixa**. Usar qualquer outra coisa fragmenta a equipe e quebra as demos.
 
-| Use these | Why |
+| Use estas | Por quê |
 |-----------|-----|
-| **VS Code** (or VS Code Insiders) | Single editor across the team. The devcontainer + extensions assume it. |
-| **GitHub Copilot** (Ask + Plan + Agent modes) | Primary AI assistant. Copilot Workspace is also allowed for Issue → PR delegation. |
-| **GitHub Copilot CLI** *(optional)* | For terminal-flow tasks. Same model routing rules apply. |
-| **GitHub Spec-Kit** (`Specify CLI` + `/speckit.*`) | Official Spec-Driven Development toolkit for specification, planning, tasks, and implementation. |
-| **GitHub** (Issues, PRs, Actions, Projects) | Source of truth for work, code, and CI. |
-| **Docker / Docker Compose** | Local environment parity. |
+| **VS Code** (ou VS Code Insiders) | Editor único para toda a equipe. O devcontainer + extensões assumem isso. |
+| **GitHub Copilot** (modos Ask + Plan + Agent) | Assistente de IA principal. Copilot Workspace também é permitido para delegação Issue → PR. |
+| **GitHub Copilot CLI** *(opcional)* | Para tarefas em fluxo de terminal. As mesmas regras de roteamento de modelo se aplicam. |
+| **GitHub Spec-Kit** (`Specify CLI` + `/speckit.*`) | Toolkit oficial de Spec-Driven Development para especificação, planejamento, tarefas e implementação. |
+| **GitHub** (Issues, PRs, Actions, Projects) | Fonte da verdade para trabalho, código e CI. |
+| **Docker / Docker Compose** | Paridade do ambiente local. |
 | **Terraform** | IaC (Azure provider). |
 
-**Do not use** other AI assistants, IDEs, or SDD frameworks during the workshop. Specifically:
+**Não use** outros assistentes de IA, IDEs ou frameworks de SDD durante o workshop. Especificamente:
 
-- ❌ No Cursor, Windsurf, Antigravity, Codex, Claude Code, Cline, Continue, Aider, Codeium, Tabnine, or other Copilot competitors
-- ❌ No ChatGPT / Claude.ai web UIs for code generation (your prompts and outputs must stay traceable via Copilot Chat history)
-- ❌ No IntelliJ, Eclipse, Sublime, Neovim plugins as primary editor
-- ❌ No alternative SDD frameworks (Kiro, custom YAML pipelines, etc.). The official GitHub Spec-Kit is allowed and required.
+- ❌ Sem Cursor, Windsurf, Antigravity, Codex, Claude Code, Cline, Continue, Aider, Codeium, Tabnine ou outros concorrentes do Copilot
+- ❌ Sem UIs web do ChatGPT / Claude.ai para geração de código (seus prompts e saídas devem permanecer rastreáveis pelo histórico do Copilot Chat)
+- ❌ Sem IntelliJ, Eclipse, Sublime ou plugins do Neovim como editor principal
+- ❌ Sem frameworks alternativos de SDD (Kiro, pipelines YAML customizados etc.). O GitHub Spec-Kit oficial é permitido e obrigatório.
 
-Why this is strict: the workshop measures **agentic engineering with the official Microsoft + GitHub stack**. Mixing tools breaks team handoffs, fragments the rubric, and makes the trace from spec → code → test impossible to validate.
+Por que isso é rígido: o workshop mede **engenharia agentic com a stack oficial Microsoft + GitHub**. Misturar ferramentas quebra os passagems da equipe, fragmenta a rubrica e torna impossível validar o rastreamento de spec → code → test.
 
-## Project Context
+## Contexto do Projeto
 
-This repository belongs to a workshop team modernizing the legacy **SIFAP**
-(Sistema de Fiscalização e Administração de Pagamentos) from Natural/Adabas to
-a modern stack. The reference workspace lives in
+Este repositório pertence a uma equipe do workshop que está modernizando o legado **SIFAP**
+(Sistema de Fiscalização e Administração de Pagamentos) de Natural/Adabas para
+uma stack moderna. O workspace de referência fica em
 [`workshop-legacy-modernization-datacorp`](https://github.com/paulasilvatech/workshop-legacy-modernization-datacorp).
 
-## Two Agent Layers — Both Required
+## Duas Camadas de Agentes — Ambas Obrigatórias
 
-This kit ships **two complementary agent layers**. They are not duplicates; they cover orthogonal axes (role × stage). Use both.
+Este kit inclui **duas camadas complementares de agentes**. Elas não são duplicadas; cobrem eixos ortogonais (role × stage). Use ambas.
 
 ```mermaid
 flowchart TB
@@ -50,36 +50,36 @@ flowchart TB
     P4[Pessoa · Par 4<br/>2 personas]:::person
     P5[Pessoa · Par 5<br/>2 personas]:::person
 
-    PK[persona-kits/NN-*/<br/>Copilot agent + prompts + skills + MCP<br/>per persona, all day]:::tool
-    AK[agent-kits/<br/>@archaeologist · @architect ·<br/>@builder · @evolution<br/>per stage, time-bound]:::tool
+    PK[persona-kits/NN-*/<br/>agente Copilot + prompts + skills + MCP<br/>por persona, o dia todo]:::tool
+    AK[agent-kits/<br/>@archaeologist · @architect ·<br/>@builder · @evolution<br/>por estágio, com tempo definido]:::tool
 
-    P1 & P2 & P3 & P4 & P5 -- "copy own 2 kits into .github/" --> PK
-    P1 & P2 & P3 & P4 & P5 -- "select in Copilot chat for current stage" --> AK
+    P1 & P2 & P3 & P4 & P5 -- "copiar os 2 kits próprios para .github/" --> PK
+    P1 & P2 & P3 & P4 & P5 -- "selecionar no Copilot chat para o estágio atual" --> AK
 ```
 
-### `persona-kits/NN-*/` — installed once, runs all day
+### `persona-kits/NN-*/` — instalado uma vez, roda o dia todo
 
-- One kit per persona (Product Owner, Requirements Engineer, …, Tech Writer).
-- Each kit contains: 1 `agent.md` + 2–4 `prompts/*.prompt.md` + 1–2 `skills/*/SKILL.md` + optional `instructions/*.instructions.md` + `mcp.json`.
-- Each person in your team copies **both** of their persona kits into the team repo's `.github/` folder via `cp -r persona-kits/XX-*/.github/* .github/`.
-- After that, Copilot is configured for that person's role for the whole day. Slash commands (`/spec`, `/ears-convert`, …) become available.
+- Um kit por persona (Product Owner, Requirements Engineer, …, Tech Writer).
+- Cada kit contém: 1 `agent.md` + 2–4 `prompts/*.prompt.md` + 1–2 `skills/*/SKILL.md` + `instructions/*.instructions.md` opcional + `mcp.json`.
+- Cada pessoa da equipe copia **ambos** os seus kits de persona para a pasta `.github/` do repositório da equipe via `cp -r persona-kits/XX-*/.github/* .github/`.
+- Depois disso, o Copilot fica configurado para o papel dessa pessoa durante todo o dia. Slash commands (`/spec`, `/ears-convert`, …) ficam disponíveis.
 
-### `agent-kits/` — selected fresh each stage
+### `agent-kits/` — selecionado novamente a cada estágio
 
-- One agent per stage: `@archaeologist` (Stage 1) · `@architect` (Stage 2) · `@builder` (Stage 3) · `@evolution` (Stage 4).
-- Shared by the entire team. Defines a "protagonist persona" + "secondary personas" + "observer personas" for that stage.
-- Activated in Copilot Chat: open the chat panel, click the agent selector, pick the stage agent. Paste the opening prompt from that kit's README.
-- The agent guides the **team's coordination** during the stage: which artifacts to produce, how to walk through the legacy code, when to escalate, etc.
+- Um agente por estágio: `@archaeologist` (Estágio 1) · `@architect` (Estágio 2) · `@builder` (Estágio 3) · `@evolution` (Estágio 4).
+- Compartilhado por toda a equipe. Define uma "persona protagonista" + "personas secundárias" + "personas observadoras" para aquele estágio.
+- Ativado no Copilot Chat: abra o painel de chat, clique no seletor de agente, escolha o agente do estágio. Cole o prompt de abertura do README daquele kit.
+- O agente orienta a **coordenação da equipe** durante o estágio: quais artefatos produzir, como percorrer o código legado, quando escalar etc.
 
-### How they combine in a typical 30-minute window
+### Como elas se combinam em uma janela típica de 30 minutos
 
-1. **You** opened Copilot Chat with your persona-kit loaded → slash commands like `/ears-convert` work because your `.github/prompts/` is populated.
-2. **Your team** selected the `@archaeologist` stage agent → the chat is in archaeology mode, walking the team through legacy reading.
-3. You ask `@archaeologist` to summarize what `BATCHPGT.NSN` does → it answers in archaeology framing.
-4. You then run `/ears-convert` on your discoveries → your persona-kit (RE) takes over and outputs YAML with `source_legacy:` lines.
-5. Both layers worked together. Neither is optional.
+1. **Você** abriu o Copilot Chat com seu persona-kit carregado → slash commands como `/ears-convert` funcionam porque sua pasta `.github/prompts/` está populada.
+2. **Sua equipe** selecionou o agente de estágio `@archaeologist` → o chat entra em modo de arqueologia, guiando a leitura do legado.
+3. Você pede ao `@archaeologist` para resumir o que `BATCHPGT.NSN` faz → ele responde no enquadramento de arqueologia.
+4. Em seguida, você roda `/ears-convert` sobre suas descobertas → seu persona-kit (RE) assume e gera YAML com linhas `source_legacy:`.
+5. As duas camadas trabalharam juntas. Nenhuma é opcional.
 
-## Target Stack
+## Stack-Alvo
 
 - **Backend:** Java 21 + Spring Boot 3.3 + JPA/Hibernate + PostgreSQL 16
 - **Frontend:** Next.js 15 (App Router) + TypeScript 5 (strict) + Tailwind CSS + shadcn/ui
@@ -88,100 +88,100 @@ flowchart TB
 - **CI/CD:** GitHub Actions
 - **Testing:** JUnit 5 + Testcontainers (backend); Vitest + Testing Library (frontend)
 
-## Code Generation Rules
+## Regras de Geração de Código
 
 ### Java
-- Use Java 21 features: records for DTOs, sealed interfaces for discriminated unions, pattern matching, virtual threads
-- `Optional` properly — never return `null` from public methods
-- `@Transactional` only on the service layer, never on repositories
-- Validate inputs at the controller layer with `@Valid` + Bean Validation
-- Class names in English; comments in English
-- Unit tests are mandatory for business logic
-- Never expose sensitive data (CPF, benefit values) in logs — mask them
+- Use recursos do Java 21: records para DTOs, sealed interfaces para uniões discriminadas, pattern matching, virtual threads
+- Use `Optional` corretamente — nunca retorne `null` de métodos públicos
+- `@Transactional` somente na camada de service, nunca em repositories
+- Valide entradas na camada de controller com `@Valid` + Bean Validation
+- Nomes de classes em inglês; comentários em inglês
+- Testes unitários são obrigatórios para lógica de negócio
+- Nunca exponha dados sensíveis (CPF, valores de benefício) em logs — mascare-os
 
 ### TypeScript / Next.js
-- `strict: true` in `tsconfig.json` — no exceptions
-- Use server actions for mutations; never expose secrets in client components
-- Prefer `async/await` over `.then()` chains
-- Named exports only — no default exports from component files
+- `strict: true` em `tsconfig.json` — sem exceções
+- Use server actions para mutations; nunca exponha secrets em client components
+- Prefira `async/await` a cadeias `.then()`
+- Somente named exports — sem default exports em arquivos de componentes
 
 ### REST APIs
-- Path convention: `/api/v1/{resource}`
-- Use HTTP verbs correctly (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`)
-- Return appropriate status codes (`201` for creation, `204` for no content, `409` for conflict)
-- All endpoints must have OpenAPI/Swagger annotations
+- Convenção de path: `/api/v1/{resource}`
+- Use verbos HTTP corretamente (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`)
+- Retorne status codes apropriados (`201` para criação, `204` para sem conteúdo, `409` para conflito)
+- Todos os endpoints devem ter annotations OpenAPI/Swagger
 
 ### Terraform
-- Every resource must have `tags` including `project`, `environment`, `owner`
-- Secrets via `azurerm_key_vault_secret` only — never in `locals` or `variables`
-- One module per Azure service area (networking, compute, database, monitoring)
-- `terraform fmt` and `terraform validate` must pass before commit
+- Todo recurso deve ter `tags` incluindo `project`, `environment`, `owner`
+- Secrets somente via `azurerm_key_vault_secret` — nunca em `locals` ou `variables`
+- Um módulo por área de serviço Azure (networking, compute, database, monitoring)
+- `terraform fmt` e `terraform validate` devem passar antes do commit
 
-## Security Rules (OWASP Top 10)
+## Regras de Segurança (OWASP Top 10)
 
-- Validate input at every system boundary
-- Never hardcode secrets, API keys, or credentials
-- SQL queries via JPA/JPQL only — no string concatenation
-- CORS configured explicitly — no wildcard `*` in production
-- Authentication via OAuth2/JWT (Spring Security on the backend)
-- All Azure resources use Managed Identity for service-to-service auth
+- Valide entradas em toda fronteira do sistema
+- Nunca faça hardcode de secrets, API keys ou credenciais
+- Consultas SQL somente via JPA/JPQL — sem concatenação de strings
+- CORS configurado explicitamente — sem wildcard `*` em produção
+- Autenticação via OAuth2/JWT (Spring Security no backend)
+- Todos os recursos Azure usam Managed Identity para autenticação serviço-a-serviço
 
 ## Spec-Driven Development (Spec-Kit)
 
-- Every requirement uses **EARS notation** (Easy Approach to Requirements Syntax)
-- Every requirement has a unique **REQ-ID** in the format `REQ-NNN`
-- **Every requirement carries a `source_legacy:` line** pointing to `legacy/natural-programs/*.NSN`, `legacy/adabas-ddms/*.ddm`, or `[GREENFIELD] + justification`. The CI `legacy-traceability` job rejects PRs that violate this. See [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md).
-- Tests trace to REQ-IDs via inline comments
-- Branch strategy: one branch per spec, named `spec/<NNN>-<feature>`
-- Merge order: `spec/*` → `develop` → `stage` → `main`
+- Todo requisito usa **notação EARS** (Easy Approach to Requirements Syntax)
+- Todo requisito tem um **REQ-ID** único no formato `REQ-NNN`
+- **Todo requisito carrega uma linha `source_legacy:`** apontando para `legacy/natural-programs/*.NSN`, `legacy/adabas-ddms/*.ddm` ou `[GREENFIELD] + justificativa`. O job de CI `legacy-traceability` rejeita PRs que violam isso. Consulte [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md).
+- Testes rastreiam para REQ-IDs por comentários inline
+- Estratégia de branch: uma branch por spec, nomeada `spec/<NNN>-<feature>`
+- Ordem de merge: `spec/*` → `develop` → `stage` → `main`
 
-## Legacy Exploration — MANDATORY
+## Exploração do Legado — OBRIGATÓRIA
 
-Before writing any EARS in Stage 2, your pair MUST have read the assigned Natural programs in [`legacy/natural-programs/`](../legacy/natural-programs/) and DDMs in [`legacy/adabas-ddms/`](../legacy/adabas-ddms/). Specs written without legacy reading lose 29 years of business rules. The HARD GATE matrix lives in [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md).
+Antes de escrever qualquer EARS no Estágio 2, seu par DEVE ter lido os programas Natural atribuídos em [`legacy/natural-programs/`](../legacy/natural-programs/) e os DDMs em [`legacy/adabas-ddms/`](../legacy/adabas-ddms/). Specs escritas sem leitura do legado perdem 29 anos de regras de negócio. A matriz de HARD GATE fica em [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md).
 
-## The 5 Pairs and 10 Personas
+## Os 5 Pares e 10 Personas
 
-> **Each team has 5 people. Each person wears 2 personas (1 pair).** No internal handoff between personas in a pair — continuous collaboration. Update the names below with your team's assignments.
+> **Cada equipe tem 5 pessoas. Cada pessoa veste 2 personas (1 par).** Não há passagem interno entre personas de um par — colaboração contínua. Atualize os nomes abaixo com as atribuições da sua equipe.
 
-| Pair | Persona A | Persona B | SDLC phase |
+| Par | Persona A | Persona B | Fase do SDLC |
 |------|-----------|-----------|------------|
-| 1 · Vision | [ ] 01 Product Owner — name? | [ ] 02 Requirements Engineer — name? | Discovery + Specification |
-| 2 · Architecture | [ ] 03 Enterprise Architect — name? | [ ] 04 Software Architect — name? | Specification + Design |
-| 3 · Implementation | [ ] 05 Technical Lead — name? | [ ] 06 Developer — name? | Implementation + Evolution |
-| 4 · Quality | [ ] 07 DBA — name? | [ ] 08 QA Engineer — name? | Implementation (data + tests) |
-| 5 · Operations | [ ] 09 DevOps Engineer — name? | [ ] 10 Tech Writer — name? | Cross-cutting + Evolution |
+| 1 · Visão | [ ] 01 Product Owner — nome? | [ ] 02 Requirements Engineer — nome? | Descoberta + Especificação |
+| 2 · Arquitetura | [ ] 03 Enterprise Architect — nome? | [ ] 04 Software Architect — nome? | Especificação + Design |
+| 3 · Implementação | [ ] 05 Technical Lead — nome? | [ ] 06 Developer — nome? | Implementação + Evolução |
+| 4 · Qualidade | [ ] 07 DBA — nome? | [ ] 08 QA Engineer — nome? | Implementação (dados + testes) |
+| 5 · Operações | [ ] 09 DevOps Engineer — nome? | [ ] 10 Tech Writer — nome? | Transversal + Evolução |
 
-See [`TEAM-FLOW.md`](../TEAM-FLOW.md) for handoff diagrams and the daily timeline.
+Veja [`TEAM-FLOW.md`](../TEAM-FLOW.md) para diagramas de passagem e a linha do tempo do dia.
 
-## How to Use Copilot (3 modes)
+## Como Usar o Copilot (3 modos)
 
-| Mode | When to use | Example |
+| Modo | Quando usar | Exemplo |
 |------|-------------|---------|
-| **Chat** | Explore, plan, debate trade-offs | "Explain this Natural program line by line" |
-| **Plan** | Multi-file change planning before execution | "Plan the `notification` bounded context with domain/application/infrastructure" |
-| **Agent** | Delegate complete features via an Issue | "Implement REQ-PAY-03: cycle generation with audit log" |
+| **Chat** | Explorar, planejar, debater trade-offs | "Explique este programa Natural linha por linha" |
+| **Plan** | Planejamento de mudanças multi-arquivo antes da execução | "Planeje o bounded context `notification` com domain/application/infrastructure" |
+| **Agent** | Delegar features completas via Issue | "Implemente REQ-PAY-03: geração de ciclo com audit log" |
 
-> See [`cheat-sheets/copilot-3-modes.md`](../cheat-sheets/copilot-3-modes.md) for
-> detailed guidance and prompt examples.
+> Veja [`cheat-sheets/copilot-3-modes.md`](../cheat-sheets/copilot-3-modes.md) para
+> orientações detalhadas e exemplos de prompts.
 
-## Hard Rules — Don't Do These
+## Regras Rígidas — Não Faça Isto
 
-- ❌ Don't generate code without first checking the existing prototype in `prototype/` (symlinked by `scripts/setup.sh`)
-- ❌ Don't write an EARS without `source_legacy:` — CI will reject the PR
-- ❌ Don't add dependencies without justification in an ADR
-- ❌ Don't write tests after the fact — write them as you implement
-- ❌ Don't expose secrets in commit messages, logs, or PR descriptions
-- ❌ Don't merge to `main` without at least one cross-pair review
-- ❌ Don't skip the handoff walkthroughs at stage transitions (see [`TEAM-FLOW.md`](../TEAM-FLOW.md))
+- ❌ Não gere código sem antes verificar o protótipo existente em `prototype/` (symlink criado por `scripts/setup.sh`)
+- ❌ Não escreva um EARS sem `source_legacy:` — o CI rejeitará o PR
+- ❌ Não adicione dependências sem justificativa em um ADR
+- ❌ Não escreva testes depois do fato — escreva-os enquanto implementa
+- ❌ Não exponha secrets em mensagens de commit, logs ou descrições de PR
+- ❌ Não faça merge em `main` sem pelo menos uma revisão entre pares
+- ❌ Não pule as conversas guiadas de passagem nas transições de estágio (veja [`TEAM-FLOW.md`](../TEAM-FLOW.md))
 
-## References
+## Referências
 
-- [Team Flow](../TEAM-FLOW.md) — daily timeline, handoffs, escalation
-- [Persona Kits](../persona-kits/) — your 2 role cards in `PERSONA.md`, plus Copilot agents, prompts, skills (copy your 2 kits into this `.github/`)
-- [Cheat Sheets](../cheat-sheets/) — Copilot, Spec-Kit, model routing
-- [Bundled Legacy](../legacy/) — what you're modernizing (15 .NSN programs + 4 DDMs)
-- [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md) — HARD GATE before Stage 2
-- Reference Prototype (`prototype/`) — running starter code (symlink, created by setup.sh)
-- Infrastructure modules (`infra/`) — Terraform Azure modules (symlink, created by setup.sh)
-- [Spec-Kit SDD Plugin](https://github.com/github/spec-kit) — Spec-Driven Development engine
-- Trilingual didactic docs: [`pt-br/`](../) · [`es/`](../../es/) · [`en/`](../../en/)
+- [Team Flow](../TEAM-FLOW.md) — linha do tempo diária, passagems, escalonamento
+- [Persona Kits](../persona-kits/) — seus 2 cartões de papel em `PERSONA.md`, além de agentes, prompts e skills do Copilot (copie seus 2 kits para esta `.github/`)
+- [Cheat Sheets](../cheat-sheets/) — Copilot, Spec-Kit, roteamento de modelo
+- [Legado Incluído](../legacy/) — o que você está modernizando (15 programas .NSN + 4 DDMs)
+- [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md) — HARD GATE antes do Estágio 2
+- Protótipo de Referência (`prototype/`) — starter code em execução (symlink, criado por setup.sh)
+- Módulos de infraestrutura (`infra/`) — módulos Terraform Azure (symlink, criado por setup.sh)
+- [Spec-Kit SDD Plugin](https://github.com/github/spec-kit) — engine de Spec-Driven Development
+- Docs didáticos trilíngues: [`pt-br/`](../) · [`es/`](../../es/) · [`en/`](../../en/)

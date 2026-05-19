@@ -1,15 +1,15 @@
 ---
-description: "Reading guide for Natural/Adabas legacy code — language patterns, FDT structure, naming conventions, batch flows"
+description: "Guia de leitura para código legado Natural/Adabas — padrões da linguagem, estrutura FDT, convenções de nomes, fluxos batch"
 applyTo: '**/*.nat,**/*.cpy,**/*.ddm,**/legacy/**'
 ---
 
-# Natural/Adabas Legacy Code — Reading Guide
+# Código Legado Natural/Adabas — Guia de Leitura
 
-This file is activated when you open Natural programs, Adabas DDMs, or any file inside the `legacy/` directory. It teaches you how to read legacy code — it does not interpret any specific system for you.
+Este arquivo é ativado quando você abre programas Natural, DDMs Adabas ou qualquer arquivo dentro do diretório `legacy/`. Ele ensina como ler código legado — não interpreta nenhum sistema específico por você.
 
-## Natural Program Structure
+## Estrutura de Programa Natural
 
-A Natural program follows this skeleton:
+Um programa Natural segue este esqueleto:
 
 ```
 DEFINE DATA
@@ -24,82 +24,82 @@ DEFINE DATA
 END
 ```
 
-Key blocks to recognize:
+Blocos-chave a reconhecer:
 
-| Block | Purpose |
+| Bloco | Propósito |
 |-------|---------|
-| `DEFINE DATA LOCAL` | Variable declarations scoped to this program |
-| `DEFINE DATA PARAMETER` | Input/output variables received from a caller |
-| `DEFINE DATA GLOBAL` | Shared across programs in a session (rare, fragile) |
-| `INPUT` | Read from terminal (online) or sequential file (batch) |
-| `DISPLAY` / `WRITE` | Output to screen or report |
-| `MAP` | Screen layout definition (terminal UI) |
+| `DEFINE DATA LOCAL` | Declarações de variáveis com escopo neste programa |
+| `DEFINE DATA PARAMETER` | Variáveis de entrada/saída recebidas de um chamador |
+| `DEFINE DATA GLOBAL` | Compartilhado entre programas em uma sessão (raro, frágil) |
+| `INPUT` | Leitura do terminal (online) ou arquivo sequencial (batch) |
+| `DISPLAY` / `WRITE` | Saída para tela ou relatório |
+| `MAP` | Definição de layout de tela (terminal UI) |
 
 ## CALLNAT vs PERFORM
 
-- **`CALLNAT 'SUBPROG' parm1 parm2`** — calls an external subprogram (separate source file). Parameters are passed by reference unless marked `(AD=O)` for output-only.
-- **`PERFORM subroutine-name`** — calls an internal subroutine defined with `DEFINE SUBROUTINE ... END-SUBROUTINE` within the same program.
+- **`CALLNAT 'SUBPROG' parm1 parm2`** — chama um subprograma externo (arquivo-fonte separado). Parâmetros são passados por referência, salvo marcação `(AD=O)` para output-only.
+- **`PERFORM subroutine-name`** — chama uma sub-rotina interna definida com `DEFINE SUBROUTINE ... END-SUBROUTINE` dentro do mesmo programa.
 
-When mapping call chains, `CALLNAT` is the important one — it crosses file boundaries.
+Ao mapear cadeias de chamada, `CALLNAT` é o importante — ele cruza fronteiras de arquivo.
 
 ## INCLUDE Copycodes
 
-`INCLUDE copycode-name` inserts a shared code fragment at compile time, like a C `#include`. Copycodes (`.cpy` files) typically contain:
+`INCLUDE copycode-name` insere um fragmento de código compartilhado em tempo de compilação, como um `#include` em C. Copycodes (arquivos `.cpy`) normalmente contêm:
 
-- Shared data area definitions (the "struct" of Natural)
-- Common validation routines
-- Standard error handling blocks
+- Definições de shared data area (a "struct" do Natural)
+- Rotinas comuns de validação
+- Blocos padrão de tratamento de erros
 
-When you see `INCLUDE`, find the corresponding `.cpy` file to understand the full data layout.
+Quando vir `INCLUDE`, encontre o arquivo `.cpy` correspondente para entender o layout completo de dados.
 
 ## Adabas FDT (Field Definition Table)
 
-Every Adabas file has an FDT that defines its fields. Think of it as the schema:
+Todo arquivo Adabas tem um FDT que define seus campos. Pense nele como o schema:
 
-| Column | Meaning |
+| Coluna | Significado |
 |--------|---------|
-| Level | Hierarchy depth (01 = top, 02+ = children) |
-| Name | 2-character short name (AA, AB, AC...) |
+| Level | Profundidade hierárquica (01 = topo, 02+ = filhos) |
+| Name | Nome curto de 2 caracteres (AA, AB, AC...) |
 | Format | `A` = alpha, `N` = numeric, `P` = packed, `B` = binary, `D` = date, `T` = time |
-| Length | Field size in bytes |
-| Descriptor | `DE` = searchable index, `MU` = multi-value (array), `PE` = periodic group (repeating group) |
+| Length | Tamanho do campo em bytes |
+| Descriptor | `DE` = índice pesquisável, `MU` = multi-value (array), `PE` = periodic group (grupo repetitivo) |
 
-### MU Fields (Multiple-Value)
+### Campos MU (Multiple-Value)
 
-A field marked `MU` can hold multiple values (like an array). In Natural, accessed with an index: `FIELD(1)`, `FIELD(2)`, etc. Maximum occurrences defined in the FDT.
+Um campo marcado `MU` pode conter múltiplos valores (como um array). Em Natural, é acessado com índice: `FIELD(1)`, `FIELD(2)` etc. O máximo de ocorrências é definido no FDT.
 
-**Modern mapping**: `@ElementCollection` in JPA, or a JSONB column in PostgreSQL.
+**Mapeamento moderno**: `@ElementCollection` em JPA, ou uma coluna JSONB em PostgreSQL.
 
-### PE Groups (Periodic Groups)
+### Grupos PE (Periodic Groups)
 
-A `PE` group is a repeating group of related fields — like a row in an embedded table. For example, an address history where each occurrence has street, city, date.
+Um grupo `PE` é um grupo repetitivo de campos relacionados — como uma linha em uma tabela embedded. Por exemplo, um histórico de endereços no qual cada ocorrência tem rua, cidade, data.
 
-**Modern mapping**: `@OneToMany` relationship with an embedded entity, or a JSONB array.
+**Mapeamento moderno**: relacionamento `@OneToMany` com uma entidade embedded, ou um array JSONB.
 
 ### Super-Descriptors
 
-A super-descriptor combines multiple fields into a single searchable key (composite index). Notation like `SU = AA + AB(1-4)` means "concatenate field AA with the first 4 bytes of AB."
+Um super-descriptor combina múltiplos campos em uma única chave pesquisável (índice composto). Notação como `SU = AA + AB(1-4)` significa "concatenar o campo AA com os primeiros 4 bytes de AB".
 
-**Modern mapping**: `@Index(columnList = "col_a, col_b")` in JPA.
+**Mapeamento moderno**: `@Index(columnList = "col_a, col_b")` em JPA.
 
-## 1990s Naming Conventions
+## Convenções de Nomes dos Anos 1990
 
-Legacy Natural codebases use prefix-based naming. Common patterns include:
+Codebases legadas Natural usam nomes baseados em prefixos. Padrões comuns incluem:
 
-| Prefix Pattern | Typical Meaning |
+| Padrão de Prefixo | Significado Típico |
 |---|---|
-| `BN-` or `BATCH-` | Batch program or batch-related variable |
-| `PG-` or `PROG-` | Main program |
-| `PS-` or `SUB-` | Subprogram (called via CALLNAT) |
-| `AU-` or `AUT-` | Authorization or audit related |
-| `#` prefix on variables | Local working variable (Natural convention) |
-| `+` prefix on variables | Parameter variable passed from caller |
+| `BN-` ou `BATCH-` | Programa batch ou variável relacionada a batch |
+| `PG-` ou `PROG-` | Programa principal |
+| `PS-` ou `SUB-` | Subprograma (chamado via CALLNAT) |
+| `AU-` ou `AUT-` | Relacionado a authorization ou audit |
+| prefixo `#` em variáveis | Variável local de trabalho (convenção Natural) |
+| prefixo `+` em variáveis | Variável de parâmetro passada pelo chamador |
 
-These are conventions, not rules — verify by reading the code, not by assuming.
+São convenções, não regras — verifique lendo o código, não assumindo.
 
-## Batch Job Patterns
+## Padrões de Batch Job
 
-Batch Natural programs typically follow this structure:
+Programas Natural batch normalmente seguem esta estrutura:
 
 ```
 READ WORK FILE 1 record
@@ -110,7 +110,7 @@ READ WORK FILE 1 record
 END-WORK
 ```
 
-Control-break reporting uses:
+Relatórios de control-break usam:
 
 ```
 READ logical-file BY descriptor
@@ -122,19 +122,19 @@ READ logical-file BY descriptor
 END-READ
 ```
 
-## Packed Decimal Handling
+## Tratamento de Packed Decimal
 
-Packed decimal (`P` format) stores digits efficiently: each byte holds two digits, the last nibble is the sign (C=positive, D=negative). Common in financial calculations.
+Packed decimal (formato `P`) armazena dígitos de forma eficiente: cada byte mantém dois dígitos, o último nibble é o sinal (C=positivo, D=negativo). Comum em cálculos financeiros.
 
-When mapping to Java: always use `BigDecimal`, never `double` or `float`. Packed fields with format `P9.2` mean 9 total digits with 2 decimal places → `BigDecimal` with `scale(2)`.
+Ao mapear para Java: sempre use `BigDecimal`, nunca `double` ou `float`. Campos packed com formato `P9.2` significam 9 dígitos totais com 2 casas decimais → `BigDecimal` com `scale(2)`.
 
-## Reading Strategy
+## Estratégia de Leitura
 
-When approaching a legacy program for the first time:
+Ao abordar um programa legado pela primeira vez:
 
-1. **Start with DEFINE DATA** — understand the variables and their types
-2. **Find the main READ or FIND** — this tells you what data the program processes
-3. **Trace the CALLNAT calls** — these are the dependencies
-4. **Look for INCLUDE copycodes** — these expand the data definitions
-5. **Check for AT BREAK / AT END OF DATA** — these reveal the reporting or processing logic
-6. **Note any ESCAPE or ON ERROR** — these are error handling paths
+1. **Comece com DEFINE DATA** — entenda as variáveis e seus tipos
+2. **Encontre o READ ou FIND principal** — isso diz quais dados o programa processa
+3. **Rastreie as chamadas CALLNAT** — estas são as dependências
+4. **Procure INCLUDE copycodes** — eles expandem as definições de dados
+5. **Verifique AT BREAK / AT END OF DATA** — eles revelam a lógica de relatório ou processamento
+6. **Anote qualquer ESCAPE ou ON ERROR** — estes são caminhos de tratamento de erro

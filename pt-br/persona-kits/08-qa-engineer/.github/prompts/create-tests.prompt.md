@@ -1,65 +1,65 @@
 ---
 mode: agent
 model: claude-sonnet-4-6
-description: "Generate a complete test class for a single REQ-ID, with happy path, boundaries, and negative cases."
+description: "Gere uma classe de teste completa para um único REQ-ID, com happy path, limites e casos negativos."
 ---
 
 # /create-tests
 
-## Goal
+## Objetivo
 
-You are writing the test class for **one specific `REQ-ID`** on SIFAP 2.0. You produce ready-to-paste JUnit 5 (Java) or Vitest (TypeScript) tests that cover happy path, boundaries, and negative cases — and you stop there. You do not implement production code; you do not modify the spec.
+Você está escrevendo a classe de teste para **um `REQ-ID` específico** no SIFAP 2.0. Você produz testes JUnit 5 (Java) ou Vitest (TypeScript) prontos para colar, cobrindo caminho feliz, limites e casos negativos — e para por aí. Você não implementa código de produção; você não modifica a spec.
 
-## Inputs
+## Entradas
 
-Ask the user for what is missing.
+Peça ao usuário o que estiver faltando.
 
-- The `REQ-ID` and its full EARS statement and acceptance criteria from `SPECIFICATION.md`.
-- The class or component under test (for example `br.gov.sifap.payments.PaymentService` or `app/beneficiaries/page.tsx`).
-- The test framework — JUnit 5 + AssertJ + Mockito (backend) or Vitest + Testing Library (frontend).
-- Any existing test fixtures or builders to reuse (`src/test/resources/fixtures/`, `__fixtures__/`).
+- O `REQ-ID`, sua declaração EARS completa e seus critérios de aceitação em `SPECIFICATION.md`.
+- A classe ou componente sob teste (por exemplo `br.gov.sifap.payments.PaymentService` ou `app/beneficiaries/page.tsx`).
+- O framework de teste — JUnit 5 + AssertJ + Mockito (backend) ou Vitest + Testing Library (frontend).
+- Quaisquer fixtures ou builders de teste existentes para reutilizar (`src/test/resources/fixtures/`, `__fixtures__/`).
 
-## Process
+## Processo
 
-1. **Decompose the EARS statement into testable cases.**
- - Ubiquitous (`The system shall ...`) → 1 happy + 1 boundary.
- - Event-driven (`When ...`) → 1 happy + 1 negative ("event did not happen, nothing should change").
- - State-driven (`While ...`) → 1 case per state transition (in-state, exit-state, re-entry).
- - Optional (`Where ...`) → 1 with feature flag on, 1 with flag off.
- - Unwanted (`If ..., then the system shall not ...`) → at least 2 negative cases at different boundaries.
-2. **Pick fixtures, do not pick production data.** Reuse `BeneficiaryFixtures.exempt()`, never copy a real CPF.
-3. **Name tests for behavior.** `shouldRejectDisbursementWhenBeneficiarySuspended`, not `test1`. Snake_case in TS test descriptions, camelCase method names in JUnit.
-4. **Use Given/When/Then comments or AAA blank-line separation.** Reviewers must read the test in 10 seconds.
-5. **Use AssertJ chains for richness** (`assertThat(x).isEqualTo(y).as("REQ-PAY-014")`) — never `assertTrue(x.equals(y))`.
-6. **Tag with the requirement.** `@Tag("REQ-PAY-014")` on JUnit, or `describe('REQ-PAY-014', ...)` on Vitest.
-7. **Mock only owned collaborators.** Repositories yes, framework classes no. Don't mock value objects or pure functions.
-8. **Run the tests** and confirm they all fail with meaningful messages (until production code is written by `/implement`).
+1. **Decomponha a declaração EARS em casos testáveis.**
+ - Ubiquitous (`O sistema deverá ...`) → 1 caminho feliz + 1 limite.
+ - Event-driven (`Quando ...`) → 1 caminho feliz + 1 negativo ("o evento não aconteceu, nada deve mudar").
+ - State-driven (`Enquanto ...`) → 1 caso por transição de estado (in-state, exit-state, re-entry).
+ - Optional (`Onde ...`) → 1 com feature flag ligada, 1 com flag desligada.
+ - Unwanted (`Se ..., então o sistema não deverá ...`) → pelo menos 2 casos negativos em limites diferentes.
+2. **Escolha fixtures, não dados de produção.** Reutilize `BeneficiaryFixtures.exempt()`, nunca copie um CPF real.
+3. **Nomeie testes pelo comportamento.** `shouldRejectDisbursementWhenBeneficiarySuspended`, não `test1`. Snake_case em descrições de teste TS, camelCase em nomes de métodos JUnit.
+4. **Use comentários Given/When/Then ou separação AAA com linhas em branco.** Revisores precisam ler o teste em 10 segundos.
+5. **Use cadeias AssertJ para riqueza** (`assertThat(x).isEqualTo(y).as("REQ-PAY-014")`) — nunca `assertTrue(x.equals(y))`.
+6. **Marque com o requisito.** `@Tag("REQ-PAY-014")` no JUnit, ou `describe('REQ-PAY-014', ...)` no Vitest.
+7. **Faça mock apenas de colaboradores próprios.** Repositories sim, classes de framework não. Não faça mock de value objects ou funções puras.
+8. **Rode os testes** e confirme que todos falham com mensagens significativas (até que o código de produção seja escrito por `/implement`).
 
-## Output
+## Saída
 
-Your final reply must include:
+Sua resposta final deve incluir:
 
-- **Test plan** — one table mapping each acceptance criterion to a test method name.
-- **Full test file content** — ready to paste into the project.
-- **Fixture additions** if any new builder/factory is needed (separate file).
-- **Run instruction** — exact command (`./mvnw test -Dtest=PaymentServiceTest`).
-- **Expected failure messages** — what the user should see before implementation.
+- **Plano de testes** — uma tabela mapeando cada critério de aceitação para um nome de método de teste.
+- **Conteúdo completo do arquivo de teste** — pronto para colar no projeto.
+- **Adições de fixtures** se algum novo builder/factory for necessário (arquivo separado).
+- **Instrução de execução** — comando exato (`./mvnw test -Dtest=PaymentServiceTest`).
+- **Mensagens de falha esperadas** — o que o usuário deve ver antes da implementação.
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** `REQ-PAY-014` — "If a beneficiary is suspended, then the system shall not disburse." Class under test: `PaymentService`.
+**Entrada:** `REQ-PAY-014` — "Se um beneficiário estiver suspenso, então o sistema não deverá desembolsar." Classe sob teste: `PaymentService`.
 
-**Expected reply skeleton:**
+**Esqueleto de resposta esperado:**
 
-> Plan:
+> Plano:
 >
-> | Acceptance criterion | Test method |
+> | Critério de aceitação | Método de teste |
 > |----------------------|-------------|
-> | Suspended beneficiary causes refusal | `shouldRejectDisbursementWhenBeneficiarySuspended` |
-> | Active beneficiary still disburses (regression) | `shouldDisburseWhenBeneficiaryActive` |
-> | Boundary: `status=PENDING` is not "suspended" | `shouldDisburseWhenBeneficiaryPending` |
+> | Beneficiário suspenso causa recusa | `shouldRejectDisbursementWhenBeneficiarySuspended` |
+> | Beneficiário ativo ainda recebe desembolso (regressão) | `shouldDisburseWhenBeneficiaryActive` |
+> | Limite: `status=PENDING` não é "suspended" | `shouldDisburseWhenBeneficiaryPending` |
 >
-> File: `backend/src/test/java/br/gov/sifap/payments/PaymentServiceTest.java`
+> Arquivo: `backend/src/test/java/br/gov/sifap/payments/PaymentServiceTest.java`
 >
 > ```java
 > @Tag("REQ-PAY-014")
@@ -84,25 +84,25 @@ Your final reply must include:
 > }
 > ```
 >
-> Run: `./mvnw test -Dtest=PaymentServiceTest`
-> Expect: 3 tests fail with `Expected BeneficiarySuspendedException but ...` until `/implement` builds the production code.
+> Execução: `./mvnw test -Dtest=PaymentServiceTest`
+> Esperado: 3 testes falham com `Expected BeneficiarySuspendedException but ...` até `/implement` construir o código de produção.
 
-## Anti-patterns
+## Anti-padrões
 
-- Writing one giant test that exercises six cases. Split them.
-- Asserting on the implementation: private fields, exact SQL strings, log message text.
-- Mocking the class under test or value objects.
-- Sharing mutable fixture state across tests. Build fresh per test.
-- Tests without a `REQ-ID` tag — they cannot be tracked in the coverage gap report.
-- Skipping negative cases for unwanted-behavior EARS. That is the entire point of the pattern.
-- Using `Thread.sleep` or `await new Promise(r => setTimeout(r, 100))` for synchronization. Use awaitility or `findBy*` matchers.
+- Escrever um teste gigante que exercita seis casos. Divida-os.
+- Fazer asserções sobre a implementação: campos privados, strings SQL exatas, texto de mensagens de log.
+- Fazer mock da classe sob teste ou de value objects.
+- Compartilhar estado mutável de fixtures entre testes. Construa dados novos por teste.
+- Testes sem tag de `REQ-ID` — eles não podem ser rastreados no relatório de lacunas de cobertura.
+- Pular casos negativos para EARS unwanted-behavior. Esse é o ponto central do padrão.
+- Usar `Thread.sleep` ou `await new Promise(r => setTimeout(r, 100))` para sincronização. Use awaitility ou matchers `findBy*`.
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] Every acceptance criterion has at least one named test.
-- [ ] At least one boundary or negative case is included.
-- [ ] All tests carry the `REQ-ID` as a tag and in the assertion description.
-- [ ] Tests fail before implementation, with clear messages, for the right reason.
-- [ ] No production code is changed.
-- [ ] No real PII or production credentials anywhere in fixtures.
-- [ ] Test file compiles and runs in isolation (`./mvnw test -Dtest=...`).
+- [ ] Todo critério de aceitação tem pelo menos um teste nomeado.
+- [ ] Pelo menos um caso de limite ou negativo está incluído.
+- [ ] Todos os testes carregam o `REQ-ID` como tag e na descrição da asserção.
+- [ ] Os testes falham antes da implementação, com mensagens claras, pelo motivo correto.
+- [ ] Nenhum código de produção é alterado.
+- [ ] Nenhum PII real ou credencial de produção aparece em fixtures.
+- [ ] O arquivo de teste compila e roda isoladamente (`./mvnw test -Dtest=...`).

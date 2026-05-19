@@ -22,18 +22,18 @@ flowchart LR
  classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
  classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
 
- D[Discovery<br/>S1 — C4 L1 + integrações]:::support
- SP[Specification<br/>S2 — LIDERA ADRs topologia]:::current
- IM[Implementation<br/>S3 — valida contratos]:::support
- EV[Evolution<br/>S4 — impacto arquitetural]:::support
+ D[Descoberta<br/>S1 — C4 L1 + integrações]:::support
+ SP[Especificação<br/>S2 — LIDERA ADRs topologia]:::current
+ IM[Implementação<br/>S3 — valida contratos]:::support
+ EV[Evolução<br/>S4 — impacto arquitetural]:::support
 
  D --> SP --> IM --> EV
 ```
 
 - **Par**: 2 · Arquitetura (junto com Software Architect)
-- **Fases lideradas**: Specification (S2) — C4 L1 + ADRs de topologia
+- **Fases lideradas**: Especificação (S2) — C4 L1 + ADRs de topologia
 - **Recebe de**: Par 1 (Visão) no H1 — catálogo de regras e escopo
-- **Faz handoff para**: Par 3 (Implementação) e Par 4 (Qualidade) no H2; Par 5 (Operações) para Terraform
+- **Faz passagem para**: Par 3 (Implementação) e Par 4 (Qualidade) no H2; Par 5 (Operações) para Terraform
 
 ## Quem é essa pessoa
 
@@ -45,7 +45,7 @@ Garantir que o SIFAP 2.0 não quebre o mundo ao redor. Desenhar o mapa de depend
 
 ## Seu papel no framework Agentic Legacy Modernization
 
-- **Agentes relevantes**: Discovery Agent (S1), Deployment Agent (S4)
+- **Agentes relevantes**: Descoberta Agent (S1), Deployment Agent (S4)
 - **Fase do framework**: Assessment → Coexistence and Traffic Migration
 - **Seu papel**: mapear dependências externas e definir estratégia de coexistência (Strangler Fig)
 
@@ -56,7 +56,7 @@ Garantir que o SIFAP 2.0 não quebre o mundo ao redor. Desenhar o mapa de depend
 | 1. Arqueologia         | Constrói mapa de dependências e integrações (C4 nível 1 — sistema em contexto). Identifica contratos externos.           | Diagrama C4 L1 + inventário de integrações |
 | 2. Spec Moderna        | Define decisões de topologia (onde o sistema vive na cloud, quem é cliente de quem, quais APIs são síncronas e por quê). | ADRs de topologia e integração (1–2)       |
 | 3. Implementação       | Valida que a implementação respeita os contratos desenhados. Ajuda DevOps com Terraform de alto nível.                   | Validação do layout deployado              |
-| 4. Evolution com Agent | Avalia se as issues do Estágio 4 têm implicações arquiteturais que precisam de revisão prévia.                           | Avaliação de impacto                       |
+| 4. Evolução com Agent  | Avalia se as issues do Estágio 4 têm implicações arquiteturais que precisam de revisão prévia.                           | Avaliação de impacto                       |
 
 ## Ferramentas e primitivas
 
@@ -89,7 +89,7 @@ Garantir que o SIFAP 2.0 não quebre o mundo ao redor. Desenhar o mapa de depend
 - **EA + Software Architect** é a combinação mais comum em time pequeno. Você cuida do C4 L1; seu par cuida dos níveis 2 e 3.
 - **EA + Technical Lead** também funciona se quiser envolvimento mais hands-on.
 
-## 3 prompts de exemplo
+## 3 exemplos de prompt
 
 1. **(Chat)** _"Crie um diagrama C4 Nível 1 em Mermaid para o SIFAP 2.0 mostrando: 3 tipos de usuário, o sistema central, e 4 sistemas externos (SIAFI, Receita Federal, Banco do Brasil, CadÚnico)."_
 2. **(Chat)** _"Se o SIAFI ficar offline por 2 horas durante o ciclo mensal de pagamento, qual o impacto? Proponha 3 estratégias de fallback e recomende uma."_

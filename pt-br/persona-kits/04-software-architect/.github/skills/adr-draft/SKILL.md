@@ -1,26 +1,26 @@
 ---
 name: ADR Drafting
-description: "Use when drafting Architecture Decision Records, evaluating alternatives, or documenting technical trade-offs. Triggers on "ADR", "architecture decision", "trade-off", "pick between", "why did we choose"."
+description: 'Use ao rascunhar Arquitetura Decision Records, avaliar alternativas ou documentar trade-offs técnicos. Aciona com "ADR", "architecture decision", "trade-off", "pick between", "why did we choose".'
 ---
 
-# ADR Drafting
+# Rascunho de ADR
 
-## When to invoke
+## Quando invocar
 - "Draft an ADR for choosing PostgreSQL over MongoDB."
 - "Document our decision to adopt event-driven architecture."
 - "Revisit ADR-007 - we need to supersede it."
 
-## When to write an ADR
+## Quando escrever um ADR
 
-Write an ADR when a decision:
-- Is hard or expensive to reverse.
-- Affects more than one team.
-- Constrains future choices (technology lock-in).
-- Is likely to be questioned in 6 months.
+Escreva um ADR quando uma decisão:
+- É difícil ou cara de reverter.
+- Afeta mais de um time.
+- Restringe escolhas futuras (technology lock-in).
+- Provavelmente será questionada em 6 meses.
 
-Do not write an ADR for a local refactor or a reversible config tweak.
+Não escreva um ADR para um refactor local ou ajuste de configuração reversível.
 
-## Structure
+## Estrutura
 
 ```markdown
 # ADR-NNN: <Decision title in imperative>
@@ -59,17 +59,17 @@ One paragraph. "We will <decision>."
 - Source 2
 ```
 
-## Writing tips
-- Write in the present tense ("We use X").
-- Include at least 2 alternatives rejected.
-- Name consequences you know will hurt - future you will thank you.
-- Supersede, never delete. The history is the value.
+## Dicas de escrita
+- Escreva no tempo presente ("We use X").
+- Inclua pelo menos 2 alternativas rejeitadas.
+- Nomeie consequências que você sabe que vão doer - seu eu futuro vai agradecer.
+- Substitua, nunca delete. A história é o valor.
 
-## Anti-patterns
-- ADRs written after the fact to justify a done deal.
-- One ADR that bundles 5 unrelated decisions.
-- No alternatives section (signals no trade-off analysis happened).
-- Status stuck on "proposed" for months.
+## Antipadrões
+- ADRs escritos depois do fato para justificar decisão já tomada.
+- Um ADR que agrupa 5 decisões não relacionadas.
+- Sem seção de alternativas (sinaliza que não houve análise de trade-off).
+- Status preso em "proposed" por meses.
 
-## Quality gate
-Reject any ADR missing Context, Decision, Alternatives, and Consequences sections.
+## Gate de qualidade
+Rejeite qualquer ADR sem seções Context, Decision, Alternatives e Consequences.

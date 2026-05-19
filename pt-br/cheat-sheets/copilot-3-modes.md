@@ -1,5 +1,5 @@
 ---
-title: "Cheat sheet — GitHub Copilot em 3 modos"
+title: "Cartão de referência — GitHub Copilot em 3 modos"
 description: "Uma página. Quando usar Ask, Plan ou Agent. Frases que funcionam. Erros comuns."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/cheat-sheets/copilot-3-modes.md"
@@ -11,7 +11,7 @@ tags: ["cheat-sheet", "copilot", "workshop", "pt-br"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-# GitHub Copilot em 3 modos — Cheat sheet
+# GitHub Copilot em 3 modos — Cartão de referência
 
 ## Quando usar isso
 
@@ -90,7 +90,7 @@ flowchart LR
 
 **Acompanhamento**: não opere enquanto o Agent estiver rodando. Deixe ir. Cheque a cada ~10 minutos se o caminho faz sentido.
 
-**Revisar PR do Agent**: exatamente como revisaria PR humano. Quick review continua sendo review.
+**Revisar PR do Agent**: exatamente como revisaria PR humano. Revisão rápida continua sendo revisão.
 
 **Erros comuns:**
 

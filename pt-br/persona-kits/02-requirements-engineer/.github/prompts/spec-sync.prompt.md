@@ -1,28 +1,28 @@
 ---
 mode: ask
 model: claude-sonnet-4-6
-description: "Synchronize SPECIFICATION.md with the current codebase"
+description: "Sincronize SPECIFICATION.md com o codebase atual"
 ---
 
 # /spec-sync
 
-## Task
-Detect drift between SPECIFICATION.md and the implementation. Produce a sync report and a proposed spec update.
+## Tarefa
+Detecte drift entre SPECIFICATION.md e a implementação. Produza um relatório de sincronização e uma proposta de atualização da spec.
 
-## Steps
-1. Parse REQ-IDs from SPECIFICATION.md.
-2. Grep the codebase for REQ-ID references (in comments, test names, commit messages).
-3. For each REQ-ID: classify as Implemented (has code + test), Partial (code only), Orphaned (no code), Undocumented (code references an unknown REQ-ID).
-4. For behavioral drift: pick 3 representative flows, compare spec vs. actual code path.
-5. Propose additions/updates to SPECIFICATION.md for any Undocumented items found.
+## Passos
+1. Faça parse dos REQ-IDs de SPECIFICATION.md.
+2. Use grep no codebase para referências a REQ-ID (em comentários, nomes de testes, mensagens de commit).
+3. Para cada REQ-ID: classifique como Implemented (tem código + teste), Partial (apenas código), Orphaned (sem código), Undocumented (o código referencia um REQ-ID desconhecido).
+4. Para drift comportamental: escolha 3 fluxos representativos, compare a spec com o caminho real do código.
+5. Proponha adições/atualizações em SPECIFICATION.md para quaisquer itens Undocumented encontrados.
 
-## Output
-- Drift table: `REQ-ID | Status | Evidence (file:line) | Action`
-- Proposed spec patch in a fenced diff block
-- "Top 3 drifts by risk" summary
+## Saída
+- Tabela de drift: `REQ-ID | Status | Evidência (arquivo:linha) | Ação`
+- Patch proposto da spec em bloco diff cercado por crases
+- Resumo "Top 3 drifts by risk"
 
-## Quality Gate
-- [ ] Every REQ-ID in the spec is classified
-- [ ] Every Undocumented finding has a proposed REQ-ID and EARS statement
-- [ ] Evidence cites exact file:line
-- [ ] The proposed patch compiles against the current SPECIFICATION.md structure
+## Gate de Qualidade
+- [ ] Todo REQ-ID na spec está classificado
+- [ ] Todo achado Undocumented tem um REQ-ID proposto e uma declaração EARS
+- [ ] Evidência cita arquivo:linha exato
+- [ ] O patch proposto compila contra a estrutura atual de SPECIFICATION.md

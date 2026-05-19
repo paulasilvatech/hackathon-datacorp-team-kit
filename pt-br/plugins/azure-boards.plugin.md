@@ -1,74 +1,97 @@
 ---
 name: Azure Boards
 type: plugin
-description: "Sync SDD work items with Azure DevOps Boards. Create Epics, Features, User Stories, and Tasks with REQ-ID traceability."
-audience: persona-kits (all roles)
+description: "Sincroniza itens de trabalho SDD com o Azure DevOps Boards. Cria Epics, Features, User Stories e Tasks com rastreabilidade por REQ-ID."
+audience: persona-kits (todas as funções)
 ---
 
-# Azure Boards Plugin
+# Plugin do Azure Boards
 
-## What it does
-Sync SDD work items with Azure DevOps Boards. Create Epics, Features, User Stories, and Tasks with REQ-ID traceability.
+## O que ele faz
 
-## Use this plugin when
-- Syncing from TASKS.md to an ADO project with the workshop work items
-- Creating Epic -> Feature -> Story hierarchy aligned to SPECIFICATION.md
-- Keeping acceptance criteria in sync between markdown and ADO
+Sincroniza itens de trabalho SDD com o Azure DevOps Boards. Cria Epics,
+Features, User Stories e Tasks com rastreabilidade por REQ-ID.
 
-## Tools provided
+## Use este plugin quando
+
+- Sincronizar de TASKS.md para um projeto ADO com os itens de trabalho do workshop
+- Criar a hierarquia Epic -> Feature -> Story alinhada a SPECIFICATION.md
+- Manter critérios de aceitação sincronizados entre markdown e ADO
+
+## Ferramentas fornecidas
 
 ### `create_work_item`
-Create a single Epic/Feature/User Story/Task with fields mapped from markdown frontmatter.
+
+Cria um único Epic/Feature/User Story/Task com campos mapeados a partir do
+frontmatter markdown.
 
 ### `sync_tasks_file`
-Parse TASKS.md and upsert work items; existing items matched by REQ-ID in the tag list.
+
+Analisa TASKS.md e cria ou atualiza itens de trabalho; itens existentes são
+correspondidos pelo REQ-ID na lista de tags.
 
 ### `link_hierarchy`
-Create parent-child links between Epic/Feature/Story/Task from the markdown outline.
+
+Cria links pai-filho entre Epic/Feature/Story/Task a partir da estrutura do markdown.
 
 ### `push_acceptance_criteria`
-Copy acceptance criteria from SPECIFICATION.md REQ-NNN into the matching work item's Acceptance Criteria field.
+
+Copia critérios de aceitação de SPECIFICATION.md REQ-NNN para o campo
+Critérios de aceite do item de trabalho correspondente.
 
 ### `comment_on_change`
-Post a comment on the work item summarising a git commit that references its REQ-ID.
 
-## Configuration
+Publica um comentário no item de trabalho resumindo um commit git que referencia
+seu REQ-ID.
 
-### Required configuration
-- `organization`: ADO organisation name.
-- `project`: ADO project name.
-- `pat`: Personal Access Token with `Work Items (Read & Write)` scope (env var `AZURE_DEVOPS_PAT`).
-- `area_path`: default area path for created items.
+## Configuração
 
-### Optional configuration
-- `iteration_path`: default sprint iteration.
-- `type_map`: override mapping of markdown heading level to work item type. Default:
- - `# Epic` -> Epic
- - `## Feature` -> Feature
- - `### Story` -> User Story
- - `- [ ] Task` -> Task
-- `dry_run`: preview without writing (default `true`).
+### Configuração obrigatória
 
-## Usage pattern
+- `organization`: nome da organização ADO.
+- `project`: nome do projeto ADO.
+- `pat`: Personal Access Token com escopo `Work Items (Read & Write)` (env var
+  `AZURE_DEVOPS_PAT`).
+- `area_path`: caminho de área padrão para itens criados.
+
+### Configuração opcional
+
+- `iteration_path`: iteração de sprint padrão.
+- `type_map`: substitui o mapeamento de nível de heading markdown para tipo de
+  item de trabalho. Padrão:
+  - `# Epic` -> Epic
+  - `## Feature` -> Feature
+  - `### Story` -> User Story
+  - `- [ ] Task` -> Task
+- `dry_run`: pré-visualização sem gravar (padrão `true`).
+
+## Padrão de uso
 
 ```text
 @copilot using azure-boards plugin, sync TASKS.md to <target>.
 ```
 
-Copilot invokes the plugin, the plugin reads the markdown source of truth, and applies changes to the target system.
+O Copilot invoca o plugin, o plugin lê a fonte da verdade em markdown e aplica
+as mudanças ao sistema de destino.
 
-## Security
+## Segurança
 
-- Always read credentials from environment variables. Never inline a PAT in a prompt or config file committed to the repo.
-- Default `dry_run` to `true`. Only set to `false` after previewing output.
-- Every operation logs the REQ-ID trace it acted on, so you can correlate changes with specification history.
+- Sempre leia credenciais de variáveis de ambiente. Nunca coloque um PAT inline
+  em um prompt ou arquivo de configuração commitado no repo.
+- Mantenha `dry_run` como `true` por padrão. Só defina como `false` depois de
+  pré-visualizar a saída.
+- Toda operação registra a trilha REQ-ID em que atuou, para que você possa
+  correlacionar mudanças com o histórico da especificação.
 
-## Anti-patterns
+## Antipadrões
 
-- Using the plugin as the source of truth. The source of truth lives in markdown under `specs/`; the plugin is a sync mechanism.
-- Running with `dry_run: false` before reviewing the preview.
-- Committing PATs to the repo.
+- Usar o plugin como fonte da verdade. A fonte da verdade vive em markdown sob
+  `specs/`; o plugin é um mecanismo de sincronização.
+- Executar com `dry_run: false` antes de revisar a pré-visualização.
+- Commitar PATs no repo.
 
-## Quality gate
+## Gate de qualidade
 
-Every sync must preserve REQ-ID traceability. If a target system cannot store the REQ-ID (legacy tracker), the plugin refuses to run.
+Toda sincronização deve preservar a rastreabilidade por REQ-ID. Se um sistema de
+destino não puder armazenar o REQ-ID (rastreador legado), o plugin se recusa a
+executar.

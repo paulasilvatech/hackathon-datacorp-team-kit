@@ -2,6 +2,6 @@
 applyTo: "src/repositories/**,migrations/**,src/db/**"
 ---
 
-# Database Conventions
+# Convenções de Banco de Dados
 
-Parameterized queries only, migrations with rollback, snake_case naming
+Use apenas consultas parametrizadas, migrações com rollback e nomenclatura `snake_case`.

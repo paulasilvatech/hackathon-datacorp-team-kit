@@ -1,6 +1,6 @@
 ---
-title: "Estágio 4 — Evolution com Agentes (3 horas)"
-description: "Guia para usar GitHub Copilot Agent Mode e Terraform para evoluir o SIFAP 2.0 — delegar features completas via Issues e PRs."
+title: "Estágio 4 — Evolução com Agentes (3 horas)"
+description: "Guia para usar o modo Agent do GitHub Copilot e Terraform para evoluir o SIFAP 2.0 — delegar funcionalidades completas via Issues e PRs."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/04-evolucao/GUIDE.md"
 author: "Paula Silva, Americas Software GBB, Microsoft"
@@ -12,7 +12,7 @@ tags: ["estagio-4", "evolution", "agent", "terraform", "didatico", "pt-br"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-# Estágio 4 — Evolution com Agentes (3 horas)
+# Estágio 4 — Evolução com Agentes (3 horas)
 
 ## Onde isso encaixa no SDLC
 
@@ -22,9 +22,9 @@ flowchart LR
  classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
  classDef demo fill:#00A4EF,stroke:#0078D4,color:#fff
 
- IM[Implementation ✓]:::done
- EV[Evolution<br/>Agent + IaC + CI/CD]:::current
- DM[Demo + Retro]:::demo
+ IM[Implementação ✓]:::done
+ EV[Evolução<br/>Agent + IaC + CI/CD]:::current
+ DM[Demo + Retrospectiva]:::demo
 
  IM --> EV --> DM
 ```
@@ -42,11 +42,11 @@ flowchart TB
 
 ## Objetivo
 
-Usar o **modo Agent do GitHub Copilot** para implementar features completas via Issues e Pull Requests, e explorar infraestrutura como código (Terraform) para deploy no Azure.
+Usar o **modo Agent do GitHub Copilot** para implementar funcionalidades completas via Issues e Pull Requests, e explorar infraestrutura como código (Terraform) para deploy no Azure.
 
 ## Por que isso importa
 
-Até agora vocês usaram o Copilot para **perguntar e explorar** (Ask) e para **planejar mudanças** (Plan). No Estágio 4 vocês usam como **delegado**: escrevem uma Issue, deixam o Agent trabalhar sozinho, e revisam o PR ao final. É o mais perto que dá de "dirigir o time de IA". A qualidade do seu Issue determina a qualidade do PR — garbage in, garbage out.
+Até agora vocês usaram o Copilot para **perguntar e explorar** (Ask) e para **planejar mudanças** (Plan). No Estágio 4 vocês usam como **delegado**: escrevem uma Issue, deixam o Agent trabalhar sozinho, e revisam o PR ao final. É o mais perto que dá de "dirigir o time de IA". A qualidade da sua Issue determina a qualidade do PR — entra lixo, sai lixo.
 
 ## Como pensar nisso
 
@@ -54,13 +54,13 @@ Pense no Agent como **um dev júnior muito rápido e literal**: ele faz exatamen
 
 ---
 
-## Parte 1: GitHub Copilot Agent Mode (2 horas)
+## Parte 1: Modo Agent do GitHub Copilot (2 horas)
 
-### O que é o Agent Mode?
+### O que é o modo Agent?
 
-**Copilot Agent Mode** é o terceiro modo do GitHub Copilot (além de Ask e Plan). No modo Agent você:
+**O modo Agent do Copilot** é o terceiro modo do GitHub Copilot (além de Ask e Plan). No modo Agent você:
 
-1. **Escreve uma GitHub Issue** descrevendo a feature completa
+1. **Escreve uma GitHub Issue** descrevendo a funcionalidade completa
 2. **Dispara o Agent** no VS Code (via painel do Copilot → "Start Agent" ou pelo Copilot Workspace no github.com)
 3. **O Agent analisa o codebase inteiro**, planeja as mudanças e implementa código + testes + docs
 4. **Abre um Pull Request** para você revisar
@@ -71,7 +71,7 @@ Pense no Agent como **um dev júnior muito rápido** — ele faz o trabalho pesa
 >
 > - **Ask**: você pergunta, o Copilot responde (exploração, dúvidas)
 > - **Plan**: você descreve uma mudança, o Copilot propõe plano e arquivos afetados
-> - **Agent**: você descreve a feature inteira via Issue, o Copilot implementa sozinho (delegação)
+> - **Agent**: você descreve a funcionalidade inteira via Issue, o Copilot implementa sozinho (delegação)
 
 ### Como escrever uma boa Issue para o Agent
 
@@ -82,50 +82,50 @@ Uma Issue bem escrita é 80% do sucesso. Siga este formato:
 #### Exemplo real: notificação de pagamento por e-mail
 
 ```markdown
-## Title
+## Título
 
-Add email notification on payment confirmation
+Adicionar notificação por e-mail na confirmação de pagamento
 
-## Description
+## Descrição
 
-When a payment is confirmed (status changing from PENDING to APPROVED),
-the system must send a notification email to the beneficiary informing
-them of the amount and the payment date.
+Quando um pagamento é confirmado (status mudando de PENDING para APPROVED),
+o sistema deve enviar um e-mail de notificação ao beneficiário informando
+o valor e a data de pagamento.
 
-## Functional Requirements
+## Requisitos Funcionais
 
-- [ ] When a payment's status changes to APPROVED, send an email
-- [ ] The email must contain: beneficiary name, amount, date, payment number
-- [ ] If sending fails, log it in the audit log (do not block the payment)
-- [ ] The email template must be configurable
+- [ ] Quando o status de um pagamento mudar para APPROVED, enviar um e-mail
+- [ ] O e-mail deve conter: nome do beneficiário, valor, data, número do pagamento
+- [ ] Se o envio falhar, registrar no log de auditoria (não bloquear o pagamento)
+- [ ] O modelo do e-mail deve ser configurável
 
-## Technical Requirements
+## Requisitos Técnicos
 
-- [ ] Create an EmailService in the payment/application module
-- [ ] Use Spring Mail configured via application.yml
-- [ ] Create a unit test mocking the email send
-- [ ] Create an integration test with MailHog (Docker container)
-- [ ] Add the SMTP_HOST variable to docker-compose.yml
+- [ ] Criar um EmailService no módulo payment/application
+- [ ] Usar Spring Mail configurado via application.yml
+- [ ] Criar um teste unitário mockando o envio de e-mail
+- [ ] Criar um teste de integração com MailHog (container Docker)
+- [ ] Adicionar a variável SMTP_HOST ao docker-compose.yml
 
-## Architecture
+## Arquitetura
 
-- Follow the existing modular structure (domain/application/infrastructure)
-- The EmailService must be injected into PaymentService
-- Use Spring events (ApplicationEvent) to decouple
+- Seguir a estrutura modular existente (domain/application/infrastructure)
+- O EmailService deve ser injetado no PaymentService
+- Usar eventos Spring (ApplicationEvent) para desacoplar
 
-## Acceptance Criteria
+## Critérios de Aceite
 
-- [ ] Unit test passing
-- [ ] Integration test passing
-- [ ] Working docker compose up with MailHog
-- [ ] Email received in MailHog when approving a payment via Swagger
+- [ ] Teste unitário passando
+- [ ] Teste de integração passando
+- [ ] docker compose up funcionando com MailHog
+- [ ] E-mail recebido no MailHog ao aprovar um pagamento via Swagger
 
-## Context
+## Contexto
 
 - Backend: Java 21 + Spring Boot 3
-- Relevant module: src/.../payment/
-- References: PaymentService.java, PaymentController.java
-- Related REQ-ID: REQ-PAY-NOTIF-01
+- Módulo relevante: src/.../payment/
+- Referências: PaymentService.java, PaymentController.java
+- REQ-ID relacionada: REQ-PAY-NOTIF-01
 ```
 
 ---
@@ -134,11 +134,11 @@ them of the amount and the payment date.
 
 Antes de submeter a Issue para o Agent, verifique:
 
-- [ ] **Título claro** — descreve a feature em uma frase
+- [ ] **Título claro** — descreve a funcionalidade em uma frase
 - [ ] **Descrição com contexto** — o Agent precisa entender o "por quê"
-- [ ] **Requirements como checklist** — itens verificáveis
-- [ ] **Technical requirements** — onde no código, quais padrões seguir
-- [ ] **Acceptance criteria** — como saber que está pronto
+- [ ] **Requisitos como checklist** — itens verificáveis
+- [ ] **Requisitos técnicos** — onde no código, quais padrões seguir
+- [ ] **Critérios de aceite** — como saber que está pronto
 - [ ] **Referências de arquivo** — ajudam o Agent a achar o código certo
 - [ ] **REQ-ID rastreada** — se a feature vem do Estágio 2
 
@@ -157,11 +157,11 @@ Antes de submeter a Issue para o Agent, verifique:
 
 Quando o Agent abre um PR, revise com cuidado:
 
-#### Correctness
+#### Corretude
 
 - [ ] O código compila sem erros?
 - [ ] Os testes passam? (`./mvnw test`)
-- [ ] A feature funciona como descrito na Issue?
+- [ ] A funcionalidade funciona como descrito na Issue?
 
 #### Arquitetura
 
@@ -180,7 +180,7 @@ Quando o Agent abre um PR, revise com cuidado:
 
 - [ ] Há testes unitários para a lógica de negócio?
 - [ ] Há testes de integração para os endpoints?
-- [ ] Os testes cobrem casos de erro (não só o happy path)?
+- [ ] Os testes cobrem casos de erro (não só o caminho feliz)?
 
 #### Documentação
 
@@ -200,7 +200,7 @@ Os módulos Terraform para deploy no Azure ficam em:
 05-terraform-azure/
 ├── main.tf # Módulo raiz
 ├── variables.tf # Variáveis de entrada
-├── outputs.tf # Outputs
+├── outputs.tf # Saídas
 └── modules/
  ├── resource-group/ # Resource group do Azure
  ├── container-registry/ # ACR para imagens Docker
@@ -262,8 +262,8 @@ O Copilot Agent não é perfeito. Problemas comuns:
 | Sintoma                           | Causa provável                    | O que fazer                                                                             |
 | --------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------- |
 | PR não compila                    | Issue faltou contexto técnico     | Adicione: arquitetura esperada, arquivos de referência, padrões a seguir                |
-| Testes faltando no PR             | Issue não pediu testes            | Adicione checkbox: "Include unit and integration tests"                                 |
-| Imports cruzando bounded contexts | Agent ignora fronteiras de módulo | Rejeite o PR; adicione na Issue: "Respect domain/application/infrastructure boundaries" |
+| Testes faltando no PR             | Issue não pediu testes            | Adicione checkbox: "Incluir testes unitários e de integração"                            |
+| Imports cruzando bounded contexts | Agent ignora fronteiras de módulo | Rejeite o PR; adicione na Issue: "Respeitar fronteiras domain/application/infrastructure" |
 | PR com lógica errada              | Requisito ambíguo                 | Reescreva o requisito em EARS e abra nova Issue                                         |
 | Agent trava ou demora demais      | Codebase grande demais            | Estreite o escopo: aponte para arquivos específicos na Issue                            |
 
@@ -283,13 +283,13 @@ Os workflows de CI/CD ficam em:
 #### Workflow CI (ci.yml)
 
 - Roda em cada Pull Request
-- Steps: checkout → setup Java 21 → build → test → lint
+- Etapas: checkout → setup Java 21 → build → test → lint
 - Se falhar, o PR não pode ser mergeado
 
 #### Workflow CD (cd-staging.yml)
 
 - Roda após merge na branch `develop`
-- Steps: build Docker image → push para ACR → deploy para Container Apps (staging)
+- Etapas: build Docker image → push para ACR → deploy para Container Apps (staging)
 
 ---
 
@@ -297,15 +297,15 @@ Os workflows de CI/CD ficam em:
 
 | ❌ Se você está fazendo isso             | ✅ Faça assim                                                    |
 | ---------------------------------------- | ---------------------------------------------------------------- |
-| Issue vaga ("adicione notificação")      | Issue completa com functional + technical + acceptance           |
-| Aceitar PR do Agent sem revisar          | Revisar como se fosse PR humano. Quick review é review           |
-| Disparar Agent para tarefa de 5 minutos  | Use Ask ou Plan para tarefas pequenas. Agent é para features completas |
+| Issue vaga ("adicione notificação")      | Issue completa com funcional + técnico + aceite                  |
+| Aceitar PR do Agent sem revisar          | Revisar como se fosse PR humano. Revisão rápida ainda é revisão  |
+| Disparar Agent para tarefa de 5 minutos  | Use Ask ou Plan para tarefas pequenas. Agent é para funcionalidades completas |
 | Rodar `terraform apply` no workshop      | Só `plan`. Não criar recursos Azure reais                        |
 | Hardcode de SMTP_HOST no application.yml | Sempre via env var, com fallback em Key Vault                    |
 
 ---
 
-## Como saber que terminou (Definition of Done)
+## Como saber que terminou (Definição de Pronto)
 
 Ao final do Estágio 4, seu time deve ter:
 
@@ -322,7 +322,7 @@ Demo (18:30) + Retrospectiva (19:10). Cada time tem ~3 minutos. O Par 1 (PO) con
 
 ## Prompts para Copilot Chat
 
-1. _"Crie uma GitHub Issue para o Copilot Agent implementar [funcionalidade]. Use o formato com functional requirements, technical requirements e acceptance criteria."_
+1. _"Crie uma GitHub Issue para o Copilot Agent implementar [funcionalidade]. Use o formato com requisitos funcionais, requisitos técnicos e critérios de aceite."_
 2. _"Revise este PR gerado pelo Agent e liste problemas de qualidade."_
 3. _"Explique este módulo Terraform: [cole o código]."_
 4. _"Que recursos Azure este Terraform vai criar?"_

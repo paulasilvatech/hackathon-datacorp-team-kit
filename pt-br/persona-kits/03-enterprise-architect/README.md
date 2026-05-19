@@ -7,13 +7,13 @@
 Leia primeiro: [PERSONA.md](PERSONA.md).
 
 ## Fase do SDLC
-Architecture, Design, Security
+Arquitetura, Desenho, Segurança
 
 ## Conteúdo do kit
 
 | Arquivo | Tipo | Propósito |
 |------|------|---------|
-| `PERSONA.md` | Persona | Responsabilidades, handoffs, prompts e rubrica do Enterprise Architect |
+| `PERSONA.md` | Persona | Responsabilidades, passagems, prompts e rubrica do Enterprise Architect |
 | `.github/agents/enterprise-architect.agent.md` | Agent | Arquitetura e segurança |
 | `.github/prompts/create-constitution.prompt.md` | Prompt | `/create-constitution` |
 | `.github/prompts/create-adr.prompt.md` | Prompt | `/create-adr` |
@@ -38,8 +38,8 @@ cp -r .github/* /path/to/your-repo/.github/
 ## Referências
 - [C4 Model - Simon Brown](https://c4model.com/)
 - [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/azure/well-architected/)
-- [ADR - Architecture Decision Records](https://adr.github.io/)
-- [Azure Architecture Center](https://learn.microsoft.com/azure/architecture/)
+- [ADR - Arquitetura Decision Records](https://adr.github.io/)
+- [Azure Arquitetura Center](https://learn.microsoft.com/azure/architecture/)
 
 ---
 

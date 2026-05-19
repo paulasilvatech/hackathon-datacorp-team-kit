@@ -1,63 +1,63 @@
 ---
 mode: agent
 model: claude-sonnet-4-6
-description: "Generate developer-facing documentation (README, runbook, API reference, ADR scaffold) for a SIFAP 2.0 module."
+description: "Gerar documentação voltada a pessoas desenvolvedoras (README, runbook, referência de API, esqueleto de ADR) para um módulo do SIFAP 2.0."
 ---
 
 # /generate-docs
 
-## Goal
+## Objetivo
 
-You are the technical writer producing one of four document types for a SIFAP 2.0 module: a **README**, a **runbook**, an **API reference**, or an **ADR scaffold**. Your output uses the project's standard frontmatter, terminology, and tone. Each document is short, navigable, and ground-truth — no marketing language, no aspirational claims.
+Você é o Tech Writer produzindo um de quatro tipos de documento para um módulo do SIFAP 2.0: um **README**, um **runbook**, uma **referência de API** ou um **esqueleto de ADR**. Sua saída usa o frontmatter, a terminologia e o tom padrão do projeto. Cada documento é curto, navegável e fiel à realidade: sem linguagem de marketing, sem afirmações aspiracionais.
 
-## Inputs
+## Entradas
 
-Ask the user for what is missing.
+Peça à pessoa usuária o que estiver faltando.
 
-- The document type — `readme`, `runbook`, `api-reference`, or `adr`.
-- The target module — folder under `04-prototipo-sifap-moderno/`, `05-terraform-azure/modules/`, or another scoped area.
-- The audience — "new contributor (week 1)," "on-call SRE at 03:00," or "external API consumer."
-- The linked `REQ-ID` set if applicable.
+- O tipo de documento: `readme`, `runbook`, `api-reference` ou `adr`.
+- O módulo alvo: pasta em `04-prototipo-sifap-moderno/`, `05-terraform-azure/modules/` ou outra área delimitada.
+- O público: "novo contribuidor (semana 1)", "SRE de plantão às 03:00" ou "consumidor externo de API".
+- O conjunto de `REQ-ID` vinculado, se aplicável.
 
-## Process
+## Processo
 
-1. **Choose the right template.** README for "what is this and how do I run it." Runbook for "production is broken at 03:00, what do I do." API reference for "I am consuming this from another service." ADR for "we are choosing X over Y and need to record why."
-2. **Source from code, not memory.** Open `pom.xml`, `package.json`, `application.yml`, controller classes, OpenAPI spec, migrations. Quote exact strings.
-3. **Use SIFAP terminology consistently.**
- - "Beneficiary" not "user" (when domain).
- - "Disbursement" not "payment" (when SIFAP-specific).
- - "Audit log" not "activity log."
- - Names match Portuguese-Brazilian SIFAP usage where they exist; explanations are in English.
-4. **Apply the standard frontmatter.**
+1. **Escolha o template correto.** README para "o que é isto e como eu rodo". Runbook para "a produção quebrou às 03:00, o que eu faço". Referência de API para "vou consumir isto a partir de outro serviço". ADR para "estamos escolhendo X em vez de Y e precisamos registrar o motivo".
+2. **Use o código como fonte, não a memória.** Abra `pom.xml`, `package.json`, `application.yml`, classes controller, especificação OpenAPI e migrações. Cite strings exatas.
+3. **Use a terminologia do SIFAP de forma consistente.**
+ - "Beneficiary", não "user" (quando for domínio).
+ - "Disbursement", não "payment" (quando for específico do SIFAP).
+ - "Audit log", não "activity log".
+ - Nomes devem corresponder ao uso brasileiro do SIFAP quando existirem; as explicações ficam em português.
+4. **Aplique o frontmatter padrão.**
  ```yaml
  ---
  title: "Disburse-retry runbook"
- audience: "on-call SRE"
+ audience: "SRE de plantão"
  last_reviewed: "2026-04-29"
  owner: "@alex"
  linked_reqs: [REQ-PAY-014, REQ-OPS-031]
  ---
  ```
-5. **Hold to length budgets.** README ≤ 1 page (~80 lines). Runbook ≤ 1 page per scenario. API reference is per endpoint. ADR ≤ 2 pages.
-6. **Include verification.** Every command in the doc must be runnable. If the doc says `./mvnw -pl payments verify`, the reviewer must be able to copy-paste it.
-7. **Cross-link.** README → CODEMAP, SPECIFICATION, runbook. Runbook → dashboard URLs, alert names. ADR → superseded/superseding ADRs.
-8. **Stamp with last-reviewed date.** Drift starts the moment a doc is written.
+5. **Respeite os limites de tamanho.** README ≤ 1 página (~80 linhas). Runbook ≤ 1 página por cenário. Referência de API é por endpoint. ADR ≤ 2 páginas.
+6. **Inclua verificação.** Todo comando no documento precisa ser executável. Se o documento diz `./mvnw -pl payments verify`, a pessoa revisora precisa conseguir copiar e colar.
+7. **Crie links cruzados.** README → CODEMAP, SPECIFICATION, runbook. Runbook → URLs de dashboard, nomes de alerta. ADR → ADRs substituídas/substitutas.
+8. **Marque com data de última revisão.** Drift começa no momento em que um documento é escrito.
 
-## Output
+## Saída
 
-The deliverable is the document file in the project's docs tree:
+O entregável é o arquivo de documentação na árvore de docs do projeto:
 
 - README → `<module-folder>/README.md`
 - Runbook → `docs/runbooks/<short-slug>.md`
-- API reference → `docs/api/<service>/<endpoint-slug>.md`
+- Referência de API → `docs/api/<service>/<endpoint-slug>.md`
 - ADR → `specs/<NNN>-<feature>/ADRs/<NNNN>-<title>.md`
 
-### README template (module)
+### Template de README (módulo)
 
-```markdown
+````markdown
 ---
 title: "payments"
-audience: "new contributor"
+audience: "nova pessoa contribuidora"
 last_reviewed: "<YYYY-MM-DD>"
 owner: "@alex"
 linked_reqs: [REQ-PAY-001..024]
@@ -65,100 +65,100 @@ linked_reqs: [REQ-PAY-001..024]
 
 # payments
 
-Disburse, retry, and reconcile SIFAP beneficiary payments.
+Desembolsar, tentar novamente e reconciliar pagamentos de beneficiários do SIFAP.
 
-## Quick start
+## Início rápido
 ```bash
 cd 04-prototipo-sifap-moderno/backend
 ./mvnw -pl payments spring-boot:run
 ```
 
-## Public API
-| Method | Path | Purpose |
+## API pública
+| Método | Path | Finalidade |
 |--------|------|---------|
-| POST | /api/v1/payments | Create disbursement |
-| GET | /api/v1/payments/{id} | Read disbursement |
-| POST | /api/v1/payments/{id}/retry | Retry failed disbursement |
+| POST | /api/v1/payments | Criar desembolso |
+| GET | /api/v1/payments/{id} | Ler desembolso |
+| POST | /api/v1/payments/{id}/retry | Tentar novamente um desembolso com falha |
 
-## Persistent state
-- Tables: `payment`, `payment_attempt`, `disbursement_lock`.
-- Queues: `payments-out` (Service Bus).
+## Estado persistente
+- Tabelas: `payment`, `payment_attempt`, `disbursement_lock`.
+- Filas: `payments-out` (Service Bus).
 
-## Tests
+## Testes
 - `./mvnw -pl payments test`
 - Integration: `./mvnw -pl payments verify -Pintegration`
 
-## Legacy lineage
-Replaces `CALCBENF.NSN`, `CALCDSCT.NSN`, `BATCHPGT.NSN`.
+## Linhagem legada
+Substitui `CALCBENF.NSN`, `CALCDSCT.NSN`, `BATCHPGT.NSN`.
 
-## See also
+## Veja também
 - `docs/CODEMAP.md`
 - `specs/003-payment-processing/SPECIFICATION.md`
 - `docs/runbooks/disburse-retry.md`
-```
+````
 
-### Runbook template
+### Template de runbook
 
-```markdown
+````markdown
 ---
-title: "Disburse-retry runbook"
-audience: "on-call SRE"
+title: "Runbook de nova tentativa de desembolso"
+audience: "SRE de plantão"
 last_reviewed: "<YYYY-MM-DD>"
 owner: "@alex"
 severity_default: "SEV-2"
 linked_reqs: [REQ-PAY-014, REQ-OPS-031]
 ---
 
-# Disburse-retry — beneficiary disbursement is stuck
+# Nova tentativa de desembolso — desembolso do beneficiário travado
 
-## When you would see this
-Alert: `pay-be-retry-stuck-15m`, dashboard `Payments > Retries`, ticket "disbursement not received."
+## Quando isto aparece
+Alerta: `pay-be-retry-stuck-15m`, dashboard `Payments > Retries`, ticket "desembolso não recebido."
 
-## Severity
-SEV-2 if isolated to one beneficiary. SEV-1 if > 100 in 5 minutes.
+## Severidade
+SEV-2 se isolado a um beneficiário. SEV-1 se > 100 em 5 minutos.
 
-## Diagnose
-1. Check `payment_attempt` count for the beneficiary in the last 30 min.
-2. Check Service Bus DLQ depth on `payments-out`.
-3. Check the `RetryPolicy` config (`payments.retry.max-attempts`).
+## Diagnosticar
+1. Verifique a contagem de `payment_attempt` para o beneficiário nos últimos 30 min.
+2. Verifique a profundidade da DLQ do Service Bus em `payments-out`.
+3. Verifique a configuração `RetryPolicy` (`payments.retry.max-attempts`).
 
-## Mitigate
-- For one beneficiary: re-enqueue from `payment_attempt` after fixing the cause.
-- For > 100: pause new disbursements, drain DLQ, replay.
+## Mitigar
+- Para um beneficiário: reenfileire a partir de `payment_attempt` depois de corrigir a causa.
+- Para > 100: pause novos desembolsos, drene a DLQ e reexecute.
 
-## Verify
-- `payment` rows transition to `SETTLED` state.
-- DLQ depth returns to 0.
+## Verificar
+- Linhas de `payment` transitam para o estado `SETTLED`.
+- A profundidade da DLQ retorna a 0.
 
-## Escalate
-- @alex (engineering lead) for code-level issues.
-- @jordan (DevOps) for queue or infra issues.
-- @morgan (tech lead) for SEV-1 declaration.
-```
+## Escalar
+- @alex (engineering lead) para problemas no nível de código.
+- @jordan (DevOps) para problemas de fila ou infra.
+- @morgan (tech lead) para declaração de SEV-1.
+````
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** Generate a README for the new `audit` backend module.
+**Entrada:** gerar um README para o novo módulo backend `audit`.
 
-**Expected reply:** README populated with the audit endpoints, the `audit_log` table, the legacy lineage to `BATCHCON.NSN`, and links to its tests and the spec section `REQ-AUDIT-*`.
+**Resposta esperada:** README preenchido com os endpoints de auditoria, a tabela `audit_log`, a linhagem legada para `BATCHCON.NSN` e links para seus testes e para a seção de especificação `REQ-AUDIT-*`.
 
-## Anti-patterns
+## Antipadrões
 
-- Marketing language ("blazing fast," "world-class"). State facts.
-- Aspirational claims ("supports multi-region failover" when it does not yet). State current reality; document plans separately.
-- Copy-pasting the OpenAPI spec into the README. Link it.
-- "Run the tests" without the exact command. Always paste the command.
-- Skipping `last_reviewed`. Drift starts immediately.
-- ADR without a date and a status. Useless.
-- Runbook that does not name the alert. Useless at 03:00.
-- Mixing English and Portuguese inconsistently. Domain terms can stay in PT-BR; explanations are English.
+- Linguagem de marketing ("blazing fast", "world-class"). Declare fatos.
+- Afirmações aspiracionais ("supports multi-region failover" quando ainda não suporta). Declare a realidade atual; documente planos separadamente.
+- Copiar e colar a especificação OpenAPI no README. Crie um link para ela.
+- "Rode os testes" sem o comando exato. Sempre cole o comando.
+- Omitir `last_reviewed`. O drift começa imediatamente.
+- ADR sem data e status. Não serve.
+- Runbook que não nomeia o alerta. Não serve às 03:00.
+- Misturar inglês e português de forma inconsistente. Termos de domínio podem ficar em PT-BR; explicações ficam em português.
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] Frontmatter is complete (`title`, `audience`, `last_reviewed`, `owner`, `linked_reqs`).
-- [ ] Every command in the doc is copy-pasteable.
-- [ ] Length within budget (README ≤ 80 lines, ADR ≤ 2 pages).
-- [ ] At least two cross-links to related docs.
-- [ ] Legacy lineage named for SIFAP modules.
-- [ ] No marketing language, no aspirational claims.
-- [ ] Doc lives in the canonical path for its type.
+- [ ] O frontmatter está completo (`title`, `audience`, `last_reviewed`, `owner`, `linked_reqs`).
+- [ ] Todo comando no documento pode ser copiado e colado.
+- [ ] O tamanho está dentro do limite (README ≤ 80 linhas, ADR ≤ 2 páginas).
+- [ ] Há pelo menos dois links cruzados para documentos relacionados.
+- [ ] A linhagem legada está nomeada para módulos SIFAP.
+- [ ] Não há linguagem de marketing nem afirmações aspiracionais.
+- [ ] O documento está no caminho canônico para seu tipo.

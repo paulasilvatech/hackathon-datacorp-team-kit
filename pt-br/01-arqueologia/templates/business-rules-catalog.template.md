@@ -1,5 +1,5 @@
 ---
-title: "Template: Catálogo de Regras de Negócio"
+title: "Modelo: Catálogo de Regras de Negócio"
 description: "Esqueleto de tabela para regras de negócio extraídas via /extract-business-rules"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-29"
@@ -16,20 +16,20 @@ tags: ["template", "business-rules", "archaeology", "stage-1"]
 
 **Equipe:** <!-- placeholder -->
 
-## Regras de <!-- placeholder: filename.nat -->
+## Regras de <!-- placeholder: nome-do-arquivo.nat -->
 
 | #   | Declaração da Regra  | Candidata EARS                     | Fonte                           | Classificação                                    | Observações          |
 | --- | -------------------- | ---------------------------------- | ------------------------------- | ------------------------------------------------ | -------------------- |
-| 1   | <!-- placeholder --> | <!-- placeholder: EARS pattern --> | <!-- placeholder: file:line --> | <!-- placeholder: Confirmed/Inferred/Mystery --> | <!-- placeholder --> |
+| 1   | <!-- placeholder --> | <!-- placeholder: padrão EARS --> | <!-- placeholder: arquivo:linha --> | <!-- placeholder: Confirmada/Inferida/Mistério --> | <!-- placeholder --> |
 
 ## Resumo
 
 | Classificação | Contagem             |
 | ------------- | -------------------- |
-| Confirmed     | <!-- placeholder --> |
-| Inferred      | <!-- placeholder --> |
-| Mystery       | <!-- placeholder --> |
+| Confirmada    | <!-- placeholder --> |
+| Inferida      | <!-- placeholder --> |
+| Mistério      | <!-- placeholder --> |
 
 ---
 
-**Lembrete de Definition of Done:** Todo bloco condicional examinado, cada regra cita file:line, mistérios marcados.
+**Lembrete de Definição de Pronto:** Todo bloco condicional examinado, cada regra cita arquivo:linha, mistérios marcados.

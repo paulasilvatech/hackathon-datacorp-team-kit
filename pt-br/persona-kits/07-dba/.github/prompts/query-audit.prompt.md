@@ -1,67 +1,67 @@
 ---
 mode: ask
 model: claude-sonnet-4-6
-description: "Audit a SQL query for performance, security, and SIFAP coding standards. Output a fixed query plus an EXPLAIN-backed rationale."
+description: "Audite uma consulta SQL quanto a performance, segurança e padrões de código do SIFAP. Produza uma consulta corrigida mais uma justificativa baseada em EXPLAIN."
 ---
 
 # /query-audit
 
-## Goal
+## Objetivo
 
-You are the DBA reviewing a SQL query (or JPA/JPQL query) heading to PostgreSQL 16. Your audit catches injection risk, sequential-scan traps, N+1 patterns, and violations of SIFAP coding standards. The deliverable is a verdict (Pass / Fix required / Reject), a rewritten query, and an `EXPLAIN ANALYZE` reading.
+Você é o DBA revisando uma consulta SQL (ou consulta JPA/JPQL) destinada ao PostgreSQL 16. Sua auditoria captura risco de injection, armadilhas de varredura sequencial, padrões N+1 e violações dos padrões de código do SIFAP. O entregável é um veredito (Passa / Correção obrigatória / Rejeitar), uma consulta reescrita e uma leitura de `EXPLAIN ANALYZE`.
 
-## Inputs
+## Entradas
 
-Ask the user for what is missing.
+Peça ao usuário o que estiver faltando.
 
-- The query, in its original form (raw SQL, JPQL, Criteria API, or QueryDSL).
-- The schema of the involved tables, or a pointer to migrations in `db/migration/`.
-- Existing indexes (`\d table_name` output) on those tables.
-- Production-realistic row counts and selectivity estimates.
-- The calling code path — is this a hot endpoint (per-request) or a batch job (nightly)?
+- A consulta, em sua forma original (raw SQL, JPQL, Criteria API ou QueryDSL).
+- O schema das tabelas envolvidas, ou um ponteiro para migrações em `db/migration/`.
+- Índices existentes (saída de `\d table_name`) nessas tabelas.
+- Contagens de linhas e estimativas de seletividade realistas para produção.
+- O caminho de código chamador — é um endpoint quente (por requisição) ou um batch job (noturno)?
 
-## Process
+## Processo
 
-1. **Static scan first.**
- - Any string concatenation of user input → reject as SQL injection.
- - `SELECT *` on a wide table → reject.
- - Implicit casts (`varchar = bigint`) that disable indexes → fix.
- - Functions on indexed columns (`lower(cpf) = ?` when only `cpf` is indexed) → fix or add expression index.
-2. **Dynamic scan.** Run `EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT) ...` on a stage snapshot. Read the plan top-down.
- - Flag any `Seq Scan` on tables larger than 10k rows where a filter exists.
- - Flag any `Sort` step that could be index-supported.
- - Flag any `Nested Loop` over more than ~1k outer rows where a `Hash Join` would be cheaper.
- - Flag `rows estimated` vs `rows actual` mismatch ratio above 10× — stats are stale or query shape is unfriendly.
-3. **Check for N+1.** If the query is invoked from JPA, look for missing `JOIN FETCH` or batch-size hints. List the parent loop in the application code.
-4. **Verify locks and isolation.** `SELECT ... FOR UPDATE` on hot tables requires care. Default isolation should be `READ COMMITTED`; flag `SERIALIZABLE` without justification.
-5. **Confirm parameterization.** All user-facing values must be bound parameters, never string-interpolated. Even from "trusted" code paths.
-6. **Compare against SIFAP standards.**
- - All public schemas use `snake_case`.
- - Timestamps are `TIMESTAMPTZ`.
- - Money is `NUMERIC(15,2)`, never `FLOAT`.
- - PII columns must have a `COMMENT` flagging them.
-7. **Write the fix.** Rewrite the query with index hints if needed, add a missing index migration if justified.
-8. **Rate the verdict.**
+1. **Faça primeiro a varredura estática.**
+ - Qualquer concatenação de string com entrada do usuário → rejeite como SQL injection.
+ - `SELECT *` em tabela larga → rejeite.
+ - Casts implícitos (`varchar = bigint`) que desabilitam índices → corrija.
+ - Funções em colunas indexadas (`lower(cpf) = ?` quando só `cpf` está indexado) → corrija ou adicione índice de expressão.
+2. **Faça a varredura dinâmica.** Execute `EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT) ...` em snapshot de stage. Leia o plano de cima para baixo.
+ - Sinalize qualquer `Seq Scan` em tabelas maiores que 10k linhas quando existir filtro.
+ - Sinalize qualquer etapa `Sort` que poderia ser apoiada por índice.
+ - Sinalize qualquer `Nested Loop` sobre mais de ~1k linhas externas quando um `Hash Join` seria mais barato.
+ - Sinalize razão de divergência entre `rows estimated` e `rows actual` acima de 10× — as estatísticas estão obsoletas ou o formato da consulta é desfavorável.
+3. **Verifique N+1.** Se a consulta for invocada a partir de JPA, procure `JOIN FETCH` ou hints de batch-size ausentes. Liste o loop pai no código da aplicação.
+4. **Verifique locks e isolamento.** `SELECT ... FOR UPDATE` em tabelas quentes exige cuidado. O isolamento padrão deve ser `READ COMMITTED`; sinalize `SERIALIZABLE` sem justificativa.
+5. **Confirme parametrização.** Todos os valores voltados ao usuário devem ser parâmetros vinculados, nunca interpolados em string. Mesmo vindos de caminhos de código "confiáveis".
+6. **Compare com os padrões do SIFAP.**
+ - Todos os schemas públicos usam `snake_case`.
+ - Timestamps são `TIMESTAMPTZ`.
+ - Valores monetários são `NUMERIC(15,2)`, nunca `FLOAT`.
+ - Colunas PII devem ter um `COMMENT` sinalizando isso.
+7. **Escreva a correção.** Reescreva a consulta com hints de índice se necessário, adicione uma migração de índice ausente se houver justificativa.
+8. **Classifique o veredito.**
 
-## Output
+## Saída
 
-A markdown report with this structure:
+Um relatório Markdown com esta estrutura:
 
 ```markdown
-## Query Audit — <short identifier>
+## Auditoria de Consulta — <identificador curto>
 
-### Verdict
-**Fix required** — sequential scan on `payment` (1.8M rows), and CPF compared with implicit cast.
+### Veredito
+**Correção obrigatória** — varredura sequencial em `payment` (1,8M linhas), e CPF comparado com cast implícito.
 
-### Findings
-| # | Severity | Finding | Evidence |
+### Achados
+| # | Severidade | Achado | Evidência |
 |---|----------|---------|----------|
-| 1 | Critical | SQL injection risk: CPF concatenated into query string | line 42, `PaymentRepository.java` |
-| 2 | High | Seq Scan on `payment` | EXPLAIN: `Seq Scan on payment (cost=0..38291) rows=1810233` |
-| 3 | Medium | `lower(cpf) = ?` defeats `idx_payment_cpf` | EXPLAIN: filter on lower(cpf) |
-| 4 | Low | `SELECT *` returns 23 columns when 4 are used | code review |
+| 1 | Crítica | Risco de SQL injection: CPF concatenado na string da query | linha 42, `PaymentRepository.java` |
+| 2 | Alta | Seq Scan em `payment` | EXPLAIN: `Seq Scan on payment (cost=0..38291) rows=1810233` |
+| 3 | Média | `lower(cpf) = ?` inutiliza `idx_payment_cpf` | EXPLAIN: filtro em lower(cpf) |
+| 4 | Baixa | `SELECT *` retorna 23 colunas quando 4 são usadas | revisão de código |
 
-### Rewritten query
+### Consulta reescrita
 ```sql
 SELECT id, beneficiary_id, amount, paid_at
 FROM payment
@@ -71,44 +71,44 @@ ORDER BY paid_at DESC
 LIMIT 100;
 ```
 
-### Index recommendation
+### Recomendação de índice
 ```sql
--- if not already present
+-- se ainda não existir
 CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_payment_beneficiary_paid_at
  ON payment (beneficiary_id, paid_at DESC);
 ```
 
-### EXPLAIN ANALYZE before / after
-- Before: 412 ms, Seq Scan, 1.8M rows scanned, 100 returned.
-- After: 0.8 ms, Index Scan, 100 rows scanned, 100 returned.
+### EXPLAIN ANALYZE antes / depois
+- Antes: 412 ms, Seq Scan, 1,8M linhas varridas, 100 retornadas.
+- Depois: 0,8 ms, Index Scan, 100 linhas varridas, 100 retornadas.
 
-### Application change required
-- Replace string concatenation with named parameter `:beneficiaryId`.
-- Bind `:since` as `Instant` (mapped to `TIMESTAMPTZ`).
+### Mudança obrigatória na aplicação
+- Substituir concatenação de string pelo parâmetro nomeado `:beneficiaryId`.
+- Fazer bind de `:since` como `Instant` (mapeado para `TIMESTAMPTZ`).
 ```
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** Query returning recent payments for one beneficiary, called from `PaymentRepository.findRecent()`, hot endpoint (~150 RPS).
+**Entrada:** Consulta que retorna pagamentos recentes de um beneficiário, chamada de `PaymentRepository.findRecent()`, endpoint quente (~150 RPS).
 
-**Expected verdict:** Fix required. The audit follows the template above and ends with a one-paragraph note that the migration `db/migration/V202604300945__idx_payment_beneficiary_paid_at.sql` must ship with the application change.
+**Veredito esperado:** correção obrigatória. A auditoria segue o template acima e termina com uma nota de um parágrafo dizendo que a migração `db/migration/V202604300945__idx_payment_beneficiary_paid_at.sql` deve ser enviada junto com a mudança da aplicação.
 
-## Anti-patterns
+## Antipadrões
 
-- Approving a query because "it's fast on dev" — dev has 1k rows, prod has millions.
-- Approving a `SELECT *` because "the ORM strips unused columns" — it does not.
-- Adding indexes for every query without considering write amplification.
-- Trusting `EXPLAIN` without `ANALYZE` — estimates lie when stats are stale.
-- Approving `FOR UPDATE` on a hot row without a queue or backoff strategy.
-- Reading PII without a `COMMENT` on the column flagging it as PII.
-- Writing a query that works but disagrees with the JPA entity mapping — leads to silent N+1 fixes that re-introduce the bug.
+- Aprovar uma consulta porque "é rápida em dev" — dev tem 1k linhas, prod tem milhões.
+- Aprovar um `SELECT *` porque "o ORM remove colunas não usadas" — ele não remove.
+- Adicionar índices para toda consulta sem considerar amplificação de escrita.
+- Confiar em `EXPLAIN` sem `ANALYZE` — estimativas mentem quando as estatísticas estão obsoletas.
+- Aprovar `FOR UPDATE` em linha quente sem fila ou estratégia de backoff.
+- Ler PII sem um `COMMENT` na coluna sinalizando que ela é PII.
+- Escrever uma consulta que funciona mas discorda do mapeamento da entidade JPA — isso leva a correções silenciosas de N+1 que reintroduzem o bug.
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] Verdict given: Pass / Fix required / Reject.
-- [ ] Findings have severity, evidence (file/line or EXPLAIN snippet), and recommendation.
-- [ ] Rewritten query is paste-ready.
-- [ ] EXPLAIN ANALYZE pasted before and after, with measured times.
-- [ ] Index migrations are versioned and online-safe (`CONCURRENTLY`).
-- [ ] All parameters are bound, no string concatenation remains.
-- [ ] PII access is flagged and column comments confirmed.
+- [ ] Veredito informado: Passa / Correção obrigatória / Rejeitar.
+- [ ] Achados têm severidade, evidência (arquivo/linha ou snippet de EXPLAIN) e recomendação.
+- [ ] Consulta reescrita está pronta para colar.
+- [ ] EXPLAIN ANALYZE colado antes e depois, com tempos medidos.
+- [ ] Migrações de índice são versionadas e online-safe (`CONCURRENTLY`).
+- [ ] Todos os parâmetros estão vinculados, sem concatenação de string restante.
+- [ ] Acesso a PII está sinalizado e comentários de coluna confirmados.

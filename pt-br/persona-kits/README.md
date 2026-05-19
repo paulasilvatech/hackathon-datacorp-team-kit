@@ -34,7 +34,7 @@ Cada pasta de persona segue uma estrutura consistente:
 
 | Artefato | Propósito |
 | --- | --- |
-| `PERSONA.md` | Carta completa da persona: responsabilidades, handoffs, prompts e critérios de avaliação |
+| `PERSONA.md` | Carta completa da persona: responsabilidades, passagems, prompts e critérios de avaliação |
 | `README.md` | Inventário do kit Copilot e guia de instalação |
 | `mcp.json` | Recomendações de servidores MCP para o papel |
 | `.github/agents/*.agent.md` | Agente Copilot ajustado ao papel |
@@ -93,13 +93,13 @@ flowchart LR
 
 ## Como estudar um kit em 10 minutos
 
-1. **Leia `PERSONA.md` primeiro.** Ele explica missão, responsabilidades, handoffs e como a persona é avaliada.
+1. **Leia `PERSONA.md` primeiro.** Ele explica missão, responsabilidades, passagems e como a persona é avaliada.
 2. **Abra o `README.md` do kit.** Ele mostra quais agents, prompts, skills e MCPs existem.
 3. **Veja os prompts disponíveis.** Eles são atalhos para tarefas recorrentes, não substitutos para julgamento.
 4. **Confira skills e instructions.** Skills guardam workflows; instructions aplicam regras por tipo de arquivo.
-5. **Anote seu handoff.** Toda persona precisa saber de quem recebe trabalho e para quem entrega.
+5. **Anote seu passagem.** Toda persona precisa saber de quem recebe trabalho e para quem entrega.
 
-## Definition of Done da instalação
+## Definição de Pronto da instalação
 
 - [ ] A pessoa leu os dois `PERSONA.md` do seu par.
 - [ ] Os dois `.github/` dos kits foram copiados para o repositório do time.

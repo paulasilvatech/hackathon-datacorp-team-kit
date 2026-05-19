@@ -1,50 +1,50 @@
 ---
 mode: ask
 model: claude-sonnet-4-6
-description: "Produce a navigable code map of a SIFAP 2.0 service: components, dependencies, REQ-ID coverage, and integration points."
+description: "Produza um mapa de código navegável de um serviço SIFAP 2.0: componentes, dependências, cobertura de REQ-ID e pontos de integração."
 ---
 
 # /codemap
 
-## Goal
+## Objetivo
 
-You are the software architect generating a **service-level code map** that complements `DESIGN.md`. While `DESIGN.md` answers "why," the code map answers "where" and "what touches what." It is read in the IDE, ten minutes long, and updated alongside any structural change.
+Você é o software architect gerando um **mapa de código em nível de serviço** que complementa `DESIGN.md`. Enquanto `DESIGN.md` responde "por quê", o code map responde "onde" e "o que toca o quê". Ele é lido na IDE, deve caber em dez minutos e é atualizado junto com qualquer mudança estrutural.
 
-## Inputs
+## Entradas
 
-Ask the user for what is missing.
+Peça ao usuário o que estiver faltando.
 
-- The service to map (for example `payments`, `beneficiaries`, `audit`).
-- The path root (`04-prototipo-sifap-moderno/backend/src/main/java/br/gov/sifap/<service>/`).
-- The linked spec folder (`specs/<NNN>-<feature>/SPECIFICATION.md`).
-- Whether to include or exclude `test/` paths.
-- A previous code map for this service if one exists.
+- O serviço a mapear (por exemplo `payments`, `beneficiaries`, `audit`).
+- A raiz do path (`04-prototipo-sifap-moderno/backend/src/main/java/br/gov/sifap/<service>/`).
+- A pasta de spec vinculada (`specs/<NNN>-<feature>/SPECIFICATION.md`).
+- Se deve incluir ou excluir paths `test/`.
+- Um code map anterior para este serviço, se existir.
 
-## Process
+## Processo
 
-1. **List the packages and primary types.** For Java, group by `controller`, `service`, `domain`, `repository`, `infrastructure`, `config`. For TypeScript, group by `app/`, `components/`, `lib/`, `server/`.
-2. **Capture each component's role in one line.** "Orchestrates disbursement workflow," "JPA mapping for payment_attempt," "REST adapter for /api/v1/payments."
-3. **Map inbound and outbound dependencies.** Inbound: who calls this? Outbound: what does this call? Stick to direct dependencies; transitive analysis lives in `DESIGN.md`.
-4. **Find shared types and ports.** Interfaces in `domain/`, ports in `application/`, gateways in `infrastructure/`. List which are stable contracts and which are internal.
-5. **Cross-reference REQ-IDs.** For each public method or component, find `@implements REQ-NNN` annotations. List unrequited components ("no REQ-ID found") for review.
-6. **Find legacy lineage.** Note which Natural programs in `02-cenario-sifap-legado/natural-programs/` map to which Java component. This is essential for SIFAP modernization.
-7. **Surface architecture smells.**
- - Service classes calling controllers (wrong direction).
- - Domain depending on infrastructure (wrong direction).
- - Components with > 5 outbound deps (god class).
- - Components with no inbound deps (dead code).
-8. **Render as Mermaid + table.** Mermaid for visual scan, table for grep-ability.
+1. **Liste pacotes e tipos principais.** Para Java, agrupe por `controller`, `service`, `domain`, `repository`, `infrastructure`, `config`. Para TypeScript, agrupe por `app/`, `components/`, `lib/`, `server/`.
+2. **Capture o papel de cada componente em uma linha.** "Orchestrates disbursement workflow," "JPA mapping for payment_attempt," "REST adapter for /api/v1/payments."
+3. **Mapeie dependências inbound e outbound.** Inbound: quem chama isto? Outbound: o que isto chama? Fique em dependências diretas; análise transitiva fica em `DESIGN.md`.
+4. **Encontre tipos compartilhados e ports.** Interfaces em `domain/`, ports em `application/`, gateways em `infrastructure/`. Liste quais são contratos estáveis e quais são internos.
+5. **Cruze referências de REQ-IDs.** Para cada método público ou componente, encontre anotações `@implements REQ-NNN`. Liste componentes sem requisito ("no REQ-ID found") para revisão.
+6. **Encontre linhagem legada.** Observe quais programas Natural em `02-cenario-sifap-legado/natural-programs/` mapeiam para qual componente Java. Isso é essencial para a modernização do SIFAP.
+7. **Exponha architecture smells.**
+ - Classes de service chamando controllers (direção errada).
+ - Domain dependendo de infrastructure (direção errada).
+ - Componentes com > 5 deps outbound (god class).
+ - Componentes sem deps inbound (dead code).
+8. **Renderize como Mermaid + tabela.** Mermaid para leitura visual, tabela para facilidade de grep.
 
-## Output
+## Saída
 
-A markdown document `docs/codemap-<service>.md` with this structure:
+Um documento Markdown `docs/codemap-<service>.md` com esta estrutura:
 
 ```markdown
-# Code map — payments
+# Mapa de código — payments
 
-> Last reviewed: 2026-04-29 — owner: @morgan — service-level map.
+> Última revisão: 2026-04-29 — owner: @morgan — mapa em nível de serviço.
 
-## 1. Component diagram (Mermaid)
+## 1. Diagrama de componentes (Mermaid)
 
 ```mermaid
 flowchart LR
@@ -62,66 +62,66 @@ flowchart LR
  Service --> Bus
 ```
 
-## 2. Components
+## 2. Componentes
 
-| Type | FQN | Role | REQ-IDs | Inbound | Outbound |
+| Tipo | FQN | Papel | REQ-IDs | Entrada | Saída |
 |------|-----|------|---------|---------|----------|
-| controller | `br.gov.sifap.payments.PaymentController` | REST adapter | REQ-PAY-001..006 | (HTTP) | PaymentService |
-| service | `br.gov.sifap.payments.PaymentService` | Orchestration | REQ-PAY-001..018 | PaymentController, RetryJob | DisbursementCalculator, PaymentRepository, PaymentAttemptRepository, PaymentsOutGateway, AuditLogger |
-| domain | `br.gov.sifap.payments.DisbursementCalculator` | Pure calc, ICMS, exemptions | REQ-PAY-008..011 | PaymentService | (none) |
-| repository | `br.gov.sifap.payments.PaymentRepository` | JPA mapping for `payment` | REQ-PAY-001 | PaymentService | (DB) |
-| gateway | `br.gov.sifap.payments.PaymentsOutGateway` | Service Bus producer | REQ-PAY-014..018 | PaymentService | (Service Bus) |
+| controller | `br.gov.sifap.payments.PaymentController` | Adaptador REST | REQ-PAY-001..006 | (HTTP) | PaymentService |
+| service | `br.gov.sifap.payments.PaymentService` | Orquestração | REQ-PAY-001..018 | PaymentController, RetryJob | DisbursementCalculator, PaymentRepository, PaymentAttemptRepository, PaymentsOutGateway, AuditLogger |
+| domain | `br.gov.sifap.payments.DisbursementCalculator` | Cálculo puro, ICMS, isenções | REQ-PAY-008..011 | PaymentService | (nenhuma) |
+| repository | `br.gov.sifap.payments.PaymentRepository` | Mapeamento JPA para `payment` | REQ-PAY-001 | PaymentService | (DB) |
+| gateway | `br.gov.sifap.payments.PaymentsOutGateway` | Produtor de Service Bus | REQ-PAY-014..018 | PaymentService | (Service Bus) |
 
-## 3. Public API
+## 3. API pública
 
-| Method | Path | Tested by |
+| Método | Path | Testado por |
 |--------|------|-----------|
 | POST | /api/v1/payments | PaymentControllerTest |
 | GET | /api/v1/payments/{id} | PaymentControllerTest |
 | POST | /api/v1/payments/{id}/retry | PaymentControllerTest |
 
-## 4. Persistent state
-- `payment` (REQ-PAY-001) — see `db/migration/V*__create_payment.sql`.
-- `payment_attempt` (REQ-PAY-014) — append-only audit of retries.
-- `disbursement_lock` — advisory lock to prevent double disbursement.
+## 4. Estado persistente
+- `payment` (REQ-PAY-001) — veja `db/migration/V*__create_payment.sql`.
+- `payment_attempt` (REQ-PAY-014) — auditoria append-only de novas tentativas.
+- `disbursement_lock` — advisory lock para evitar desembolso duplicado.
 
-## 5. Legacy lineage
-| Java component | Replaces |
+## 5. Linhagem legada
+| Componente Java | Substitui |
 |----------------|----------|
 | DisbursementCalculator | `CALCBENF.NSN`, `CALCDSCT.NSN` |
 | RetryJob | `BATCHPGT.NSN` |
 
-## 6. Smells noted
-- `PaymentService` has 6 outbound deps — borderline god class. Candidate to extract a `RetryOrchestrator`.
-- No `@implements REQ-NNN` on `PaymentsOutGateway.send()` — assign or document why.
+## 6. Smells observados
+- `PaymentService` tem 6 dependências de saída — quase uma god class. Candidata a extrair um `RetryOrchestrator`.
+- Sem `@implements REQ-NNN` em `PaymentsOutGateway.send()` — atribua ou documente o motivo.
 
-## 7. How to update
-Run `/codemap` after any add/rename/delete in `payments/`. Link this file from `docs/CODEMAP.md`.
+## 7. Como atualizar
+Rode `/codemap` após qualquer adição/renomeação/exclusão em `payments/`. Vincule este arquivo a partir de `docs/CODEMAP.md`.
 ```
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** Map the `payments` service after the `RetryOrchestrator` was extracted from `PaymentService`.
+**Entrada:** Mapear o serviço `payments` depois que `RetryOrchestrator` foi extraído de `PaymentService`.
 
-**Expected reply:** the structure above, with the new component, updated outbound count for `PaymentService` (5 → 4), and a note resolving the previously-flagged smell.
+**Resposta esperada:** a estrutura acima, com o novo componente, contagem outbound atualizada para `PaymentService` (5 → 4), e uma nota resolvendo o smell sinalizado anteriormente.
 
-## Anti-patterns
+## Antipadrões
 
-- Auto-generating from imports. The map is curated; imports lie about intent.
-- Listing every class. Map components, not classes; group small ones.
-- Skipping the Mermaid diagram. Visuals catch broken layering instantly.
-- No REQ-ID column. Codemap without traceability is a directory listing.
-- Listing transitive deps. Direct only — keep it scannable.
-- Skipping legacy lineage for SIFAP modules. The whole project depends on this.
-- Letting it drift > 30 days. Stale codemaps mislead newcomers.
+- Autogerar a partir de imports. O mapa é curado; imports mentem sobre intenção.
+- Listar toda classe. Mapeie componentes, não classes; agrupe os pequenos.
+- Pular o diagrama Mermaid. Visuais capturam camadas quebradas instantaneamente.
+- Sem coluna REQ-ID. Codemap sem rastreabilidade é listagem de diretório.
+- Listar deps transitivas. Apenas diretas — mantenha escaneável.
+- Pular linhagem legada para módulos SIFAP. O projeto inteiro depende disso.
+- Deixar drift > 30 dias. Codemaps obsoletos confundem pessoas novas.
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] Mermaid diagram renders correctly.
-- [ ] Table covers every component in the service folder.
-- [ ] REQ-ID column populated; missing entries are explicitly noted.
-- [ ] Inbound/outbound deps are direct only.
-- [ ] Persistent state lists tables and queues with REQ-ID linkage.
-- [ ] Legacy lineage names the Natural programs.
-- [ ] Smells noted include borderline-god classes and missing REQ-ID annotations.
-- [ ] Document links from `docs/CODEMAP.md`.
+- [ ] Diagrama Mermaid renderiza corretamente.
+- [ ] Tabela cobre todos os componentes na pasta do serviço.
+- [ ] Coluna REQ-ID preenchida; entradas ausentes explicitamente anotadas.
+- [ ] Deps inbound/outbound são apenas diretas.
+- [ ] Estado persistente lista tabelas e filas com vínculo a REQ-ID.
+- [ ] Linhagem legada nomeia os programas Natural.
+- [ ] Smells anotados incluem classes quase god class e anotações REQ-ID ausentes.
+- [ ] Documento vinculado a partir de `docs/CODEMAP.md`.

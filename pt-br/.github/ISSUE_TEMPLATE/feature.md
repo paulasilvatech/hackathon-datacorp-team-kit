@@ -1,5 +1,5 @@
 ---
-name: Feature Request
+name: Solicitação de Funcionalidade
 about: Nova funcionalidade do SIFAP 2.0
 title: '[FEATURE] '
 labels: feature
@@ -15,7 +15,7 @@ labels: feature
 
 ## Critério de Aceitação
 
-<!-- Gate criteria para considerar concluído -->
+<!-- Critérios de gate para considerar concluído -->
 
 ## Persona Responsável
 

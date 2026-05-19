@@ -1,6 +1,6 @@
 ---
-title: "Template: Relatório de Descoberta"
-description: "Esqueleto de relatório para handoff do Stage 1 via /discovery-report"
+title: "Modelo: Relatório de Descoberta"
+description: "Esqueleto de relatório para o passagem do Estágio 1 via /discovery-report"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-29"
 version: "1.0.0"
@@ -10,44 +10,44 @@ tags: ["template", "discovery-report", "archaeology", "stage-1"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-<!-- Como usar: execute /discovery-report ao final do Stage 1. -->
+<!-- Como usar: execute /discovery-report ao final do Estágio 1. -->
 
-# Relatório de Descoberta — Stage 1
+# Relatório de Descoberta — Estágio 1
 
 **Equipe:** <!-- placeholder -->
 
 ## Resumo Executivo
 
-<!-- placeholder: 5 sentences max -->
+<!-- placeholder: máximo de 5 frases -->
 
 ## O Que Sabemos (Confirmado)
 
 ### Regras de Negócio
 
-<!-- placeholder: confirmed rules with EARS candidates -->
+<!-- placeholder: regras confirmadas com candidatas EARS -->
 
 ### Dependências
 
-<!-- placeholder: edge counts from dependency map -->
+<!-- placeholder: contagens de arestas do mapa de dependências -->
 
 ### Estruturas de Dados
 
-<!-- placeholder: DDM summaries -->
+<!-- placeholder: resumos dos DDMs -->
 
 ## O Que É Arriscado
 
-### Mistérios que Bloqueiam o Stage 2
+### Mistérios que Bloqueiam o Estágio 2
 
 | MYS-ID | Descrição | Caminho de Resolução |
 | ------ | --------- | -------------------- |
 
 ### Regras com Evidência Fraca
 
-<!-- placeholder: inferred rules -->
+<!-- placeholder: regras inferidas -->
 
 ## Hipóteses de Carving Recomendadas
 
-### Hipótese 1: <!-- placeholder: business name -->
+### Hipótese 1: <!-- placeholder: nome de negócio -->
 
 - Programas: <!-- placeholder -->
 - DDMs: <!-- placeholder -->
@@ -65,8 +65,8 @@ tags: ["template", "discovery-report", "archaeology", "stage-1"]
 ## Aprovação da Equipe
 
 - Revisado por: <!-- placeholder -->
-- Confiança: <!-- placeholder: High/Medium/Low -->
+- Confiança: <!-- placeholder: Alta/Média/Baixa -->
 
 ---
 
-**Lembrete de Definition of Done:** Menos de 3 páginas, resumo com ≤5 frases, 3-5 hipóteses.
+**Lembrete de Definição de Pronto:** Menos de 3 páginas, resumo com ≤5 frases, 3-5 hipóteses.

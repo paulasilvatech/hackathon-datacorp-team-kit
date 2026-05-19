@@ -1,33 +1,33 @@
 ---
 mode: ask
 model: claude-opus-4-6
-description: "Review a DESIGN.md against Well-Architected pillars"
+description: "Revise um DESIGN.md contra os pilares Well-Architected"
 ---
 
 # /architecture-review
 
-## Task
-Review DESIGN.md (or a proposed architecture change) against the Microsoft Azure Well-Architected pillars and produce a prioritized findings list.
+## Tarefa
+Revise DESIGN.md (ou uma mudança arquitetural proposta) contra os pilares Microsoft Azure Well-Architected e produza uma lista priorizada de achados.
 
-## Steps
-1. Load DESIGN.md and any relevant ADRs.
-2. Score the design against each pillar with concrete evidence:
+## Passos
+1. Carregue DESIGN.md e quaisquer ADRs relevantes.
+2. Pontue o design contra cada pilar com evidências concretas:
  - Reliability: SLO, redundancy, failure modes, retry policies
  - Security: identity, network, data, secrets, threat model
  - Cost: right-sizing, reserved capacity, idle resources
  - Operational Excellence: IaC, observability, runbooks
  - Performance Efficiency: scaling, caching, data access patterns
-3. Classify each finding as: Critical (blocks go-live), Major (must fix before GA), Minor (backlog).
-4. Reference the specific architecture decision or diagram that triggers the finding.
-5. Propose a concrete remediation per finding, with effort estimate (S/M/L).
+3. Classifique cada achado como: Critical (bloqueia go-live), Major (corrigir antes de GA), Minor (backlog).
+4. Referencie a decisão arquitetural ou diagrama específico que dispara o achado.
+5. Proponha uma remediação concreta por achado, com estimativa de esforço (S/M/L).
 
-## Output
-- Scorecard table: `Pillar | Score (1-5) | Top Finding | Remediation`
-- Prioritized findings list grouped by severity
-- Three alternative options for the single most critical finding
+## Saída
+- Tabela scorecard: `Pillar | Score (1-5) | Top Finding | Remediation`
+- Lista priorizada de achados agrupada por severidade
+- Três opções alternativas para o achado mais crítico
 
-## Quality Gate
-- [ ] Every pillar reviewed, none skipped
-- [ ] Every finding cites a specific artifact (diagram, ADR, paragraph)
-- [ ] Remediations are specific, not generic best-practice statements
-- [ ] At least one cost-optimization finding identified (or noted as "already optimal")
+## Gate de Qualidade
+- [ ] Todos os pilares revisados, nenhum pulado
+- [ ] Todo achado cita um artefato específico (diagrama, ADR, parágrafo)
+- [ ] Remediações são específicas, não declarações genéricas de boas práticas
+- [ ] Pelo menos um achado de otimização de custo identificado (ou marcado como "already optimal")

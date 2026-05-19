@@ -1,6 +1,6 @@
 ---
 title: "Card de Persona — Tech Writer"
-description: "O que o Tech Writer faz dentro do time de 10 durante o Dia 2 do Legacy Modernization Workshop."
+description: "O que o Tech Writer faz dentro do time de 10 durante o Dia 2 do Workshop de Modernização de Legado."
 locale: "pt-br"
 canonical_path: "pt-br/persona-kits/10-tech-writer/PERSONA.md"
 author: "Paula Silva, Americas Software GBB, Microsoft"
@@ -21,16 +21,16 @@ flowchart LR
  classDef current fill:#1B1B1F,stroke:#000,color:#fff,font-weight:bold
  classDef cross fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
 
- D[Discovery<br/>S1 — glossário]:::cross
- SP[Specification<br/>S2 — clareza de ADR]:::cross
- IM[Implementation<br/>S3 — README evolui]:::cross
- EV[Evolution<br/>S4 — LIDERA relatório do Agent]:::current
+ D[Descoberta<br/>S1 — glossário]:::cross
+ SP[Especificação<br/>S2 — clareza de ADR]:::cross
+ IM[Implementação<br/>S3 — README evolui]:::cross
+ EV[Evolução<br/>S4 — LIDERA relatório do Agent]:::current
 ```
 
 - **Par**: 5 · Operações (junto com DevOps Engineer)
-- **Fases lideradas**: Cross-cutting (todas as fases) + Evolution (S4) — relatório do Agent
+- **Fases lideradas**: transversal (todas as fases) + Evolução (S4) — relatório do Agent
 - **Recebe de**: todos os pares — decisões e código para documentar
-- **Faz handoff para**: facilitadores (Paula) — relatório final
+- **Faz passagem para**: facilitadores (Paula) — relatório final
 
 ## Quem é essa pessoa
 
@@ -42,9 +42,9 @@ Manter documentação viva durante o dia inteiro — não no final. README que c
 
 ## Seu papel no framework Agentic Legacy Modernization
 
-- **Agentes relevantes**: Documentation Agent (cross-cutting)
+- **Agentes relevantes**: Documentation Agent (transversal)
 - **Fase do framework**: todas as fases (documentação contínua)
-- **Seu papel**: manter rastreabilidade e documentar decisões para o audit trail
+- **Seu papel**: manter rastreabilidade e documentar decisões para a trilha de auditoria
 
 ## Onde você aparece em cada estágio
 
@@ -53,7 +53,7 @@ Manter documentação viva durante o dia inteiro — não no final. README que c
 | 1. Arqueologia         | Mantém glossário e catálogo em formato legível. Escreve o relatório de descoberta no fim do estágio.                        | Relatório do Estágio 1         |
 | 2. Spec Moderna        | Revisa a spec por consistência, terminologia e clareza. Formata ADRs com o template.                                        | Spec e ADRs em formato padrão  |
 | 3. Implementação       | O README do projeto vira real, não placeholder. Documenta decisões em `docs/` conforme emergem.                             | README populado + `docs/`      |
-| 4. Evolution com Agent | Acompanha o Agent trabalhando e escreve relatório honesto da experiência (o que foi bom, o que foi ruim, o que aprenderam). | Relatório final do Estágio 4   |
+| 4. Evolução com Agent | Acompanha o Agent trabalhando e escreve relatório honesto da experiência (o que foi bom, o que foi ruim, o que aprenderam). | Relatório final do Estágio 4   |
 
 ## Ferramentas e primitivas
 

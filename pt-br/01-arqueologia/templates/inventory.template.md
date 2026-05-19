@@ -1,5 +1,5 @@
 ---
-title: "Template: Inventário do Stage 1"
+title: "Modelo: Inventário do Estágio 1"
 description: "Esqueleto para o inventário do codebase legado produzido por /archaeology-kickoff"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-29"
@@ -12,14 +12,14 @@ tags: ["template", "inventory", "archaeology", "stage-1"]
 
 <!-- Como usar: execute /archaeology-kickoff para preencher isto. Ou copie para 01-arqueologia/inventory.md. -->
 
-# Inventário Legado — <!-- placeholder: Team Name -->
+# Inventário Legado — <!-- placeholder: Nome da Equipe -->
 
 **Data:** <!-- placeholder: YYYY-MM-DD -->
 **Caminho escaneado:** `legacy/`
 
 ## Estrutura de Pastas
 
-<!-- placeholder: directory tree -->
+<!-- placeholder: árvore de diretórios -->
 
 ## Contagem de Arquivos por Tipo
 
@@ -46,9 +46,9 @@ tags: ["template", "inventory", "archaeology", "stage-1"]
 ## Ordem de Leitura Proposta
 
 1. Arquivos DDM primeiro
-2. <!-- placeholder: batch entry points -->
-3. <!-- placeholder: most-connected programs -->
+2. <!-- placeholder: pontos de entrada batch -->
+3. <!-- placeholder: programas mais conectados -->
 
 ---
 
-**Lembrete de Definition of Done:** Inventário existe, contagens precisas, 3+ padrões identificados, 3 itens incomuns sinalizados.
+**Lembrete de Definição de Pronto:** Inventário existe, contagens precisas, 3+ padrões identificados, 3 itens incomuns sinalizados.

@@ -23,7 +23,7 @@ Um workshop de modernização falha quando cada pessoa usa o Copilot de um jeito
 | 1 · Arqueologia | 13:00–14:30 | [@archaeologist](01-archaeologist/README.md) | Ler legado, extrair regras, mapear dependências e catalogar mistérios |
 | 2 · Spec Moderna | 14:45–16:00 | [@architect](02-architect/README.md) | Transformar descobertas em EARS, bounded contexts, C4 e ADRs |
 | 3 · Implementação | 16:15–17:30 | [@builder](03-builder/README.md) | Construir Java/Next.js, testes, migrations e endpoints rastreáveis |
-| 4 · Evolução | 17:45–18:15 | [@evolution](04-evolution/README.md) | Delegar issues para Agent Mode, revisar PRs, CI/CD e IaC |
+| 4 · Evolução | 17:45–18:15 | [@evolution](04-evolution/README.md) | Delegar issues para o modo Agent, revisar PRs, CI/CD e IaC |
 
 ## Como usar, passo a passo
 
@@ -31,7 +31,7 @@ Um workshop de modernização falha quando cada pessoa usa o Copilot de um jeito
 2. **Abra o README do agente da etapa** na tabela acima.
 3. **Selecione o agente no Copilot Chat** usando o seletor de agentes.
 4. **Cole o prompt de abertura** do README da etapa.
-5. **Trabalhe nos entregáveis da Definition of Done.** Não pule o gate; ele existe para proteger o handoff seguinte.
+5. **Trabalhe nos entregáveis da Definição de Pronto.** Não pule o gate; ele existe para proteger o passagem seguinte.
 
 ## Matriz rápida persona × agente
 
@@ -67,7 +67,7 @@ Os agentes sabem **como** modernizar Natural/Adabas. Eles não sabem **o que** e
 - O time está usando o mesmo agente na mesma etapa.
 - O protagonista sabe qual entregável precisa sair daquela conversa.
 - A etapa termina com artefatos versionados, não apenas com conversa no chat.
-- O handoff seguinte recebe evidências, decisões e pendências explícitas.
+- O passagem seguinte recebe evidências, decisões e pendências explícitas.
 
 ## Navegação
 

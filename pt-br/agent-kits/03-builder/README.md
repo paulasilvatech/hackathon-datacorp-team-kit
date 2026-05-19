@@ -23,7 +23,7 @@ Transformar requisitos em software funcionando: serviços Java, entidades JPA, m
 - **Horário:** 16:15–17:30.
 - **Protagonista:** Developer.
 - **Suporte forte:** Technical Lead, DBA, QA Engineer e Software Architect.
-- **Pré-requisito:** Handoff #2 com spec, ADRs, C4, modelo de dados e tasks priorizadas.
+- **Pré-requisito:** Passagem #2 com spec, ADRs, C4, modelo de dados e tasks priorizadas.
 
 ## Passo a passo com o agente
 
@@ -52,7 +52,7 @@ PostgreSQL/JPA e Next.js, começando pelos testes quando houver regra de negóci
 | Frontend | "Crie página Next.js App Router consumindo este endpoint, sem expor segredo." |
 | Testes | "Escreva teste JUnit para REQ-X e marque o comentário de rastreabilidade." |
 
-## Definition of Done
+## Definição de Pronto
 
 - [ ] Backend compila e `mvn test` ou comando equivalente passa.
 - [ ] Frontend compila e `npm test` ou comando equivalente passa quando houver frontend.

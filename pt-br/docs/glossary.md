@@ -19,12 +19,12 @@ tags: ["glossary", "domain", "sifap", "stage-1"]
 1. Use este formato:
 
 ```markdown
-### Term
+### Termo
 
-- **Source:** Natural program or DDM where the term originates (e.g., `CADBENEF.NSN:42`)
-- **Definition:** Short definition (1–2 sentences)
-- **English equivalent:** If the legacy term is in Portuguese
-- **Used in:** REQ-IDs, files, modules
+- **Fonte:** Programa Natural ou DDM onde o termo se origina (ex.: `CADBENEF.NSN:42`)
+- **Definição:** Definição curta (1–2 frases)
+- **Equivalente em inglês:** Se o termo legado estiver em português
+- **Usado em:** REQ-IDs, arquivos, módulos
 ```
 
 2. Mantenha os termos em ordem alfabética dentro de cada seção.
@@ -36,41 +36,41 @@ tags: ["glossary", "domain", "sifap", "stage-1"]
 
 ### Adabas
 
-- **Source:** Legacy data store
-- **Definition:** Banco de dados mainframe em estilo NoSQL multi-value usado pelo sistema legado SIFAP. DDMs (Data Definition Modules) do Adabas descrevem registros.
-- **Used in:** todos os programas `.NSN` em `02-cenario-sifap-legado/natural-programs/`
+- **Fonte:** Armazenamento de dados legado
+- **Definição:** Banco de dados mainframe em estilo NoSQL multivalorado usado pelo sistema legado SIFAP. DDMs (Data Definition Modules) do Adabas descrevem registros.
+- **Usado em:** todos os programas `.NSN` em `02-cenario-sifap-legado/natural-programs/`
 
 ## B
 
 ### Beneficiário (Beneficiary)
 
-- **Source:** `BENEFICIARIO.ddm`
-- **Definition:** Pessoa que recebe pagamentos de benefício social pelo SIFAP.
-- **English equivalent:** Beneficiary
-- **Used in:** REQ-BEN-\*, `BeneficiaryEntity.java`
+- **Fonte:** `BENEFICIARIO.ddm`
+- **Definição:** Pessoa que recebe pagamentos de benefício social pelo SIFAP.
+- **Equivalente em inglês:** Beneficiary
+- **Usado em:** REQ-BEN-\*, `BeneficiaryEntity.java`
 
 ## C
 
 ### Ciclo (Cycle)
 
-- **Source:** `BATCHPGT.NSN`
-- **Definition:** Execução mensal de geração de pagamentos que produz registros de pagamento para todos os beneficiários elegíveis.
-- **English equivalent:** Payment cycle
-- **Used in:** REQ-PAY-\*, `PaymentCycleService.java`
+- **Fonte:** `BATCHPGT.NSN`
+- **Definição:** Execução mensal de geração de pagamentos que produz registros de pagamento para todos os beneficiários elegíveis.
+- **Equivalente em inglês:** Payment cycle
+- **Usado em:** REQ-PAY-\*, `PaymentCycleService.java`
 
 ### CPF
 
-- **Source:** Brazilian Federal tax ID
-- **Definition:** Identificador nacional de contribuinte com 11 dígitos, usado como identificador principal de beneficiários. Validado com o algoritmo módulo-11.
-- **Used in:** toda a lógica de identificação de beneficiários
+- **Fonte:** CPF brasileiro
+- **Definição:** Identificador nacional de contribuinte com 11 dígitos, usado como identificador principal de beneficiários. Validado com o algoritmo módulo-11.
+- **Usado em:** toda a lógica de identificação de beneficiários
 
 ## D
 
 ### DDM (Data Definition Module)
 
-- **Source:** Adabas
-- **Definition:** Definicao de schema para um registro Adabas. O SIFAP usa 4 DDMs: Beneficiary, Payment, Social Program, Audit.
-- **Used in:** archaeology + schema mapping
+- **Fonte:** Adabas
+- **Definição:** Definição de schema para um registro Adabas. O SIFAP usa 4 DDMs: Beneficiary, Payment, Social Program, Audit.
+- **Usado em:** arqueologia + mapeamento de schema
 
 ---
 

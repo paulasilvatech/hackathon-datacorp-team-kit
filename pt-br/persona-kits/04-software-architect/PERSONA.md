@@ -21,18 +21,18 @@ flowchart LR
  classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
  classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
 
- D[Discovery<br/>S1 — bounded contexts candidatos]:::support
- SP[Specification<br/>S2 — LIDERA C4 L2/L3 + ADRs]:::current
- IM[Implementation<br/>S3 — guarda fronteiras]:::current
- EV[Evolution<br/>S4 — valida PR do Agent]:::support
+ D[Descoberta<br/>S1 — bounded contexts candidatos]:::support
+ SP[Especificação<br/>S2 — LIDERA C4 L2/L3 + ADRs]:::current
+ IM[Implementação<br/>S3 — guarda fronteiras]:::current
+ EV[Evolução<br/>S4 — valida PR do Agent]:::support
 
  D --> SP --> IM --> EV
 ```
 
 - **Par**: 2 · Arquitetura (junto com Enterprise Architect)
-- **Fases lideradas**: Specification (S2) — C4 L2/L3 + ADRs + Implementation (S3) — review estrutural
+- **Fases lideradas**: Especificação (S2) — C4 L2/L3 + ADRs + Implementação (S3) — revisão estrutural
 - **Recebe de**: Enterprise Architect (C4 L1) e Requirements Engineer (REQ-IDs)
-- **Faz handoff para**: Par 3 (Implementação) no H2 — package structure pronta
+- **Faz passagem para**: Par 3 (Implementação) no H2 — estrutura de pacotes pronta
 
 ## Quem é essa pessoa
 
@@ -55,7 +55,7 @@ Produzir C4 Níveis 2 e 3 coerentes com a spec. Definir os bounded contexts do S
 | 1. Arqueologia         | Identifica conceitos recorrentes nos Naturals e começa a propor bounded contexts candidatos.                       | Lista inicial de módulos/contextos                        |
 | 2. Spec Moderna        | Desenha C4 Nível 2 e Nível 3 para pelo menos dois contextos. Escreve o ADR de Modular Monolith.                    | Diagramas C4 + ADRs 1 e 2                                 |
 | 3. Implementação       | Estabelece a estrutura inicial do projeto Spring (pacotes, camadas). Revisa PRs que cruzam fronteiras de contexto. | `pom.xml` + layout de módulos + review de PRs estruturais |
-| 4. Evolution com Agent | Valida que o PR do Agent respeita as fronteiras. Rejeita merges que quebrem modularidade.                          | Modularidade preservada                                   |
+| 4. Evolução com Agent  | Valida que o PR do Agent respeita as fronteiras. Rejeita merges que quebrem modularidade.                          | Modularidade preservada                                   |
 
 ## Ferramentas e primitivas
 
@@ -88,9 +88,9 @@ Produzir C4 Níveis 2 e 3 coerentes com a spec. Definir os bounded contexts do S
 - **SA + Enterprise Architect** se o time for pequeno (você cuida do C4 1 e do 2/3).
 - **SA + Technical Lead** é a combinação mais produtiva — você desenha e mete a mão no código.
 
-## 3 prompts de exemplo
+## 3 exemplos de prompt
 
-1. **(Chat)** _"Com base nestes requisitos EARS, proponha os bounded contexts do SIFAP 2.0. Para cada contexto liste: entidades, services expostos e dependências de outros contextos."_
+1. **(Chat)** _"Com base nestes requisitos EARS, proponha os bounded contexts do SIFAP 2.0. Para cada contexto liste: entidades, serviços expostos e dependências de outros contextos."_
 2. **(Plan)** _"No projeto Spring Boot, planeje a estrutura de pacotes para um novo bounded context 'notification' seguindo o padrão dos existentes (domain/application/infrastructure)."_
 3. **(Chat)** _"Revise este PR e identifique imports que cruzam fronteiras de bounded context. Para cada violação, sugira como isolar."_
 

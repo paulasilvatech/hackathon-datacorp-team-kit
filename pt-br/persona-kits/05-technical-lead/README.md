@@ -13,7 +13,7 @@ Todas as fases (coordenação técnica)
 
 | Arquivo | Tipo | Propósito |
 |------|------|---------|
-| `PERSONA.md` | Persona | Responsabilidades, handoffs, prompts e rubrica do Technical Lead |
+| `PERSONA.md` | Persona | Responsabilidades, passagems, prompts e rubrica do Technical Lead |
 | `.github/agents/tech-lead.agent.md` | Agent | Governança técnica |
 | `.github/prompts/setup-project.prompt.md` | Prompt | `/setup-project` |
 | `.github/prompts/routing-table.prompt.md` | Prompt | `/routing-table` |

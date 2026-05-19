@@ -1,26 +1,26 @@
 ---
 mode: ask
 model: claude-sonnet-4-6
-description: "Validate an API implementation against its OpenAPI contract"
+description: "Valide uma implementação de API contra seu contrato OpenAPI"
 ---
 
 # /api-validate
 
-## Task
-Validate that an API implementation matches its OpenAPI/AsyncAPI contract and surface every drift.
+## Tarefa
+Valide se uma implementação de API corresponde ao seu contrato OpenAPI/AsyncAPI e exponha todo drift.
 
-## Steps
-1. Load the contract (openapi.yaml / asyncapi.yaml) and the implementation (controllers, handlers).
-2. For each operation in the contract, check: path, method, request schema, response schema, error codes, auth scheme.
-3. For each endpoint in the implementation, check that it exists in the contract (detect undocumented endpoints).
-4. Validate request/response schema with real examples if available.
-5. Classify drift as: breaking (removes/changes field), additive (new optional field), metadata (description only).
+## Passos
+1. Carregue o contrato (openapi.yaml / asyncapi.yaml) e a implementação (controllers, handlers).
+2. Para cada operação no contrato, verifique: path, method, request schema, response schema, error codes, auth scheme.
+3. Para cada endpoint na implementação, verifique se ele existe no contrato (detecte endpoints não documentados).
+4. Valide request/response schema com exemplos reais, se disponíveis.
+5. Classifique drift como: breaking (remove/altera campo), additive (novo campo opcional), metadata (apenas descrição).
 
-## Output
-Markdown table: `Endpoint | Drift Type | Severity | Fix Location (contract or code)`.
+## Saída
+Tabela Markdown: `Endpoint | Tipo de Drift | Severidade | Local da Correção (contrato ou código)`.
 
-## Quality Gate
-- [ ] Every contract operation is checked (100% coverage)
-- [ ] Every implementation endpoint is checked against the contract
-- [ ] Breaking drift is highlighted separately from additive drift
-- [ ] The fix location (contract vs. code) is explicit for each item
+## Gate de Qualidade
+- [ ] Toda operação do contrato foi verificada (100% de cobertura)
+- [ ] Todo endpoint da implementação foi verificado contra o contrato
+- [ ] Drift breaking está destacado separadamente de drift additive
+- [ ] O local do fix (contrato vs. código) está explícito para cada item

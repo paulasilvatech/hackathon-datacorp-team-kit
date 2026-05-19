@@ -26,10 +26,10 @@ flowchart LR
  classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
  classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
 
- D[Discovery<br/>Estágio 1<br/>VOCÊ ESTÁ AQUI]:::current
- SP[Specification<br/>Estágio 2]:::next
- IM[Implementation<br/>Estágio 3]:::later
- EV[Evolution<br/>Estágio 4]:::later
+ D[Descoberta<br/>Estágio 1<br/>VOCÊ ESTÁ AQUI]:::current
+ SP[Especificação<br/>Estágio 2]:::next
+ IM[Implementação<br/>Estágio 3]:::later
+ EV[Evolução<br/>Estágio 4]:::later
 
  D --> SP --> IM --> EV
 ```
@@ -44,12 +44,12 @@ Todos os 5 pares trabalham em paralelo, cada um responsável por 3 programas Nat
 | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | [`LEGACY-EXPLORATION-CHECKLIST.md`](LEGACY-EXPLORATION-CHECKLIST.md) | **PORTÃO DURO.** Posse de programa por par + DoD para abrir o Estágio 2 |
 | [`GUIDE.md`](GUIDE.md)                                               | Guia passo a passo deste estágio                                        |
-| [`glossary.md`](glossary.md)                                         | Template de glossário de termos do domínio                              |
+| [`glossary.md`](glossary.md)                                         | Modelo de glossário de termos do domínio                                |
 | [`business-rules-catalog.md`](business-rules-catalog.md)             | Catálogo de regras de negócio extraídas (`Programa Fonte` obrigatório)  |
-| [`dependency-map.md`](dependency-map.md)                             | Template de mapeamento de dependências do sistema                       |
-| [`discovery-report.md`](discovery-report.md)                         | Template de relatório de descobertas                                    |
+| [`dependency-map.md`](dependency-map.md)                             | Modelo de mapeamento de dependências do sistema                         |
+| [`discovery-report.md`](discovery-report.md)                         | Modelo de relatório de descobertas                                      |
 | [`mysteries-checklist.md`](mysteries-checklist.md)                   | Checklist de lógica escondida para os times                             |
-| [`mysteries-found.md`](mysteries-found.md)                           | Template para registrar mistérios descobertos                           |
+| [`mysteries-found.md`](mysteries-found.md)                           | Modelo para registrar mistérios descobertos                             |
 
 O código legado em si fica em [`../../legacy/`](../../legacy/) (compartilhado pelo kit).
 
@@ -57,6 +57,6 @@ O código legado em si fica em [`../../legacy/`](../../legacy/) (compartilhado p
 
 | Anterior                     | Início                    | Próximo                                                  |
 | ---------------------------- | ------------------------- | -------------------------------------------------------- |
-| [Team Flow](../TEAM-FLOW.md) | [Kit PT-BR](../README.md) | [Estágio 2 — Spec Moderna](../02-spec-moderna/README.md) |
+| [Fluxo do Time](../TEAM-FLOW.md) | [Kit PT-BR](../README.md) | [Estágio 2 — Spec Moderna](../02-spec-moderna/README.md) |
 
 — Paula

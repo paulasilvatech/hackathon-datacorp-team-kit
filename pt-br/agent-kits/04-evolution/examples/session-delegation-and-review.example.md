@@ -1,6 +1,6 @@
 ---
-title: "Exemplo: agente Evolution em ação"
-description: "Transcrição didática de sessão mostrando como o agente Evolution escreve issues, delega ao Copilot Agent e revisa PR"
+title: "Exemplo: agente de Evolução em ação"
+description: "Transcrição didática de sessão mostrando como o agente de Evolução escreve issues, delega ao Copilot Agent e revisa PR"
 tags: [exemplo, transcricao, evolution, hackathon]
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: 2026-04-29
@@ -9,7 +9,7 @@ version: "1.0.0"
 
 <!-- markdownlint-disable MD013 MD032 MD060 -->
 
-# Exemplo: agente Evolution em ação
+# Exemplo: agente de Evolução em ação
 
 ## Cenário
 
@@ -23,7 +23,7 @@ version: "1.0.0"
 
 1. Abra o GitHub Copilot Chat no VS Code.
 2. Confirme que o estágio Builder foi concluído: o endpoint de cálculo de taxa existe, mas ainda não valida a entrada.
-3. Ative a persona do agente Evolution.
+3. Ative a persona do agente de Evolução.
 4. Confirme que o repositório do time está conectado ao GitHub e com Copilot Agent habilitado.
 5. Verifique se o mapa de bounded contexts e a especificação estão em `specs/001-rate-processing/`.
 
@@ -31,7 +31,7 @@ version: "1.0.0"
 
 ## Prompt de abertura
 
-**TL:** `@evolution /write-github-issue — we need to add input validation to the rate calculation endpoint. It currently accepts any payload without checking required fields, value ranges, or date formats.`
+**TL:** `@evolution /write-github-issue — precisamos adicionar validação de entrada ao endpoint de cálculo de taxa. Hoje ele aceita qualquer payload sem verificar campos obrigatórios, faixas de valor ou formatos de data.`
 
 ---
 
@@ -50,8 +50,8 @@ version: "1.0.0"
 >
 > **Rascunho da issue:**
 >
-> **Título:** Add input validation to rate calculation endpoint
-> **Labels:** `enhancement`, `backend`, `rate-calculation`
+> **Título:** Adicionar validação de entrada ao endpoint de cálculo de taxa
+> **Rótulos:** `enhancement`, `backend`, `rate-calculation`
 >
 > **Contexto:** O endpoint `POST /api/v1/rates/calculate` aceita qualquer payload JSON sem validação, violando a REQ-012.
 >
@@ -85,7 +85,7 @@ version: "1.0.0"
 **Agente:**
 > Atualizei com `TRN` e limite duplo. A issue está pronta para publicação.
 >
-> **Issue criada: #42 — "Add input validation to rate calculation endpoint"**
+> **Issue criada: #42 — "Adicionar validação de entrada ao endpoint de cálculo de taxa"**
 
 ---
 
@@ -222,7 +222,7 @@ version: "1.0.0"
 >
 > **Arquivo:** `RateCalculationRequestValidationTest.java`
 >
-> **Problema:** o teste de código de motivo inválido verifica apenas que existe uma violação, mas não valida o **conteúdo da mensagem de erro**. A mensagem deve listar os códigos válidos, por exemplo: "must be one of: ADJ, PRO, NEW, COR, TRN", em vez de um genérico "invalid value".
+> **Problema:** o teste de código de motivo inválido verifica apenas que existe uma violação, mas não valida o **conteúdo da mensagem de erro**. A mensagem deve listar os códigos válidos, por exemplo: "deve ser um de: ADJ, PRO, NEW, COR, TRN", em vez de um genérico "valor inválido".
 >
 > **Asserção ausente:** adicione `.contains("ADJ", "PRO", "NEW", "COR", "TRN")` ao teste de código de motivo.
 >
@@ -247,7 +247,7 @@ version: "1.0.0"
 > A asserção da mensagem de erro também é importante. O time de frontend precisa de mensagens previsíveis para mostrar às pessoas usuárias. "Invalid value" não ajuda.
 
 **TL:**
-> Vamos solicitar mudanças. Eu corrijo o must-fix e peço para o agente melhorar os testes.
+> Vamos solicitar mudanças. Eu corrijo o bloqueador obrigatório e peço para o agente melhorar os testes.
 
 **Agente:**
 > Perfeito. Vou preparar o comentário de revisão com os três achados vinculados às linhas específicas de código.
@@ -280,7 +280,7 @@ version: "1.0.0"
 
 | Anti-padrão | Onde quase aconteceu | Como o agente/time evitou |
 | --- | --- | --- |
-| **Merge cego de PR de agente** | O código gerado parecia correto à primeira vista. | A revisão estruturada do Evolution capturou o bug do handler de erro único. |
+| **Merge cego de PR de agente** | O código gerado parecia correto à primeira vista. | A revisão estruturada do agente de Evolução capturou o bug do handler de erro único. |
 | **Critérios de aceite vagos** | A issue poderia dizer apenas "adicionar validação". | O agente buscou REQ-IDs na spec e escreveu critérios testáveis. |
 | **Códigos de motivo incompletos** | O agente tinha apenas 4 códigos vindos da análise do legado. | O agente pediu confirmação; o PO adicionou o quinto código, `TRN`. |
 | **Padrões de entrada assumidos** | O formato do ID de funcionário foi inferido, não confirmado. | O agente sinalizou a inferência e pediu validação ao time. |
@@ -301,6 +301,6 @@ version: "1.0.0"
 
 5. **O payload de delegação é um contrato.** Quanto mais específicas forem as instruções, melhor tende a ser a saída.
 
-6. **Human-in-the-loop não é opcional.** O bug obrigatório teria chegado à produção sem revisão.
+6. **Humano no loop não é opcional.** O bug obrigatório teria chegado à produção sem revisão.
 
-7. **A cadeia de três passos é o padrão Evolution.** `/write-github-issue` → `/delegate-to-copilot-agent` → `/review-agent-pr`. Pular qualquer etapa reduz a qualidade.
+7. **A cadeia de três passos é o padrão de Evolução.** `/write-github-issue` → `/delegate-to-copilot-agent` → `/review-agent-pr`. Pular qualquer etapa reduz a qualidade.

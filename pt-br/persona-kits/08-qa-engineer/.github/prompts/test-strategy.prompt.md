@@ -1,42 +1,42 @@
 ---
 mode: ask
 model: claude-opus-4-6
-description: "Author a test strategy for a SIFAP 2.0 feature: pyramid layers, framework choices, environments, and exit criteria."
+description: "Escreva uma estratégia de testes para uma feature do SIFAP 2.0: camadas da pirâmide, escolhas de framework, ambientes e critérios de saída."
 ---
 
 # /test-strategy
 
-## Goal
+## Objetivo
 
-You are a QA lead writing the test strategy for a SIFAP 2.0 feature. The strategy tells the team **what to test, at which layer, with which tool, against which environment, and how we know we are done**. It is approved by the technical lead after `/speckit.tasks` and before `/speckit.implement`, and lives in `specs/<NNN>-<feature>/TEST-STRATEGY.md`.
+Você é um QA lead escrevendo a estratégia de testes para uma feature do SIFAP 2.0. A estratégia diz ao time **o que testar, em qual camada, com qual ferramenta, contra qual ambiente e como sabemos que terminamos**. Ela é aprovada pelo Technical Lead depois de `/speckit.tasks` e antes de `/speckit.implement`, e fica em `specs/<NNN>-<feature>/TEST-STRATEGY.md`.
 
-## Inputs
+## Entradas
 
-Ask the user for what is missing.
+Peça ao usuário o que estiver faltando.
 
-- The feature folder (`specs/<NNN>-<feature>/`) with `SPECIFICATION.md` and `DESIGN.md` already approved.
-- The risk profile: financial (`high`), regulatory (`high`), batch (`medium`), read-only (`low`).
-- Constraints: time budget, parallel CI minutes, available environments (`local`, `dev`, `stage`, `prod-shadow`).
-- Any non-functional requirements with measurable thresholds (latency p95, throughput, RPO/RTO).
+- A pasta da feature (`specs/<NNN>-<feature>/`) com `SPECIFICATION.md` e `DESIGN.md` já aprovados.
+- O perfil de risco: financeiro (`high`), regulatório (`high`), batch (`medium`), somente leitura (`low`).
+- Restrições: orçamento de tempo, minutos de CI paralelo, ambientes disponíveis (`local`, `dev`, `stage`, `prod-shadow`).
+- Quaisquer requisitos não funcionais com limites mensuráveis (latência p95, throughput, RPO/RTO).
 
-## Process
+## Processo
 
-1. **Classify each `REQ-ID` by test layer.** Use the test pyramid:
- - **Unit** — pure functions, calculators, validators (most of `REQ-CALC-*`).
- - **Integration** — adapters: repositories, queues, external services (most of `REQ-PAY-*`).
- - **Contract** — API consumer/provider tests (frontend ↔ backend, backend ↔ external Adabas wrapper).
- - **End-to-end** — critical user journeys only (registration, disbursement, audit query).
- - **Non-functional** — performance, security, accessibility, observability.
-2. **Choose tools per layer.** JUnit 5 + AssertJ + Mockito (unit/integration backend), Testcontainers (integration), Pact (contract), Playwright (E2E), k6 (load), OWASP ZAP (security baseline), axe-core (a11y).
-3. **Define test data strategy.** Synthetic data for happy paths, anonymized legacy snapshots for edge cases, deterministic seeds for property-based tests. No production PII in any environment.
-4. **Map tests to environments.** Unit/integration on every push (CI). Contract on PR to `develop`. E2E nightly in `stage`. Performance weekly in `prod-shadow`.
-5. **Set exit criteria.** Per layer: minimum coverage of `REQ-IDs` (not lines), max flakiness rate, max p95 runtime.
-6. **Identify risks and mitigations.** Flaky external dependencies, slow test suites, data leakage, environment drift.
-7. **Write the strategy as `TEST-STRATEGY.md`.**
+1. **Classifique cada `REQ-ID` por camada de teste.** Use a pirâmide de testes:
+ - **Unit** — funções puras, calculadoras, validadores (a maioria de `REQ-CALC-*`).
+ - **Integration** — adapters: repositories, filas, serviços externos (a maioria de `REQ-PAY-*`).
+ - **Contract** — testes consumer/provider de API (frontend ↔ backend, backend ↔ wrapper Adabas externo).
+ - **End-to-end** — apenas jornadas críticas de usuário (cadastro, desembolso, consulta de auditoria).
+ - **Non-functional** — performance, segurança, acessibilidade, observabilidade.
+2. **Escolha ferramentas por camada.** JUnit 5 + AssertJ + Mockito (unit/integration backend), Testcontainers (integration), Pact (contract), Playwright (E2E), k6 (load), OWASP ZAP (security baseline), axe-core (a11y).
+3. **Defina a estratégia de dados de teste.** Dados sintéticos para happy paths, snapshots legados anonimizados para casos de borda, seeds determinísticas para testes property-based. Nenhum PII de produção em qualquer ambiente.
+4. **Mapeie testes para ambientes.** Unit/integration a cada push (CI). Contract em PR para `develop`. E2E noturno em `stage`. Performance semanal em `prod-shadow`.
+5. **Defina critérios de saída.** Por camada: cobertura mínima de `REQ-IDs` (não de linhas), taxa máxima de flakiness, runtime p95 máximo.
+6. **Identifique riscos e mitigações.** Dependências externas flaky, suítes de teste lentas, vazamento de dados, drift de ambiente.
+7. **Escreva a estratégia como `TEST-STRATEGY.md`.**
 
-## Output
+## Saída
 
-The deliverable is a markdown file with this structure:
+O entregável é um arquivo markdown com esta estrutura:
 
 ```markdown
 # Test Strategy — <feature> (REQ-<DOMAIN>-*)
@@ -83,26 +83,26 @@ local → dev (CI) → stage (nightly E2E) → prod-shadow (perf + chaos)
 Sprint 1: unit + integration scaffolding. Sprint 2: contract + E2E. Sprint 3: perf + security.
 ```
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** Feature `003-payment-processing`, financial high-risk, 24 REQ-IDs, four-week timeline.
+**Entrada:** Feature `003-payment-processing`, risco financeiro alto, 24 REQ-IDs, cronograma de quatro semanas.
 
-**Expected output:** the markdown above, populated with the 24 REQ-IDs grouped by layer, three named perf scenarios (single disburse, batch of 10k, retry storm), and a 6-line risk register.
+**Saída esperada:** o markdown acima, preenchido com os 24 REQ-IDs agrupados por camada, três cenários de perf nomeados (desembolso único, batch de 10k, tempestade de retries) e um registro de riscos de 6 linhas.
 
-## Anti-patterns
+## Anti-padrões
 
-- A 100%-line-coverage target with no requirement-coverage target. Lines are easy, behaviors are not.
-- E2E tests for everything. They are slow, flaky, and a poor place to verify branching logic.
-- Skipping the contract layer between frontend and backend. PR breakage will cost more than it saves.
-- Using production data in any non-prod environment. LGPD / regulatory risk.
-- Defining exit criteria as "all tests pass" — that is a tautology.
-- Choosing tools the team has not used before, mid-sprint. Strategy reflects reality.
+- Uma meta de 100% de cobertura de linhas sem meta de cobertura de requisitos. Linhas são fáceis; comportamentos não.
+- Testes E2E para tudo. Eles são lentos, flaky e um lugar ruim para verificar lógica de ramificação.
+- Pular a camada de contrato entre frontend e backend. Quebras em PR custarão mais do que isso economiza.
+- Usar dados de produção em qualquer ambiente não produtivo. Risco LGPD / regulatório.
+- Definir critérios de saída como "todos os testes passam" — isso é uma tautologia.
+- Escolher ferramentas que o time ainda não usou no meio da sprint. A estratégia reflete a realidade.
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] Every `REQ-ID` is mapped to exactly one primary layer (with optional secondary).
-- [ ] Each layer has a named tool, a coverage target, and a runtime budget.
-- [ ] Data strategy explicitly forbids production PII in non-prod.
-- [ ] Exit criteria are measurable and time-bounded.
-- [ ] Risks have named owners and mitigation dates.
-- [ ] The document is short enough (< 3 pages) that the whole team will actually read it.
+- [ ] Todo `REQ-ID` é mapeado para exatamente uma camada primária (com secundária opcional).
+- [ ] Cada camada tem uma ferramenta nomeada, uma meta de cobertura e um orçamento de runtime.
+- [ ] A estratégia de dados proíbe explicitamente PII de produção em não produção.
+- [ ] Os critérios de saída são mensuráveis e delimitados no tempo.
+- [ ] Os riscos têm owners nomeados e datas de mitigação.
+- [ ] O documento é curto o suficiente (< 3 páginas) para que o time inteiro realmente leia.

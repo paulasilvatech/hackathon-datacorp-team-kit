@@ -1,6 +1,6 @@
 ---
 title: "Relatório de Experiência com GitHub Copilot Agent"
-description: "Template do relatório final do Estágio 4: o que o Agent fez bem, o que falhou, qualidade dos PRs gerados e recomendações para outras equipes."
+description: "Modelo do relatório final do Estágio 4: o que o Agent fez bem, o que falhou, qualidade dos PRs gerados e recomendações para outras equipes."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/04-evolucao/agent-experience-report.md"
 author: "Paula Silva, Americas Software GBB, Microsoft"
@@ -144,7 +144,7 @@ Escala: 1=Péssimo, 2=Ruim, 3=Aceitável, 4=Bom, 5=Excelente
 
 ## 9. Comparação: Agent vs. Copilot Chat vs. Implementação Manual
 
-| Aspecto     | Agent Mode | Copilot Chat | Manual |
+| Aspecto     | Modo Agent | Copilot Chat | Manual |
 | ----------- | ---------- | ------------ | ------ |
 | Velocidade  |            |              |        |
 | Qualidade   |            |              |        |

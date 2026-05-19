@@ -1,6 +1,6 @@
 ---
-title: "Funcionalidade de Exemplo — Placeholder"
-description: "Exemplo didático de pasta Spec-Kit: o que criar, em que ordem e como saber que a feature está pronta para implementação"
+title: "Funcionalidade de Exemplo — Marcador"
+description: "Exemplo didático de pasta Spec-Kit: o que criar, em que ordem e como saber que a funcionalidade está pronta para implementação"
 author: "Spec-Kit"
 date: "2026-05-18"
 version: "1.0.0"
@@ -16,7 +16,7 @@ tags: ["spec-kit", "sdd", "example", "pt-br"]
 
 ## Para que serve
 
-Ela mostra a estrutura mínima esperada para uma feature guiada pelo GitHub Spec-Kit. O objetivo não é preencher tudo manualmente; é entender o que cada comando `/speckit.*` deve produzir.
+Ela mostra a estrutura mínima esperada para uma funcionalidade guiada pelo GitHub Spec-Kit. O objetivo não é preencher tudo manualmente; é entender o que cada comando `/speckit.*` deve produzir.
 
 ## Exemplo de renomeação
 
@@ -37,12 +37,12 @@ Use nomes curtos, sem acento e orientados a comportamento.
 | Artefato | Quem ajuda | O que deve conter |
 | --- | --- | --- |
 | `.specify/memory/constitution.md` | Todo time | Princípios e regras inegociáveis |
-| `spec.md` | PO + RE | User stories, EARS, acceptance criteria e `source_legacy:` |
+| `spec.md` | PO + RE | Histórias de usuário, EARS, critérios de aceite e `source_legacy:` |
 | `plan.md` | Arquitetura + TL | Plano técnico, módulos, riscos e contratos |
 | `research.md` | Arquitetura + Dev | Decisões investigadas e trade-offs |
 | `data-model.md` | DBA + SA | Entidades, relações e regras de dados |
 | `contracts/` | SA + Dev | OpenAPI, eventos ou contratos externos |
-| `quickstart.md` | QA + DevOps | Como validar manualmente a feature |
+| `quickstart.md` | QA + DevOps | Como validar manualmente a funcionalidade |
 | `tasks.md` | TL + QA + Dev | Tarefas pequenas, ordenadas e testáveis |
 
 ## Passo a passo recomendado
@@ -60,13 +60,13 @@ Use nomes curtos, sem acento e orientados a comportamento.
 
 ```text
 /speckit.specify
-Feature: geração de ciclo de pagamento mensal.
+Funcionalidade: geração de ciclo de pagamento mensal.
 Regra legado: criar pagamentos apenas para beneficiários ativos.
 source_legacy: legacy/natural-programs/BATCHPGT.NSN#L120-L168
 Acceptance: 10 ativos + 2 suspensos geram 10 pagamentos.
 ```
 
-## Definition of Done
+## Definição de Pronto
 
 - [ ] `spec.md` tem REQ-IDs e EARS.
 - [ ] Todo requisito legado tem `source_legacy:`.
@@ -76,7 +76,7 @@ Acceptance: 10 ativos + 2 suspensos geram 10 pagamentos.
 
 ## Referência
 
-- [Cheat sheet do Spec-Kit](../../cheat-sheets/spec-kit-workflow.md)
+- [Cartão de referência do Spec-Kit](../../cheat-sheets/spec-kit-workflow.md)
 - [Spec-Kit oficial](https://github.com/github/spec-kit)
 
 — Paula

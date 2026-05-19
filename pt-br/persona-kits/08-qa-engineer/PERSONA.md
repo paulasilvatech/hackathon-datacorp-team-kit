@@ -1,6 +1,6 @@
 ---
 title: "Card de Persona — QA Engineer"
-description: "O que o QA Engineer faz dentro do time de 10 durante o Dia 2 do Legacy Modernization Workshop."
+description: "O que o QA Engineer faz dentro do time de 10 durante o Dia 2 do Workshop de Modernização de Legado."
 locale: "pt-br"
 canonical_path: "pt-br/persona-kits/08-qa-engineer/PERSONA.md"
 author: "Paula Silva, Americas Software GBB, Microsoft"
@@ -21,18 +21,18 @@ flowchart LR
  classDef current fill:#00A4EF,stroke:#0078D4,color:#fff,font-weight:bold
  classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
 
- D[Discovery<br/>S1 — cenários críticos]:::support
- SP[Specification<br/>S2 — critérios de teste]:::support
- IM[Implementation<br/>S3 — LIDERA testes]:::current
- EV[Evolution<br/>S4 — gate de cobertura]:::current
+ D[Descoberta<br/>S1 — cenários críticos]:::support
+ SP[Especificação<br/>S2 — critérios de teste]:::support
+ IM[Implementação<br/>S3 — LIDERA testes]:::current
+ EV[Evolução<br/>S4 — gate de cobertura]:::current
 
  D --> SP --> IM --> EV
 ```
 
 - **Par**: 4 · Qualidade (junto com DBA)
-- **Fases lideradas**: Implementation (S3) — suite de testes + CI verde
+- **Fases lideradas**: Implementação (S3) — suíte de testes + CI verde
 - **Recebe de**: Requirements Engineer (REQ-IDs testáveis)
-- **Faz handoff para**: DevOps (CI confiável); time todo (pipeline verde)
+- **Faz passagem para**: DevOps (CI confiável); time todo (pipeline verde)
 
 ## Quem é essa pessoa
 
@@ -54,8 +54,8 @@ Definir a estratégia de testes do projeto. Escrever testes críticos (não 100%
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
 | 1. Arqueologia         | Identifica cenários críticos dos Naturals (casos de canto do ciclo mensal, rejeição BB).                             | Lista de cenários críticos       |
 | 2. Spec Moderna        | Valida que cada requisito EARS é testável. Propõe critérios de aceitação concretos.                                  | Critérios de teste por requisito |
-| 3. Implementação       | Escreve testes unitários e de integração para o core (cálculo de pagamento, ajuste, reconciliação). Mantém CI verde. | Suite de testes + pipeline verde |
-| 4. Evolution com Agent | Exige que o PR do Agent venha com seus próprios testes. Valida cobertura dos cenários novos.                         | Cobertura coerente com a feature |
+| 3. Implementação       | Escreve testes unitários e de integração para o core (cálculo de pagamento, ajuste, reconciliação). Mantém CI verde. | Suíte de testes + pipeline verde |
+| 4. Evolução com Agent | Exige que o PR do Agent venha com seus próprios testes. Valida cobertura dos cenários novos.                         | Cobertura coerente com a feature |
 
 ## Ferramentas e primitivas
 
@@ -92,7 +92,7 @@ Definir a estratégia de testes do projeto. Escrever testes críticos (não 100%
 
 ## 3 prompts de exemplo
 
-1. **(Chat)** _"Para o requisito EARS 'When a cycle is generated, create payments for ACTIVE': gere 5 cenários de teste cobrindo happy path, sem ativos, beneficiário suspenso, valor zero e erro de banco."_
+1. **(Chat)** _"Para o requisito EARS 'When um ciclo é gerado, crie pagamentos para ACTIVE': gere 5 cenários de teste cobrindo happy path, sem ativos, beneficiário suspenso, valor zero e erro de banco."_
 2. **(Plan)** _"No PaymentCycleServiceTest.java, planeje testes de integração com Testcontainers que: insiram um beneficiário, criem um ciclo, gerem pagamentos e verifiquem valores."_
 3. **(Chat)** _"Analise a cobertura atual de testes e identifique os 3 caminhos mais críticos sem testes. Priorize por impacto no beneficiário."_
 

@@ -1,6 +1,6 @@
 ---
 title: "Card de Persona — DBA"
-description: "O que o DBA faz dentro do time de 10 durante o Dia 2 do Legacy Modernization Workshop."
+description: "O que o DBA faz dentro do time de 10 durante o Dia 2 do Workshop de Modernização de Legado."
 locale: "pt-br"
 canonical_path: "pt-br/persona-kits/07-dba/PERSONA.md"
 author: "Paula Silva, Americas Software GBB, Microsoft"
@@ -21,18 +21,18 @@ flowchart LR
  classDef current fill:#00A4EF,stroke:#0078D4,color:#fff,font-weight:bold
  classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
 
- D[Discovery<br/>S1 — lê DDMs]:::current
- SP[Specification<br/>S2 — modelo de dados]:::current
- IM[Implementation<br/>S3 — LIDERA schema]:::current
- EV[Evolution<br/>S4 — valida schema do Agent]:::support
+ D[Descoberta<br/>S1 — lê DDMs]:::current
+ SP[Especificação<br/>S2 — modelo de dados]:::current
+ IM[Implementação<br/>S3 — LIDERA schema]:::current
+ EV[Evolução<br/>S4 — valida schema do Agent]:::support
 
  D --> SP --> IM --> EV
 ```
 
 - **Par**: 4 · Qualidade (junto com QA Engineer)
-- **Fases lideradas**: Implementation (S3) — schema + migrações
+- **Fases lideradas**: Implementação (S3) — schema + migrações
 - **Recebe de**: Software Architect (bounded contexts) e Estágio 1 (4 DDMs)
-- **Faz handoff para**: Developer (modelo pronto) e DevOps (provisioning do PostgreSQL)
+- **Faz passagem para**: Developer (modelo pronto) e DevOps (provisioning do PostgreSQL)
 
 ## Quem é essa pessoa
 
@@ -55,7 +55,7 @@ Traduzir o modelo Adabas para um schema relacional que funciona. Garantir migra�
 | 1. Arqueologia         | Lê os 4 DDMs. Mapeia MU/PE para entidades relacionais candidatas. Identifica campos-chave.          | Mapa DDM → entidade relacional |
 | 2. Spec Moderna        | Desenha o modelo lógico de dados. Escreve o ADR de PostgreSQL (ADR 2 da referência).                | Modelo de dados + ADR 002      |
 | 3. Implementação       | Escreve migrações Flyway. Define índices. Popula dados de teste. Responde dúvidas de JPA/Hibernate. | Schema PostgreSQL + seed       |
-| 4. Evolution com Agent | Revisa se o PR do Agent toca no schema com segurança (nova migração, não alteração retroativa).     | Integridade do schema          |
+| 4. Evolução com Agent  | Revisa se o PR do Agent toca no schema com segurança (nova migração, não alteração retroativa).     | Integridade do schema          |
 
 ## Ferramentas e primitivas
 

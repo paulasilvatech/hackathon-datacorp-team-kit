@@ -1,28 +1,28 @@
 ---
 mode: ask
 model: claude-sonnet-4-6
-description: "Audit context engineering files for the repository"
+description: "Audite arquivos de context engineering do repositório"
 ---
 
 # /audit-context
 
-## Task
-Audit the context engineering surface of the repository (AGENTS.md, CODEMAP.md, `.github/instructions/*`, `.github/prompts/*`, `.github/agents/*`) and return a prioritized fix list.
+## Tarefa
+Audite a superfície de context engineering do repositório (AGENTS.md, CODEMAP.md, `.github/instructions/*`, `.github/prompts/*`, `.github/agents/*`) e retorne uma lista priorizada de correções.
 
-## Steps
-1. List every file under `.github/instructions/`, `.github/prompts/`, `.github/agents/` and report line counts.
-2. Check `applyTo:` scoping on every instruction file. Flag any file with `applyTo: "**"` or missing scope.
-3. Read CODEMAP.md. Flag it as stale if it has not been updated in the last 30 days or references deleted files.
-4. Check every prompt/agent frontmatter for: `description` present and informative (not "TBD"), `model` set, `mode` correct.
-5. Grep for stale folder references (rename tracking) and broken relative links.
-6. Summarize as a table: `File | Issue | Severity (High/Med/Low) | Fix`.
+## Passos
+1. Liste todos os arquivos em `.github/instructions/`, `.github/prompts/`, `.github/agents/` e reporte contagem de linhas.
+2. Verifique o escopo `applyTo:` em todo arquivo de instructions. Sinalize qualquer arquivo com `applyTo: "**"` ou escopo ausente.
+3. Leia CODEMAP.md. Sinalize como obsoleto se não tiver sido atualizado nos últimos 30 dias ou referenciar arquivos deletados.
+4. Verifique o frontmatter de todo prompt/agent para: `description` presente e informativa (não "TBD"), `model` definido, `mode` correto.
+5. Use grep para referências obsoletas de pastas (rastreamento de renames) e links relativos quebrados.
+6. Resuma como tabela: `Arquivo | Problema | Severidade (Alta/Média/Baixa) | Correção`.
 
-## Output
-- A markdown table with one row per finding, ordered by severity.
-- A short "Top 3 fixes" summary at the end.
+## Saída
+- Uma tabela Markdown com uma linha por achado, ordenada por severidade.
+- Um resumo curto "Top 3 correções" no final.
 
-## Quality Gate
-- [ ] No false positives (every flagged item is actually an issue)
-- [ ] Every High severity item has a concrete fix, not a vague suggestion
-- [ ] CODEMAP.md freshness explicitly reported
-- [ ] No suggestions to edit code, only context files
+## Gate de Qualidade
+- [ ] Sem falsos positivos (todo item sinalizado é de fato um problema)
+- [ ] Todo item de severidade Alta tem uma correção concreta, não uma sugestão vaga
+- [ ] Frescor de CODEMAP.md reportado explicitamente
+- [ ] Nenhuma sugestão para editar código, apenas arquivos de contexto

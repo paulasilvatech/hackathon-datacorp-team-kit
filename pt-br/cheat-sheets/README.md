@@ -1,5 +1,5 @@
 ---
-title: "Cheat Sheets — Kit do Time"
+title: "Cartões de Referência — Kit do Time"
 description: "Cartões de referência rápida para participantes do workshop, cobrindo os modos Ask, Plan e Agent do Copilot, o pipeline Spec-Kit e roteamento de modelos."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/cheat-sheets/README.md"
@@ -12,13 +12,13 @@ tags: ["cheat-sheet", "copilot", "spec-kit", "model-routing", "workshop", "pt-br
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-# Cheat Sheets
+# Cartões de Referência
 
 > Cartões de uma página para impressão, desenhados para ficar na mesa de cada time.
 
 ## Quando usar isso
 
-Você abre um cheat-sheet quando precisa de **resposta rápida** sem ler um guia completo. Cada um responde uma pergunta específica:
+Você abre um cartão de referência quando precisa de **resposta rápida** sem ler um guia completo. Cada um responde uma pergunta específica:
 
 ```mermaid
 flowchart LR
@@ -41,6 +41,6 @@ flowchart LR
 
 | Anterior                          | Início                    | Próximo                               |
 | --------------------------------- | ------------------------- | ------------------------------------- |
-| [Persona Kits](../persona-kits/README.md) | [Kit PT-BR](../README.md) | [Copilot 3 Modes](copilot-3-modes.md) |
+| [Persona Kits](../persona-kits/README.md) | [Kit PT-BR](../README.md) | [Copilot em 3 modos](copilot-3-modes.md) |
 
 — Paula

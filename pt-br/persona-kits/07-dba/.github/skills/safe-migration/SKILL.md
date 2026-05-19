@@ -1,44 +1,44 @@
 ---
-name: Safe Schema Migration
-description: "Use when planning an online schema change, zero-downtime migration, or rolling back a deploy that changed a table. Triggers on 'migration', 'ALTER TABLE', 'zero-downtime', 'expand-contract', 'backfill'."
+name: Migração segura de schema
+description: "Use ao planejar uma mudança de schema online, migração com zero downtime ou rollback de um deploy que alterou uma tabela. Acionadores: 'migration', 'ALTER TABLE', 'zero-downtime', 'expand-contract', 'backfill'."
 ---
 
-# Safe Schema Migration
+# Migração segura de schema
 
-## When to invoke
-- "Plan the migration for adding column X."
-- "Can we rename this column without downtime?"
-- "How do we drop this table safely?"
+## Quando invocar
+- "Planeje a migração para adicionar a coluna X."
+- "Podemos renomear esta coluna sem downtime?"
+- "Como removemos esta tabela com segurança?"
 
-## Expand / migrate / contract pattern
-Every schema change that touches live traffic goes in **three deploys**, never one.
+## Padrão expand / migrate / contract
+Toda mudança de schema que toca tráfego vivo passa por **três deploys**, nunca um só.
 
-1. **Expand** - add the new shape alongside the old (new column nullable, new table, new index). No reads/writes use it yet.
-2. **Migrate** - dual-write to old and new, backfill historical rows, switch reads to the new shape behind a flag.
-3. **Contract** - remove the old shape only after the new shape has been authoritative for at least one release cycle.
+1. **Expand** - adicione a nova forma ao lado da antiga (nova coluna nullable, nova tabela, novo índice). Nenhuma leitura/escrita a usa ainda.
+2. **Migrate** - faça dual-write na forma antiga e na nova, backfill das linhas históricas, alterne leituras para a nova forma atrás de uma flag.
+3. **Contract** - remova a forma antiga somente depois que a nova forma for autoritativa por pelo menos um ciclo de release.
 
-## Rules of thumb
-- **Additive is always safe**: new nullable column, new index (CONCURRENTLY / ONLINE), new table.
-- **Destructive is never one deploy**: drop column, rename column, change type, drop table, NOT NULL add.
-- **Backfills run in batches** with a LIMIT, sleep between batches, idempotent. Never `UPDATE whole_table SET …` in one shot.
-- **Index builds**: `CREATE INDEX CONCURRENTLY` (Postgres), `ONLINE=ON` (MySQL 8 / SQL Server). Watch for lock escalation.
-- **Renames**: do NOT rename in place. Add new column → dual-write → backfill → switch reads → drop old.
+## Regras práticas
+- **Aditivo é sempre seguro**: nova coluna nullable, novo índice (CONCURRENTLY / ONLINE), nova tabela.
+- **Destrutivo nunca é um deploy só**: drop column, rename column, change type, drop table, adicionar NOT NULL.
+- **Backfills rodam em lotes** com LIMIT, pausa entre lotes, idempotentes. Nunca execute `UPDATE whole_table SET …` de uma vez.
+- **Construção de índices**: `CREATE INDEX CONCURRENTLY` (Postgres), `ONLINE=ON` (MySQL 8 / SQL Server). Observe lock escalation.
+- **Renomeações**: NÃO renomeie in place. Adicione nova coluna → dual-write → backfill → alterne leituras → remova a antiga.
 
-## Pre-flight checklist
-- [ ] Migration has a written **forward** and **rollback** plan.
-- [ ] Estimated duration on a **copy of production** (never estimate on dev).
-- [ ] Lock impact assessed (`pg_locks`, `SHOW ENGINE INNODB STATUS`, `sys.dm_tran_locks`).
-- [ ] Backfill batch size chosen based on replication lag budget.
-- [ ] Monitoring in place for replica lag, long transactions, deadlocks.
-- [ ] Feature flag or dual-read path in place before migrate step.
+## Checklist de pre-flight
+- [ ] Migration tem plano **forward** e **rollback** por escrito.
+- [ ] Duração estimada em uma **cópia de produção** (nunca estime em dev).
+- [ ] Impacto de lock avaliado (`pg_locks`, `SHOW ENGINE INNODB STATUS`, `sys.dm_tran_locks`).
+- [ ] Tamanho de lote do backfill escolhido com base no orçamento de replication lag.
+- [ ] Monitoramento instalado para replica lag, transações longas e deadlocks.
+- [ ] Feature flag ou caminho de dual-read instalado antes da etapa migrate.
 
-## Red flags - do not ship
-- Single `ALTER TABLE` that takes a full lock on a large table.
-- Migration coupled to application deploy (cannot roll back independently).
-- Irreversible step with no backup.
-- Backfill that rewrites every row in one transaction.
+## Alertas vermelhos - não envie
+- `ALTER TABLE` único que toma lock completo em tabela grande.
+- Migration acoplada ao deploy da aplicação (não consegue fazer rollback independentemente).
+- Etapa irreversível sem backup.
+- Backfill que reescreve todas as linhas em uma transação.
 
-## References
+## Referências
 - [Braintree - PostgreSQL at Scale: Safe Migrations](https://medium.com/paypal-tech/postgresql-at-scale-database-schema-changes-without-downtime-20d3749ed680)
 - [GitHub - gh-ost online schema migration](https://github.com/github/gh-ost)
-- [Martin Fowler - Evolutionary Database Design](https://martinfowler.com/articles/evodb.html)
+- [Martin Fowler - Evoluçãoary Database Design](https://martinfowler.com/articles/evodb.html)

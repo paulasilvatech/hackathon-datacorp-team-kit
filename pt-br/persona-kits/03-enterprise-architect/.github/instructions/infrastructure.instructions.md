@@ -2,9 +2,9 @@
 applyTo: "infrastructure/**,*.tf,*.bicep,*.yaml"
 ---
 
-# Infrastructure Conventions
+# Convenções de Infraestrutura
 
-## IaC: Bicep/Terraform, no manual changes
-## Secrets: Azure Key Vault only
+## IaC: Bicep/Terraform, sem mudanças manuais
+## Secrets: somente Azure Key Vault
 ## Naming: {project}-{env}-{resource}-{region}
 ## Tags: environment, project, owner, cost-center

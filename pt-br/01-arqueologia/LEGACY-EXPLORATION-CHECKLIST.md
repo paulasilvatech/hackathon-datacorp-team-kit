@@ -30,7 +30,7 @@ aponte para um dos seguintes:
  - a string literal [GREENFIELD] com justificativa de 1 linha
 ```
 
-O CI rejeita PRs para `develop` se algum REQ-ID estiver sem a linha `source_legacy`. Facilitadores verificam por amostragem no H2 (Handoff #2, ~16:00).
+O CI rejeita PRs para `develop` se algum REQ-ID estiver sem a linha `source_legacy`. Facilitadores verificam por amostragem no H2 (Passagem #2, ~16:00).
 
 ---
 
@@ -113,10 +113,10 @@ Quando começar a escrever EARS no Estágio 2, **todo requisito precisa seguir e
 ```yaml
 REQ-PAY-001:
  pattern: event-driven
- text: "When a payment cycle is generated, the SIFAP shall create payment records
- for every beneficiary with status ACTIVE."
+ text: "Quando um ciclo de pagamento é gerado, o SIFAP deve criar registros de pagamento
+ para todo beneficiário com status ACTIVE."
  source_legacy: legacy/natural-programs/BATCHPGT.NSN#L120-L168
- acceptance: "10 active + 2 suspended beneficiaries produces 10 payment records."
+ acceptance: "10 beneficiários ativos + 2 suspensos produzem 10 registros de pagamento."
 ```
 
 Caso greenfield (sem paralelo no legado):
@@ -124,9 +124,9 @@ Caso greenfield (sem paralelo no legado):
 ```yaml
 REQ-AUTH-001:
   pattern: ubiquitous
-  text: "The SIFAP shall authenticate users via OAuth2 with JWT tokens."
-  source_legacy: "[GREENFIELD] Legacy used terminal session auth; modern API needs token auth."
-  acceptance: "Unauthenticated requests return 401."
+  text: "O SIFAP deve autenticar usuários via OAuth2 com tokens JWT."
+  source_legacy: "[GREENFIELD] O legado usava autenticação por sessão de terminal; a API moderna precisa de autenticação por token."
+  acceptance: "Requisições não autenticadas retornam 401."
 ```
 
 > Spec sem linha `source_legacy` = inválida. Os validadores de traceabilidade no CI bloqueiam.

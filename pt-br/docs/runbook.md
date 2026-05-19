@@ -17,8 +17,8 @@ tags: ["runbook", "operations", "devops", "deploy"]
 ## Local — primeira vez
 
 ```bash
-./scripts/setup.sh # checks tools, clones reference, sets up symlinks
-docker compose up -d # spins up Postgres + backend + frontend
+./scripts/setup.sh # verifica ferramentas, clona referência, configura symlinks
+docker compose up -d # sobe Postgres + backend + frontend
 ```
 
 Depois:
@@ -32,25 +32,25 @@ As credenciais padrão estão documentadas em `prototype/README.md`.
 ## Local — diariamente
 
 ```bash
-docker compose up -d # if it's down
-./scripts/check.sh # before pushing
-git status # never commit symlinks (legacy/, prototype/, infra/)
+docker compose up -d # se estiver parado
+./scripts/check.sh # antes do push
+git status # nunca commite symlinks (legacy/, prototype/, infra/)
 ```
 
 ## CI
 
 Acionado automaticamente em push para `main`, `develop`, `spec/**`, `impl/**`.
 
-| Workflow           | O que faz                                                                  | Quando                            |
+| Fluxo de trabalho  | O que faz                                                                  | Quando                            |
 | ------------------ | -------------------------------------------------------------------------- | --------------------------------- |
 | `ci.yml`           | Backend `mvn verify`, frontend lint+test+typecheck, Terraform fmt+validate | Todo push e PR                    |
 | `spec-quality.yml` | markdownlint + rastreabilidade de REQ-ID                                   | Quando `**.md` ou `specs/` mudam |
 
-Verifique runs com falha na aba Actions. Corrija localmente com `./scripts/check.sh`.
+Verifique execuções com falha na aba Actions. Corrija localmente com `./scripts/check.sh`.
 
 ## Azure — Estágio 4
 
-O Estágio 4 é quando a equipe aplica Terraform em uma subscription sandbox fornecida pelas pessoas facilitadoras.
+O Estágio 4 é quando a equipe aplica Terraform em uma assinatura sandbox fornecida pelas pessoas facilitadoras.
 
 ```bash
 cd infra
@@ -59,7 +59,7 @@ terraform plan -var-file=envs/dev/terraform.tfvars
 terraform apply -var-file=envs/dev/terraform.tfvars
 ```
 
-> Cada equipe tem uma quota de subscription única. Marque todo recurso com `team=team-XX` ou seu apply falhará.
+> Cada equipe tem uma cota de assinatura única. Marque todo recurso com `team=team-XX` ou seu apply falhará.
 
 ## Problemas comuns
 
@@ -69,12 +69,12 @@ terraform apply -var-file=envs/dev/terraform.tfvars
 | `mvn verify` falha em Testcontainers      | Docker não está em execução        | Inicie o Docker Desktop                              |
 | `pnpm test` falha em snapshots            | Componente mudou intencionalmente  | `pnpm test -- -u` para atualizar                     |
 | `terraform apply` rejeitado               | Tag `team=` ausente                | Adicione a tag ao recurso com falha                  |
-| GitHub Actions não consegue acessar Azure | OIDC subject claim mismatch        | Rode novamente `az ad sp create-for-rbac` por equipe |
+| GitHub Actions não consegue acessar Azure | Incompatibilidade na declaração de assunto OIDC | Rode novamente `az ad sp create-for-rbac` por equipe |
 
 ## Quando escalar para uma pessoa facilitadora
 
-- Build ainda falhando apos 20 minutos de debug.
-- A subscription Azure parece suspensa.
+- Build ainda falhando após 20 minutos de depuração.
+- A assinatura Azure parece suspensa.
 - Qualquer coisa irreversível (por exemplo, `terraform destroy` executado por engano).
 
 Use o formato de escalonamento de 3 linhas de [TEAM-FLOW.md §4](../TEAM-FLOW.md).

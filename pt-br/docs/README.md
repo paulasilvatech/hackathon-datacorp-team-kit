@@ -26,12 +26,12 @@ Esta pasta pertence à persona **Tech Writer**, mas recebe contribuições de to
 
 | Caminho                      | Finalidade                                                                             |
 | ---------------------------- | -------------------------------------------------------------------------------------- |
-| [`adr/`](adr/)               | Architecture Decision Records (um arquivo por decisão)                                 |
+| [`adr/`](adr/)               | Registros de decisão de arquitetura (um arquivo por decisão)                           |
 | [`glossary.md`](glossary.md) | Glossário de domínio — preenchido durante o Estágio 1 (Arqueologia)                    |
 | [`4-agents-explained.md`](4-agents-explained.md) | Explicação didática dos 4 agentes de etapa e sua relação com persona-kits |
 | [`persona-agent-matrix.md`](persona-agent-matrix.md) | Matriz de quem protagoniza, apoia ou observa em cada etapa |
-| [`sdlc-flow-guide.md`](sdlc-flow-guide.md) | Fluxo completo do dia, handoffs, prompts e entregáveis |
-| `api.md` _(team creates)_    | Visão geral da OpenAPI e resumo dos endpoints (gerado automaticamente quando possível) |
+| [`sdlc-flow-guide.md`](sdlc-flow-guide.md) | Fluxo completo do dia, passagems, prompts e entregáveis |
+| `api.md` _(criado pelo time)_ | Visão geral da OpenAPI e resumo dos endpoints (gerado automaticamente quando possível) |
 | [`runbook.md`](runbook.md)   | Como executar o sistema localmente, em CI e no Azure                                   |
 
 ## Convenções
@@ -42,7 +42,7 @@ Esta pasta pertence à persona **Tech Writer**, mas recebe contribuições de to
 - Toda decisão importante vira ADR. Conversa em chat não é registro suficiente.
 - Todo termo do glossário que nasceu do legado precisa de fonte (`.NSN`, `.ddm` ou documento histórico).
 
-## Definition of Done da documentação
+## Definição de Pronto da documentação
 
 - [ ] Glossário com fontes do legado.
 - [ ] ADRs com contexto, opções, decisão e consequências.

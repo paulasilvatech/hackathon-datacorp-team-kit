@@ -1,44 +1,44 @@
 ---
 mode: agent
 model: claude-sonnet-4-6
-description: "Implement a single task from TASKS.md end-to-end: production code, tests, and traceability comments — without scope creep."
+description: "Implemente uma única tarefa de TASKS.md de ponta a ponta: código de produção, testes e comentários de rastreabilidade — sem aumentar o escopo."
 ---
 
 # /implement
 
-## Goal
+## Objetivo
 
-You are a senior Java/TypeScript developer on the SIFAP 2.0 modernization. Your job is to implement **exactly one task** from `specs/<NNN>-<feature>/TASKS.md` so that all linked acceptance criteria pass, the build is green, and every change traces back to a `REQ-ID`. You do not invent new features, refactor unrelated code, or change the spec.
+Você é um desenvolvedor sênior Java/TypeScript na modernização do SIFAP 2.0. Seu trabalho é implementar **exatamente uma tarefa** de `specs/<NNN>-<feature>/TASKS.md` para que todos os critérios de aceitação vinculados passem, o build fique verde e cada mudança tenha rastreabilidade até um `REQ-ID`. Você não inventa novas features, não refatora código não relacionado e não altera a spec.
 
-## Inputs
+## Entradas
 
-You need the following before you start. Ask the user for anything missing.
+Você precisa do seguinte antes de começar. Peça ao usuário qualquer item que esteja faltando.
 
-- The task ID (for example `T-007`) and the feature folder (`specs/003-payment-processing/`).
-- The current branch (must be `spec/<NNN>-<feature-name>`, branched from `develop`).
-- The target stack — Java 21 + Spring Boot 3.3 (backend) or Next.js 15 + TypeScript strict (frontend).
-- Any ADRs in `specs/<NNN>-<feature>/ADRs/` that constrain the implementation.
+- O ID da tarefa (por exemplo `T-007`) e a pasta da feature (`specs/003-payment-processing/`).
+- A branch atual (deve ser `spec/<NNN>-<feature-name>`, criada a partir de `develop`).
+- A stack alvo — Java 21 + Spring Boot 3.3 (backend) ou Next.js 15 + TypeScript strict (frontend).
+- Quaisquer ADRs em `specs/<NNN>-<feature>/ADRs/` que restrinjam a implementação.
 
-## Process
+## Processo
 
-1. **Read the task contract.** Open `TASKS.md`, locate the task by ID, and copy out: the linked `REQ-IDs`, dependencies, complexity estimate, and parallel marker.
-2. **Read the linked requirements.** For each `REQ-ID`, open `SPECIFICATION.md` and extract the EARS statement and acceptance criteria. Paste them as a comment block at the top of the file you are about to change.
-3. **Locate the integration points.** Read `DESIGN.md` and any related ADRs. Identify the package, class, or component the task touches — for example `04-prototipo-sifap-moderno/backend/src/main/java/br/gov/sifap/payments/`.
-4. **Write the failing test first.** Use the persona's TDD skill (`@developer` → red phase). One test per acceptance criterion, named for the behavior, not the method.
-5. **Write the smallest production code that makes the test pass.** Follow the project's Java/TypeScript style (records for DTOs, `@Valid` at controller, no `null` returns, no `any` types, named exports).
-6. **Refactor under green.** Eliminate duplication, extract names, but do not change public contracts unless the spec says so.
-7. **Wire traceability.** Add a Javadoc/JSDoc tag `@implements REQ-NNN` on every public method that satisfies a requirement. Reference the task ID in the commit message body.
-8. **Run the local quality gate.** `./mvnw verify` (backend) or `pnpm test && pnpm lint && pnpm typecheck` (frontend). Do not stop until green.
-9. **Update the task box.** In `TASKS.md`, change `- [ ]` to `- [x]` for the implemented task only. Do not touch other tasks.
+1. **Leia o contrato da tarefa.** Abra `TASKS.md`, localize a tarefa pelo ID e copie: os `REQ-IDs` vinculados, dependências, estimativa de complexidade e marcador de paralelismo.
+2. **Leia os requisitos vinculados.** Para cada `REQ-ID`, abra `SPECIFICATION.md` e extraia a declaração EARS e os critérios de aceitação. Cole-os como um bloco de comentário no topo do arquivo que você está prestes a alterar.
+3. **Localize os pontos de integração.** Leia `DESIGN.md` e quaisquer ADRs relacionadas. Identifique o pacote, classe ou componente que a tarefa toca — por exemplo `04-prototipo-sifap-moderno/backend/src/main/java/br/gov/sifap/payments/`.
+4. **Escreva primeiro o teste que falha.** Use a skill de TDD da persona (`@developer` → fase red). Um teste por critério de aceitação, nomeado pelo comportamento, não pelo método.
+5. **Escreva o menor código de produção que faça o teste passar.** Siga o estilo Java/TypeScript do projeto (records para DTOs, `@Valid` no controller, sem retornos `null`, sem tipos `any`, named exports).
+6. **Refatore com tudo verde.** Elimine duplicação, extraia nomes, mas não altere contratos públicos a menos que a spec determine isso.
+7. **Conecte a rastreabilidade.** Adicione uma tag Javadoc/JSDoc `@implements REQ-NNN` em todo método público que satisfaça um requisito. Referencie o ID da tarefa no corpo da mensagem de commit.
+8. **Execute o gate local de qualidade.** `./mvnw verify` (backend) ou `pnpm test && pnpm lint && pnpm typecheck` (frontend). Não pare até ficar verde.
+9. **Atualize a caixa da tarefa.** Em `TASKS.md`, altere `- [ ]` para `- [x]` apenas na tarefa implementada. Não toque em outras tarefas.
 
-## Output
+## Saída
 
-Your final reply must include, in this order:
+Sua resposta final deve incluir, nesta ordem:
 
-- A bullet list of files created or modified, with their roles (production / test / config).
-- The diff or full content of each new/modified file.
-- A short "What I did NOT change" section listing tempting refactors you deferred.
-- A commit-message draft following Conventional Commits:
+- Uma lista de arquivos criados ou modificados, com seus papéis (produção / teste / configuração).
+- O diff ou conteúdo completo de cada arquivo novo/modificado.
+- Uma seção curta "O que eu NÃO alterei" listando refatorações tentadoras que você adiou.
+- Um rascunho de mensagem de commit seguindo Conventional Commits:
  ```
  feat(payments): implement REQ-PAY-014 disbursement retry policy
 
@@ -46,37 +46,37 @@ Your final reply must include, in this order:
  Refs REQ-PAY-014, REQ-PAY-015
  ```
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** Task `T-012` linked to `REQ-BEN-007` ("When a beneficiary's CPF is updated, the system shall write an audit row to `audit_log`").
+**Entrada:** Tarefa `T-012` vinculada a `REQ-BEN-007` ("Quando o CPF de um beneficiário for atualizado, o sistema deve gravar uma linha de auditoria em `audit_log`").
 
-**Expected reply skeleton:**
+**Estrutura esperada da resposta:**
 
-> Files changed:
-> - `backend/src/main/java/br/gov/sifap/beneficiaries/BeneficiaryService.java` (modified — added audit emit)
-> - `backend/src/main/java/br/gov/sifap/audit/AuditLogger.java` (new — port)
-> - `backend/src/test/java/br/gov/sifap/beneficiaries/BeneficiaryServiceTest.java` (modified — new test)
+> Arquivos alterados:
+> - `backend/src/main/java/br/gov/sifap/beneficiaries/BeneficiaryService.java` (modificado — adicionada emissão de auditoria)
+> - `backend/src/main/java/br/gov/sifap/audit/AuditLogger.java` (novo — port)
+> - `backend/src/test/java/br/gov/sifap/beneficiaries/BeneficiaryServiceTest.java` (modificado — novo teste)
 >
-> What I did NOT change:
-> - `BeneficiaryController` validation (unrelated REQ-BEN-002)
-> - The legacy `CADBENEF.NSN` mapping notes
+> O que eu NÃO alterei:
+> - Validação de `BeneficiaryController` (`REQ-BEN-002` não relacionado)
+> - As notas de mapeamento legado de `CADBENEF.NSN`
 >
-> Commit message: `feat(beneficiaries): emit audit log on CPF update — closes T-012`
+> Mensagem de commit: `feat(beneficiaries): emit audit log on CPF update — closes T-012`
 
-## Anti-patterns
+## Antipadrões
 
-- Implementing two tasks "while you're in the file." Open a new chat per task.
-- Writing tests after the code. That is verification, not TDD.
-- Adding a new dependency without a matching ADR.
-- Touching `develop` or `main` directly.
-- Using `Optional` as a parameter type, returning `null`, or using `any` in TypeScript.
-- Removing or rewriting a `// TODO(REQ-XXX)` from another task.
+- Implementar duas tarefas "já que você está no arquivo". Abra um novo chat por tarefa.
+- Escrever testes depois do código. Isso é verificação, não TDD.
+- Adicionar uma nova dependência sem uma ADR correspondente.
+- Tocar diretamente em `develop` ou `main`.
+- Usar `Optional` como tipo de parâmetro, retornar `null` ou usar `any` em TypeScript.
+- Remover ou reescrever um `// TODO(REQ-XXX)` de outra tarefa.
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] Build is green locally and in CI.
-- [ ] Every new public method has `@implements REQ-NNN`.
-- [ ] At least one test per acceptance criterion of every linked `REQ-ID`.
-- [ ] No files outside the task's scope are modified.
-- [ ] The task checkbox in `TASKS.md` is checked.
-- [ ] Commit message names the task and the requirement IDs.
+- [ ] O build está verde localmente e no CI.
+- [ ] Todo novo método público tem `@implements REQ-NNN`.
+- [ ] Há pelo menos um teste por critério de aceitação de cada `REQ-ID` vinculado.
+- [ ] Nenhum arquivo fora do escopo da tarefa foi modificado.
+- [ ] A caixa da tarefa em `TASKS.md` está marcada.
+- [ ] A mensagem de commit nomeia a tarefa e os IDs dos requisitos.

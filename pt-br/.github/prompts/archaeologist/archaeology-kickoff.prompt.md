@@ -1,5 +1,5 @@
 ---
-description: "Kicks off Stage 1 — orients the team to the legacy folder and produces an initial inventory."
+description: "Inicia o Estágio 1 — orienta a equipe sobre a pasta de legado e produz um inventário inicial."
 mode: ask
 model: claude-opus-4-7
 tools: ['codebase', 'search', 'findFiles']
@@ -7,87 +7,87 @@ tools: ['codebase', 'search', 'findFiles']
 
 # /archaeology-kickoff
 
-## Goal
+## Objetivo
 
-Orient the team to the legacy codebase with a top-down inventory before reading any individual program. This is the first thing Stage 1 does — map the terrain before digging.
+Oriente a equipe sobre a codebase legada com um inventário top-down antes de ler qualquer programa individual. Esta é a primeira coisa que o Estágio 1 faz — mapear o terreno antes de cavar.
 
-## When to Invoke
+## Quando Invocar
 
-At the very start of Stage 1, immediately after the team receives access to the `legacy/` folder.
+Logo no início do Estágio 1, imediatamente depois que a equipe recebe acesso à pasta `legacy/`.
 
-## Pre-conditions
+## Pré-condições
 
-- The `legacy/` folder is available in the workspace (symlinked by `scripts/setup.sh` or manually placed)
-- The team has not yet opened individual programs
+- A pasta `legacy/` está disponível no workspace (com symlink criado por `scripts/setup.sh` ou posicionada manualmente)
+- A equipe ainda não abriu programas individuais
 
-## Inputs the Team Must Provide
+## Entradas que a Equipe Deve Fornecer
 
-- The path to the legacy folder (typically `legacy/`)
-- Confirmation that the team has not yet started reading individual files (this prompt is for orientation, not deep reading)
+- O path para a pasta de legado (normalmente `legacy/`)
+- Confirmação de que a equipe ainda não começou a ler arquivos individuais (este prompt é para orientação, não leitura profunda)
 
-## What I Will Do
+## O Que Vou Fazer
 
-- Scan the `legacy/` folder recursively and list every directory
-- Count files by extension (`.nat`, `.cpy`, `.ddm`, `.map`, and any others)
-- Classify programs by naming pattern prefixes (e.g., `BN-*` for batch, `PG-*` for online)
-- Flag the top 3 items that look unusual based on filename length, size, or placement
-- Propose a reading order based on the classification
+- Escanear a pasta `legacy/` recursivamente e listar todos os diretórios
+- Contar arquivos por extensão (`.nat`, `.cpy`, `.ddm`, `.map` e quaisquer outras)
+- Classificar programas por prefixos de padrão de nomes (por exemplo, `BN-*` para batch, `PG-*` para online)
+- Sinalizar os 3 principais itens que parecem incomuns com base no tamanho do nome, tamanho do arquivo ou localização
+- Propor uma ordem de leitura com base na classificação
 
-## What I Will NOT Do
+## O Que NÃO Vou Fazer
 
-- Open or read individual program files (that comes in subsequent prompts)
-- Tell the team what the programs do — the team discovers this themselves
-- Fabricate explanations for naming conventions — if a prefix is unclear, I mark it as unknown
-- Reference any specific system internals — I only work with what the folder structure reveals
+- Abrir ou ler arquivos de programa individuais (isso vem nos prompts seguintes)
+- Dizer à equipe o que os programas fazem — a equipe descobre isso por conta própria
+- Fabricar explicações para convenções de nomes — se um prefixo não estiver claro, marco como desconhecido
+- Referenciar qualquer interno específico do sistema — trabalho apenas com o que a estrutura de pastas revela
 
-## Output Format
+## Formato de Saída
 
-A Markdown file at `01-arqueologia/inventory.md` with:
+Um arquivo Markdown em `01-arqueologia/inventory.md` com:
 
 ```markdown
-# Legacy Inventory — [Team Name]
-## Folder Structure
-## File Counts by Type
-## Naming Convention Patterns
-## Unusual Items (Top 3)
-## Proposed Reading Order
+# Inventário Legado — [Nome da Equipe]
+## Estrutura de Pastas
+## Contagem de Arquivos por Tipo
+## Padrões de Convenção de Nomes
+## Itens Incomuns (Top 3)
+## Ordem de Leitura Proposta
 ```
 
-## Definition of Done
+## Definição de Pronto
 
-- [ ] Inventory file exists with folder structure documented
-- [ ] File counts are accurate (verifiable by a second team member running `find`)
-- [ ] At least 3 naming convention patterns identified with counts
-- [ ] Three "looks unusual" items flagged with file paths and reasons
-- [ ] Proposed reading order is justified by naming patterns or structural position
+- [ ] O arquivo de inventário existe com a estrutura de pastas documentada
+- [ ] As contagens de arquivos estão corretas (verificáveis por uma segunda pessoa da equipe rodando `find`)
+- [ ] Pelo menos 3 padrões de convenção de nomes identificados com contagens
+- [ ] Três itens "parece incomum" sinalizados com file paths e motivos
+- [ ] A ordem de leitura proposta é justificada por padrões de nomes ou posição estrutural
 
-## The Prompt Body
+## Corpo do Prompt
 
-You are the `@archaeologist-agent`, beginning a Stage 1 orientation with the team. The team has just received their legacy codebase and has not opened any files yet.
+Você é o `@archaeologist-agent`, iniciando uma orientação do Estágio 1 com a equipe. A equipe acabou de receber sua codebase legada e ainda não abriu nenhum arquivo.
 
-Perform the following steps in order. Do not skip any step.
+Execute os seguintes passos em ordem. Não pule nenhum passo.
 
-**Step 1 — Map the folder tree.**
-List every directory and subdirectory under the provided legacy path. Display the tree structure. Count the total number of directories.
+**Passo 1 — Mapear a árvore de pastas.**
+Liste todos os diretórios e subdiretórios sob o path de legado fornecido. Exiba a estrutura em árvore. Conte o número total de diretórios.
 
-**Step 2 — Count files by extension.**
-For every file extension found (`.nat`, `.cpy`, `.ddm`, `.map`, `.txt`, `.md`, or any other), report the count. Present as a table: `| Extension | Count | Likely Purpose |`. For "Likely Purpose," use only generic Natural/Adabas knowledge (e.g., `.nat` = Natural source program, `.cpy` = copycode, `.ddm` = Data Definition Module). Do not guess at the content of any specific file.
+**Passo 2 — Contar arquivos por extensão.**
+Para cada extensão de arquivo encontrada (`.nat`, `.cpy`, `.ddm`, `.map`, `.txt`, `.md` ou qualquer outra), reporte a contagem. Apresente como tabela: `| Extensão | Contagem | Finalidade provável |`. Para "Finalidade provável", use apenas conhecimento genérico de Natural/Adabas (por exemplo, `.nat` = programa-fonte Natural, `.cpy` = copycode, `.ddm` = Data Definition Module). Não adivinhe o conteúdo de nenhum arquivo específico.
 
-**Step 3 — Identify naming convention patterns.**
-Scan all filenames (without opening the files). Group files by their prefix pattern (first 2-3 characters before a delimiter like `-`, `_`, or a digit). For each pattern with 2+ files, report: `| Prefix | Count | Hypothesis |`. The hypothesis is based on generic Natural convention knowledge only. If a prefix has no clear pattern, mark hypothesis as `Unknown — investigate in next step`.
+**Passo 3 — Identificar padrões de convenção de nomes.**
+Escaneie todos os nomes de arquivos (sem abrir os arquivos). Agrupe arquivos pelo padrão de prefixo (primeiros 2-3 caracteres antes de um delimitador como `-`, `_` ou um dígito). Para cada padrão com 2+ arquivos, reporte: `| Prefixo | Contagem | Hipótese |`. A hipótese se baseia apenas em conhecimento genérico de convenções Natural. Se um prefixo não tiver padrão claro, marque a hipótese como `Desconhecido — investigar no próximo passo`.
 
-**Step 4 — Flag unusual items.**
-Identify the top 3 most unusual items in the folder. "Unusual" means any of: largest file by size, deepest nesting, naming pattern that occurs only once, or extension that appears only once. For each, provide: file path, what makes it unusual, and a suggested investigation action.
+**Passo 4 — Sinalizar itens incomuns.**
+Identifique os 3 itens mais incomuns na pasta. "Incomum" significa qualquer um destes: maior arquivo por tamanho, aninhamento mais profundo, padrão de nome que ocorre apenas uma vez ou extensão que aparece apenas uma vez. Para cada um, forneça: file path, o que o torna incomum e uma ação de investigação sugerida.
 
-**Step 5 — Propose a reading order.**
-Based on the patterns identified, propose which files to read first. Prioritize: (a) batch entry points (typically identifiable by prefix patterns), (b) DDM files (to understand data before code), (c) the most-connected programs (files whose names appear as arguments in other filenames, suggesting CALLNAT relationships). State clearly that this is a hypothesis — the actual reading order will change once the team starts tracing dependencies.
+**Passo 5 — Propor uma ordem de leitura.**
+Com base nos padrões identificados, proponha quais arquivos ler primeiro. Priorize: (a) entry points batch (normalmente identificáveis por padrões de prefixo), (b) arquivos DDM (para entender dados antes do código), (c) os programas mais conectados (arquivos cujos nomes aparecem como argumentos em outros nomes de arquivos, sugerindo relacionamentos CALLNAT). Declare claramente que isso é uma hipótese — a ordem real de leitura mudará quando a equipe começar a rastrear dependências.
 
-**Step 6 — Output the inventory.**
-Write the complete inventory to `01-arqueologia/inventory.md` following the output format above. Include the date, team name placeholder, and a note that this is the first pass — to be revised as the team reads individual files.
+**Passo 6 — Gerar o inventário.**
+Escreva o inventário completo em `01-arqueologia/inventory.md` seguindo o formato de saída acima. Inclua a data, um placeholder para nome da equipe e uma nota de que esta é a primeira passada — a ser revisada conforme a equipe lê arquivos individuais.
 
-Do not open any file to read its contents. This prompt operates on filenames and folder structure only. If the team asks you to read a specific file, redirect them to `/extract-business-rules` or `/map-dependencies`.
+Não abra nenhum arquivo para ler seu conteúdo. Este prompt opera somente sobre nomes de arquivos e estrutura de pastas. Se a equipe pedir para você ler um arquivo específico, redirecione para `/extract-business-rules` ou `/map-dependencies`.
 
-## Example Invocation
+## Exemplo de Invocação
 
 ```
 /archaeology-kickoff path=legacy/

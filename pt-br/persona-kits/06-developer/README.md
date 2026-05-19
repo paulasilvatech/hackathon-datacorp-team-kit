@@ -7,13 +7,13 @@
 Leia primeiro: [PERSONA.md](PERSONA.md).
 
 ## Fase do SDLC
-Implementation, Evolution
+Implementação, Evolução
 
 ## Conteúdo do kit
 
 | Arquivo | Tipo | Propósito |
 |------|------|---------|
-| `PERSONA.md` | Persona | Responsabilidades, handoffs, prompts e rubrica do Developer |
+| `PERSONA.md` | Persona | Responsabilidades, passagems, prompts e rubrica do Developer |
 | `.github/agents/implementer.agent.md` | Agent | Implementação, TDD e correção de bugs |
 | `.github/prompts/implement.prompt.md` | Prompt | `/implement` |
 | `.github/prompts/fix-bug.prompt.md` | Prompt | `/fix-bug` |

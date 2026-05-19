@@ -1,5 +1,5 @@
 ---
-title: "Cheat sheet — Roteamento de modelos Claude no Copilot"
+title: "Cartão de referência — Roteamento de modelos Claude no Copilot"
 description: "Uma página. Quando usar Claude Haiku 4.5, Sonnet 4.6 ou Opus 4.6 dentro do GitHub Copilot. Regras simples, casos comuns."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/cheat-sheets/model-routing.md"
@@ -11,7 +11,7 @@ tags: ["cheat-sheet", "copilot", "claude", "model-routing", "workshop", "pt-br"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-# Roteamento de modelos Claude — Cheat sheet
+# Roteamento de modelos Claude — Cartão de referência
 
 ## Quando usar isso
 
@@ -35,7 +35,7 @@ flowchart TB
  Q --> A[Decisão arquitetural<br/>trade-off<br/>análise de impacto]:::opus
 
  M --> Haiku["Haiku 4.5<br/>Rápido · Barato"]
- D --> Sonnet["Sonnet 4.6<br/>Default"]
+ D --> Sonnet["Sonnet 4.6<br/>Padrão"]
  A --> Opus["Opus 4.6<br/>Profundo · Lento"]
 ```
 
@@ -44,7 +44,7 @@ flowchart TB
 | Modelo         | Quando usar                                                      | Custo relativo | Velocidade |
 | -------------- | ---------------------------------------------------------------- | -------------- | ---------- |
 | **Haiku 4.5**  | Tarefa mecânica, transformação simples, contexto pequeno         | Baixo          | Rápida     |
-| **Sonnet 4.6** | Default do dia a dia. Código, testes, refactor, explicação       | Médio          | Média      |
+| **Sonnet 4.6** | Padrão do dia a dia. Código, testes, refatoração, explicação     | Médio          | Média      |
 | **Opus 4.6**   | Decisão arquitetural, análise de impacto, discussão de trade-off | Alto           | Lenta      |
 
 ## Casos comuns por persona
@@ -88,7 +88,7 @@ flowchart TB
 ### DevOps Engineer
 
 - Gerar YAML padrão de GitHub Actions → **Sonnet**.
-- Ajustar comandos triviais no workflow → **Haiku**.
+- Ajustar comandos triviais no fluxo de trabalho → **Haiku**.
 - Decidir topologia Azure → **Opus**.
 
 ### Tech Writer

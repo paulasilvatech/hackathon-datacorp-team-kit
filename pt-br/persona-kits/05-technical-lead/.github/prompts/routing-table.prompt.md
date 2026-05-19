@@ -1,28 +1,28 @@
 ---
 mode: ask
 model: claude-sonnet-4-6
-description: "Generate a task to model routing table"
+description: "Gere uma tabela de roteamento de tarefa para modelo"
 ---
 
 # /routing-table
 
-## Task
-Produce a routing table that maps SDLC tasks to the correct Copilot model (Opus / Sonnet / Haiku) and explains the cost/quality tradeoff.
+## Tarefa
+Produza uma tabela de roteamento que mapeia tarefas do SDLC para o modelo Copilot correto (Opus / Sonnet / Haiku) e explica o trade-off custo/qualidade.
 
-## Steps
-1. Read TASKS.md (or the backlog) and categorize each task as: Discovery, Design, Implementation, Refactor, Review, Mechanical.
-2. For each category, recommend a model using these defaults:
- - Discovery / ambiguous design: Opus
- - Implementation / code review: Sonnet
+## Passos
+1. Leia TASKS.md (ou o backlog) e categorize cada tarefa como: Descoberta, Design, Implementação, Refactor, Review, Mechanical.
+2. Para cada categoria, recomende um modelo usando estes defaults:
+ - Descoberta / ambiguous design: Opus
+ - Implementação / code review: Sonnet
  - Mechanical edits / bulk renames / reformatting: Haiku
-3. For each task, estimate token cost (rough order of magnitude) and justify the model choice in one sentence.
-4. Flag any task where Sonnet can replace Opus with acceptable quality loss for cost savings.
+3. Para cada tarefa, estime o custo de tokens (ordem de grandeza aproximada) e justifique a escolha do modelo em uma frase.
+4. Sinalize qualquer tarefa em que Sonnet possa substituir Opus com perda aceitável de qualidade para economia de custo.
 
-## Output
-Markdown table: `Task ID | Category | Recommended Model | Rationale | Est. Cost Tier`.
+## Saída
+Tabela Markdown: `Task ID | Category | Recommended Model | Rationale | Est. Cost Tier`.
 
-## Quality Gate
-- [ ] Every task has a model and rationale
-- [ ] At least one Haiku candidate identified (or noted as "none applicable")
-- [ ] Cost tiers are consistent (same category rarely uses different tiers)
-- [ ] Rationale references the task content, not generic language
+## Gate de Qualidade
+- [ ] Toda tarefa tem modelo e justificativa
+- [ ] Pelo menos um candidato a Haiku identificado (ou anotado como "none applicable")
+- [ ] Níveis de custo são consistentes (a mesma categoria raramente usa níveis diferentes)
+- [ ] A justificativa referencia o conteúdo da tarefa, não linguagem genérica

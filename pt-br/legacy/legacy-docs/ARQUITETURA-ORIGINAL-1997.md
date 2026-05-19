@@ -5,7 +5,7 @@ date: "1997-05-20"
 version: "1.0.0"
 classification: "CONFIDENCIAL"
 project: "SIFAP - Sistema de Fiscalização e Administração de Pagamentos"
-sponsor: "SUPDE/DESIF - the organization"
+sponsor: "SUPDE/DESIF - a organização"
 client: "SAS/MPAS - Secretaria de Assistência Social"
 ---
 
@@ -14,7 +14,7 @@ client: "SAS/MPAS - Secretaria de Assistência Social"
 <!-- ====================================================================== -->
 <!-- PROJETO SIFAP - DOCUMENTO DE ARQUITETURA TÉCNICA -->
 <!-- Versão 1.0.0 - Maio de 1997 -->
-<!-- the organization - a federal data processing organization -->
+<!-- a organização - a federal data processing organization -->
 <!-- Superintendência de Desenvolvimento - SUPDE -->
 <!-- Divisão de Desenvolvimento de Sistemas Fiscais - DESIF -->
 <!-- ====================================================================== -->
@@ -40,7 +40,7 @@ client: "SAS/MPAS - Secretaria de Assistência Social"
 
 > **Apresentação**
 >
-> O presente documento descreve a arquitetura técnica proposta para o SIFAP - Sistema de Fiscalização e Administração de Pagamentos, a ser desenvolvido pela equipe da SUPDE/DESIF do the organization, em atendimento à demanda da Secretaria de Assistência Social do Ministério da Previdência e Assistência Social (SAS/MPAS).
+> O presente documento descreve a arquitetura técnica proposta para o SIFAP - Sistema de Fiscalização e Administração de Pagamentos, a ser desenvolvido pela equipe da SUPDE/DESIF do a organização, em atendimento à demanda da Secretaria de Assistência Social do Ministério da Previdência e Assistência Social (SAS/MPAS).
 >
 > O SIFAP substituirá o atual sistema SIPAG/DOS, desenvolvido em Clipper e operado em microcomputadores nas regionais. A migração para plataforma mainframe visa garantir a centralização dos dados, a integridade das informações e a capacidade de processamento adequada ao crescimento previsto dos programas sociais federais.
 >
@@ -52,7 +52,7 @@ client: "SAS/MPAS - Secretaria de Assistência Social"
 
 ### 1.1. Contexto
 
-O Governo Federal, por meio do Ministério da Previdência e Assistência Social, administra diversos programas de transferência de renda para famílias em situação de vulnerabilidade social. Atualmente, o controle desses pagamentos é realizado pelo sistema SIPAG/DOS, uma aplicação desenvolvida em Clipper 5.2 que opera de forma descentralizada nas regionais do the organization.
+O Governo Federal, por meio do Ministério da Previdência e Assistência Social, administra diversos programas de transferência de renda para famílias em situação de vulnerabilidade social. Atualmente, o controle desses pagamentos é realizado pelo sistema SIPAG/DOS, uma aplicação desenvolvida em Clipper 5.2 que opera de forma descentralizada nas regionais do a organização.
 
 A descentralização do SIPAG/DOS acarreta os seguintes problemas:
 
@@ -74,15 +74,15 @@ Desenvolver um sistema centralizado, em plataforma mainframe, capaz de:
 
 ### 1.3. Plataforma Tecnológica Escolhida
 
-Após avaliação das alternativas disponíveis na infraestrutura the organization, optou-se pela seguinte plataforma:
+Após avaliação das alternativas disponíveis na infraestrutura a organização, optou-se pela seguinte plataforma:
 
 | Componente | Produto    | Versão  | Justificativa                                                                                                                 |
 | ---------- | ---------- | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Linguagem  | Natural    | 4.2.6   | Padrão the organization para desenvolvimento mainframe. Produtividade superior ao COBOL para aplicações de cadastro/consulta. |
-| SGBD       | Adabas     | 6.1.4   | SGBD invertido, alto desempenho para consultas por múltiplos descritores. Padrão the organization.                            |
+| Linguagem  | Natural    | 4.2.6   | Padrão a organização para desenvolvimento mainframe. Produtividade superior ao COBOL para aplicações de cadastro/consulta. |
+| SGBD       | Adabas     | 6.1.4   | SGBD invertido, alto desempenho para consultas por múltiplos descritores. Padrão a organização.                            |
 | TP Monitor | Com\*plete | 6.1.2   | Monitor de teleprocessamento para telas 3270. Integrado ao Natural.                                                           |
 | Scheduler  | JES2       | MVS/ESA | Subsistema padrão para processamento batch.                                                                                   |
-| S.O.       | MVS/ESA    | 5.2.2   | Sistema operacional do mainframe the organization - Regional Brasília.                                                        |
+| S.O.       | MVS/ESA    | 5.2.2   | Sistema operacional do mainframe a organização - Regional Brasília.                                                        |
 
 > **Nota:** A escolha do Natural/Adabas segue diretriz técnica da SUPDE (NT-SUPDE-003/1996), que estabelece esta plataforma como padrão para novos sistemas de cadastro e processamento de médio/grande porte.
 
@@ -306,7 +306,7 @@ Os sufixos indicam o tipo de dado:
 
 ### 4.3. Estimativa de Tempo de Processamento
 
-Com base em benchmarks realizados no ambiente de homologação do the organization (mainframe IBM 9672-R36, 256 MB RAM):
+Com base em benchmarks realizados no ambiente de homologação do a organização (mainframe IBM 9672-R36, 256 MB RAM):
 
 | Job       | Volume base          | Tempo estimado | Observação                              |
 | --------- | -------------------- | -------------- | --------------------------------------- |
@@ -344,7 +344,7 @@ A integração com o SIAFI - Sistema Integrado de Administração Financeira do 
 
 **Formato previsto:** Arquivo texto posicional, layout definido pela STN (Secretaria do Tesouro Nacional), conforme Instrução Normativa STN no 04/1996.
 
-**Meio de transmissão:** Transferência via VTAM/SNA entre mainframes the organization e STN.
+**Meio de transmissão:** Transferência via VTAM/SNA entre mainframes a organização e STN.
 
 **Periodicidade:** Mensal, D+2 após processamento da folha.
 
@@ -422,7 +422,7 @@ A evolução do SIFAP está planejada nas seguintes fases, sujeitas à aprovaç�
 | **Fase 3** | Ago-Dez/1998   | Módulo de Auditoria (AUDCONSUL, AUDRELAT) + Conciliação SIAFI (BATCHCON)                                                                                                | Desejável   |
 | **Fase 4** | 1o sem/1999    | Módulo de Validação (VALBENEF, VALDOCS) - validação automatizada de cadastro                                                                                            | Desejável   |
 | **Fase 5** | 2o sem/1999    | Geração de relatórios gerenciais avançados - gráficos e consolidações                                                                                                   | Opcional    |
-| **Fase 6** | 1o sem/2000    | **Módulo Web** - interface de consulta via Intranet para os órgãos gestores (SENARC, SAS). Tecnologia prevista: Natural Web Interface + servidor HTTP the organization. | Opcional    |
+| **Fase 6** | 1o sem/2000    | **Módulo Web** - interface de consulta via Intranet para os órgãos gestores (SENARC, SAS). Tecnologia prevista: Natural Web Interface + servidor HTTP a organização. | Opcional    |
 | **Fase 7** | 2o sem/2000    | Integração online com Receita Federal para validação de CPF em tempo real                                                                                               | Opcional    |
 
 <!-- Balanço da evolução real (anotação retrospectiva):
@@ -450,7 +450,7 @@ A evolução do SIFAP está planejada nas seguintes fases, sujeitas à aprovaç�
 
  Fase 6: NUNCA IMPLEMENTADA - O "módulo web" planejado para 2000 nunca
  saiu do papel. A tecnologia Natural Web Interface não foi adotada pelo
- the organization. O acesso ao SIFAP permanece exclusivamente via emulação 3270.
+ a organização. O acesso ao SIFAP permanece exclusivamente via emulação 3270.
 
  Fase 7: IMPLEMENTADA DIFERENTEMENTE (2002) - A consulta de CPF na
  Receita Federal foi implementada em 2002, mas via transação CICS e não
@@ -471,23 +471,23 @@ A evolução do SIFAP está planejada nas seguintes fases, sujeitas à aprovaç�
 ### 7.2. Premissas para Evolução
 
 - Manutenção de equipe de pelo menos 4 analistas/programadores Natural dedicados ao SIFAP;
-- Disponibilidade de ambiente de homologação no mainframe the organization;
+- Disponibilidade de ambiente de homologação no mainframe a organização;
 - Apoio do comitê gestor SAS/MPAS para definição de requisitos;
-- Estabilidade da plataforma Natural/Adabas no the organization (sem previsão de descontinuação);
+- Estabilidade da plataforma Natural/Adabas no a organização (sem previsão de descontinuação);
 - Orçamento para aquisição de licenças Natural Web Interface (Fase 6).
 
 ### 7.3. Considerações sobre o Módulo Web (Fase 6)
 
-O módulo web previsto para o 1o semestre de 2000 utilizará a tecnologia **Natural Web Interface** (NWI), que permite a exposição de telas Natural como páginas HTML acessíveis via navegador web. Esta tecnologia está em fase de avaliação pelo the organization e deverá ser homologada até o final de 1998.
+O módulo web previsto para o 1o semestre de 2000 utilizará a tecnologia **Natural Web Interface** (NWI), que permite a exposição de telas Natural como páginas HTML acessíveis via navegador web. Esta tecnologia está em fase de avaliação pelo a organização e deverá ser homologada até o final de 1998.
 
 A interface web do SIFAP permitirá:
 
 - Consulta de beneficiários por CPF, NIS ou nome (equivalente ao CONSBENF);
 - Consulta de pagamentos por período;
 - Emissão de extratos para os órgãos gestores;
-- Acesso via Intranet the organization (rede INFOVIA do Governo Federal).
+- Acesso via Intranet a organização (rede INFOVIA do Governo Federal).
 
-> **Observação:** A viabilidade técnica do NWI depende de homologação pelo Comitê de Arquitetura do the organization. Caso o NWI não seja aprovado, avaliar alternativa com **Entire X** (middleware Natural-HTTP) ou desenvolvimento de front-end separado em Java/Servlet com acesso ao Adabas via JDBC.
+> **Observação:** A viabilidade técnica do NWI depende de homologação pelo Comitê de Arquitetura do a organização. Caso o NWI não seja aprovado, avaliar alternativa com **Entire X** (middleware Natural-HTTP) ou desenvolvimento de front-end separado em Java/Servlet com acesso ao Adabas via JDBC.
 
 ---
 
@@ -546,7 +546,7 @@ Jan/98 Fev/98 Mar/98 Abr/98 Mai/98 Jun/98 Jul/98
 | R3  | Alteração de requisitos pela SAS/MPAS durante o desenvolvimento  | Alta          | Médio   | Congelar requisitos por fase                     |
 | R4  | Saída de membros da equipe por remanejamento                     | Média         | Alto    | Documentar e compartilhar conhecimento           |
 | R5  | Limitação de desempenho Adabas com volumes acima de 2M registros | Baixa         | Alto    | Monitorar e otimizar descritores                 |
-| R6  | Descontinuação do Natural/Adabas pelo the organization           | Baixa         | Crítico | Acompanhar diretrizes técnicas da SUPDE          |
+| R6  | Descontinuação do Natural/Adabas pelo a organização           | Baixa         | Crítico | Acompanhar diretrizes técnicas da SUPDE          |
 
 > **Nota sobre R4:** Este risco se materializou parcialmente com a saída de Mário Sérgio e Sandra Lúcia em dezembro/1997. A mitigação por documentação e compartilhamento de conhecimento foi parcialmente executada, porém a prática não foi mantida ao longo da vida do sistema.
 
@@ -582,7 +582,7 @@ Brasília, 26 de maio de 1997
 
 | Termo      | Definição                                                                               |
 | ---------- | --------------------------------------------------------------------------------------- |
-| Adabas     | Adaptable Database System - SGBD da Software AG utilizado no mainframe the organization |
+| Adabas     | Adaptable Database System - SGBD da Software AG utilizado no mainframe a organização |
 | CNAB       | Centro Nacional de Automação Bancária - padrão de arquivo para transações bancárias     |
 | Com\*plete | Monitor de teleprocessamento da Software AG para telas 3270                             |
 | DDM        | Data Definition Module - definição lógica de acesso a arquivo Adabas no Natural         |
@@ -599,13 +599,13 @@ Brasília, 26 de maio de 1997
 | PE         | Periodic Group - grupo de campos que se repete no Adabas (histórico)                    |
 | SIAFI      | Sistema Integrado de Administração Financeira do Governo Federal                        |
 | SIPAG/DOS  | Sistema de Pagamentos - aplicação Clipper anterior ao SIFAP                             |
-| SNA        | Systems Network Architecture - protocolo de comunicação IBM                             |
+| SNA        | Systems Network Arquitetura - protocolo de comunicação IBM                             |
 | STN        | Secretaria do Tesouro Nacional                                                          |
 | VTAM       | Virtual Telecommunications Access Method - software de comunicação IBM                  |
 
 ---
 
-**the organization - a federal data processing organization**
+**a organização - a federal data processing organization**
 **Documento Confidencial**
 **Reprodução e distribuição restritas ao âmbito do projeto SIFAP**
 

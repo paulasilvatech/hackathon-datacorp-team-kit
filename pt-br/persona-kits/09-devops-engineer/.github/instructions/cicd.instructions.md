@@ -2,6 +2,6 @@
 applyTo: ".github/workflows/**,*.yml,*.yaml"
 ---
 
-# CI/CD Conventions
+# Convenções de CI/CD
 
-Reusable workflows, OIDC auth, pin action SHAs, security scans on every PR
+Workflows reutilizáveis, autenticação OIDC, actions fixadas por SHA e varreduras de segurança em todo PR.

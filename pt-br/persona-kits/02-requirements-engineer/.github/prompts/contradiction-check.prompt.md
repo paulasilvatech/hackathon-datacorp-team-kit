@@ -1,104 +1,104 @@
 ---
 mode: ask
 model: claude-opus-4-6
-description: "Detect contradictions between requirements in SPECIFICATION.md — same feature, different rules — before they become bugs in production."
+description: "Detecte contradições entre requisitos em SPECIFICATION.md — mesma feature, regras diferentes — antes que virem bugs em produção."
 ---
 
 # /contradiction-check
 
-## Goal
+## Objetivo
 
-You are the requirements engineer auditing `SPECIFICATION.md` for **contradictions**: pairs of requirements that cannot both be satisfied. Contradictions discovered now are spec corrections; contradictions discovered in production are incidents. The deliverable is a list of conflict candidates with evidence, severity, and a proposed resolution.
+Você é o requirements engineer auditando `SPECIFICATION.md` em busca de **contradições**: pares de requisitos que não podem ser satisfeitos ao mesmo tempo. Contradições descobertas agora são correções de spec; contradições descobertas em produção são incidentes. O entregável é uma lista de candidatos a conflito com evidência, severidade e resolução proposta.
 
-## Inputs
+## Entradas
 
-Ask the user for what is missing.
+Peça ao usuário o que estiver faltando.
 
-- The spec file (`specs/<NNN>-<feature>/SPECIFICATION.md`).
-- Any related parent specs whose REQ-IDs are referenced by this one.
-- The CONSTITUTION (`specs/<NNN>-<feature>/CONSTITUTION.md`) — contradictions must also be checked against constitutional rules.
-- Any clarification log already produced by `/clarify`.
+- O arquivo de spec (`specs/<NNN>-<feature>/SPECIFICATION.md`).
+- Quaisquer specs pai relacionadas cujos REQ-IDs sejam referenciados por esta.
+- A CONSTITUTION (`specs/<NNN>-<feature>/CONSTITUTION.md`) — contradições também devem ser verificadas contra regras constitucionais.
+- Qualquer log de esclarecimento já produzido por `/clarify`.
 
-## Process
+## Processo
 
-1. **Index every requirement.** For each `REQ-ID`, capture: EARS pattern, trigger (event/state/condition), action, actor, outcome, and quantitative thresholds.
-2. **Pair-scan within each domain.** Group REQ-IDs by domain (`PAY-*`, `BEN-*`, etc.). Compare each pair. Cross-domain pairs come second.
-3. **Look for the four classic contradictions.**
- - **Direct contradiction** — REQ-A says "the system shall X under condition C"; REQ-B says "the system shall not X under condition C."
- - **Threshold conflict** — REQ-A says "respond within 200 ms"; REQ-B says "perform 5 sequential checks each up to 80 ms" — the budgets cannot both hold.
- - **State conflict** — REQ-A allows action while in state S1; REQ-B forbids it during overlapping state S2 ⊆ S1.
- - **Actor conflict** — REQ-A grants permission to role R1; REQ-B forbids the same operation to role R2 where R2 ⊇ R1.
-4. **Check against the CONSTITUTION.** Any requirement that violates a constitutional rule is a contradiction with the constitution itself (typically C-rules on security, data, or compliance).
-5. **Check against legacy invariants.** If a REQ contradicts behavior the legacy SIFAP enforces (documented in `02-cenario-sifap-legado/legacy-docs/REGRAS-NEGOCIO-2012.md`), flag it as a regression risk.
-6. **Score severity.**
- - **Critical** — direct contradiction, no satisfying implementation possible.
- - **Major** — threshold or state conflict resolvable only by changing one REQ.
- - **Minor** — terminology mismatch hiding a real agreement.
-7. **Propose resolutions.** For each finding, suggest one of: (a) merge REQs, (b) split REQs by sub-condition, (c) tighten one REQ's scope, (d) escalate to product owner.
+1. **Indexe todos os requisitos.** Para cada `REQ-ID`, capture: padrão EARS, gatilho (evento/estado/condição), ação, ator, resultado e limites quantitativos.
+2. **Faça varredura em pares dentro de cada domínio.** Agrupe REQ-IDs por domínio (`PAY-*`, `BEN-*` etc.). Compare cada par. Pares entre domínios vêm depois.
+3. **Procure as quatro contradições clássicas.**
+ - **Contradição direta** — REQ-A diz "the system shall X under condition C"; REQ-B diz "the system shall not X under condition C."
+ - **Conflito de limite** — REQ-A diz "respond within 200 ms"; REQ-B diz "perform 5 sequential checks each up to 80 ms" — os orçamentos não podem ser cumpridos juntos.
+ - **Conflito de estado** — REQ-A permite uma ação enquanto está no estado S1; REQ-B a proíbe durante o estado sobreposto S2 ⊆ S1.
+ - **Conflito de ator** — REQ-A concede permissão ao papel R1; REQ-B proíbe a mesma operação ao papel R2 onde R2 ⊇ R1.
+4. **Verifique contra a CONSTITUTION.** Qualquer requisito que viole uma regra constitucional é uma contradição com a própria constituição (normalmente regras C de segurança, dados ou compliance).
+5. **Verifique contra invariantes do legado.** Se um REQ contradiz comportamento imposto pelo SIFAP legado (documentado em `02-cenario-sifap-legado/legacy-docs/REGRAS-NEGOCIO-2012.md`), sinalize como risco de regressão.
+6. **Pontue a severidade.**
+ - **Critical** — contradição direta, sem implementação possível que satisfaça ambos.
+ - **Major** — conflito de limite ou estado resolvível apenas alterando um REQ.
+ - **Minor** — divergência terminológica escondendo um acordo real.
+7. **Proponha resoluções.** Para cada achado, sugira uma opção: (a) mesclar REQs, (b) dividir REQs por subcondição, (c) restringir o escopo de um REQ, (d) escalar para o product owner.
 
-## Output
+## Saída
 
-A markdown report:
+Um relatório Markdown:
 
 ```markdown
-## Contradiction Report — <feature>
+## Relatório de Contradições — <feature>
 
-### Summary
-- Requirements scanned: 47
-- Findings: 6 (Critical 1, Major 3, Minor 2)
-- Highest-severity: REQ-PAY-014 vs REQ-PAY-019
+### Resumo
+- Requisitos analisados: 47
+- Achados: 6 (Critical 1, Major 3, Minor 2)
+- Maior severidade: REQ-PAY-014 vs REQ-PAY-019
 
 ### Critical
-| # | REQ-A | REQ-B | Type | Evidence | Proposed resolution |
+| # | REQ-A | REQ-B | Tipo | Evidência | Resolução proposta |
 |---|-------|-------|------|----------|---------------------|
-| 1 | REQ-PAY-014 ("If beneficiary suspended, then the system shall not disburse") | REQ-PAY-019 ("When a recurring schedule fires, the system shall disburse to all enrolled beneficiaries") | Direct contradiction (overlap when suspended beneficiary is enrolled in recurring schedule) | EARS unwanted vs event-driven; state `SUSPENDED` not excluded in REQ-PAY-019 | Tighten REQ-PAY-019: "...to all enrolled beneficiaries except those in `SUSPENDED` state. (See REQ-PAY-014.)" |
+| 1 | REQ-PAY-014 ("Se o beneficiário estiver suspenso, então o sistema não deverá desembolsar") | REQ-PAY-019 ("Quando uma programação recorrente disparar, o sistema deverá desembolsar para todos os beneficiários inscritos") | Contradição direta (sobreposição quando beneficiário suspenso está inscrito em programação recorrente) | EARS unwanted vs event-driven; estado `SUSPENDED` não excluído em REQ-PAY-019 | Ajustar REQ-PAY-019: "...para todos os beneficiários inscritos, exceto os que estão no estado `SUSPENDED`. (Veja REQ-PAY-014.)" |
 
 ### Major
-| # | REQ-A | REQ-B | Type | Evidence | Proposed resolution |
+| # | REQ-A | REQ-B | Tipo | Evidência | Resolução proposta |
 |---|-------|-------|------|----------|---------------------|
-| 2 | REQ-PAY-006 ("respond to /payments within 250 ms p95") | REQ-PAY-008 + REQ-PAY-009 (two sequential 200 ms external calls) | Threshold conflict | 200 + 200 > 250 | Either parallelize (new ADR) or relax REQ-PAY-006 to 500 ms; route to product. |
+| 2 | REQ-PAY-006 ("responder a /payments em até 250 ms p95") | REQ-PAY-008 + REQ-PAY-009 (duas chamadas externas sequenciais de 200 ms) | Conflito de limite | 200 + 200 > 250 | Paralelizar (novo ADR) ou relaxar REQ-PAY-006 para 500 ms; encaminhar ao produto. |
 
 ### Minor
-| # | REQ-A | REQ-B | Type | Evidence | Proposed resolution |
+| # | REQ-A | REQ-B | Tipo | Evidência | Resolução proposta |
 |---|-------|-------|------|----------|---------------------|
-| 3 | REQ-BEN-007 uses "user" | REQ-BEN-008 uses "beneficiary" | Terminology drift | Same actor in both | Replace "user" with "beneficiary" globally. |
+| 3 | REQ-BEN-007 usa "user" | REQ-BEN-008 usa "beneficiary" | Desvio terminológico | Mesmo ator em ambos | Substituir "user" por "beneficiary" globalmente. |
 
-### Constitutional conflicts
-| # | REQ | Rule | Conflict |
+### Conflitos constitucionais
+| # | REQ | Regra | Conflito |
 |---|-----|------|---------|
-| — | none found | | |
+| — | nenhum encontrado | | |
 
-### Legacy regression risks
-| # | REQ | Legacy invariant | Conflict |
+### Riscos de regressão legada
+| # | REQ | Invariante legado | Conflito |
 |---|-----|------------------|---------|
-| 4 | REQ-PAY-021 ("round to 2 decimal places, half-up") | `CALCBENF.NSN` rounds half-down for negative balances | Behavior change risk; flag for product. |
+| 4 | REQ-PAY-021 ("arredondar para 2 casas decimais, half-up") | `CALCBENF.NSN` arredonda half-down para saldos negativos | Risco de mudança de comportamento; sinalizar para produto. |
 
-### Recommended next step
-Resolve Critical and Major before spec sign-off. Bring (1) and (2) to product owner.
+### Próximo passo recomendado
+Resolver Critical e Major antes da aprovação da spec. Levar (1) e (2) ao product owner.
 ```
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** Audit `specs/003-payment-processing/SPECIFICATION.md` (47 REQs).
+**Entrada:** Auditar `specs/003-payment-processing/SPECIFICATION.md` (47 REQs).
 
-**Expected reply:** the structure above, with one critical contradiction between unwanted-behavior and event-driven REQs, two threshold conflicts, and one legacy regression flag for rounding behavior.
+**Resposta esperada:** a estrutura acima, com uma contradição crítica entre REQs de unwanted-behavior e event-driven, dois conflitos de limite e um alerta de regressão legada para comportamento de arredondamento.
 
-## Anti-patterns
+## Antipadrões
 
-- Reporting "the spec is contradictory" without naming pairs. Reviewers cannot act.
-- Only checking within a single domain. Many contradictions cross domains.
-- Ignoring the constitution. Constitutional conflicts are higher severity than peer-REQ conflicts.
-- Confusing ambiguity with contradiction. Ambiguity is for `/clarify`; contradiction is incompatibility.
-- Resolving silently in your head. Always surface and route — even when "obvious."
-- Skipping legacy regression checks. SIFAP modernization lives or dies on legacy fidelity.
-- Treating threshold conflicts as "can fix in design." If the math does not add up, the REQ is wrong.
+- Relatar "the spec is contradictory" sem nomear os pares. Revisores não conseguem agir.
+- Verificar apenas dentro de um domínio. Muitas contradições cruzam domínios.
+- Ignorar a constituição. Conflitos constitucionais têm severidade maior que conflitos entre REQs pares.
+- Confundir ambiguidade com contradição. Ambiguidade é para `/clarify`; contradição é incompatibilidade.
+- Resolver silenciosamente na própria cabeça. Sempre exponha e encaminhe — mesmo quando parecer "obvious".
+- Pular verificações de regressão legada. A modernização do SIFAP vive ou morre pela fidelidade ao legado.
+- Tratar conflitos de limite como "can fix in design". Se a matemática não fecha, o REQ está errado.
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] Every finding cites two REQ-IDs (or a REQ-ID and a constitutional rule, or a REQ-ID and a legacy invariant).
-- [ ] Findings classified by type (Direct / Threshold / State / Actor) and severity (Critical / Major / Minor).
-- [ ] Each finding has a one-line proposed resolution.
-- [ ] Constitutional conflicts checked.
-- [ ] Legacy regression risks checked against `02-cenario-sifap-legado/legacy-docs/`.
-- [ ] Critical and Major findings flagged for resolution before phase sign-off.
-- [ ] Output is paste-ready into the spec PR or a clarification ticket.
+- [ ] Todo achado cita dois REQ-IDs (ou um REQ-ID e uma regra constitucional, ou um REQ-ID e um invariante legado).
+- [ ] Achados classificados por tipo (Direct / Threshold / State / Actor) e severidade (Critical / Major / Minor).
+- [ ] Cada achado tem uma resolução proposta em uma linha.
+- [ ] Conflitos constitucionais verificados.
+- [ ] Riscos de regressão legada verificados contra `02-cenario-sifap-legado/legacy-docs/`.
+- [ ] Achados Critical e Major sinalizados para resolução antes do sign-off da fase.
+- [ ] Saída pronta para colar no PR da spec ou em um ticket de esclarecimento.

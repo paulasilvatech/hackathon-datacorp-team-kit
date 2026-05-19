@@ -1,5 +1,5 @@
 ---
-description: "Translates confirmed business rules into EARS notation requirements for the modern system."
+description: "Traduz regras de negócio confirmadas em requisitos em notação EARS para o sistema moderno."
 mode: ask
 model: claude-opus-4-7
 tools: ['codebase', 'search']
@@ -7,43 +7,43 @@ tools: ['codebase', 'search']
 
 # /write-ears-spec
 
-## Goal
+## Objetivo
 
-Transform confirmed business rules from Stage 1 into formal EARS requirements with unique REQ-IDs, pattern classification, acceptance criteria, and full traceability to source. Mysteries and inferred rules are excluded from the spec but documented separately.
+Transforme regras de negócio confirmadas do Estágio 1 em requisitos EARS formais com REQ-IDs únicos, classificação de padrão, critérios de aceitação e rastreabilidade completa à fonte. Mistérios e regras inferred são excluídos da spec, mas documentados separadamente.
 
-## When to Invoke
+## Quando Invocar
 
-After the bounded contexts have been decided (`/carve-bounded-contexts`), so requirements can be organized by context.
+Depois que os bounded contexts forem decididos (`/carve-bounded-contexts`), para que os requisitos possam ser organizados por contexto.
 
-## Pre-conditions
+## Pré-condições
 
-- `01-arqueologia/business-rules-catalog.md` exists with classified rules
-- `02-spec-moderna/bounded-contexts.md` exists with finalized contexts
+- `01-arqueologia/business-rules-catalog.md` existe com regras classificadas
+- `02-spec-moderna/bounded-contexts.md` existe com contextos finalizados
 
-## Inputs the Team Must Provide
+## Entradas que a Equipe Deve Fornecer
 
-- Confirmation of which rules to include (confirmed rules only, or also selected inferred rules the team is willing to promote)
-- Any additional requirements not from legacy code (e.g., "the system must have a REST API" — new capabilities)
+- Confirmação de quais regras incluir (somente regras confirmed, ou também regras inferred selecionadas que a equipe quer promover)
+- Quaisquer requisitos adicionais que não venham do código legado (por exemplo, "o sistema deve ter uma REST API" — novas capacidades)
 
-## What I Will Do
+## O Que Vou Fazer
 
-- Filter the business rules catalog to confirmed rules only (unless team promotes specific inferred rules)
-- For each rule, write 1-3 EARS requirement statements
-- Assign unique REQ-IDs in format `REQ-NNN`
-- Map each requirement to its bounded context
-- Write acceptance criteria for each requirement
-- Separate mysteries and open questions into a dedicated section
+- Filtrar o catálogo de regras de negócio para somente regras confirmadas (a menos que a equipe promova regras inferidas específicas)
+- Para cada regra, escrever 1-3 declarações de requisito EARS
+- Atribuir REQ-IDs únicos no formato `REQ-NNN`
+- Mapear cada requisito para seu bounded context
+- Escrever critérios de aceitação para cada requisito
+- Separar mistérios e perguntas abertas em uma seção dedicada
 
-## What I Will NOT Do
+## O Que NÃO Vou Fazer
 
-- Create requirements without source traceability — every REQ traces to a confirmed rule
-- Promote mysteries to requirements — mysteries stay in the open questions section
-- Fabricate acceptance criteria that cannot be tested — each criterion must be verifiable
-- Skip EARS pattern validation — every requirement must match one of the 6 patterns
+- Criar requisitos sem rastreabilidade de fonte — todo REQ rastreia para uma regra confirmed
+- Promover mistérios a requisitos — mistérios ficam na seção de open questions
+- Fabricar critérios de aceitação que não podem ser testados — cada critério deve ser verificável
+- Pular validação de padrão EARS — todo requisito deve corresponder a um dos 6 padrões
 
-## Output Format
+## Formato de Saída
 
-A Markdown file at `02-spec-moderna/SPECIFICATION.md`:
+Um arquivo Markdown em `02-spec-moderna/SPECIFICATION.md`:
 
 ```markdown
 # SPECIFICATION — Modern System
@@ -51,67 +51,67 @@ A Markdown file at `02-spec-moderna/SPECIFICATION.md`:
 ### REQ-001: [Statement]
 - EARS Pattern: [pattern]
 - Source: [rule #, file, line]
-- Acceptance Criteria:
+- Critérios de Aceite:
   - [ ] ...
 ...
 ## Open Questions (Not Requirements Yet)
 ## Traceability Matrix
 ```
 
-## Definition of Done
+## Definição de Pronto
 
-- [ ] At least 10 EARS requirements exist with unique REQ-IDs
-- [ ] Every requirement cites its source rule and legacy file
-- [ ] Every requirement has at least 2 acceptance criteria
-- [ ] Requirements are grouped by bounded context
-- [ ] Mysteries appear only in "Open Questions," never as requirements
-- [ ] A traceability matrix links every REQ to its source rule
+- [ ] Existem pelo menos 10 requisitos EARS com REQ-IDs únicos
+- [ ] Todo requisito cita sua regra-fonte e arquivo legado
+- [ ] Todo requisito tem pelo menos 2 critérios de aceitação
+- [ ] Requisitos são agrupados por bounded context
+- [ ] Mistérios aparecem somente em "Open Questions", nunca como requisitos
+- [ ] Uma matriz de rastreabilidade conecta todo REQ à sua regra-fonte
 
-## The Prompt Body
+## Corpo do Prompt
 
-You are the `@architect-agent`. The team needs to write the EARS specification for the modern system based on what was discovered in Stage 1.
+Você é o `@architect-agent`. A equipe precisa escrever a especificação EARS para o sistema moderno com base no que foi descoberto no Estágio 1.
 
-**Step 1 — Load confirmed rules.**
-Read `01-arqueologia/business-rules-catalog.md`. Filter to rules classified as "confirmed" only. List them with their source references.
+**Passo 1 — Carregar regras confirmed.**
+Leia `01-arqueologia/business-rules-catalog.md`. Filtre somente regras classificadas como "confirmed". Liste-as com suas referências de fonte.
 
-If the team wants to promote specific "inferred" rules, ask for explicit confirmation per rule. Each promoted rule must include a note: "Promoted from inferred — team decision, [reason]."
+Se a equipe quiser promover regras "inferred" específicas, peça confirmação explícita por regra. Cada regra promovida deve incluir uma nota: "Promovida de inferred — decisão da equipe, [motivo]."
 
-**Step 2 — Map rules to bounded contexts.**
-Read `02-spec-moderna/bounded-contexts.md`. For each confirmed rule, determine which bounded context owns it based on the data and programs involved. If a rule spans multiple contexts, flag it for discussion — it may need to be split or assigned to a coordinating layer.
+**Passo 2 — Mapear regras para bounded contexts.**
+Leia `02-spec-moderna/bounded-contexts.md`. Para cada regra confirmed, determine qual bounded context é dono dela com base nos dados e programas envolvidos. Se uma regra atravessar múltiplos contextos, sinalize para discussão — talvez precise ser dividida ou atribuída a uma camada coordenadora.
 
-**Step 3 — Write EARS requirement statements.**
-For each rule, write 1-3 requirement statements following EARS patterns:
+**Passo 3 — Escrever declarações de requisito EARS.**
+Para cada regra, escreva 1-3 declarações de requisito seguindo padrões EARS:
 
-- **Ubiquitous**: "The system shall [action]." — Always applies, no trigger.
-- **Event-driven**: "When [event], the system shall [action]." — Triggered by a specific event.
-- **State-driven**: "While [state], the system shall [action]." — Active during a state.
-- **Optional**: "Where [condition], the system shall [action]." — Only when condition holds.
-- **Unwanted**: "If [unwanted condition], then the system shall [action]." — Error/rejection handling.
-- **Complex**: "While [state], when [event], the system shall [action]." — Combination.
+- **Ubiquitous**: "O sistema deverá [ação]." — Sempre se aplica, sem trigger.
+- **Event-driven**: "Quando [evento], o sistema deverá [ação]." — Acionado por um evento específico.
+- **State-driven**: "Enquanto [estado], o sistema deverá [ação]." — Ativo durante um estado.
+- **Optional**: "Onde [condição], o sistema deverá [ação]." — Somente quando a condição vale.
+- **Unwanted**: "Se [condição indesejada], então o sistema deverá [ação]." — Tratamento de erro/rejeição.
+- **Complex**: "Enquanto [estado], quando [evento], o sistema deverá [ação]." — Combinação.
 
-Validate each statement against the pattern. If a statement does not fit any pattern cleanly, rephrase it until it does or split it into multiple requirements.
+Valide cada declaração contra o padrão. Se uma declaração não se encaixar claramente em nenhum padrão, reformule até encaixar ou divida em múltiplos requisitos.
 
-**Step 4 — Assign REQ-IDs.**
-Number requirements sequentially: REQ-001, REQ-002, etc. Group by bounded context.
+**Passo 4 — Atribuir REQ-IDs.**
+Numere requisitos sequencialmente: REQ-001, REQ-002 etc. Agrupe por bounded context.
 
-**Step 5 — Write acceptance criteria.**
-For each requirement, write at least 2 testable acceptance criteria. Each criterion must be:
-- Specific (not "the system works correctly")
-- Measurable (has a pass/fail condition)
-- Traceable (links back to the requirement)
+**Passo 5 — Escrever critérios de aceitação.**
+Para cada requisito, escreva pelo menos 2 critérios de aceitação testáveis. Cada critério deve ser:
+- Específico (não "o sistema funciona corretamente")
+- Mensurável (tem condição de pass/fail)
+- Rastreável (faz link de volta ao requisito)
 
-Format: `Given [precondition], when [action], then [expected result]`.
+Formato: `Given [precondition], when [action], then [expected result]`.
 
-**Step 6 — Handle open questions.**
-For every mystery from `01-arqueologia/mysteries-found.md` that is classified as "blocks-stage-2," add it to the "Open Questions" section. Do not convert it to a requirement. Note what information is needed to resolve it.
+**Passo 6 — Tratar open questions.**
+Para todo mistério de `01-arqueologia/mysteries-found.md` classificado como "blocks-stage-2", adicione-o à seção "Open Questions". Não o converta em requisito. Anote qual informação é necessária para resolvê-lo.
 
-**Step 7 — Build traceability matrix.**
-Create a table linking: `| REQ-ID | EARS Pattern | Source Rule # | Source File | Bounded Context |`.
+**Passo 7 — Construir matriz de rastreabilidade.**
+Crie uma tabela conectando: `| REQ-ID | EARS Pattern | Source Rule # | Source File | Bounded Context |`.
 
-**Step 8 — Write to file.**
-Output to `02-spec-moderna/SPECIFICATION.md`. If the file already exists, ask the team whether to overwrite or append.
+**Passo 8 — Escrever no arquivo.**
+Gere a saída em `02-spec-moderna/SPECIFICATION.md`. Se o arquivo já existir, pergunte à equipe se deve sobrescrever ou anexar.
 
-## Example Invocation
+## Exemplo de Invocação
 
 ```
 /write-ears-spec rules=01-arqueologia/business-rules-catalog.md contexts=02-spec-moderna/bounded-contexts.md

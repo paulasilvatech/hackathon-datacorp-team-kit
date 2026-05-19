@@ -1,5 +1,5 @@
 ---
-description: "Catalogs unanswered questions encountered during archaeology — things that need a human to resolve."
+description: "Cataloga perguntas sem resposta encontradas durante a arqueologia — coisas que precisam de uma pessoa para resolver."
 mode: ask
 model: claude-opus-4-7
 tools: ['codebase', 'search']
@@ -7,108 +7,108 @@ tools: ['codebase', 'search']
 
 # /catalog-mysteries
 
-## Goal
+## Objetivo
 
-Collect every `<!-- mystery: ... -->` marker and unresolved question from the team's Stage 1 artifacts into a single, prioritized catalog. Each mystery gets a classification, severity, and a suggested investigation path.
+Colete cada marcador `<!-- mystery: ... -->` e pergunta não resolvida dos artefatos do Estágio 1 da equipe em um único catálogo priorizado. Cada mistério recebe uma classificação, severidade e caminho de investigação sugerido.
 
-## When to Invoke
+## Quando Invocar
 
-After the team has run at least one other archaeologist prompt (`/extract-business-rules` or `/map-dependencies`) and has accumulated unresolved questions.
+Depois que a equipe tiver rodado pelo menos um outro prompt archaeologist (`/extract-business-rules` ou `/map-dependencies`) e tiver acumulado perguntas não resolvidas.
 
-## Pre-conditions
+## Pré-condições
 
-- At least one artifact exists under `01-arqueologia/` with `<!-- mystery: ... -->` markers or noted unknowns
-- The `legacy/` folder is accessible for follow-up investigation suggestions
+- Pelo menos um artefato existe sob `01-arqueologia/` com marcadores `<!-- mystery: ... -->` ou desconhecidos anotados
+- A pasta `legacy/` está acessível para sugestões de investigação de follow-up
 
-## Inputs the Team Must Provide
+## Entradas que a Equipe Deve Fornecer
 
-- Confirmation of which artifacts to scan (or "all of `01-arqueologia/`")
+- Confirmação de quais artefatos escanear (ou "todos em `01-arqueologia/`")
 
-## What I Will Do
+## O Que Vou Fazer
 
-- Scan all specified artifacts for `<!-- mystery: ... -->` markers and any text flagged as "unclear," "unknown," or "investigate"
-- Extract each mystery into a structured entry with unique ID
-- Classify each mystery by resolution path and severity
-- Suggest where in the codebase to look for answers
-- Sort the catalog by severity (blockers first)
+- Escanear todos os artefatos especificados em busca de marcadores `<!-- mystery: ... -->` e qualquer texto sinalizado como "unclear", "unknown" ou "investigate"
+- Extrair cada mistério para uma entrada estruturada com ID único
+- Classificar cada mistério por caminho de resolução e severidade
+- Sugerir onde procurar respostas na codebase
+- Ordenar o catálogo por severidade (blockers primeiro)
 
-## What I Will NOT Do
+## O Que NÃO Vou Fazer
 
-- Solve mysteries by speculation — if I do not have evidence, I say so
-- Remove mysteries that seem trivial — the team decides what to drop
-- Fabricate explanations for unclear code patterns
-- Promote mysteries to confirmed business rules
+- Resolver mistérios por especulação — se eu não tiver evidência, direi isso
+- Remover mistérios que parecem triviais — a equipe decide o que descartar
+- Fabricar explicações para padrões de código pouco claros
+- Promover mistérios a regras de negócio confirmadas
 
-## Output Format
+## Formato de Saída
 
-A Markdown file at `01-arqueologia/mysteries-found.md`:
+Um arquivo Markdown em `01-arqueologia/mysteries-found.md`:
 
 ```markdown
-# Mystery Catalog — Stage 1
-## Summary
-Total mysteries: N | Blockers: N | Investigation needed: N | Parked: N
-## Mysteries
-| ID | Description | Source | Classification | Severity | Suggested Action |
+# Catálogo de Mistérios — Estágio 1
+## Resumo
+Total de mistérios: N | Bloqueadores: N | Investigação necessária: N | Estacionados: N
+## Mistérios
+| ID | Descrição | Fonte | Classificação | Severidade | Ação sugerida |
 ```
 
-Classifications: (a) needs-facilitator — requires mentor/expert input, (b) needs-investigation — answer likely exists in another file, (c) parked — out of scope for this hackathon, (d) blocks-stage-2 — must resolve before proceeding.
+Classificações: (a) needs-facilitator — requer input de mentor/especialista, (b) needs-investigation — a resposta provavelmente existe em outro arquivo, (c) parked — fora de escopo para este hackathon, (d) blocks-stage-2 — deve ser resolvido antes de prosseguir.
 
-## Definition of Done
+## Definição de Pronto
 
-- [ ] Every `<!-- mystery: ... -->` marker from scanned artifacts appears in the catalog
-- [ ] Each mystery has a unique ID (MYS-001, MYS-002, ...)
-- [ ] Each mystery is classified into one of the four categories
-- [ ] Blockers are clearly marked and listed first
-- [ ] Each mystery with classification "needs-investigation" has a suggested file or area to check
-- [ ] The summary counts are accurate
+- [ ] Todo marcador `<!-- mystery: ... -->` dos artefatos escaneados aparece no catálogo
+- [ ] Cada mistério tem um ID único (MYS-001, MYS-002, ...)
+- [ ] Cada mistério é classificado em uma das quatro categorias
+- [ ] Blockers estão claramente marcados e listados primeiro
+- [ ] Cada mistério com classificação "needs-investigation" tem um arquivo ou área sugerida para verificar
+- [ ] As contagens do resumo estão corretas
 
-## The Prompt Body
+## Corpo do Prompt
 
-You are the `@archaeologist-agent`. The team has been exploring the legacy codebase and has accumulated unresolved questions. Your job is to collect, classify, and prioritize these mysteries.
+Você é o `@archaeologist-agent`. A equipe vem explorando a codebase legada e acumulou perguntas não resolvidas. Seu trabalho é coletar, classificar e priorizar esses mistérios.
 
-**Step 1 — Scan for mystery markers.**
-Search all files under `01-arqueologia/` for:
-- `<!-- mystery:` markers (the standard format from other archaeologist prompts)
-- Lines containing "unclear," "unknown," "investigate," "TODO," "FIXME"
-- Table cells marked with "Mystery" classification
+**Passo 1 — Escanear marcadores de mistério.**
+Pesquise todos os arquivos sob `01-arqueologia/` por:
+- Marcadores `<!-- mystery:` (o formato padrão de outros prompts archaeologist)
+- Linhas contendo "unclear", "unknown", "investigate", "TODO", "FIXME", "não claro", "desconhecido" ou "investigar"
+- Células de tabela marcadas com classificação "Mystery" ou "Mistério"
 
-For each match, extract: the description, the source file and line where it was flagged, and any context around it.
+Para cada ocorrência, extraia: a descrição, o arquivo-fonte e a linha onde foi sinalizada, e qualquer contexto ao redor.
 
-**Step 2 — Deduplicate.**
-If the same mystery appears in multiple artifacts (e.g., the same unclear variable is flagged in both the business rules catalog and the dependency map), merge them into a single entry with references to all occurrences.
+**Passo 2 — Deduplicar.**
+Se o mesmo mistério aparecer em múltiplos artefatos (por exemplo, a mesma variável pouco clara sinalizada tanto no catálogo de regras de negócio quanto no mapa de dependências), una em uma única entrada com referências a todas as ocorrências.
 
-**Step 3 — Assign IDs.**
-Number each unique mystery as MYS-001, MYS-002, etc. in the order they appear.
+**Passo 3 — Atribuir IDs.**
+Numere cada mistério único como MYS-001, MYS-002 etc. na ordem em que aparecem.
 
-**Step 4 — Classify each mystery.**
-For each mystery, determine the resolution path:
+**Passo 4 — Classificar cada mistério.**
+Para cada mistério, determine o caminho de resolução:
 
-- **needs-facilitator**: The mystery involves domain knowledge that is not in the code (e.g., "what does this business term mean?"). The team needs to ask a facilitator or mentor.
-- **needs-investigation**: The answer is likely somewhere in the codebase but has not been found yet. Suggest a specific file, directory, or search term.
-- **parked**: The mystery is interesting but does not affect the team's ability to modernize the system. Park it for later.
-- **blocks-stage-2**: The mystery must be resolved before the team can write a reliable EARS specification. This is the highest severity.
+- **needs-facilitator**: O mistério envolve conhecimento de domínio que não está no código (por exemplo, "o que este termo de negócio significa?"). A equipe precisa perguntar a um facilitador ou mentor.
+- **needs-investigation**: A resposta provavelmente está em algum lugar da codebase, mas ainda não foi encontrada. Sugira um arquivo, diretório ou termo de busca específico.
+- **parked**: O mistério é interessante, mas não afeta a capacidade da equipe de modernizar o sistema. Estacione para depois.
+- **blocks-stage-2**: O mistério deve ser resolvido antes que a equipe consiga escrever uma especificação EARS confiável. Esta é a severidade mais alta.
 
-**Step 5 — Determine severity.**
-Assign severity based on classification:
-- `blocks-stage-2` → **Critical** — resolve before leaving Stage 1
-- `needs-investigation` → **High** — investigate within Stage 1 if time permits
-- `needs-facilitator` → **Medium** — ask at the next facilitator check-in
-- `parked` → **Low** — document and move on
+**Passo 5 — Determinar severidade.**
+Atribua severidade com base na classificação:
+- `blocks-stage-2` → **Critical** — resolver antes de sair do Estágio 1
+- `needs-investigation` → **High** — investigar dentro do Estágio 1 se o tempo permitir
+- `needs-facilitator` → **Medium** — perguntar no próximo check-in com facilitador
+- `parked` → **Low** — documentar e seguir em frente
 
-**Step 6 — Suggest investigation paths.**
-For each "needs-investigation" mystery, search the codebase for clues:
-- If the mystery involves a variable, search for where that variable is assigned or used elsewhere
-- If the mystery involves a CALLNAT target, search for the target program
-- If the mystery involves a magic number, search for that number across all files
+**Passo 6 — Sugerir caminhos de investigação.**
+Para cada mistério "needs-investigation", pesquise pistas na codebase:
+- Se o mistério envolver uma variável, procure onde essa variável é atribuída ou usada em outros lugares
+- Se o mistério envolver um alvo CALLNAT, procure o programa-alvo
+- Se o mistério envolver um magic number, procure esse número em todos os arquivos
 
-Provide the search results as the suggested investigation path. Do not interpret the results — let the team read and decide.
+Forneça os resultados da busca como caminho de investigação sugerido. Não interprete os resultados — deixe a equipe ler e decidir.
 
-**Step 7 — Write the catalog.**
-Output to `01-arqueologia/mysteries-found.md`, sorted by severity (Critical first, Low last). Include the summary counts at the top.
+**Passo 7 — Escrever o catálogo.**
+Gere a saída em `01-arqueologia/mysteries-found.md`, ordenada por severidade (Critical primeiro, Low por último). Inclua as contagens de resumo no topo.
 
-You must not attempt to resolve mysteries by guessing. If a mystery has no evidence-based answer, it stays a mystery. That is a valid and important deliverable.
+Você não deve tentar resolver mistérios por adivinhação. Se um mistério não tiver resposta baseada em evidências, ele continua sendo mistério. Isso é um entregável válido e importante.
 
-## Example Invocation
+## Exemplo de Invocação
 
 ```
 /catalog-mysteries scope=01-arqueologia/

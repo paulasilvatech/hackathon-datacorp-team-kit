@@ -1,6 +1,6 @@
 ---
-title: "SIFAP Terminal Demo — Stage 1 Archaeology"
-description: "Interactive terminal demo simulating the legacy SIFAP system for the Stage 1 (Digital Archaeology) facilitator presentation"
+title: "Demo de Terminal SIFAP — Arqueologia do Estágio 1"
+description: "Demo interativa de terminal que simula o sistema SIFAP legado para a apresentação do facilitador no Estágio 1 (Arqueologia Digital)"
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-25"
 version: "1.1.0"
@@ -10,25 +10,25 @@ tags: ["demo", "sifap", "legacy", "stage-1", "archaeology", "facilitator"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-# SIFAP Terminal Demo
+# Demo de Terminal SIFAP
 
-> Interactive demo materials for facilitating the Stage 1 (Archaeology) presentation. The HTML simulator reproduces the legacy SIFAP terminal experience for live demonstrations.
+> Materiais de demo interativa para facilitar a apresentação do Estágio 1 (Arqueologia). O simulador HTML reproduz a experiência do terminal legado do SIFAP para demonstrações ao vivo.
 
-## Contents
+## Conteúdo
 
-| File                            | Purpose                                                                |
+| Arquivo                         | Propósito                                                              |
 | ------------------------------- | ---------------------------------------------------------------------- |
-| `sifap-terminal.html`           | Standalone interactive terminal simulator (v1.1)                       |
-| `sifap-terminal-demo-script.md` | Scene-by-scene demo script with commands, screen output, and narration |
+| `sifap-terminal.html`           | Simulador de terminal interativo standalone (v1.1)                     |
+| `sifap-terminal-demo-script.md` | Roteiro de demo cena a cena com comandos, saída de tela e narração     |
 
-## Usage
+## Uso
 
-1. Open `sifap-terminal.html` in a browser and project on screen
-2. Follow the script in `sifap-terminal-demo-script.md`
-3. Duration: 18–22 min (full) or 8–10 min (short version)
+1. Abra `sifap-terminal.html` em um navegador e projete na tela
+2. Siga o roteiro em `sifap-terminal-demo-script.md`
+3. Duração: 18–22 min (completo) ou 8–10 min (versão curta)
 
-## Navigation
+## Navegação
 
-| ← Parent                             | Home                              |
+| ← Pai                                | Início                            |
 | ------------------------------------ | --------------------------------- |
-| [02 — Legacy Scenario](../README.md) | [Workspace Root](../../README.md) |
+| [02 — Cenário Legado](../README.md)  | [Raiz do Workspace](../../README.md) |

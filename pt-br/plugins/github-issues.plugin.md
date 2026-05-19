@@ -1,69 +1,91 @@
 ---
 name: GitHub Issues
 type: plugin
-description: "Create and sync GitHub issues from SDD specification tasks. Bulk-create issues from TASKS.md, maintain REQ-ID traceability, manage labels and milestones."
-audience: persona-kits (all roles)
+description: "Cria e sincroniza issues do GitHub a partir de tarefas de especificação SDD. Cria issues em lote a partir de TASKS.md, mantém a rastreabilidade por REQ-ID e gerencia labels e milestones."
+audience: persona-kits (todas as funções)
 ---
 
-# GitHub Issues Plugin
+# Plugin do GitHub Issues
 
-## What it does
-Create and sync GitHub issues from SDD specification tasks. Bulk-create issues from TASKS.md, maintain REQ-ID traceability, manage labels and milestones.
+## O que ele faz
 
-## Use this plugin when
-- Creating issues from TASKS.md
-- Syncing SDD artefacts to a GitHub project board
-- Opening a set of issues for parallel team work in the workshop
+Cria e sincroniza issues do GitHub a partir de tarefas de especificação SDD.
+Cria issues em lote a partir de TASKS.md, mantém a rastreabilidade por REQ-ID e
+gerencia labels e milestones.
 
-## Tools provided
+## Use este plugin quando
+
+- Criar issues a partir de TASKS.md
+- Sincronizar artefatos SDD com um quadro de projeto do GitHub
+- Abrir um conjunto de issues para trabalho em equipe em paralelo no workshop
+
+## Ferramentas fornecidas
 
 ### `create_issue`
-Create a single GitHub issue from a task description.
+
+Cria uma única issue do GitHub a partir de uma descrição de tarefa.
 
 ### `create_issues_from_tasks`
-Parse TASKS.md and bulk-create an issue per task, preserving REQ-ID traceability in the body.
+
+Analisa TASKS.md e cria issues em lote, uma por tarefa, preservando a
+rastreabilidade por REQ-ID no corpo.
 
 ### `add_labels`
-Add labels (persona role, priority, area) to an existing issue.
+
+Adiciona labels (função da persona, prioridade, área) a uma issue existente.
 
 ### `link_issues`
-Add `Depends on #N` references between issues to mirror task dependencies.
+
+Adiciona referências `Depends on #N` entre issues para espelhar dependências de
+tarefas.
 
 ### `move_to_milestone`
-Attach issues to a milestone (e.g., 'Stage 3 - Implementation').
 
-## Configuration
+Vincula issues a uma milestone (por exemplo, 'Estágio 3 - Implementação').
 
-### Required configuration
-- `repo`: `owner/repo` target of issue creation.
-- `github_token`: PAT with `issues:write` scope (use `GITHUB_TOKEN` env var, never inline).
-- `tasks_file`: path to `TASKS.md` (default `specs/001-*/TASKS.md`).
+## Configuração
 
-### Optional configuration
-- `label_map`: mapping of persona folder to label (e.g., `01-product-owner` -> `role/po`).
-- `milestone`: milestone to attach.
-- `dry_run`: preview without creating (default `true`).
+### Configuração obrigatória
 
-## Usage pattern
+- `repo`: destino `owner/repo` para criação de issues.
+- `github_token`: PAT com escopo `issues:write` (use a env var
+  `GITHUB_TOKEN`, nunca inline).
+- `tasks_file`: caminho para `TASKS.md` (padrão `specs/001-*/TASKS.md`).
+
+### Configuração opcional
+
+- `label_map`: mapeamento de pasta de persona para label (por exemplo,
+  `01-product-owner` -> `role/po`).
+- `milestone`: milestone a vincular.
+- `dry_run`: pré-visualização sem criar (padrão `true`).
+
+## Padrão de uso
 
 ```text
 @copilot using github-issues plugin, sync TASKS.md to <target>.
 ```
 
-Copilot invokes the plugin, the plugin reads the markdown source of truth, and applies changes to the target system.
+O Copilot invoca o plugin, o plugin lê a fonte da verdade em markdown e aplica
+as mudanças ao sistema de destino.
 
-## Security
+## Segurança
 
-- Always read credentials from environment variables. Never inline a PAT in a prompt or config file committed to the repo.
-- Default `dry_run` to `true`. Only set to `false` after previewing output.
-- Every operation logs the REQ-ID trace it acted on, so you can correlate changes with specification history.
+- Sempre leia credenciais de variáveis de ambiente. Nunca coloque um PAT inline
+  em um prompt ou arquivo de configuração commitado no repo.
+- Mantenha `dry_run` como `true` por padrão. Só defina como `false` depois de
+  pré-visualizar a saída.
+- Toda operação registra a trilha REQ-ID em que atuou, para que você possa
+  correlacionar mudanças com o histórico da especificação.
 
-## Anti-patterns
+## Antipadrões
 
-- Using the plugin as the source of truth. The source of truth lives in markdown under `specs/`; the plugin is a sync mechanism.
-- Running with `dry_run: false` before reviewing the preview.
-- Committing PATs to the repo.
+- Usar o plugin como fonte da verdade. A fonte da verdade vive em markdown sob
+  `specs/`; o plugin é um mecanismo de sincronização.
+- Executar com `dry_run: false` antes de revisar a pré-visualização.
+- Commitar PATs no repo.
 
-## Quality gate
+## Gate de qualidade
 
-Every sync must preserve REQ-ID traceability. If a target system cannot store the REQ-ID (legacy tracker), the plugin refuses to run.
+Toda sincronização deve preservar a rastreabilidade por REQ-ID. Se um sistema de
+destino não puder armazenar o REQ-ID (rastreador legado), o plugin se recusa a
+executar.

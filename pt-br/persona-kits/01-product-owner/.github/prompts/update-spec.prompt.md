@@ -1,20 +1,20 @@
 ---
 mode: ask
 model: claude-opus-4-6
-description: "Update SPECIFICATION.md for new or changed feature. Use before implementation."
+description: "Atualize SPECIFICATION.md para uma feature nova ou alterada. Use antes da implementação."
 ---
 
 # /update-spec
 
-## Steps
-1. Read current SPECIFICATION.md
-2. Read CONSTITUTION.md for constraints
-3. Identify section to update
-4. Preserve unchanged requirements
-5. Add/modify requirements for new feature
-6. Update version in frontmatter
+## Passos
+1. Leia o SPECIFICATION.md atual
+2. Leia CONSTITUTION.md para entender restrições
+3. Identifique a seção a atualizar
+4. Preserve requisitos inalterados
+5. Adicione/modifique requisitos para a nova feature
+6. Atualize a versão no frontmatter
 
-## Quality Gate
-- [ ] New requirements have acceptance criteria
-- [ ] No existing requirements accidentally removed
-- [ ] CONSTITUTION.md constraints respected
+## Gate de Qualidade
+- [ ] Novos requisitos têm critérios de aceitação
+- [ ] Nenhum requisito existente foi removido acidentalmente
+- [ ] Restrições de CONSTITUTION.md respeitadas

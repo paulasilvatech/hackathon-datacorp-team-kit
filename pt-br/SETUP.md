@@ -34,10 +34,10 @@ tags:
 
 - [📋 Antes de Começar — Modelo Mental](#-antes-de-começar--modelo-mental)
 - [✅ Passo 1 — Verifique se seu laptop tem os pré-requisitos](#-passo-1--verifique-se-seu-laptop-tem-os-pré-requisitos)
-- [👥 Passo 2 — Crie o repositório GitHub do time (somente lead)](#-passo-2--crie-o-repositório-github-do-time-somente-lead)
-- [📥 Passo 3 — Faça o bootstrap do repositório do time a partir deste kit (somente lead)](#-passo-3--faça-o-bootstrap-do-repositório-do-time-a-partir-deste-kit-somente-lead)
-- [🛡️ Passo 4 — Proteja a branch `main` (somente lead)](#%EF%B8%8F-passo-4--proteja-a-branch-main-somente-lead)
-- [🎟️ Passo 5 — Adicione os outros 4 membros do time (somente lead)](#%EF%B8%8F-passo-5--adicione-os-outros-4-membros-do-time-somente-lead)
+- [👥 Passo 2 — Crie o repositório GitHub do time (somente líder)](#-passo-2--crie-o-repositório-github-do-time-somente-líder)
+- [📥 Passo 3 — Faça o bootstrap do repositório do time a partir deste kit (somente líder)](#-passo-3--faça-o-bootstrap-do-repositório-do-time-a-partir-deste-kit-somente-líder)
+- [🛡️ Passo 4 — Proteja a branch `main` (somente líder)](#%EF%B8%8F-passo-4--proteja-a-branch-main-somente-líder)
+- [🎟️ Passo 5 — Adicione os outros 4 membros do time (somente líder)](#%EF%B8%8F-passo-5--adicione-os-outros-4-membros-do-time-somente-líder)
 - [💻 Passo 6 — Cada membro clona o repositório do time](#-passo-6--cada-membro-clona-o-repositório-do-time)
 - [🤖 Passo 7 — Ative o GitHub Copilot no VS Code (todos)](#-passo-7--ative-o-github-copilot-no-vs-code-todos)
 - [🎭 Passo 8 — Instale o kit Copilot da sua persona (todos)](#-passo-8--instale-o-kit-copilot-da-sua-persona-todos)
@@ -45,8 +45,8 @@ tags:
 - [🎯 Passo 10 — Use o fluxo Spec-Kit (todos)](#-passo-10--use-o-fluxo-spec-kit-todos)
 - [🌿 Passo 11 — Entenda a estratégia de branches](#-passo-11--entenda-a-estratégia-de-branches)
 - [🔄 Passo 12 — Fluxo diário por persona](#-passo-12--fluxo-diário-por-persona)
-- [🚦 Passo 13 — Rode o smoke test (time inteiro, às 09:30)](#-passo-13--rode-o-smoke-test-time-inteiro-às-0930)
-- [🆘 Troubleshooting](#-troubleshooting)
+- [🚦 Passo 13 — Rode o teste de fumaça (time inteiro, às 09:30)](#-passo-13--rode-o-teste-de-fumaça-time-inteiro-às-0930)
+- [🆘 Solução de problemas](#-solução-de-problemas)
 
 ---
 
@@ -56,16 +56,16 @@ Você vai terminar com **3 repositórios no seu laptop**:
 
 ```
 ~/Code/
-├── kit/                            (this team-kit, READ-ONLY reference)
-├── reference/sifap-legacy/         (legacy SIFAP code, READ-ONLY reference)
-└── hackathon-team-XX/              (YOUR team's working repo — where you commit)
+├── kit/                            (este team-kit, referência SOMENTE LEITURA)
+├── reference/sifap-legacy/         (código SIFAP legado, referência SOMENTE LEITURA)
+└── hackathon-team-XX/              (repositório de trabalho do SEU time — onde você commita)
 ```
 
-| Repo                | O que você faz com ele                                       | Onde ele fica                                                        |
+| Repositório         | O que você faz com ele                                       | Onde ele fica                                                        |
 | ------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------- |
-| `team-kit`          | Você lê a documentação e copia partes dele uma vez no início | github.com/paulasilvatech/hackathon-datacorp-team-kit (public)       |
-| `sifap-legacy`      | Você lê durante o Stage 1 — nunca edita                      | github.com/paulasilvatech/sifap-legacy (public)                      |
-| `hackathon-team-XX` | **Todo o seu trabalho vai aqui**                             | github.com/<YOUR_GITHUB_USER>/hackathon-team-XX (private, você cria) |
+| `team-kit`          | Você lê a documentação e copia partes dele uma vez no início | github.com/paulasilvatech/hackathon-datacorp-team-kit (público)      |
+| `sifap-legacy`      | Você lê durante o Estágio 1 — nunca edita                    | github.com/paulasilvatech/sifap-legacy (público)                     |
+| `hackathon-team-XX` | **Todo o seu trabalho vai aqui**                             | github.com/<YOUR_GITHUB_USER>/hackathon-team-XX (privado, você cria) |
 
 > **Regra-chave.** Nunca faça push para o kit ou para o sifap-legacy. Os commits do seu time vão somente para `hackathon-team-XX`.
 
@@ -78,7 +78,7 @@ Você vai terminar com **3 repositórios no seu laptop**:
 | Ferramenta         | Versão mínima | Como verificar                           | Se estiver faltando                                 |
 | ------------------ | ------------- | ---------------------------------------- | --------------------------------------------------- |
 | **Git**            | 2.40+         | Abra um terminal, digite `git --version` | <https://git-scm.com/downloads>                     |
-| **Conta GitHub**   | —             | Acesse github.com e faça sign in         | <https://github.com/signup>                         |
+| **Conta GitHub**   | —             | Acesse github.com e faça login           | <https://github.com/signup>                         |
 | **GitHub CLI**     | 2.40+         | `gh --version`                           | <https://cli.github.com>                            |
 | **VS Code**        | 1.93+         | Abra o VS Code, **Help → About**         | <https://code.visualstudio.com/download>            |
 | **Docker Desktop** | 4.30+         | `docker --version` E abra o app Docker   | <https://www.docker.com/products/docker-desktop>    |
@@ -95,39 +95,43 @@ Você vai terminar com **3 repositórios no seu laptop**:
 
 ---
 
-## 👥 Passo 2 — Crie o repositório GitHub do time (somente lead)
+## 👥 Passo 2 — Crie o repositório GitHub do time (somente líder)
 
-**Escolham uma pessoa para ser o team lead** (normalmente quem cobre a persona Technical Lead no Par 3). Somente o lead faz os Passos 2 a 5. As outras 4 pessoas aguardam e seguem a partir do Passo 6.
+**Escolham uma pessoa para ser líder do time** (normalmente quem cobre a persona Technical Lead no Par 3). Somente a pessoa líder faz os Passos 2 a 5. As outras 4 pessoas aguardam e seguem a partir do Passo 6.
 
 ### Opção A — usando o site (mais fácil para iniciantes)
 
 1. Abra <https://github.com/new> no navegador.
 2. Preencha:
-   - **Owner**: **seu próprio usuário GitHub** (**não** escolha `paulasilvatech` — os times não têm permissão de admin lá). Se o seu time tiver uma organização GitHub própria e você for admin dela, pode usá-la.
-   - **Repository name**: `hackathon-team-XX` (substitua XX pelo número do seu time, por exemplo, `hackathon-team-01`)
-   - **Description**: `Hackathon DATACORP 2026 — Team XX`
-   - **Visibility**: **Private** ✅
+
+- **Proprietário**: **seu próprio usuário GitHub** (**não** escolha `paulasilvatech` — os times não têm permissão de admin lá). Se o seu time tiver uma organização GitHub própria e você for admin dela, pode usá-la.
+- **Nome do repositório**: `hackathon-team-XX` (substitua XX pelo número do seu time, por exemplo, `hackathon-team-01`)
+- **Descrição**: `Hackathon DATACORP 2026 — Team XX`
+- **Visibilidade**: **Privado** ✅
+
 3. **NÃO** marque nenhuma caixa de inicialização. Deixe todas desmarcadas:
-   - ❌ Add a README file
-   - ❌ Add .gitignore
-   - ❌ Choose a license
-4. Clique no botão verde **Create repository**.
 
-> **Por que vazio?** No Passo 3, o lead vai enviar todo o conteúdo do team-kit como primeiro commit. Começar vazio evita conflitos de merge.
+- ❌ Adicionar um arquivo README
+- ❌ Adicionar .gitignore
+- ❌ Escolher uma licença
 
-Você agora deve ver a página "Quick setup" do GitHub com instruções de push. Mantenha essa aba aberta.
+4. Clique no botão verde **Criar repositório**.
+
+> **Por que vazio?** No Passo 3, a pessoa líder vai enviar todo o conteúdo do team-kit como primeiro commit. Começar vazio evita conflitos de merge.
+
+Você agora deve ver a página de "configuração rápida" do GitHub com instruções de push. Mantenha essa aba aberta.
 
 ### Opção B — usando a GitHub CLI (mais rápido, mas exige mais digitação)
 
 Abra um terminal e rode:
 
 ```bash
-# Sign in once per laptop — opens a browser to authorize
+# Faça login uma vez por laptop — abre o navegador para autorizar
 gh auth login
 
-# Create the repo (replace 01 with your team number)
-# Use just the repo name — no owner prefix. Creates the repo under YOUR GitHub user.
-# The repo must be empty (no --add-readme) so the bootstrap push in Step 3 works.
+# Crie o repositório (troque 01 pelo número do seu time)
+# Use apenas o nome do repositório — sem prefixo de owner. Cria o repositório no SEU usuário GitHub.
+# O repositório precisa estar vazio (sem --add-readme) para o push de bootstrap do Passo 3 funcionar.
 gh repo create hackathon-team-01 \
   --private \
   --description "Hackathon DATACORP 2026 — Team 01"
@@ -137,25 +141,25 @@ Se o comando imprimir uma URL terminando em `hackathon-team-01`, está pronto.
 
 ---
 
-## 📥 Passo 3 — Faça o bootstrap do repositório do time a partir deste kit (somente lead)
+## 📥 Passo 3 — Faça o bootstrap do repositório do time a partir deste kit (somente líder)
 
 Agora copiamos tudo deste team-kit para o repositório vazio do time, para que vocês tenham todos os templates, personas, scripts e workflows de CI prontos.
 
 ```bash
-# 1. Pick a folder for all your code
+# 1. Escolha uma pasta para todo o seu código
 mkdir -p ~/Code && cd ~/Code
 
-# 2. Clone this team kit (read-only reference)
+# 2. Clone este kit do time (referência somente leitura)
 git clone https://github.com/paulasilvatech/hackathon-datacorp-team-kit.git kit
 
-# 3. Create a local repo from the kit (excluding kit's git history)
+# 3. Crie um repositório local a partir do kit (sem o histórico Git do kit)
 cp -R kit hackathon-team-01
 cd hackathon-team-01
 rm -rf .git
 git init -b main
 git remote add origin https://github.com/<YOUR_GITHUB_USER>/hackathon-team-01.git
 
-# 4. Make scripts executable (one-time fix)
+# 4. Torne os scripts executáveis (ajuste único)
 chmod +x scripts/*.sh
 ```
 
@@ -167,7 +171,7 @@ Isso clona o repositório read-only `sifap-legacy` dentro de `reference/`, cria 
 ./scripts/setup.sh
 ```
 
-Se terminar com **"Done."** e listar "Next steps", está tudo certo. Se der erro, veja a seção [Troubleshooting](#-troubleshooting).
+Se terminar com **"Done."** e listar "Next steps", está tudo certo. Se der erro, veja a seção [Solução de problemas](#-solução-de-problemas).
 
 ### Primeiro commit e push
 
@@ -188,11 +192,11 @@ git checkout -b develop
 git push -u origin develop
 ```
 
-`develop` é onde as branches de feature de todo mundo serão integradas. Promoções para `main` acontecem via PR depois de cada estágio.
+`develop` é onde as branches de funcionalidade de todo mundo serão integradas. Promoções para `main` acontecem via PR depois de cada estágio.
 
 ---
 
-## 🛡️ Passo 4 — Proteja a branch `main` (somente lead)
+## 🛡️ Passo 4 — Proteja a branch `main` (somente líder)
 
 Isso impede que qualquer pessoa (exceto o admin do repositório) faça push direto para `main`. Toda mudança deve passar por um Pull Request.
 
@@ -202,7 +206,7 @@ Isso impede que qualquer pessoa (exceto o admin do repositório) faça push dire
 
 1. Vá para **Settings** → **Branches** (barra lateral esquerda).
 2. Em **Branch protection rules**, clique em **Add rule**.
-3. Branch name pattern: `main`
+3. Padrão de nome da branch: `main`
 4. Marque:
    - **Require a pull request before merging** ✅
    - **Require approvals** — defina como `1`
@@ -232,19 +236,19 @@ JSON
 
 ---
 
-## 🎟️ Passo 5 — Adicione os outros 4 membros do time (somente lead)
+## 🎟️ Passo 5 — Adicione os outros 4 membros do time (somente líder)
 
-O lead convida o restante do time para que todo mundo possa fazer push e pull.
+A pessoa líder convida o restante do time para que todo mundo possa fazer push e pull.
 
 ### Opção A — usando o site
 
 1. Vá para o repositório no GitHub: `https://github.com/<YOUR_GITHUB_USER>/hackathon-team-XX`
-2. Clique em **Settings** (aba superior — exige permissão de admin, que o lead tem).
+2. Clique em **Settings** (aba superior — exige permissão de admin, que a pessoa líder tem).
 3. Na barra lateral esquerda, clique em **Collaborators**.
 4. Clique em **Add people**.
 5. Digite o usuário GitHub (por exemplo, `alice-builder`) e escolha na lista.
-6. **Choose the role**: escolha **Write** (não Admin, não Read).
-7. Clique em **Add ... to this repository**.
+6. **Escolha o papel**: escolha **Write** (não Admin, não Read).
+7. Clique em **Adicionar ... a este repositório**.
 8. Repita para as outras 3 pessoas.
 
 > **Dica.** Cada pessoa convidada recebe um email e uma notificação dentro do GitHub. Ela precisa clicar em **Accept invitation** antes de conseguir fazer push.
@@ -254,7 +258,7 @@ O lead convida o restante do time para que todo mundo possa fazer push e pull.
 Uma vez por colega:
 
 ```bash
-# Replace alice with the actual GitHub username
+# Substitua alice pelo usuário GitHub real
 gh api -X PUT "repos/<YOUR_GITHUB_USER>/hackathon-team-01/collaborators/alice" \
   -f permission=write
 ```
@@ -284,11 +288,11 @@ done
 ```bash
 mkdir -p ~/Code && cd ~/Code
 
-# Replace 01 with your actual team number, and <YOUR_GITHUB_USER> with the lead's username
+# Substitua 01 pelo número real do seu time e <YOUR_GITHUB_USER> pelo usuário da pessoa líder
 git clone https://github.com/<YOUR_GITHUB_USER>/hackathon-team-01.git
 cd hackathon-team-01
 
-# Switch to the develop branch (where day-to-day work happens)
+# Mude para a branch develop (onde o trabalho diário acontece)
 git checkout develop
 ```
 
@@ -309,7 +313,7 @@ O repositório inclui `.devcontainer/devcontainer.json`. O dev container tem Jav
 
 ### 6.5 Faça o bootstrap também na sua máquina
 
-Mesmo que o lead já tenha feito o bootstrap do repositório, cada membro precisa materializar localmente o symlink `legacy/`:
+Mesmo que a pessoa líder já tenha feito o bootstrap do repositório, cada membro precisa materializar localmente o symlink `legacy/`:
 
 ```bash
 ./scripts/setup.sh
@@ -321,7 +325,7 @@ Mesmo que o lead já tenha feito o bootstrap do repositório, cada membro precis
 
 Cada pessoa faz isto no próprio laptop.
 
-### 7.1 Faça sign in
+### 7.1 Faça login
 
 1. No VS Code, olhe para a barra de status inferior. Clique no ícone do **Copilot** (🤖).
 2. Escolha **Sign in with GitHub**.
@@ -345,19 +349,19 @@ No topo do painel de chat há um dropdown:
 | --------- | ---------------------------------------------------------------- |
 | **Ask**   | Fazer perguntas, explorar código, discutir opções                |
 | **Plan**  | Planejar mudanças multi-arquivo antes da execução                |
-| **Agent** | Delegar uma feature inteira via Issue e depois revisar o PR      |
+| **Agent** | Delegar uma funcionalidade inteira via Issue e depois revisar o PR |
 
 Clique no dropdown para confirmar que os três aparecem. Se **Plan** ou **Agent** não aparecerem, atualize o VS Code para uma versão recente ou use VS Code Insiders, que sempre tem o mais novo primeiro.
 
-### 7.4 Smoke test do Copilot
+### 7.4 Teste de fumaça do Copilot
 
 No painel de Chat, digite:
 
 ```
-What stack are we using on this project?
+Qual stack estamos usando neste projeto?
 ```
 
-Ele deve responder com **Java 21 + Spring Boot 3.3 + Next.js 15 + PostgreSQL 16**. Se não responder, o arquivo `.github/copilot-instructions.md` do projeto não está sendo carregado — veja [Troubleshooting](#-troubleshooting).
+Ele deve responder com **Java 21 + Spring Boot 3.3 + Next.js 15 + PostgreSQL 16**. Se não responder, o arquivo `.github/copilot-instructions.md` do projeto não está sendo carregado — veja [Solução de problemas](#-solução-de-problemas).
 
 ---
 
@@ -378,7 +382,7 @@ Abra `persona-kits/` no VS Code. Você verá 10 pastas, numeradas de 01 a 10. De
 
 Cada persona fica inteiramente consolidada em `persona-kits/<role>/`. A mesma pasta contém a carta da persona e o kit Copilot:
 
-- `PERSONA.md` — responsabilidades, handoffs, prompts de exemplo e rubrica do papel
+- `PERSONA.md` — responsabilidades, passagems, prompts de exemplo e rubrica do papel
 - `.github/agents/<role>.agent.md` — agente Copilot pré-configurado
 - `.github/prompts/<command>.prompt.md` — slash commands para tarefas recorrentes
 - `.github/skills/<skill>/SKILL.md` — modelos mentais reutilizáveis
@@ -387,8 +391,8 @@ Cada persona fica inteiramente consolidada em `persona-kits/<role>/`. A mesma pa
 Para instalar seu kit, copie o conteúdo de `.github/` dele para `.github/` no repositório do time:
 
 ```bash
-# Replace XX-your-role with your actual persona id
-# e.g., 06-developer, 09-devops-engineer, 10-tech-writer
+# Substitua XX-your-role pelo ID real da sua persona
+# por exemplo, 06-developer, 09-devops-engineer, 10-tech-writer
 cp -r persona-kits/XX-your-role/.github/* .github/
 
 # If your kit has mcp.json, copy it into .vscode/
@@ -416,7 +420,7 @@ As 10 personas cobertas pelas 5 pessoas do time estão nestes 10 kits:
 
 ### 8.4 Atualize o `copilot-instructions.md` do time
 
-Depois que cada persona instalar seu kit, o **team lead** atualiza o arquivo `.github/copilot-instructions.md` com os nomes de todo mundo. Encontre esta seção:
+Depois que cada persona instalar seu kit, a **pessoa líder do time** atualiza o arquivo `.github/copilot-instructions.md` com os nomes de todo mundo. Encontre esta seção:
 
 ```markdown
 ## Active Personas on This Team
@@ -441,7 +445,7 @@ Faça commit e push para `develop`. Agora as sugestões do Copilot sabem quem es
 
 ## 📐 Passo 9 — Instale o Spec-Kit (todos)
 
-[**Spec-Kit**](https://github.com/github/spec-kit) é o toolkit oficial do GitHub para desenvolvimento orientado por especificação. Use para **rascunhos rápidos de features** no Stage 2.
+[**Spec-Kit**](https://github.com/github/spec-kit) é o toolkit oficial do GitHub para desenvolvimento orientado por especificação. Use para **rascunhos rápidos de funcionalidades** no Estágio 2.
 
 ### 9.1 Instale o Specify CLI no seu laptop
 
@@ -469,19 +473,19 @@ Depois de recarregar o VS Code, os comandos principais devem aparecer no painel 
 | Comando | Quando usar |
 | --- | --- |
 | `/speckit.constitution` | Define princípios, padrões e gates do projeto |
-| `/speckit.specify` | Cria a spec da feature |
+| `/speckit.specify` | Cria a spec da funcionalidade |
 | `/speckit.clarify` | Resolve ambiguidades antes do plano |
 | `/speckit.plan` | Cria o plano técnico |
 | `/speckit.tasks` | Gera tasks implementáveis |
 | `/speckit.analyze` | Checa consistência e cobertura |
-| `/speckit.implement` | Implementa a feature guiada pela spec |
+| `/speckit.implement` | Implementa a funcionalidade guiada pela spec |
 
-### 9.4 Escreva uma feature
+### 9.4 Escreva uma funcionalidade
 
 No Copilot Chat:
 
 ```text
-/speckit.specify Allow operators to generate a monthly payment cycle for active beneficiaries. Preserve legacy traceability with source_legacy for every requirement.
+/speckit.specify Permitir que operadores gerem um ciclo mensal de pagamento para beneficiários ativos. Preserve a rastreabilidade legada com source_legacy em cada requisito.
 ```
 
 O Spec-Kit cria uma branch numerada e a estrutura:
@@ -496,7 +500,7 @@ Em seguida, rode:
 
 ```text
 /speckit.clarify
-/speckit.plan Use Java 21, Spring Boot 3.3, PostgreSQL 16, Next.js 15 and the modular monolith architecture from the workshop.
+/speckit.plan Use Java 21, Spring Boot 3.3, PostgreSQL 16, Next.js 15 e a arquitetura de monólito modular do workshop.
 /speckit.tasks
 ```
 
@@ -529,11 +533,11 @@ Para o workshop, use esta sequência única do Spec-Kit:
 Seu time tem **5 categorias de branches**. Use o tipo certo para o trabalho certo.
 
 ```
-main                    ← release-ready, protected, 1 reviewer required
-develop                 ← integration of all features
-spec/NNN-feature        ← Specification work (Stage 2)
-impl/NNN-feature        ← Implementation work (Stage 3)
-infra/NNN-azure         ← Infrastructure work (Stage 4)
+main                    ← pronto para release, protegido, exige 1 revisão
+develop                 ← integração de todas as funcionalidades
+spec/NNN-feature        ← trabalho de especificação (Estágio 2)
+impl/NNN-feature        ← trabalho de implementação (Estágio 3)
+infra/NNN-azure         ← trabalho de infraestrutura (Estágio 4)
 ```
 
 ### Convenção de nomes
@@ -541,26 +545,26 @@ infra/NNN-azure         ← Infrastructure work (Stage 4)
 | Tipo           | Padrão                 | Exemplo                             |
 | -------------- | ---------------------- | ----------------------------------- |
 | Spec           | `spec/NNN-kebab-name`  | `spec/001-payment-cycle-generation` |
-| Implementation | `impl/NNN-kebab-name`  | `impl/001-payment-cycle-generation` |
+| Implementação  | `impl/NNN-kebab-name`  | `impl/001-payment-cycle-generation` |
 | Infrastructure | `infra/NNN-kebab-name` | `infra/001-azure-deployment`        |
 
-`NNN` é o número da feature (corresponde à pasta em `specs/NNN-...`).
+`NNN` é o número da funcionalidade (corresponde à pasta em `specs/NNN-...`).
 
-### Criando uma branch de feature
+### Criando uma branch de funcionalidade
 
 ```bash
-# Make sure you're on develop with latest changes
+# Garanta que você está em develop com as mudanças mais recentes
 git checkout develop
 git pull
 
-# Create your feature branch
+# Crie sua branch de funcionalidade
 git checkout -b spec/001-payment-cycle-generation
 
-# Work, commit
+# Trabalhe e faça commit
 git add -A
 git commit -m "feat(payments): draft EARS requirements for cycle generation"
 
-# Push to origin
+# Envie para origin
 git push -u origin spec/001-payment-cycle-generation
 ```
 
@@ -569,133 +573,135 @@ git push -u origin spec/001-payment-cycle-generation
 1. Depois do push, o GitHub imprime uma URL como `https://github.com/.../pull/new/spec/001-...`. Clique nela (ou cole no navegador).
 2. Título: use Conventional Commits — `feat(payments): add cycle generation spec`
 3. Descrição: o GitHub carrega automaticamente o template (`.github/PULL_REQUEST_TEMPLATE.md`). Preencha:
-   - **What changed** (um parágrafo)
-   - **REQ-IDs implemented** (por exemplo, `REQ-PAY-014, REQ-PAY-015`)
-   - **How to test** (o reviewer faz pull e roda isto)
-   - **Linked issues** (por exemplo, `Closes #12`)
-4. **Reviewers**: adicione pelo menos uma pessoa de outra persona.
+
+- **O que mudou** (um parágrafo)
+- **REQ-IDs implementados** (por exemplo, `REQ-PAY-014, REQ-PAY-015`)
+- **Como testar** (a pessoa revisora faz pull e roda isto)
+- **Issues vinculadas** (por exemplo, `Closes #12`)
+
+4. **Pessoas revisoras**: adicione pelo menos uma pessoa de outra persona.
 5. Clique em **Create pull request**.
-6. O CI roda (workflow `.github/workflows/ci.yml`). Aguarde o check verde.
+6. O CI roda (workflow `.github/workflows/ci.yml`). Aguarde a verificação verde.
 7. Depois da aprovação, clique em **Rebase and merge** (não Merge commit, não Squash).
-8. Delete a branch de feature quando solicitado.
+8. Delete a branch de funcionalidade quando solicitado.
 
 ---
 
 ## 🔄 Passo 12 — Fluxo diário por persona
 
-Cada persona tem um **loop diário padrão**. Rode-o quantas vezes forem necessárias durante o dia.
+Cada persona tem um **ciclo diário padrão**. Rode-o quantas vezes forem necessárias durante o dia.
 
 ### 🧠 Product Owner / Requirements Engineer
 
 ```
-1. Read the Stage 1 findings (glossary, business rules catalog)
-2. Run /speckit.specify "feature-name" with source_legacy guidance
-3. Run /speckit.clarify and validate with stakeholder personas (PO + EA)
-4. Run /speckit.plan with the workshop stack and architecture choices
-5. Run /speckit.tasks after the plan is approved
-6. Open a PR on branch spec/NNN-feature-name
-7. Hand off to Software Architect (LGTM gate)
+1. Leia os achados do Estágio 1 (glossário, catálogo de regras de negócio)
+2. Rode /speckit.specify "feature-name" com orientação de source_legacy
+3. Rode /speckit.clarify e valide com personas stakeholder (PO + EA)
+4. Rode /speckit.plan com a stack do workshop e as escolhas arquiteturais
+5. Rode /speckit.tasks depois que o plano for aprovado
+6. Abra um PR na branch spec/NNN-feature-name
+7. Faça passagem para Software Architect (gate LGTM)
 ```
 
 ### 🏗️ Enterprise Architect / Software Architect
 
 ```
-1. Pull latest develop
-2. git checkout spec/NNN-feature-name (read the EARS spec)
-3. Run /speckit.plan → produces plan.md, research.md and contracts
-4. Add ADRs in docs/adr/ for non-trivial decisions
-5. Open a PR — review the spec PR's design section
-6. Hand off to Tech Lead (LGTM gate)
+1. Faça pull do develop mais recente
+2. git checkout spec/NNN-feature-name (leia a spec EARS)
+3. Rode /speckit.plan → produz plan.md, research.md e contracts
+4. Adicione ADRs em docs/adr/ para decisões não triviais
+5. Abra um PR — revise a seção de design do PR da spec
+6. Faça passagem para Tech Lead (gate LGTM)
 ```
 
 ### 🧠 Technical Lead
 
 ```
-1. Read the approved `plan.md` and ADRs
-2. Run /speckit.tasks → produces tasks.md with task IDs (T001, T002, ...)
-3. Open a GitHub Issue per task using .github/ISSUE_TEMPLATE/task.yml
-4. Assign each issue to a Developer / DBA / QA
-5. Watch CI green/red, unblock people
+1. Leia o `plan.md` aprovado e os ADRs
+2. Rode /speckit.tasks → produz tasks.md com IDs de tarefa (T001, T002, ...)
+3. Abra uma GitHub Issue por tarefa usando .github/ISSUE_TEMPLATE/task.yml
+4. Atribua cada issue a Developer / DBA / QA
+5. Acompanhe CI verde/vermelho e desbloqueie pessoas
 ```
 
 ### 💻 Developer
 
 ```
-1. Pick a task issue (T-NNN) from the team board
-2. git checkout -b impl/NNN-task-name (from develop)
-3. In Copilot, run /implement (your prompt is in 06-developer/.github/prompts/)
-4. Tests first (red), code (green), refactor
-5. ./scripts/check.sh (mirrors CI)
-6. git commit, git push, open PR
-7. Tag the issue with "Closes #NN" in the PR body
+1. Escolha uma issue de tarefa (T-NNN) no board do time
+2. git checkout -b impl/NNN-task-name (a partir de develop)
+3. No Copilot, rode /implement (seu prompt está em 06-developer/.github/prompts/)
+4. Testes primeiro (vermelho), código (verde), refatoração
+5. ./scripts/check.sh (espelha o CI)
+6. git commit, git push, abra PR
+7. Marque a issue com "Closes #NN" no corpo do PR
 ```
 
 ### 🗃️ DBA
 
 ```
-1. Pick a schema/migration task
+1. Escolha uma tarefa de schema/migração
 2. git checkout -b impl/NNN-migration-name
-3. Add Flyway migration in backend/src/main/resources/db/migration/
-4. Run /migration prompt (in 07-dba/.github/prompts/)
-5. Test locally with docker compose up
-6. Open PR, request Developer review
+3. Adicione a migração Flyway em backend/src/main/resources/db/migration/
+4. Rode o prompt /migration (em 07-dba/.github/prompts/)
+5. Teste localmente com docker compose up
+6. Abra PR e peça revisão de Developer
 ```
 
 ### 🧪 QA Engineer
 
 ```
-1. Watch every implementation PR
-2. Run /coverage-gaps prompt to find uncovered REQ-IDs
-3. Add tests on the implementation branch (pair with Developer)
-4. /test-strategy prompt produces a test plan for new features
-5. Block merge if coverage drops below 70%
+1. Acompanhe todo PR de implementação
+2. Rode o prompt /coverage-gaps para encontrar REQ-IDs sem cobertura
+3. Adicione testes na branch de implementação (em par com Developer)
+4. O prompt /test-strategy produz um plano de testes para novas funcionalidades
+5. Bloqueie o merge se a cobertura cair abaixo de 70%
 ```
 
 ### ⚙️ DevOps Engineer
 
 ```
-1. Pick an infra task (Azure setup, CI/CD, deployment)
+1. Escolha uma tarefa de infraestrutura (configuração Azure, CI/CD, deployment)
 2. git checkout -b infra/NNN-azure-foo
-3. Edit infra/ Terraform modules
-4. terraform fmt + terraform validate locally
-5. Run /iac-module prompt (in 09-devops-engineer/.github/prompts/)
-6. Open PR, the workflows/ci.yml runs Terraform validation
+3. Edite módulos Terraform em infra/
+4. Rode `terraform fmt` + `terraform validate` localmente
+5. Rode o prompt /iac-module (em 09-devops-engineer/.github/prompts/)
+6. Abra PR; workflows/ci.yml executa validação Terraform
 ```
 
 ### 📝 Tech Writer
 
 ```
-1. After every merge to develop, scan for ADR/glossary drift
-2. Run /doc-drift prompt (in 10-tech-writer/.github/prompts/)
-3. Update docs/glossary.md, docs/adr/, READMEs
-4. Open a small PR per documentation update
+1. Depois de cada merge em develop, procure drift em ADR/glossário
+2. Rode o prompt /doc-drift (em 10-tech-writer/.github/prompts/)
+3. Atualize docs/glossary.md, docs/adr/, READMEs
+4. Abra um PR pequeno por atualização de documentação
 ```
 
 ---
 
-## 🚦 Passo 13 — Rode o smoke test (time inteiro, às 09:30)
+## 🚦 Passo 13 — Rode o teste de fumaça (time inteiro, às 09:30)
 
-O team lead lê cada item em voz alta. Cada pessoa confirma no próprio laptop.
+A pessoa líder do time lê cada item em voz alta. Cada pessoa confirma no próprio laptop.
 
 - [ ] Cada membro clonou `hackathon-team-XX`
 - [ ] Cada membro consegue rodar `git checkout develop && git pull origin develop` (acesso de escrita confirmado)
 - [ ] CI rodou no commit de bootstrap — check verde na aba **Actions**
-- [ ] `docker compose up -d` conclui com sucesso (ou o facilitador entrega o tarball do prototype no Stage 3)
-- [ ] Cada Copilot Chat responde "What stack are we using?" com a resposta certa
+- [ ] `docker compose up -d` conclui com sucesso (ou a pessoa facilitadora entrega o tarball do protótipo no Estágio 3)
+- [ ] Cada Copilot Chat responde "Qual stack estamos usando neste projeto?" com a resposta certa
 - [ ] Cada membro instalou o Spec-Kit oficial: `specify version` imprime uma versão
 - [ ] Os comandos `/speckit.*` aparecem no Copilot depois de `specify init . --integration copilot`
 - [ ] Abrir **New issue** no GitHub mostra 3 templates (spec, adr, task)
 - [ ] Todos os 5 membros do time aparecem em repo Settings → Collaborators
 - [ ] Cada persona leu sua carta em `persona-kits/XX-role/PERSONA.md`
-- [ ] O team lead atualizou `.github/copilot-instructions.md` com os nomes de todo mundo
+- [ ] A pessoa líder do time atualizou `.github/copilot-instructions.md` com os nomes de todo mundo
 - [ ] Cada persona instalou seu kit: `cp -r persona-kits/XX/.github/* .github/`
 - [ ] [`TEAM-FLOW.md`](TEAM-FLOW.md) foi lido em voz alta uma vez (a linha do tempo do dia)
 
-Quando os 13 itens estiverem verdes, seu time está pronto para o **Stage 1: Archaeology**.
+Quando os 13 itens estiverem verdes, seu time está pronto para o **Estágio 1: Arqueologia**.
 
 ---
 
-## 🆘 Troubleshooting
+## 🆘 Solução de problemas
 
 ### Copilot não lê `copilot-instructions.md`
 
@@ -706,7 +712,7 @@ Quando os 13 itens estiverem verdes, seu time está pronto para o **Stage 1: Arc
 ### `gh repo create` retorna 422
 
 - O nome já está em uso. Aumente o número (`hackathon-team-01b`).
-- Ou crie pelo site (Opção A em [§2](#-passo-2--crie-o-repositório-github-do-time-somente-lead)).
+- Ou crie pelo site (Opção A em [§2](#-passo-2--crie-o-repositório-github-do-time-somente-líder)).
 
 ### `specify init` falha ou os comandos `/speckit.*` não aparecem
 
@@ -717,7 +723,7 @@ Quando os 13 itens estiverem verdes, seu time está pronto para o **Stage 1: Arc
 
 ### CI falha no primeiro push com "no tests found"
 
-- Esperado. O workflow `ci.yml` só roda jobs cujos caminhos mudaram. Quando código backend/frontend entrar, os jobs relevantes vão rodar.
+- Esperado. O fluxo de trabalho `ci.yml` só roda jobs cujos caminhos mudaram. Quando código backend/frontend entrar, os jobs relevantes vão rodar.
 
 ### Docker compose up trava ou falha
 
@@ -738,7 +744,7 @@ Quando os 13 itens estiverem verdes, seu time está pronto para o **Stage 1: Arc
 
 ### "Permission denied" ao fazer push para `main`
 
-- A proteção de branch (Passo 4) está fazendo seu trabalho. Abra um Pull Request a partir da sua branch de feature.
+- A proteção de branch (Passo 4) está fazendo seu trabalho. Abra um Pull Request a partir da sua branch de funcionalidade.
 
 ### Fiz pull do `develop` mais recente, mas minha IDE ainda mostra código antigo
 

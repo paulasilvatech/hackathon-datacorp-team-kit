@@ -2,18 +2,18 @@
 
 <!-- markdownlint-disable MD013 MD022 MD031 MD032 MD060 -->
 
-> Geração de testes a partir de specs, análise de cobertura e quality gates.
+> Geração de testes a partir de specs, análise de cobertura e gates de qualidade.
 
 Leia primeiro: [PERSONA.md](PERSONA.md).
 
 ## Fase do SDLC
-Implementation, Quality, Evolution
+Implementação, Qualidade, Evolução
 
 ## Conteúdo do kit
 
 | Arquivo | Tipo | Propósito |
 |------|------|---------|
-| `PERSONA.md` | Persona | Responsabilidades, handoffs, prompts e rubrica do QA Engineer |
+| `PERSONA.md` | Persona | Responsabilidades, passagems, prompts e rubrica do QA Engineer |
 | `.github/agents/qa-engineer.agent.md` | Agent | Geração de testes, cobertura e qualidade |
 | `.github/prompts/create-tests.prompt.md` | Prompt | `/create-tests` |
 | `.github/prompts/coverage-gaps.prompt.md` | Prompt | `/coverage-gaps` |

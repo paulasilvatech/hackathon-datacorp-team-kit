@@ -1,115 +1,115 @@
 ---
 mode: agent
 model: claude-opus-4-6
-description: "Lead a blameless root-cause analysis for a SIFAP 2.0 incident, producing a timeline, contributing factors, and prioritized actions."
+description: "Conduza uma análise de causa raiz sem culpabilização para um incidente do SIFAP 2.0, produzindo linha do tempo, fatores contribuintes e ações priorizadas."
 ---
 
 # /incident-rca
 
-## Goal
+## Objetivo
 
-You facilitate a **blameless root-cause analysis** for a SIFAP 2.0 incident. The deliverable is a single document — `docs/incidents/<YYYYMMDD>-<short-slug>.md` — that captures the timeline, what happened, why it happened, what changes prevent it, and how we will know they worked. The output is read by engineering, SRE, the InfoSec officer, and the platform architect.
+Você facilita uma **análise de causa raiz sem culpabilização** para um incidente do SIFAP 2.0. O entregável é um único documento — `docs/incidents/<YYYYMMDD>-<short-slug>.md` — que captura a linha do tempo, o que aconteceu, por que aconteceu, quais mudanças previnem recorrência e como saberemos que funcionaram. A saída é lida por engenharia, SRE, InfoSec officer e platform architect.
 
-## Inputs
+## Entradas
 
-Ask the user for what is missing.
+Peça ao usuário o que estiver faltando.
 
-- Incident ticket ID and severity (`SEV-1` to `SEV-4`).
-- Detection time, mitigation time, resolution time (UTC).
-- Affected systems and the linked `REQ-ID`s for SLOs they violated.
-- Raw timeline data: PagerDuty, Slack channel, Application Insights traces, deployment timestamps.
-- Names of responders (for the timeline only — never blame).
+- ID do ticket do incidente e severidade (`SEV-1` a `SEV-4`).
+- Horário de detecção, horário de mitigação, horário de resolução (UTC).
+- Sistemas afetados e os `REQ-ID`s vinculados para SLOs violados.
+- Dados brutos da linha do tempo: PagerDuty, canal Slack, traces do Application Insights, timestamps de deployment.
+- Nomes dos respondedores (apenas para a linha do tempo — nunca para culpar).
 
-## Process
+## Processo
 
-1. **Restate the impact in customer terms.** "Beneficiaries could not check disbursement status for 47 minutes" is correct. "The Redis cluster lost a quorum" is internal.
-2. **Reconstruct the timeline minute by minute.** UTC. Source for each entry: log, metric, chat message, or human recall (mark as `[recall]`).
-3. **Distinguish detection from mitigation from resolution.**
- - `T0` — first symptom in production.
- - `Td` — first detection by automation or human.
- - `Tm` — mitigation (impact stops).
- - `Tr` — full resolution (system fully recovered).
-4. **Find contributing factors, not "the" cause.** Use the "Five Whys," then categorize each factor as: code, configuration, dependency, process, observability, or organizational.
-5. **Identify what *almost* worked.** Defenses that fired but were not enough — alarms that paged late, runbooks that were 80% right, fallbacks that activated but timed out. These are gold for prevention.
-6. **Propose actions.** For each contributing factor, write at least one action with:
- - Owner (a name, not a team).
- - Target date.
- - Verification criteria (how we will know it worked).
- - Type — `code`, `config`, `monitoring`, `process`, `documentation`, or `architecture`.
-7. **Stay blameless.** No personal names tied to mistakes. "The engineer made a typo" is wrong; "The deployment process did not catch the typo" is right.
-8. **Add one risk you did not fix.** Be honest. Note what is too expensive to address now and re-evaluate next quarter.
+1. **Reformule o impacto em termos de cliente.** "Beneficiários não conseguiram consultar o status de desembolso por 47 minutos" está correto. "O cluster Redis perdeu quorum" é interno.
+2. **Reconstrua a linha do tempo minuto a minuto.** UTC. Fonte de cada entrada: log, métrica, mensagem de chat ou lembrança humana (marque como `[recall]`).
+3. **Diferencie detecção, mitigação e resolução.**
+ - `T0` — primeiro sintoma em produção.
+ - `Td` — primeira detecção por automação ou humano.
+ - `Tm` — mitigação (o impacto para).
+ - `Tr` — resolução completa (sistema totalmente recuperado).
+4. **Encontre fatores contribuintes, não "a" causa.** Use os "Five Whys" e depois categorize cada fator como: code, configuration, dependency, process, observability ou organizational.
+5. **Identifique o que *quase* funcionou.** Defesas que dispararam, mas não foram suficientes — alarmes que paginaram tarde, runbooks que estavam 80% certos, fallbacks que ativaram mas deram timeout. Isso é ouro para prevenção.
+6. **Proponha ações.** Para cada fator contribuinte, escreva pelo menos uma ação com:
+ - Responsável (um nome, não um time).
+ - Data-alvo.
+ - Critérios de verificação (como saberemos que funcionou).
+ - Tipo — `code`, `config`, `monitoring`, `process`, `documentation` ou `architecture`.
+7. **Mantenha ausência de culpabilização.** Sem nomes pessoais associados a erros. "O engenheiro cometeu um erro de digitação" está errado; "O processo de deployment não detectou o erro de digitação" está certo.
+8. **Adicione um risco que você não corrigiu.** Seja honesto. Registre o que é caro demais para tratar agora e será reavaliado no próximo trimestre.
 
-## Output
+## Saída
 
-The deliverable is a markdown file with this structure:
+O entregável é um arquivo Markdown com esta estrutura:
 
 ```markdown
-# Incident <YYYYMMDD>-<slug>
+# Incidente <YYYYMMDD>-<slug>
 
-- **Severity**: SEV-2
-- **Customer impact**: Beneficiaries unable to view disbursement status for 47 minutes.
-- **SLO breach**: REQ-OPS-031 (availability of `/payments` endpoint, p95 < 99.9%/30d).
-- **Total duration**: 47 minutes (T0=14:03 UTC, Tr=14:50 UTC).
+- **Severidade**: SEV-2
+- **Impacto no cliente**: Beneficiários não conseguem ver o status de desembolso por 47 minutos.
+- **Violação de SLO**: REQ-OPS-031 (disponibilidade do endpoint `/payments`, p95 < 99.9%/30d).
+- **Duração total**: 47 minutos (T0=14:03 UTC, Tr=14:50 UTC).
 
-## 1. Summary
-Two paragraphs. What happened, why, what we did, what changes.
+## 1. Resumo
+Dois parágrafos. O que aconteceu, por quê, o que fizemos, quais mudanças.
 
-## 2. Timeline (UTC)
-| Time | Source | Event |
+## 2. Linha do tempo (UTC)
+| Horário | Fonte | Evento |
 |-------|---------------|-------|
-| 14:03 | App Insights | Latency on `/payments` rises from 80 ms to 3.2 s p95 |
-| 14:09 | PagerDuty | First alert: `pay-be-availability-30m` |
-| 14:14 | Slack #ops | On-call ack |
-| 14:21 | Deploy log | Roll-back triggered for backend image `sha-9c4e2a` |
-| 14:38 | Slack #ops | Latency back to baseline |
-| 14:50 | App Insights | Steady state confirmed for 12 min |
+| 14:03 | App Insights | Latência em `/payments` sobe de 80 ms para 3.2 s p95 |
+| 14:09 | PagerDuty | Primeiro alerta: `pay-be-availability-30m` |
+| 14:14 | Slack #ops | On-call confirma recebimento |
+| 14:21 | Deploy log | Rollback acionado para a imagem backend `sha-9c4e2a` |
+| 14:38 | Slack #ops | Latência volta à linha de base |
+| 14:50 | App Insights | Estado estável confirmado por 12 min |
 
-## 3. Contributing factors
-1. **Code** — REST handler called `Beneficiary.findById()` twice in the new `audit-log` middleware (REQ-BEN-007).
-2. **Config** — connection pool size unchanged from baseline; doubled DB load saturated the pool.
-3. **Observability** — alert fired 6 minutes after impact (T0+6) — runbook target is 2 minutes.
-4. **Process** — canary stage skipped because the change was tagged "non-functional."
+## 3. Fatores contribuintes
+1. **Código** — REST handler chamou `Beneficiary.findById()` duas vezes no novo middleware `audit-log` (REQ-BEN-007).
+2. **Configuração** — tamanho do connection pool inalterado em relação à linha de base; a carga dobrada no DB saturou o pool.
+3. **Observabilidade** — alerta disparou 6 minutos após o impacto (T0+6) — a meta do runbook é 2 minutos.
+4. **Processo** — estágio canary pulado porque a mudança foi marcada como "não funcional."
 
-## 4. What almost worked
-- The `pay-be-availability-30m` alert fired correctly.
-- The blue-green deployment infrastructure rolled back in 7 minutes once initiated.
-- Connection-pool exhaustion metric existed but was not tied to a page.
+## 4. O que quase funcionou
+- O alerta `pay-be-availability-30m` disparou corretamente.
+- A infraestrutura de deployment blue-green fez rollback em 7 minutos depois de iniciada.
+- A métrica de esgotamento do connection pool existia, mas não estava vinculada a um page.
 
-## 5. Actions
-| # | Action | Owner | Type | Due | Verification |
+## 5. Ações
+| # | Ação | Responsável | Tipo | Prazo | Verificação |
 |---|--------|-------|------|-----|--------------|
-| 1 | Add memoization to `Beneficiary.findById` in audit middleware | @alex | code | next sprint | Load test shows 1 query per request |
-| 2 | Reclassify "non-functional" tag — every change goes through canary | @ops-lead | process | this week | PR template updated, blocked CI without canary |
-| 3 | Page on connection-pool > 80% saturation | @sre-rotation | monitoring | this week | Synthetic test triggers page within 90s |
-| 4 | Add runbook section for pool-saturation symptoms | @tech-writer | documentation | next sprint | Linked from on-call escalation card |
+| 1 | Adicionar memoization a `Beneficiary.findById` no middleware de auditoria | @alex | code | próximo sprint | Load test mostra 1 query por request |
+| 2 | Reclassificar tag "não funcional" — toda mudança passa por canary | @ops-lead | process | esta semana | PR template atualizado, CI bloqueado sem canary |
+| 3 | Gerar page em connection-pool > 80% de saturação | @sre-rotation | monitoring | esta semana | Teste sintético dispara page em até 90s |
+| 4 | Adicionar seção de runbook para sintomas de saturação de pool | @tech-writer | documentation | próximo sprint | Vinculado ao card de escalonamento on-call |
 
-## 6. Risks accepted (for now)
-- Connection pool autoscaling is on the platform roadmap; not addressed in this incident's actions. Risk re-evaluated 2026-Q3.
+## 6. Riscos aceitos (por enquanto)
+- Autoscaling de connection pool está no roadmap da plataforma; não tratado nas ações deste incidente. Risco reavaliado em 2026-Q3.
 ```
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** SEV-2 latency incident on `/payments` after a deploy of `audit-log` feature.
+**Entrada:** incidente SEV-2 de latência em `/payments` depois de um deploy da feature `audit-log`.
 
-**Expected reply skeleton:** the structure above, populated, with five timeline entries, four contributing factors, four actions with named owners, one risk accepted.
+**Esqueleto esperado da resposta:** a estrutura acima preenchida, com cinco entradas de linha do tempo, quatro fatores contribuintes, quatro ações com responsáveis nomeados e um risco aceito.
 
-## Anti-patterns
+## Antipadrões
 
-- Naming individuals next to mistakes. RCAs are about systems, not people.
-- "The cause was X." There are always multiple contributing factors.
-- Actions without owners or dates. They will not happen.
-- Actions without verification criteria. We cannot tell if they worked.
-- Hiding contributing factors that are politically uncomfortable. Trust collapses faster than systems do.
-- Treating an RCA as a punishment artifact. It is a learning artifact.
-- Skipping the timeline because it is tedious. The timeline is the evidence base.
+- Nomear indivíduos ao lado de erros. RCAs são sobre sistemas, não pessoas.
+- "A causa foi X." Sempre existem múltiplos fatores contribuintes.
+- Ações sem responsáveis ou datas. Elas não vão acontecer.
+- Ações sem critérios de verificação. Não conseguimos dizer se funcionaram.
+- Esconder fatores contribuintes politicamente desconfortáveis. Confiança colapsa mais rápido que sistemas.
+- Tratar uma RCA como artefato de punição. Ela é um artefato de aprendizado.
+- Pular a linha do tempo porque é trabalhosa. A linha do tempo é a base de evidências.
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] Customer-impact statement is in plain language.
-- [ ] Timeline includes at least detection, mitigation, and resolution timestamps with sources.
-- [ ] At least three contributing factors across at least two categories.
-- [ ] Each action has owner, type, due date, and verification criteria.
-- [ ] At least one "what almost worked" item.
-- [ ] At least one risk accepted is named honestly.
-- [ ] No individual is blamed by name.
-- [ ] SLO/REQ-ID references are included for breached requirements.
+- [ ] Declaração de impacto no cliente em linguagem simples.
+- [ ] Linha do tempo inclui pelo menos timestamps de detecção, mitigação e resolução com fontes.
+- [ ] Pelo menos três fatores contribuintes em pelo menos duas categorias.
+- [ ] Cada ação tem responsável, tipo, prazo e critérios de verificação.
+- [ ] Pelo menos um item de "o que quase funcionou".
+- [ ] Pelo menos um risco aceito é nomeado honestamente.
+- [ ] Nenhum indivíduo é culpado pelo nome.
+- [ ] Referências SLO/REQ-ID são incluídas para requisitos violados.

@@ -22,19 +22,19 @@ flowchart LR
  classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
  classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
 
- D[Discovery<br/>S1 — LIDERA]:::current
- SP[Specification<br/>S2 — sign-off escopo]:::current
- IM[Implementation<br/>S3 — clarifica]:::support
- EV[Evolution<br/>S4 — escreve Issues do Agent]:::support
- DM[Demo<br/>conduz]:::current
+ D[Descoberta<br/>S1 — LIDERA]:::current
+ SP[Especificação<br/>S2 — aprovação de escopo]:::current
+ IM[Implementação<br/>S3 — clarifica]:::support
+ EV[Evolução<br/>S4 — escreve Issues do Agent]:::support
+ DM[Demonstração<br/>conduz]:::current
 
  D --> SP --> IM --> EV --> DM
 ```
 
 - **Par**: 1 · Visão (junto com Requirements Engineer)
-- **Fases lideradas**: Discovery (S1) + Specification (S2 escopo) + Demo
+- **Fases lideradas**: Descoberta (S1) + Especificação (S2 escopo) + Demonstração
 - **Recebe de**: ninguém (você abre o ciclo)
-- **Faz handoff para**: Par 2 (Arquitetura) no H1; Par 3 (Implementação) no H2 via sign-off de escopo
+- **Faz passagem para**: Par 2 (Arquitetura) no H1; Par 3 (Implementação) no H2 via aprovação de escopo
 
 ## Quem é essa pessoa
 
@@ -48,7 +48,7 @@ Traduzir o cenário SIFAP em escopo executável nas oito horas do dia. Proteger 
 
 Este workshop aplica o framework **Agentic Legacy Modernization** — uma abordagem de modernização com agentes de IA especializados em cada fase. O pipeline completo está em `01-blueprint/WORKSHOP-BLUEPRINT.md`. Sua persona mapeia para o pipeline assim:
 
-- **Agentes relevantes**: Discovery Agent (S1), Analysis Agent (S1–S2)
+- **Agentes relevantes**: Descoberta Agent (S1), Analysis Agent (S1–S2)
 - **Fase do framework**: Assessment and Code Archaeology → Application Carving
 - **Seu papel**: definir escopo do carving e priorizar bounded contexts para migração
 
@@ -58,8 +58,8 @@ Este workshop aplica o framework **Agentic Legacy Modernization** — uma aborda
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | 1. Arqueologia         | Lidera a construção do glossário e a captura dos "porquês" das regras. Mantém lista de perguntas de negócio em aberto. | Glossário + lista priorizada de "mistérios"           |
 | 2. Spec Moderna        | Decide o que entra no v1 e o que vira backlog. Voto final no escopo.                                                   | Seção de "Escopo e Não-Escopo" da spec                |
-| 3. Implementação       | Valida que as user stories ainda refletem o negócio enquanto o código emerge. Desbloqueia dúvidas funcionais.          | Critérios de aceitação funcional por feature          |
-| 4. Evolution com Agent | Escreve as duas issues que o Agent vai consumir. Valida que o PR entregue resolve a necessidade de negócio.            | Duas issues bem escritas em `.github/ISSUE_TEMPLATE/` |
+| 3. Implementação       | Valida que as user stories ainda refletem o negócio enquanto o código emerge. Desbloqueia dúvidas funcionais.          | Critérios de aceitação funcional por funcionalidade   |
+| 4. Evolução com Agent  | Escreve as duas issues que o Agent vai consumir. Valida que o PR entregue resolve a necessidade de negócio.            | Duas issues bem escritas em `.github/ISSUE_TEMPLATE/` |
 
 ## Ferramentas e primitivas
 
@@ -92,17 +92,17 @@ Este workshop aplica o framework **Agentic Legacy Modernization** — uma aborda
 - PO + **Requirements Engineer** é a combinação natural. Você escreve as regras; o RE estrutura e testa.
 - PO + **Tech Writer** também funciona para times de perfil mais comunicacional.
 
-## 3 prompts de exemplo
+## 3 exemplos de prompt
 
 1. **(Chat)** _"Analise o programa CALCBENF.NSN do SIFAP legado e liste as 5 regras de negócio com maior impacto no beneficiário. Para cada uma, diga se deve ser migrada, descartada ou evoluída."_
 2. **(Chat)** _"Revise estas 3 user stories e reescreva como GitHub issues no formato que o Copilot Agent consome. Inclua contexto, requisitos funcionais como checklist e critérios de aceitação."_
-3. **(Chat)** _"O time quer implementar 8 features em 3 horas. Com base em complexidade, ajude-me a cortar para as 3 mais críticas para o ciclo mensal de pagamento."_
+3. **(Chat)** _"O time quer implementar 8 funcionalidades em 3 horas. Com base em complexidade, ajude-me a cortar para as 3 mais críticas para o ciclo mensal de pagamento."_
 
 ## Se travar (defaults de emergência)
 
 - **Travou na priorização?** Aplique a regra: "Afeta o ciclo mensal de pagamento? → v1. Não? → backlog."
 - **Não sabe escrever uma issue?** Copie o template de [`../04-evolucao/GUIDE.md`](../../04-evolucao/GUIDE.md) e adapte.
-- **O time quer tudo no escopo?** Diga: "Temos 3 horas de implementação; escolham 3 features."
+- **O time quer tudo no escopo?** Diga: "Temos 3 horas de implementação; escolham 3 funcionalidades."
 - **Pergunta de negócio sem resposta?** Documente como premissa e siga.
 
 ## Dependências — Quem depende de você

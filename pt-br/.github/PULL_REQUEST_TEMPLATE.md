@@ -1,13 +1,15 @@
+# Pull Request
+
 ## Descrição
 
 <!-- Descreva o que foi implementado neste PR -->
 
-## Stage
+## Estágio
 
-- [ ] Stage 1 - Arqueologia
-- [ ] Stage 2 - Spec Moderna
-- [ ] Stage 3 - Implementação
-- [ ] Stage 4 - Evolução (IaC)
+- [ ] Estágio 1 - Arqueologia
+- [ ] Estágio 2 - Spec Moderna
+- [ ] Estágio 3 - Implementação
+- [ ] Estágio 4 - Evolução (IaC)
 
 ## Persona Responsável
 
@@ -19,7 +21,7 @@
 - [ ] Testes unitários passando
 - [ ] Sem dados sensíveis expostos
 - [ ] Atualizado CHANGELOG ou README se necessário
-- [ ] Linked ao REQ-ID correspondente na spec
+- [ ] Vinculado ao REQ-ID correspondente na spec
 
 ## REQ-IDs Atendidos
 

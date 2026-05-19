@@ -1,40 +1,40 @@
 ---
 name: Capability Map
-description: "Use when mapping business capabilities, identifying overlap or gaps across the enterprise, or aligning IT investments to business outcomes. Triggers on "capability map", "business capability", "domain map", "enterprise architecture"."
+description: 'Use ao mapear capacidades de negócio, identificar sobreposições ou lacunas na empresa, ou alinhar investimentos de TI a resultados de negócio. Aciona com "capability map", "business capability", "domain map", "enterprise architecture".'
 ---
 
-# Capability Map
+# Mapa de Capacidades
 
-## When to invoke
+## Quando invocar
 - "Build a capability map for the payments domain."
 - "Where do two teams overlap in ownership?"
 - "Which capabilities are core, which are commodity?"
 
-## Concept
+## Conceito
 
-A **capability** is *what* the business does, not *how*. Capabilities are stable (decade-scale); applications and processes are volatile.
+Uma **capability** é *o que* o negócio faz, não *como*. Capacidades são estáveis (escala de décadas); aplicações e processos são voláteis.
 
-## Structure (3 levels)
-- **L1**: Top-level business area (e.g., "Tax Collection", "Customer Service").
-- **L2**: Major sub-functions (e.g., "Tax Assessment", "Payment Processing").
-- **L3**: Specific capabilities (e.g., "Calculate penalty interest", "Reconcile payments").
+## Estrutura (3 níveis)
+- **L1**: Área de negócio de nível superior (ex.: "Tax Collection", "Customer Service").
+- **L2**: Subfunções principais (ex.: "Tax Assessment", "Payment Processing").
+- **L3**: Capacidades específicas (ex.: "Calculate penalty interest", "Reconcile payments").
 
-Rule of thumb: 8-12 L1 capabilities for a medium enterprise.
+Regra prática: 8-12 capacidades L1 para uma empresa média.
 
-## Steps
-1. **Start with outcomes**, not org chart. "What does this business do for its customers?"
-2. **Decompose top-down** to L3 (stop when a capability maps to a single accountable owner).
-3. **Tag each capability**:
- - **Core**: differentiates, build in-house.
- - **Supporting**: necessary, buy or configure.
- - **Commodity**: undifferentiated, outsource or SaaS.
-4. **Overlay systems**: which application(s) realise each L3 capability. Look for:
- - Duplicates (two systems doing the same thing)
- - Gaps (capability with no owner)
- - Monoliths (one system covering many L1s)
-5. **Overlay investment**: where is the money going vs. where is the differentiation?
+## Passos
+1. **Comece pelos resultados**, não pelo organograma. "What does this business do for its customers?"
+2. **Decomponha de cima para baixo** até L3 (pare quando uma capacidade mapear para um único dono responsável).
+3. **Marque cada capacidade**:
+ - **Core**: diferencia, construir internamente.
+ - **Supporting**: necessária, comprar ou configurar.
+ - **Commodity**: indiferenciada, terceirizar ou usar SaaS.
+4. **Sobreponha sistemas**: quais aplicações realizam cada capacidade L3. Procure:
+ - Duplicidades (dois sistemas fazendo a mesma coisa)
+ - Lacunas (capacidade sem dono)
+ - Monólitos (um sistema cobrindo muitos L1s)
+5. **Sobreponha investimento**: para onde o dinheiro está indo vs. onde está a diferenciação?
 
-## Output template
+## Template de saída
 ```markdown
 ## Capability Map - <Domain>
 
@@ -47,7 +47,7 @@ Rule of thumb: 8-12 L1 capabilities for a medium enterprise.
  - Investment: $$$
 ```
 
-## Mermaid example
+## Exemplo Mermaid
 ```mermaid
 flowchart TD
  A[Tax Collection] --> B[Assessment]
@@ -59,5 +59,5 @@ flowchart TD
  C --> C2[Refund Issuance]
 ```
 
-## Quality gate
-Every L3 capability must have exactly one accountable owner and a Core/Supporting/Commodity tag.
+## Gate de qualidade
+Toda capacidade L3 deve ter exatamente um dono responsável e uma tag Core/Supporting/Commodity.

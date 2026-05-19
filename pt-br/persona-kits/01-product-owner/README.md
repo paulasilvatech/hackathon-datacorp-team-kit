@@ -7,13 +7,13 @@
 Leia primeiro: [PERSONA.md](PERSONA.md).
 
 ## Fase do SDLC
-Discovery → Specification → Acceptance
+Descoberta → Especificação → Aceite
 
 ## Conteúdo do kit
 
 | Arquivo | Tipo | Propósito |
 |------|------|---------|
-| `PERSONA.md` | Persona | Responsabilidades, handoffs, prompts e rubrica do Product Owner |
+| `PERSONA.md` | Persona | Responsabilidades, passagems, prompts e rubrica do Product Owner |
 | `.github/agents/product-owner.agent.md` | Agent | Assistente de Product Owner para spec, backlog e aceite |
 | `.github/prompts/spec.prompt.md` | Prompt | `/spec` — escreve uma seção de `SPECIFICATION.md` a partir de user stories em EARS |
 | `.github/prompts/update-spec.prompt.md` | Prompt | `/update-spec` — atualiza a spec quando uma feature muda |

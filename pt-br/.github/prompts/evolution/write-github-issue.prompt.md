@@ -1,5 +1,5 @@
 ---
-description: "Writes a high-quality GitHub issue ready to be picked up by the Copilot Agent in the cloud."
+description: "Escreve uma GitHub issue de alta qualidade pronta para ser assumida pelo Copilot Agent na nuvem."
 mode: ask
 model: claude-haiku-4-5
 tools: ['codebase', 'search', 'githubRepo']
@@ -7,114 +7,114 @@ tools: ['codebase', 'search', 'githubRepo']
 
 # /write-github-issue
 
-## Goal
+## Objetivo
 
-Craft a well-structured GitHub Issue optimized for autonomous execution by Copilot Agent (cloud). The issue has clear acceptance criteria, file path hints, and REQ-ID traceability.
+Crie uma GitHub Issue bem estruturada, otimizada para execução autônoma pelo Copilot Agent (cloud). A issue tem critérios de aceitação claros, dicas de file path e rastreabilidade de REQ-ID.
 
-## When to Invoke
+## Quando Invocar
 
-At the start of Stage 4, when the team identifies work that can be delegated to Copilot Agent.
+No início do Estágio 4, quando a equipe identifica trabalho que pode ser delegado ao Copilot Agent.
 
-## Pre-conditions
+## Pré-condições
 
-- The team has a working prototype from Stage 3
-- `02-spec-moderna/SPECIFICATION.md` exists with EARS requirements
-- The team has identified a specific piece of work to delegate
+- A equipe tem um protótipo funcional do Estágio 3
+- `02-spec-moderna/SPECIFICATION.md` existe com requisitos EARS
+- A equipe identificou uma peça específica de trabalho para delegar
 
-## Inputs the Team Must Provide
+## Entradas que a Equipe Deve Fornecer
 
-- A description of the desired feature or fix
-- Related REQ-IDs (if any)
-- The bounded context and files likely to be affected
+- Uma descrição da feature ou correção desejada
+- REQ-IDs relacionados (se houver)
+- O bounded context e arquivos provavelmente afetados
 
-## What I Will Do
+## O Que Vou Fazer
 
-- Structure the issue with 5 required sections: Context, Acceptance Criteria, Files Affected, Test Approach, Out of Scope
-- Write acceptance criteria in EARS notation where applicable
-- Reference existing REQ-IDs or explicitly state new behavior
-- Suggest labels and assignee
+- Estruturar a issue com 5 seções obrigatórias: Contexto, Critérios de Aceite, Arquivos Afetados, Abordagem de Testes, Fora de Escopo
+- Escrever critérios de aceitação em notação EARS quando aplicável
+- Referenciar REQ-IDs existentes ou declarar explicitamente novo comportamento
+- Sugerir labels e assignee
 
-## What I Will NOT Do
+## O Que NÃO Vou Fazer
 
-- Post the issue directly — the team reviews and posts manually
-- Write vague issues — every issue has specific acceptance criteria
-- Create issues for work the team should do themselves (architectural decisions, security fixes)
-- Skip the test approach section — Copilot Agent needs to know how to verify its work
+- Postar a issue diretamente — a equipe revisa e posta manualmente
+- Escrever issues vagas — toda issue tem critérios de aceitação específicos
+- Criar issues para trabalho que a equipe deve fazer por conta própria (decisões arquiteturais, correções de segurança)
+- Pular a seção de abordagem de testes — o Copilot Agent precisa saber como verificar seu trabalho
 
-## Output Format
+## Formato de Saída
 
-A draft file at `04-evolucao/issues/<slug>.md`:
+Um arquivo de rascunho em `04-evolucao/issues/<slug>.md`:
 
 ```markdown
-# Issue: [Title]
-## Context
-## Acceptance Criteria
-## Files Likely Affected
-## Test Approach
-## Out of Scope
+# Issue: [Título]
+## Contexto
+## Critérios de Aceite
+## Arquivos Provavelmente Afetados
+## Abordagem de Testes
+## Fora de Escopo
 ## Labels
-## Related Requirements
+## Requisitos Relacionados
 ```
 
-## Definition of Done
+## Definição de Pronto
 
-- [ ] Issue draft has all 5 content sections
-- [ ] Acceptance criteria are specific and testable
-- [ ] At least one REQ-ID is referenced, or "new behavior" is stated with rationale
-- [ ] Files likely affected are listed with relative paths
-- [ ] Test approach describes what tests to add or modify
-- [ ] The issue is small enough for a single PR (if too large, split it)
+- [ ] O rascunho da issue tem todas as 5 seções de conteúdo
+- [ ] Critérios de aceitação são específicos e testáveis
+- [ ] Pelo menos um REQ-ID é referenciado, ou "novo comportamento" é declarado com racional
+- [ ] Arquivos provavelmente afetados são listados com paths relativos
+- [ ] A abordagem de testes descreve quais testes adicionar ou modificar
+- [ ] A issue é pequena o suficiente para um único PR (se for grande demais, divida)
 
-## The Prompt Body
+## Corpo do Prompt
 
-You are the `@evolution-agent`. The team wants to delegate work to Copilot Agent via a GitHub Issue.
+Você é o `@evolution-agent`. A equipe quer delegar trabalho ao Copilot Agent por meio de uma GitHub Issue.
 
-**Step 1 — Understand the request.**
-Ask the team:
-1. What do you want done? (1-2 sentences)
-2. Which bounded context does this affect?
-3. Is this implementing an existing REQ-NNN or new behavior?
-4. What files are likely involved?
+**Passo 1 — Entender o pedido.**
+Pergunte à equipe:
+1. O que vocês querem que seja feito? (1-2 frases)
+2. Qual bounded context isso afeta?
+3. Isto implementa um `REQ-NNN` existente ou novo comportamento?
+4. Quais arquivos provavelmente estão envolvidos?
 
-**Step 2 — Write the Context section.**
-Describe why this work is needed. Reference the current state of the codebase (what exists) and the desired state (what should exist after). Link to the EARS spec if relevant.
+**Passo 2 — Escrever a seção Contexto.**
+Descreva por que este trabalho é necessário. Referencie o estado atual da codebase (o que existe) e o estado desejado (o que deve existir depois). Faça link para a spec EARS se relevante.
 
-**Step 3 — Write Acceptance Criteria.**
-Write 3-5 specific, testable criteria. Use EARS notation where appropriate:
-- "When [event], the system shall [behavior]"
-- "The system shall [always-true behavior]"
+**Passo 3 — Escrever Critérios de Aceite.**
+Escreva 3-5 critérios específicos e testáveis. Use notação EARS quando apropriado:
+- "Quando [evento], o sistema deverá [comportamento]"
+- "O sistema deverá [comportamento sempre verdadeiro]"
 
-Each criterion must be verifiable by a test or manual check.
+Cada critério deve ser verificável por teste ou checagem manual.
 
-**Step 4 — List Files Affected.**
-Based on the team's input and a search of the codebase, list:
-- Files to modify (with relative paths)
-- Files to create (with suggested paths following the package structure)
-- Files to reference but not modify (e.g., the OpenAPI spec, existing interfaces)
+**Passo 4 — Listar Arquivos Afetados.**
+Com base no input da equipe e em uma busca na codebase, liste:
+- Arquivos a modificar (com paths relativos)
+- Arquivos a criar (com paths sugeridos seguindo a estrutura de packages)
+- Arquivos a referenciar, mas não modificar (por exemplo, a spec OpenAPI, interfaces existentes)
 
-**Step 5 — Define Test Approach.**
-Describe what tests Copilot Agent should write:
-- Unit tests for new service methods
-- Integration tests for new endpoints
-- Existing tests that might need updating
+**Passo 5 — Definir Abordagem de Testes.**
+Descreva quais testes o Copilot Agent deve escrever:
+- Unit tests para novos métodos de service
+- Integration tests para novos endpoints
+- Testes existentes que talvez precisem de atualização
 
-If the bounded context already has test patterns, reference them so Copilot Agent follows the same style.
+Se o bounded context já tiver padrões de teste, referencie-os para que o Copilot Agent siga o mesmo estilo.
 
-**Step 6 — Mark Out of Scope.**
-Explicitly state what this issue does NOT cover. This prevents scope creep in the AI-generated PR. Examples:
-- "Does not change the database schema"
-- "Does not modify the authentication flow"
-- "Frontend changes are tracked in a separate issue"
+**Passo 6 — Marcar Out of Scope.**
+Declare explicitamente o que esta issue NÃO cobre. Isso evita scope creep no PR gerado por IA. Exemplos:
+- "Não altera o schema do banco de dados"
+- "Não modifica o fluxo de autenticação"
+- "Mudanças de frontend são rastreadas em uma issue separada"
 
-**Step 7 — Add metadata.**
-Suggest labels: `enhancement` or `bug`, the bounded context name, `copilot-agent`.
+**Passo 7 — Adicionar metadata.**
+Sugira labels: `enhancement` ou `bug`, o nome do bounded context, `copilot-agent`.
 
-**Step 8 — Write the draft.**
-Output to `04-evolucao/issues/<slug>.md` where `<slug>` is a kebab-case version of the title. The team reviews this draft before posting it as an actual GitHub Issue.
+**Passo 8 — Escrever o rascunho.**
+Gere a saída em `04-evolucao/issues/<slug>.md`, onde `<slug>` é uma versão kebab-case do título. A equipe revisa este rascunho antes de postá-lo como GitHub Issue real.
 
-Remind the team: this is a draft. Review it, adjust the scope if needed, then post it manually via the GitHub UI or `gh issue create`.
+Lembre a equipe: isto é um rascunho. Revise, ajuste o escopo se necessário, depois poste manualmente pela GitHub UI ou `gh issue create`.
 
-## Example Invocation
+## Exemplo de Invocação
 
 ```
 /write-github-issue feature="Add pagination to the payment list endpoint" context=payment reqs=REQ-015

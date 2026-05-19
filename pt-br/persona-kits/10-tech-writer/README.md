@@ -1,4 +1,4 @@
-# Tech Writer — Kit Copilot
+# Tech Writer — Kit do Copilot
 
 <!-- markdownlint-disable MD013 MD022 MD031 MD032 MD060 -->
 
@@ -7,14 +7,14 @@
 Leia primeiro: [PERSONA.md](PERSONA.md).
 
 ## Fase do SDLC
-Cross-cutting, Documentation, Evolution
+Transversal, documentação, evolução
 
 ## Conteúdo do kit
 
 | Arquivo | Tipo | Propósito |
 |------|------|---------|
-| `PERSONA.md` | Persona | Responsabilidades, handoffs, prompts e rubrica do Tech Writer |
-| `.github/agents/tech-writer.agent.md` | Agent | Docs de API, README, `CODEMAP.md`, changelog e drift |
+| `PERSONA.md` | Persona | Responsabilidades, passagems, prompts e rubrica do Tech Writer |
+| `.github/agents/tech-writer.agent.md` | Agent | Documentação de API, README, `CODEMAP.md`, changelog e drift |
 | `.github/prompts/generate-docs.prompt.md` | Prompt | `/generate-docs` |
 | `.github/prompts/update-codemap.prompt.md` | Prompt | `/update-codemap` |
 | `.github/prompts/doc-drift.prompt.md` | Prompt | `/doc-drift` |
@@ -27,10 +27,10 @@ cp -r .github/* /path/to/your-repo/.github/
 ```
 
 ## Boas práticas
-- Documentação é feature: entregue, versione e revise junto com o código.
+- Documentação é funcionalidade: entregue, versione e revise junto com o código.
 - Escreva para quem tem 30 segundos; comece pela resposta e depois dê contexto.
 - Diagramas comprimem explicações longas; use Mermaid e mantenha atualizado.
-- Documentação obsoleta é pior que ausência; inclua drift check no CI.
+- Documentação obsoleta é pior que ausência; inclua verificação de drift no CI.
 
 ## Referências
 - [Diátaxis Framework](https://diataxis.fr/)

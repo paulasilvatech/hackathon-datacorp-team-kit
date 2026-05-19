@@ -7,13 +7,13 @@
 Leia primeiro: [PERSONA.md](PERSONA.md).
 
 ## Fase do SDLC
-Requirements, Specification
+Requisitos, Especificação
 
 ## Conteúdo do kit
 
 | Arquivo | Tipo | Propósito |
 |------|------|---------|
-| `PERSONA.md` | Persona | Responsabilidades, handoffs, prompts e rubrica do Requirements Engineer |
+| `PERSONA.md` | Persona | Responsabilidades, passagems, prompts e rubrica do Requirements Engineer |
 | `.github/agents/requirements-engineer.agent.md` | Agent | Análise de requisitos |
 | `.github/prompts/spec-sync.prompt.md` | Prompt | `/spec-sync` |
 | `.github/prompts/contradiction-check.prompt.md` | Prompt | `/contradiction-check` |

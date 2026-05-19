@@ -1,29 +1,29 @@
 ---
 mode: ask
 model: claude-sonnet-4-6
-description: "Create IMPLEMENTATION_PLAN.md with phased tasks"
+description: "Crie IMPLEMENTATION_PLAN.md com tarefas por fases"
 ---
 
 # /impl-plan
 
-## Task
-Produce IMPLEMENTATION_PLAN.md that sequences tasks into phases, marks parallelizable tasks, selects a model per task, and defines exit criteria.
+## Tarefa
+Produza IMPLEMENTATION_PLAN.md que sequencia tarefas em fases, marca tarefas paralelizáveis, seleciona um modelo por tarefa e define critérios de saída.
 
-## Steps
-1. Read SPECIFICATION.md, DESIGN.md, and TASKS.md.
-2. Group tasks into phases based on dependency order (foundation → features → hardening).
-3. Within each phase, mark tasks as `[P]` parallelizable if they touch disjoint files and have no runtime dependency.
-4. Assign a model per task: Opus (architectural), Sonnet (implementation), Haiku (mechanical).
-5. Define a Definition of Done per phase: tests passing, docs updated, code review complete.
+## Passos
+1. Leia SPECIFICATION.md, DESIGN.md e TASKS.md.
+2. Agrupe tarefas em fases com base na ordem de dependências (fundação → features → hardening).
+3. Dentro de cada fase, marque tarefas como `[P]` paralelizáveis se tocarem arquivos disjuntos e não tiverem dependência de runtime.
+4. Atribua um modelo por tarefa: Opus (arquitetural), Sonnet (implementação), Haiku (mecânico).
+5. Defina uma Definição de Pronto por fase: testes passando, docs atualizadas, code review completo.
 
-## Output
-A file IMPLEMENTATION_PLAN.md with:
-- Phase headings, each with goal, duration estimate, exit criteria
-- Task table per phase: `Task ID | Title | [P] | Model | Est. Effort | Traces To (REQ-ID)`
-- Global risks section with mitigations
+## Saída
+Um arquivo IMPLEMENTATION_PLAN.md com:
+- Títulos de fase, cada um com objetivo, estimativa de duração e critérios de saída
+- Tabela de tarefas por fase: `Task ID | Title | [P] | Model | Est. Effort | Traces To (REQ-ID)`
+- Seção de riscos globais com mitigações
 
-## Quality Gate
-- [ ] Every task traces to at least one REQ-ID
-- [ ] `[P]` tasks actually touch independent files (verified by grep)
-- [ ] Phase exit criteria are measurable
-- [ ] No task is larger than 1 day of effort without a breakdown
+## Gate de Qualidade
+- [ ] Toda tarefa rastreia para pelo menos um REQ-ID
+- [ ] Tarefas `[P]` realmente tocam arquivos independentes (verificado por grep)
+- [ ] Critérios de saída de fase são mensuráveis
+- [ ] Nenhuma tarefa é maior que 1 dia de esforço sem decomposição

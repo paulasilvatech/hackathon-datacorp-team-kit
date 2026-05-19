@@ -153,7 +153,7 @@ tags: [workshop, sifap, demo-script, facilitacao, estagio-1]
 
 **[FALAR]**
 
-- _(Apontar pro header)_ "Esse cabeçalho de 4 linhas era padrão da Dataprev/the organization. Olhem: `PGM: MENU0001`, `USUARIO`, `NIVEL: ADM`, `LIBR: SIFAPPRD`, `TID: T0001`. Cada tela mostra exatamente em qual programa Natural você está."
+- _(Apontar pro header)_ "Esse cabeçalho de 4 linhas era padrão da Dataprev/a organização. Olhem: `PGM: MENU0001`, `USUARIO`, `NIVEL: ADM`, `LIBR: SIFAPPRD`, `TID: T0001`. Cada tela mostra exatamente em qual programa Natural você está."
 - "Sete opções funcionais mais o logoff."
 - "Numeração — não tem mouse, não tem hover. Operadores experientes digitavam `1` antes do menu terminar de renderizar."
 - "Olhem as opções 6 e 7 — BLOQUEADAS. Vamos voltar nelas no final."
@@ -174,10 +174,10 @@ tags: [workshop, sifap, demo-script, facilitacao, estagio-1]
 - "Maria, 64 anos, Salvador. BPC — Benefício de Prestação Continuada. R$ 1.412 — salário mínimo de 2024."
 - _(Apontar pro header)_ "PGM: `CBENF020`. Esse é o nome real do .NSP que renderiza essa tela."
 - "Antes desse, o `CBENF010` mostrou o formulário. Cada tela é um programa Natural separado."
-- _(Apontar pra linha de status)_ "REGISTRO LOCALIZADO COM SUCESSO — mensagem canônica. Era padrão em todo sistema brasileiro daquela geração. Quem operou SIAPE da the organization nos anos 2000 leu essa mensagem milhares de vezes."
+- _(Apontar pra linha de status)_ "REGISTRO LOCALIZADO COM SUCESSO — mensagem canônica. Era padrão em todo sistema brasileiro daquela geração. Quem operou SIAPE da a organização nos anos 2000 leu essa mensagem milhares de vezes."
 - "**Vocês vão encontrar arquivos com esses nomes exatos no repo de Arqueologia.** CBENF010.NSP, CBENF020.NSP."
 
-**[GANCHO]** Discovery Agent vai catalogar TODOS os programas — `CBENF*`, `CPAGT*`, `LBENF*`, `RGER*`, `CRPGM*`. Primeiro passo do Estágio 1.
+**[GANCHO]** O Agente de Descoberta vai catalogar TODOS os programas — `CBENF*`, `CPAGT*`, `LBENF*`, `RGER*`, `CRPGM*`. Primeiro passo do Estágio 1.
 
 ---
 
@@ -328,7 +328,7 @@ tags: [workshop, sifap, demo-script, facilitacao, estagio-1]
 
 **[FALAR]**
 
-- "Esse é o relatório que a diretoria da the organization usaria pra prestar contas ao governo federal."
+- "Esse é o relatório que a diretoria da a organização usaria pra prestar contas ao governo federal."
 - "Totais por programa, valor total mensal, agregado geral em destaque."
 - _(Apontar pra linha em cinza no rodapé)_
 - "**Olhem essa linha: `REGRA DE NEGOCIO: PGM CALC-VALOR-MENSAL (NATURAL CRPGM042)`**."
@@ -431,13 +431,13 @@ tags: [workshop, sifap, demo-script, facilitacao, estagio-1]
 
 - "Vocês acabaram de ver — em 20 minutos — o que vão precisar entender de verdade nas próximas 3 horas."
 - "Não está tão difícil quanto parece. **Porque vocês não vão estar sozinhos.**"
-- "Discovery Agent vai catalogar todos esses programas Natural pra vocês."
-- "Analysis Agent vai extrair as regras escondidas — incluindo o tal `CALC-VALOR-MENSAL`."
+- "O Agente de Descoberta vai catalogar todos esses programas Natural pra vocês."
+- "O Agente de Análise vai extrair as regras escondidas — incluindo o tal `CALC-VALOR-MENSAL`."
 - "Vocês — humanos — vão **revisar, validar, corrigir, decidir**. Não escrever do zero."
 - "Esse é o trabalho do AI-Native Engineer: **pilotar agentes**, não substituir agentes."
 - "Próximo: abrir o repositório do legado e olhar o código Natural de verdade."
 
-_(Saia do simulador, abra o repo de Arqueologia.)_
+**Transição:** saia do simulador e abra o repositório de Arqueologia.
 
 ---
 

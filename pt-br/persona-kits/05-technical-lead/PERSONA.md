@@ -21,18 +21,18 @@ flowchart LR
  classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
  classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
 
- D[Discovery<br/>S1 — estima complexidade]:::support
- SP[Specification<br/>S2 — calibra escopo]:::support
- IM[Implementation<br/>S3 — LIDERA]:::current
- EV[Evolution<br/>S4 — co-lidera Agent review]:::current
+ D[Descoberta<br/>S1 — estima complexidade]:::support
+ SP[Especificação<br/>S2 — calibra escopo]:::support
+ IM[Implementação<br/>S3 — LIDERA]:::current
+ EV[Evolução<br/>S4 — co-lidera revisão do Agent]:::current
 
  D --> SP --> IM --> EV
 ```
 
 - **Par**: 3 · Implementação (junto com Developer)
-- **Fases lideradas**: Implementation (S3) + co-lidera Evolution (S4)
+- **Fases lideradas**: Implementação (S3) + co-lidera Evolução (S4)
 - **Recebe de**: Par 2 (Arquitetura) no H2 — REQ-IDs + ADRs + C4
-- **Faz handoff para**: Par 5 (Operações) no H3 — código rodando
+- **Faz passagem para**: Par 5 (Operações) no H3 — código rodando
 
 ## Quem é essa pessoa
 
@@ -45,7 +45,7 @@ Manter velocidade de execução no Estágio 3. Escolher as batalhas técnicas qu
 ## Seu papel no framework Agentic Legacy Modernization
 
 - **Agentes relevantes**: Review Agent (S3), Test Gen Agent (S3)
-- **Fase do framework**: Translation and Test Generation
+- **Fase do framework**: Tradução e Geração de Testes
 - **Seu papel**: garantir qualidade da tradução e coordenar implementação paralela
 
 ## Onde você aparece em cada estágio
@@ -55,13 +55,13 @@ Manter velocidade de execução no Estágio 3. Escolher as batalhas técnicas qu
 | 1. Arqueologia         | Participa da análise do legado priorizando programas críticos. Estima complexidade.            | Priorização baseada em esforço |
 | 2. Spec Moderna        | Valida que a spec é realista nas 3 horas do Estágio 3. Sinaliza "isso não cabe".               | Calibração de escopo           |
 | 3. Implementação       | Desbloqueia. Decide padrões (estilo de teste, transações, tratamento de erro). Revisa todo PR. | Aplicação rodando end-to-end   |
-| 4. Evolution com Agent | Revisa o PR do Agent linha por linha antes do merge.                                           | PR em qualidade de produção    |
+| 4. Evolução com Agent  | Revisa o PR do Agent linha por linha antes do merge.                                           | PR em qualidade de produção    |
 
 ## Ferramentas e primitivas
 
 - **Copilot Plan** para refatoração em lote com sequência clara.
 - **Copilot Chat** como pair para decisões locais de design.
-- **GitHub Spec-Kit** — suporte em `/speckit.tasks`, `/speckit.analyze` e handoff para `/speckit.implement`.
+- **GitHub Spec-Kit** — suporte em `/speckit.tasks`, `/speckit.analyze` e passagem para `/speckit.implement`.
 - **Git MCP** para review de PR.
 
 ## Cheat-sheets que você usa
@@ -89,11 +89,11 @@ Manter velocidade de execução no Estágio 3. Escolher as batalhas técnicas qu
 - **TL + Software Architect** se o time tiver alguém cobrindo dev.
 - Evite **TL + QA** no mesmo cérebro: o papel de quem pergunta "você cobriu o teste?" é mais forte quando está com outra pessoa.
 
-## 3 prompts de exemplo
+## 3 exemplos de prompt
 
-1. **(Chat)** _"Revise este PR: verifique se segue as 3 camadas (domain/application/infrastructure), se o teste cobre happy path + erro, e se há algum import cruzando bounded context."_
+1. **(Chat)** _"Revise este PR: verifique se segue as 3 camadas (domain/application/infrastructure), se o teste cobre caminho feliz + erro, e se há algum import cruzando bounded context."_
 2. **(Chat)** _"Temos 3 devs e 3 horas. Features pendentes: [lista]. Crie um plano distribuindo entre devs considerando dependências e complexidade."_
-3. **(Chat)** _"`docker compose up` falha com este erro: [cole]. Diagnostique a causa-raiz e proponha um fix."_
+3. **(Chat)** _"`docker compose up` falha com este erro: [cole]. Diagnostique a causa-raiz e proponha uma correção."_
 
 ## Se travar (defaults de emergência)
 

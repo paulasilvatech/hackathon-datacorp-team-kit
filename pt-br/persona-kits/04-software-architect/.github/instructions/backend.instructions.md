@@ -2,8 +2,8 @@
 applyTo: "src/api/**,src/services/**"
 ---
 
-# Backend Conventions
+# Convenções de Backend
 
-## Naming: PascalCase controllers, kebab-case routes
+## Naming: controllers em PascalCase, rotas em kebab-case
 ## Errors: RFC 7807, correlation IDs
-## Testing: happy path + auth fail + validation fail, 85% coverage
+## Testing: happy path + auth fail + validation fail, 85% de cobertura

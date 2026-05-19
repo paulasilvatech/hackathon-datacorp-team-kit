@@ -24,9 +24,9 @@ flowchart LR
  classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
  classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
 
- SP[Specification ✓<br/>EARS + ADRs + C4]:::done
- IM[Implementation<br/>VOCÊ ESTÁ AQUI]:::current
- EV[Evolution<br/>Estágio 4]:::next
+ SP[Especificação ✓<br/>EARS + ADRs + C4]:::done
+ IM[Implementação<br/>VOCÊ ESTÁ AQUI]:::current
+ EV[Evolução<br/>Estágio 4]:::next
 
  SP --> IM --> EV
 ```
@@ -56,6 +56,6 @@ flowchart TB
 
 | Anterior                                                 | Início                    | Próximo                                           |
 | -------------------------------------------------------- | ------------------------- | ------------------------------------------------- |
-| [Estágio 2 — Spec Moderna](../02-spec-moderna/README.md) | [Kit PT-BR](../README.md) | [Estágio 4 — Evolution](../04-evolucao/README.md) |
+| [Estágio 2 — Spec Moderna](../02-spec-moderna/README.md) | [Kit PT-BR](../README.md) | [Estágio 4 — Evolução](../04-evolucao/README.md) |
 
 — Paula

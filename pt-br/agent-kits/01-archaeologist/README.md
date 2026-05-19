@@ -32,7 +32,7 @@ Transformar arquivos Natural/Adabas em evidências úteis para o Estágio 2: glo
 3. Cole o prompt de abertura abaixo.
 4. Leia um programa por vez. Não pule arquivos porque parecem simples.
 5. Para cada achado, registre evidência com caminho e, quando possível, linha.
-6. Ao final, confira a Definition of Done antes do Handoff #1.
+6. Ao final, confira a Definição de Pronto antes do Passagem #1.
 
 ```text
 Estou iniciando o Estágio 1 — Arqueologia.
@@ -51,14 +51,14 @@ Comece me dizendo qual arquivo abrir primeiro e que perguntas fazer.
 | Regra ambígua | "Não invente. Registre como mistério, com hipótese, evidência e impacto." |
 | CALLNAT | "Mapeie quem chama quem e gere um Mermaid simples." |
 
-## Definition of Done
+## Definição de Pronto
 
 - [ ] Glossário com pelo menos 30 termos relevantes.
 - [ ] Catálogo de regras com programa-fonte preenchido.
 - [ ] Mapa de dependências cobrindo os programas lidos.
 - [ ] DDMs principais com campos, tipos e observações de modelagem.
 - [ ] Pelo menos 5 mistérios documentados com evidência.
-- [ ] Discovery report pronto para o Handoff #1 (~14:30).
+- [ ] Relatório de descoberta pronto para o Passagem #1 (~14:30).
 
 ## Anti-padrões
 
@@ -66,7 +66,7 @@ Comece me dizendo qual arquivo abrir primeiro e que perguntas fazer.
 | --- | --- |
 | Pedir "resuma tudo" sem abrir arquivo | Abra um arquivo e leia com o agente |
 | Transformar hipótese em requisito | Marque como mistério até haver evidência |
-| Editar o legado | Trate `legacy/` como read-only |
+| Editar o legado | Trate `legacy/` como somente leitura |
 | Começar arquitetura no Estágio 1 | Guarde ideias para o `@architect` |
 
 ## Navegação

@@ -22,18 +22,18 @@ flowchart LR
  classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
  classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
 
- D[Discovery<br/>S1 — extrai regras]:::current
- SP[Specification<br/>S2 — LIDERA EARS]:::current
- IM[Implementation<br/>S3 — clarifica]:::support
- EV[Evolution<br/>S4 — coerência spec ↔ issue]:::support
+ D[Descoberta<br/>S1 — extrai regras]:::current
+ SP[Especificação<br/>S2 — LIDERA EARS]:::current
+ IM[Implementação<br/>S3 — clarifica]:::support
+ EV[Evolução<br/>S4 — coerência spec ↔ issue]:::support
 
  D --> SP --> IM --> EV
 ```
 
 - **Par**: 1 · Visão (junto com Product Owner)
-- **Fases lideradas**: Specification (S2) — escrita de EARS
+- **Fases lideradas**: Especificação (S2) — escrita de EARS
 - **Recebe de**: PO (priorização) e Estágio 1 (catálogo de regras)
-- **Faz handoff para**: Par 2 (Arquitetura) no H2
+- **Faz passagem para**: Par 2 (Arquitetura) no H2
 
 ## Quem é essa pessoa
 
@@ -56,7 +56,7 @@ Converter o que foi descoberto no Estágio 1 em requisitos formais e testáveis 
 | 1. Arqueologia         | Extrai regras candidatas dos Naturals. Classifica: regra de negócio, validação, cálculo, integração.          | Catálogo de regras (tabela)                        |
 | 2. Spec Moderna        | Converte o catálogo em requisitos EARS. Mantém rastreabilidade legado → requisito. Estrutura a spec com o PO. | Seção de "Functional Requirements" em notação EARS |
 | 3. Implementação       | Responde dúvidas de requisito durante a codificação. Ajusta texto quando emerge ambiguidade real.             | Spec viva, não congelada                           |
-| 4. Evolution com Agent | Revisa se as duas issues cobrem novo requisito ou ajuste de existente.                                        | Coerência entre issues e spec                      |
+| 4. Evolução com Agent  | Revisa se as duas issues cobrem novo requisito ou ajuste de existente.                                        | Coerência entre issues e spec                      |
 
 ## Ferramentas e primitivas
 
@@ -89,7 +89,7 @@ Converter o que foi descoberto no Estágio 1 em requisitos formais e testáveis 
 - **RE + Product Owner** é o par natural (PO diz "por quê"; RE diz "como verificar que foi feito").
 - **RE + QA Engineer** também forte — você escreve o requisito e é quem testa.
 
-## 3 prompts de exemplo
+## 3 exemplos de prompt
 
 1. **(Chat)** _"Leia esta regra do SIFAP legado e converta para notação EARS: [cole a regra]. Identifique qual dos 6 padrões EARS se aplica e explique por quê."_
 2. **(Chat)** _"Analise estes 5 requisitos EARS e encontre: (a) ambiguidades que precisam de decisão do PO, (b) dependências entre eles, (c) requisitos conflitantes."_

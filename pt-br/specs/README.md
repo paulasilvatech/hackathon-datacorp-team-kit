@@ -1,5 +1,5 @@
 ---
-title: "Workspace Spec-Kit SDD"
+title: "Workspace SDD do Spec-Kit"
 description: "Guia didático da pasta de especificações: uma pasta por funcionalidade, com artefatos do GitHub Spec-Kit"
 author: "Requirements Engineer (time)"
 date: "2026-05-18"
@@ -35,8 +35,8 @@ O número (`001`) dá ordem. O nome (`geracao-ciclo-pagamento`) explica o escopo
 ## Passo a passo
 
 1. **Escolha uma descoberta do Estágio 1.** Exemplo: regra de pagamento encontrada em `legacy/natural-programs/BATCHPGT.NSN`.
-2. **Crie ou renomeie a pasta da feature.** Use o padrão `NNN-nome-curto`.
-3. **Execute `/speckit.specify`.** A spec deve ter user stories, EARS, acceptance criteria e `source_legacy:`.
+2. **Crie ou renomeie a pasta da funcionalidade.** Use o padrão `NNN-nome-curto`.
+3. **Execute `/speckit.specify`.** A spec deve ter user stories, EARS, critérios de aceitação e `source_legacy:`.
 4. **Execute `/speckit.clarify`.** Resolva dúvidas antes de discutir arquitetura.
 5. **Execute `/speckit.plan`.** Gere plano técnico, riscos, dados e contratos.
 6. **Execute `/speckit.tasks`.** Quebre o plano em tarefas pequenas, testáveis e rastreáveis.
@@ -63,15 +63,15 @@ O número (`001`) dá ordem. O nome (`geracao-ciclo-pagamento`) explica o escopo
 
 ## Funcionalidade inicial
 
-A pasta [001-example-feature](001-example-feature/) é um placeholder didático. Renomeie ou substitua quando o time escolher a primeira funcionalidade no Estágio 2.
+A pasta [001-example-feature](001-example-feature/) é um marcador didático. Renomeie ou substitua quando o time escolher a primeira funcionalidade no Estágio 2.
 
 ```bash
 mv specs/001-example-feature specs/001-geracao-ciclo-pagamento
 ```
 
-## Definition of Done da pasta `specs/`
+## Definição de Pronto da pasta `specs/`
 
-- [ ] Cada feature tem pasta `NNN-nome-curto`.
+- [ ] Cada funcionalidade tem pasta `NNN-nome-curto`.
 - [ ] Todo requisito legado tem `source_legacy:` apontando para `.NSN` ou `.ddm`.
 - [ ] Todo requisito greenfield tem justificativa `[GREENFIELD]`.
 - [ ] `tasks.md` inclui testes antes de implementação para regra de negócio.
@@ -79,7 +79,7 @@ mv specs/001-example-feature specs/001-geracao-ciclo-pagamento
 
 ## Referências
 
-- [Cheat sheet do Spec-Kit](../cheat-sheets/spec-kit-workflow.md)
+- [Cartão de referência do Spec-Kit](../cheat-sheets/spec-kit-workflow.md)
 - [Spec-Kit oficial](https://github.com/github/spec-kit)
 - [Spec-Driven Development](https://github.com/github/spec-kit/blob/main/spec-driven.md)
 

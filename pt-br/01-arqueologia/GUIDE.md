@@ -24,11 +24,11 @@ flowchart LR
  classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
  classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
 
- S1[Estágio 1<br/>Discovery<br/>13:00–14:30]:::current
- S2[Estágio 2<br/>Specification<br/>14:45–16:00]:::next
- S3[Estágio 3<br/>Implementation<br/>16:15–17:30]:::later
- S4[Estágio 4<br/>Evolution<br/>17:45–18:15]:::later
- DEMO[Demo + Retro<br/>18:15–19:50]:::later
+ S1[Estágio 1<br/>Descoberta<br/>13:00–14:30]:::current
+ S2[Estágio 2<br/>Especificação<br/>14:45–16:00]:::next
+ S3[Estágio 3<br/>Implementação<br/>16:15–17:30]:::later
+ S4[Estágio 4<br/>Evolução<br/>17:45–18:15]:::later
+ DEMO[Demo + Retrospectiva<br/>18:15–19:50]:::later
 
  S1 -- H1: legado → spec --> S2
  S2 -- H2: spec → código --> S3
@@ -36,7 +36,7 @@ flowchart LR
  S4 --> DEMO
 ```
 
-**Você está no Estágio 1 (Discovery do SDLC).** A saída deste estágio alimenta diretamente o Estágio 2 (Specification). Sem entrega clara aqui, o handoff #1 falha e o time inteiro empaca.
+**Você está no Estágio 1 (Descoberta do SDLC).** A saída deste estágio alimenta diretamente o Estágio 2 (Especificação). Sem entrega clara aqui, o passagem #1 falha e o time inteiro empaca.
 
 ## Quem trabalha aqui (todos os 5 pares, em paralelo)
 
@@ -60,7 +60,7 @@ flowchart TB
  P4 -- validações + esquema de dados --> H1
  P5 -- glossário + runbook seed --> H1
 
- H1{Handoff #1<br/>~11:45<br/>Facilitador valida<br/>5 artefatos}:::lead
+ H1{Passagem #1<br/>~11:45<br/>Facilitador valida<br/>5 artefatos}:::lead
  H1 --> S2[Estágio 2 começa<br/>Par 2 lidera]
 ```
 
@@ -263,7 +263,7 @@ Se sua dupla travar depois de 90 minutos sem achar nenhum mistério, levante a m
 
 ---
 
-## Como saber que terminou (Definition of Done)
+## Como saber que terminou (Definição de Pronto)
 
 Antes do facilitador chegar às 14h20, sua dupla deve poder marcar **todas** essas caixas:
 
@@ -302,6 +302,6 @@ Modelo certo (Haiku/Sonnet)? → cheat-sheets/model-routing.md
 
 | Anterior                                             | Início                                    | Próximo                                                                 |
 | ---------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------------------------- |
-| [Team Flow (PT-BR)](../TEAM-FLOW.md) _(em produção)_ | [Kit PT-BR](../README.md) _(em produção)_ | [Estágio 2 — Spec Moderna](../02-spec-moderna/GUIDE.md) _(em produção)_ |
+| [Fluxo do Time (PT-BR)](../TEAM-FLOW.md) _(em produção)_ | [Kit PT-BR](../README.md) _(em produção)_ | [Estágio 2 — Spec Moderna](../02-spec-moderna/GUIDE.md) _(em produção)_ |
 
 — Paula

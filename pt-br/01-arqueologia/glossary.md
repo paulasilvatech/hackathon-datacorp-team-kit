@@ -1,6 +1,6 @@
 ---
 title: "Glossário do SIFAP Legado"
-description: "Template para catalogar termos, abreviações e siglas encontradas no código Natural/Adabas. Meta: 30+ termos."
+description: "Modelo para catalogar termos, abreviações e siglas encontradas no código Natural/Adabas. Meta: 30+ termos."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/01-arqueologia/glossary.md"
 author: "Paula Silva, Americas Software GBB, Microsoft"

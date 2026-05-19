@@ -1,6 +1,6 @@
 ---
 title: "SIFAP - Sistema de Fiscalização e Administração de Pagamentos"
-description: "Documentação técnica do sistema SIFAP - Natural/Adabas, the organization"
+description: "Documentação técnica do sistema SIFAP - Natural/Adabas, a organização"
 author: "Divisão de Desenvolvimento - SUPDE/DESIF"
 date: "2018-03-15"
 version: "4.1.2"
@@ -12,9 +12,9 @@ tags: ["sifap", "natural", "adabas", "legado", "pagamentos", "benefícios"]
 
 # SIFAP - Sistema de Fiscalização e Administração de Pagamentos
 
-> **Classificação:** Documento Interno - the organization / SUPDE / DESIF
+> **Classificação:** Documento Interno - a organização / SUPDE / DESIF
 > **Versão do sistema:** 4.1.2
-> **Ambiente:** Produção - Mainframe the organization / Regional Brasília
+> **Ambiente:** Produção - Mainframe a organização / Regional Brasília
 > **Linguagem:** Natural 6.3.12 | Base de dados: Adabas 7.4.3
 
 ---
@@ -40,7 +40,7 @@ O sistema atende às seguintes demandas operacionais:
 | SENARC    | Secretaria Nacional de Renda de Cidadania          | Normatização e acompanhamento dos benefícios   |
 | CGPB      | Coordenação-Geral de Processamento de Benefícios   | Operação direta do processamento mensal        |
 | DEFIS     | Departamento de Fiscalização                       | Auditoria e controle de pagamentos indevidos   |
-| CGTI/MDAS | Coordenação-Geral de Tecnologia da Informação      | Interface técnica com the organization         |
+| CGTI/MDAS | Coordenação-Geral de Tecnologia da Informação      | Interface técnica com a organização         |
 
 O SIFAP opera como sistema estruturante para o ciclo de pagamento de benefícios, sendo considerado **sistema de missão crítica** pelo Comitê de Governança de TI do MDAS.
 
@@ -93,7 +93,7 @@ A equipe que desenvolveu e manteve o SIFAP ao longo dos anos é listada abaixo. 
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│ MAINFRAME the organization │
+│ MAINFRAME a organização │
 │ │
 │ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ │
 │ │ NATURAL 6.3 │ │ ADABAS 7.4 │ │ JOB SCHED. │ │
@@ -364,16 +364,16 @@ Nomes de campos são limitados a **20 caracteres** e utilizam abreviações padr
 
 ---
 
-## Navigation
+## Navegação
 
-> This `legacy/` folder is bundled inside the team kit. When you're working in the team repo, neighbors are the stage guides, not the workshop catalog.
+> Esta pasta `legacy/` está incluída dentro do kit do time. Quando você trabalha no repositório do time, os vizinhos são os guias de estágio, não o catálogo do workshop.
 
-| Previous                                                  | Home                     | Next                                                 |
+| Anterior                                                  | Início                   | Próximo                                              |
 | --------------------------------------------------------- | ------------------------ | ---------------------------------------------------- |
-| [Stage 1 — Archaeology Guide](../01-arqueologia/GUIDE.md) | [Team Kit](../README.md) | [Stage 2 — Modern Spec](../02-spec-moderna/GUIDE.md) |
+| [Estágio 1 — Guia de Arqueologia](../01-arqueologia/GUIDE.md) | [Kit do Time](../README.md) | [Estágio 2 — Spec Moderna](../02-spec-moderna/GUIDE.md) |
 
 ## Documentos Relacionados
 
-- [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md) — HARD GATE: o que você precisa entregar antes de abrir o Estagio 2
+- [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md) — PORTÃO DURO: o que você precisa entregar antes de abrir o Estágio 2
 - [`01-arqueologia/GUIDE.md`](../01-arqueologia/GUIDE.md) — passo a passo para ler este legado
-- [`02-spec-moderna/GUIDE.md`](../02-spec-moderna/GUIDE.md) — próximo passo: especificação moderna (EARS) com `source_legacy:` apontando para arquivos deste folder
+- [`02-spec-moderna/GUIDE.md`](../02-spec-moderna/GUIDE.md) — próximo passo: especificação moderna (EARS) com `source_legacy:` apontando para arquivos desta pasta

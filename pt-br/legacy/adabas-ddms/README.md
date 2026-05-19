@@ -1,6 +1,6 @@
 ---
-title: "Adabas DDM Files - SIFAP Legacy"
-description: "Data Definition Module files describing the Adabas database structure used by the legacy SIFAP system"
+title: "Arquivos DDM Adabas - Legado SIFAP"
+description: "Arquivos Data Definition Module que descrevem a estrutura do banco Adabas usada pelo sistema SIFAP legado"
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-23"
 version: "1.0.0"
@@ -10,25 +10,25 @@ tags: ["adabas", "ddm", "legacy", "sifap", "database"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-# Adabas DDM Files
+# Arquivos DDM Adabas
 
-> Data Definition Modules describing the physical and logical structure of the Adabas database used by the legacy SIFAP system.
+> Data Definition Modules que descrevem a estrutura física e lógica do banco Adabas usado pelo sistema SIFAP legado.
 
-## Contents
+## Conteúdo
 
-| File                  | Description                                                      |
+| Arquivo               | Descrição                                                        |
 | --------------------- | ---------------------------------------------------------------- |
-| `BENEFICIARIO.ddm`    | Beneficiary master record - personal data, documents, enrollment |
-| `PAGAMENTO.ddm`       | Payment transaction record - amounts, dates, statuses            |
-| `PROGRAMA-SOCIAL.ddm` | Social program definitions - rules, thresholds, eligibility      |
-| `AUDITORIA.ddm`       | Audit trail - who changed what, when                             |
+| `BENEFICIARIO.ddm`    | Registro mestre de beneficiário - dados pessoais, documentos, inscrição |
+| `PAGAMENTO.ddm`       | Registro de transação de pagamento - valores, datas, status      |
+| `PROGRAMA-SOCIAL.ddm` | Definições de programa social - regras, limites, elegibilidade   |
+| `AUDITORIA.ddm`       | Trilha de auditoria - quem alterou o quê e quando                |
 
-## Usage
+## Uso
 
-These files are **read-only reference material** for workshop teams during the Archaeology stage (Stage 1). Map each DDM field to a JPA entity field in the modernized system.
+Estes arquivos são **material de referência somente leitura** para os times do workshop durante o estágio de Arqueologia (Estágio 1). Mapeie cada campo DDM para um campo de entidade JPA no sistema modernizado.
 
-## Navigation
+## Navegação
 
-| Parent                               | Home                              |
+| Pai                                  | Início                            |
 | ------------------------------------ | --------------------------------- |
-| [02 - Legacy Scenario](../README.md) | [Workspace Root](../../README.md) |
+| [02 - Cenário Legado](../README.md)  | [Raiz do Workspace](../../README.md) |

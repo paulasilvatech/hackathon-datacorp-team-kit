@@ -30,7 +30,7 @@ O workshop tem quatro modos de trabalho. Cada modo exige comportamento diferente
 | 1 · Arqueologia | Observar e catalogar | `@archaeologist` | Não escrever código |
 | 2 · Spec Moderna | Estruturar e decidir | `@architect` | Não aceitar requisito sem evidência |
 | 3 · Implementação | Construir e verificar | `@builder` | Não codar sem REQ-ID e teste |
-| 4 · Evolution | Delegar e revisar | `@evolution` | Não aceitar PR de IA sem review |
+| 4 · Evolução | Delegar e revisar | `@evolution` | Não aceitar PR de IA sem revisão |
 
 Um agente único teria instruções conflitantes: no Estágio 1 ele precisa ser read-only; no Estágio 3 precisa editar e testar. Separar por etapa torna a experiência mais segura e mais clara para iniciantes.
 
@@ -38,19 +38,19 @@ Um agente único teria instruções conflitantes: no Estágio 1 ele precisa ser 
 
 ```mermaid
 flowchart TB
-    AG[Agent<br/>.github/agents/*.agent.md] --> INS[Instructions<br/>.github/instructions/*.instructions.md]
+    AG[Agente<br/>.github/agents/*.agent.md] --> INS[Instruções<br/>.github/instructions/*.instructions.md]
     AG --> PR[Prompts<br/>.github/prompts/*.prompt.md]
     AG --> SK[Skills<br/>.github/skills/*/SKILL.md]
     AG --> MCP[MCP<br/>mcp.json quando aplicável]
     INS --> CTX[Contexto certo<br/>no arquivo certo]
-    PR --> CMD[Slash commands<br/>para tarefas recorrentes]
+    PR --> CMD[Comandos slash<br/>para tarefas recorrentes]
     SK --> WF[Workflows didáticos<br/>com exemplos e critérios]
 ```
 
 | Camada | Para que serve | Exemplo |
 | --- | --- | --- |
-| Agent | Define missão, ferramentas e comportamento | `@builder` sabe implementar e testar |
-| Instructions | Regras sensíveis ao tipo de arquivo | Natural/Adabas, Java, frontend |
+| Agente | Define missão, ferramentas e comportamento | `@builder` sabe implementar e testar |
+| Instruções | Regras sensíveis ao tipo de arquivo | Natural/Adabas, Java, frontend |
 | Prompts | Ações reutilizáveis | `/translate-natural-to-java`, `/write-ears-spec` |
 | Skills | Guia mais profundo para uma técnica | TDD, ADR, extração de regra |
 | MCP | Conecta o agente a sistemas externos | GitHub, banco, Azure quando configurado |
@@ -61,7 +61,7 @@ flowchart TB
 2. **Selecione o agente de etapa no Copilot Chat.** Exemplo: `@architect` no Estágio 2.
 3. **Leia também seu `PERSONA.md`.** Ele diz o que você, pessoa, deve observar naquela etapa.
 4. **Use os prompts do stage.** Eles transformam conversa em artefato.
-5. **Pare no gate.** Só avance quando a Definition of Done da etapa estiver cumprida.
+5. **Pare no gate.** Só avance quando a Definição de Pronto da etapa estiver cumprida.
 
 ## Exemplo concreto
 
@@ -71,7 +71,7 @@ Durante o Estágio 2, o Requirements Engineer quer escrever requisitos, mas quem
 @architect
 Temos esta regra extraída de BATCHPGT.NSN:
 "Quando o ciclo mensal roda, pagamentos são gerados apenas para beneficiários ativos."
-Ajude a transformar em EARS com REQ-ID, acceptance criteria e source_legacy.
+Ajude a transformar em EARS com REQ-ID, critérios de aceite e source_legacy.
 ```
 
 O agente ajuda a transformar a descoberta em algo implementável:
@@ -79,9 +79,9 @@ O agente ajuda a transformar a descoberta em algo implementável:
 ```yaml
 REQ-PAY-001:
   pattern: event-driven
-  text: "When a payment cycle is generated, the SIFAP shall create payment records for every beneficiary with status ACTIVE."
+  text: "Quando um ciclo de pagamento for gerado, o SIFAP deverá criar registros de pagamento para todo beneficiário com status ACTIVE."
   source_legacy: legacy/natural-programs/BATCHPGT.NSN#L120-L168
-  acceptance: "10 active + 2 suspended beneficiaries produces 10 payment records."
+  acceptance: "10 ativos + 2 suspensos produzem 10 registros de pagamento."
 ```
 
 ## Regra no-silver-platter
@@ -92,7 +92,7 @@ Os agentes ensinam o caminho, mas não entregam a resposta pronta sem evidência
 | --- | --- |
 | "Diga quais são os bounded contexts" | "Mostre o catálogo de programas e o mapa de dados." |
 | "Crie requisitos para tudo" | "Vamos começar por uma regra com fonte no legado." |
-| "Implemente esta feature sem spec" | "Falta REQ-ID, acceptance e source_legacy." |
+| "Implemente esta funcionalidade sem spec" | "Falta REQ-ID, critério de aceitação e source_legacy." |
 
 ## Como saber que entendeu
 
@@ -104,7 +104,7 @@ Você entendeu o modelo quando consegue explicar estas três frases para outra p
 
 ## Referências
 
-- [Agent Kits](../agent-kits/README.md)
+- [Kits de agentes](../agent-kits/README.md)
 - [Matriz persona-agente](persona-agent-matrix.md)
 - [Fluxo SDLC completo](sdlc-flow-guide.md)
 - [Persona Kits](../persona-kits/README.md)
@@ -113,6 +113,6 @@ Você entendeu o modelo quando consegue explicar estas três frases para outra p
 
 | Anterior | Início | Próximo |
 | --- | --- | --- |
-| [Matriz Persona-Agente](persona-agent-matrix.md) | [Kit PT-BR](../README.md) | [Agent Kits](../agent-kits/README.md) |
+| [Matriz Persona-Agente](persona-agent-matrix.md) | [Kit PT-BR](../README.md) | [Kits de agentes](../agent-kits/README.md) |
 
 — Paula

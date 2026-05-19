@@ -1,44 +1,44 @@
 ---
 mode: agent
 model: claude-opus-4-6
-description: "Author CONSTITUTION.md — the non-negotiable rules and principles that govern a SIFAP 2.0 feature build."
+description: "Escreva CONSTITUTION.md — as regras e princípios inegociáveis que governam a construção de uma feature do SIFAP 2.0."
 ---
 
 # /create-constitution
 
-## Goal
+## Objetivo
 
-You are the enterprise architect authoring `specs/<NNN>-<feature>/CONSTITUTION.md` — the document that lists the **non-negotiable rules** every contributor agrees to before they read the spec. The constitution is short, explicit, and stable. ADRs make decisions; the constitution sets the rails decisions cannot leave.
+Você é o enterprise architect escrevendo `specs/<NNN>-<feature>/CONSTITUTION.md` — o documento que lista as **regras inegociáveis** com as quais todo contribuidor concorda antes de ler a spec. A constitution é curta, explícita e estável. ADRs tomam decisões; a constitution define os trilhos dos quais as decisões não podem sair.
 
-## Inputs
+## Entradas
 
-Ask the user for what is missing.
+Peça ao usuário o que estiver faltando.
 
-- The feature folder (`specs/<NNN>-<feature>/`).
-- The organization-wide constraints already in force (security baseline, Azure-only, OWASP Top 10, LGPD).
-- Any prior constitutions to inherit from (a parent feature's CONSTITUTION).
-- The team and persona owners assigned to this feature.
+- A pasta da feature (`specs/<NNN>-<feature>/`).
+- As restrições organizacionais já em vigor (baseline de segurança, somente Azure, OWASP Top 10, LGPD).
+- Quaisquer constitutions anteriores das quais herdar (CONSTITUTION de uma feature pai).
+- O time e donos de persona designados para esta feature.
 
-## Process
+## Processo
 
-1. **Inherit and adapt.** Start from the project-level constitution and tighten or relax for this feature only with explicit justification.
-2. **Group rules by category.**
+1. **Herde e adapte.** Comece pela constitution em nível de projeto e aperte ou relaxe apenas para esta feature, com justificativa explícita.
+2. **Agrupe regras por categoria.**
  - **Stack** — language, framework, runtime versions.
  - **Security** — identity, secrets, network, encryption, OWASP baseline.
  - **Data** — PII handling, retention, residency, encryption at rest.
  - **Operations** — observability, deployment, environments, SLOs.
  - **Process** — branching, code review, testing thresholds, ADR cadence.
  - **Compliance** — LGPD, regulatory, audit logging.
-3. **Make every rule testable.** "Use Java 21" is testable (`mvnw --version`); "use modern Java" is not.
-4. **Number the rules.** `C1`, `C2` ... so reviewers can cite them.
-5. **State the consequence of breaking a rule.** "Build fails," "PR rejected," "InfoSec exception required" — not silence.
-6. **Mark mutable vs immutable.** Some rules can be relaxed via ADR with InfoSec sign-off; some require a new constitution.
-7. **Date and sign.** Architecture forum date, named approvers, version `1.0.0`. Bumped only when the constitution itself changes.
-8. **Keep it short.** Target ≤ 80 lines. If the team cannot remember the constitution, it does not work.
+3. **Torne toda regra testável.** "Use Java 21" é testável (`mvnw --version`); "use modern Java" não é.
+4. **Numere as regras.** `C1`, `C2` ... para que revisores possam citá-las.
+5. **Declare a consequência de quebrar uma regra.** "Build fails," "PR rejected," "InfoSec exception required" — não silêncio.
+6. **Marque mutável vs. imutável.** Algumas regras podem ser relaxadas via ADR com sign-off de InfoSec; outras exigem uma nova constitution.
+7. **Date e assine.** Data do fórum de arquitetura, aprovadores nomeados, versão `1.0.0`. Bump apenas quando a própria constitution mudar.
+8. **Mantenha curto.** Meta ≤ 80 linhas. Se o time não consegue lembrar a constitution, ela não funciona.
 
-## Output
+## Saída
 
-The deliverable is `specs/<NNN>-<feature>/CONSTITUTION.md`:
+O entregável é `specs/<NNN>-<feature>/CONSTITUTION.md`:
 
 ```markdown
 # CONSTITUTION — <feature> (<feature-folder>)
@@ -49,20 +49,20 @@ The deliverable is `specs/<NNN>-<feature>/CONSTITUTION.md`:
 - **Inherits from**: project-level CONSTITUTION.md
 
 ## 1. Stack
-| ID | Rule | Consequence on breach |
+| ID | Regra | Consequência da violação |
 |----|------|----------------------|
-| C1 | Backend services run on Java 21 (Temurin) and Spring Boot 3.3 only. | Build fails. |
-| C2 | Frontend runs on Next.js 15 with TypeScript `strict: true`. No `any`. | Lint blocks merge. |
-| C3 | PostgreSQL 16 is the only system of record for SIFAP data. | InfoSec exception required. |
-| C4 | All cloud infra is Azure. No multi-cloud in this feature. | New ADR + architecture forum required. |
+| C1 | Serviços de backend rodam somente em Java 21 (Temurin) e Spring Boot 3.3. | Build falha. |
+| C2 | Frontend roda em Next.js 15 com TypeScript `strict: true`. Sem `any`. | Lint bloqueia merge. |
+| C3 | PostgreSQL 16 é o único sistema de registro para dados do SIFAP. | Exige exceção de InfoSec. |
+| C4 | Toda infraestrutura de nuvem é Azure. Sem multi-cloud nesta funcionalidade. | Novo ADR + fórum de arquitetura obrigatórios. |
 
-## 2. Security
-| ID | Rule | Consequence |
+## 2. Segurança
+| ID | Regra | Consequência |
 |----|------|-------------|
-| C5 | Service-to-service auth uses Azure Managed Identity. No client secrets in code or config. | PR blocked. |
-| C6 | All secrets read from Key Vault at runtime. No `.env` committed. | Gitleaks blocks merge. |
-| C7 | OWASP Top 10 baseline applies — input validation, parameterized SQL, no string-built queries. | PR rejected. |
-| C8 | CORS allowlist is explicit. No `*` in production config. | Stage promotion blocked. |
+| C5 | Autenticação serviço-a-serviço usa Azure Managed Identity. Sem client secrets em código ou configuração. | PR bloqueado. |
+| C6 | Todos os secrets são lidos do Key Vault em runtime. Nenhum `.env` commitado. | Gitleaks bloqueia merge. |
+| C7 | Baseline OWASP Top 10 se aplica — validação de entrada, SQL parametrizado, sem queries montadas por string. | PR rejeitado. |
+| C8 | Allowlist de CORS é explícita. Sem `*` na configuração de produção. | Promoção de estágio bloqueada. |
 
 ## 3. Data
 | ID | Rule | Consequence |
@@ -79,8 +79,8 @@ The deliverable is `specs/<NNN>-<feature>/CONSTITUTION.md`:
 | C14 | SLO defined for every user-facing endpoint, in REQ-OPS-*. | Spec review blocks. |
 | C15 | Deployments to prod require two reviewers and a linked change ticket. | Pipeline blocks. |
 
-## 5. Process
-| ID | Rule | Consequence |
+## 5. Processo
+| ID | Regra | Consequência |
 |----|------|-------------|
 | C16 | One branch per spec — `spec/<NNN>-<name>` from `develop`. No direct commits to `develop`, `stage`, or `main`. | PR rejected. |
 | C17 | Every requirement uses EARS notation; every test cites a `REQ-ID`. | Spec review blocks. |
@@ -96,33 +96,33 @@ The deliverable is `specs/<NNN>-<feature>/CONSTITUTION.md`:
 - Mutable (relaxable via ADR + InfoSec sign-off): C13–C18.
 - Immutable (constitutional change required): C1, C3, C4, C5, C6, C7, C9, C10, C19, C20.
 
-## 8. Amendment process
-Open a PR to this file. Architecture forum reviews, version bumped (`1.0.0` → `1.1.0` minor, → `2.0.0` major). New approvers signature required.
+## 8. Processo de emenda
+Abra um PR para este arquivo. O fórum de arquitetura revisa, a versão é atualizada (`1.0.0` → `1.1.0` menor, → `2.0.0` maior). É obrigatória a assinatura de novos aprovadores.
 ```
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** New feature `004-uat-portal`, inherits project constitution, adds two extra rules: WCAG 2.1 AA accessibility, support for SSO via Entra ID.
+**Entrada:** Nova feature `004-uat-portal`, herda a constitution do projeto, adiciona duas regras extras: acessibilidade WCAG 2.1 AA, suporte a SSO via Entra ID.
 
-**Expected reply:** the structure above, with two added rows in the Security section (`C8a` SSO required) and Operations (`C14a` axe-core checks pass), and "Inherits from" naming the project CONSTITUTION.
+**Resposta esperada:** a estrutura acima, com duas linhas adicionadas na seção Security (`C8a` SSO required) e Operations (`C14a` axe-core checks pass), e "Inherits from" nomeando a CONSTITUTION do projeto.
 
-## Anti-patterns
+## Antipadrões
 
-- Long constitutions nobody reads. Cut to ≤ 80 lines.
-- Rules without consequences. Soft rules drift to optional.
-- Rules without IDs. Reviewers cannot cite them.
-- Mixing principles ("we value quality") with rules ("Java 21 only"). Principles belong elsewhere; the constitution is rules.
-- "Best practices" wording. State the rule.
-- No mutable/immutable distinction. Every rule looks equally rigid; teams over-comply or revolt.
-- No amendment process. Stale constitutions are ignored.
+- Constitutions longas que ninguém lê. Corte para ≤ 80 linhas.
+- Regras sem consequências. Regras suaves viram opcionais.
+- Regras sem IDs. Revisores não conseguem citá-las.
+- Misturar princípios ("we value quality") com regras ("Java 21 only"). Princípios pertencem a outro lugar; a constitution é feita de regras.
+- Redação de "Best practices". Declare a regra.
+- Sem distinção mutável/imutável. Toda regra parece igualmente rígida; times sobrecumprem ou se rebelam.
+- Sem processo de emenda. Constitutions obsoletas são ignoradas.
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] File length ≤ 80 lines (excluding signatures).
-- [ ] Every rule has an ID and a consequence on breach.
-- [ ] At least one rule per category (Stack, Security, Data, Operations, Process, Compliance).
-- [ ] Mutable vs immutable distinction stated.
-- [ ] Amendment process documented.
-- [ ] Inherits from a parent constitution where one exists.
-- [ ] Approvers and date recorded.
-- [ ] Version follows semver.
+- [ ] Comprimento do arquivo ≤ 80 linhas (excluindo assinaturas).
+- [ ] Toda regra tem ID e consequência em caso de violação.
+- [ ] Pelo menos uma regra por categoria (Stack, Security, Data, Operations, Process, Compliance).
+- [ ] Distinção mutável vs. imutável declarada.
+- [ ] Processo de emenda documentado.
+- [ ] Herda de uma constitution pai quando houver.
+- [ ] Aprovadores e data registrados.
+- [ ] Versão segue semver.

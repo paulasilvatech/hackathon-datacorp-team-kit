@@ -1,54 +1,54 @@
 ---
-name: Refactor Safely
-description: "Use when refactoring legacy code, extracting a service, or making behavior-preserving changes. Triggers on 'refactor', 'legacy code', 'strangler fig', 'characterization test', 'mikado method'."
+name: Refatorar com segurança
+description: "Use ao refatorar código legado, extrair um serviço ou fazer mudanças que preservam comportamento. Aciona com 'refactor', 'legacy code', 'strangler fig', 'characterization test', 'mikado method'."
 ---
 
-# Refactor Safely
+# Refatorar com segurança
 
-## When to invoke
-- Working in code without sufficient tests.
-- Splitting a monolith / extracting a service.
-- A change is "one line" but touches a scary path.
+## Quando invocar
+- Ao trabalhar em código sem testes suficientes.
+- Ao dividir um monólito / extrair um serviço.
+- Quando uma mudança é "uma linha", mas toca um caminho assustador.
 
-## First rule
-**Refactoring is behavior-preserving.** If you can't prove behavior is preserved, it's not a refactor - it's a rewrite. Put characterization tests in place first.
+## Primeira regra
+**Refatoração preserva comportamento.** Se você não consegue provar que o comportamento foi preservado, não é refatoração - é reescrita. Coloque testes de caracterização em prática primeiro.
 
-## The workflow
-1. **Characterize** - write tests that pin down current behavior, including quirks. Don't fix bugs yet; the goal is a safety net, not correctness.
-2. **Small reversible steps** - one behavior-preserving transformation at a time. Commit between each.
-3. **Keep green** - run tests after every step. Revert immediately if red and you can't see why.
-4. **Separate refactor commits from behavior-change commits** - reviewers can focus, bisect stays useful.
-5. **Land often** - long-lived refactor branches rot.
+## O workflow
+1. **Caracterize** - escreva testes que fixem o comportamento atual, incluindo peculiaridades. Não corrija bugs ainda; o objetivo é uma rede de segurança, não correção.
+2. **Passos pequenos e reversíveis** - uma transformação que preserva comportamento por vez. Faça commit entre cada uma.
+3. **Mantenha verde** - execute testes após cada passo. Reverta imediatamente se ficar vermelho e você não souber por quê.
+4. **Separe commits de refatoração de commits de mudança de comportamento** - revisores conseguem focar, o bisect continua útil.
+5. **Integre com frequência** - branches de refatoração de vida longa apodrecem.
 
-## Patterns
-### Strangler Fig (for systems)
-1. Put a façade (proxy, router, feature flag) in front of the old system.
-2. Route a thin slice of traffic to the new implementation.
-3. Grow the new implementation slice by slice; shrink the old.
-4. Delete the old when its traffic is zero.
+## Padrões
+### Strangler Fig (para sistemas)
+1. Coloque uma façade (proxy, router, feature flag) na frente do sistema antigo.
+2. Direcione uma fatia fina de tráfego para a nova implementação.
+3. Faça a nova implementação crescer fatia por fatia; reduza a antiga.
+4. Apague a antiga quando seu tráfego chegar a zero.
 
-### Mikado Method (for code)
-1. Write down the goal.
-2. Naively attempt it; note what breaks as **prerequisites**.
-3. Revert. Tackle one prerequisite first. Recurse.
-4. Leaves get done first; the original goal falls out last.
+### Mikado Method (para código)
+1. Escreva o objetivo.
+2. Tente de forma ingênua; anote o que quebra como **pré-requisitos**.
+3. Reverta. Ataque primeiro um pré-requisito. Faça recursão.
+4. As folhas são concluídas primeiro; o objetivo original cai por último.
 
 ### Branch by Abstraction
-Introduce an interface, migrate callers to it, swap implementations, retire the old one - all without a long-lived branch.
+Introduza uma interface, migre chamadores para ela, troque implementações e aposente a antiga - tudo sem uma branch de vida longa.
 
-## Characterization tests - how
-- Run the code on representative inputs, record the output (golden files / snapshot tests).
-- Prefer observing from the outside (HTTP, CLI, DB state) - resilient to internal refactor.
-- Cover the weird cases too; they're what breaks.
-- Accept that some behavior is *bugs you're now pinning* - mark them, fix after the safety net exists.
+## Testes de caracterização - como
+- Execute o código com entradas representativas, registre a saída (golden files / snapshot tests).
+- Prefira observar de fora (HTTP, CLI, estado do DB) - resiliente a refatoração interna.
+- Cubra também os casos estranhos; são eles que quebram.
+- Aceite que alguns comportamentos são *bugs que você agora está fixando* - marque-os, corrija depois que a rede de segurança existir.
 
-## Anti-patterns
-- "Refactor" PRs that also fix bugs, change APIs, and rename files - impossible to review, impossible to revert.
-- Big-bang rewrite with no delivery for months.
-- Deleting old code before the new code handles 100% of traffic.
-- Refactoring without tests, trusting manual verification on a happy path.
+## Antipadrões
+- PRs de "refactor" que também corrigem bugs, mudam APIs e renomeiam arquivos - impossíveis de revisar, impossíveis de reverter.
+- Reescrita big-bang sem entrega por meses.
+- Deletar código antigo antes que o novo código atenda 100% do tráfego.
+- Refatorar sem testes, confiando em verificação manual de caminho feliz.
 
-## References
+## Referências
 - [Martin Fowler - Refactoring (2nd ed.)](https://martinfowler.com/books/refactoring.html)
 - [Michael Feathers - Working Effectively with Legacy Code](https://www.oreilly.com/library/view/working-effectively-with/0131177052/)
 - [Mikado Method](https://mikadomethod.info/)

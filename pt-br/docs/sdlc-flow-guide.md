@@ -12,7 +12,7 @@ tags: ["flow", "sdlc", "personas", "agents", "integration", "hackathon"]
 
 # Fluxo SDLC — Personas × Agentes × Etapas
 
-> **Este é o mapa que faltava.** O seu cartão de persona diz _o que você possui_. O agent kit diz _como a IA ajuda_. Este documento diz _quando tudo se conecta_ — o fluxo completo de 8 horas, com cada handoff, cada troca de agente e cada entregável em sequência.
+> **Este é o mapa que faltava.** O seu cartão de persona diz _o que você possui_. O kit de agente diz _como a IA ajuda_. Este documento diz _quando tudo se conecta_ — o fluxo completo de 8 horas, com cada passagem, cada troca de agente e cada entregável em sequência.
 
 Imprima esta página. Deixe-a fixada ao lado da sua tela. Ela é o seu GPS do dia.
 
@@ -33,8 +33,8 @@ flowchart TD
         S1A --> S1B --> S1C
     end
 
-    subgraph H1["Handoff #1 (14:15–14:30)"]
-        H1A["RE entrega o discovery report<br/>ao Software Architect<br/>PO confirma prioridades"]
+    subgraph H1["Passagem #1 (14:15–14:30)"]
+        H1A["RE entrega o relatório de descoberta<br/>ao Software Architect<br/>PO confirma prioridades"]
     end
 
     subgraph S2["Etapa 2 — Especificação Moderna (14:45–16:00) · @architect"]
@@ -45,7 +45,7 @@ flowchart TD
         S2A --> S2B --> S2C
     end
 
-    subgraph H2["Handoff #2 (16:00–16:15)"]
+    subgraph H2["Passagem #2 (16:00–16:15)"]
         H2A["SA entrega spec + design<br/>ao Tech Lead + Developer<br/>DBA recebe o modelo de dados"]
     end
 
@@ -57,7 +57,7 @@ flowchart TD
         S3A --> S3B --> S3C
     end
 
-    subgraph H3["Handoff #3 (17:30–17:45)"]
+    subgraph H3["Passagem #3 (17:30–17:45)"]
         H3A["TL entrega o protótipo funcional<br/>ao DevOps<br/>QA continua testando"]
     end
 
@@ -101,19 +101,19 @@ flowchart TD
 
 | Persona                   | Papel          | O Que Você Faz                                                                                                                           | Prompts Que Você Executa                          |
 | ------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| **Requirements Engineer** | 🔑 Protagonist | Abra `legacy/` e conduza uma exploração sistemática. Extraia regras de negócio de cada programa. Assuma o catálogo de regras de negócio. | `/archaeology-kickoff`, `/extract-business-rules` |
-| Tech Writer               | Secondary      | Construa o glossário de domínio em tempo real. Cada novo termo recebe uma definição.                                                     | Trabalha junto com RE, sem prompt dedicado        |
-| Enterprise Architect      | Secondary      | Mapeie limites do sistema: quais sistemas externos o legado chama? De onde vêm as entradas batch?                                        | `/map-dependencies` (scope = external interfaces) |
-| DBA                       | Secondary      | Foque nos DDMs. Documente tipos de campo, estruturas MU/PE e relações entre arquivos.                                                    | `/map-dependencies` (scope = DDMs)                |
-| Product Owner             | Observer       | Ouça e valide. Quando uma interpretação de regra de negócio for proposta, confirme ou questione.                                         | —                                                 |
-| Software Architect        | Observer       | Comece a pensar em quais clusters de código podem virar bounded contexts.                                                                | —                                                 |
-| Technical Lead            | Observer       | Observe padrões de qualidade de código — o que será difícil traduzir na Etapa 3?                                                         | —                                                 |
-| QA Engineer               | Observer       | Observe quais regras não têm apoio documental (elas precisarão de testes extras depois).                                                 | —                                                 |
-| DevOps Engineer           | Observer       | Observe pistas de infraestrutura: agendas batch, dependências de arquivos, variáveis de ambiente.                                        | —                                                 |
+| **Requirements Engineer** | 🔑 Protagonista | Abra `legacy/` e conduza uma exploração sistemática. Extraia regras de negócio de cada programa. Assuma o catálogo de regras de negócio. | `/archaeology-kickoff`, `/extract-business-rules` |
+| Tech Writer               | Secundária      | Construa o glossário de domínio em tempo real. Cada novo termo recebe uma definição.                                                     | Trabalha junto com RE, sem prompt dedicado        |
+| Enterprise Architect      | Secundária      | Mapeie limites do sistema: quais sistemas externos o legado chama? De onde vêm as entradas batch?                                        | `/map-dependencies` (escopo = interfaces externas) |
+| DBA                       | Secundária      | Foque nos DDMs. Documente tipos de campo, estruturas MU/PE e relações entre arquivos.                                                    | `/map-dependencies` (escopo = DDMs)                |
+| Product Owner             | Observadora       | Ouça e valide. Quando uma interpretação de regra de negócio for proposta, confirme ou questione.                                         | —                                                 |
+| Software Architect        | Observadora       | Comece a pensar em quais clusters de código podem virar bounded contexts.                                                                | —                                                 |
+| Technical Lead            | Observadora       | Observe padrões de qualidade de código — o que será difícil traduzir na Etapa 3?                                                         | —                                                 |
+| QA Engineer               | Observadora       | Observe quais regras não têm apoio documental (elas precisarão de testes extras depois).                                                 | —                                                 |
+| DevOps Engineer           | Observadora       | Observe pistas de infraestrutura: agendas batch, dependências de arquivos, variáveis de ambiente.                                        | —                                                 |
 
 **Gate:** Antes de sair da Etapa 1, o RE executa `/discovery-report`. Se qualquer um dos 4 artefatos de entrada estiver ausente, o prompt se recusa a gerar o relatório. Este é o gate de qualidade.
 
-**Handoff #1 (14:15):** O Requirements Engineer apresenta o discovery report ao Software Architect em um standup de 5 minutos. O PO confirma quais achados têm maior prioridade.
+**Passagem #1 (14:15):** O Requirements Engineer apresenta o relatório de descoberta ao Software Architect em um standup de 5 minutos. O PO confirma quais achados têm maior prioridade.
 
 ---
 
@@ -123,16 +123,16 @@ flowchart TD
 
 | Persona                | Papel          | O Que Você Faz                                                                                               | Prompts Que Você Executa                              |
 | ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| **Software Architect** | 🔑 Protagonist | Avalie hipóteses de separação a partir do discovery report. Desenhe diagramas C4. Defina limites de módulos. | `/carve-bounded-contexts`, `/design-modular-monolith` |
-| Requirements Engineer  | Secondary      | Transforme regras de negócio confirmadas em requisitos EARS. Todo REQ precisa de rastreabilidade de origem.  | `/write-ears-spec`                                    |
-| Enterprise Architect   | Secondary      | Valide o diagrama de contexto do sistema. Revise ADRs para alinhamento empresarial.                          | `/generate-adr` (decisões relacionadas à integração)  |
-| Product Owner          | Secondary      | Priorize requisitos. Com 2 horas para implementação, o time não consegue construir tudo.                     | Participa das discussões de `/carve-bounded-contexts` |
-| Technical Lead         | Observer       | Planeje a ordem de implementação: qual bounded context primeiro? Quais são as dependências?                  | —                                                     |
-| Todos os demais        | Observer       | Revise a especificação emergente. Sinalize qualquer coisa incompleta a partir da sua perspectiva.            | —                                                     |
+| **Software Architect** | 🔑 Protagonista | Avalie hipóteses de separação a partir do relatório de descoberta. Desenhe diagramas C4. Defina limites de módulos. | `/carve-bounded-contexts`, `/design-modular-monolith` |
+| Requirements Engineer  | Secundária      | Transforme regras de negócio confirmadas em requisitos EARS. Todo REQ precisa de rastreabilidade de origem.  | `/write-ears-spec`                                    |
+| Enterprise Architect   | Secundária      | Valide o diagrama de contexto do sistema. Revise ADRs para alinhamento empresarial.                          | `/generate-adr` (decisões relacionadas à integração)  |
+| Product Owner          | Secundária      | Priorize requisitos. Com 2 horas para implementação, o time não consegue construir tudo.                     | Participa das discussões de `/carve-bounded-contexts` |
+| Technical Lead         | Observadora       | Planeje a ordem de implementação: qual bounded context primeiro? Quais são as dependências?                  | —                                                     |
+| Todos os demais        | Observadora       | Revise a especificação emergente. Sinalize qualquer coisa incompleta a partir da sua perspectiva.            | —                                                     |
 
 **Gate:** SPECIFICATION.md existe com ≥10 requisitos EARS. Pelo menos 3 ADRs. Mapa de bounded contexts com diagrama Mermaid. Esqueleto OpenAPI.
 
-**Handoff #2 (16:00):** O Software Architect apresenta o design ao Tech Lead e ao Developer em um standup de 5 minutos. O DBA recebe a seção de modelo de dados. O QA Engineer recebe os critérios de aceite.
+**Passagem #2 (16:00):** O Software Architect apresenta o design ao Tech Lead e ao Developer em um standup de 5 minutos. O DBA recebe a seção de modelo de dados. O QA Engineer recebe os critérios de aceite.
 
 ---
 
@@ -142,17 +142,17 @@ flowchart TD
 
 | Persona            | Papel          | O Que Você Faz                                                                                                                        | Prompts Que Você Executa                                   |
 | ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| **Developer**      | 🔑 Protagonist | Escreva código. Traduza Natural para Java, construa endpoints REST, crie páginas Next.js. Cada commit rastreia para um REQ-ID.        | `/translate-natural-to-java`, `/implement-rest-controller` |
-| DBA                | Secondary      | Assuma a camada de dados. Revise entidades JPA, escreva migrações Flyway, valide o schema PostgreSQL.                                 | `/generate-jpa-from-fdt`                                   |
-| QA Engineer        | Secondary      | Escreva testes junto com o Developer. Monitore cobertura. Execute testes de equivalência.                                             | `/generate-equivalence-tests`                              |
-| Technical Lead     | Secondary      | Revise código conforme ele chega. Verifique violações de padrões. Faça merge de PRs. Execute a revisão de segurança antes da Etapa 4. | `/security-self-review`                                    |
-| Software Architect | Secondary      | Valide se a implementação corresponde ao design. Se o Developer se desviar dos limites de bounded context, sinalize.                  | —                                                          |
-| Product Owner      | Observer       | Disponível para esclarecimento de domínio. "Isso deve rejeitar ou alertar?" — somente o PO pode responder.                            | —                                                          |
-| Todos os demais    | Observer       | Disponíveis quando sua especialidade for necessária.                                                                                  | —                                                          |
+| **Developer**      | 🔑 Protagonista | Escreva código. Traduza Natural para Java, construa endpoints REST, crie páginas Next.js. Cada commit rastreia para um REQ-ID.        | `/translate-natural-to-java`, `/implement-rest-controller` |
+| DBA                | Secundária      | Assuma a camada de dados. Revise entidades JPA, escreva migrações Flyway, valide o schema PostgreSQL.                                 | `/generate-jpa-from-fdt`                                   |
+| QA Engineer        | Secundária      | Escreva testes junto com o Developer. Monitore cobertura. Execute testes de equivalência.                                             | `/generate-equivalence-tests`                              |
+| Technical Lead     | Secundária      | Revise código conforme ele chega. Verifique violações de padrões. Faça merge de PRs. Execute a revisão de segurança antes da Etapa 4. | `/security-self-review`                                    |
+| Software Architect | Secundária      | Valide se a implementação corresponde ao design. Se o Developer se desviar dos limites de bounded context, sinalize.                  | —                                                          |
+| Product Owner      | Observadora       | Disponível para esclarecimento de domínio. "Isso deve rejeitar ou alertar?" — somente o PO pode responder.                            | —                                                          |
+| Todos os demais    | Observadora       | Disponíveis quando sua especialidade for necessária.                                                                                  | —                                                          |
 
 **Gate:** `mvn verify` passa. `npm run build` passa. Cobertura de testes backend ≥60%. Pelo menos 3 endpoints REST funcionando. Pelo menos 2 páginas Next.js.
 
-**Handoff #3 (17:00):** O Tech Lead confirma que o protótipo funciona e apresenta a estrutura do codebase ao DevOps Engineer. O QA Engineer continua testando.
+**Passagem #3 (17:00):** O Tech Lead confirma que o protótipo funciona e apresenta a estrutura do codebase ao DevOps Engineer. O QA Engineer continua testando.
 
 ---
 
@@ -162,23 +162,23 @@ flowchart TD
 
 | Persona            | Papel          | O Que Você Faz                                                                                                             | Prompts Que Você Executa                                                |
 | ------------------ | -------------- | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| **Technical Lead** | 🔑 Protagonist | Escreva GitHub Issues para Copilot Agent. Revise PRs gerados por IA. Assuma a decisão de merge. Prepare a demo.            | `/write-github-issue`, `/delegate-to-copilot-agent`, `/review-agent-pr` |
-| DevOps Engineer    | Secondary      | Escreva o workflow do GitHub Actions. Crie módulos Terraform para Azure.                                                   | Trabalha diretamente, sem prompt dedicado                               |
-| QA Engineer        | Secondary      | Valide gates de qualidade no pipeline de CI. Revise resultados de testes de PRs gerados por IA.                            | —                                                                       |
-| Developer          | Secondary      | Revise código gerado por IA. Você conhece melhor o codebase — encontre erros que verificações automatizadas deixam passar. | Ajuda com `/review-agent-pr`                                            |
-| Tech Writer        | Secondary      | Dê acabamento ao README. Escreva o roteiro da demo. Garanta que as notas da retrospectiva capturem os aprendizados.        | —                                                                       |
-| Product Owner      | Secondary      | Priorize o que precisa funcionar na demo versus o que pode ser adiado. Prepare a narrativa.                                | —                                                                       |
-| Todos os demais    | Observer       | Contribuam com observações para a retrospectiva.                                                                           | `/final-experience-report` (todos respondem)                            |
+| **Technical Lead** | 🔑 Protagonista | Escreva GitHub Issues para Copilot Agent. Revise PRs gerados por IA. Assuma a decisão de merge. Prepare a demo.            | `/write-github-issue`, `/delegate-to-copilot-agent`, `/review-agent-pr` |
+| DevOps Engineer    | Secundária      | Escreva o fluxo de trabalho do GitHub Actions. Crie módulos Terraform para Azure.                                           | Trabalha diretamente, sem prompt dedicado                               |
+| QA Engineer        | Secundária      | Valide gates de qualidade no pipeline de CI. Revise resultados de testes de PRs gerados por IA.                            | —                                                                       |
+| Developer          | Secundária      | Revise código gerado por IA. Você conhece melhor o codebase — encontre erros que verificações automatizadas deixam passar. | Ajuda com `/review-agent-pr`                                            |
+| Tech Writer        | Secundária      | Dê acabamento ao README. Escreva o roteiro da demo. Garanta que as notas da retrospectiva capturem os aprendizados.        | —                                                                       |
+| Product Owner      | Secundária      | Priorize o que precisa funcionar na demo versus o que pode ser adiado. Prepare a narrativa.                                | —                                                                       |
+| Todos os demais    | Observadora       | Contribuam com observações para a retrospectiva.                                                                           | `/final-experience-report` (todos respondem)                            |
 
 **Gate:** Pipeline de CI executa. Pelo menos 1 módulo Terraform. Pelo menos 1 PR gerado por IA revisado. Roteiro da demo pronto.
 
 ---
 
-## Checklist de Handoff
+## Checklist de Passagem
 
-Cada handoff é um standup de 5 minutos entre os protagonistas de saída e de entrada. Use este checklist:
+Cada passagem é um standup de 5 minutos entre os protagonistas de saída e de entrada. Use este checklist:
 
-| Handoff              | De → Para     | Artefato Passado                                  | Pergunta a Confirmar                                                       |
+| Passagem              | De → Para     | Artefato Passado                                  | Pergunta a Confirmar                                                       |
 | -------------------- | ------------- | ------------------------------------------------- | -------------------------------------------------------------------------- |
 | **#1** (Etapa 1 → 2) | RE → SA       | `discovery-report.md`                             | "Você tem informação suficiente para separar contextos?"                   |
 | **#2** (Etapa 2 → 3) | SA → TL + Dev | `SPECIFICATION.md` + `modular-monolith-design.md` | "Você sabe qual contexto construir primeiro?"                              |
@@ -191,32 +191,32 @@ Se a resposta à pergunta de confirmação for **não**, o time tem 10 minutos p
 ```text
 Você é Developer.
 
-Step 1: Leia o seu PERSONA.md          → persona-kits/06-developer/PERSONA.md
-        (o que você possui, seus handoffs, sua rubrica)
+Passo 1: Leia o seu PERSONA.md         → persona-kits/06-developer/PERSONA.md
+        (o que você possui, suas passagens, sua rubrica)
 
-Step 2: Copie o seu PERSONA-KIT        → persona-kits/06-developer/.github/ → .github/
+Passo 2: Copie o seu PERSONA-KIT       → persona-kits/06-developer/.github/ → .github/
         (seu agente Copilot pessoal, prompts, skills)
 
-Step 3: Verifique AGENTS I USE         → tabela "Agents I Use" no seu cartão de persona
-        (seu papel em cada etapa: Protagonist/Secondary/Observer)
+Passo 3: Verifique AGENTES QUE USO     → tabela "Agentes que uso" no seu cartão de persona
+    (seu papel em cada etapa: Protagonista/Secundária/Observadora)
 
-Step 4: Quando uma nova etapa começar  → Abra o README do AGENT-KIT dessa etapa
+Passo 4: Quando uma nova etapa começar → Abra o README do AGENT-KIT dessa etapa
                                           agent-kits/03-builder/README.md
-        (como ativar, prompts a executar, Definition of Done)
+        (como ativar, prompts a executar, Definição de Pronto)
 
-Step 5: Ative o STAGE AGENT            → Selecione @builder no Copilot Chat
+Passo 5: Ative o AGENTE DE ETAPA       → Selecione @builder no Copilot Chat
         (o agente carrega a partir de .github/agents/builder.agent.md)
 
-Step 6: Execute PROMPTS                → /translate-natural-to-java, /generate-jpa-from-fdt
+Passo 6: Execute PROMPTS               → /translate-natural-to-java, /generate-jpa-from-fdt
         (o agente guia você pelo trabalho)
 
-Step 7: Ao final da etapa              → Verifique a DEFINITION OF DONE
+Passo 7: Ao final da etapa             → Verifique a DEFINIÇÃO DE PRONTO
         (o README do agent-kit lista os critérios do gate)
 
-Step 8: HANDOFF                        → Apresente seus entregáveis ao próximo protagonista
+Passo 8: PASSAGEM                      → Apresente seus entregáveis ao próximo protagonista
 ```
 
-O seu **agente do persona-kit** (por exemplo, `@developer`) conhece profundamente o seu papel — idioms Java, padrões Spring, convenções de teste. O **agente de etapa** (por exemplo, `@builder`) conhece o _processo_ — quais prompts executar, quais entregáveis produzir, como é a Definition of Done. Use ambos. Eles se complementam.
+O seu **agente do persona-kit** (por exemplo, `@developer`) conhece profundamente o seu papel — idioms Java, padrões Spring, convenções de teste. O **agente de etapa** (por exemplo, `@builder`) conhece o _processo_ — quais prompts executar, quais entregáveis produzir, como é a Definição de Pronto. Use ambos. Eles se complementam.
 
 ## Cartão de Referência Rápida
 
@@ -233,10 +233,10 @@ O seu **agente do persona-kit** (por exemplo, `@developer`) conhece profundament
 
 O kit tem duas camadas de ferramentas de IA. Elas não são alternativas — elas são complementares e usadas em momentos específicos.
 
-| Ferramenta                                                                    | O Que É                                                              | Quando Usar                                             | Cheat Sheet                                                             |
+| Ferramenta                                                                    | O Que É                                                              | Quando Usar                                             | Cartão de Referência                                                    |
 | ----------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------- |
 | **4 agentes de etapa** (`@archaeologist`, `@architect`, `@builder`, `@evolution`) | Agentes VS Code Copilot com prompts específicos por etapa            | Ao longo do dia — um agente por etapa                   | [`agent-kits/`](../agent-kits/README.md)                             |
-| **Spec-Kit** (`specify` + `/speckit.*`) | Toolkit oficial do GitHub para spec, plan, tasks e implementação guiada | Etapas 2 e 3, com apoio no Estágio 4 | [`cheat-sheets/spec-kit-workflow.md`](../cheat-sheets/spec-kit-workflow.md) |
+| **Spec-Kit** (`specify` + `/speckit.*`) | Conjunto oficial do GitHub para spec, plano, tasks e implementação guiada | Etapas 2 e 3, com apoio no Estágio 4 | [`cheat-sheets/spec-kit-workflow.md`](../cheat-sheets/spec-kit-workflow.md) |
 
 ### O Fluxo Recomendado
 
@@ -267,7 +267,7 @@ flowchart LR
 ### Etapa por Etapa: Quando Usar O Quê
 
 **Etapa 1 — Arqueologia**
-Use apenas `@archaeologist`. O Spec-Kit entra depois, quando as descobertas já podem virar uma feature especificada.
+Use apenas `@archaeologist`. O Spec-Kit entra depois, quando as descobertas já podem virar uma funcionalidade especificada.
 
 **Etapa 2 — Especificação Moderna** (é aqui que as três ferramentas convergem)
 
@@ -310,7 +310,7 @@ O agente `@builder` escreve código. O Spec-Kit mantém spec, plan e tasks como 
 | Preciso...                                 | Usar                                                          |
 | ------------------------------------------ | ------------------------------------------------------------- |
 | Explorar código legado                     | `@archaeologist`                                              |
-| Rascunhar rapidamente uma ideia de feature | **Spec-Kit**                                                  |
+| Rascunhar rapidamente uma ideia de funcionalidade | **Spec-Kit**                                          |
 | Escrever requisitos EARS formais           | **Spec-Kit** `/speckit.specify` + `/speckit.clarify`          |
 | Desenhar diagramas C4                      | `@architect` + plano gerado por `/speckit.plan`               |
 | Decidir bounded contexts                   | `@architect` `/carve-bounded-contexts`                        |
@@ -325,20 +325,20 @@ O agente `@builder` escreve código. O Spec-Kit mantém spec, plan e tasks como 
 
 | O que você precisa                        | Onde fica                                                                           |
 | ----------------------------------------- | ----------------------------------------------------------------------------------- |
-| Seu papel e handoffs                      | [`persona-kits/<your-role>/PERSONA.md`](../persona-kits/)                           |
+| Seu papel e passagems                      | [`persona-kits/<your-role>/PERSONA.md`](../persona-kits/)                           |
 | Seu agente Copilot + prompts + skills     | [`persona-kits/<your-role>/`](../persona-kits/)                                     |
 | O agente de etapa para a etapa atual      | [`agent-kits/<NN>-<stage>/README.md`](../agent-kits/)                               |
 | O arquivo de agente que o Copilot carrega | [`.github/agents/<agent>.agent.md`](../.github/agents/)                             |
 | Os prompts que você invoca                | [`.github/prompts/<agent>/`](../.github/prompts/)                                   |
 | Os templates de entregáveis               | `01-arqueologia/templates/`, `02-spec-moderna/templates/`, `04-evolucao/templates/` |
-| Cheat sheet do Spec-Kit                   | [`cheat-sheets/spec-kit-workflow.md`](../cheat-sheets/spec-kit-workflow.md)         |
-| Quick start do Spec-Kit                   | [`SETUP.md` Step 9](../SETUP.md)                                                    |
+| Cartão de referência do Spec-Kit          | [`cheat-sheets/spec-kit-workflow.md`](../cheat-sheets/spec-kit-workflow.md)         |
+| Início rápido do Spec-Kit                 | [`SETUP.md` Passo 9](../SETUP.md)                                                   |
 | Matriz completa 10×4 de persona-agente    | [`docs/persona-agent-matrix.md`](persona-agent-matrix.md)                           |
 | Explicação da arquitetura dos agentes     | [`docs/4-agents-explained.md`](4-agents-explained.md)                               |
-| Linha do tempo diária e regras de handoff | [`TEAM-FLOW.md`](../TEAM-FLOW.md)                                                   |
+| Linha do tempo diária e regras de passagem | [`TEAM-FLOW.md`](../TEAM-FLOW.md)                                                   |
 
 ---
 
 | Anterior                     | Início                                     | Próximo                                  |
 | ---------------------------- | ------------------------------------------ | ---------------------------------------- |
-| [Team Flow](../TEAM-FLOW.md) | [Página Inicial do Team Kit](../README.md) | [Agent Kits](../agent-kits/README.md) |
+| [Fluxo do Time](../TEAM-FLOW.md) | [Página Inicial do Kit do Time](../README.md) | [Kits de agentes](../agent-kits/README.md) |

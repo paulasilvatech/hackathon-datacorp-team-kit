@@ -1,6 +1,6 @@
 ---
 title: "Catálogo de Regras de Negócio — SIFAP Legado"
-description: "Template para registrar regras de negócio extraídas do código Natural/Adabas, com rastreabilidade obrigatória até o arquivo-fonte."
+description: "Modelo para registrar regras de negócio extraídas do código Natural/Adabas, com rastreabilidade obrigatória até o arquivo-fonte."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/01-arqueologia/business-rules-catalog.md"
 author: "Paula Silva, Americas Software GBB, Microsoft"

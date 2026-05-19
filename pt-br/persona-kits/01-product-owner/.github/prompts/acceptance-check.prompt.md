@@ -1,19 +1,19 @@
 ---
 mode: ask
 model: claude-sonnet-4-6
-description: "Verify code matches SPECIFICATION.md acceptance criteria. Use during UAT or sprint review."
+description: "Verifique se o código atende aos critérios de aceitação de SPECIFICATION.md. Use durante UAT ou revisão de sprint."
 ---
 
 # /acceptance-check
 
-## Steps
-1. Read relevant SPECIFICATION.md section
-2. Extract all Given/When/Then criteria
-3. Search codebase for matching implementations
-4. Search test files for coverage
-5. Produce compliance report
+## Passos
+1. Leia a seção relevante de SPECIFICATION.md
+2. Extraia todos os critérios Given/When/Then
+3. Busque no codebase implementações correspondentes
+4. Busque cobertura nos arquivos de teste
+5. Produza um relatório de conformidade
 
-## Output
-| Criterion | Implemented | Tested | Status |
+## Saída
+| Critério | Implementado | Testado | Status |
 |-----------|-------------|--------|--------|
-| [text] | Yes/No | Yes/No | Pass/Fail/Gap |
+| [text] | Sim/Não | Sim/Não | Passa/Falha/Lacuna |

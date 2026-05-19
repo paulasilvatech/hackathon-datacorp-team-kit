@@ -7,13 +7,13 @@
 Leia primeiro: [PERSONA.md](PERSONA.md).
 
 ## Fase do SDLC
-Design, Implementation Oversight
+Desenho, Supervisão da Implementação
 
 ## Conteúdo do kit
 
 | Arquivo | Tipo | Propósito |
 |------|------|---------|
-| `PERSONA.md` | Persona | Responsabilidades, handoffs, prompts e rubrica do Software Architect |
+| `PERSONA.md` | Persona | Responsabilidades, passagems, prompts e rubrica do Software Architect |
 | `.github/agents/software-architect.agent.md` | Agent | Arquitetura |
 | `.github/prompts/codemap.prompt.md` | Prompt | `/codemap` |
 | `.github/prompts/impl-plan.prompt.md` | Prompt | `/impl-plan` |
@@ -35,10 +35,10 @@ cp -r .github/* /path/to/your-repo/.github/
 - Pasta `util` crescendo costuma indicar bounded context ausente.
 
 ## Referências
-- [Clean Architecture - Robert C. Martin](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+- [Clean Arquitetura - Robert C. Martin](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [Domain-Driven Design - Eric Evans](https://www.domainlanguage.com/ddd/)
-- [Hexagonal Architecture - Alistair Cockburn](https://alistair.cockburn.us/hexagonal-architecture/)
-- [Microsoft .NET Architecture Guides](https://learn.microsoft.com/dotnet/architecture/)
+- [Hexagonal Arquitetura - Alistair Cockburn](https://alistair.cockburn.us/hexagonal-architecture/)
+- [Microsoft .NET Arquitetura Guides](https://learn.microsoft.com/dotnet/architecture/)
 
 ---
 

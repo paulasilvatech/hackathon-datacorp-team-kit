@@ -1,6 +1,6 @@
 ---
-title: "Natural Programs - SIFAP Legacy"
-description: "Natural/ADABAS source programs that comprise the legacy SIFAP transaction processing system"
+title: "Programas Natural - Legado SIFAP"
+description: "Programas-fonte Natural/ADABAS que compõem o sistema legado de processamento de transações do SIFAP"
 author: "Paula Silva, Americas Software GBB, Microsoft"
 date: "2026-04-23"
 version: "1.0.0"
@@ -10,63 +10,63 @@ tags: ["natural", "adabas", "legacy", "sifap", "programs"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-# Natural Programs
+# Programas Natural
 
-> Natural source files (`.NSN`) that implement the legacy SIFAP business logic on the mainframe.
+> Arquivos-fonte Natural (`.NSN`) que implementam a lógica de negócio legada do SIFAP no mainframe.
 
-## Contents
+## Conteúdo
 
-### Batch Processing
+### Processamento Batch
 
-| Program        | Description                                         |
+| Programa       | Descrição                                           |
 | -------------- | --------------------------------------------------- |
-| `BATCHCON.NSN` | Batch conciliation - reconciles payments with SIAFI |
-| `BATCHPGT.NSN` | Batch payment - generates monthly payment runs      |
-| `BATCHREL.NSN` | Batch reporting - produces management reports       |
+| `BATCHCON.NSN` | Conciliação batch - reconcilia pagamentos com o SIAFI |
+| `BATCHPGT.NSN` | Pagamento batch - gera ciclos mensais de pagamento  |
+| `BATCHREL.NSN` | Relatório batch - produz relatórios gerenciais      |
 
-### Registration (CRUD)
+### Cadastro (CRUD)
 
-| Program         | Description                 |
+| Programa        | Descrição                   |
 | --------------- | --------------------------- |
-| `CADBENEF.NSN`  | Beneficiary registration    |
-| `CADDEPEND.NSN` | Dependent registration      |
-| `CADPROG.NSN`   | Social program registration |
+| `CADBENEF.NSN`  | Cadastro de beneficiário    |
+| `CADDEPEND.NSN` | Cadastro de dependente      |
+| `CADPROG.NSN`   | Cadastro de programa social |
 
-### Calculation
+### Cálculo
 
-| Program        | Description                       |
+| Programa       | Descrição                         |
 | -------------- | --------------------------------- |
-| `CALCBENF.NSN` | Benefit amount calculation        |
-| `CALCCORR.NSN` | Correction/adjustment calculation |
-| `CALCDSCT.NSN` | Discount calculation              |
+| `CALCBENF.NSN` | Cálculo do valor do benefício     |
+| `CALCCORR.NSN` | Cálculo de correção/ajuste        |
+| `CALCDSCT.NSN` | Cálculo de desconto               |
 
-### Query
+### Consulta
 
-| Program        | Description              |
+| Programa       | Descrição                |
 | -------------- | ------------------------ |
-| `CONSBENF.NSN` | Beneficiary lookup/query |
+| `CONSBENF.NSN` | Consulta de beneficiário |
 
-### Validation
+### Validação
 
-| Program        | Description                  |
+| Programa       | Descrição                    |
 | -------------- | ---------------------------- |
-| `VALBENEF.NSN` | Beneficiary validation rules |
-| `VALDOCS.NSN`  | Document validation          |
-| `VALELEG.NSN`  | Eligibility validation       |
+| `VALBENEF.NSN` | Regras de validação de beneficiário |
+| `VALDOCS.NSN`  | Validação de documentos      |
+| `VALELEG.NSN`  | Validação de elegibilidade   |
 
-### Reporting
+### Relatórios
 
-| Program        | Description               |
+| Programa       | Descrição                 |
 | -------------- | ------------------------- |
-| `RELAUDIT.NSN` | Audit report generation   |
-| `RELPGT.NSN`   | Payment report generation |
+| `RELAUDIT.NSN` | Geração de relatório de auditoria |
+| `RELPGT.NSN`   | Geração de relatório de pagamento |
 
-## Usage
+## Uso
 
-These files are **read-only reference material**. During Stage 1 (Archaeology), teams analyze these programs to extract business rules and map them to Java service classes.
+Estes arquivos são **material de referência somente leitura**. Durante o Estágio 1 (Arqueologia), os times analisam estes programas para extrair regras de negócio e mapeá-las para classes de serviço Java.
 
-## Navigation
+## Navegação
 
-| Parent                               | Home                              |
+| Pai                                  | Início                            |
 | ------------------------------------ | --------------------------------- |
-| [02 - Legacy Scenario](../README.md) | [Workspace Root](../../README.md) |
+| [02 - Cenário Legado](../README.md)  | [Raiz do Workspace](../../README.md) |

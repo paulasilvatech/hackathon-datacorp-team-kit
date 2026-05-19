@@ -36,7 +36,7 @@ approval:
 <!-- ====================================================================== -->
 <!-- MANUAL TÉCNICO DO SIFAP - VERSÃO 2.3 -->
 <!-- Sistema de Fiscalização e Administração de Pagamentos -->
-<!-- the organization - a federal data processing organization -->
+<!-- a organização - a federal data processing organization -->
 <!-- Superintendência de Desenvolvimento - SUPDE / DESIF -->
 <!-- ====================================================================== -->
 
@@ -71,7 +71,7 @@ O presente manual tem por objetivo documentar os aspectos técnicos do **SIFAP -
 Este documento destina-se a:
 
 - Analistas de sistemas da SUPDE/DESIF alocados ao projeto SIFAP;
-- Equipe de operação de mainframe do the organization - Regional Brasília;
+- Equipe de operação de mainframe do a organização - Regional Brasília;
 - Analistas de negócio da SENARC/CGPB, para fins de referência técnica;
 - Equipe de DBA Adabas responsável pelo ambiente de produção.
 
@@ -115,7 +115,7 @@ Este manual cobre os seguintes aspectos do SIFAP versão 2.3.1:
 
 ### 2.1. Plataforma Tecnológica
 
-O SIFAP é desenvolvido e executado no ambiente de mainframe do the organization, utilizando a seguinte plataforma:
+O SIFAP é desenvolvido e executado no ambiente de mainframe do a organização, utilizando a seguinte plataforma:
 
 | Componente     | Versão   | Observações                                                                      |
 | -------------- | -------- | -------------------------------------------------------------------------------- |
@@ -161,7 +161,7 @@ O SIFAP utiliza **3 DDMs** principais no Adabas:
 
 ```
  ┌────────────────────────────────────────────────────┐
- │ AMBIENTE MAINFRAME the organization │
+ │ AMBIENTE MAINFRAME a organização │
  │ │
  │ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
  │ │ NATURAL │ │ ADABAS │ │ JES2 │ │
@@ -390,14 +390,14 @@ O ciclo mensal de processamento do SIFAP segue o seguinte calendário:
 | Dia Útil  | Atividade                                              | Responsável               | Sistema/Programa           |
 | --------- | ------------------------------------------------------ | ------------------------- | -------------------------- |
 | D-5       | Atualização de tabelas de parâmetros (faixas, índices) | SENARC/CGPB               | CADPROG (online)           |
-| D-3       | Fechamento de cadastro - bloqueio de alterações        | Operação the organization | Procedimento manual        |
-| D-2       | Validação batch de elegibilidade                       | Operação the organization | VALELEG (batch)            |
+| D-3       | Fechamento de cadastro - bloqueio de alterações        | Operação a organização | Procedimento manual        |
+| D-2       | Validação batch de elegibilidade                       | Operação a organização | VALELEG (batch)            |
 | D-1       | Conferência de totalizadores - relatório prévio        | CGPB                      | BATCHREL (modo prévio)     |
-| D (1o DU) | **Processamento da folha de pagamento**                | Operação the organization | BATCHPGT                   |
-| D+1       | Envio de arquivo CNAB 240 ao Banco do Brasil           | Operação the organization | Transferência manual (FTP) |
-| D+2       | Envio de ordens bancárias ao SIAFI                     | Operação the organization | Procedimento SIAFI         |
-| D+3       | Recebimento de arquivo de retorno bancário             | Operação the organization | Recepção FTP               |
-| D+4       | Conciliação financeira                                 | Operação the organization | BATCHCON                   |
+| D (1o DU) | **Processamento da folha de pagamento**                | Operação a organização | BATCHPGT                   |
+| D+1       | Envio de arquivo CNAB 240 ao Banco do Brasil           | Operação a organização | Transferência manual (FTP) |
+| D+2       | Envio de ordens bancárias ao SIAFI                     | Operação a organização | Procedimento SIAFI         |
+| D+3       | Recebimento de arquivo de retorno bancário             | Operação a organização | Recepção FTP               |
+| D+4       | Conciliação financeira                                 | Operação a organização | BATCHCON                   |
 | D+5       | Geração de relatórios finais                           | CGPB                      | BATCHREL                   |
 | D+10      | Fechamento do ciclo - arquivamento                     | CGPB                      | Procedimento manual        |
 
@@ -445,10 +445,10 @@ O ciclo mensal de processamento do SIFAP segue o seguinte calendário:
 
 | Situação                       | Procedimento                                                                   | Responsável               |
 | ------------------------------ | ------------------------------------------------------------------------------ | ------------------------- |
-| ABEND no BATCHPGT              | Restart a partir do último checkpoint (ver seção 5.2)                          | Operação the organization |
-| Arquivo CNAB rejeitado pelo BB | Correção manual e reenvio. Contatar Antônio Carlos Ribeiro.                    | Operação the organization |
-| Divergência na conciliação     | Análise manual pelo CGPB. Registrar incidente no ITSM.                         | CGPB + the organization   |
-| Atraso no retorno bancário     | Aguardar até D+5. Se não recebido, contatar BB via canal dedicado.             | Operação the organization |
+| ABEND no BATCHPGT              | Restart a partir do último checkpoint (ver seção 5.2)                          | Operação a organização |
+| Arquivo CNAB rejeitado pelo BB | Correção manual e reenvio. Contatar Antônio Carlos Ribeiro.                    | Operação a organização |
+| Divergência na conciliação     | Análise manual pelo CGPB. Registrar incidente no ITSM.                         | CGPB + a organização   |
+| Atraso no retorno bancário     | Aguardar até D+5. Se não recebido, contatar BB via canal dedicado.             | Operação a organização |
 | Solicitação de reprocessamento | Aprovação do CGPB. Procedimento de rollback conforme Manual ITSM-SIFAP vol. 3. | CGPB                      |
 
 > **IMPORTANTE:** Para procedimentos detalhados de rollback e reprocessamento, consultar o **Manual ITSM-SIFAP vol. 3** (em elaboração - previsão: março/2009).
@@ -466,7 +466,7 @@ O plano de contingência do SIFAP contempla os seguintes cenários:
 | Cenário                               | Nível | Procedimento                                                                                           |
 | ------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------ |
 | Indisponibilidade do mainframe (< 4h) | 1     | Aguardar restabelecimento. Reagendar batch se necessário.                                              |
-| Indisponibilidade do mainframe (> 4h) | 2     | Acionar processamento no site de contingência (the organization-RSA). Contatar Antônio Carlos Ribeiro. |
+| Indisponibilidade do mainframe (> 4h) | 2     | Acionar processamento no site de contingência (a organização-RSA). Contatar Antônio Carlos Ribeiro. |
 | Corrupção de dados Adabas             | 3     | Recovery via ADASAV (último backup íntegro). Contatar Cláudia Regina dos Santos (DBA).                 |
 | Falha na integração SIAFI             | 2     | Processamento manual de ordens bancárias pela CGPB. Procedimento descrito no Manual ITSM-SIFAP vol. 2. |
 | Falha na transmissão CNAB             | 1     | Retransmissão manual via canal alternativo (SFTP). Contatar operação BB.                               |
@@ -502,9 +502,9 @@ Em caso de ABEND durante a execução do BATCHPGT, seguir os passos abaixo:
 
 <!-- NOTA: Esta seção não foi atualizada desde 2008 -->
 <!-- Vários dos contatos abaixo podem não estar mais válidos. -->
-<!-- Verificar lotação atual dos servidores no sistema RH/the organization. -->
+<!-- Verificar lotação atual dos servidores no sistema RH/a organização. -->
 
-### 6.1. Equipe the organization - SUPDE/DESIF
+### 6.1. Equipe a organização - SUPDE/DESIF
 
 | Nome                       | Função                           | Ramal | E-mail                          | Observação                                |
 | -------------------------- | -------------------------------- | ----- | ------------------------------- | ----------------------------------------- |
@@ -529,9 +529,9 @@ Em caso de ABEND durante a execução do BATCHPGT, seguir os passos abaixo:
 | ----------------------------- | -------------------- | ----- | --------------------------------------- |
 | Operação Mainframe - Brasília | Central de Operações | 3500  | Agendamento e monitoração batch         |
 | DBA Adabas - Equipe Central   | Coordenação DBA      | 3510  | Suporte a incidentes Adabas             |
-| Rede / Comunicação            | NOC the organization | 3600  | Conectividade e transmissão de arquivos |
+| Rede / Comunicação            | NOC a organização | 3600  | Conectividade e transmissão de arquivos |
 
-> **Nota:** Os ramais e e-mails acima referem-se à estrutura organizacional vigente em novembro de 2008. Em caso de alteração, consultar o catálogo telefônico interno do the organization (intranet: http://intranet.client.gov.br/catalogo).
+> **Nota:** Os ramais e e-mails acima referem-se à estrutura organizacional vigente em novembro de 2008. Em caso de alteração, consultar o catálogo telefônico interno do a organização (intranet: http://intranet.client.gov.br/catalogo).
 
 ---
 
@@ -611,9 +611,9 @@ As seguintes seções e informações permanecem pendentes de documentação:
 
 ---
 
-**Documento interno the organization - Classificação: RESTRITO - Reprodução proibida**
+**Documento interno a organização - Classificação: RESTRITO - Reprodução proibida**
 
-**the organization - a federal data processing organization**
+**a organização - a federal data processing organization**
 **Superintendência de Desenvolvimento - SUPDE**
 **Divisão de Desenvolvimento de Sistemas Fiscais - DESIF**
 

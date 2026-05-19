@@ -1,6 +1,6 @@
 ---
 title: "Relatório de Descoberta — Estágio 1: Arqueologia Digital"
-description: "Template consolidado para encerrar o Estágio 1: o que o time descobriu, o que migrar/descartar/evoluir e o que o Estágio 2 precisa saber antes de começar."
+description: "Modelo consolidado para encerrar o Estágio 1: o que o time descobriu, o que migrar/descartar/evoluir e o que o Estágio 2 precisa saber antes de começar."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/01-arqueologia/discovery-report.md"
 author: "Paula Silva, Americas Software GBB, Microsoft"
@@ -152,7 +152,7 @@ tags: ["estagio-1", "relatorio", "descoberta", "template", "pt-br"]
 
 ---
 
-## Definition of Done deste relatório
+## Definição de Pronto deste relatório
 
 - [ ] Todas as seções acima preenchidas (sem placeholders).
 - [ ] Pelo menos 5 regras críticas listadas em §3.1, cada uma referenciando uma `BR-XXX` do catálogo.

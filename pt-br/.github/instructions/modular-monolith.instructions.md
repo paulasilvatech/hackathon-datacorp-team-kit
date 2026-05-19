@@ -1,25 +1,25 @@
 ---
-description: "Architecture guide for Modular Monolith — package-by-feature, bounded contexts, JPA mapping, Strangler Fig"
+description: "Guia de arquitetura para Modular Monolith — package-by-feature, bounded contexts, mapeamento JPA, Strangler Fig"
 applyTo: '**/src/main/java/**,**/pom.xml,**/build.gradle*'
 ---
 
-# Modular Monolith Architecture Guide
+# Guia de Arquitetura Modular Monolith
 
-This file is activated when you work on Java source files or build configurations. It reinforces the target architecture: a **Modular Monolith** — not microservices.
+Este arquivo é ativado quando você trabalha em arquivos-fonte Java ou configurações de build. Ele reforça a arquitetura-alvo: um **Modular Monolith** — não microservices.
 
-## Core Principle: One Deployable, Many Modules
+## Princípio Central: Um Deployable, Muitos Módulos
 
-The target system is a single Spring Boot application with clear internal module boundaries. Each bounded context is a Maven module (or a top-level package) that owns its domain, repository, and service layers.
+O sistema-alvo é uma única aplicação Spring Boot com fronteiras internas de módulos claras. Cada bounded context é um módulo Maven (ou um package top-level) que possui suas camadas de domain, repository e service.
 
-Why Modular Monolith and not microservices:
+Por que Modular Monolith e não microservices:
 
-- **Hackathon constraint**: 8 hours is not enough time to manage distributed systems, service discovery, and inter-service communication.
-- **Complexity budget**: A monolith with good module boundaries gives you 80% of the benefits of microservices (team autonomy, clear ownership) with 20% of the operational cost.
-- **Migration path**: A well-structured Modular Monolith can be decomposed into microservices later if needed. The reverse is much harder.
+- **Restrição do hackathon**: 8 horas não é tempo suficiente para gerenciar sistemas distribuídos, service discovery e comunicação inter-service.
+- **Orçamento de complexidade**: Um monolith com boas fronteiras de módulo oferece 80% dos benefícios de microservices (autonomia da equipe, ownership claro) com 20% do custo operacional.
+- **Caminho de migração**: Um Modular Monolith bem estruturado pode ser decomposto em microservices depois, se necessário. O inverso é muito mais difícil.
 
-## Package-by-Feature Structure
+## Estrutura Package-by-Feature
 
-Organize code by business capability, not by technical layer:
+Organize código por capacidade de negócio, não por camada técnica:
 
 ```
 src/main/java/com/example/app/
@@ -33,32 +33,32 @@ src/main/java/com/example/app/
 │   ├── EnrollmentController.java
 │   ├── ...
 ├── shared/                     # Shared kernel
-│   ├── audit/                  # Cross-cutting: audit trail
-│   └── exception/              # Cross-cutting: error handling
+│   ├── audit/                  # Transversal: audit trail
+│   └── exception/              # Transversal: error handling
 └── Application.java            # Spring Boot entry point
 ```
 
-Rules:
+Regras:
 
-- A module **never** imports from another module's internal classes directly. Use interfaces or events.
-- The `shared/` package contains only cross-cutting concerns (audit, exceptions, base entities).
-- Each module has its own `*Repository`, `*Service`, and `*Controller`.
+- Um módulo **nunca** importa diretamente classes internas de outro módulo. Use interfaces ou events.
+- O package `shared/` contém apenas concerns cross-cutting (audit, exceptions, base entities).
+- Cada módulo tem seu próprio `*Repository`, `*Service` e `*Controller`.
 
-## Bounded Context Boundaries
+## Fronteiras de Bounded Context
 
-When deciding where to draw module boundaries, ask:
+Ao decidir onde desenhar fronteiras de módulos, pergunte:
 
-1. **Who owns this data?** If two features share the same table, they might belong in the same context.
-2. **What changes together?** Features that are modified in the same sprint belong together.
-3. **What can fail independently?** If Feature A failing should not break Feature B, they belong in separate contexts.
+1. **Quem é dono destes dados?** Se duas features compartilham a mesma tabela, talvez pertençam ao mesmo contexto.
+2. **O que muda junto?** Features modificadas no mesmo sprint pertencem juntas.
+3. **O que pode falhar independentemente?** Se a falha da Feature A não deve quebrar a Feature B, elas pertencem a contextos separados.
 
-Common pattern for legacy Natural/Adabas modernization: each Adabas file (FNR) often maps to one bounded context, though some files are shared reference data that belongs in a shared kernel.
+Padrão comum em modernização de legado Natural/Adabas: cada arquivo Adabas (FNR) frequentemente mapeia para um bounded context, embora alguns arquivos sejam dados de referência compartilhados que pertencem a um shared kernel.
 
-## JPA Mapping from Adabas FDT
+## Mapeamento JPA a partir de Adabas FDT
 
-### Simple Fields
+### Campos Simples
 
-| Adabas Format | Java Type | JPA Annotation |
+| Formato Adabas | Tipo Java | Annotation JPA |
 |---|---|---|
 | `A` (alphanumeric) | `String` | `@Column(length = N)` |
 | `N` (numeric, no decimal) | `Long` or `Integer` | `@Column` |
@@ -68,7 +68,7 @@ Common pattern for legacy Natural/Adabas modernization: each Adabas file (FNR) o
 | `T` (time/datetime) | `LocalDateTime` | `@Column` |
 | `B` (binary) | `byte[]` | `@Column` / `@Lob` |
 
-### MU Fields (Multiple-Value) → JSONB
+### Campos MU (Multiple-Value) → JSONB
 
 ```java
 @Column(columnDefinition = "jsonb")
@@ -76,7 +76,7 @@ Common pattern for legacy Natural/Adabas modernization: each Adabas file (FNR) o
 private List<String> alternateNames;  // Was MU field in Adabas
 ```
 
-Or with `@ElementCollection` if you need queryability:
+Ou com `@ElementCollection` se você precisar de capacidade de consulta:
 
 ```java
 @ElementCollection
@@ -84,7 +84,7 @@ Or with `@ElementCollection` if you need queryability:
 private List<String> alternateNames;
 ```
 
-### PE Groups (Periodic Groups) → @OneToMany
+### Grupos PE (Periodic Groups) → @OneToMany
 
 ```java
 @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -92,16 +92,16 @@ private List<String> alternateNames;
 private List<AddressHistory> addressHistory;  // Was PE group
 ```
 
-Where `AddressHistory` is an `@Entity` with its own table.
+Onde `AddressHistory` é uma `@Entity` com sua própria tabela.
 
-## Spring Boot 3.3 Conventions
+## Convenções Spring Boot 3.3
 
-- **Constructor injection**: No `@Autowired` on fields. Use `@RequiredArgsConstructor` (Lombok) or explicit constructors.
-- **Records for DTOs**: `public record PaymentDto(Long id, BigDecimal amount, LocalDate dueDate) {}`
-- **Validation at controller layer**: `@Valid @RequestBody PaymentDto dto` with Bean Validation annotations on the DTO.
-- **@Transactional on service layer only**: Never on repositories, never on controllers.
-- **Optional for nullable returns**: `Optional<Payment> findById(Long id)` — never return `null` from public methods.
-- **Sealed interfaces for type unions**: `sealed interface PaymentStatus permits Pending, Approved, Rejected {}`
+- **Constructor injection**: Sem `@Autowired` em campos. Use `@RequiredArgsConstructor` (Lombok) ou construtores explícitos.
+- **Records para DTOs**: `public record PaymentDto(Long id, BigDecimal amount, LocalDate dueDate) {}`
+- **Validação na camada de controller**: `@Valid @RequestBody PaymentDto dto` com annotations Bean Validation no DTO.
+- **@Transactional somente na camada de service**: Nunca em repositories, nunca em controllers.
+- **Optional para retornos anuláveis**: `Optional<Payment> findById(Long id)` — nunca retorne `null` de métodos públicos.
+- **Sealed interfaces para type unions**: `sealed interface PaymentStatus permits Pending, Approved, Rejected {}`
 
 ## Error Handling Pattern
 
@@ -117,23 +117,23 @@ public class GlobalExceptionHandler {
 }
 ```
 
-Use `ProblemDetail` (RFC 7807) for all error responses.
+Use `ProblemDetail` (RFC 7807) para todas as respostas de erro.
 
-## Strangler Fig Pattern
+## Padrão Strangler Fig
 
-When the modern system must coexist with legacy:
+Quando o sistema moderno precisa coexistir com o legado:
 
-1. **Facade**: All requests flow through a routing layer
-2. **New path**: New or migrated features are handled by the Spring Boot modules
-3. **Legacy path**: Unmigrated features are proxied to the legacy system
-4. **Gradual migration**: As each feature is migrated, its route switches from legacy to modern
+1. **Facade**: Todas as requests passam por uma camada de roteamento
+2. **New path**: Features novas ou migradas são tratadas pelos módulos Spring Boot
+3. **Legacy path**: Features não migradas são proxied para o sistema legado
+4. **Migração gradual**: À medida que cada feature é migrada, sua rota muda de legado para moderno
 
-This pattern applies even within the hackathon scope: teams may not migrate everything, and that is acceptable. The architecture should support partial migration gracefully.
+Esse padrão se aplica mesmo dentro do escopo do hackathon: as equipes talvez não migrem tudo, e isso é aceitável. A arquitetura deve suportar migração parcial de forma elegante.
 
-## What NOT to Do
+## O Que NÃO Fazer
 
-- **No microservices**: Do not create separate Spring Boot applications for each context
-- **No stored procedures**: All business logic lives in Java, not in PostgreSQL functions
-- **No string concatenation for SQL**: Use JPA/JPQL or Spring Data derived queries
-- **No `@Autowired` field injection**: Use constructor injection
-- **No `null` returns**: Use `Optional` for methods that might not find a result
+- **Sem microservices**: Não crie aplicações Spring Boot separadas para cada contexto
+- **Sem stored procedures**: Toda lógica de negócio vive em Java, não em funções PostgreSQL
+- **Sem concatenação de strings para SQL**: Use JPA/JPQL ou queries derivadas do Spring Data
+- **Sem field injection com `@Autowired`**: Use constructor injection
+- **Sem retornos `null`**: Use `Optional` para métodos que talvez não encontrem resultado

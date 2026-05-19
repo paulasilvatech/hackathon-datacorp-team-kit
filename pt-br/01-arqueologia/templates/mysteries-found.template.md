@@ -1,5 +1,5 @@
 ---
-title: "Template: Mistérios Encontrados"
+title: "Modelo: Mistérios Encontrados"
 description: "Esqueleto de catálogo para perguntas em aberto via /catalog-mysteries"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-29"
@@ -12,7 +12,7 @@ tags: ["template", "mysteries", "archaeology", "stage-1"]
 
 <!-- Como usar: execute /catalog-mysteries para preencher. -->
 
-# Catálogo de Mistérios — Stage 1
+# Catálogo de Mistérios — Estágio 1
 
 **Equipe:** <!-- placeholder -->
 
@@ -20,10 +20,10 @@ tags: ["template", "mysteries", "archaeology", "stage-1"]
 
 | Classificação              | Contagem             |
 | -------------------------- | -------------------- |
-| Blocks Stage 2 (Critical)  | <!-- placeholder --> |
-| Needs investigation (High) | <!-- placeholder --> |
-| Needs facilitator (Medium) | <!-- placeholder --> |
-| Parked (Low)               | <!-- placeholder --> |
+| Bloqueia o Estágio 2 (Crítico)  | <!-- placeholder --> |
+| Precisa de investigação (Alto)  | <!-- placeholder --> |
+| Precisa de facilitador (Médio)  | <!-- placeholder --> |
+| Estacionado para depois (Baixo) | <!-- placeholder --> |
 
 ## Mistérios
 
@@ -38,4 +38,4 @@ tags: ["template", "mysteries", "archaeology", "stage-1"]
 
 ---
 
-**Lembrete de Definition of Done:** Todo marcador de mistério catalogado, IDs únicos, classificados, bloqueadores primeiro.
+**Lembrete de Definição de Pronto:** Todo marcador de mistério catalogado, IDs únicos, classificados, bloqueadores primeiro.

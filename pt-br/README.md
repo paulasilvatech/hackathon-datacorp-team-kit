@@ -68,7 +68,7 @@ flowchart LR
  classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
  classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
 
- PRE[Pré-evento<br/>setup + onboarding]:::next
+ PRE[Pré-evento<br/>configuração + integração]:::next
  S1[Estágio 1<br/>Descoberta<br/>13:00–14:30]:::current
  S2[Estágio 2<br/>Especificação<br/>14:45–16:00]:::later
  S3[Estágio 3<br/>Implementação<br/>16:15–17:30]:::later
@@ -78,7 +78,7 @@ flowchart LR
  PRE --> S1 --> S2 --> S3 --> S4 --> DEMO
 ```
 
-Este kit cobre tudo do momento em que você clona o repositório até o momento em que seu time faz o demo de um SIFAP 2.0 rodando. A manhã é para setup, instalação dos kits e orientação; a arqueologia começa na parte da tarde, às 13:00.
+Este kit cobre tudo do momento em que você clona o repositório até o momento em que seu time faz a demonstração de um SIFAP 2.0 rodando. A manhã é para configuração, instalação dos kits e orientação; a arqueologia começa na parte da tarde, às 13:00.
 
 ![Fluxo dos quatro estágios do Dia 2: arqueologia, spec moderna, reconstrução e evolução com Agent](assets/stage-flow.svg)
 
@@ -92,11 +92,11 @@ flowchart TB
  classDef qual fill:#E5F6FD,stroke:#00A4EF,color:#0A0A0A
  classDef ops fill:#EEEEEE,stroke:#1B1B1F,color:#0A0A0A
 
- P1[Par 1 · Visão<br/>PO + RE<br/>Discovery → Specification]:::vision
- P2[Par 2 · Arquitetura<br/>EA + SA<br/>Specification → Design]:::arch
- P3[Par 3 · Implementação<br/>TL + Dev<br/>Implementation → Evolution]:::impl
- P4[Par 4 · Qualidade<br/>DBA + QA<br/>Implementation (dados + testes)]:::qual
- P5[Par 5 · Operações<br/>DevOps + TW<br/>Cross-cutting + Evolution]:::ops
+P1[Par 1 · Visão<br/>PO + RE<br/>Descoberta → Especificação]:::vision
+P2[Par 2 · Arquitetura<br/>EA + SA<br/>Especificação → Design]:::arch
+P3[Par 3 · Implementação<br/>TL + Dev<br/>Implementação → Evolução]:::impl
+ P4[Par 4 · Qualidade<br/>DBA + QA<br/>Implementação (dados + testes)]:::qual
+P5[Par 5 · Operações<br/>DevOps + TW<br/>Transversal + Evolução]:::ops
 
  P1 -- H1 --> P2
  P2 -- H2 --> P3
@@ -105,7 +105,7 @@ flowchart TB
  P4 -- H3 --> P5
 ```
 
-Cada pessoa do time escolhe **um par (duas personas)** e fica nele o dia inteiro. As duas personas em um par são corresponsáveis — sem handoff interno, colaboração contínua. Os handoffs horizontais (H1, H2, H3) são onde o dia flui ou quebra.
+Cada pessoa do time escolhe **um par (duas personas)** e fica nele o dia inteiro. As duas personas em um par são corresponsáveis — sem passagem interno, colaboração contínua. Os passagems horizontais (H1, H2, H3) são onde o dia flui ou quebra.
 
 ## Por que isso importa
 
@@ -113,7 +113,7 @@ A maioria dos projetos de modernização falha não porque o time não sabe escr
 
 ![Quatro dores do SIFAP legado: dívida técnica, perda de conhecimento, baixa cobertura de testes e baixa velocidade](assets/sifap-pain-points.svg)
 
-Este kit existe para impedir que isso aconteça com você. O código legado vai junto com vocês. A rastreabilidade é exigida pelo CI. Os handoffs estão agendados. Os papéis são explícitos. Você não precisa inventar o processo; precisa executá-lo.
+Este kit existe para impedir que isso aconteça com você. O código legado vai junto com vocês. A rastreabilidade é exigida pelo CI. Os passagems estão agendados. Os papéis são explícitos. Você não precisa inventar o processo; precisa executá-lo.
 
 ## Como pensar neste kit
 
@@ -124,14 +124,14 @@ Pense nele como uma **caixa de ferramentas mais um mapa**. A caixa são os perso
 Você não lê este kit de capa a capa. Lê as partes que seu par precisa, quando precisa. Três regras:
 
 1. **Leia o `PERSONA.md` dos seus dois kits primeiro.** Sem isso, você vai pegar a ferramenta errada no estágio errado.
-2. **Confie nos handoffs.** O trabalho do Par 1 não é "terminar" a spec — é entregar para o Par 2 uma spec limpa. O Par 3 não faz deploy — quem faz é o Par 5. Cada par tem um receptor downstream.
+2. **Confie nos passagems.** O trabalho do Par 1 não é "terminar" a spec — é entregar para o Par 2 uma spec limpa. O Par 3 não faz deploy — quem faz é o Par 5. Cada par tem um receptor downstream.
 3. **O legado é obrigatório.** Todo requisito no Estágio 2 traça de volta para um arquivo `.NSN` ou `.ddm`. O CI verifica. Pular o Estágio 1 = falhar no gate às 14:30.
 
 ## Estrutura de pastas
 
 | Caminho                                  | Propósito                                                                                             |
 | ---------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| [`TEAM-FLOW.md`](TEAM-FLOW.md)           | **Leia primeiro.** Linha do tempo do dia, handoffs, regras de escalação                               |
+| [`TEAM-FLOW.md`](TEAM-FLOW.md)           | **Leia primeiro.** Linha do tempo do dia, passagems, regras de escalação                               |
 | [`01-arqueologia/`](01-arqueologia/)     | Estágio 1 — guia de arqueologia do código legado, templates e o gate forte                            |
 | [`02-spec-moderna/`](02-spec-moderna/)   | Estágio 2 — especificação EARS (todo REQ precisa de `source_legacy:`), ADRs, escopo                   |
 | [`03-implementacao/`](03-implementacao/) | Estágio 3 — guia de implementação Java + Next.js                                                      |
@@ -155,8 +155,8 @@ Todo conteúdo PT-BR segue o mesmo contrato didático:
 1. **Contexto primeiro.** Cada guia explica onde o assunto entra no SDLC e por que importa.
 2. **Passo a passo executável.** Sempre que há uma ação, há comandos, checklist ou sequência numerada.
 3. **Exemplo concreto.** Templates, prompts e guias mostram exemplos SIFAP em vez de instruções abstratas.
-4. **Critério de pronto.** Handoffs, stages e templates deixam claro como saber que terminou.
-5. **Troubleshooting.** Onde há risco operacional, há seção de problemas comuns e como resolver.
+4. **Critério de pronto.** Passagems, stages e templates deixam claro como saber que terminou.
+5. **Solução de problemas.** Onde há risco operacional, há seção de problemas comuns e como resolver.
 
 | Você quer…                                    | Vá para                                             |
 | --------------------------------------------- | --------------------------------------------------- |
@@ -185,7 +185,7 @@ code .
 Dentro do devcontainer:
 
 ```bash
-# 1. Leia o team flow primeiro (10 minutos)
+# 1. Leia o fluxo do time primeiro (10 minutos)
 cat pt-br/TEAM-FLOW.md
 
 # 2. Leia AS DUAS cartas de persona (15 minutos) — uma por persona do seu par
@@ -203,7 +203,7 @@ cat pt-br/01-arqueologia/GUIDE.md
 ## Referências
 
 - [Workshop Blueprint](../../01-blueprint/WORKSHOP-BLUEPRINT.md) — design geral do evento
-- [SIFAP Modern Specification](../../03-spec-sifap-moderno/SPECIFICATION.md) — exemplo de spec gold-standard
+- [SIFAP Modern Especificação](../../03-spec-sifap-moderno/SPECIFICATION.md) — exemplo de spec gold-standard
 - [Protótipo de referência](../../04-prototipo-sifap-moderno/README.md) — codebase Java + Next.js rodando
 - [Playbook do facilitador](../../07-playbook-facilitacao/README.md) — o que os facilitadores estão fazendo
 - [Rubrica de avaliação](../../07-playbook-facilitacao/EVALUATION-RUBRIC.md) — como seu time é avaliado

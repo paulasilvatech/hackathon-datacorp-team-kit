@@ -1,130 +1,130 @@
 ---
 mode: agent
 model: claude-opus-4-6
-description: "Author an Architecture Decision Record (ADR) capturing context, options, decision, and consequences for a SIFAP 2.0 architectural choice."
+description: "Escreva um Registro de Decisão de Arquitetura (ADR) capturando contexto, opções, decisão e consequências para uma escolha arquitetural do SIFAP 2.0."
 ---
 
 # /create-adr
 
-## Goal
+## Objetivo
 
-You are writing one **Architecture Decision Record** for SIFAP 2.0 in the format used in `specs/<NNN>-<feature>/ADRs/`. An ADR is the durable answer to "why did we do it this way?" It captures the context at decision time, the options considered, the chosen path, and the consequences. ADRs are immutable once accepted — corrections happen via a *new* ADR that supersedes.
+Você está escrevendo um **Registro de Decisão de Arquitetura** para o SIFAP 2.0 no formato usado em `specs/<NNN>-<feature>/ADRs/`. Um ADR é a resposta durável para "por que fizemos desse jeito?" Ele captura o contexto no momento da decisão, as opções consideradas, o caminho escolhido e as consequências. ADRs são imutáveis depois de aceitos — correções acontecem por meio de um *novo* ADR que substitui o anterior.
 
-## Inputs
+## Entradas
 
-Ask the user for what is missing.
+Peça ao usuário o que estiver faltando.
 
-- The decision topic in plain English (for example "How will SIFAP integrate with the legacy Adabas wrapper?").
-- The feature folder where the ADR lives (`specs/<NNN>-<feature>/ADRs/`).
-- The next ADR number — look at existing files to avoid clashes.
-- The linked `REQ-ID`s the decision affects.
-- Stakeholders who must be cited (architect, security, DevOps, product).
-- A draft of the chosen direction, even if vague.
+- O tópico da decisão em linguagem clara (por exemplo, "Como o SIFAP integrará com o wrapper legado de Adabas?").
+- A pasta da feature onde o ADR fica (`specs/<NNN>-<feature>/ADRs/`).
+- O próximo número de ADR — olhe os arquivos existentes para evitar colisões.
+- Os `REQ-ID`s vinculados que a decisão afeta.
+- Stakeholders que devem ser citados (architect, security, DevOps, product).
+- Um rascunho da direção escolhida, mesmo que vago.
 
-## Process
+## Processo
 
-1. **Pick a sharp title.** Use a verb-led, decision-shaped title: "Integrate Adabas legacy via REST adapter" — not "Integration approach" or "Adabas thoughts."
-2. **Set status correctly.**
- - `Proposed` — decision drafted, awaiting review.
- - `Accepted` — approved by the architecture forum, dated.
- - `Superseded by NNNN` — replaced by another ADR.
- - `Rejected` — considered and turned down (still recorded — saves future relitigation).
-3. **Write the context honestly.** What forces are at play right now? Constraints (Java 21, Postgres 16, Azure-only, regulatory)? Existing decisions (prior ADRs)? Knowns and unknowns?
-4. **List at least three options.** Including the status-quo and a "do nothing" if applicable. Each option needs:
- - One-line description.
- - Pros (3 bullets max).
- - Cons (3 bullets max).
- - Cost / risk profile in plain language.
-5. **Name the decision and the rationale.** One paragraph each. Reference the option chosen by name.
-6. **Capture consequences — positive *and* negative.** What becomes possible? What becomes harder? What new risks appear? What other decisions are now forced or constrained?
-7. **Link forward and back.** Cite the REQ-IDs, prior ADRs in the same feature, and CONSTITUTION.md non-negotiables this decision relies on.
-8. **Record the date and signatories.** Architecture forum date. Names of approvers (technical lead, software architect, persona owners affected).
+1. **Escolha um título afiado.** Use um título guiado por verbo e com forma de decisão: "Integrar legado Adabas via adaptador REST" — não "Abordagem de integração" ou "Ideias sobre Adabas".
+2. **Defina o status corretamente.**
+ - `Proposed` — decisão rascunhada, aguardando revisão.
+ - `Accepted` — aprovada pelo fórum de arquitetura, com data.
+ - `Superseded by NNNN` — substituída por outro ADR.
+ - `Rejected` — considerada e rejeitada (ainda registrada — evita rediscussão futura).
+3. **Escreva o contexto com honestidade.** Quais forças estão em jogo agora? Restrições (Java 21, Postgres 16, somente Azure, regulatório)? Decisões existentes (ADRs anteriores)? Conhecidos e desconhecidos?
+4. **Liste pelo menos três opções.** Inclua o status quo e uma opção "não fazer nada" se aplicável. Cada opção precisa de:
+ - Descrição em uma linha.
+ - Prós (máximo 3 bullets).
+ - Contras (máximo 3 bullets).
+ - Perfil de custo / risco em linguagem simples.
+5. **Nomeie a decisão e a justificativa.** Um parágrafo para cada. Referencie a opção escolhida pelo nome.
+6. **Capture consequências — positivas *e* negativas.** O que se torna possível? O que fica mais difícil? Quais novos riscos aparecem? Quais outras decisões agora ficam forçadas ou restringidas?
+7. **Vincule para frente e para trás.** Cite os REQ-IDs, ADRs anteriores na mesma feature e itens inegociáveis de CONSTITUTION.md dos quais essa decisão depende.
+8. **Registre a data e os signatários.** Data do fórum de arquitetura. Nomes dos aprovadores (technical lead, software architect, donos de persona afetados).
 
-## Output
+## Saída
 
-The deliverable is a single file at `specs/<NNN>-<feature>/ADRs/<NNNN>-<title-slug>.md`:
+O entregável é um único arquivo em `specs/<NNN>-<feature>/ADRs/<NNNN>-<title-slug>.md`:
 
 ```markdown
-# ADR <NNNN> — Integrate Adabas legacy via REST adapter
+# ADR <NNNN> — Integrar legado Adabas via adaptador REST
 
 - **Status**: Accepted
-- **Date**: 2026-04-29
-- **Approvers**: @morgan (technical lead), @paula (software architect), @alex (engineering)
-- **Linked REQs**: REQ-INT-001, REQ-INT-002, REQ-INT-005
-- **Linked ADRs**: ADR 0003 (chose Java 21), ADR 0006 (Postgres 16 as system of record)
-- **Supersedes**: —
+- **Data**: 2026-04-29
+- **Aprovadores**: @morgan (technical lead), @paula (software architect), @alex (engineering)
+- **REQs vinculados**: REQ-INT-001, REQ-INT-002, REQ-INT-005
+- **ADRs vinculados**: ADR 0003 (escolheu Java 21), ADR 0006 (Postgres 16 como sistema de registro)
+- **Substitui**: —
 
-## 1. Context
-SIFAP must continue to read from the legacy Adabas database during the modernization window (estimated 18 months). Legacy code (Natural programs in `02-cenario-sifap-legado/natural-programs/`) is read-only. Direct ODBC bridges are deprecated by the vendor and prohibited by InfoSec for new integrations. The team has Java + REST expertise; nobody on the team writes Natural fluently.
+## 1. Contexto
+O SIFAP precisa continuar lendo do banco de dados legado Adabas durante a janela de modernização (estimada em 18 meses). O código legado (programas Natural em `02-cenario-sifap-legado/natural-programs/`) é somente leitura. Pontes ODBC diretas foram descontinuadas pelo fornecedor e são proibidas pela InfoSec para novas integrações. A equipe tem experiência em Java + REST; ninguém na equipe escreve Natural com fluência.
 
-## 2. Options considered
+## 2. Opções consideradas
 
-### Option A — Direct ODBC connection from Spring Boot
-- Pros: Lowest latency; familiar JDBC mental model.
-- Cons: Vendor-deprecated; not approved by InfoSec; couples application directly to legacy schema.
-- Cost/risk: Low cost now, high cost on InfoSec exception, very high risk on legacy schema change.
+### Opção A — Conexão ODBC direta a partir do Spring Boot
+- Prós: Menor latência; modelo mental JDBC familiar.
+- Contras: Descontinuada pelo fornecedor; não aprovada pela InfoSec; acopla a aplicação diretamente ao schema legado.
+- Custo/risco: Baixo custo agora, alto custo para exceção de InfoSec, risco muito alto em mudança de schema legado.
 
-### Option B — REST adapter sidecar (chosen)
-- Pros: Hides legacy details; can be replaced or sunset; testable; InfoSec-approved pattern.
-- Cons: Extra hop adds ~30 ms p95; requires a separate deployable; new SLO surface.
-- Cost/risk: Medium cost (one new service); medium risk; replaceable.
+### Opção B — Sidecar adaptador REST (escolhida)
+- Prós: Oculta detalhes legados; pode ser substituído ou aposentado; testável; padrão aprovado pela InfoSec.
+- Contras: Salto extra adiciona ~30 ms p95; exige um deployable separado; nova superfície de SLO.
+- Custo/risco: Custo médio (um novo serviço); risco médio; substituível.
 
-### Option C — Replicate Adabas to Postgres via CDC
-- Pros: Unified Postgres surface for the new system; no runtime call to legacy.
-- Cons: 18-month modernization is too short to justify CDC tooling; legacy still drives writes.
-- Cost/risk: High cost; high risk if CDC tooling does not match Adabas semantics.
+### Opção C — Replicar Adabas para Postgres via CDC
+- Prós: Superfície Postgres unificada para o novo sistema; nenhuma chamada runtime ao legado.
+- Contras: Modernização de 18 meses é curta demais para justificar tooling CDC; o legado ainda dirige as escritas.
+- Custo/risco: Alto custo; alto risco se o tooling CDC não corresponder à semântica do Adabas.
 
-## 3. Decision
-We will build a thin REST adapter sidecar that exposes a JSON API over the legacy Adabas data. The adapter is owned by the integration squad, deployed to Azure Container Apps, and authenticated via managed identity.
+## 3. Decisão
+Vamos construir um sidecar adaptador REST fino que expõe uma API JSON sobre os dados legados do Adabas. O adaptador pertence à squad de integração, é implantado no Azure Container Apps e autenticado via managed identity.
 
-## 4. Rationale
-Option B isolates the legacy from new code, satisfies InfoSec, and gives us a clean retirement seam when the legacy system is finally decommissioned. The latency cost is acceptable for the affected REQ-IDs (none of them are in the < 50 ms p95 budget).
+## 4. Justificativa
+A Opção B isola o legado do código novo, satisfaz a InfoSec e nos dá um caminho limpo de aposentadoria quando o sistema legado for finalmente desativado. O custo de latência é aceitável para os REQ-IDs afetados (nenhum deles está no orçamento de < 50 ms p95).
 
-## 5. Consequences
+## 5. Consequências
 
-### Positive
-- New code never imports legacy types.
-- The retirement plan becomes "delete the adapter" — clean.
-- Adapter can be load-tested and rate-limited independently.
+### Positivas
+- O código novo nunca importa tipos legados.
+- O plano de aposentadoria se torna "excluir o adaptador" — limpo.
+- O adaptador pode passar por teste de carga e rate limit independentemente.
 
-### Negative
-- One more deployable to operate (REQ-OPS-014 implications).
-- Schema drift between adapter contract and Adabas DDMs must be detected; new contract test suite required.
-- Latency budget for affected endpoints rises by ~30 ms p95.
+### Negativas
+- Mais um deployable para operar (implicações de REQ-OPS-014).
+- Drift de schema entre o contrato do adaptador e os DDMs Adabas precisa ser detectado; nova suíte de testes de contrato obrigatória.
+- O orçamento de latência dos endpoints afetados sobe em ~30 ms p95.
 
-### Risks
-- If the adapter becomes a bottleneck under peak load, we must scale it horizontally — capacity-plan now.
-- If InfoSec policy changes to prohibit sidecars, we will need a new ADR.
+### Riscos
+- Se o adaptador se tornar um gargalo sob carga de pico, precisaremos escalá-lo horizontalmente — planejar capacidade agora.
+- Se a política de InfoSec mudar para proibir sidecars, precisaremos de um novo ADR.
 
-## 6. Validation
-- Latency budget verified by k6 scenario `legacy-read-burst`.
-- Contract test suite `adapter-pact` runs on every PR.
-- A retrospective is scheduled at month 3 to confirm assumptions hold.
+## 6. Validação
+- Orçamento de latência verificado pelo cenário k6 `legacy-read-burst`.
+- Suíte de testes de contrato `adapter-pact` roda em todo PR.
+- Uma retrospectiva está agendada no mês 3 para confirmar se as premissas continuam válidas.
 ```
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** Decision on observability stack — Application Insights vs Grafana Cloud vs in-house Prometheus.
+**Entrada:** Decisão sobre stack de observabilidade — Application Insights vs Grafana Cloud vs in-house Prometheus.
 
-**Expected reply:** an ADR following the template, with three options, a chosen path, a calibrated cost/risk profile, and consequences naming SLO instrumentation, alert routing, and operator training.
+**Resposta esperada:** um ADR seguindo o template, com três opções, um caminho escolhido, perfil calibrado de custo/risco e consequências nomeando instrumentação de SLO, roteamento de alertas e treinamento de operadores.
 
-## Anti-patterns
+## Antipadrões
 
-- Pre-cooked ADRs that only present the chosen option. Always list rejected options — that is half the value.
-- "We chose X because it is best." Not a rationale; describe the forces.
-- Missing consequences. ADRs without consequences fool future you.
-- Rewriting an accepted ADR. Create a new one with status `Supersedes NNNN`.
-- ADRs without dates. Worthless for archaeology.
-- Linking nothing. ADRs that do not cite REQ-IDs or prior ADRs are isolated and untrustworthy.
-- "Do nothing" never considered. Sometimes the right answer is "later."
+- ADRs pré-cozidos que apresentam apenas a opção escolhida. Sempre liste opções rejeitadas — metade do valor está aí.
+- "Escolhemos X porque é melhor." Não é justificativa; descreva as forças.
+- Consequências ausentes. ADRs sem consequências enganam o você do futuro.
+- Reescrever um ADR aceito. Crie um novo com status `Supersedes NNNN`.
+- ADRs sem datas. Sem valor para arqueologia.
+- Não vincular nada. ADRs que não citam REQ-IDs ou ADRs anteriores são isolados e pouco confiáveis.
+- "Não fazer nada" nunca considerado. Às vezes a resposta certa é "depois".
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] Filename follows `<NNNN>-<title-slug>.md`, number does not collide.
-- [ ] Status is one of `Proposed`, `Accepted`, `Superseded by NNNN`, `Rejected`.
-- [ ] Date and approvers are recorded.
-- [ ] At least three options, each with pros, cons, and cost/risk.
-- [ ] Decision names the chosen option explicitly.
-- [ ] Consequences include positive, negative, and risks.
-- [ ] Linked `REQ-ID`s and prior ADRs cited.
-- [ ] Validation criteria included so we can check this decision later.
+- [ ] Nome de arquivo segue `<NNNN>-<title-slug>.md`, número não colide.
+- [ ] Status é um de `Proposed`, `Accepted`, `Superseded by NNNN`, `Rejected`.
+- [ ] Data e aprovadores registrados.
+- [ ] Pelo menos três opções, cada uma com prós, contras e custo/risco.
+- [ ] Decisão nomeia explicitamente a opção escolhida.
+- [ ] Consequências incluem positivas, negativas e riscos.
+- [ ] `REQ-ID`s vinculados e ADRs anteriores citados.
+- [ ] Critérios de validação incluídos para que possamos checar esta decisão depois.

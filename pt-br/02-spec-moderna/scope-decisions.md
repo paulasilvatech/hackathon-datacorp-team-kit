@@ -1,6 +1,6 @@
 ---
 title: "Decisões de Escopo — SIFAP 2.0"
-description: "Template para registrar o que migra, descarta ou evolui no SIFAP 2.0. Decisão liderada pelo Par 1 (Product Owner)."
+description: "Modelo para registrar o que migra, descarta ou evolui no SIFAP 2.0. Decisão liderada pelo Par 1 (Product Owner)."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/02-spec-moderna/scope-decisions.md"
 author: "Paula Silva, Americas Software GBB, Microsoft"
@@ -97,6 +97,6 @@ Pergunte de cada funcionalidade:
 - [ ] Par 3 (Technical Lead) confirmou que cabe nas 3 horas do Estágio 3
 - [ ] Time concordou com as prioridades
 
-> **Sign-off obrigatório no Handoff #2** (~16:00). Sem ele, o Estágio 3 não começa.
+> **Aprovação obrigatória na Passagem #2** (~16:00). Sem ela, o Estágio 3 não começa.
 
 — Paula

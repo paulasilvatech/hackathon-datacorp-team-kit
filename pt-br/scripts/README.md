@@ -10,7 +10,6 @@ tags: ["scripts", "bootstrap", "ci", "workshop"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-
 # Scripts
 
 | Script                 | O que ele faz                                                                                                           |
@@ -23,10 +22,10 @@ tags: ["scripts", "bootstrap", "ci", "workshop"]
 ```bash
 chmod +x scripts/*.sh
 
-# First-time setup
+# Configuração inicial
 ./scripts/setup.sh
 
-# Before every push
+# Antes de cada push
 ./scripts/check.sh
 ```
 

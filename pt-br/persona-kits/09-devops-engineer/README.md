@@ -7,19 +7,19 @@
 Leia primeiro: [PERSONA.md](PERSONA.md).
 
 ## Fase do SDLC
-Cross-cutting, Evolution, Operations
+Transversal, Evolução, Operações
 
 ## Conteúdo do kit
 
 | Arquivo | Tipo | Propósito |
 |------|------|---------|
-| `PERSONA.md` | Persona | Responsabilidades, handoffs, prompts e rubrica do DevOps Engineer |
-| `.github/agents/devops-engineer.agent.md` | Agent | CI/CD, IaC, monitoramento e incidentes |
+| `PERSONA.md` | Persona | Responsabilidades, passagems, prompts e rubrica do DevOps Engineer |
+| `.github/agents/devops-engineer.agent.md` | Agente | CI/CD, IaC, monitoramento e incidentes |
 | `.github/prompts/pipeline.prompt.md` | Prompt | `/pipeline` |
 | `.github/prompts/iac-module.prompt.md` | Prompt | `/iac-module` |
 | `.github/prompts/incident-rca.prompt.md` | Prompt | `/incident-rca` |
-| `.github/instructions/cicd.instructions.md` | Instructions | Convenções de CI/CD |
-| `.github/instructions/infrastructure.instructions.md` | Instructions | Convenções de infraestrutura |
+| `.github/instructions/cicd.instructions.md` | Instruções | Convenções de CI/CD |
+| `.github/instructions/infrastructure.instructions.md` | Instruções | Convenções de infraestrutura |
 
 ## Instalação
 ```bash

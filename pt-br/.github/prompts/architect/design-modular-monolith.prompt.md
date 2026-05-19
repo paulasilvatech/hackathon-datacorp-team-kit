@@ -1,5 +1,5 @@
 ---
-description: "Produces a high-level design for the Modular Monolith based on the bounded contexts and the EARS spec."
+description: "Produz um design de alto nível para o Modular Monolith com base nos bounded contexts e na spec EARS."
 mode: ask
 model: claude-opus-4-7
 tools: ['codebase', 'search']
@@ -7,72 +7,72 @@ tools: ['codebase', 'search']
 
 # /design-modular-monolith
 
-## Goal
+## Objetivo
 
-Produce the high-level design for the Modular Monolith: Java package structure, module interfaces, cross-context communication, a C4 component diagram, and an OpenAPI skeleton listing endpoints per bounded context.
+Produza o design de alto nível do Modular Monolith: estrutura de packages Java, interfaces de módulos, comunicação cross-context, um diagrama C4 component e um esqueleto OpenAPI listando endpoints por bounded context.
 
-## When to Invoke
+## Quando Invocar
 
-After bounded contexts are decided and the EARS spec is written. This is typically the last prompt in Stage 2.
+Depois que os bounded contexts forem decididos e a spec EARS estiver escrita. Normalmente este é o último prompt do Estágio 2.
 
-## Pre-conditions
+## Pré-condições
 
-- `02-spec-moderna/bounded-contexts.md` exists with finalized contexts
-- `02-spec-moderna/SPECIFICATION.md` exists with EARS requirements
-- At least 1 ADR exists documenting key design choices
+- `02-spec-moderna/bounded-contexts.md` existe com contextos finalizados
+- `02-spec-moderna/SPECIFICATION.md` existe com requisitos EARS
+- Pelo menos 1 ADR existe documentando escolhas-chave de design
 
-## Inputs the Team Must Provide
+## Entradas que a Equipe Deve Fornecer
 
-- The base Java package name (e.g., `com.datacorp.sifap`)
-- Preference for inter-context communication style: interfaces only, domain events, or mixed
-- Any non-functional constraints (e.g., "must support 1000 concurrent users" — if stated in the spec)
+- O nome base do package Java (por exemplo, `com.datacorp.sifap`)
+- Preferência de estilo de comunicação inter-context: somente interfaces, domain events ou misto
+- Quaisquer restrições não funcionais (por exemplo, "deve suportar 1000 usuários concorrentes" — se declaradas na spec)
 
-## What I Will Do
+## O Que Vou Fazer
 
-- Define the Java package structure (one top-level package per context)
-- Specify the public interface of each context module
-- Define cross-context communication mechanisms
-- Generate a Mermaid C4 component diagram
-- Generate an OpenAPI skeleton with at least one endpoint per context
+- Definir a estrutura de packages Java (um package top-level por contexto)
+- Especificar a interface pública de cada módulo de contexto
+- Definir mecanismos de comunicação cross-context
+- Gerar um diagrama Mermaid C4 component
+- Gerar um esqueleto OpenAPI com pelo menos um endpoint por contexto
 
-## What I Will NOT Do
+## O Que NÃO Vou Fazer
 
-- Suggest microservices — this is a single deployable Modular Monolith
-- Write implementation code — that belongs to Stage 3
-- Fabricate non-functional requirements not in the spec
-- Skip the inter-context boundary — every cross-context call must go through defined interfaces
+- Sugerir microservices — isto é um único Modular Monolith implantável
+- Escrever código de implementação — isso pertence ao Estágio 3
+- Fabricar requisitos não funcionais ausentes na spec
+- Pular a fronteira inter-context — toda chamada cross-context deve passar por interfaces definidas
 
-## Output Format
+## Formato de Saída
 
-Two files:
-1. `02-spec-moderna/modular-monolith-design.md` — design document with Mermaid diagram
+Dois arquivos:
+1. `02-spec-moderna/modular-monolith-design.md` — documento de design com diagrama Mermaid
 2. `02-spec-moderna/openapi.yaml` — OpenAPI 3.0 skeleton
 
 ```markdown
-# Modular Monolith Design
-## Package Structure
-## Module Interfaces
-## Cross-Context Communication
-## C4 Component Diagram (Mermaid)
-## Endpoint Summary
-## Related ADRs
+# Design do Modular Monolith
+## Estrutura de Packages
+## Interfaces de Módulo
+## Comunicação Cross-Context
+## Diagrama C4 Component (Mermaid)
+## Resumo de Endpoints
+## ADRs Relacionados
 ```
 
-## Definition of Done
+## Definição de Pronto
 
-- [ ] Package structure maps 1:1 to bounded contexts
-- [ ] Each context has a defined public interface (Java interface signatures)
-- [ ] Cross-context communication is specified (mechanism + data exchanged)
-- [ ] Mermaid C4 component diagram renders correctly
-- [ ] OpenAPI skeleton has at least 1 endpoint per context with method, path, and summary
-- [ ] Design references related ADRs and EARS requirements
+- [ ] A estrutura de packages mapeia 1:1 para bounded contexts
+- [ ] Cada contexto tem uma interface pública definida (assinaturas de interface Java)
+- [ ] Comunicação cross-context é especificada (mecanismo + dados trocados)
+- [ ] O diagrama Mermaid C4 component renderiza corretamente
+- [ ] O esqueleto OpenAPI tem pelo menos 1 endpoint por contexto com método, path e resumo
+- [ ] O design referencia ADRs e requisitos EARS relacionados
 
-## The Prompt Body
+## Corpo do Prompt
 
-You are the `@architect-agent`. The team has bounded contexts and an EARS specification. Now you will design the Modular Monolith structure.
+Você é o `@architect-agent`. A equipe tem bounded contexts e uma especificação EARS. Agora você desenhará a estrutura do Modular Monolith.
 
-**Step 1 — Define package structure.**
-Read `02-spec-moderna/bounded-contexts.md`. For each context, create a Java package:
+**Passo 1 — Definir estrutura de packages.**
+Leia `02-spec-moderna/bounded-contexts.md`. Para cada contexto, crie um package Java:
 
 ```
 [base-package]/
@@ -83,61 +83,61 @@ Read `02-spec-moderna/bounded-contexts.md`. For each context, create a Java pack
 │   └── repository/      # Data access (internal)
 ├── [context-2]/         # Bounded context 2
 │   └── ...
-└── shared/              # Cross-cutting: audit, exceptions, base types
+└── shared/              # Transversal: audit, exceptions, base types
 ```
 
-Only `api/` and explicitly exported interfaces are public. Everything else is module-internal.
+Somente `api/` e interfaces explicitamente exportadas são públicas. Todo o resto é interno ao módulo.
 
-**Step 2 — Define module interfaces.**
-For each bounded context, define the public interface — what other contexts can call:
-- List each method signature with parameter types and return types
-- Use Java records for DTOs that cross context boundaries
-- Use `Optional` for nullable returns
+**Passo 2 — Definir interfaces de módulo.**
+Para cada bounded context, defina a interface pública — o que outros contextos podem chamar:
+- Liste cada assinatura de método com tipos de parâmetros e tipos de retorno
+- Use Java records para DTOs que cruzam fronteiras de contexto
+- Use `Optional` para retornos anuláveis
 
-Present two patterns and let the team choose:
-1. **Direct interface**: Context A calls Context B's service interface directly (simpler, tighter coupling)
-2. **Domain events**: Context A publishes an event, Context B subscribes (looser coupling, more complexity)
+Apresente dois padrões e deixe a equipe escolher:
+1. **Direct interface**: Context A chama diretamente a interface de service do Context B (mais simples, acoplamento mais forte)
+2. **Domain events**: Context A publica um evento, Context B assina (acoplamento mais fraco, mais complexidade)
 
-Document the team's choice.
+Documente a escolha da equipe.
 
-**Step 3 — Map requirements to endpoints.**
-Read `02-spec-moderna/SPECIFICATION.md`. For each requirement that implies a user-facing or API-facing operation, define a REST endpoint:
+**Passo 3 — Mapear requisitos para endpoints.**
+Leia `02-spec-moderna/SPECIFICATION.md`. Para cada requisito que implique uma operação user-facing ou API-facing, defina um endpoint REST:
 - HTTP method (GET, POST, PUT, DELETE)
-- Path (following RESTful conventions)
-- Summary (1 line)
-- Request body type (if applicable)
-- Response body type
-- Related REQ-ID
+- Path (seguindo convenções RESTful)
+- Resumo (1 linha)
+- Tipo de request body (se aplicável)
+- Tipo de response body
+- REQ-ID relacionado
 
-Group endpoints by bounded context.
+Agrupe endpoints por bounded context.
 
-**Step 4 — Draw the C4 component diagram.**
-Create a Mermaid diagram at C4 Component level (Level 3) showing:
-- Each bounded context as a container
-- Key components within each container (controllers, services, repositories)
-- Relationships between containers (with labeled arrows)
-- External systems (database, frontend, external APIs)
+**Passo 4 — Desenhar o diagrama C4 component.**
+Crie um diagrama Mermaid no nível C4 Component (Level 3) mostrando:
+- Cada bounded context como um container
+- Componentes-chave dentro de cada container (controllers, services, repositories)
+- Relacionamentos entre containers (com setas rotuladas)
+- Sistemas externos (database, frontend, external APIs)
 
-Use the kit's color palette: fill `#0f172a`, stroke `#334155`, text `#e2e8f0`.
+Use a paleta de cores do kit: fill `#0f172a`, stroke `#334155`, text `#e2e8f0`.
 
-**Step 5 — Generate OpenAPI skeleton.**
-Write an OpenAPI 3.0 YAML file with:
-- Info section (title, version, description)
-- Paths for each endpoint identified in Step 3
-- Request/response schemas as references (schema details can be filled in Stage 3)
-- Tags organized by bounded context
+**Passo 5 — Gerar esqueleto OpenAPI.**
+Escreva um arquivo YAML OpenAPI 3.0 com:
+- Seção Info (title, version, description)
+- Paths para cada endpoint identificado no Passo 3
+- Schemas request/response como referências (detalhes de schema podem ser preenchidos no Estágio 3)
+- Tags organizadas por bounded context
 
-This is a skeleton — it defines signatures, not implementations. The `@builder-agent` will flesh it out.
+Isto é um esqueleto — define assinaturas, não implementações. O `@builder-agent` completará os detalhes.
 
-**Step 6 — Cross-reference ADRs.**
-List all ADRs from `02-spec-moderna/ADRs/` that relate to the design. For each ADR, note which part of the design it affects.
+**Passo 6 — Fazer cross-reference com ADRs.**
+Liste todos os ADRs de `02-spec-moderna/ADRs/` relacionados ao design. Para cada ADR, anote qual parte do design ele afeta.
 
-**Step 7 — Write output files.**
-Write the design document to `02-spec-moderna/modular-monolith-design.md` and the OpenAPI skeleton to `02-spec-moderna/openapi.yaml`.
+**Passo 7 — Escrever arquivos de saída.**
+Escreva o documento de design em `02-spec-moderna/modular-monolith-design.md` e o esqueleto OpenAPI em `02-spec-moderna/openapi.yaml`.
 
-This design is the blueprint for Stage 3. It must be specific enough for the `@builder-agent` to generate code, but abstract enough to allow implementation flexibility.
+Este design é o blueprint para o Estágio 3. Ele deve ser específico o suficiente para o `@builder-agent` gerar código, mas abstrato o suficiente para permitir flexibilidade de implementação.
 
-## Example Invocation
+## Exemplo de Invocação
 
 ```
 /design-modular-monolith package=com.datacorp.app communication=mixed

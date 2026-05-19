@@ -1,55 +1,55 @@
 ---
-name: TDD Workflow
-description: "Use when practicing test-driven development, writing a failing test first, or coaching red-green-refactor. Triggers on 'TDD', 'red-green-refactor', 'test first', 'failing test', 'write a test'."
+name: Workflow de TDD
+description: "Use ao praticar desenvolvimento orientado por testes, escrever primeiro um teste que falha ou orientar red-green-refactor. Aciona com 'TDD', 'red-green-refactor', 'test first', 'failing test', 'write a test'."
 ---
 
-# TDD Workflow
+# Workflow de TDD
 
-## When to invoke
-- Starting a new behavior or bug fix.
-- Pairing / mobbing on unfamiliar code and wanting a safety net.
-- When changes keep breaking things nobody expected.
+## Quando invocar
+- Ao iniciar um novo comportamento ou uma correção de bug.
+- Ao parear / fazer mobbing em código desconhecido e querer uma rede de segurança.
+- Quando mudanças continuam quebrando coisas que ninguém esperava.
 
-## The loop
+## O ciclo
 ```
-RED → write the smallest failing test that expresses the next behavior
-GREEN → write the smallest code that makes it pass
-REFACTOR → improve design; tests stay green
+VERMELHO → escreva o menor teste que falha e expressa o próximo comportamento
+VERDE → escreva o menor código que faz o teste passar
+REFATORAR → melhore o design; os testes continuam verdes
 ```
-Commit at each green. One behavior per cycle.
+Faça commit em cada verde. Um comportamento por ciclo.
 
-## Rules
-1. **No production code without a failing test.** No test, no change.
-2. **One failing test at a time.** Never have two reds.
-3. **Smallest step that fails.** If your first test is hard to write, the design is telling you something.
-4. **Test names describe behavior**, not implementation: `calculates_tax_for_tax_exempt_customer`, not `test_method1`.
-5. **Given-When-Then / Arrange-Act-Assert** structure in the test body.
-6. **Refactor phase is not optional** - that's where most of the value lives.
+## Regras
+1. **Nenhum código de produção sem um teste que falha.** Sem teste, sem mudança.
+2. **Um teste falhando por vez.** Nunca tenha dois reds.
+3. **Menor passo que falha.** Se seu primeiro teste é difícil de escrever, o design está dizendo algo.
+4. **Nomes de teste descrevem comportamento**, não implementação: `calculates_tax_for_tax_exempt_customer`, não `test_method1`.
+5. Estrutura **Given-When-Then / Arrange-Act-Assert** no corpo do teste.
+6. **A fase de refatoração não é opcional** - é onde mora a maior parte do valor.
 
-## Choosing the next test
-Order tests to drive the design:
-- Start with the simplest non-trivial case (the "0→1" or happy path with one input).
-- Then add a single variation (a boundary, a branch, an error).
-- Resist writing a giant test that covers everything.
+## Escolhendo o próximo teste
+Ordene os testes para guiar o design:
+- Comece pelo caso não trivial mais simples (o "0→1" ou caminho feliz com uma entrada).
+- Depois adicione uma única variação (um limite, uma ramificação, um erro).
+- Resista a escrever um teste gigante que cobre tudo.
 
-## Faking and stubbing
-- Use a test double only when the real collaborator is slow, non-deterministic, or not yet written.
-- Don't mock types you don't own - wrap them in a thin seam first.
-- A test that mocks everything tests nothing.
+## Faking e stubbing
+- Use um test double apenas quando o colaborador real for lento, não determinístico ou ainda não estiver escrito.
+- Não faça mock de tipos que você não controla - primeiro envolva-os em uma abstração fina.
+- Um teste que mocka tudo não testa nada.
 
-## When TDD is hard, it's usually the design
-- Hard to construct the object under test → too many collaborators, violate SRP.
-- Can't assert without reading three other objects → Law of Demeter / encapsulation issue.
-- Have to mock the world → hidden coupling; introduce an abstraction.
+## Quando TDD é difícil, geralmente é o design
+- Difícil construir o objeto sob teste → colaboradores demais, violação de SRP.
+- Não dá para fazer assertion sem ler três outros objetos → Law of Demeter / problema de encapsulamento.
+- Precisa mockar o mundo → acoplamento oculto; introduza uma abstração.
 
-## Anti-patterns
-- Writing the code, then the test (that's verification, not TDD).
-- Skipping the refactor phase.
-- Tests that duplicate the implementation (change detectors).
-- Giant test fixtures shared across files - brittle.
-- Asserting on implementation details (private methods, exact SQL string).
+## Antipadrões
+- Escrever o código e depois o teste (isso é verificação, não TDD).
+- Pular a fase de refatoração.
+- Testes que duplicam a implementação (detectores de mudança).
+- Fixtures de teste gigantes compartilhadas entre arquivos - frágeis.
+- Fazer assertion sobre detalhes de implementação (métodos privados, string SQL exata).
 
-## References
+## Referências
 - [Kent Beck - Test Driven Development: By Example](https://www.oreilly.com/library/view/test-driven-development/0321146530/)
 - [GOOS - Growing Object-Oriented Software, Guided by Tests](http://www.growing-object-oriented-software.com/)
 - [Martin Fowler - Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)

@@ -23,8 +23,8 @@ flowchart LR
  classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
 
  SP[Spec ✓<br/>EARS + ADRs]:::done
- IM[Implementation<br/>Código + Testes]:::current
- EV[Evolution<br/>IaC + CI/CD]:::next
+ IM[Implementação<br/>Código + Testes]:::current
+ EV[Evolução<br/>IaC + CI/CD]:::next
 
  SP --> IM --> EV
 ```
@@ -48,7 +48,7 @@ Estender o protótipo funcional do SIFAP 2.0 implementando as features priorizad
 
 ## Por que isso importa
 
-O Estágio 3 é onde a spec encontra a realidade. EARS escrita bonita no Estágio 2 fica preto-no-branco aqui: ou o teste passa, ou não passa. **Cada commit traz uma referência `Implements REQ-XXX:` no message.** Sem isso, a rastreabilidade morre e `/speckit.analyze` ajuda a encontrar drift entre spec, tasks e código antes do handoff.
+O Estágio 3 é onde a spec encontra a realidade. EARS escrita bonita no Estágio 2 fica preto-no-branco aqui: ou o teste passa, ou não passa. **Cada commit traz uma referência `Implements REQ-XXX:` no message.** Sem isso, a rastreabilidade morre e `/speckit.analyze` ajuda a encontrar drift entre spec, tasks e código antes do passagem.
 
 ## Como pensar nisso
 
@@ -286,9 +286,9 @@ Para cada feature que você implementa, mantenha rastreabilidade com a spec:
 
 | Requisito EARS                                                                    | Código                           | Teste                                        |
 | --------------------------------------------------------------------------------- | -------------------------------- | -------------------------------------------- |
-| REQ-BEN-01: "The SIFAP shall validate CPF with modulo-11"                         | `Cpf.java` (domain)              | `CpfTest.java` — 11 testes                   |
-| REQ-PAY-03: "When a cycle is generated, create payments for ACTIVE beneficiaries" | `PaymentCycleService.generate()` | `PaymentCycleServiceTest.generate_openCycle` |
-| REQ-AUD-01: "When an entity is changed, write an audit record"                    | `AuditService.record()`          | `SifapApplicationIntegrationTest`            |
+| REQ-BEN-01: "O SIFAP deve validar CPF com módulo 11"                              | `Cpf.java` (domain)              | `CpfTest.java` — 11 testes                   |
+| REQ-PAY-03: "Quando um ciclo for gerado, criar pagamentos para beneficiários ACTIVE" | `PaymentCycleService.generate()` | `PaymentCycleServiceTest.generate_openCycle` |
+| REQ-AUD-01: "Quando uma entidade for alterada, gravar um registro de auditoria"    | `AuditService.record()`          | `SifapApplicationIntegrationTest`            |
 
 Quando adicionar uma feature, documente no commit: `Implements REQ-XXX`. Isso fecha o ciclo spec → código → teste.
 
@@ -301,7 +301,7 @@ Suponha que o Estágio 2 produziu este REQ-ID:
 ```yaml
 REQ-PAY-DSCT-01:
   pattern: unwanted
-  text: "The SIFAP shall not allow non-judicial deductions to exceed 30% of gross."
+  text: "O SIFAP não deve permitir que descontos não judiciais excedam 30% do valor bruto."
   source_legacy: legacy/natural-programs/CALCDSCT.NSN#L142-L148
 ```
 
@@ -345,7 +345,7 @@ Pronto. Rastreabilidade fechada.
 
 ---
 
-## Como saber que terminou (Definition of Done)
+## Como saber que terminou (Definição de Pronto)
 
 Ao final do Estágio 3, seu time deve ter:
 
@@ -360,7 +360,7 @@ Ao final do Estágio 3, seu time deve ter:
 
 ## Próximo passo
 
-No Handoff #3 (~17:00), o **Par 3 (Implementação)** entrega o código rodando para o **Par 5 (Operações)**, que vai cuidar de Terraform e CI/CD no Estágio 4. O Par 4 (Qualidade) continua os testes finais. Veja [`../04-evolucao/GUIDE.md`](../04-evolucao/GUIDE.md).
+No Passagem #3 (~17:00), o **Par 3 (Implementação)** entrega o código rodando para o **Par 5 (Operações)**, que vai cuidar de Terraform e CI/CD no Estágio 4. O Par 4 (Qualidade) continua os testes finais. Veja [`../04-evolucao/GUIDE.md`](../04-evolucao/GUIDE.md).
 
 ## Prompts para Copilot Chat
 

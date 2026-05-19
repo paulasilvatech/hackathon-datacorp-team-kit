@@ -7,13 +7,13 @@
 Leia primeiro: [PERSONA.md](PERSONA.md).
 
 ## Fase do SDLC
-Implementation, Quality
+Implementação, Qualidade
 
 ## Conteúdo do kit
 
 | Arquivo | Tipo | Propósito |
 |------|------|---------|
-| `PERSONA.md` | Persona | Responsabilidades, handoffs, prompts e rubrica do DBA |
+| `PERSONA.md` | Persona | Responsabilidades, passagems, prompts e rubrica do DBA |
 | `.github/agents/dba.agent.md` | Agent | Migrações, otimização de consultas e auditoria SQL |
 | `.github/prompts/migration.prompt.md` | Prompt | `/migration` |
 | `.github/prompts/query-audit.prompt.md` | Prompt | `/query-audit` |

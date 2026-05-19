@@ -1,5 +1,5 @@
 ---
-title: "Cheat sheet — Spec-Kit"
+title: "Cartão de referência — Spec-Kit"
 description: "Uma página para usar o Spec-Kit oficial do GitHub no fluxo SDD do workshop."
 locale: "pt-br"
 canonical_path: "pt-br/cheat-sheets/spec-kit-workflow.md"
@@ -11,7 +11,7 @@ tags: ["cheat-sheet", "spec-kit", "sdd", "ears", "workshop", "pt-br"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-# Spec-Kit — Cheat Sheet
+# Spec-Kit — Cartão de Referência
 
 > Repo oficial: <https://github.com/github/spec-kit>. Use o Spec-Kit oficial do
 > GitHub para especificar, planejar, quebrar tarefas e implementar features.
@@ -19,7 +19,7 @@ tags: ["cheat-sheet", "spec-kit", "sdd", "ears", "workshop", "pt-br"]
 ## Quando usar
 
 Use a partir do Estágio 2, quando o time transforma descobertas do legado em uma
-feature especificada. O Spec-Kit ajuda a manter a sequência:
+funcionalidade especificada. O Spec-Kit ajuda a manter a sequência:
 
 1. Constituição do projeto
 2. Spec do que será construído
@@ -35,9 +35,9 @@ deixar claro que é uma melhoria greenfield.
 
 ## Passo a passo rápido
 
-Use esta sequência quando uma descoberta da arqueologia virar uma feature.
+Use esta sequência quando uma descoberta da arqueologia virar uma funcionalidade.
 
-1. **Nomeie a feature.** Exemplo: `001-geracao-ciclo-pagamento`.
+1. **Nomeie a funcionalidade.** Exemplo: `001-geracao-ciclo-pagamento`.
 2. **Crie a spec com `/speckit.specify`.** Inclua user stories, critérios de aceitação e `source_legacy:`.
 3. **Resolva dúvidas com `/speckit.clarify`.** Não siga com campos, regras ou fluxos ambíguos.
 4. **Planeje com `/speckit.plan`.** O plano deve citar módulos, contratos, dados e riscos.
@@ -46,7 +46,7 @@ Use esta sequência quando uma descoberta da arqueologia virar uma feature.
 7. **Implemente com `/speckit.implement`.** O código deve seguir `spec.md`, `plan.md` e `tasks.md`.
 
 Resultado esperado: uma pasta `specs/<feature>/` com artefatos que explicam a
-feature de ponta a ponta, do requisito ao código.
+funcionalidade de ponta a ponta, do requisito ao código.
 
 ## Instalação oficial
 
@@ -76,7 +76,7 @@ pelos comandos vivem em `specs/<numero-nome-da-feature>/`.
 | Comando | Uso |
 | --- | --- |
 | `/speckit.constitution` | Cria ou atualiza princípios e regras do projeto |
-| `/speckit.specify` | Cria a spec da feature com user stories e critérios |
+| `/speckit.specify` | Cria a spec da funcionalidade com user stories e critérios |
 | `/speckit.plan` | Gera o plano técnico a partir da spec |
 | `/speckit.tasks` | Quebra o plano em tarefas implementáveis |
 | `/speckit.implement` | Executa as tasks de implementação |
@@ -92,14 +92,14 @@ pelos comandos vivem em `specs/<numero-nome-da-feature>/`.
 
 ## Os 6 padrões EARS
 
-| # | Padrão | Template | Exemplo SIFAP |
+| # | Padrão | Modelo | Exemplo SIFAP |
 | --- | --- | --- | --- |
-| 1 | Ubiquitous | The system shall [action] | The SIFAP shall record an audit entry on every change |
-| 2 | Event-Driven | When [X], the system shall [action] | When a cycle is generated, create payments for active beneficiaries |
-| 3 | State-Driven | While [X], the system shall [action] | While pending, allow cancellation |
-| 4 | Optional | Where [choice], the system shall [action] | Where the user exports, generate UTF-8 CSV |
-| 5 | Unwanted | The system shall not [action] | The system shall not allow DELETE on the audit log |
-| 6 | Complex | While [X], when [Y], where [Z], the system shall [action] | While active, when December closes, calculate the 13th-month bonus |
+| 1 | Ubiquitous | O sistema deverá [ação] | O SIFAP deverá registrar uma entrada de auditoria em toda alteração |
+| 2 | Event-Driven | Quando [X], o sistema deverá [ação] | Quando um ciclo for gerado, criar pagamentos para beneficiários ativos |
+| 3 | State-Driven | Enquanto [X], o sistema deverá [ação] | Enquanto estiver pendente, permitir cancelamento |
+| 4 | Optional | Onde [escolha], o sistema deverá [ação] | Onde o usuário exportar, gerar CSV em UTF-8 |
+| 5 | Unwanted | O sistema não deverá [ação] | O sistema não deverá permitir DELETE no log de auditoria |
+| 6 | Complex | Enquanto [X], quando [Y], onde [Z], o sistema deverá [ação] | Enquanto estiver ativo, quando dezembro fechar, calcular o 13º benefício |
 
 ## Exemplo mínimo no SIFAP
 
@@ -108,7 +108,7 @@ pode abrir o Copilot no modo Ask e escrever:
 
 ```text
 /speckit.specify
-Feature: geração de ciclo de pagamento mensal.
+Funcionalidade: geração de ciclo de pagamento mensal.
 Regra legado: quando o ciclo mensal é gerado, o SIFAP cria pagamentos apenas
 para beneficiários ativos.
 source_legacy: legacy/natural-programs/BATCHPGT.NSN#L120-L168
@@ -120,9 +120,9 @@ O resultado esperado em `spec.md` é uma regra rastreável, por exemplo:
 ```yaml
 REQ-PAY-001:
   pattern: event-driven
-  text: "When a payment cycle is generated, the SIFAP shall create payment records for every beneficiary with status ACTIVE."
+  text: "Quando um ciclo de pagamento for gerado, o SIFAP deverá criar registros de pagamento para todo beneficiário com status ACTIVE."
   source_legacy: legacy/natural-programs/BATCHPGT.NSN#L120-L168
-  acceptance: "10 active + 2 suspended beneficiaries produces 10 payment records."
+  acceptance: "10 ativos + 2 suspensos produzem 10 registros de pagamento."
 ```
 
 Se esse requisito não tiver `source_legacy:`, ele ainda não está pronto para
@@ -141,7 +141,7 @@ flowchart LR
 
 | Momento | Comando | Entregável esperado |
 | --- | --- | --- |
-| Antes da primeira feature | `/speckit.constitution` | `.specify/memory/constitution.md` |
+| Antes da primeira funcionalidade | `/speckit.constitution` | `.specify/memory/constitution.md` |
 | Estágio 2 | `/speckit.specify` | `specs/<feature>/spec.md` |
 | Estágio 2 | `/speckit.clarify` | Perguntas resolvidas na spec |
 | Estágio 2 | `/speckit.plan` | `specs/<feature>/plan.md` |
@@ -171,7 +171,7 @@ flowchart LR
 
 - [Spec-Kit no GitHub](https://github.com/github/spec-kit)
 - [Documentação oficial](https://github.github.io/spec-kit/)
-- [Installation Guide](https://github.com/github/spec-kit/blob/main/docs/installation.md)
+- [Guia de instalação](https://github.com/github/spec-kit/blob/main/docs/installation.md)
 - [Spec-Driven Development](https://github.com/github/spec-kit/blob/main/spec-driven.md)
 
 — Paula

@@ -1,5 +1,5 @@
 ---
-title: "Template: Bounded Contexts"
+title: "Modelo: Bounded Contexts"
 description: "Esqueleto para definições de bounded contexts via /carve-bounded-contexts"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-29"
@@ -10,14 +10,13 @@ tags: ["template", "bounded-contexts", "architect", "stage-2"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-
 <!-- Como usar: execute /carve-bounded-contexts. Clone o bloco de contexto para cada um. -->
 
 # Mapa de Bounded Contexts
 
 ## Avaliações de Hipóteses
 
-### <!-- placeholder: Name --> — <!-- placeholder: ACCEPTED/REJECTED -->
+### <!-- placeholder: Nome --> — <!-- placeholder: ACEITO/REJEITADO -->
 
 | Critério              | Avaliação            | Evidência            |
 | --------------------- | -------------------- | -------------------- |
@@ -27,7 +26,7 @@ tags: ["template", "bounded-contexts", "architect", "stage-2"]
 
 ## Bounded Contexts Finais
 
-### <!-- placeholder: Context Name -->
+### <!-- placeholder: Nome do Contexto -->
 
 - **Responsabilidade:** <!-- placeholder -->
 - **Dados sob ownership:** <!-- placeholder -->
@@ -41,11 +40,11 @@ tags: ["template", "bounded-contexts", "architect", "stage-2"]
 
 ```mermaid
 flowchart LR
-    CTX1["Context 1"] -->|"calls"| CTX2["Context 2"]
+    CTX1["Contexto 1"] -->|"chama"| CTX2["Contexto 2"]
     classDef ctx fill:#0f172a,stroke:#334155,color:#e2e8f0
     class CTX1,CTX2 ctx
 ```
 
 ---
 
-**Lembrete de Definition of Done:** Hipóteses avaliadas, rejeições documentadas, 2-5 contextos nomeados, Mermaid renderiza.
+**Lembrete de Definição de Pronto:** Hipóteses avaliadas, rejeições documentadas, 2-5 contextos nomeados, Mermaid renderiza.

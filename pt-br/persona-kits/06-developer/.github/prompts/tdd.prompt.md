@@ -1,90 +1,90 @@
 ---
 mode: agent
 model: claude-sonnet-4-6
-description: "Drive a feature through one strict red-green-refactor TDD cycle. One failing test, smallest passing code, then refactor."
+description: "Conduza uma feature por um ciclo TDD red-green-refactor rigoroso. Um teste falhando, o menor código que passa e então refatoração."
 ---
 
 # /tdd
 
-## Goal
+## Objetivo
 
-You will produce one complete TDD cycle for a single behavior on SIFAP 2.0. The deliverable is three commits — `red`, `green`, `refactor` — each on its own. No production code is written without a failing test, and no test is written that immediately passes.
+Você produzirá um ciclo TDD completo para um único comportamento no SIFAP 2.0. O entregável são três commits — `red`, `green`, `refactor` — cada um separado. Nenhum código de produção é escrito sem um teste falhando, e nenhum teste é escrito para passar imediatamente.
 
-## Inputs
+## Entradas
 
-Ask the user for what is missing.
+Peça ao usuário o que estiver faltando.
 
-- The behavior to drive out, in plain English (for example "calculate ICMS for tax-exempt beneficiaries").
-- The linked `REQ-ID` from `SPECIFICATION.md`.
-- The target file or class. If it does not exist, say so — TDD also drives design, so creation is fine.
-- The test framework — JUnit 5 + AssertJ for Java, Vitest + Testing Library for TypeScript.
+- O comportamento a descobrir, em linguagem simples (por exemplo "calcular ICMS para beneficiários isentos de imposto").
+- O `REQ-ID` vinculado em `SPECIFICATION.md`.
+- O arquivo ou classe alvo. Se não existir, diga isso — TDD também guia o design, então criar é aceitável.
+- O framework de teste — JUnit 5 + AssertJ para Java, Vitest + Testing Library para TypeScript.
 
-## Process
+## Processo
 
-You execute exactly three phases. Do not collapse them.
+Você executa exatamente três fases. Não as compacte.
 
-### Phase 1 — RED (write the failing test)
+### Fase 1 — RED (escreva o teste que falha)
 
-1. Pick the **simplest non-trivial case** for the behavior. Not the empty case, not the catastrophic one — the smallest case that exercises real logic.
-2. Name the test after the behavior, not the method: `calculatesIcmsAsZeroForTaxExemptBeneficiary`, not `test1`.
-3. Use Given/When/Then or Arrange/Act/Assert structure with blank lines between sections.
-4. Run the test. Confirm it fails. Read the failure message and confirm it fails for the expected reason (compile error, assertion mismatch — not setup error).
+1. Escolha o **caso não trivial mais simples** para o comportamento. Não o caso vazio, nem o catastrófico — o menor caso que exercita lógica real.
+2. Nomeie o teste pelo comportamento, não pelo método: `calculatesIcmsAsZeroForTaxExemptBeneficiary`, não `test1`.
+3. Use estrutura Given/When/Then ou Arrange/Act/Assert, com linhas em branco entre as seções.
+4. Execute o teste. Confirme que falha. Leia a mensagem de falha e confirme que falha pelo motivo esperado (erro de compilação, incompatibilidade de assertion — não erro de setup).
 5. Commit: `test(taxes): red — icms is zero for tax-exempt beneficiary`.
 
-### Phase 2 — GREEN (smallest code to pass)
+### Fase 2 — GREEN (menor código para passar)
 
-6. Write the **smallest amount of production code** that makes the test pass. "Fake it till you make it" is allowed: returning a hardcoded value is acceptable on the first cycle.
-7. Run the single test. Confirm green. Run the full suite. Confirm still green.
+6. Escreva a **menor quantidade de código de produção** que faça o teste passar. "Fake it till you make it" é permitido: retornar um valor fixo é aceitável no primeiro ciclo.
+7. Execute o teste único. Confirme verde. Execute a suíte completa. Confirme que continua verde.
 8. Commit: `feat(taxes): green — implement REQ-TAX-009 (minimal)`.
 
-### Phase 3 — REFACTOR (improve under green)
+### Fase 3 — REFACTOR (melhore com tudo verde)
 
-9. Look for duplication, names that lie, primitive obsession. Apply one small Fowler move (Extract Method, Inline Variable, Rename).
-10. Run all tests after every micro-step. They must stay green.
-11. Stop when the design is good enough for the next cycle, not perfect.
+9. Procure duplicação, nomes que mentem, primitive obsession. Aplique uma pequena manobra de Fowler (Extract Method, Inline Variable, Rename).
+10. Execute todos os testes após cada micro-passo. Eles devem permanecer verdes.
+11. Pare quando o design estiver bom o suficiente para o próximo ciclo, não perfeito.
 12. Commit: `refactor(taxes): extract ExemptionPolicy from TaxCalculator`.
 
-## Output
+## Saída
 
-Your final reply must include:
+Sua resposta final deve incluir:
 
-- **The behavior driven out** — one sentence.
-- **The three commits** — message, files touched, test result for each.
-- **The test file** — full content.
-- **The production code** — full content after the refactor phase.
-- **Next cycle hint** — what test you would write next (boundary, error, second variation). Do not implement it.
+- **O comportamento descoberto** — uma frase.
+- **Os três commits** — mensagem, arquivos tocados e resultado de teste de cada um.
+- **O arquivo de teste** — conteúdo completo.
+- **O código de produção** — conteúdo completo após a fase de refatoração.
+- **Dica do próximo ciclo** — que teste você escreveria em seguida (limite, erro, segunda variação). Não o implemente.
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** Behavior — "ICMS is zero when the beneficiary is flagged tax-exempt." REQ-TAX-009.
+**Entrada:** Comportamento — "ICMS é zero quando o beneficiário está marcado como isento de imposto." REQ-TAX-009.
 
-**Expected reply skeleton:**
+**Estrutura esperada da resposta:**
 
-> Behavior: `TaxCalculator.icms(beneficiary, amount)` returns `BigDecimal.ZERO` when `beneficiary.isTaxExempt()` is true.
+> Comportamento: `TaxCalculator.icms(beneficiary, amount)` retorna `BigDecimal.ZERO` quando `beneficiary.isTaxExempt()` é true.
 >
-> RED commit: added `TaxCalculatorTest#calculatesIcmsAsZeroForTaxExemptBeneficiary`. Failed with `NullPointerException` (class did not exist).
+> Commit RED: adicionou `TaxCalculatorTest#calculatesIcmsAsZeroForTaxExemptBeneficiary`. Falhou com `NullPointerException` (a classe não existia).
 >
-> GREEN commit: created `TaxCalculator` with a one-line `icms` method returning `ZERO`. Test passes. Full suite green (47 tests).
+> Commit GREEN: criou `TaxCalculator` com um método `icms` de uma linha retornando `ZERO`. O teste passa. Suíte completa verde (47 testes).
 >
-> REFACTOR commit: extracted `ExemptionPolicy` interface — anticipates state-exempt and federal-exempt variants without implementing them yet.
+> Commit REFACTOR: extraiu a interface `ExemptionPolicy` — antecipa variantes de isenção estadual e federal sem implementá-las ainda.
 >
-> Next cycle hint: write a test for a non-exempt beneficiary with a non-zero ICMS rate. That will force `icms` to actually look at `amount`.
+> Dica do próximo ciclo: escreva um teste para um beneficiário não isento com uma alíquota de ICMS diferente de zero. Isso forçará `icms` a realmente olhar para `amount`.
 
-## Anti-patterns
+## Antipadrões
 
-- Writing the test and the code together. That is verification, not TDD.
-- Skipping the refactor phase. Most of the design value lives there.
-- Two failing tests at once. One red at a time.
-- Testing private methods. Test through the public interface.
-- Writing a giant first test that covers six cases. Take smaller steps.
-- Mocking everything. A test that mocks every collaborator tests nothing.
-- "Refactoring" by changing behavior. If the test changes, you cheated.
+- Escrever o teste e o código juntos. Isso é verificação, não TDD.
+- Pular a fase de refatoração. A maior parte do valor de design mora ali.
+- Dois testes falhando ao mesmo tempo. Um red por vez.
+- Testar métodos privados. Teste pela interface pública.
+- Escrever um primeiro teste gigante que cobre seis casos. Dê passos menores.
+- Mockar tudo. Um teste que mocka todo colaborador não testa nada.
+- "Refatorar" mudando comportamento. Se o teste muda, você trapaceou.
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] Three separate commits exist: `test:` (red), `feat:` (green), `refactor:`.
-- [ ] The red commit is reproducibly red — you can check out that commit and the build fails.
-- [ ] The green commit is the minimum to pass — one method, hardcoded if needed.
-- [ ] The refactor commit changes structure, not behavior. Test names and assertions are unchanged.
-- [ ] The full suite is green at the end.
-- [ ] The behavior driven out maps to exactly one acceptance criterion of one `REQ-ID`.
+- [ ] Existem três commits separados: `test:` (red), `feat:` (green), `refactor:`.
+- [ ] O commit red é reproduzivelmente vermelho — você consegue fazer checkout desse commit e o build falha.
+- [ ] O commit green é o mínimo para passar — um método, com valor fixo se necessário.
+- [ ] O commit refactor altera estrutura, não comportamento. Nomes de teste e assertions permanecem inalterados.
+- [ ] A suíte completa está verde no final.
+- [ ] O comportamento descoberto mapeia exatamente para um critério de aceitação de um `REQ-ID`.

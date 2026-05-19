@@ -14,7 +14,7 @@ tags: ["estagio-2", "especificacao", "ears", "adr", "c4", "didatico", "pt-br"]
 
 # Estágio 2 — Spec Moderna (3 horas)
 
-> **REGRA DURA.** Todo requisito EARS no seu `SPECIFICATION.md` precisa incluir uma linha `source_legacy:` apontando para um arquivo `.NSN` ou `.ddm` dentro de [`../legacy/`](../../legacy/), **ou** ser marcado `source_legacy: "[GREENFIELD] <justificativa de uma linha>"`. O CI rejeita PRs que violem isso. Facilitadores verificam por amostragem no Handoff #2 (~16:00).
+> **REGRA DURA.** Todo requisito EARS no seu `SPECIFICATION.md` precisa incluir uma linha `source_legacy:` apontando para um arquivo `.NSN` ou `.ddm` dentro de [`../legacy/`](../../legacy/), **ou** ser marcado `source_legacy: "[GREENFIELD] <justificativa de uma linha>"`. O CI rejeita PRs que violem isso. Facilitadores verificam por amostragem no Passagem #2 (~16:00).
 >
 > Por quê? Na edição anterior alguns times escreveram specs só a partir do brief de modernização, pulando a leitura do legado. Os protótipos perderam regras de negócio reais. Desta vez, rastreabilidade é o portão.
 
@@ -26,14 +26,14 @@ flowchart LR
  classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
  classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
 
- D[Discovery ✓<br/>Catálogo BR, glossário]:::done
- SP[Specification + Design<br/>EARS + ADRs + C4]:::current
- IM[Implementation<br/>Estágio 3]:::next
+ D[Descoberta ✓<br/>Catálogo BR, glossário]:::done
+ SP[Especificação + Design<br/>EARS + ADRs + C4]:::current
+ IM[Implementação<br/>Estágio 3]:::next
 
  D --> SP --> IM
 ```
 
-Você está no **Estágio 2**. A saída deste estágio (REQ-IDs, ADRs, C4) alimenta diretamente o Estágio 3. Sem `source_legacy:` em cada REQ-ID, o handoff #2 falha.
+Você está no **Estágio 2**. A saída deste estágio (REQ-IDs, ADRs, C4) alimenta diretamente o Estágio 3. Sem `source_legacy:` em cada REQ-ID, o passagem #2 falha.
 
 ## Quem trabalha aqui
 
@@ -87,62 +87,62 @@ EARS é um método para escrever requisitos sem ambiguidade. São **6 padrões**
 
 ### Padrão 1: Ubiquitous (sempre vale)
 
-> **The [system] shall [action].**
+> **O [sistema] deve [ação].**
 
 Exemplo SIFAP:
 
-> The SIFAP shall store all payment records with a UTC timestamp.
+> O SIFAP deve armazenar todos os registros de pagamento com timestamp UTC.
 
 Use quando: a regra vale SEMPRE, sem condição.
 
 ### Padrão 2: Event-Driven (quando algo acontece)
 
-> **When [event], the [system] shall [action].**
+> **Quando [evento], o [sistema] deve [ação].**
 
 Exemplo SIFAP:
 
-> When a beneficiary is registered, the SIFAP shall validate the CPF using the modulo-11 algorithm from Receita Federal.
+> Quando um beneficiário é cadastrado, o SIFAP deve validar o CPF usando o algoritmo módulo 11 da Receita Federal.
 
 Use quando: a regra só vale após um evento específico.
 
 ### Padrão 3: State-Driven (enquanto uma condição vale)
 
-> **While [condition], the [system] shall [action].**
+> **Enquanto [condição], o [sistema] deve [ação].**
 
 Exemplo SIFAP:
 
-> While a payment has status PENDING, the SIFAP shall allow cancellation by a user with the OPERATOR profile.
+> Enquanto um pagamento estiver com status PENDING, o SIFAP deve permitir cancelamento por um usuário com perfil OPERATOR.
 
 Use quando: a regra só vale durante um estado.
 
 ### Padrão 4: Optional (se o usuário escolher)
 
-> **Where [optional condition], the [system] shall [action].**
+> **Onde [condição opcional], o [sistema] deve [ação].**
 
 Exemplo SIFAP:
 
-> Where the operator chooses to export the report, the SIFAP shall generate a CSV file with UTF-8 encoding.
+> Onde o operador escolher exportar o relatório, o SIFAP deve gerar um arquivo CSV com codificação UTF-8.
 
 Use quando: a funcionalidade não é obrigatória — depende de escolha do usuário.
 
 ### Padrão 5: Unwanted Behavior (o que NÃO deve acontecer)
 
-> **The [system] shall not [unwanted action].**
+> **O [sistema] não deve [ação indesejada].**
 
 Exemplo SIFAP:
 
-> The SIFAP shall not allow deletion of records from the audit table.
-> The SIFAP shall not process payments for beneficiaries with status CANCELLED.
+> O SIFAP não deve permitir exclusão de registros da tabela de auditoria.
+> O SIFAP não deve processar pagamentos para beneficiários com status CANCELLED.
 
 Use quando: você precisa documentar restrições ou proibições explícitas.
 
 ### Padrão 6: Complex Scenario (combinação de condições)
 
-> **While [condition], when [event], where [optional condition], the [system] shall [action].**
+> **Enquanto [condição], quando [evento], onde [condição opcional], o [sistema] deve [ação].**
 
 Exemplo SIFAP:
 
-> While the beneficiary has status ACTIVE, when a payment cycle is generated in December, the SIFAP shall calculate the 13th salary using a differentiated formula.
+> Enquanto o beneficiário estiver com status ACTIVE, quando um ciclo de pagamento for gerado em dezembro, o SIFAP deve calcular o 13º salário usando uma fórmula diferenciada.
 
 Use quando: múltiplas condições se combinam.
 
@@ -150,9 +150,9 @@ Use quando: múltiplas condições se combinam.
 
 | Ruim (vago)                        | Bom (EARS)                                                                                                        |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| "O sistema deve ser seguro"        | "The SIFAP shall mask CPF in logs using the format \*\*\*.\*\*\*.XXX-\*\*"                                        |
-| "Pagamentos devem ser processados" | "When a cycle is generated, the SIFAP shall create payment records for all beneficiaries with status ACTIVE"      |
-| "Auditoria completa"               | "When any entity is changed, the SIFAP shall write an audit record with prior and posterior state in JSON format" |
+| "O sistema deve ser seguro"        | "O SIFAP deve mascarar CPF em logs usando o formato \*\*\*.\*\*\*.XXX-\*\*"                                        |
+| "Pagamentos devem ser processados" | "Quando um ciclo for gerado, o SIFAP deve criar registros de pagamento para todos os beneficiários com status ACTIVE" |
+| "Auditoria completa"               | "Quando qualquer entidade for alterada, o SIFAP deve gravar um registro de auditoria com estado anterior e posterior em formato JSON" |
 
 ### Dica: todo requisito precisa ser TESTÁVEL
 
@@ -160,9 +160,9 @@ Ao escrever um requisito, pergunte: _"Como eu testaria isso automaticamente?"_ S
 
 | Requisito                                                                         | Teste                                   |
 | --------------------------------------------------------------------------------- | --------------------------------------- |
-| REQ-BEN-01: "The SIFAP shall validate CPF with modulo-11"                         | CPF inválido retorna erro 400           |
-| REQ-PAY-03: "When a cycle is generated, create payments for ACTIVE beneficiaries" | 10 ativos + 2 suspensos = 10 pagamentos |
-| REQ-AUD-01: "The SIFAP shall not allow DELETE on audit"                           | DELETE retorna erro 403                 |
+| REQ-BEN-01: "O SIFAP deve validar CPF com módulo 11"                              | CPF inválido retorna erro 400           |
+| REQ-PAY-03: "Quando um ciclo for gerado, criar pagamentos para beneficiários ACTIVE" | 10 ativos + 2 suspensos = 10 pagamentos |
+| REQ-AUD-01: "O SIFAP não deve permitir DELETE em auditoria"                       | DELETE retorna erro 403                 |
 
 ---
 
@@ -192,18 +192,18 @@ Usando os padrões **Unwanted Behavior** + **Event**:
 ```yaml
 REQ-PAY-DSCT-01:
  pattern: unwanted
- text: "The SIFAP shall not allow the total of non-judicial deductions to exceed
- 30% of the payment's gross amount."
+ text: "O SIFAP não deve permitir que o total de descontos não judiciais exceda
+ 30% do valor bruto do pagamento."
  source_legacy: legacy/natural-programs/CALCDSCT.NSN#L142-L148
  acceptance:
- - "Non-judicial deduction of 35% is truncated to 30%"
- - "Judicial deduction of 50% is accepted in full"
- - "Mix of judicial (20%) + non-judicial (25%) = 45% total accepted"
+ - "Desconto não judicial de 35% é truncado para 30%"
+ - "Desconto judicial de 50% é aceito integralmente"
+ - "Mistura de judicial (20%) + não judicial (25%) = total de 45% aceito"
 
 REQ-PAY-DSCT-02:
  pattern: event-driven
- text: "When a judicial deduction is applied, the SIFAP shall add the value
- to the total deductions without applying the 30% cap."
+ text: "Quando um desconto judicial é aplicado, o SIFAP deve adicionar o valor
+ ao total de descontos sem aplicar o teto de 30%."
  source_legacy: legacy/natural-programs/CALCDSCT.NSN#L142-L148
 ```
 
@@ -268,7 +268,7 @@ Esse ciclo é o que o Spec-Kit torna explícito em `spec.md`, `plan.md` e `tasks
 
 ---
 
-## ADRs — Architecture Decision Records
+## ADRs — Arquitetura Decision Records
 
 ADRs documentam decisões importantes de arquitetura. Para cada decisão, crie um arquivo usando o template [`ADR-TEMPLATE.md`](ADR-TEMPLATE.md).
 
@@ -288,51 +288,51 @@ ADRs documentam decisões importantes de arquitetura. Para cada decisão, crie u
 
 ---
 
-## Diagramas C4 — Context, Containers, Components
+## Diagramas C4 — Contexto, Containers, Componentes
 
-Use Mermaid para criar pelo menos os diagramas **Context (C4-L1)** e **Containers (C4-L2)**.
+Use Mermaid para criar pelo menos os diagramas **Contexto (C4-L1)** e **Containers (C4-L2)**.
 
 ### Exemplo C4-L1: diagrama de contexto
 
 ```mermaid
 C4Context
- title Context Diagram - SIFAP 2.0
+ title Diagrama de Contexto - SIFAP 2.0
 
- Person(operator, "Operator", "Employee who registers payments")
- Person(auditor, "Auditor", "Audits operations and generates reports")
- Person(admin, "Administrator", "Manages users and configurations")
+ Person(operator, "Operador", "Servidor que registra pagamentos")
+ Person(auditor, "Auditor", "Audita operações e gera relatórios")
+ Person(admin, "Administrador", "Gerencia usuários e configurações")
 
- System(sifap, "SIFAP 2.0", "Payment Oversight and Tracking System")
+ System(sifap, "SIFAP 2.0", "Sistema de Fiscalização e Acompanhamento de Pagamentos")
 
- System_Ext(govbr, "Gov.br", "Authentication via Single Sign-On")
- System_Ext(siafi, "SIAFI", "Federal Financial Administration System")
+ System_Ext(govbr, "Gov.br", "Autenticação via Single Sign-On")
+ System_Ext(siafi, "SIAFI", "Sistema Integrado de Administração Financeira do Governo Federal")
 
- Rel(operator, sifap, "Registers payments")
- Rel(auditor, sifap, "Queries and audits")
- Rel(admin, sifap, "Manages the system")
- Rel(sifap, govbr, "Authenticates users")
- Rel(sifap, siafi, "Sends financial data")
+ Rel(operator, sifap, "Registra pagamentos")
+ Rel(auditor, sifap, "Consulta e audita")
+ Rel(admin, sifap, "Gerencia o sistema")
+ Rel(sifap, govbr, "Autentica usuários")
+ Rel(sifap, siafi, "Envia dados financeiros")
 ```
 
 ### Exemplo C4-L2: diagrama de containers
 
 ```mermaid
 C4Container
- title Container Diagram - SIFAP 2.0
+ title Diagrama de Containers - SIFAP 2.0
 
- Person(user, "User", "Operator, Auditor, or Admin")
+ Person(user, "Usuário", "Operador, Auditor ou Administrador")
 
  Container_Boundary(sifap, "SIFAP 2.0") {
- Container(frontend, "Frontend", "Next.js 15", "Responsive web interface")
- Container(backend, "Backend API", "Java 21 + Spring Boot 3", "REST API with domain modules")
- ContainerDb(db, "Database", "PostgreSQL 16", "Beneficiary, payment, and audit data")
+ Container(frontend, "Frontend", "Next.js 15", "Interface web responsiva")
+ Container(backend, "API Backend", "Java 21 + Spring Boot 3", "API REST com módulos de domínio")
+ ContainerDb(db, "Banco de Dados", "PostgreSQL 16", "Dados de beneficiários, pagamentos e auditoria")
  }
 
  System_Ext(govbr, "Gov.br", "SSO")
 
- Rel(user, frontend, "Accesses via browser", "HTTPS")
- Rel(frontend, backend, "Consumes API", "REST/JSON")
- Rel(backend, db, "Persists data", "JDBC")
+ Rel(user, frontend, "Acessa via navegador", "HTTPS")
+ Rel(frontend, backend, "Consome API", "REST/JSON")
+ Rel(backend, db, "Persiste dados", "JDBC")
  Rel(backend, govbr, "Authenticates", "OAuth2/OIDC")
 ```
 
@@ -416,7 +416,7 @@ Sem pânico — escreva os requisitos EARS manualmente em SPECIFICATION.md segui
 
 ---
 
-## Como saber que terminou (Definition of Done)
+## Como saber que terminou (Definição de Pronto)
 
 Ao final do Estágio 2, seu time deve ter:
 
@@ -431,7 +431,7 @@ Ao final do Estágio 2, seu time deve ter:
 
 ## Próximo passo
 
-No Handoff #2 (~16:00), o **Par 2 (Arquitetura)** entrega EARS + ADRs + C4 para os **Pares 3 (Implementação) e 4 (Qualidade)**. O Par 1 (PO) assina o escopo. Conversa de 5 minutos por par receptor — não vale "leia o documento depois". Vocês caminham juntos para o Estágio 3 ([`../03-implementacao/GUIDE.md`](../03-implementacao/GUIDE.md)).
+No Passagem #2 (~16:00), o **Par 2 (Arquitetura)** entrega EARS + ADRs + C4 para os **Pares 3 (Implementação) e 4 (Qualidade)**. O Par 1 (PO) assina o escopo. Conversa de 5 minutos por par receptor — não vale "leia o documento depois". Vocês caminham juntos para o Estágio 3 ([`../03-implementacao/GUIDE.md`](../03-implementacao/GUIDE.md)).
 
 ## Prompts para Copilot Chat
 

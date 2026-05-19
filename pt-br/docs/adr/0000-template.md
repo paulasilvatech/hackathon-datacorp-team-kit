@@ -1,6 +1,6 @@
 ---
-title: "Template de ADR"
-description: "Template para Architecture Decision Records"
+title: "Modelo de ADR"
+description: "Modelo para registros de decisão de arquitetura"
 status: "template"
 ---
 
@@ -9,27 +9,27 @@ status: "template"
 # ADR-NNNN: <Título curto e decisivo>
 
 > Substitua `NNNN` pelo próximo número sequencial (por exemplo, `0007`).
-> Substitua este blockquote inteiro por um resumo de 1 linha da decisão.
+> Substitua este bloco de citação inteiro por um resumo de 1 linha da decisão.
 
 | Campo      | Valor                                            |
 | ---------- | ------------------------------------------------ |
-| Status     | proposed \| accepted \| deprecated \| superseded |
-| Date       | YYYY-MM-DD                                       |
-| Authors    | <Persona — Name>                                 |
-| Supersedes | ADR-NNNN \| N/A                                  |
+| Status     | proposto \| aceito \| descontinuado \| substituído |
+| Data       | YYYY-MM-DD                                       |
+| Autores    | <Persona — Nome>                                 |
+| Substitui  | ADR-NNNN \| N/A                                  |
 
 ## Contexto
 
 Qual é o problema que estamos vendo e que motiva esta decisão? Referencie o
-objetivo de negocio, a restricao legada ou a necessidade de stakeholder.
+objetivo de negócio, a restrição legada ou a necessidade de stakeholder.
 
-Seja especifico. Cite REQ-IDs ou programas em `02-cenario-sifap-legado/` quando relevante.
+Seja específico. Cite REQ-IDs ou programas em `02-cenario-sifap-legado/` quando relevante.
 
 ## Decisão
 
 A mudança que estamos propondo ou com a qual concordamos. Use um ou dois parágrafos.
 
-Declare a decisão em voz ativa: "We will adopt …", "We will not migrate …".
+Declare a decisão em voz ativa: "Vamos adotar …", "Não vamos migrar …".
 
 ## Alternativas consideradas
 
@@ -37,23 +37,23 @@ Liste pelo menos 2 alternativas. Para cada uma, explique por que foi rejeitada.
 
 | Alternativa | Por que foi rejeitada |
 | ----------- | --------------------- |
-| Option A    | …                     |
-| Option B    | …                     |
+| Opção A     | …                     |
+| Opção B     | …                     |
 
 ## Consequências
 
 O que fica mais fácil? O que fica mais difícil? Há novos riscos?
 
-- **Easier:** …
-- **Harder:** …
-- **Risks:** …
-- **Mitigations:** …
+- **Mais fácil:** …
+- **Mais difícil:** …
+- **Riscos:** …
+- **Mitigações:** …
 
 ## Relacionado
 
 - REQ-IDs: …
 - ADRs: …
-- Source files: …
+- Arquivos-fonte: …
 
 ## Referências
 

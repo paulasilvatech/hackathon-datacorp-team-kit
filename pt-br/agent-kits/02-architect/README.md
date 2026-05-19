@@ -16,14 +16,14 @@ tags: ["agent", "architect", "specification", "ears", "adr", "stage-2", "pt-br"]
 
 ## Objetivo da etapa
 
-Transformar o discovery report em uma spec implementável: requisitos rastreáveis, bounded contexts, diagramas C4, ADRs e plano técnico alinhado ao GitHub Spec-Kit.
+Transformar o relatório de descoberta em uma spec implementável: requisitos rastreáveis, bounded contexts, diagramas C4, ADRs e plano técnico alinhado ao GitHub Spec-Kit.
 
 ## Quando usar
 
 - **Horário:** 14:45–16:00.
 - **Protagonista:** Software Architect.
 - **Suporte forte:** Requirements Engineer, Enterprise Architect, Product Owner e Technical Lead.
-- **Pré-requisito:** Handoff #1 com evidências do legado e `source_legacy:` disponíveis.
+- **Pré-requisito:** Passagem #1 com evidências do legado e `source_legacy:` disponíveis.
 
 ## Passo a passo com o agente
 
@@ -33,11 +33,11 @@ Transformar o discovery report em uma spec implementável: requisitos rastreáve
 4. Use `/speckit.specify` e `/speckit.clarify` para formalizar requisitos.
 5. Use `/speckit.plan` para gerar plano técnico, dados e contratos.
 6. Registre decisões importantes em ADRs.
-7. Faça o Handoff #2 para os Pares 3 e 4.
+7. Faça o Passagem #2 para os Pares 3 e 4.
 
 ```text
 Estou iniciando o Estágio 2 — Spec Moderna.
-Temos discovery report, catálogo de regras, glossário, DDMs e mapa de dependências.
+Temos relatório de descoberta, catálogo de regras, glossário, DDMs e mapa de dependências.
 Ajude a transformar isso em requisitos EARS com source_legacy, bounded contexts,
 C4, ADRs e plano técnico para Java 21 + Spring Boot + PostgreSQL + Next.js.
 ```
@@ -51,14 +51,14 @@ C4, ADRs e plano técnico para Java 21 + Spring Boot + PostgreSQL + Next.js.
 | Decisão arquitetural | "Gere um ADR com contexto, opções, decisão, consequências e riscos." |
 | Plano técnico | "Prepare `/speckit.plan` considerando modular monolith, JPA e PostgreSQL." |
 
-## Definition of Done
+## Definição de Pronto
 
 - [ ] Pelo menos 12 requisitos EARS com REQ-IDs.
 - [ ] 100% dos requisitos com `source_legacy:` ou `[GREENFIELD]` justificado.
 - [ ] C4 L1/L2/L3 ou equivalente Mermaid para orientar implementação.
 - [ ] ADRs principais: modular monolith, persistência e autenticação.
 - [ ] `spec.md`, `plan.md` e `tasks.md` preparados ou em progresso no fluxo Spec-Kit.
-- [ ] Escopo assinado pelo Product Owner no Handoff #2 (~16:00).
+- [ ] Escopo assinado pelo Product Owner no Passagem #2 (~16:00).
 
 ## Anti-padrões
 

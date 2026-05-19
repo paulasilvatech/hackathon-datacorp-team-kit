@@ -1,6 +1,6 @@
 ---
-title: "Relatório de Coerência do Agent Kit"
-description: "Verificação de qualidade ponta a ponta do toolkit SDLC de 4 agentes nas Waves 1-3"
+title: "Relatório de Coerência do Kit de Agentes"
+description: "Verificação de qualidade ponta a ponta do conjunto de ferramentas SDLC de 4 agentes nas ondas 1-3"
 author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
 date: "2026-04-29"
 version: "1.0.0"
@@ -10,15 +10,15 @@ tags: ["coherence", "quality", "verification", "agent-kits"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-# Relatório de Coerência do Agent Kit — v1.0.0
+# Relatório de Coerência do Kit de Agentes — v1.0.0
 
 **Data:** 2026-04-29
-**Escopo:** Todos os arquivos criados ou modificados nas Waves 1, 2 e 3.
+**Escopo:** Todos os arquivos criados ou modificados nas ondas 1, 2 e 3.
 **Veredito:** PASS — todas as 6 verificações passam. O kit está pronto para uso no hackathon.
 
 ## Resumo Executivo
 
-O toolkit SDLC de 4 agentes é coerente em todas as camadas: agentes apontam para prompts, prompts apontam para templates, cartões de persona apontam para agent-kits, e a matriz persona-agente é consistente nos 4 locais em que aparece. Nenhum token proibido foi encontrado. Todos os arquivos têm YAML frontmatter completo com a string de author correta.
+O conjunto de ferramentas SDLC de 4 agentes é coerente em todas as camadas: agentes apontam para prompts, prompts apontam para templates, cartões de persona apontam para agent-kits, e a matriz persona-agente é consistente nos 4 locais em que aparece. Nenhum token proibido foi encontrado. Todos os arquivos têm YAML frontmatter completo com a string de author correta.
 
 ---
 
@@ -32,7 +32,7 @@ O toolkit SDLC de 4 agentes é coerente em todas as camadas: agentes apontam par
 | `generate-adr.prompt.md` → template de ADR      | `02-spec-moderna/templates/ADR.template.md` | ✅ Resolve                    |
 | 10 cartoes de persona → agent-kits              | `agent-kits/0N-*/README.md`                 | ✅ Todos os 40 links resolvem |
 | `docs/persona-agent-matrix.md` → agent-kits     | `agent-kits/README.md`                      | ✅ Resolve                    |
-| `docs/4-agents-explained.md` → todas as camadas | Agents, instructions, matrix                | ✅ Todas resolvem             |
+| `docs/4-agents-explained.md` → todas as camadas | Agentes, instruções, matriz                 | ✅ Todas resolvem             |
 
 **Resultado:** PASS — zero links quebrados.
 
@@ -72,9 +72,9 @@ Exceções Haiku: `write-github-issue` (rascunho estruturado) e `final-experienc
 
 **Resultado:** PASS.
 
-## 5. Cobertura de DoD (Prompt → Template)
+## 5. Cobertura de DoD (Prompt → Modelo)
 
-| Prompt                                         | Template                                                      | Status |
+| Prompt                                         | Modelo                                                        | Status |
 | ---------------------------------------------- | ------------------------------------------------------------- | ------ |
 | `/archaeology-kickoff`                         | `01-arqueologia/templates/inventory.template.md`              | ✅     |
 | `/extract-business-rules`                      | `01-arqueologia/templates/business-rules-catalog.template.md` | ✅     |
@@ -95,7 +95,7 @@ Exceções Haiku: `write-github-issue` (rascunho estruturado) e `final-experienc
 - **YAML frontmatter:** Completo em todos os novos arquivos (title, description, author, date, version, status, tags).
 - **String de author:** `Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft` — consistente em todos os lugares.
 - **Data:** `2026-04-29` — consistente em todos os arquivos da Wave 3.
-- **Linhas de navegacao:** Presentes nos READMEs dos agent-kits e nos docs.
+- **Linhas de navegação:** Presentes nos READMEs dos agent-kits e nos docs.
 - **Contagens de linhas:** Exemplos 200-300 linhas, templates 30-95 linhas, adições de persona ~10 linhas cada — tudo dentro dos limites.
 
 **Resultado:** PASS.
@@ -110,10 +110,10 @@ Exceções Haiku: `write-github-issue` (rascunho estruturado) e `final-experienc
 | 2   | Scan no-silver-platter      | ✅ PASS — zero tokens proibidos                |
 | 3   | Matriz Persona × Agent      | ✅ PASS — consistente em 4 locais              |
 | 4   | Roteamento de modelo        | ✅ PASS — 2 exceções Haiku documentadas        |
-| 5   | DoD → cobertura de Template | ✅ PASS — 8 templates para saidas estruturadas |
+| 5   | DoD → cobertura de modelo | ✅ PASS — 8 templates para saídas estruturadas |
 | 6   | Consistência de estilo      | ✅ PASS                                        |
 
-**Veredito geral: PASS.** O kit está na v1.0.0 e pronto para feature freeze.
+**Veredito geral: PASS.** O kit está na v1.0.0 e pronto para congelamento de funcionalidades.
 
 ## Itens Adiados
 

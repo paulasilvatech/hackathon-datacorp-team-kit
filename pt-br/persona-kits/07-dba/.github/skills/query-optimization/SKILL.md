@@ -1,41 +1,41 @@
 ---
-name: Query Optimization
-description: "Use when investigating slow queries, designing indexes, or reviewing execution plans. Triggers on 'slow query', 'explain plan', 'index', 'query tuning', 'N+1', 'table scan'."
+name: Otimização de consultas
+description: "Use ao investigar consultas lentas, desenhar índices ou revisar planos de execução. Acionadores: 'slow query', 'explain plan', 'index', 'query tuning', 'N+1', 'table scan'."
 ---
 
-# Query Optimization
+# Otimização de consultas
 
-## When to invoke
-- "This query is slow."
-- "Why is it not using the index?"
-- "Should I add an index on…?"
-- "Review this EXPLAIN output."
+## Quando invocar
+- "Esta consulta está lenta."
+- "Por que ela não está usando o índice?"
+- "Devo adicionar um índice em...?"
+- "Revise esta saída de EXPLAIN."
 
-## Diagnostic workflow
-1. **Measure before you tune** - capture baseline (p50/p95 latency, rows examined, rows returned, logical reads).
-2. **Get the plan**: `EXPLAIN (ANALYZE, BUFFERS)` in PostgreSQL, `EXPLAIN ANALYZE FORMAT=JSON` in MySQL 8, `SET STATISTICS IO, TIME ON` in SQL Server.
-3. **Look for the usual suspects**:
- - **Seq Scan / Table Scan** on a large table with a selective predicate → missing index
- - **Rows estimate off by >10×** → stale statistics, run `ANALYZE`
- - **Nested Loop with high outer rows** → should be Hash/Merge join
- - **Sort spilled to disk** → `work_mem` too low or missing index on ORDER BY
- - **Filter after join** instead of pushed down → rewrite or add predicate index
-4. **Propose the smallest change**: index, rewrite, statistics refresh, parameter tweak.
-5. **Validate**: rerun with ANALYZE, confirm plan changed and latency dropped. Never "ship and hope."
+## Fluxo diagnóstico
+1. **Meça antes de otimizar** - capture a baseline (latência p50/p95, linhas examinadas, linhas retornadas, leituras lógicas).
+2. **Obtenha o plano**: `EXPLAIN (ANALYZE, BUFFERS)` no PostgreSQL, `EXPLAIN ANALYZE FORMAT=JSON` no MySQL 8, `SET STATISTICS IO, TIME ON` no SQL Server.
+3. **Procure os suspeitos comuns**:
+ - **Seq Scan / Table Scan** em tabela grande com predicado seletivo → índice ausente
+ - **Estimativa de linhas errada por >10×** → estatísticas obsoletas, execute `ANALYZE`
+ - **Nested Loop com muitas linhas externas** → deveria ser Hash/Merge join
+ - **Sort derramado para disco** → `work_mem` baixo demais ou índice ausente no ORDER BY
+ - **Filtro depois do join** em vez de pushdown → reescreva ou adicione índice de predicado
+4. **Proponha a menor mudança**: índice, reescrita, atualização de estatísticas, ajuste de parâmetro.
+5. **Valide**: execute novamente com ANALYZE, confirme que o plano mudou e a latência caiu. Nunca faça "ship and hope".
 
-## Index design heuristics
-- **Equality columns first**, then range, then sort (the ESR rule).
-- **Covering index** (INCLUDE columns) for read-heavy queries avoids heap lookups.
-- **Partial index** for highly selective filters on skewed data (`WHERE status = 'pending'`).
-- Every index costs writes - justify each one.
+## Heurísticas de design de índices
+- **Colunas de igualdade primeiro**, depois range, depois sort (a regra ESR).
+- **Covering index** (colunas INCLUDE) para consultas read-heavy evita heap lookups.
+- **Índice parcial** para filtros altamente seletivos em dados enviesados (`WHERE status = 'pending'`).
+- Todo índice custa escritas - justifique cada um.
 
-## Anti-patterns
-- `SELECT *` in hot paths - forces heap access, breaks covering indexes.
-- `WHERE func(col) = x` - kills index use; store computed column or use expression index.
-- N+1 from ORM - fix at the ORM (eager load), not with an index.
-- "Add index on every column" - wastes storage and slows writes.
+## Antipadrões
+- `SELECT *` em caminhos quentes - força acesso ao heap, quebra covering indexes.
+- `WHERE func(col) = x` - impede uso de índice; armazene coluna computada ou use índice de expressão.
+- N+1 vindo do ORM - corrija no ORM (eager load), não com um índice.
+- "Adicionar índice em toda coluna" - desperdiça armazenamento e desacelera escritas.
 
-## References
+## Referências
 - [Use The Index, Luke!](https://use-the-index-luke.com/)
 - [PostgreSQL - Performance Tips](https://www.postgresql.org/docs/current/performance-tips.html)
 - [SQL Server - Query Store](https://learn.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)

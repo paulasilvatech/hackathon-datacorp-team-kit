@@ -1,6 +1,6 @@
 ---
 title: "Card de Persona — DevOps Engineer"
-description: "O que o DevOps Engineer faz dentro do time de 10 durante o Dia 2 do Legacy Modernization Workshop."
+description: "O que o DevOps Engineer faz dentro do time de 10 durante o Dia 2 do Workshop de Modernização de Legado."
 locale: "pt-br"
 canonical_path: "pt-br/persona-kits/09-devops-engineer/PERSONA.md"
 author: "Paula Silva, Americas Software GBB, Microsoft"
@@ -29,18 +29,18 @@ flowchart LR
  classDef current fill:#1B1B1F,stroke:#000,color:#fff,font-weight:bold
  classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
 
- D[Discovery<br/>S1 — estabiliza devcontainer]:::support
- SP[Specification<br/>S2 — ADR de deploy]:::support
- IM[Implementation<br/>S3 — pipeline + Docker]:::support
- EV[Evolution<br/>S4 — LIDERA Terraform + CI/CD]:::current
+ D[Descoberta<br/>S1 — estabiliza devcontainer]:::support
+ SP[Especificação<br/>S2 — ADR de deploy]:::support
+ IM[Implementação<br/>S3 — pipeline + Docker]:::support
+ EV[Evolução<br/>S4 — LIDERA Terraform + CI/CD]:::current
 
  D --> SP --> IM --> EV
 ```
 
 - **Par**: 5 · Operações (junto com Tech Writer)
-- **Fases lideradas**: Evolution (S4) — Terraform + CI/CD
+- **Fases lideradas**: Evolução (S4) — Terraform + CI/CD
 - **Recebe de**: Par 3 (Implementação) no H3 — código com build estável
-- **Faz handoff para**: Demo + produção (em workshop, terraform plan suficiente)
+- **Faz passagem para**: Demo + produção (em workshop, terraform plan suficiente)
 
 ## Quem é essa pessoa
 
@@ -53,7 +53,7 @@ Pipeline verde. Build reproduzível. Deploy descrito como código. Observabilida
 ## Seu papel no framework Agentic Legacy Modernization
 
 - **Agentes relevantes**: Deployment Agent (S4), Security Agent (S3)
-- **Fase do framework**: Coexistence and Traffic Migration
+- **Fase do framework**: Coexistência e Migração de Tráfego
 - **Seu papel**: provisionar infraestrutura e configurar pipeline CI/CD para deploy contínuo
 
 ## Onde você aparece em cada estágio
@@ -63,7 +63,7 @@ Pipeline verde. Build reproduzível. Deploy descrito como código. Observabilida
 | 1. Arqueologia         | Estabiliza o devcontainer se algo estiver quebrado. Prepara docker-compose para PostgreSQL e ferramentas auxiliares. | Devcontainer e compose estáveis          |
 | 2. Spec Moderna        | Escreve o ADR de estratégia de deploy (ADR 5 da referência) e participa do design de infra.                          | ADR 005 + draft do Terraform             |
 | 3. Implementação       | Mantém GitHub Actions para build e testes. Publica imagem Docker. Mantém Terraform descrito.                         | Pipeline verde + `plan` Terraform válido |
-| 4. Evolution com Agent | Se o PR do Agent tocar no pipeline ou na infra, você é quem valida.                                                  | Pipeline continua verde depois do Agent  |
+| 4. Evolução com Agent  | Se o PR do Agent tocar no pipeline ou na infra, você é quem valida.                                                  | Pipeline continua verde depois do Agent  |
 
 ## Ferramentas e primitivas
 
@@ -75,7 +75,7 @@ Pipeline verde. Build reproduzível. Deploy descrito como código. Observabilida
 
 ## Cheat-sheets que você usa
 
-- [`../cheat-sheets/spec-kit-workflow.md`](../../cheat-sheets/spec-kit-workflow.md) — `/speckit.taskstoissues`, `/speckit.analyze` e handoff para release.
+- [`../cheat-sheets/spec-kit-workflow.md`](../../cheat-sheets/spec-kit-workflow.md) — `/speckit.taskstoissues`, `/speckit.analyze` e passagem para release.
 - [`../cheat-sheets/copilot-3-modes.md`](../../cheat-sheets/copilot-3-modes.md) — você usa Agent bastante para cadeias longas de CI.
 
 ## Como você se sai bem
@@ -89,7 +89,7 @@ Pipeline verde. Build reproduzível. Deploy descrito como código. Observabilida
 
 - Deixa o devcontainer instável e o time perde 1 hora no início.
 - CI que só roda unit test (sem build de imagem, sem lint).
-- Terraform com 500 linhas e nenhum output que faça sentido.
+- Terraform com 500 linhas e nenhuma saída que faça sentido.
 - Secret real em `.env` versionado.
 
 ## Se você pegou duas personas

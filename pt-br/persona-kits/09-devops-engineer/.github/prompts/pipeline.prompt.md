@@ -1,54 +1,54 @@
 ---
 mode: agent
 model: claude-sonnet-4-6
-description: "Author a GitHub Actions CI/CD pipeline for SIFAP 2.0 with build, test, security gates, and environment promotion."
+description: "Crie um pipeline CI/CD no GitHub Actions para o SIFAP 2.0 com build, testes, gates de segurança e promoção entre ambientes."
 ---
 
 # /pipeline
 
-## Goal
+## Objetivo
 
-You are the DevOps engineer authoring (or refactoring) a **GitHub Actions** workflow for SIFAP 2.0. The pipeline must build, test, scan, and promote artifacts through `develop` → `stage` → `main` (= production) with explicit gates. The deliverable lives in `.github/workflows/` and references reusable workflows in `.github/workflows/_reusable/` where shared.
+Você é o DevOps engineer criando (ou refatorando) um workflow de **GitHub Actions** para o SIFAP 2.0. O pipeline deve fazer build, testar, escanear e promover artefatos por `develop` → `stage` → `main` (= produção) com gates explícitos. O entregável fica em `.github/workflows/` e referencia workflows reutilizáveis em `.github/workflows/_reusable/` quando forem compartilhados.
 
-## Inputs
+## Entradas
 
-Ask the user for what is missing.
+Peça ao usuário o que estiver faltando.
 
-- Pipeline target — backend Java service, frontend Next.js app, IaC module, or end-to-end orchestration.
-- Branching model — `spec/*` → `develop` → `stage` → `main` (default).
-- Environments configured in GitHub (`dev`, `stage`, `prod`) with required reviewers.
+- Alvo do pipeline — serviço backend Java, app frontend Next.js, módulo IaC ou orquestração end-to-end.
+- Modelo de branches — `spec/*` → `develop` → `stage` → `main` (padrão).
+- Ambientes configurados no GitHub (`dev`, `stage`, `prod`) com revisores obrigatórios.
 - Container registry — Azure Container Registry (`acr.azurecr.io`).
-- Compliance requirements — SBOM, signed images, attestation (`sigstore`).
+- Requisitos de compliance — SBOM, imagens assinadas, attestation (`sigstore`).
 
-## Process
+## Processo
 
-1. **Pick the trigger surface.** `pull_request` for build + test, `push` to protected branches for deploy, `workflow_dispatch` for manual rollback. Avoid `pull_request_target` unless secrets are required from forks (rare in this project).
-2. **Use OIDC for Azure auth.** Never store service principal secrets. Use `azure/login@v2` with federated credentials.
-3. **Pin actions to a SHA**, not a tag. (Renovate or Dependabot can update.)
-4. **Stage the jobs.**
- - `build` — compile and unit test (Java: `./mvnw -B verify`; Node: `pnpm install --frozen-lockfile && pnpm build && pnpm test`).
- - `quality` — lint, type-check, license scan, code-coverage upload.
- - `security` — Trivy on the container image, OWASP Dependency Check, Gitleaks on the diff.
- - `package` — build container, push to ACR with `:sha-<short>` and `:latest` tags, generate SBOM (`syft`), sign with `cosign`.
- - `deploy-dev` — auto on push to `develop`, uses the GitHub `dev` environment.
- - `deploy-stage` — auto on push to `stage`, requires one approval.
- - `deploy-prod` — auto on push to `main`, requires two approvals and a passing change ticket reference.
-5. **Cache responsibly.** Maven: `actions/cache@<sha>` keyed on `pom.xml` hash. Node: `pnpm/action-setup@<sha>` with built-in store cache. Buildx layer cache for container builds.
-6. **Set timeouts and concurrency.** `timeout-minutes: 30` per job, `concurrency: { group: ${{ github.workflow }}-${{ github.ref }}, cancel-in-progress: true }`.
-7. **Gate on branch protection rules.** Required checks: `build`, `quality`, `security`. Stage and prod require deployment review.
-8. **Emit traceability.** Tag the deployed image with the merge commit SHA and the related `REQ-ID`s from the PR description; surface them in the GitHub deployment description.
+1. **Escolha a superfície de gatilhos.** `pull_request` para build + teste, `push` em branches protegidas para deploy, `workflow_dispatch` para rollback manual. Evite `pull_request_target` a menos que secrets sejam necessários para forks (raro neste projeto).
+2. **Use OIDC para autenticação no Azure.** Nunca armazene secrets de service principal. Use `azure/login@v2` com credenciais federadas.
+3. **Fixe actions por SHA**, não por tag. (Renovate ou Dependabot podem atualizar.)
+4. **Organize os jobs por estágio.**
+ - `build` — compilar e executar unit tests (Java: `./mvnw -B verify`; Node: `pnpm install --frozen-lockfile && pnpm build && pnpm test`).
+ - `quality` — lint, type-check, license scan, upload de code coverage.
+ - `security` — Trivy na imagem de container, OWASP Dependency Check, Gitleaks no diff.
+ - `package` — build de container, push para ACR com tags `:sha-<short>` e `:latest`, gerar SBOM (`syft`), assinar com `cosign`.
+ - `deploy-dev` — automático em push para `develop`, usa o ambiente GitHub `dev`.
+ - `deploy-stage` — automático em push para `stage`, requer uma aprovação.
+ - `deploy-prod` — automático em push para `main`, requer duas aprovações e uma referência válida a change ticket.
+5. **Use cache com responsabilidade.** Maven: `actions/cache@<sha>` com chave baseada no hash de `pom.xml`. Node: `pnpm/action-setup@<sha>` com cache de store embutido. Cache de camadas do Buildx para builds de container.
+6. **Defina timeouts e concorrência.** `timeout-minutes: 30` por job, `concurrency: { group: ${{ github.workflow }}-${{ github.ref }}, cancel-in-progress: true }`.
+7. **Aplique gates por regras de branch protection.** Checks obrigatórios: `build`, `quality`, `security`. Stage e prod exigem revisão de deployment.
+8. **Emita rastreabilidade.** Taggeie a imagem implantada com o SHA do merge commit e os `REQ-ID`s relacionados da descrição do PR; exponha-os na descrição do deployment no GitHub.
 
-## Output
+## Saída
 
-Your final reply must include:
+Sua resposta final deve incluir:
 
-- **Workflow file path and name** — for example `.github/workflows/backend-payments.yml`.
-- **Full YAML** — paste-ready, with comments explaining non-obvious choices.
-- **Required GitHub secrets and variables** — listed with their purpose.
-- **Branch protection settings** — required checks and reviewer rules.
-- **Promotion diagram** — short text or Mermaid sequence from PR to prod.
+- **Caminho e nome do arquivo de workflow** — por exemplo `.github/workflows/backend-payments.yml`.
+- **YAML completo** — pronto para colar, com comentários explicando escolhas não óbvias.
+- **Secrets e variáveis obrigatórios do GitHub** — listados com seu propósito.
+- **Configurações de branch protection** — checks obrigatórios e regras de revisores.
+- **Diagrama de promoção** — texto curto ou sequência Mermaid do PR até prod.
 
-### Skeleton (Java backend)
+### Esqueleto (backend Java)
 
 ```yaml
 name: backend-payments
@@ -77,44 +77,44 @@ jobs:
  - uses: actions/setup-java@<sha>
  with: { java-version: '21', distribution: 'temurin', cache: 'maven' }
  - run: ./mvnw -B verify
- # ... coverage, license, test report uploads
+ # ... uploads de coverage, licença e relatório de testes
  # ... quality, security, package, deploy-* jobs
 ```
 
-## Worked example
+## Exemplo trabalhado
 
-**Input:** New pipeline for the backend `payments` service, deploying to Azure Container Apps via ACR.
+**Entrada:** novo pipeline para o serviço backend `payments`, implantando em Azure Container Apps via ACR.
 
-**Expected reply skeleton:**
+**Esqueleto esperado da resposta:**
 
-> Workflow `backend-payments.yml` with 7 jobs (`build`, `quality`, `security`, `package`, `deploy-dev`, `deploy-stage`, `deploy-prod`).
+> Workflow `backend-payments.yml` com 7 jobs (`build`, `quality`, `security`, `package`, `deploy-dev`, `deploy-stage`, `deploy-prod`).
 >
-> OIDC federated to Entra ID app `sp-sifap-cicd`, scoped to subscription `sub-sifap-prod`.
+> OIDC federado para o app do Entra ID `sp-sifap-cicd`, com escopo na subscription `sub-sifap-prod`.
 >
-> Required secrets: `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID`, `AZURE_CLIENT_ID`, `ACR_NAME`. No passwords.
+> Secrets obrigatórios: `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID`, `AZURE_CLIENT_ID`, `ACR_NAME`. Sem senhas.
 >
-> Branch protection: `build`, `quality`, `security` required on all PRs into `develop`. Stage requires one reviewer. Prod requires two reviewers from the `release-managers` team and a linked change ticket in PR body.
+> Branch protection: `build`, `quality`, `security` obrigatórios em todos os PRs para `develop`. Stage exige um revisor. Prod exige dois revisores do time `release-managers` e um change ticket vinculado no corpo do PR.
 >
-> Promotion: PR → develop (auto-deploy `dev`) → cherry-pick to `stage` (1 approver) → cherry-pick to `main` (2 approvers).
+> Promoção: PR → develop (auto-deploy `dev`) → cherry-pick para `stage` (1 aprovador) → cherry-pick para `main` (2 aprovadores).
 
-## Anti-patterns
+## Antipadrões
 
-- Storing Azure secrets directly in GitHub Secrets when OIDC works. OIDC is the default.
-- Pinning to `@v3` instead of a SHA. Tags can be moved.
-- A single mega-job that does build + test + deploy. Hard to debug, hard to retry.
-- `pull_request_target` without restricting paths. Security risk on forks.
-- Caching across branches without invalidation. Stale builds.
-- Deploying directly to prod without an approval gate. Sooner or later, a bad PR ships.
-- Skipping image signing or SBOM. Required for regulated workloads.
-- Hard-coding the registry name in the YAML. Use a repo or environment variable.
+- Armazenar secrets do Azure diretamente em GitHub Secrets quando OIDC funciona. OIDC é o padrão.
+- Fixar em `@v3` em vez de um SHA. Tags podem ser movidas.
+- Um único mega-job que faz build + teste + deploy. Difícil de depurar, difícil de tentar novamente.
+- `pull_request_target` sem restringir paths. Risco de segurança em forks.
+- Cache entre branches sem invalidação. Builds obsoletos.
+- Deploy direto para prod sem gate de aprovação. Cedo ou tarde, um PR ruim chega à produção.
+- Pular assinatura de imagem ou SBOM. Obrigatório para workloads regulados.
+- Hard-code do nome do registry no YAML. Use uma variável de repositório ou ambiente.
 
-## Success criteria
+## Critérios de sucesso
 
-- [ ] OIDC authentication; no Azure secrets stored in GitHub.
-- [ ] Each action pinned to a commit SHA with a comment naming the version.
-- [ ] `build`, `quality`, and `security` are required checks on PRs.
-- [ ] Image is tagged with `sha-<short>` and signed with cosign.
-- [ ] Stage and prod deployments require approvals as described.
-- [ ] Concurrency group prevents two deploys to the same env at once.
-- [ ] `timeout-minutes` set on every job.
-- [ ] PR description requirement enforced for prod deploys (linked `REQ-ID`s and change ticket).
+- [ ] Autenticação OIDC; nenhum secret do Azure armazenado no GitHub.
+- [ ] Cada action fixada a um commit SHA com comentário nomeando a versão.
+- [ ] `build`, `quality` e `security` são checks obrigatórios nos PRs.
+- [ ] A imagem recebe tag `sha-<short>` e é assinada com cosign.
+- [ ] Deployments de stage e prod exigem aprovações conforme descrito.
+- [ ] O concurrency group impede dois deploys para o mesmo env ao mesmo tempo.
+- [ ] `timeout-minutes` definido em todos os jobs.
+- [ ] Requisito de descrição do PR aplicado para deploys em prod (`REQ-ID`s vinculados e change ticket).
