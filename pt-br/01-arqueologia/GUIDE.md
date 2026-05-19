@@ -14,9 +14,11 @@ tags: ["estagio-1", "arqueologia", "legado", "didatico", "pt-br"]
 
 # Estágio 1 — Arqueologia Digital
 
-> **📍 Você está aqui:** Estágio 1 de 4 · ⏰ 13:00–14:30 (90 min) · 🏷️ Descoberta
+> **ESTÁGIO 01 DE 04 · DESCOBERTA**
 >
-> **Quem trabalha agora:** Todos os 5 pares trabalham em paralelo (3 programas Natural cada)
+> 13:00 – 14:30 · 90 minutos
+>
+> Todos os 5 pares trabalham em paralelo — 3 programas Natural por par.
 
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
@@ -27,26 +29,6 @@ tags: ["estagio-1", "arqueologia", "legado", "didatico", "pt-br"]
 > - **Cheat-sheet do Copilot** (Ask vs Plan vs Agent): [`../cheat-sheets/copilot-3-modes.md`](../cheat-sheets/copilot-3-modes.md).
 
 > **Esta é a única etapa do dia que você não pode pular.** Tudo o que vem depois — a especificação, o código, o deploy — depende do que sua dupla extrair daqui. Na edição anterior do workshop, vários times escreveram especificações sem ler o legado e descobriram tarde demais que perderam regras de negócio de 29 anos. Desta vez, o portão é obrigatório: o CI e a rubrica não deixam você seguir sem rastrear cada requisito até um arquivo `.NSN` ou `.ddm`.
-
-## Onde isso encaixa no SDLC
-
-```mermaid
-flowchart LR
- classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
- classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
-
- S1[Estágio 1<br/>Descoberta<br/>13:00–14:30]:::current
- S2[Estágio 2<br/>Especificação<br/>14:45–16:00]:::next
- S3[Estágio 3<br/>Implementação<br/>16:15–17:30]:::later
- S4[Estágio 4<br/>Evolução<br/>17:45–18:15]:::later
- DEMO[Demo + Retrospectiva<br/>18:15–19:50]:::later
-
- S1 -- H1: legado → spec --> S2
- S2 -- H2: spec → código --> S3
- S3 -- H3: código → ops --> S4
- S4 --> DEMO
-```
 
 **Você está no Estágio 1 (Descoberta do SDLC).** A saída deste estágio alimenta diretamente o Estágio 2 (Especificação). Sem entrega clara aqui, o passagem #1 falha e o time inteiro empaca.
 

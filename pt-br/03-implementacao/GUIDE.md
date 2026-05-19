@@ -14,9 +14,11 @@ tags: ["estagio-3", "implementacao", "codigo", "didatico", "pt-br"]
 
 # Estágio 3 — Implementação (3 horas)
 
-> **📍 Você está aqui:** Estágio 3 de 4 · ⏰ 16:15–17:30 (75 min) · 🏷️ Implementação
+> **ESTÁGIO 03 DE 04 · IMPLEMENTAÇÃO**
 >
-> **Quem trabalha agora:** Pares 3 (Impl) + 4 (Qualidade) lideram · Par 5 esqueleta CI
+> 16:15 – 17:30 · 75 minutos
+>
+> Pares 3 (Implementação) + 4 (Qualidade) lideram. Par 5 monta esqueleto do CI.
 
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
@@ -25,21 +27,6 @@ tags: ["estagio-3", "implementacao", "codigo", "didatico", "pt-br"]
 > - **Migração Flyway bem feita** (com PE → tabela filha): [`../exemplos-preenchidos/V1__init_payment_module-exemplo.sql`](../exemplos-preenchidos/V1__init_payment_module-exemplo.sql).
 > - **Quando usar Plan vs Agent?** [`../cheat-sheets/copilot-3-modes.md`](../cheat-sheets/copilot-3-modes.md). Para features pequenas, Plan; Agent fica para o Estágio 4.
 > - **Travou no setup?** Vá direto à seção `Troubleshooting` mais abaixo.
-
-## Onde isso encaixa no SDLC
-
-```mermaid
-flowchart LR
- classDef done fill:#7FBA00,stroke:#5C8700,color:#fff
- classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
-
- SP[Spec ✓<br/>EARS + ADRs]:::done
- IM[Implementação<br/>Código + Testes]:::current
- EV[Evolução<br/>IaC + CI/CD]:::next
-
- SP --> IM --> EV
-```
 
 ## Quem trabalha aqui
 

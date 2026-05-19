@@ -20,20 +20,7 @@ tags: ["personas", "overview", "didatico", "pt-br"]
 
 ## Os 5 pares (mapa visual)
 
-```mermaid
-flowchart TB
- classDef vision fill:#F25022,stroke:#B33816,color:#fff
- classDef arch fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
- classDef impl fill:#E6F7E1,stroke:#7FBA00,color:#0A0A0A
- classDef qual fill:#E5F6FD,stroke:#00A4EF,color:#0A0A0A
- classDef ops fill:#EEEEEE,stroke:#1B1B1F,color:#0A0A0A
-
- P1["Par 1 · Visão<br/>👤 Product Owner<br/>👤 Requirements Engineer"]:::vision
- P2["Par 2 · Arquitetura<br/>👤 Enterprise Architect<br/>👤 Software Architect"]:::arch
- P3["Par 3 · Implementação<br/>👤 Technical Lead<br/>👤 Developer"]:::impl
- P4["Par 4 · Qualidade<br/>👤 DBA<br/>👤 QA Engineer"]:::qual
- P5["Par 5 · Operações<br/>👤 DevOps Engineer<br/>👤 Tech Writer"]:::ops
-```
+![Distribuição de personas por par: visão, arquitetura, implementação, qualidade e operações](../assets/personas-team.svg)
 
 ## Tabela completa das 10 personas
 
@@ -59,21 +46,9 @@ flowchart TB
 | **3 · Implementação** | 16:15–17:30 | Pares 3 (TL + Dev) e 4 (DBA + QA) | Par 5 (esqueleto CI) |
 | **4 · Evolução** | 17:45–18:15 | Par 5 (DevOps + TW) | Par 3 (Issues + revisão de PRs do Agent) |
 
-## Quem depende de quem (fluxo de dia)
+## Quem depende de quem (cadeia do dia)
 
-```mermaid
-flowchart LR
- classDef done fill:#7FBA00,stroke:#5C8700,color:#fff
- RE[RE escreve EARS] --> SA[SA desenha módulos]
- PO[PO valida escopo] --> SA
- SA --> TL[TL planeja sprint]
- TL --> Dev[Dev codifica]
- Dev --> DBA[DBA cria migration]
- Dev --> QA[QA escreve testes]
- DBA --> DevOps[DevOps faz pipeline]
- QA --> DevOps
- DevOps --> TW[TW documenta runbook]
-```
+![Cadeia de dependências: PO e RE alimentam SA, SA alimenta TL, TL delega Dev, Dev entrega para DBA e QA, e DevOps mais Tech Writer fecham o ciclo](../assets/dependencies.svg)
 
 ## Como escolher seu par
 

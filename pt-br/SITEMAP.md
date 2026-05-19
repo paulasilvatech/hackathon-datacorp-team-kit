@@ -18,37 +18,15 @@ tags: ["sitemap", "navegacao", "didatico", "pt-br"]
 
 ## Estrutura do kit (em alto nível)
 
-```mermaid
-flowchart TB
- classDef start fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef stage fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
- classDef ref fill:#E5F6FD,stroke:#00A4EF,color:#0A0A0A
- classDef extras fill:#E6F7E1,stroke:#7FBA00,color:#0A0A0A
+O fluxo dos 4 estágios está em [`assets/stage-flow.svg`](assets/stage-flow.svg) (renderizado em `README.md`). A tabela abaixo mostra como cada pasta se relaciona com o estágio em que é mais consultada.
 
- START["📍 START AQUI<br/>FIRST-15-MINUTES.md<br/>+ TEAM-FLOW.md + SETUP.md"]:::start
-
- PERSONAS["👥 persona-kits/<br/>10 PERSONAs (5 pares)<br/>+ OVERVIEW.md"]:::ref
-
- S1["📜 01-arqueologia/<br/>13:00–14:30 · Estágio 1<br/>GUIDE.md + 5 templates"]:::stage
- S2["📐 02-spec-moderna/<br/>14:45–16:00 · Estágio 2<br/>GUIDE.md + ADR template"]:::stage
- S3["💻 03-implementacao/<br/>16:15–17:30 · Estágio 3<br/>GUIDE.md + estrutura"]:::stage
- S4["🚀 04-evolucao/<br/>17:45–18:15 · Estágio 4<br/>GUIDE.md + Agent report"]:::stage
-
- LEGADO["📚 legado-natural/<br/>15 .NSN + 4 DDMs<br/>+ COMO-LER-NATURAL.md"]:::ref
- GLOSS["📖 docs/<br/>glossario-visual.md<br/>+ runbook + ADRs"]:::ref
- EX["✅ exemplos-preenchidos/<br/>6 artefatos completos<br/>(SPEC, ADR, Flyway, Java)"]:::extras
- CHEAT["⚡ cheat-sheets/<br/>copilot-3-modes<br/>spec-kit-workflow<br/>model-routing"]:::ref
-
- START --> PERSONAS
- PERSONAS --> S1
- S1 --> S2 --> S3 --> S4
- S1 -.consulta.-> LEGADO
- S1 -.consulta.-> GLOSS
- S2 -.consulta.-> EX
- S3 -.consulta.-> EX
- S4 -.consulta.-> EX
- S1 & S2 & S3 & S4 -.consulta.-> CHEAT
-```
+| Fase | Pasta principal | Consulta também |
+|---|---|---|
+| **Manhã (09:00–12:00)** — Setup | `SETUP.md` · `FIRST-15-MINUTES.md` · `TEAM-FLOW.md` | `persona-kits/` (PERSONA.md do seu par) |
+| **Estágio 1 (13:00–14:30)** — Arqueologia | `01-arqueologia/` | `legado-natural/` · `docs/glossario-visual.md` · `cheat-sheets/` |
+| **Estágio 2 (14:45–16:00)** — Spec Moderna | `02-spec-moderna/` | `exemplos-preenchidos/SPECIFICATION-exemplo.md` · `exemplos-preenchidos/ADR-001-...md` |
+| **Estágio 3 (16:15–17:30)** — Implementação | `03-implementacao/` | `exemplos-preenchidos/PaymentService-exemplo.java` · `V1__init_payment_module-exemplo.sql` |
+| **Estágio 4 (17:45–18:15)** — Evolução | `04-evolucao/` | `exemplos-preenchidos/issue-para-agent-exemplo.md` · `agent-kits/` |
 
 ## Caminho recomendado por persona
 
@@ -92,21 +70,9 @@ flowchart TB
 
 ## Fluxo de leitura do dia
 
-```mermaid
-flowchart LR
- classDef morning fill:#7FBA00,stroke:#5C8700,color:#fff
- classDef stage fill:#F25022,stroke:#B33816,color:#fff
- classDef demo fill:#00A4EF,stroke:#0078D4,color:#fff
+O cronograma visual canônico está em [`assets/stage-flow.svg`](assets/stage-flow.svg) — renderizado no `README.md`. Em texto:
 
- M["☀️ 09:00–12:00<br/>SETUP + FIRST-15-MIN<br/>+ PERSONA.md (2x)<br/>+ TEAM-FLOW"]:::morning
- S1["🍽 13:00–14:30<br/>Estágio 1<br/>(consulta COMO-LER-NATURAL)"]:::stage
- S2["🏗 14:45–16:00<br/>Estágio 2<br/>(consulta SPECIFICATION-exemplo)"]:::stage
- S3["💻 16:15–17:30<br/>Estágio 3<br/>(consulta V1__init e PaymentService)"]:::stage
- S4["🤖 17:45–18:15<br/>Estágio 4<br/>(consulta issue-para-agent-exemplo)"]:::stage
- D["🎤 18:15–19:50<br/>Demo + Retro"]:::demo
-
- M --> S1 --> S2 --> S3 --> S4 --> D
-```
+> **09:00–12:00** Setup + leitura de PERSONA → **13:00–14:30** Estágio 1 · Arqueologia → **14:45–16:00** Estágio 2 · Spec Moderna → **16:15–17:30** Estágio 3 · Implementação → **17:45–18:15** Estágio 4 · Evolução → **18:15–19:50** Demo + Retro
 
 ## Se você se perdeu
 
