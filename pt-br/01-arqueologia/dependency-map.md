@@ -94,7 +94,7 @@ flowchart LR
  PROG <--> DDM4
 ```
 
-> Substitua "DDM 3: ???" e "DDM 4: ???" pelos nomes reais encontrados em [`../../legacy/adabas-ddms/`](../../legacy/adabas-ddms/).
+> Substitua "DDM 3: ???" e "DDM 4: ???" pelos nomes reais encontrados em [`../legado-natural/adabas-ddms/`](../legado-natural/adabas-ddms/).
 
 ## Tabela de Dependências
 

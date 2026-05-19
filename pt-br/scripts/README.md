@@ -31,6 +31,6 @@ chmod +x scripts/*.sh
 
 ## Observações
 
-- `setup.sh` clona [`workshop-legacy-modernization-datacorp`](https://github.com/paulasilvatech/workshop-legacy-modernization-datacorp) em `reference/` e cria symlinks para `legacy/`, `prototype/`, `infra/`. Sobrescreva o repositório de origem com `WORKSHOP_REPO=...`.
+- `setup.sh` clona os materiais de referência em `reference/` e cria symlinks para `prototype/` e `infra/`. A pasta `legado-natural/` já vem incluída no kit. Sobrescreva o repositório de origem com `WORKSHOP_REPO=...`.
 - Os symlinks estão no gitignore — eles servem apenas para conveniência local.
 - `check.sh` ignora qualquer verificação cuja pasta ainda não exista (assim ele funciona durante os estágios iniciais).

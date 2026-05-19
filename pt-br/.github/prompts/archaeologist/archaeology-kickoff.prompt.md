@@ -13,21 +13,21 @@ Oriente a equipe sobre a codebase legada com um inventário top-down antes de le
 
 ## Quando Invocar
 
-Logo no início do Estágio 1, imediatamente depois que a equipe recebe acesso à pasta `legacy/`.
+Logo no início do Estágio 1, imediatamente depois que a equipe recebe acesso à pasta `legado-natural/`.
 
 ## Pré-condições
 
-- A pasta `legacy/` está disponível no workspace (com symlink criado por `scripts/setup.sh` ou posicionada manualmente)
+- A pasta `legado-natural/` está disponível no workspace (com symlink criado por `scripts/setup.sh` ou posicionada manualmente)
 - A equipe ainda não abriu programas individuais
 
 ## Entradas que a Equipe Deve Fornecer
 
-- O path para a pasta de legado (normalmente `legacy/`)
+- O path para a pasta de legado (normalmente `legado-natural/`)
 - Confirmação de que a equipe ainda não começou a ler arquivos individuais (este prompt é para orientação, não leitura profunda)
 
 ## O Que Vou Fazer
 
-- Escanear a pasta `legacy/` recursivamente e listar todos os diretórios
+- Escanear a pasta `legado-natural/` recursivamente e listar todos os diretórios
 - Contar arquivos por extensão (`.nat`, `.cpy`, `.ddm`, `.map` e quaisquer outras)
 - Classificar programas por prefixos de padrão de nomes (por exemplo, `BN-*` para batch, `PG-*` para online)
 - Sinalizar os 3 principais itens que parecem incomuns com base no tamanho do nome, tamanho do arquivo ou localização
@@ -90,5 +90,5 @@ Não abra nenhum arquivo para ler seu conteúdo. Este prompt opera somente sobre
 ## Exemplo de Invocação
 
 ```
-/archaeology-kickoff path=legacy/
+/archaeology-kickoff path=legado-natural/
 ```

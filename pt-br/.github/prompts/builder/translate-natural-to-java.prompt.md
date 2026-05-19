@@ -20,11 +20,11 @@ No início do Estágio 3, quando a equipe começa a implementar bounded contexts
 - `02-spec-moderna/modular-monolith-design.md` existe com a estrutura de packages definida
 - `02-spec-moderna/SPECIFICATION.md` existe com requisitos EARS
 - O bounded context e package-alvo são conhecidos
-- O arquivo-fonte Natural está acessível em `legacy/`
+- O arquivo-fonte Natural está acessível em `legado-natural/`
 
 ## Entradas que a Equipe Deve Fornecer
 
-- O path do arquivo do programa Natural (por exemplo, `legacy/programs/PGXXXXXX.nat`)
+- O path do arquivo do programa Natural (por exemplo, `legado-natural/programs/PGXXXXXX.nat`)
 - O bounded context e package Java de destino
 - Quaisquer requisitos EARS relacionados (REQ-IDs)
 
@@ -127,5 +127,5 @@ Se uma construção Natural não tiver um idioma Java limpo, apresente 2 alterna
 ## Exemplo de Invocação
 
 ```
-/translate-natural-to-java file=legacy/programs/PGMAIN01.nat context=payment package=com.datacorp.app.payment
+/translate-natural-to-java file=legado-natural/programs/PGMAIN01.nat context=payment package=com.datacorp.app.payment
 ```

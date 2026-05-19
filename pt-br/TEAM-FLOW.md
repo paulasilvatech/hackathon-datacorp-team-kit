@@ -202,10 +202,10 @@ Nenhum par fica parado. Mesmo quando não está "liderando", cada par tem trabal
 
 | Par                   | Ação às 13:00                                                                                                                                                                                       |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1 · Visão**         | PO abre [`../../01-blueprint/WORKSHOP-BLUEPRINT.md`](../../01-blueprint/WORKSHOP-BLUEPRINT.md); RE abre [`../legacy/natural-programs/`](../legacy/natural-programs/) e começa o catálogo de regras. |
-| **2 · Arquitetura**   | EA abre [`../legacy/legacy-docs/`](../legacy/legacy-docs/) e começa C4 L1; SA prepara candidatos a bounded context.                                                                                 |
+| **1 · Visão**         | PO abre [`../../01-blueprint/WORKSHOP-BLUEPRINT.md`](../../01-blueprint/WORKSHOP-BLUEPRINT.md); RE abre [`legado-natural/natural-programs/`](legado-natural/natural-programs/) e começa o catálogo de regras.       |
+| **2 · Arquitetura**   | EA abre [`legado-natural/legacy-docs/`](legado-natural/legacy-docs/) e começa C4 L1; SA prepara candidatos a bounded context.                                                                                       |
 | **3 · Implementação** | TL define estratégia de branches, template de PR, definição de pronto; Dev roda `docker compose up` no protótipo.                                                                                   |
-| **4 · Qualidade**     | DBA abre [`../legacy/adabas-ddms/`](../legacy/adabas-ddms/) e começa o mapeamento de campos; QA lê o layout dos testes em [`../../04-prototipo-sifap-moderno/`](../../04-prototipo-sifap-moderno/). |
+| **4 · Qualidade**     | DBA abre [`legado-natural/adabas-ddms/`](legado-natural/adabas-ddms/) e começa o mapeamento de campos; QA lê o layout dos testes em [`../../04-prototipo-sifap-moderno/`](../../04-prototipo-sifap-moderno/).       |
 | **5 · Operações**     | DevOps abre [`../../05-terraform-azure/`](../../05-terraform-azure/) e revisa módulos; TW abre o template em [`01-arqueologia/glossary.md`](01-arqueologia/glossary.md).                            |
 
 ---

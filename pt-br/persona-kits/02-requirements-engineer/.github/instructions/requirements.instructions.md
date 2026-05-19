@@ -9,4 +9,4 @@ applyTo: "docs/**/*.md"
 - Given/When/Then para critérios de aceitação
 - Numeração sequencial dentro de features
 - MUST/SHALL para obrigatório, SHOULD para recomendado
-- **Todo requisito carrega uma linha `source_legacy:`** apontando para `legacy/natural-programs/*.NSN`, `legacy/adabas-ddms/*.ddm` ou `[GREENFIELD] + justification`. O CI rejeita requisitos sem essa linha.
+- **Todo requisito carrega uma linha `source_legacy:`** apontando para `legado-natural/natural-programs/*.NSN`, `legado-natural/adabas-ddms/*.ddm` ou `[GREENFIELD] + justification`. O CI rejeita requisitos sem essa linha.

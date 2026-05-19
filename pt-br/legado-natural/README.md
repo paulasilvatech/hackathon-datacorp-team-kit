@@ -366,7 +366,7 @@ Nomes de campos são limitados a **20 caracteres** e utilizam abreviações padr
 
 ## Navegação
 
-> Esta pasta `legacy/` está incluída dentro do kit do time. Quando você trabalha no repositório do time, os vizinhos são os guias de estágio, não o catálogo do workshop.
+> Esta pasta `legado-natural/` está incluída dentro do kit do time. Quando você trabalha no repositório do time, os vizinhos são os guias de estágio, não o catálogo do workshop.
 
 | Anterior                                                  | Início                   | Próximo                                              |
 | --------------------------------------------------------- | ------------------------ | ---------------------------------------------------- |

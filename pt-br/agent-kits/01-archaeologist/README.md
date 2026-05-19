@@ -23,7 +23,7 @@ Transformar arquivos Natural/Adabas em evidências úteis para o Estágio 2: glo
 - **Horário:** 13:00–14:30.
 - **Protagonista:** Requirements Engineer.
 - **Suporte forte:** Tech Writer, Enterprise Architect e DBA.
-- **Pré-requisito:** pasta `legacy/` disponível no workspace.
+- **Pré-requisito:** pasta `legado-natural/` disponível no workspace.
 
 ## Passo a passo com o agente
 
@@ -36,7 +36,7 @@ Transformar arquivos Natural/Adabas em evidências úteis para o Estágio 2: glo
 
 ```text
 Estou iniciando o Estágio 1 — Arqueologia.
-Temos código Natural/Adabas em legacy/.
+Temos código Natural/Adabas em legado-natural/.
 Ajude o time a explorar sistematicamente: programas, DDMs, CALLNATs,
 regras de negócio, mistérios e riscos de migração.
 Comece me dizendo qual arquivo abrir primeiro e que perguntas fazer.
@@ -66,7 +66,7 @@ Comece me dizendo qual arquivo abrir primeiro e que perguntas fazer.
 | --- | --- |
 | Pedir "resuma tudo" sem abrir arquivo | Abra um arquivo e leia com o agente |
 | Transformar hipótese em requisito | Marque como mistério até haver evidência |
-| Editar o legado | Trate `legacy/` como somente leitura |
+| Editar o legado | Trate `legado-natural/` como somente leitura |
 | Começar arquitetura no Estágio 1 | Guarde ideias para o `@architect` |
 
 ## Navegação

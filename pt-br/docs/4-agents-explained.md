@@ -80,7 +80,7 @@ O agente ajuda a transformar a descoberta em algo implementável:
 REQ-PAY-001:
   pattern: event-driven
   text: "Quando um ciclo de pagamento for gerado, o SIFAP deverá criar registros de pagamento para todo beneficiário com status ACTIVE."
-  source_legacy: legacy/natural-programs/BATCHPGT.NSN#L120-L168
+  source_legacy: legado-natural/natural-programs/BATCHPGT.NSN#L120-L168
   acceptance: "10 ativos + 2 suspensos produzem 10 registros de pagamento."
 ```
 

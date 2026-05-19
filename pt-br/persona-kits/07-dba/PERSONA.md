@@ -96,7 +96,7 @@ Traduzir o modelo Adabas para um schema relacional que funciona. Garantir migra�
 
 ## Se travar (defaults de emergência)
 
-- Não conhece o formato DDM? Abra [`../legacy/adabas-ddms/BENEFICIARIO.ddm`](../../legacy/adabas-ddms/BENEFICIARIO.ddm) — tem comentários explicando cada campo.
+- Não conhece o formato DDM? Abra [`../legado-natural/adabas-ddms/BENEFICIARIO.ddm`](../../legado-natural/adabas-ddms/BENEFICIARIO.ddm) — tem comentários explicando cada campo.
 - Migração quebrou? NUNCA edite uma migração existente. Crie nova: `V5__fix_xxx.sql`.
 - Qual índice criar? Regra: "Se aparece em WHERE ou JOIN e a tabela tem >100K linhas, crie índice."
 - PostgreSQL offline? Verifique se o Docker está rodando: `docker ps | grep postgres`.

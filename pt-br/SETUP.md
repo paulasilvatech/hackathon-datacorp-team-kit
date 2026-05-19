@@ -57,7 +57,7 @@ Você vai terminar com **3 repositórios no seu laptop**:
 ```
 ~/Code/
 ├── kit/                            (este team-kit, referência SOMENTE LEITURA)
-├── reference/sifap-legacy/         (código SIFAP legado, referência SOMENTE LEITURA)
+├── reference/sifap-legado-natural/         (código SIFAP legado, referência SOMENTE LEITURA)
 └── hackathon-team-XX/              (repositório de trabalho do SEU time — onde você commita)
 ```
 
@@ -165,7 +165,7 @@ chmod +x scripts/*.sh
 
 ### Rode o script de bootstrap
 
-Isso clona o repositório read-only `sifap-legacy` dentro de `reference/`, cria o symlink `legacy/` e inicializa a base de specs usada pelo Spec-Kit.
+Isso clona os materiais de referência dentro de `reference/`, mantém `legado-natural/` como pasta incluída no kit e inicializa a base de specs usada pelo Spec-Kit.
 
 ```bash
 ./scripts/setup.sh
@@ -313,7 +313,7 @@ O repositório inclui `.devcontainer/devcontainer.json`. O dev container tem Jav
 
 ### 6.5 Faça o bootstrap também na sua máquina
 
-Mesmo que a pessoa líder já tenha feito o bootstrap do repositório, cada membro precisa materializar localmente o symlink `legacy/`:
+Mesmo que a pessoa líder já tenha feito o bootstrap do repositório, cada membro precisa rodar o setup local para materializar `prototype/` e `infra/`:
 
 ```bash
 ./scripts/setup.sh

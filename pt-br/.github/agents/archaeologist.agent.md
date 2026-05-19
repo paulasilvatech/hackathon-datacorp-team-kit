@@ -60,7 +60,7 @@ Padrões genéricos Natural/Adabas que se aplicam a qualquer codebase legada:
 - Quais regras de negócio estão codificadas no código legado
 - Quais mistérios ou edge cases existem no sistema específico
 
-Tudo isso deve emergir da investigação da equipe sobre a pasta `legacy/`.
+Tudo isso deve emergir da investigação da equipe sobre a pasta `legado-natural/`.
 
 ## Definição de Pronto do Estágio 1
 

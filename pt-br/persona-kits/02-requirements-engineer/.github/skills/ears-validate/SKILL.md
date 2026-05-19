@@ -29,7 +29,7 @@ description: 'Use ao validar requisitos contra padrões da notação EARS. Acion
 - [ ] Sem detalhes de implementação ("use Redis") - apenas comportamento.
 - [ ] Tem um REQ-ID no formato `REQ-NNN`.
 - [ ] Tem pelo menos um critério de aceitação.
-- [ ] **Tem um `source_legacy:` não vazio apontando para `legacy/natural-programs/*.NSN`, `legacy/adabas-ddms/*.ddm` ou `[GREENFIELD] + justification`.**
+- [ ] **Tem um `source_legacy:` não vazio apontando para `legado-natural/natural-programs/*.NSN`, `legado-natural/adabas-ddms/*.ddm` ou `[GREENFIELD] + justification`.**
 
 ## Defeitos comuns
 | Defeito | Exemplo | Correção |
@@ -44,7 +44,7 @@ description: 'Use ao validar requisitos contra padrões da notação EARS. Acion
 ### REQ-NNN (<pattern>)
 <EARS statement>
 
-**source_legacy**: legacy/natural-programs/<FILE>.NSN#L<start>-L<end>
+**source_legacy**: legado-natural/natural-programs/<FILE>.NSN#L<start>-L<end>
 _(ou `[GREENFIELD] <justificativa>` quando não houver paralelo legado)_
 
 **Critérios de aceite**

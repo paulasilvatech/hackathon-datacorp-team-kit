@@ -1,11 +1,11 @@
 ---
 description: "Guia de leitura para código legado Natural/Adabas — padrões da linguagem, estrutura FDT, convenções de nomes, fluxos batch"
-applyTo: '**/*.nat,**/*.cpy,**/*.ddm,**/legacy/**'
+applyTo: '**/*.nat,**/*.cpy,**/*.ddm,**/legado-natural/**'
 ---
 
 # Código Legado Natural/Adabas — Guia de Leitura
 
-Este arquivo é ativado quando você abre programas Natural, DDMs Adabas ou qualquer arquivo dentro do diretório `legacy/`. Ele ensina como ler código legado — não interpreta nenhum sistema específico por você.
+Este arquivo é ativado quando você abre programas Natural, DDMs Adabas ou qualquer arquivo dentro do diretório `legado-natural/`. Ele ensina como ler código legado — não interpreta nenhum sistema específico por você.
 
 ## Estrutura de Programa Natural
 

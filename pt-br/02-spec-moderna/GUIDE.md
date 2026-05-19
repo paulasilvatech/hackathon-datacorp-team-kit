@@ -14,7 +14,7 @@ tags: ["estagio-2", "especificacao", "ears", "adr", "c4", "didatico", "pt-br"]
 
 # Estágio 2 — Spec Moderna (3 horas)
 
-> **REGRA DURA.** Todo requisito EARS no seu `SPECIFICATION.md` precisa incluir uma linha `source_legacy:` apontando para um arquivo `.NSN` ou `.ddm` dentro de [`../legacy/`](../../legacy/), **ou** ser marcado `source_legacy: "[GREENFIELD] <justificativa de uma linha>"`. O CI rejeita PRs que violem isso. Facilitadores verificam por amostragem no Passagem #2 (~16:00).
+> **REGRA DURA.** Todo requisito EARS no seu `SPECIFICATION.md` precisa incluir uma linha `source_legacy:` apontando para um arquivo `.NSN` ou `.ddm` dentro de [`../legado-natural/`](../legado-natural/), **ou** ser marcado `source_legacy: "[GREENFIELD] <justificativa de uma linha>"`. O CI rejeita PRs que violem isso. Facilitadores verificam por amostragem no Passagem #2 (~16:00).
 >
 > Por quê? Na edição anterior alguns times escreveram specs só a partir do brief de modernização, pulando a leitura do legado. Os protótipos perderam regras de negócio reais. Desta vez, rastreabilidade é o portão.
 
@@ -194,7 +194,7 @@ REQ-PAY-DSCT-01:
  pattern: unwanted
  text: "O SIFAP não deve permitir que o total de descontos não judiciais exceda
  30% do valor bruto do pagamento."
- source_legacy: legacy/natural-programs/CALCDSCT.NSN#L142-L148
+ source_legacy: legado-natural/natural-programs/CALCDSCT.NSN#L142-L148
  acceptance:
  - "Desconto não judicial de 35% é truncado para 30%"
  - "Desconto judicial de 50% é aceito integralmente"
@@ -204,7 +204,7 @@ REQ-PAY-DSCT-02:
  pattern: event-driven
  text: "Quando um desconto judicial é aplicado, o SIFAP deve adicionar o valor
  ao total de descontos sem aplicar o teto de 30%."
- source_legacy: legacy/natural-programs/CALCDSCT.NSN#L142-L148
+ source_legacy: legado-natural/natural-programs/CALCDSCT.NSN#L142-L148
 ```
 
 ### 3. Código (Estágio 3)

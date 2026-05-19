@@ -111,7 +111,7 @@ pode abrir o Copilot no modo Ask e escrever:
 Funcionalidade: geração de ciclo de pagamento mensal.
 Regra legado: quando o ciclo mensal é gerado, o SIFAP cria pagamentos apenas
 para beneficiários ativos.
-source_legacy: legacy/natural-programs/BATCHPGT.NSN#L120-L168
+source_legacy: legado-natural/natural-programs/BATCHPGT.NSN#L120-L168
 Critério: 10 beneficiários ativos + 2 suspensos produzem 10 pagamentos.
 ```
 
@@ -121,7 +121,7 @@ O resultado esperado em `spec.md` é uma regra rastreável, por exemplo:
 REQ-PAY-001:
   pattern: event-driven
   text: "Quando um ciclo de pagamento for gerado, o SIFAP deverá criar registros de pagamento para todo beneficiário com status ACTIVE."
-  source_legacy: legacy/natural-programs/BATCHPGT.NSN#L120-L168
+  source_legacy: legado-natural/natural-programs/BATCHPGT.NSN#L120-L168
   acceptance: "10 ativos + 2 suspensos produzem 10 registros de pagamento."
 ```
 

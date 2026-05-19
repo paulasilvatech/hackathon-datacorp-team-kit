@@ -56,7 +56,7 @@ tags: ["estagio-1", "misterios", "template", "pt-br"]
 
 ### MYS-001: [Título do Mistério]
 
-- **Arquivo**: `legacy/natural-programs/ARQUIVO.NSN#L<inicio>-L<fim>`
+- **Arquivo**: `legado-natural/natural-programs/ARQUIVO.NSN#L<inicio>-L<fim>`
 - **Trecho de código**:
 
 ```natural

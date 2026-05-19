@@ -51,7 +51,7 @@ Todos os 5 pares trabalham em paralelo, cada um responsável por 3 programas Nat
 | [`mysteries-checklist.md`](mysteries-checklist.md)                   | Checklist de lógica escondida para os times                             |
 | [`mysteries-found.md`](mysteries-found.md)                           | Modelo para registrar mistérios descobertos                             |
 
-O código legado em si fica em [`../../legacy/`](../../legacy/) (compartilhado pelo kit).
+O código legado em si fica em [`../legado-natural/`](../legado-natural/) (compartilhado pelo kit).
 
 ## Navegação
 

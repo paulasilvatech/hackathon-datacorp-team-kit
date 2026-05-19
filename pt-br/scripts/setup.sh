@@ -91,10 +91,10 @@ if [ ! -d "reference/workshop-datacorp" ]; then
 fi
 
 # Symlink the parts teams need most.
-# legacy/ is bundled with the kit (real folder); only link prototype/ and infra/.
+# legado-natural/ is bundled with the kit (real folder); only link prototype/ and infra/.
 ln -sfn "../reference/workshop-datacorp/04-prototipo-sifap-moderno" prototype 2>/dev/null || true
 ln -sfn "../reference/workshop-datacorp/05-terraform-azure" infra 2>/dev/null || true
-ok "Linked prototype/, infra/ (legacy/ already bundled in kit)"
+ok "Linked prototype/, infra/ (legado-natural/ already bundled in kit)"
 
 # 3. Initialize specs/ for Spec-Kit
 echo

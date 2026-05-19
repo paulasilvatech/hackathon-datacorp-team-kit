@@ -8,13 +8,13 @@ description: "Converta requisitos informais para notação EARS com rastreabilid
 
 ## Pré-checagem dura (workshop SIFAP)
 Antes de escrever qualquer EARS, **exija uma fonte legada** para cada declaração de entrada. Fontes aceitáveis:
-- um arquivo em `legacy/natural-programs/*.NSN` (preferido, com intervalo de linhas)
-- um arquivo em `legacy/adabas-ddms/*.ddm`
+- um arquivo em `legado-natural/natural-programs/*.NSN` (preferido, com intervalo de linhas)
+- um arquivo em `legado-natural/adabas-ddms/*.ddm`
 - o marcador literal `[GREENFIELD]` com uma justificativa em uma linha
 
 Se o usuário fornecer uma declaração **sem** identificar uma fonte legada, NÃO produza uma EARS. Responda:
 
-> "Ainda não posso emitir esta EARS. Informe qual arquivo em `legacy/` é a fonte (por exemplo, `legacy/natural-programs/BATCHPGT.NSN`) ou marque como `[GREENFIELD]` com uma justificativa em uma linha. O CI rejeita EARS sem `source_legacy`."
+> "Ainda não posso emitir esta EARS. Informe qual arquivo em `legado-natural/` é a fonte (por exemplo, `legado-natural/natural-programs/BATCHPGT.NSN`) ou marque como `[GREENFIELD]` com uma justificativa em uma linha. O CI rejeita EARS sem `source_legacy`."
 
 Somente depois que toda declaração tiver uma fonte aceitável, prossiga para os passos abaixo.
 

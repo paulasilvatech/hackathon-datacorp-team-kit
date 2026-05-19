@@ -62,7 +62,7 @@ Use nomes curtos, sem acento e orientados a comportamento.
 /speckit.specify
 Funcionalidade: geração de ciclo de pagamento mensal.
 Regra legado: criar pagamentos apenas para beneficiários ativos.
-source_legacy: legacy/natural-programs/BATCHPGT.NSN#L120-L168
+source_legacy: legado-natural/natural-programs/BATCHPGT.NSN#L120-L168
 Acceptance: 10 ativos + 2 suspensos geram 10 pagamentos.
 ```
 

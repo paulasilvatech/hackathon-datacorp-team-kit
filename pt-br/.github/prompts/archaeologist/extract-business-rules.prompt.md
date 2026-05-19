@@ -19,19 +19,19 @@ Depois que a equipe completar o inventário inicial (`/archaeology-kickoff`) e e
 
 - `01-arqueologia/inventory.md` existe
 - A equipe selecionou um arquivo específico de programa Natural para analisar
-- A pasta `legacy/` está acessível
+- A pasta `legado-natural/` está acessível
 
 ## Entradas que a Equipe Deve Fornecer
 
-- O path completo para o programa Natural a analisar (por exemplo, `legacy/programs/PGXXXXXX.nat`)
-- Quaisquer paths de documentação disponíveis em `legacy/docs/` (opcional — usados para confirmação)
+- O path completo para o programa Natural a analisar (por exemplo, `legado-natural/programs/PGXXXXXX.nat`)
+- Quaisquer paths de documentação disponíveis em `legado-natural/docs/` (opcional — usados para confirmação)
 
 ## O Que Vou Fazer
 
 - Ler o programa especificado de cima a baixo
 - Identificar todo bloco condicional: `IF...THEN...ELSE...END-IF`, `DECIDE ON`, `AT BREAK OF` e operadores de comparação
 - Para cada bloco condicional, formular uma regra de negócio candidata em linguagem clara
-- Fazer cross-reference com documentação em `legacy/docs/`, se disponível
+- Fazer cross-reference com documentação em `legado-natural/docs/`, se disponível
 - Classificar cada regra como **confirmed** (correspondência em documentação), **inferred** (somente código, sem suporte documental) ou **mystery** (lógica pouco clara)
 - Rascunhar candidatos de notação EARS para regras confirmadas
 
@@ -114,5 +114,5 @@ Não infira regras a partir de nomes de programas ou organização de arquivos. 
 ## Exemplo de Invocação
 
 ```
-/extract-business-rules file=legacy/programs/PGMAIN01.nat docs=legacy/docs/
+/extract-business-rules file=legado-natural/programs/PGMAIN01.nat docs=legado-natural/docs/
 ```

@@ -130,14 +130,14 @@ flowchart TB
 
 - Todo requisito usa **notação EARS** (Easy Approach to Requirements Syntax)
 - Todo requisito tem um **REQ-ID** único no formato `REQ-NNN`
-- **Todo requisito carrega uma linha `source_legacy:`** apontando para `legacy/natural-programs/*.NSN`, `legacy/adabas-ddms/*.ddm` ou `[GREENFIELD] + justificativa`. O job de CI `legacy-traceability` rejeita PRs que violam isso. Consulte [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md).
+- **Todo requisito carrega uma linha `source_legacy:`** apontando para `legado-natural/natural-programs/*.NSN`, `legado-natural/adabas-ddms/*.ddm` ou `[GREENFIELD] + justificativa`. O job de CI `legacy-traceability` rejeita PRs que violam isso. Consulte [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md).
 - Testes rastreiam para REQ-IDs por comentários inline
 - Estratégia de branch: uma branch por spec, nomeada `spec/<NNN>-<feature>`
 - Ordem de merge: `spec/*` → `develop` → `stage` → `main`
 
 ## Exploração do Legado — OBRIGATÓRIA
 
-Antes de escrever qualquer EARS no Estágio 2, seu par DEVE ter lido os programas Natural atribuídos em [`legacy/natural-programs/`](../legacy/natural-programs/) e os DDMs em [`legacy/adabas-ddms/`](../legacy/adabas-ddms/). Specs escritas sem leitura do legado perdem 29 anos de regras de negócio. A matriz de HARD GATE fica em [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md).
+Antes de escrever qualquer EARS no Estágio 2, seu par DEVE ter lido os programas Natural atribuídos em [`legado-natural/natural-programs/`](../legado-natural/natural-programs/) e os DDMs em [`legado-natural/adabas-ddms/`](../legado-natural/adabas-ddms/). Specs escritas sem leitura do legado perdem 29 anos de regras de negócio. A matriz de HARD GATE fica em [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md).
 
 ## Os 5 Pares e 10 Personas
 
@@ -179,7 +179,7 @@ Veja [`TEAM-FLOW.md`](../TEAM-FLOW.md) para diagramas de passagem e a linha do t
 - [Team Flow](../TEAM-FLOW.md) — linha do tempo diária, passagems, escalonamento
 - [Persona Kits](../persona-kits/) — seus 2 cartões de papel em `PERSONA.md`, além de agentes, prompts e skills do Copilot (copie seus 2 kits para esta `.github/`)
 - [Cheat Sheets](../cheat-sheets/) — Copilot, Spec-Kit, roteamento de modelo
-- [Legado Incluído](../legacy/) — o que você está modernizando (15 programas .NSN + 4 DDMs)
+- [Legado Incluído](../legado-natural/) — o que você está modernizando (15 programas .NSN + 4 DDMs)
 - [`01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md`](../01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md) — HARD GATE antes do Estágio 2
 - Protótipo de Referência (`prototype/`) — starter code em execução (symlink, criado por setup.sh)
 - Módulos de infraestrutura (`infra/`) — módulos Terraform Azure (symlink, criado por setup.sh)

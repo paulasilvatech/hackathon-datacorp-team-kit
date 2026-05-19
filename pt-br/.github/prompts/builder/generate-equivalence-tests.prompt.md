@@ -18,7 +18,7 @@ Depois que um programa Natural tiver sido traduzido para Java (`/translate-natur
 ## Pré-condições
 
 - A tradução Java existe e compila
-- O fonte Natural original está acessível em `legacy/`
+- O fonte Natural original está acessível em `legado-natural/`
 - O Javadoc no código traduzido referencia o arquivo-fonte Natural e linhas
 
 ## Entradas que a Equipe Deve Fornecer

@@ -25,8 +25,8 @@ tags: ["legado", "exploracao", "gate", "estagio-1", "obrigatorio", "pt-br"]
 ```
 Todo REQ-ID no seu SPECIFICATION.md PRECISA ter uma linha `source_legacy` que
 aponte para um dos seguintes:
- - um programa .NSN específico em legacy/natural-programs/ (idealmente com faixa de linhas)
- - um arquivo .ddm específico em legacy/adabas-ddms/
+ - um programa .NSN específico em legado-natural/natural-programs/ (idealmente com faixa de linhas)
+ - um arquivo .ddm específico em legado-natural/adabas-ddms/
  - a string literal [GREENFIELD] com justificativa de 1 linha
 ```
 
@@ -115,7 +115,7 @@ REQ-PAY-001:
  pattern: event-driven
  text: "Quando um ciclo de pagamento é gerado, o SIFAP deve criar registros de pagamento
  para todo beneficiário com status ACTIVE."
- source_legacy: legacy/natural-programs/BATCHPGT.NSN#L120-L168
+ source_legacy: legado-natural/natural-programs/BATCHPGT.NSN#L120-L168
  acceptance: "10 beneficiários ativos + 2 suspensos produzem 10 registros de pagamento."
 ```
 

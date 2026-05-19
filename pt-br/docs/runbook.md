@@ -34,7 +34,7 @@ As credenciais padrão estão documentadas em `prototype/README.md`.
 ```bash
 docker compose up -d # se estiver parado
 ./scripts/check.sh # antes do push
-git status # nunca commite symlinks (legacy/, prototype/, infra/)
+git status # nunca commite symlinks (legado-natural/, prototype/, infra/)
 ```
 
 ## CI

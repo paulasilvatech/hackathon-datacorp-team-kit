@@ -18,12 +18,12 @@ No início do Estágio 3, quando a equipe está configurando a camada de dados p
 ## Pré-condições
 
 - `02-spec-moderna/bounded-contexts.md` existe (para saber qual context possui este DDM)
-- O arquivo DDM está acessível em `legacy/ddms/`
+- O arquivo DDM está acessível em `legado-natural/ddms/`
 - A equipe decidiu o package-alvo a partir do design do modular monolith
 
 ## Entradas que a Equipe Deve Fornecer
 
-- O path do arquivo DDM (por exemplo, `legacy/ddms/DDMXXXXX.ddm`)
+- O path do arquivo DDM (por exemplo, `legado-natural/ddms/DDMXXXXX.ddm`)
 - O bounded context e package Java de destino
 - Formato de data usado no sistema legado (por exemplo, `YYYYMMDD` packed, ou `YYYY-MM-DD` alpha)
 
@@ -135,5 +135,5 @@ Garanta que a classe de entidade compile. Reporte quaisquer problemas.
 ## Exemplo de Invocação
 
 ```
-/generate-jpa-from-fdt ddm=legacy/ddms/DDM001.ddm context=payment package=com.datacorp.app.payment dateformat=YYYYMMDD
+/generate-jpa-from-fdt ddm=legado-natural/ddms/DDM001.ddm context=payment package=com.datacorp.app.payment dateformat=YYYYMMDD
 ```

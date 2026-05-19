@@ -137,7 +137,7 @@ Você não lê este kit de capa a capa. Lê as partes que seu par precisa, quand
 | [`03-implementacao/`](03-implementacao/) | Estágio 3 — guia de implementação Java + Next.js                                                      |
 | [`04-evolucao/`](04-evolucao/)           | Estágio 4 — Terraform IaC, CI/CD, Copilot Agent Mode                                                  |
 | [`docs/`](docs/)                         | Documentação transversal: fluxo SDLC, matriz persona-agente, glossário, runbook e ADRs                |
-| [`legacy/`](legacy/)                     | Cópia local do legado SIFAP para exploração em português: Natural, DDMs, demo e documentos históricos |
+| [`legado-natural/`](legado-natural/)                     | Cópia local do legado SIFAP para exploração em português: Natural, DDMs, demo e documentos históricos |
 | [`assets/`](assets/)                     | Imagens SVG localizadas em PT-BR para README, fluxo dos estágios, personas e transformação arquitetural |
 | [`persona-kits/`](persona-kits/)         | Os 10 kits consolidados para as 5 pessoas do time: `PERSONA.md`, agentes, prompts, skills e MCP       |
 | [`cheat-sheets/`](cheat-sheets/)         | Cartões de referência rápida: 3 modos do Copilot, Spec-Kit e model routing                            |
@@ -164,7 +164,7 @@ Todo conteúdo PT-BR segue o mesmo contrato didático:
 | Seu papel em detalhe                          | [`persona-kits/`](persona-kits/) (abra o `PERSONA.md` das duas personas do seu par) |
 | Instruções passo a passo do estágio atual     | [`0X-estagio/GUIDE.md`](01-arqueologia/GUIDE.md)    |
 | Um lembrete de 1 página durante o dia         | [`cheat-sheets/`](cheat-sheets/)                    |
-| O código legado e os DDMs para investigar     | [`legacy/`](legacy/)                                |
+| O código legado e os DDMs para investigar     | [`legado-natural/`](legado-natural/)                                |
 | Templates e scripts auxiliares                | [`scripts/`](scripts/)                              |
 
 ## Como usar este kit

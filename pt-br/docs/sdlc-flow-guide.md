@@ -101,7 +101,7 @@ flowchart TD
 
 | Persona                   | Papel          | O Que Você Faz                                                                                                                           | Prompts Que Você Executa                          |
 | ------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| **Requirements Engineer** | 🔑 Protagonista | Abra `legacy/` e conduza uma exploração sistemática. Extraia regras de negócio de cada programa. Assuma o catálogo de regras de negócio. | `/archaeology-kickoff`, `/extract-business-rules` |
+| **Requirements Engineer** | 🔑 Protagonista | Abra `legado-natural/` e conduza uma exploração sistemática. Extraia regras de negócio de cada programa. Assuma o catálogo de regras de negócio. | `/archaeology-kickoff`, `/extract-business-rules` |
 | Tech Writer               | Secundária      | Construa o glossário de domínio em tempo real. Cada novo termo recebe uma definição.                                                     | Trabalha junto com RE, sem prompt dedicado        |
 | Enterprise Architect      | Secundária      | Mapeie limites do sistema: quais sistemas externos o legado chama? De onde vêm as entradas batch?                                        | `/map-dependencies` (escopo = interfaces externas) |
 | DBA                       | Secundária      | Foque nos DDMs. Documente tipos de campo, estruturas MU/PE e relações entre arquivos.                                                    | `/map-dependencies` (escopo = DDMs)                |

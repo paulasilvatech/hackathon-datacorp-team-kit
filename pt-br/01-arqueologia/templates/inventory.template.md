@@ -15,7 +15,7 @@ tags: ["template", "inventory", "archaeology", "stage-1"]
 # Inventário Legado — <!-- placeholder: Nome da Equipe -->
 
 **Data:** <!-- placeholder: YYYY-MM-DD -->
-**Caminho escaneado:** `legacy/`
+**Caminho escaneado:** `legado-natural/`
 
 ## Estrutura de Pastas
 

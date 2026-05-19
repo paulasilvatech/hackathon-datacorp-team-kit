@@ -302,7 +302,7 @@ Suponha que o Estágio 2 produziu este REQ-ID:
 REQ-PAY-DSCT-01:
   pattern: unwanted
   text: "O SIFAP não deve permitir que descontos não judiciais excedam 30% do valor bruto."
-  source_legacy: legacy/natural-programs/CALCDSCT.NSN#L142-L148
+  source_legacy: legado-natural/natural-programs/CALCDSCT.NSN#L142-L148
 ```
 
 Sua implementação no Estágio 3:

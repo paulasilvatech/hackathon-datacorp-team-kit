@@ -18,7 +18,7 @@ Depois que a equipe completar o inventário inicial e quiser entender como os pr
 ## Pré-condições
 
 - `01-arqueologia/inventory.md` exists
-- A pasta `legacy/` está acessível
+- A pasta `legado-natural/` está acessível
 - A equipe escolheu um escopo: um único programa, um fluxo batch ou uma família de transações
 
 ## Entradas que a Equipe Deve Fornecer
@@ -39,7 +39,7 @@ Depois que a equipe completar o inventário inicial e quiser entender como os pr
 - Inventar conexões que não estão no código-fonte — toda aresta deve ter arquivo e número de linha
 - Adivinhar o que um alvo CALLNAT faz com base em seu nome — eu apenas mapeio a aresta, não o comportamento do alvo
 - Assumir qualquer estrutura de programa — leio o que realmente está lá
-- Seguir referências fora da pasta `legacy/`
+- Seguir referências fora da pasta `legado-natural/`
 
 ## Formato de Saída
 
@@ -78,7 +78,7 @@ Dentro do escopo, pesquise toda ocorrência de `CALLNAT`. Para cada uma, extraia
 - O número da linha
 - Os parâmetros passados (liste-os, não os interprete)
 
-Verifique se cada subprograma-alvo existe como arquivo na pasta `legacy/`. Se não existir, adicione-o à lista de referências quebradas.
+Verifique se cada subprograma-alvo existe como arquivo na pasta `legado-natural/`. Se não existir, adicione-o à lista de referências quebradas.
 
 **Passo 3 — Pesquisar diretivas INCLUDE.**
 Dentro do escopo, pesquise toda instrução `INCLUDE`. Para cada uma, extraia:
@@ -122,5 +122,5 @@ Toda aresta deve citar um arquivo-fonte e número de linha. Se você não conseg
 ## Exemplo de Invocação
 
 ```
-/map-dependencies scope=legacy/programs/ recursive=true
+/map-dependencies scope=legado-natural/programs/ recursive=true
 ```
