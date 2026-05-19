@@ -118,4 +118,13 @@ flowchart LR
 
 > Se você não soubesse que era IA, aceitaria esse código no seu projeto? Se não, rejeite ou refine. O Copilot acelera quem sabe; não substitui julgamento.
 
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo |
+| --- | --- | --- |
+| [Cartões de Referência](README.md) | [Kit PT-BR](../README.md) | [Spec-Kit em 1 página →](spec-kit-workflow.md) |
+
+
 — Paula

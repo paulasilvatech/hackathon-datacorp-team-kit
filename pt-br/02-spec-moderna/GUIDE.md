@@ -14,6 +14,12 @@ tags: ["estagio-2", "especificacao", "ears", "adr", "c4", "didatico", "pt-br"]
 
 # Estágio 2 — Spec Moderna (3 horas)
 
+> **ESTÁGIO 02 DE 04 · ESPECIFICAÇÃO**
+>
+> 14:45 – 16:00 · 75 minutos
+>
+> Par 2 (Arquitetura) lidera. Par 1 (Visão) assina escopo. Par 5 dá revisão de clareza.
+
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
 > - **EARS, ADR, REQ-ID, bounded context, source_legacy** — termos novos? [`../docs/glossario-visual.md`](../docs/glossario-visual.md) tem cada um com analogia.
@@ -25,21 +31,6 @@ tags: ["estagio-2", "especificacao", "ears", "adr", "c4", "didatico", "pt-br"]
 > **REGRA DURA.** Todo requisito EARS no seu `SPECIFICATION.md` precisa incluir uma linha `source_legacy:` apontando para um arquivo `.NSN` ou `.ddm` dentro de [`../legado-natural/`](../legado-natural/), **ou** ser marcado `source_legacy: "[GREENFIELD] <justificativa de uma linha>"`. O CI rejeita PRs que violem isso. Facilitadores verificam por amostragem no Passagem #2 (~16:00).
 >
 > Por quê? Na edição anterior alguns times escreveram specs só a partir do brief de modernização, pulando a leitura do legado. Os protótipos perderam regras de negócio reais. Desta vez, rastreabilidade é o portão.
-
-## Onde isso encaixa no SDLC
-
-```mermaid
-flowchart LR
- classDef done fill:#7FBA00,stroke:#5C8700,color:#fff
- classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
-
- D[Descoberta ✓<br/>Catálogo BR, glossário]:::done
- SP[Especificação + Design<br/>EARS + ADRs + C4]:::current
- IM[Implementação<br/>Estágio 3]:::next
-
- D --> SP --> IM
-```
 
 Você está no **Estágio 2**. A saída deste estágio (REQ-IDs, ADRs, C4) alimenta diretamente o Estágio 3. Sem `source_legacy:` em cada REQ-ID, o passagem #2 falha.
 

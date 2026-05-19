@@ -120,4 +120,15 @@ Transformar spec em código rodando. Usar o Copilot deliberadamente — Ask para
 - Rubrica A4 (Uso Consciente do Copilot): troca deliberada entre Ask, Plan e Agent
 - Critério: "Commits pequenos, PRs revisáveis, testes escritos junto do código"
 
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo passo do dia | Próxima persona |
+| --- | --- | --- | --- |
+| [← Technical Lead](../05-technical-lead/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [DBA →](../07-dba/PERSONA.md) |
+
+> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
+
+
 — Paula

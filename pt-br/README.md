@@ -15,6 +15,8 @@
 >
 > 📖 **Recursos didáticos transversais** (consulte quando precisar):
 >
+> - 🗺 [`SITEMAP.md`](SITEMAP.md) — mapa visual do kit inteiro com caminho recomendado por persona.
+> - 👥 [`persona-kits/OVERVIEW.md`](persona-kits/OVERVIEW.md) — tabela das 10 personas em uma página (par, líder, defaults).
 > - [`docs/glossario-visual.md`](docs/glossario-visual.md) — 30+ termos técnicos com analogia em 3 linhas (EARS, ADR, DDM, JPA, Flyway, MU, PE...).
 > - [`legado-natural/COMO-LER-NATURAL.md`](legado-natural/COMO-LER-NATURAL.md) — como extrair regras de `.NSN` sem saber Natural.
 > - [`exemplos-preenchidos/`](exemplos-preenchidos/) — artefatos completos (spec, ADR, Flyway, service, Issue) que mostram o nível de profundidade esperado.
@@ -57,50 +59,15 @@ Você e quatro colegas têm um dia para modernizar um sistema de pagamentos de 2
 
 ## Onde isso encaixa no SDLC
 
-```mermaid
-flowchart LR
- classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
- classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
-
- PRE[Pré-evento<br/>configuração + integração]:::next
- S1[Estágio 1<br/>Descoberta<br/>13:00–14:30]:::current
- S2[Estágio 2<br/>Especificação<br/>14:45–16:00]:::later
- S3[Estágio 3<br/>Implementação<br/>16:15–17:30]:::later
- S4[Estágio 4<br/>Evolução<br/>17:45–18:15]:::later
- DEMO[Demo + Retro<br/>18:15–19:50]:::later
-
- PRE --> S1 --> S2 --> S3 --> S4 --> DEMO
-```
-
 Este kit cobre tudo do momento em que você clona o repositório até o momento em que seu time faz a demonstração de um SIFAP 2.0 rodando. A manhã é para configuração, instalação dos kits e orientação; a arqueologia começa na parte da tarde, às 13:00.
 
 ![Fluxo dos quatro estágios do Dia 2: arqueologia, spec moderna, reconstrução e evolução com Agent](assets/stage-flow.svg)
 
 ## Quem trabalha aqui (os 5 pares)
 
-```mermaid
-flowchart TB
- classDef vision fill:#F25022,stroke:#B33816,color:#fff
- classDef arch fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
- classDef impl fill:#E6F7E1,stroke:#7FBA00,color:#0A0A0A
- classDef qual fill:#E5F6FD,stroke:#00A4EF,color:#0A0A0A
- classDef ops fill:#EEEEEE,stroke:#1B1B1F,color:#0A0A0A
+![Distribuição de personas por par: visão, arquitetura, implementação, qualidade e operações](assets/personas-team.svg)
 
- P1["Par 1 · Visão<br/>PO + RE<br/>Descoberta → Especificação"]:::vision
- P2["Par 2 · Arquitetura<br/>EA + SA<br/>Especificação → Design"]:::arch
- P3["Par 3 · Implementação<br/>TL + Dev<br/>Implementação → Evolução"]:::impl
- P4["Par 4 · Qualidade<br/>DBA + QA<br/>Implementação (dados + testes)"]:::qual
- P5["Par 5 · Operações<br/>DevOps + TW<br/>Transversal + Evolução"]:::ops
-
- P1 -- H1 --> P2
- P2 -- H2 --> P3
- P2 -- H2 --> P4
- P3 -- H3 --> P5
- P4 -- H3 --> P5
-```
-
-Cada pessoa do time escolhe **um par (duas personas)** e fica nele o dia inteiro. As duas personas em um par são corresponsáveis — sem passagem interno, colaboração contínua. Os passagems horizontais (H1, H2, H3) são onde o dia flui ou quebra.
+Cada pessoa do time escolhe **um par (duas personas)** e fica nele o dia inteiro. As duas personas em um par são corresponsáveis — sem passagem interno, colaboração contínua. Os passagens horizontais (**H1**, **H2**, **H3**) entre pares são onde o dia flui ou quebra — diagrama detalhado em [`assets/handoffs.svg`](assets/handoffs.svg) e narrativa em [`TEAM-FLOW.md`](TEAM-FLOW.md) §3.
 
 ## Por que isso importa
 

@@ -130,4 +130,15 @@ Tech Writer é a persona mais transversal do time — você participa de todos o
 - Rubrica A7 (Agent): relatório honesto e detalhado
 - Critério: "README evoluiu a cada hora. ADRs têm contexto, decisão e consequências. Nada diz TODO."
 
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo passo do dia | Próxima persona |
+| --- | --- | --- | --- |
+| [← DevOps Engineer](../09-devops-engineer/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [OVERVIEW das 10 personas](../OVERVIEW.md) |
+
+> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
+
+
 — Paula

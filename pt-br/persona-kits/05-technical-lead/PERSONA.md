@@ -118,4 +118,15 @@ Manter velocidade de execução no Estágio 3. Escolher as batalhas técnicas qu
 - **Rubrica A6 (Colaboração):** ninguém travado por mais de 20 minutos.
 - Critério: "`main` verde o tempo todo, PRs revisados em menos de 15 minutos."
 
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo passo do dia | Próxima persona |
+| --- | --- | --- | --- |
+| [← Software Architect](../04-software-architect/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [Developer →](../06-developer/PERSONA.md) |
+
+> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
+
+
 — Paula

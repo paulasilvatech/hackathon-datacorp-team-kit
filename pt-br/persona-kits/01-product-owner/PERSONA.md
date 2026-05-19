@@ -120,4 +120,15 @@ Este workshop aplica o framework **Agentic Legacy Modernization** — uma aborda
 - **Rubrica A7 (Agent Experience):** issues com contexto suficiente para o Agent produzir PR útil.
 - Avaliado indiretamente em **A6 (Colaboração):** PO que protege o foco do time.
 
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo passo do dia | Próxima persona |
+| --- | --- | --- | --- |
+| [OVERVIEW das 10 personas](../OVERVIEW.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [Requirements Engineer →](../02-requirements-engineer/PERSONA.md) |
+
+> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
+
+
 — Paula

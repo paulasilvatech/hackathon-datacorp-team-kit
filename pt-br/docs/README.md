@@ -55,3 +55,12 @@ Esta pasta pertence à persona **Tech Writer**, mas recebe contribuições de to
 - [Fluxo da equipe](../TEAM-FLOW.md)
 - [Persona kits consolidados](../persona-kits/) — leia `PERSONA.md` dentro do kit do seu papel
 - [Guias de estágio](../01-arqueologia/GUIDE.md)
+
+---
+
+## 🧭 Navegação
+
+| Anterior | Home | Próximo |
+| --- | --- | --- |
+| [Cartões de Referência](../cheat-sheets/README.md) | [Kit PT-BR](../README.md) | [Glossário Visual →](glossario-visual.md) |
+

@@ -31,27 +31,9 @@ Este documento responde às quatro. Fixe na sua tela.
 
 ## Onde isso encaixa no SDLC
 
-```mermaid
-flowchart LR
- classDef discover fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef spec fill:#FFB900,stroke:#B38600,color:#0A0A0A
- classDef impl fill:#7FBA00,stroke:#5C8700,color:#fff
- classDef ops fill:#1B1B1F,stroke:#000,color:#fff
- classDef demo fill:#00A4EF,stroke:#0078D4,color:#fff
+![Fluxo dos quatro estágios do Dia 2: arqueologia, spec moderna, reconstrução e evolução com Agent](assets/stage-flow.svg)
 
- D[Descoberta<br/>S1 · 13:00–14:30]:::discover
- SP[Especificação<br/>S2 · 14:45–16:00]:::spec
- IM[Implementação<br/>S3 · 16:15–17:30]:::impl
- EV[Evolução<br/>S4 · 17:45–18:15]:::ops
- DM[Demo + Retro<br/>18:15–19:50]:::demo
-
- D -- H1: legado → spec --> SP
- SP -- H2: spec → código --> IM
- IM -- H3: código → ops --> EV
- EV --> DM
-```
-
-Os 5 pares trabalham **em paralelo dentro de cada fase**, alternando liderança conforme o SDLC avança. Ninguém fica ocioso, ninguém repete trabalho.
+Os 5 pares trabalham **em paralelo dentro de cada fase**, alternando liderança conforme o SDLC avança. As três passagens entre estágios (**H1** legado→spec, **H2** spec→código, **H3** código→ops) são pontos onde o dia flui ou quebra. Ninguém fica ocioso, ninguém repete trabalho.
 
 ---
 
@@ -116,54 +98,11 @@ Faça rotação dentro do par a cada ~45 min para nenhuma pessoa monopolizar con
 
 ---
 
-## 3. Mapa de Passagems (raias por par)
+## 3. Mapa de Passagens (raias por par)
 
-```mermaid
-flowchart TD
- classDef vision fill:#F25022,stroke:#B33816,color:#fff
- classDef arch fill:#FFB900,stroke:#B38600,color:#0A0A0A
- classDef impl fill:#7FBA00,stroke:#5C8700,color:#fff
- classDef qual fill:#00A4EF,stroke:#0078D4,color:#fff
- classDef ops fill:#1B1B1F,stroke:#000,color:#fff
+![Passagens H1, H2 e H3 entre os 4 estágios do dia, com regras de transferência](assets/handoffs.svg)
 
- subgraph S1["Estágio 1 — Arqueologia (13:00–14:30)"]
- P1A[Par 1 · Visão<br/>extrair regras, priorizar]:::vision
- P5A[Par 5 · Operações<br/>glossário, semente do runbook]:::ops
- P2A[Par 2 · Arquitetura<br/>mapa de contexto do sistema]:::arch
- end
-
- subgraph S2["Estágio 2 — Spec (14:45–16:00)"]
- P1B[Par 1 · Visão<br/>EARS + aprovação de escopo]:::vision
- P2B[Par 2 · Arquitetura<br/>C4 L2/L3 + ADRs]:::arch
- P5B[Par 5 · Operações<br/>revisão de clareza]:::ops
- end
-
- subgraph S3["Estágio 3 — Implementação (16:15–17:30)"]
- P3A[Par 3 · Implementação<br/>Java + Next.js + revisões]:::impl
- P4A[Par 4 · Qualidade<br/>schema, migrações, testes]:::qual
- P5C[Par 5 · Operações<br/>rascunho do pipeline CI]:::ops
- end
-
- subgraph S4["Estágio 4 — Evolução (17:45–18:15)"]
- P5D[Par 5 · Operações<br/>Terraform + CI/CD]:::ops
- P3B[Par 3 · Implementação<br/>PR review em modo Agent]:::impl
- P4B[Par 4 · Qualidade<br/>gate final, cobertura]:::qual
- end
-
- P1A --> P1B
- P5A --> P5B
- P2A --> P2B
-
- P1B --> P2B
- P2B --> P3A
- P2B --> P4A
-
- P3A --> P3B
- P4A --> P4B
- P3A --> P5D
- P4A --> P5D
- P5C --> P5D
-```
+Cada par tem trabalho concreto em todos os estágios — o quem-faz-o-quê fica detalhado nas tabelas §4 e §5 abaixo. Os pontos críticos são as três passagens (H1, H2, H3) e a regra é sempre a mesma: **conversa síncrona de 5 minutos** entre par que sai e par que entra.
 
 ### Como ler o mapa
 
