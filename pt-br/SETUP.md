@@ -28,7 +28,8 @@ tags:
 >
 > **Todas as pessoas do time devem acompanhar no próprio laptop.** Uma pessoa compartilha a tela com os passos, e as outras 4 repetem. Ao final, cada laptop estará totalmente configurado.
 >
-> ⚠️ **Usuários de Windows**: todos os comandos de terminal abaixo assumem **Git Bash** ou **WSL**. **Não** use PowerShell ou CMD — `cp -R`, `chmod`, `rm -rf` e a sintaxe de heredoc não vão funcionar.
+> [!WARNING]
+> **Usuários de Windows:** todos os comandos de terminal abaixo assumem **Git Bash** ou **WSL**. **Não** use PowerShell ou CMD — `cp -R`, `chmod`, `rm -rf` e a sintaxe de heredoc não vão funcionar.
 
 ## Sumário
 
@@ -67,7 +68,8 @@ Você vai terminar com **3 repositórios no seu laptop**:
 | `sifap-legacy`      | Você lê durante o Estágio 1 — nunca edita                    | github.com/paulasilvatech/sifap-legacy (público)                     |
 | `hackathon-team-XX` | **Todo o seu trabalho vai aqui**                             | github.com/<YOUR_GITHUB_USER>/hackathon-team-XX (privado, você cria) |
 
-> **Regra-chave.** Nunca faça push para o kit ou para o sifap-legacy. Os commits do seu time vão somente para `hackathon-team-XX`.
+> [!IMPORTANT]
+> **Regra-chave:** nunca faça push para o kit ou para o sifap-legacy. Os commits do seu time vão somente para `hackathon-team-XX`.
 
 ---
 
@@ -701,7 +703,10 @@ Quando os 13 itens estiverem verdes, seu time está pronto para o **Estágio 1: 
 
 ---
 
-## 🆘 Solução de problemas
+## Solução de problemas
+
+<details>
+<summary><strong>Erros comuns e como resolver</strong> — clique para expandir</summary>
 
 ### Copilot não lê `copilot-instructions.md`
 
@@ -778,3 +783,5 @@ Quando os 13 itens estiverem verdes, seu time está pronto para o **Estágio 1: 
 <sub>↑ <a href="README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula
+
+</details>

@@ -73,7 +73,8 @@ Tudo que começa com `*` é texto livre. **Leia sempre os comentários** — fre
 
 → Tradução: "Aqui o programa verifica o teto do desconto."
 
-> **Pista valiosa:** comentários frequentemente têm datas e iniciais (`* 2007 MH - INC JUDICIAL`). Cada uma é uma evidência de que **uma regra foi adicionada num momento histórico** — e ela ainda pode estar válida.
+> [!TIP]
+> Comentários frequentemente têm datas e iniciais (`* 2007 MH - INC JUDICIAL`). Cada uma é uma evidência de que **uma regra foi adicionada num momento histórico** — e ela ainda pode estar válida.
 
 ### 2.2 Decisão · `IF` … `END-IF`
 
@@ -116,7 +117,8 @@ MOVE 500.00 TO #FAIXA-CONTRIB(1)    ← Põe 500 na faixa 1
 COMPUTE #VLR-MAX = #VLR-BRUTO * 0.30 ← Calcula 30% do bruto
 ```
 
-> **Por que importar?** Quando você vê números mágicos (`500.00`, `0.30`, `0.075`), eles **quase sempre são regras**. Tabelas de faixas, alíquotas, percentuais — tudo está aqui. Anote.
+> [!IMPORTANT]
+> Quando você vê números mágicos (`500.00`, `0.30`, `0.075`), eles **quase sempre são regras**. Tabelas de faixas, alíquotas, percentuais — tudo está aqui. Anote.
 
 ### 2.4 Chamada de programa · `CALLNAT 'NOMEPGM'`
 
@@ -238,7 +240,8 @@ Quando você abrir os DDMs ou as variáveis de um `.NSN`, vai ver coisas assim:
 | `(MU)` | Multi-valor (vários valores na mesma linha) | **Vira tabela filha** |
 | `(PE)` | Grupo periódico (vários sub-registros) | **Vira tabela filha** |
 
-> **Atenção:** `MU` e `PE` são as **únicas** coisas do Adabas que não cabem em PostgreSQL direto. Sempre que ver, marque — vira tabela separada no Estágio 3.
+> [!WARNING]
+> `MU` e `PE` são as **únicas** coisas do Adabas que não cabem em PostgreSQL direto. Sempre que ver, marque — vira tabela separada no Estágio 3.
 
 ---
 
@@ -253,9 +256,8 @@ Quando você abrir os DDMs ou as variáveis de um `.NSN`, vai ver coisas assim:
 | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>→</kbd> | Próximo `IF` (se tiver navegação de símbolos) |
 | Selecionar + Copilot Chat | Cola e pergunta direto sobre o trecho |
 
-> **Dica de ouro do Copilot Chat:**
->
-> Selecione o programa Natural inteiro → abra Copilot Chat → cole:
+> [!TIP]
+> **Atalho do Copilot Chat.** Selecione o programa Natural inteiro → abra Copilot Chat → cole:
 >
 > *"Liste todas as regras de negócio neste programa Natural. Para cada uma, indique o intervalo de linhas, a condição em português e o nível de risco (CRÍTICO/ALTO/MÉDIO/BAIXO)."*
 >

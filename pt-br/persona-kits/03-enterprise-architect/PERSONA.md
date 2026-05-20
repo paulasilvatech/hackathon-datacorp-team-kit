@@ -14,6 +14,8 @@ tags: ["persona", "enterprise-architect", "workshop", "pt-br"]
 
 # Persona — Enterprise Architect
 
+![Par 2 · Arquitetura](https://img.shields.io/badge/PAR-Par%202%20%E2%80%A2%20Arquitetura-FFB900?style=for-the-badge) ![Lidera estágio 2](https://img.shields.io/badge/LIDERA%20EST%C3%81GIO-2-1A1A1A?style=for-the-badge) ![Apoia estágio 1, 4](https://img.shields.io/badge/APOIA-1%2C%204-737373?style=for-the-badge)
+
 ## Onde você atua no SDLC
 
 ![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)

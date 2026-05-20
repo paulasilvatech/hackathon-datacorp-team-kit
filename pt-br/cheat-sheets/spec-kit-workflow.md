@@ -13,6 +13,8 @@ tags: ["cheat-sheet", "spec-kit", "sdd", "ears", "workshop", "pt-br"]
 
 # Spec-Kit — Cartão de Referência
 
+![CARTÃO](https://img.shields.io/badge/CART%C3%83O-02%20de%2003-00A4EF?style=for-the-badge) ![TÓPICO](https://img.shields.io/badge/TÓPICO-Spec-Kit-1A1A1A?style=for-the-badge) ![USE QUANDO](https://img.shields.io/badge/USE%20QUANDO-n%C3%A3o%20sabe%20qual%20%2Fspeckit%20usar-737373?style=for-the-badge)
+
 > Repo oficial: <https://github.com/github/spec-kit>. Use o Spec-Kit oficial do
 > GitHub para especificar, planejar, quebrar tarefas e implementar features.
 

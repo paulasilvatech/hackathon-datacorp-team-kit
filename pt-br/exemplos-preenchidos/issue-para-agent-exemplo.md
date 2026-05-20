@@ -14,9 +14,13 @@ tags: ["exemplo", "agent", "issue", "estagio-4", "pt-br"]
 
 # Issue para Copilot Agent — Exemplo Preenchido
 
-> **⚠️ Este é um EXEMPLO** de Issue completa e bem estruturada — o tipo que faz o Copilot Agent abrir um PR bom de primeira. Copie a estrutura, troque o conteúdo pela funcionalidade do **seu** time.
->
-> **Regra de ouro:** *"Issue ruim → PR ruim. Gaste mais tempo na Issue, menos consertando o PR."*
+![EXEMPLO](https://img.shields.io/badge/EXEMPLO-Issue%20para%20Agent-FFB900?style=for-the-badge) ![ESTÁGIO](https://img.shields.io/badge/ESTÁGIO-04%20·%20Evolu%C3%A7%C3%A3o-1A1A1A?style=for-the-badge) ![REFERÊNCIA](https://img.shields.io/badge/REFERÊNCIA-Issue%20completa%20pronta%20para%20o%20Agent-737373?style=for-the-badge)
+
+> [!NOTE]
+> Este é um exemplo de Issue completa e bem estruturada — o tipo que faz o Copilot Agent abrir um PR bom de primeira. Copie a estrutura, troque o conteúdo pela funcionalidade do **seu** time.
+
+> [!TIP]
+> **Regra de ouro.** Issue ruim → PR ruim. Gaste mais tempo na Issue, menos consertando o PR.
 
 ---
 
@@ -98,7 +102,8 @@ Quando um pagamento é aprovado (transição `PENDING → APPROVED`), o sistema 
       CHECK (email IS NULL OR email ~ '^[^@\s]+@[^@\s]+\.[^@\s]+$');
   ```
 
-> ⚠️ **NÃO editar** migrações anteriores. Sempre criar nova (regra do Estágio 3).
+> [!CAUTION]
+> **Não editar** migrações anteriores. Sempre criar nova (regra do Estágio 3).
 
 ### Testes
 

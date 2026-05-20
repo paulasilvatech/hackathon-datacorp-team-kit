@@ -135,11 +135,23 @@ Use quando: múltiplas condições se combinam.
 
 ### Exemplo: requisito RUIM vs. BOM
 
-| Ruim (vago)                        | Bom (EARS)                                                                                                        |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| "O sistema deve ser seguro"        | "O SIFAP deve mascarar CPF em logs usando o formato \*\*\*.\*\*\*.XXX-\*\*"                                        |
-| "Pagamentos devem ser processados" | "Quando um ciclo for gerado, o SIFAP deve criar registros de pagamento para todos os beneficiários com status ACTIVE" |
-| "Auditoria completa"               | "Quando qualquer entidade for alterada, o SIFAP deve gravar um registro de auditoria com estado anterior e posterior em formato JSON" |
+Compare lado a lado — o vago vs o EARS testável:
+
+```diff
+- "O sistema deve ser seguro"
++ "O SIFAP deve mascarar CPF em logs usando o formato XXX.XXX.NNN-NN"
+
+- "Pagamentos devem ser processados"
++ "Quando um ciclo for gerado, o SIFAP deve criar registros de pagamento
++  para todos os beneficiários com status ACTIVE"
+
+- "Auditoria completa"
++ "Quando qualquer entidade for alterada, o SIFAP deve gravar um registro
++  de auditoria com estado anterior e posterior em formato JSON"
+```
+
+> [!TIP]
+> O lado `+` (verde) é o que o time entrega. O lado `-` (vermelho) é o que vai virar débito técnico ou interpretação livre do Dev.
 
 ### Dica: todo requisito precisa ser TESTÁVEL
 

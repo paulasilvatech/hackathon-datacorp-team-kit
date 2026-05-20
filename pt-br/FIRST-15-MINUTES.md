@@ -36,6 +36,7 @@ tags: ["onboarding", "iniciante", "didatico", "pt-br"]
 | 6–11 | Passo 4 — Leia o `PERSONA.md` do seu papel | 5 min |
 | 11–15 | Passo 5 — Abra o Estágio 1 e a Cheat-sheet do Copilot | 4 min |
 
+> [!NOTE]
 > **Não está no devcontainer ainda?** Tudo bem. Esses 15 minutos são só leitura. O setup técnico é feito depois — guiado pelo SETUP.md.
 
 ---
