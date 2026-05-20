@@ -36,16 +36,7 @@ Um agente único teria instruções conflitantes: no Estágio 1 ele precisa ser 
 
 ## Anatomia de um agente
 
-```mermaid
-flowchart TB
-    AG[Agente<br/>.github/agents/*.agent.md] --> INS[Instruções<br/>.github/instructions/*.instructions.md]
-    AG --> PR[Prompts<br/>.github/prompts/*.prompt.md]
-    AG --> SK[Skills<br/>.github/skills/*/SKILL.md]
-    AG --> MCP[MCP<br/>mcp.json quando aplicável]
-    INS --> CTX[Contexto certo<br/>no arquivo certo]
-    PR --> CMD[Comandos slash<br/>para tarefas recorrentes]
-    SK --> WF[Workflows didáticos<br/>com exemplos e critérios]
-```
+![Anatomia de um agente: 5 camadas (Agente + Instruções + Prompts + Skills + MCP)](../assets/agent-anatomy.svg)
 
 | Camada | Para que serve | Exemplo |
 | --- | --- | --- |

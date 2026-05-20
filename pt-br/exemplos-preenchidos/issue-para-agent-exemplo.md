@@ -161,12 +161,24 @@ Quando um pagamento é aprovado (transição `PENDING → APPROVED`), o sistema 
 
 ## O que NÃO escrever na Issue
 
-| ❌ Frase fraca | ✅ Versão forte |
-|---|---|
-| *"Faça um sistema de notificação"* | *"Adicione e-mail quando status muda de PENDING para APPROVED"* |
-| *"Use boas práticas"* | *"Use ApplicationEvent; interface em domain, impl em infrastructure"* |
-| *"Escreva testes"* | *"Teste unitário com Mockito + integração com Testcontainers + MailHog"* |
-| *"Trate erros"* | *"Falha de SMTP NÃO bloqueia aprovação; registra WARN e em payment_audit.reason"* |
+Compare lado a lado — frase fraca (que o Agent interpreta livremente) versus versão forte (que produz PR determinístico):
+
+```diff
+- "Faça um sistema de notificação"
++ "Adicione e-mail quando status muda de PENDING para APPROVED"
+
+- "Use boas práticas"
++ "Use ApplicationEvent; interface em domain, impl em infrastructure"
+
+- "Escreva testes"
++ "Teste unitário com Mockito + integração com Testcontainers + MailHog"
+
+- "Trate erros"
++ "Falha de SMTP NÃO bloqueia aprovação; registra WARN e em payment_audit.reason"
+```
+
+> [!TIP]
+> Linhas `-` (vermelho) viram chute do Agent. Linhas `+` (verde) viram PR previsível.
 
 ---
 

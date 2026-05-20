@@ -162,7 +162,10 @@ Se tudo está marcado, **você está pronto**. Vá para o setup técnico (`SETUP
 
 ---
 
-## 🆘 Travou em algum desses passos?
+## Travou em algum desses passos?
+
+<details>
+<summary><strong>FAQ — situações comuns nos primeiros 15 minutos</strong></summary>
 
 | Situação | O que fazer |
 |---|---|
@@ -172,6 +175,9 @@ Se tudo está marcado, **você está pronto**. Vá para o setup técnico (`SETUP
 | VS Code/Copilot não abre | Vá para `SETUP.md` § "Passo 1 — Pré-requisitos" |
 | O cronograma parece muito apertado | É apertado mesmo. Confie na divisão por par — você não vai fazer tudo sozinho(a) |
 | Não programo. Vou ficar perdida(o)? | Não. Veja `legado-natural/COMO-LER-NATURAL.md` (para o Estágio 1) e os defaults da sua `PERSONA.md` |
+
+</details>
+
 ---
 
 ### Continuar a leitura

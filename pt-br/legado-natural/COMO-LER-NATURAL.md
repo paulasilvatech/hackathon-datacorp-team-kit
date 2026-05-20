@@ -247,6 +247,9 @@ Quando você abrir os DDMs ou as variáveis de um `.NSN`, vai ver coisas assim:
 
 ## 7. Atalhos do VS Code que economizam tempo
 
+<details>
+<summary><strong>Tabela de atalhos + dicas de uso do Copilot Chat</strong></summary>
+
 | Atalho | O que faz |
 |---|---|
 | <kbd>Ctrl</kbd>+<kbd>F</kbd> | Buscar dentro do arquivo |
@@ -264,6 +267,8 @@ Quando você abrir os DDMs ou as variáveis de um `.NSN`, vai ver coisas assim:
 > Em 30 segundos você tem 80% do trabalho feito. **Sempre confirme** olhando o `IF` original.
 
 ---
+
+</details>
 
 ## 8. Mapa dos 15 programas — em uma olhada
 

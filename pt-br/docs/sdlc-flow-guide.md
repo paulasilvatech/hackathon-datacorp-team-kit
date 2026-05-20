@@ -167,29 +167,7 @@ O kit tem duas camadas de ferramentas de IA. Elas não são alternativas — ela
 
 ### O Fluxo Recomendado
 
-```mermaid
-flowchart LR
-    subgraph S1["Etapa 1"]
-        A1["@archaeologist<br/>(prompts de descoberta)"]
-    end
-    subgraph S2["Etapa 2"]
-        B1["/speckit.specify<br/>(spec EARS)"] --> B2["/speckit.clarify<br/>(ambiguidades)"]
-        B2 --> B3["@architect<br/>(bounded contexts + ADRs)"]
-        B3 --> B4["/speckit.plan<br/>(plano técnico)"]
-    end
-    subgraph S3["Etapa 3"]
-        C1["/speckit.tasks<br/>(tasks.md)"] --> C2["@builder<br/>(traduzir + gerar código)"]
-        C2 --> C3["/speckit.analyze<br/>(consistência)"]
-    end
-    subgraph S4["Etapa 4"]
-        D1["@evolution<br/>(issues + delegação)"] --> D2["/speckit.taskstoissues<br/>(issues)"]
-    end
-
-    S1 --> S2 --> S3 --> S4
-
-    classDef stage fill:#0f172a,stroke:#334155,color:#e2e8f0
-    class S1,S2,S3,S4 stage
-```
+![Ferramentas por estágio: agente principal + comandos Spec-Kit + comandos slash por etapa](../assets/sdlc-tools-flow.svg)
 
 ### Etapa por Etapa: Quando Usar O Quê
 
