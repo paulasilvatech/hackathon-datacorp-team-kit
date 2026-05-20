@@ -117,14 +117,12 @@ flowchart LR
 ## Regra de bolso
 
 > Se você não soubesse que era IA, aceitaria esse código no seu projeto? Se não, rejeite ou refine. O Copilot acelera quem sabe; não substitui julgamento.
-
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo |
-| --- | --- | --- |
-| [Cartões de Referência](README.md) | [Kit PT-BR](../README.md) | [Spec-Kit em 1 página →](spec-kit-workflow.md) |
-
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **ÍNDICE**<br/>[Cartões de Referência](README.md) | [Kit PT-BR](../README.md) | **PRÓXIMO CARTÃO**<br/>[Spec-Kit em 1 página](spec-kit-workflow.md) |
 
 — Paula

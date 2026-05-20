@@ -30,16 +30,7 @@ tags: ["estagio-3", "implementacao", "codigo", "didatico", "pt-br"]
 
 ## Quem trabalha aqui
 
-```mermaid
-flowchart TB
- classDef lead fill:#7FBA00,stroke:#5C8700,color:#fff
- classDef qual fill:#00A4EF,stroke:#0078D4,color:#fff
- classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
-
- P3[Par 3 · Implementação<br/>TL + Dev<br/>código backend + frontend]:::lead
- P4[Par 4 · Qualidade<br/>DBA + QA<br/>migrações + testes]:::qual
- P5[Par 5 · Operações<br/>esqueleto do CI no .github/workflows]:::support
-```
+![Linha do tempo do dia: pré-evento, 4 estágios e demo, com as três passagens H1, H2, H3](assets/timeline-stages.svg)
 
 ## Objetivo
 

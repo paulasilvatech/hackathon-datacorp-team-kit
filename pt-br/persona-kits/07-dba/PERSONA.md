@@ -16,18 +16,7 @@ tags: ["persona", "dba", "workshop", "postgresql", "pt-br"]
 
 ## Onde você atua no SDLC
 
-```mermaid
-flowchart LR
- classDef current fill:#00A4EF,stroke:#0078D4,color:#fff,font-weight:bold
- classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
-
- D[Descoberta<br/>S1 — lê DDMs]:::current
- SP[Especificação<br/>S2 — modelo de dados]:::current
- IM[Implementação<br/>S3 — LIDERA schema]:::current
- EV[Evolução<br/>S4 — valida schema do Agent]:::support
-
- D --> SP --> IM --> EV
-```
+![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)
 
 - **Par**: 4 · Qualidade (junto com QA Engineer)
 - **Fases lideradas**: Implementação (S3) — schema + migrações
@@ -118,13 +107,12 @@ Traduzir o modelo Adabas para um schema relacional que funciona. Garantir migra�
 
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo passo do dia | Próxima persona |
-| --- | --- | --- | --- |
-| [← Developer](../06-developer/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [QA Engineer →](../08-qa-engineer/PERSONA.md) |
+| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
+| :--- | :---: | :---: | ---: |
+| **PERSONA ANTERIOR**<br/>[Developer](../06-developer/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[QA Engineer](../08-qa-engineer/PERSONA.md) |
 
-> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
-
+> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
 
 — Paula

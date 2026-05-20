@@ -16,16 +16,7 @@ tags: ["persona", "tech-writer", "workshop", "pt-br"]
 
 ## Onde você atua no SDLC
 
-```mermaid
-flowchart LR
- classDef current fill:#1B1B1F,stroke:#000,color:#fff,font-weight:bold
- classDef cross fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
-
- D[Descoberta<br/>S1 — glossário]:::cross
- SP[Especificação<br/>S2 — clareza de ADR]:::cross
- IM[Implementação<br/>S3 — README evolui]:::cross
- EV[Evolução<br/>S4 — LIDERA relatório do Agent]:::current
-```
+![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)
 
 - **Par**: 5 · Operações (junto com DevOps Engineer)
 - **Fases lideradas**: transversal (todas as fases) + Evolução (S4) — relatório do Agent
@@ -132,13 +123,12 @@ Tech Writer é a persona mais transversal do time — você participa de todos o
 
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo passo do dia | Próxima persona |
-| --- | --- | --- | --- |
-| [← DevOps Engineer](../09-devops-engineer/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [OVERVIEW das 10 personas](../OVERVIEW.md) |
+| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
+| :--- | :---: | :---: | ---: |
+| **PERSONA ANTERIOR**<br/>[DevOps Engineer](../09-devops-engineer/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **FIM DA SEQUÊNCIA**<br/>[OVERVIEW das personas](../OVERVIEW.md) |
 
-> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
-
+> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
 
 — Paula

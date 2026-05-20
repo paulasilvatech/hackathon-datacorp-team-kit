@@ -34,29 +34,7 @@ tags: ["estagio-1", "arqueologia", "legado", "didatico", "pt-br"]
 
 ## Quem trabalha aqui (todos os 5 pares, em paralelo)
 
-```mermaid
-flowchart TB
- classDef lead fill:#F25022,stroke:#B33816,color:#fff
- classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
- classDef writing fill:#E5F6FD,stroke:#00A4EF,color:#0A0A0A
-
- subgraph PARALLEL["TRABALHO EM PARALELO (3 horas)"]
- P1[Par 1 · Visão<br/>PO + RE<br/>3 programas Cadastro]:::lead
- P2[Par 2 · Arquitetura<br/>EA + SA<br/>3 programas Batch]:::support
- P3[Par 3 · Implementação<br/>TL + Dev<br/>3 programas Cálculo]:::support
- P4[Par 4 · Qualidade<br/>DBA + QA<br/>3 programas Validação<br/>+ 4 DDMs]:::support
- P5[Par 5 · Operação<br/>DevOps + TW<br/>3 programas Consulta/Relatório<br/>+ voz do glossário]:::writing
- end
-
- P1 -- regras priorizadas --> H1
- P2 -- mapa de dependências --> H1
- P3 -- núcleo de cálculo --> H1
- P4 -- validações + esquema de dados --> H1
- P5 -- glossário + runbook seed --> H1
-
- H1{Passagem #1<br/>~11:45<br/>Facilitador valida<br/>5 artefatos}:::lead
- H1 --> S2[Estágio 2 começa<br/>Par 2 lidera]
-```
+![Distribuição dos 5 pares: visão, arquitetura, implementação, qualidade e operações](assets/personas-team.svg)
 
 Todos os 5 pares trabalham **em paralelo**, cada um com seus 3 programas. Ninguém fica ocioso. Ao final, cada par contribui com sua parte para os 5 artefatos consolidados.
 

@@ -110,11 +110,10 @@ Não trate o Opus como "o bom" e o Haiku como "o ruim". Opus em tarefa mecânica
 
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo |
-| --- | --- | --- |
-| [← Spec-Kit em 1 página](spec-kit-workflow.md) | [Kit PT-BR](../README.md) | [Cartões de Referência](README.md) |
-
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **CARTÃO ANTERIOR**<br/>[Spec-Kit em 1 página](spec-kit-workflow.md) | [Kit PT-BR](../README.md) | **VOLTAR AO ÍNDICE**<br/>[Cartões de Referência](README.md) |
 
 — Paula

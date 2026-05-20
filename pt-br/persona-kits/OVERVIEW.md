@@ -76,11 +76,10 @@ Cada `PERSONA.md` tem uma seção "Se travar (defaults de emergência)". Aqui es
 - **QA:** 1 teste por REQ-ID crítica. Caminho feliz + caminho de erro.
 - **DevOps:** `terraform plan` só. `apply` em workshop = ❌.
 - **TW:** Pergunte ao par líder: *"O que você decidiu nos últimos 30 min que ainda não está escrito?"*
-
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo |
-| --- | --- | --- |
-| [← Kit PT-BR](../README.md) | [Kit PT-BR](../README.md) | [Estágio 1 — Arqueologia](../01-arqueologia/GUIDE.md) |
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **ÍNDICE**<br/>[Kit PT-BR](../README.md) | [Kit PT-BR](../README.md) | **EM SEGUIDA**<br/>[Estágio 1 — Arqueologia](../01-arqueologia/GUIDE.md) |

@@ -30,14 +30,7 @@ tags: ["estagio-4", "evolution", "agent", "terraform", "didatico", "pt-br"]
 
 ## Quem trabalha aqui
 
-```mermaid
-flowchart TB
- classDef ops fill:#1B1B1F,stroke:#000,color:#fff
- classDef impl fill:#7FBA00,stroke:#5C8700,color:#fff
-
- P5[Par 5 · Operações<br/>LIDERA<br/>Terraform + CI/CD + runbook]:::ops
- P3[Par 3 · Implementação<br/>CO-LIDERA<br/>escreve Issues + revisa PRs do Agent]:::impl
-```
+![Linha do tempo do dia: pré-evento, 4 estágios e demo, com as três passagens H1, H2, H3](assets/timeline-stages.svg)
 
 ## Objetivo
 

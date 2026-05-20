@@ -19,31 +19,11 @@ tags:
 
 ## Onde isso encaixa no SDLC
 
-```mermaid
-flowchart LR
- classDef done fill:#7FBA00,stroke:#5C8700,color:#fff
- classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef demo fill:#00A4EF,stroke:#0078D4,color:#fff
-
- IM[Implementação ✓<br/>Backend + Frontend]:::done
- EV[Evolução<br/>IaC + CI/CD + Agent]:::current
- DM[Demo + Retrospectiva]:::demo
-
- IM --> EV --> DM
-```
+![Linha do tempo do dia: pré-evento, 4 estágios e demo, com as três passagens H1, H2, H3](assets/timeline-stages.svg)
 
 ## Quem trabalha aqui
 
-```mermaid
-flowchart TB
- classDef ops fill:#1B1B1F,stroke:#000,color:#fff,font-weight:bold
- classDef impl fill:#7FBA00,stroke:#5C8700,color:#fff
- classDef qual fill:#00A4EF,stroke:#0078D4,color:#fff
-
- P5[Par 5 · Operações<br/>DevOps + TW<br/>LIDERA — Terraform + CI/CD + runbook]:::ops
- P3[Par 3 · Implementação<br/>TL + Dev<br/>CO-LIDERA — revisão do PR do Agent]:::impl
- P4[Par 4 · Qualidade<br/>DBA + QA<br/>gate final de cobertura]:::qual
-```
+![Linha do tempo do dia: pré-evento, 4 estágios e demo, com as três passagens H1, H2, H3](assets/timeline-stages.svg)
 
 ## Conteúdo
 

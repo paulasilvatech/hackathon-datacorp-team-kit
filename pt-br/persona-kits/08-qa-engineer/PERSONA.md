@@ -16,18 +16,7 @@ tags: ["persona", "qa-engineer", "workshop", "testing", "pt-br"]
 
 ## Onde você atua no SDLC
 
-```mermaid
-flowchart LR
- classDef current fill:#00A4EF,stroke:#0078D4,color:#fff,font-weight:bold
- classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
-
- D[Descoberta<br/>S1 — cenários críticos]:::support
- SP[Especificação<br/>S2 — critérios de teste]:::support
- IM[Implementação<br/>S3 — LIDERA testes]:::current
- EV[Evolução<br/>S4 — gate de cobertura]:::current
-
- D --> SP --> IM --> EV
-```
+![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)
 
 - **Par**: 4 · Qualidade (junto com DBA)
 - **Fases lideradas**: Implementação (S3) — suíte de testes + CI verde
@@ -120,13 +109,12 @@ Definir a estratégia de testes do projeto. Escrever testes críticos (não 100%
 
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo passo do dia | Próxima persona |
-| --- | --- | --- | --- |
-| [← DBA](../07-dba/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [DevOps Engineer →](../09-devops-engineer/PERSONA.md) |
+| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
+| :--- | :---: | :---: | ---: |
+| **PERSONA ANTERIOR**<br/>[DBA](../07-dba/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[DevOps Engineer](../09-devops-engineer/PERSONA.md) |
 
-> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
-
+> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
 
 — Paula

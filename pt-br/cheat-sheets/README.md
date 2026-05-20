@@ -20,14 +20,7 @@ tags: ["cheat-sheet", "copilot", "spec-kit", "model-routing", "workshop", "pt-br
 
 Você abre um cartão de referência quando precisa de **resposta rápida** sem ler um guia completo. Cada um responde uma pergunta específica:
 
-```mermaid
-flowchart LR
- classDef sheet fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
-
- Q1["É Ask, Plan ou Agent?"]:::sheet --> S1[copilot-3-modes.md]
- Q2["Qual comando do Spec-Kit uso?"]:::sheet --> S2[spec-kit-workflow.md]
- Q3["Qual modelo Claude usar agora?"]:::sheet --> S3[model-routing.md]
-```
+![Três cartões de referência rápida: Copilot em 3 modos, Spec-Kit em 1 página, roteamento de modelos](../assets/cheat-sheets-index.svg)
 
 ## Conteúdo
 
@@ -37,10 +30,12 @@ flowchart LR
 | [`spec-kit-workflow.md`](spec-kit-workflow.md) | Fluxo Spec-Kit de relance                       | Não souber qual comando `/speckit.*` usar            |
 | [`model-routing.md`](model-routing.md)     | Qual modelo de IA usar para cada tipo de tarefa | Estiver decidindo entre Haiku, Sonnet ou Opus        |
 
-## Navegação
+---
 
-| Anterior                          | Início                    | Próximo                               |
-| --------------------------------- | ------------------------- | ------------------------------------- |
-| [Persona Kits](../persona-kits/README.md) | [Kit PT-BR](../README.md) | [Copilot em 3 modos](copilot-3-modes.md) |
+### Navegação
+
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **VEM DE**<br/>[Persona Kits](../persona-kits/README.md) | [Kit PT-BR](../README.md) | **PRIMEIRO CARTÃO**<br/>[Copilot em 3 modos](copilot-3-modes.md) |
 
 — Paula

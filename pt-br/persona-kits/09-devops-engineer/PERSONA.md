@@ -24,18 +24,7 @@ tags:
 
 ## Onde você atua no SDLC
 
-```mermaid
-flowchart LR
- classDef current fill:#1B1B1F,stroke:#000,color:#fff,font-weight:bold
- classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
-
- D[Descoberta<br/>S1 — estabiliza devcontainer]:::support
- SP[Especificação<br/>S2 — ADR de deploy]:::support
- IM[Implementação<br/>S3 — pipeline + Docker]:::support
- EV[Evolução<br/>S4 — LIDERA Terraform + CI/CD]:::current
-
- D --> SP --> IM --> EV
-```
+![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)
 
 - **Par**: 5 · Operações (junto com Tech Writer)
 - **Fases lideradas**: Evolução (S4) — Terraform + CI/CD
@@ -128,13 +117,12 @@ Pipeline verde. Build reproduzível. Deploy descrito como código. Observabilida
 
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo passo do dia | Próxima persona |
-| --- | --- | --- | --- |
-| [← QA Engineer](../08-qa-engineer/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [Tech Writer →](../10-tech-writer/PERSONA.md) |
+| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
+| :--- | :---: | :---: | ---: |
+| **PERSONA ANTERIOR**<br/>[QA Engineer](../08-qa-engineer/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[Tech Writer](../10-tech-writer/PERSONA.md) |
 
-> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
-
+> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
 
 — Paula

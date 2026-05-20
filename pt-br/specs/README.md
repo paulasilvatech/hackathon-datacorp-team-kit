@@ -82,14 +82,12 @@ mv specs/001-example-feature specs/001-geracao-ciclo-pagamento
 - [Cartão de referência do Spec-Kit](../cheat-sheets/spec-kit-workflow.md)
 - [Spec-Kit oficial](https://github.com/github/spec-kit)
 - [Spec-Driven Development](https://github.com/github/spec-kit/blob/main/spec-driven.md)
-
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo |
-| --- | --- | --- |
-| [← Cartão Spec-Kit](../cheat-sheets/spec-kit-workflow.md) | [Kit PT-BR](../README.md) | [Exemplo: 001-example-feature →](001-example-feature/README.md) |
-
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **VEM DE**<br/>[Cartão Spec-Kit](../cheat-sheets/spec-kit-workflow.md) | [Kit PT-BR](../README.md) | **EXEMPLO**<br/>[001-example-feature](001-example-feature/README.md) |
 
 — Paula

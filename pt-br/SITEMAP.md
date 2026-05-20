@@ -81,11 +81,10 @@ O cronograma visual canônico está em [`assets/stage-flow.svg`](assets/stage-fl
 3. **Não sabe o que entregar?** Abra o `GUIDE.md` do estágio atual → seção "Como saber que terminou (DoD)".
 4. **Achou um termo estranho?** [`docs/glossario-visual.md`](docs/glossario-visual.md).
 5. **Travou há mais de 20 min?** Levante a mão. **Regra do TEAM-FLOW.md §6.**
-
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo |
-| --- | --- | --- |
-| [← Kit PT-BR](README.md) | [Kit PT-BR](README.md) | [FIRST-15-MINUTES](FIRST-15-MINUTES.md) |
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **ÍNDICE**<br/>[Kit PT-BR](README.md) | [Kit PT-BR](README.md) | **EM SEGUIDA**<br/>[FIRST-15-MINUTES](FIRST-15-MINUTES.md) |

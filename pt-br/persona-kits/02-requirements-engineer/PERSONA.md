@@ -16,19 +16,7 @@ tags: ["persona", "requirements-engineer", "workshop", "ears", "pt-br"]
 
 ## Onde você atua no SDLC
 
-```mermaid
-flowchart LR
- classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
- classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
-
- D[Descoberta<br/>S1 — extrai regras]:::current
- SP[Especificação<br/>S2 — LIDERA EARS]:::current
- IM[Implementação<br/>S3 — clarifica]:::support
- EV[Evolução<br/>S4 — coerência spec ↔ issue]:::support
-
- D --> SP --> IM --> EV
-```
+![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)
 
 - **Par**: 1 · Visão (junto com Product Owner)
 - **Fases lideradas**: Especificação (S2) — escrita de EARS
@@ -119,13 +107,12 @@ Converter o que foi descoberto no Estágio 1 em requisitos formais e testáveis 
 
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo passo do dia | Próxima persona |
-| --- | --- | --- | --- |
-| [← Product Owner](../01-product-owner/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [Enterprise Architect →](../03-enterprise-architect/PERSONA.md) |
+| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
+| :--- | :---: | :---: | ---: |
+| **PERSONA ANTERIOR**<br/>[Product Owner](../01-product-owner/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[Enterprise Architect](../03-enterprise-architect/PERSONA.md) |
 
-> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
-
+> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
 
 — Paula

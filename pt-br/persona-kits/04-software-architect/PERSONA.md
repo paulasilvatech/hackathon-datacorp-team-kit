@@ -16,18 +16,7 @@ tags: ["persona", "software-architect", "workshop", "pt-br"]
 
 ## Onde você atua no SDLC
 
-```mermaid
-flowchart LR
- classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
-
- D[Descoberta<br/>S1 — bounded contexts candidatos]:::support
- SP[Especificação<br/>S2 — LIDERA C4 L2/L3 + ADRs]:::current
- IM[Implementação<br/>S3 — guarda fronteiras]:::current
- EV[Evolução<br/>S4 — valida PR do Agent]:::support
-
- D --> SP --> IM --> EV
-```
+![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)
 
 - **Par**: 2 · Arquitetura (junto com Enterprise Architect)
 - **Fases lideradas**: Especificação (S2) — C4 L2/L3 + ADRs + Implementação (S3) — revisão estrutural
@@ -118,13 +107,12 @@ Produzir C4 Níveis 2 e 3 coerentes com a spec. Definir os bounded contexts do S
 
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo passo do dia | Próxima persona |
-| --- | --- | --- | --- |
-| [← Enterprise Architect](../03-enterprise-architect/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [Technical Lead →](../05-technical-lead/PERSONA.md) |
+| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
+| :--- | :---: | :---: | ---: |
+| **PERSONA ANTERIOR**<br/>[Enterprise Architect](../03-enterprise-architect/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[Technical Lead](../05-technical-lead/PERSONA.md) |
 
-> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
-
+> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
 
 — Paula

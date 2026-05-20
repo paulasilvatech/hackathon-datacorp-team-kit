@@ -173,14 +173,12 @@ flowchart LR
 - [Documentação oficial](https://github.github.io/spec-kit/)
 - [Guia de instalação](https://github.com/github/spec-kit/blob/main/docs/installation.md)
 - [Spec-Driven Development](https://github.com/github/spec-kit/blob/main/spec-driven.md)
-
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo |
-| --- | --- | --- |
-| [← Copilot em 3 modos](copilot-3-modes.md) | [Kit PT-BR](../README.md) | [Roteamento de modelos →](model-routing.md) |
-
+| ←  Anterior | ↑  Início | Próximo  → |
+| :--- | :---: | ---: |
+| **CARTÃO ANTERIOR**<br/>[Copilot em 3 modos](copilot-3-modes.md) | [Kit PT-BR](../README.md) | **PRÓXIMO CARTÃO**<br/>[Roteamento de modelos](model-routing.md) |
 
 — Paula

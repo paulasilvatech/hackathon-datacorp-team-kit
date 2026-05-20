@@ -20,19 +20,7 @@ tags: ["estagio-1", "arqueologia", "legado", "analise", "workshop", "pt-br"]
 
 ## Onde isso encaixa no SDLC
 
-```mermaid
-flowchart LR
- classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef next fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
- classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
-
- D[Descoberta<br/>Estágio 1<br/>VOCÊ ESTÁ AQUI]:::current
- SP[Especificação<br/>Estágio 2]:::next
- IM[Implementação<br/>Estágio 3]:::later
- EV[Evolução<br/>Estágio 4]:::later
-
- D --> SP --> IM --> EV
-```
+![Linha do tempo do dia: pré-evento, 4 estágios e demo, com as três passagens H1, H2, H3](assets/timeline-stages.svg)
 
 ## Quem trabalha aqui
 

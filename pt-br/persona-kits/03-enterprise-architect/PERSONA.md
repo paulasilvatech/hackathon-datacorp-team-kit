@@ -16,19 +16,7 @@ tags: ["persona", "enterprise-architect", "workshop", "pt-br"]
 
 ## Onde você atua no SDLC
 
-```mermaid
-flowchart LR
- classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
- classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
-
- D[Descoberta<br/>S1 — C4 L1 + integrações]:::support
- SP[Especificação<br/>S2 — LIDERA ADRs topologia]:::current
- IM[Implementação<br/>S3 — valida contratos]:::support
- EV[Evolução<br/>S4 — impacto arquitetural]:::support
-
- D --> SP --> IM --> EV
-```
+![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)
 
 - **Par**: 2 · Arquitetura (junto com Software Architect)
 - **Fases lideradas**: Especificação (S2) — C4 L1 + ADRs de topologia
@@ -119,13 +107,12 @@ Garantir que o SIFAP 2.0 não quebre o mundo ao redor. Desenhar o mapa de depend
 
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo passo do dia | Próxima persona |
-| --- | --- | --- | --- |
-| [← Requirements Engineer](../02-requirements-engineer/PERSONA.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [Software Architect →](../04-software-architect/PERSONA.md) |
+| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
+| :--- | :---: | :---: | ---: |
+| **PERSONA ANTERIOR**<br/>[Requirements Engineer](../02-requirements-engineer/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[Software Architect](../04-software-architect/PERSONA.md) |
 
-> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
-
+> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
 
 — Paula

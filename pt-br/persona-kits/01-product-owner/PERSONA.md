@@ -16,20 +16,7 @@ tags: ["persona", "product-owner", "workshop", "pt-br"]
 
 ## Onde você atua no SDLC
 
-```mermaid
-flowchart LR
- classDef current fill:#F25022,stroke:#B33816,color:#fff,font-weight:bold
- classDef support fill:#FFF7E0,stroke:#FFB900,color:#0A0A0A
- classDef later fill:#F7F7F4,stroke:#C8C8C0,color:#6B6B6B
-
- D[Descoberta<br/>S1 — LIDERA]:::current
- SP[Especificação<br/>S2 — aprovação de escopo]:::current
- IM[Implementação<br/>S3 — clarifica]:::support
- EV[Evolução<br/>S4 — escreve Issues do Agent]:::support
- DM[Demonstração<br/>conduz]:::current
-
- D --> SP --> IM --> EV --> DM
-```
+![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)
 
 - **Par**: 1 · Visão (junto com Requirements Engineer)
 - **Fases lideradas**: Descoberta (S1) + Especificação (S2 escopo) + Demonstração
@@ -122,13 +109,12 @@ Este workshop aplica o framework **Agentic Legacy Modernization** — uma aborda
 
 ---
 
-## 🧭 Navegação
+### Navegação
 
-| Anterior | Home | Próximo passo do dia | Próxima persona |
-| --- | --- | --- | --- |
-| [OVERVIEW das 10 personas](../OVERVIEW.md) | [Kit PT-BR](../../README.md) | [Estágio 1 — Arqueologia](../../01-arqueologia/GUIDE.md) | [Requirements Engineer →](../02-requirements-engineer/PERSONA.md) |
+| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
+| :--- | :---: | :---: | ---: |
+| **VOLTAR AO ÍNDICE**<br/>[OVERVIEW das personas](../OVERVIEW.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[Requirements Engineer](../02-requirements-engineer/PERSONA.md) |
 
-> **Onde você está**: leu sua persona ✅. Próximo: confira sua dupla (se já não leu) e abra `01-arqueologia/GUIDE.md` às 13:00.
-
+> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
 
 — Paula
