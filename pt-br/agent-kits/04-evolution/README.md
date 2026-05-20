@@ -20,7 +20,7 @@ Operacionalizar o que foi construído: criar issues claras para o modo Agent, re
 
 ## Quando usar
 
-- **Horário:** 17:45–18:15.
+- **Horário:** 16:10–16:50.
 - **Protagonista:** Technical Lead.
 - **Suporte forte:** DevOps Engineer, Tech Writer, Developer e QA Engineer.
 - **Pré-requisito:** Passagem #3 com backend/frontend funcionando, testes relevantes e pendências conhecidas.

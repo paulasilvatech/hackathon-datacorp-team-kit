@@ -1,5 +1,5 @@
 ---
-title: "Estágio 3 — Implementação (3 horas)"
+title: "Estágio 3 — Implementação (70 min)"
 description: "Guia para estender o protótipo SIFAP 2.0 com as features priorizadas no Estágio 2. Foco: código, testes e rastreabilidade até a EARS."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/03-implementacao/GUIDE.md"
@@ -12,9 +12,9 @@ tags: ["estagio-3", "implementacao", "codigo", "didatico", "pt-br"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-# Estágio 3 — Implementação (3 horas)
+# Estágio 3 — Implementação (70 min)
 
-![ESTÁGIO 03 de 04](https://img.shields.io/badge/EST%C3%81GIO-03%20de%2004-7FBA00?style=for-the-badge) ![Horário 16:15 – 17:30](https://img.shields.io/badge/HOR%C3%81RIO-16%3A15%20%E2%80%93%2017%3A30-1A1A1A?style=for-the-badge) ![Duração 75 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-75%20min-737373?style=for-the-badge)
+![ESTÁGIO 03 de 04](https://img.shields.io/badge/EST%C3%81GIO-03%20de%2004-7FBA00?style=for-the-badge) ![Horário 15:00 – 16:10](https://img.shields.io/badge/HOR%C3%81RIO-16%3A15%20%E2%80%93%2017%3A30-1A1A1A?style=for-the-badge) ![Duração 75 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-75%20min-737373?style=for-the-badge)
 
 > **Categoria:** Implementação · **Quem trabalha agora:** Pares 3 + 4 lideram
 
@@ -388,12 +388,12 @@ No Passagem #3 (~17:00), o **Par 3 (Implementação)** entrega o código rodando
 <td width="50%" valign="top" align="left">
 <sub><strong>← ANTERIOR</strong></sub><br/>
 <a href="../02-spec-moderna/GUIDE.md"><strong>Estágio 2 — Spec Moderna</strong></a><br/>
-<sub>14:45–16:00 · Escrever EARS, ADRs e diagramas C4.</sub>
+<sub>14:00–15:00 · Escrever EARS, ADRs e diagramas C4.</sub>
 </td>
 <td width="50%" valign="top" align="right">
 <sub><strong>PRÓXIMO →</strong></sub><br/>
 <a href="../04-evolucao/GUIDE.md"><strong>Estágio 4 — Evolução</strong></a><br/>
-<sub>17:45–18:15 · Copilot Agent + Terraform + CI/CD.</sub>
+<sub>16:10–16:50 · Copilot Agent + Terraform + CI/CD.</sub>
 </td>
 </tr>
 </table>

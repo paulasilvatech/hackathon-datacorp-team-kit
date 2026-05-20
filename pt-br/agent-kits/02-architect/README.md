@@ -20,7 +20,7 @@ Transformar o relatório de descoberta em uma spec implementável: requisitos ra
 
 ## Quando usar
 
-- **Horário:** 14:45–16:00.
+- **Horário:** 14:00–15:00.
 - **Protagonista:** Software Architect.
 - **Suporte forte:** Requirements Engineer, Enterprise Architect, Product Owner e Technical Lead.
 - **Pré-requisito:** Passagem #1 com evidências do legado e `source_legacy:` disponíveis.

@@ -57,7 +57,7 @@ Não escreva ADR para: nomes de variáveis, configurações de formatter, versõ
 <td width="50%" valign="top" align="right">
 <sub><strong>PRÓXIMO →</strong></sub><br/>
 <a href="../../02-spec-moderna/GUIDE.md"><strong>Estágio 2 — Spec Moderna</strong></a><br/>
-<sub>14:45–16:00 · Escrever EARS, ADRs e diagramas C4.</sub>
+<sub>14:00–15:00 · Escrever EARS, ADRs e diagramas C4.</sub>
 </td>
 </tr>
 </table>

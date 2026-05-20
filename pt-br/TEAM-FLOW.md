@@ -67,32 +67,28 @@ Faça rotação dentro do par a cada ~45 min para nenhuma pessoa monopolizar con
 
 ---
 
-## 2. Linha do Tempo (8 horas, Dia 2)
+## 2. Linha do Tempo (8 horas, Dia 2 · 10h–18h)
 
-```
-09:00 09:30 12:00 13:00 14:30 16:00 17:30 18:15
- |-----|-----------------------| |-----|-----|-----|-----|------|
- | configuração + orientação técnica | ALMOÇO | S1 Arqueologia | S2 Spec | S3 Impl | S4 Evol
-```
+> [!IMPORTANT]
+> **O setup do Copilot, Docker e clone do repositório deve estar feito ANTES de 10:00.** Na manhã do dia 2, às 10h, o time apenas valida que tudo abre — não instala do zero. Senão não cabe no cronograma.
 
-| Horário         | Bloco                               | Pares líderes                             | Pares de suporte                                            |
-| --------------- | ----------------------------------- | ----------------------------------------- | ----------------------------------------------------------- |
-| **09:00–09:30** | Abertura + configuração             | Todos                                     | Leiam TEAM-FLOW e confirmem o par de cada pessoa             |
-| **09:30–10:30** | Instalação dos kits Copilot         | Todos                                     | Cada pessoa copia seus 2 persona-kits e valida Ask/Plan/Agent |
-| **10:30–11:30** | Configuração técnica + testes de fumaça | Par 3 + Par 5                          | Docker, Spec-Kit, scripts, estratégia de branches e acesso ao GitHub |
-| **11:30–12:00** | Orientação do legado                | Par 1 + Par 4                             | Apresentação dos Natural programs, DDMs e critérios de arqueologia |
-| **12:00–13:00** | ALMOÇO                              | —                                         | —                                                           |
-| **13:00–14:15** | Estágio 1 — Arqueologia (mineração) | **Par 1** (PO+RE), **Par 5** (TW)         | Par 2 mapeia contexto; Pares 3 e 4 leem protótipo e DDMs    |
-| **14:15–14:30** | **Passagem #1** legado → spec        | Par 1 → Par 2                             | Par 5 dá suporte de clareza de ADR                          |
-| **14:45–16:00** | Estágio 2 — Spec Moderna            | **Par 2** (EA+SA)                         | Par 1 valida escopo; Par 5 cuida da clareza dos ADRs        |
-| **16:00–16:15** | **Passagem #2** spec → código        | Par 2 → Pares 3 + 4                       | Par 1 assina o escopo                                       |
-| **16:15–17:30** | Estágio 3 — Implementação           | **Par 3** (TL+Dev), **Par 4** (DBA+QA)    | Par 5 inicia rascunho do pipeline                           |
-| **17:30–17:45** | **Passagem #3** código → ops         | Par 3 → Par 5                             | Par 4 continua testes finais                                |
-| **17:45–18:15** | Estágio 4 — Evolução                | **Par 5** (DevOps+TW), **Par 3** (TL+Dev) | Par 4 gate final de cobertura                               |
-| **18:15–18:45** | Preparação do demo                  | Par 1 + Par 3                             | Todos ensaiam 30 segundos cada                              |
-| **18:45–19:20** | **Demos** (20 times × ~3 min)       | Time todo                                 | —                                                           |
-| **19:20–19:50** | Retrospectiva                       | Todos                                     | Cada persona preenche seu form                              |
-| **19:50–20:00** | Encerramento                        | —                                         | —                                                           |
+![Linha do tempo do dia: pré-evento, 4 estágios e demo, com as três passagens H1, H2, H3](assets/timeline-stages.svg)
+
+| Horário         | Bloco                                      | Pares líderes                          | Pares de suporte                                                       |
+| --------------- | ------------------------------------------ | -------------------------------------- | ---------------------------------------------------------------------- |
+| **10:00–10:15** | Abertura + confirmação de pares            | Facilitador                            | Cada pessoa confirma suas 2 personas; abre seu PERSONA.md              |
+| **10:15–10:45** | Validação do setup + persona-kits          | Par 3 + Par 5                          | `docker compose up`, Spec-Kit `specify version`, Copilot Chat funciona |
+| **10:45–11:00** | Orientação rápida do legado                | Par 1 + Par 4                          | Apresentação dos 15 programas Natural + 4 DDMs                         |
+| **11:00–12:00** | **Estágio 1** — Arqueologia (parte 1)      | Todos os 5 pares em paralelo           | Cada par com 3 programas — Reconhecimento + Extração                   |
+| **12:00–13:30** | 🍴 **ALMOÇO**                               | —                                      | —                                                                      |
+| **13:30–14:00** | **Estágio 1** — Síntese + **Passagem #1**  | **Par 1** consolida BR + escopo        | Par 5 fecha glossário, Par 2 finaliza dependency-map                   |
+| **14:00–15:00** | **Estágio 2** — Spec Moderna               | **Par 2** (EA+SA)                      | Par 1 valida escopo · Par 5 revisa ADRs · **Passagem #2** ao fim       |
+| **15:00–16:10** | **Estágio 3** — Implementação              | **Par 3** (TL+Dev), **Par 4** (DBA+QA) | Par 5 esqueleta CI · **Passagem #3** ao fim                            |
+| **16:10–16:50** | **Estágio 4** — Evolução com Agentes       | **Par 5** (DevOps+TW)                  | **Par 3** escreve Issues e revisa PRs do Agent                         |
+| **16:50–17:00** | Buffer + preparação das demos              | Todos                                  | Cada time ensaia 30s por persona                                       |
+| **17:00–17:30** | **Demos dos times** (~3 min cada)          | Time todo                              | PO conduz · facilitador cronometra                                     |
+| **17:30–17:50** | Retrospectiva                              | Todos                                  | Manter / Mudar / Tentar — por persona                                  |
+| **17:50–18:00** | Encerramento + feedback final              | Facilitador                            | —                                                                      |
 
 > Ninguém fica parado. Pares que não estão "liderando" um estágio têm trabalho concreto de suporte — veja §4.
 
@@ -126,20 +122,20 @@ Nenhum par fica parado. Mesmo quando não está "liderando", cada par tem trabal
 
 ---
 
-## 5. Primeiros 30 Minutos — Checklist por Par
+## 5. Primeiros 45 Minutos — Checklist por Par
 
-Às 09:00, **todo par** faz as mesmas 4 coisas nos primeiros 30 minutos. Depois começa a especialização.
+Entre **10:00 e 10:45**, **todo par** faz as mesmas 4 coisas. Depois começa a especialização.
 
-| Passo | Ação                                                                                                      | Tempo  |
-| ----- | --------------------------------------------------------------------------------------------------------- | ------ |
-| 1     | Leia [`TEAM-FLOW.md`](TEAM-FLOW.md) (este arquivo)                                                        | 10 min |
-| 2     | Leia o `PERSONA.md` dos seus dois kits em [`persona-kits/`](persona-kits/)                                | 10 min |
-| 3     | Copie seu kit Copilot: `cp -r persona-kits/XX-persona-A/.github/* .github/` (repita para persona B) | 5 min  |
-| 4     | Abra o Copilot Chat, rode o prompt de teste de fumaça de um dos seus cards                                | 5 min  |
+| Passo | Ação                                                                                                       | Tempo  |
+| ----- | ---------------------------------------------------------------------------------------------------------- | ------ |
+| 1     | Leia [`TEAM-FLOW.md`](TEAM-FLOW.md) (este arquivo)                                                         | 10 min |
+| 2     | Leia o `PERSONA.md` dos seus dois kits em [`persona-kits/`](persona-kits/)                                 | 15 min |
+| 3     | Copie seu kit Copilot: `cp -r persona-kits/XX-persona-A/.github/* .github/` (repita para persona B)        |  5 min |
+| 4     | Abra o Copilot Chat, rode o prompt de teste de fumaça de um dos seus cards e valide `docker compose up`    | 15 min |
 
-### Primeira ação de cada par na arqueologia, às 13:00
+### Primeira ação de cada par na arqueologia, às 11:00
 
-| Par                   | Ação às 13:00                                                                                                                                                                                       |
+| Par                   | Ação às 11:00                                                                                                                                                                                       |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **1 · Visão**         | PO abre [`../../01-blueprint/WORKSHOP-BLUEPRINT.md`](../../01-blueprint/WORKSHOP-BLUEPRINT.md); RE abre [`legado-natural/natural-programs/`](legado-natural/natural-programs/) e começa o catálogo de regras.       |
 | **2 · Arquitetura**   | EA abre [`legado-natural/legacy-docs/`](legado-natural/legacy-docs/) e começa C4 L1; SA prepara candidatos a bounded context.                                                                                       |
@@ -179,7 +175,7 @@ Bom: _"Objetivo: validar CPF em `BeneficiaryService`. Tentei: regex + sugestão 
 
 ## 7. Definição de Pronto — Por Passagem
 
-### Passagem #1 — Legado → Spec (fim do Estágio 1, ~14:30)
+### Passagem #1 — Legado → Spec (fim do Estágio 1, ~14:00)
 
 **Dono:** Par 1 (Visão)
 **Receptores:** Par 2 (Arquitetura), Par 5 (Operações)
@@ -191,7 +187,7 @@ Bom: _"Objetivo: validar CPF em `BeneficiaryService`. Tentei: regex + sugestão 
 | Mapa de dependências  | [`01-arqueologia/dependency-map.md`](01-arqueologia/dependency-map.md)                 | Diagrama Mermaid cobrindo os 15 Naturals          |
 | Mistérios encontrados | [`01-arqueologia/mysteries-found.md`](01-arqueologia/mysteries-found.md)               | ≥ 5 regras escondidas identificadas com evidência |
 
-### Passagem #2 — Spec → Código (fim do Estágio 2, ~16:00)
+### Passagem #2 — Spec → Código (fim do Estágio 2, ~15:00)
 
 **Dono:** Par 2 (Arquitetura)
 **Receptores:** Par 3 (Implementação), Par 4 (Qualidade)
@@ -203,7 +199,7 @@ Bom: _"Objetivo: validar CPF em `BeneficiaryService`. Tentei: regex + sugestão 
 | ADRs                | `02-spec-moderna/ADRs/`                               | ≥ 3 ADRs (monólito modular, persistência, auth) |
 | Aprovação de escopo | Registrado no PR                                      | Par 1 (PO) aprovou escopo                       |
 
-### Passagem #3 — Código → Ops (fim do Estágio 3, ~17:00)
+### Passagem #3 — Código → Ops (fim do Estágio 3, ~16:10)
 
 **Dono:** Par 3 (Implementação)
 **Receptores:** Par 5 (Operações)

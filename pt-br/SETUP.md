@@ -46,7 +46,7 @@ tags:
 - [🎯 Passo 10 — Use o fluxo Spec-Kit (todos)](#-passo-10--use-o-fluxo-spec-kit-todos)
 - [🌿 Passo 11 — Entenda a estratégia de branches](#-passo-11--entenda-a-estratégia-de-branches)
 - [🔄 Passo 12 — Fluxo diário por persona](#-passo-12--fluxo-diário-por-persona)
-- [🚦 Passo 13 — Rode o teste de fumaça (time inteiro, às 09:30)](#-passo-13--rode-o-teste-de-fumaça-time-inteiro-às-0930)
+- [🚦 Passo 13 — Rode o teste de fumaça (time inteiro, às 10:30)](#-passo-13--rode-o-teste-de-fumaça-time-inteiro-às-0930)
 - [🆘 Solução de problemas](#-solução-de-problemas)
 
 ---
@@ -681,7 +681,7 @@ Cada persona tem um **ciclo diário padrão**. Rode-o quantas vezes forem necess
 
 ---
 
-## 🚦 Passo 13 — Rode o teste de fumaça (time inteiro, às 09:30)
+## 🚦 Passo 13 — Rode o teste de fumaça (time inteiro, às 10:30)
 
 A pessoa líder do time lê cada item em voz alta. Cada pessoa confirma no próprio laptop.
 

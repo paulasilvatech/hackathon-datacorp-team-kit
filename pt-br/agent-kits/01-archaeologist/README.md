@@ -20,7 +20,7 @@ Transformar arquivos Natural/Adabas em evidências úteis para o Estágio 2: glo
 
 ## Quando usar
 
-- **Horário:** 13:00–14:30.
+- **Horário:** 11:00–12:00 + 13:30–14:00.
 - **Protagonista:** Requirements Engineer.
 - **Suporte forte:** Tech Writer, Enterprise Architect e DBA.
 - **Pré-requisito:** pasta `legado-natural/` disponível no workspace.

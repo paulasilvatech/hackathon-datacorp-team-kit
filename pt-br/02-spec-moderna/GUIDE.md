@@ -1,5 +1,5 @@
 ---
-title: "Estágio 2 — Spec Moderna (3 horas)"
+title: "Estágio 2 — Spec Moderna (60 min)"
 description: "Guia para construir uma especificação técnica usando EARS, ADRs e C4. Todo requisito PRECISA rastrear até código legado ou ser marcado explicitamente como greenfield."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/02-spec-moderna/GUIDE.md"
@@ -12,9 +12,9 @@ tags: ["estagio-2", "especificacao", "ears", "adr", "c4", "didatico", "pt-br"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-# Estágio 2 — Spec Moderna (3 horas)
+# Estágio 2 — Spec Moderna (60 min)
 
-![ESTÁGIO 02 de 04](https://img.shields.io/badge/EST%C3%81GIO-02%20de%2004-00A4EF?style=for-the-badge) ![Horário 14:45 – 16:00](https://img.shields.io/badge/HOR%C3%81RIO-14%3A45%20%E2%80%93%2016%3A00-1A1A1A?style=for-the-badge) ![Duração 75 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-75%20min-737373?style=for-the-badge)
+![ESTÁGIO 02 de 04](https://img.shields.io/badge/EST%C3%81GIO-02%20de%2004-00A4EF?style=for-the-badge) ![Horário 14:00 – 16:00](https://img.shields.io/badge/HOR%C3%81RIO-14%3A45%20%E2%80%93%2016%3A00-1A1A1A?style=for-the-badge) ![Duração 75 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-75%20min-737373?style=for-the-badge)
 
 > **Categoria:** Especificação · **Quem trabalha agora:** Par 2 lidera · Par 1 assina escopo
 
@@ -463,12 +463,12 @@ No Passagem #2 (~16:00), o **Par 2 (Arquitetura)** entrega EARS + ADRs + C4 para
 <td width="50%" valign="top" align="left">
 <sub><strong>← ANTERIOR</strong></sub><br/>
 <a href="../01-arqueologia/GUIDE.md"><strong>Estágio 1 — Arqueologia</strong></a><br/>
-<sub>13:00–14:30 · Ler o legado e catalogar regras de negócio.</sub>
+<sub>11:00–12:00 + 13:30–14:00 · Ler o legado e catalogar regras de negócio.</sub>
 </td>
 <td width="50%" valign="top" align="right">
 <sub><strong>PRÓXIMO →</strong></sub><br/>
 <a href="../03-implementacao/GUIDE.md"><strong>Estágio 3 — Implementação</strong></a><br/>
-<sub>16:15–17:30 · Java 21 + Spring Boot + Next.js, com testes.</sub>
+<sub>15:00–16:10 · Java 21 + Spring Boot + Next.js, com testes.</sub>
 </td>
 </tr>
 </table>

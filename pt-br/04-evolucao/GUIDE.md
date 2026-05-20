@@ -1,5 +1,5 @@
 ---
-title: "Estágio 4 — Evolução com Agentes (3 horas)"
+title: "Estágio 4 — Evolução com Agentes (40 min)"
 description: "Guia para usar o modo Agent do GitHub Copilot e Terraform para evoluir o SIFAP 2.0 — delegar funcionalidades completas via Issues e PRs."
 locale: "pt-br"
 canonical_path: "06-kit-repositorio-times/04-evolucao/GUIDE.md"
@@ -12,9 +12,9 @@ tags: ["estagio-4", "evolution", "agent", "terraform", "didatico", "pt-br"]
 
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
-# Estágio 4 — Evolução com Agentes (3 horas)
+# Estágio 4 — Evolução com Agentes (40 min)
 
-![ESTÁGIO 04 de 04](https://img.shields.io/badge/EST%C3%81GIO-04%20de%2004-FFB900?style=for-the-badge) ![Horário 17:45 – 18:15](https://img.shields.io/badge/HOR%C3%81RIO-17%3A45%20%E2%80%93%2018%3A15-1A1A1A?style=for-the-badge) ![Duração 30 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-30%20min-737373?style=for-the-badge)
+![ESTÁGIO 04 de 04](https://img.shields.io/badge/EST%C3%81GIO-04%20de%2004-FFB900?style=for-the-badge) ![Horário 16:10 – 16:50](https://img.shields.io/badge/HOR%C3%81RIO-17%3A45%20%E2%80%93%2018%3A15-1A1A1A?style=for-the-badge) ![Duração 30 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-30%20min-737373?style=for-the-badge)
 
 > **Categoria:** Evolução · **Quem trabalha agora:** Par 5 lidera · Par 3 co-lidera
 
@@ -344,7 +344,7 @@ Demo (18:30) + Retrospectiva (19:10). Cada time tem ~3 minutos. O Par 1 (PO) con
 <td width="50%" valign="top" align="left">
 <sub><strong>← ANTERIOR</strong></sub><br/>
 <a href="../03-implementacao/GUIDE.md"><strong>Estágio 3 — Implementação</strong></a><br/>
-<sub>16:15–17:30 · Java 21 + Spring Boot + Next.js, com testes.</sub>
+<sub>15:00–16:10 · Java 21 + Spring Boot + Next.js, com testes.</sub>
 </td>
 <td width="50%" valign="top" align="right">
 <sub><strong>PRÓXIMO →</strong></sub><br/>

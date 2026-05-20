@@ -44,7 +44,7 @@ Imprima esta página. Deixe-a fixada ao lado da sua tela. Ela é o seu GPS do di
 
 ---
 
-### Etapa 2 — Especificação Moderna (14:45–16:00)
+### Etapa 2 — Especificação Moderna (14:00–15:00)
 
 **Agente:** `@architect` (Claude Opus 4.7, somente leitura)
 
@@ -63,7 +63,7 @@ Imprima esta página. Deixe-a fixada ao lado da sua tela. Ela é o seu GPS do di
 
 ---
 
-### Etapa 3 — Implementação (16:15–17:30)
+### Etapa 3 — Implementação (15:00–16:10)
 
 **Agente:** `@builder` (Claude Sonnet 4.6, acesso completo para editar + executar)
 
@@ -83,7 +83,7 @@ Imprima esta página. Deixe-a fixada ao lado da sua tela. Ela é o seu GPS do di
 
 ---
 
-### Etapa 4 — Evolução (17:45–18:15)
+### Etapa 4 — Evolução (16:10–16:50)
 
 **Agente:** `@evolution` (Claude Sonnet 4.6, acesso para editar + GitHub)
 
@@ -150,9 +150,9 @@ O seu **agente do persona-kit** (por exemplo, `@developer`) conhece profundament
 | Horário | Etapa              | Agente           | Protagonista          | Prompt-Chave                 | Entregável-Chave            |
 | ------- | ------------------ | ---------------- | --------------------- | ---------------------------- | --------------------------- |
 | 13:00   | 1 - Arqueologia    | `@archaeologist` | Requirements Engineer | `/discovery-report`          | `discovery-report.md`       |
-| 14:45   | 2 - Spec Moderna   | `@architect`     | Software Architect    | `/design-modular-monolith`   | `SPECIFICATION.md` + design |
-| 16:15   | 3 - Implementação  | `@builder`       | Developer             | `/translate-natural-to-java` | Protótipo funcional         |
-| 17:45   | 4 - Evolução       | `@evolution`     | Technical Lead        | `/write-github-issue`        | CI/CD + PR de IA revisado   |
+| 14:00   | 2 - Spec Moderna   | `@architect`     | Software Architect    | `/design-modular-monolith`   | `SPECIFICATION.md` + design |
+| 15:00   | 3 - Implementação  | `@builder`       | Developer             | `/translate-natural-to-java` | Protótipo funcional         |
+| 16:10   | 4 - Evolução       | `@evolution`     | Technical Lead        | `/write-github-issue`        | CI/CD + PR de IA revisado   |
 
 ---
 

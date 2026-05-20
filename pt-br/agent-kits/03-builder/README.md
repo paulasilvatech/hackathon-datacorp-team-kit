@@ -20,7 +20,7 @@ Transformar requisitos em software funcionando: serviços Java, entidades JPA, m
 
 ## Quando usar
 
-- **Horário:** 16:15–17:30.
+- **Horário:** 15:00–16:10.
 - **Protagonista:** Developer.
 - **Suporte forte:** Technical Lead, DBA, QA Engineer e Software Architect.
 - **Pré-requisito:** Passagem #2 com spec, ADRs, C4, modelo de dados e tasks priorizadas.

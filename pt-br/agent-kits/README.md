@@ -20,10 +20,10 @@ Um workshop de modernização falha quando cada pessoa usa o Copilot de um jeito
 
 | Etapa | Horário | Agente | Para que serve |
 | --- | --- | --- | --- |
-| 1 · Arqueologia | 13:00–14:30 | [@archaeologist](01-archaeologist/README.md) | Ler legado, extrair regras, mapear dependências e catalogar mistérios |
-| 2 · Spec Moderna | 14:45–16:00 | [@architect](02-architect/README.md) | Transformar descobertas em EARS, bounded contexts, C4 e ADRs |
-| 3 · Implementação | 16:15–17:30 | [@builder](03-builder/README.md) | Construir Java/Next.js, testes, migrations e endpoints rastreáveis |
-| 4 · Evolução | 17:45–18:15 | [@evolution](04-evolution/README.md) | Delegar issues para o modo Agent, revisar PRs, CI/CD e IaC |
+| 1 · Arqueologia | 11:00–12:00 + 13:30–14:00 | [@archaeologist](01-archaeologist/README.md) | Ler legado, extrair regras, mapear dependências e catalogar mistérios |
+| 2 · Spec Moderna | 14:00–15:00 | [@architect](02-architect/README.md) | Transformar descobertas em EARS, bounded contexts, C4 e ADRs |
+| 3 · Implementação | 15:00–16:10 | [@builder](03-builder/README.md) | Construir Java/Next.js, testes, migrations e endpoints rastreáveis |
+| 4 · Evolução | 16:10–16:50 | [@evolution](04-evolution/README.md) | Delegar issues para o modo Agent, revisar PRs, CI/CD e IaC |
 
 ## Como usar, passo a passo
 

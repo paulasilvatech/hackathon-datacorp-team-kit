@@ -46,7 +46,7 @@ tags:
 <td width="50%" valign="top" align="right">
 <sub><strong>PRÓXIMO →</strong></sub><br/>
 <a href="GUIDE.md"><strong>Estágio 4 — Evolução</strong></a><br/>
-<sub>17:45–18:15 · Copilot Agent + Terraform + CI/CD.</sub>
+<sub>16:10–16:50 · Copilot Agent + Terraform + CI/CD.</sub>
 </td>
 </tr>
 </table>

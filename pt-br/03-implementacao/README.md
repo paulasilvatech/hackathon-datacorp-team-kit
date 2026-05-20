@@ -44,7 +44,7 @@ tags: ["estagio-3", "implementacao", "codigo", "prototipo", "workshop", "pt-br"]
 <td width="50%" valign="top" align="right">
 <sub><strong>PRÓXIMO →</strong></sub><br/>
 <a href="GUIDE.md"><strong>Estágio 3 — Implementação</strong></a><br/>
-<sub>16:15–17:30 · Java 21 + Spring Boot + Next.js, com testes.</sub>
+<sub>15:00–16:10 · Java 21 + Spring Boot + Next.js, com testes.</sub>
 </td>
 </tr>
 </table>
