@@ -14,6 +14,15 @@ tags: ["exemplos", "didatico", "referencia", "pt-br"]
 
 # Exemplos Preenchidos — Veja Como Fica Pronto
 
+
+> **Para quem é isto?** Quem está prestes a criar um artefato (spec, ADR, Flyway, etc.) e quer ver como fica bem feito.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Índice dos 6 exemplos completos com profundidade real
+> 2. Critérios do que torna cada exemplo "bom"
+> 3. Estrutura para copiar e adaptar — não copiar literalmente
+
 > **Por que esta pasta existe.** Templates vazios assustam. Quando você abre `SPECIFICATION.md` em branco e precisa preencher do zero, é fácil travar. Esta pasta mostra como cada artefato **fica quando bem feito** — você copia o padrão, troca os detalhes.
 >
 > **Aviso.** Os exemplos abaixo são **plausíveis mas ficcionais** — foram escritos para o caso SIFAP do workshop e refletem o que um time experiente entregaria. Não copie literalmente; use como modelo de profundidade e estilo.

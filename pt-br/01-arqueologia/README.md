@@ -14,6 +14,16 @@ tags: ["estagio-1", "arqueologia", "legado", "analise", "workshop", "pt-br"]
 
 # Estágio 1 — Arqueologia
 
+
+> **Para quem é isto?** Quem está chegando no estágio de arqueologia e precisa de visão de 1 página antes de abrir o GUIDE.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Saberá o que é o Estágio 1 e por que é obrigatório
+> 2. Verá os 5 artefatos esperados ao final
+> 3. Saberá quem lidera (todos os 5 pares em paralelo)
+> 4. Encontrará o link direto para o GUIDE detalhado
+
 > **LEIA PRIMEIRO:** [`LEGACY-EXPLORATION-CHECKLIST.md`](LEGACY-EXPLORATION-CHECKLIST.md) — portão duro antes do Estágio 2.
 >
 > Explore o sistema SIFAP legado com Copilot Ask e os agentes de etapa. Extraia regras de negócio, construa um glossário e mapeie dependências. Todo artefato produzido aqui alimenta o Estágio 2; especificações sem rastreabilidade ao legado são rejeitadas pelo CI.
@@ -55,7 +65,7 @@ O código legado em si fica em [`../legado-natural/`](../legado-natural/) (compa
 <td width="50%" valign="top" align="right">
 <sub><strong>PRÓXIMO →</strong></sub><br/>
 <a href="GUIDE.md"><strong>Estágio 1 — Arqueologia</strong></a><br/>
-<sub>13:00–14:30 · Ler o legado e catalogar regras de negócio.</sub>
+<sub>11:00–12:00 + 13:30–14:00 · Ler o legado e catalogar regras de negócio.</sub>
 </td>
 </tr>
 </table>

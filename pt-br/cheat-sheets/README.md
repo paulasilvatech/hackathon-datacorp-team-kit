@@ -14,6 +14,15 @@ tags: ["cheat-sheet", "copilot", "spec-kit", "model-routing", "workshop", "pt-br
 
 # Cartões de Referência
 
+
+> **Para quem é isto?** Quem precisa de resposta rápida sem ler um guia completo.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Saber qual cartão consultar para cada dúvida
+> 2. Tabela com 3 cartões: Copilot, Spec-Kit, Roteamento de modelos
+> 3. Quando bate a dúvida, em qual cartão olhar
+
 > Cartões de uma página para impressão, desenhados para ficar na mesa de cada time.
 
 ## Quando usar isso

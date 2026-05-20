@@ -12,6 +12,15 @@ tags: ["spec-kit", "sdd", "ears", "specifications", "pt-br"]
 
 # specs/
 
+
+> **Para quem é isto?** Quem está no Estágio 2 e vai criar uma estrutura de spec usando Spec-Kit.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Padrão de pastas `specs/NNN-feature-name/`
+> 2. Arquivos obrigatórios em cada feature (spec.md, plan.md, tasks.md)
+> 3. Como o CI valida rastreabilidade
+
 Esta pasta guarda os artefatos do **GitHub Spec-Kit**. Pense nela como o diário técnico de cada funcionalidade: primeiro o time explica o que quer construir, depois planeja como construir, depois quebra em tarefas e só então implementa.
 
 ## Modelo mental

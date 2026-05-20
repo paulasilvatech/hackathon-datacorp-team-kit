@@ -14,6 +14,17 @@ tags: ["persona", "enterprise-architect", "workshop", "pt-br"]
 
 # Persona — Enterprise Architect
 
+
+> **Para quem é isto?** Para a pessoa que vai vestir a persona **Enterprise Architect** no workshop. Foco: contexto do sistema, ADRs estruturais, integrações.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Saberá em qual par está e qual fase do SDLC lidera
+> 2. Conhecerá a missão da persona no Dia 2
+> 3. Verá em qual estágio você lidera, apoia ou observa
+> 4. Terá 3 prompts de Copilot prontos para usar
+> 5. Saberá o default se travar ("se não souber o que fazer, faça X")
+
 ![Par 2 · Arquitetura](https://img.shields.io/badge/PAR-Par%202%20%E2%80%A2%20Arquitetura-FFB900?style=for-the-badge) ![Lidera estágio 2](https://img.shields.io/badge/LIDERA%20EST%C3%81GIO-2-1A1A1A?style=for-the-badge) ![Apoia estágio 1, 4](https://img.shields.io/badge/APOIA-1%2C%204-737373?style=for-the-badge)
 
 ## Onde você atua no SDLC

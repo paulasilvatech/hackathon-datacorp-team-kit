@@ -14,6 +14,16 @@ tags: ["estagio-1", "arqueologia", "legado", "didatico", "pt-br"]
 
 # Estágio 1 — Arqueologia Digital
 
+
+> **Para quem é isto?** Para o par 1 (PO+RE) que lidera + todos os outros 4 pares trabalhando em paralelo. Este estágio é obrigatório.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Saberá quais 3 programas Natural seu par lê
+> 2. Saberá como extrair regras de negócio com rastreabilidade `arquivo.NSN#L<linha>`
+> 3. Entregará 5 artefatos: glossário, catálogo BR, mapa de dependências, mistérios, discovery report
+> 4. Saberá o que fazer no Passagem #1 às 14:00
+
 ![ESTÁGIO 01 de 04](https://img.shields.io/badge/EST%C3%81GIO-01%20de%2004-F25022?style=for-the-badge) ![Horário 13:00 – 14:30](https://img.shields.io/badge/HOR%C3%81RIO-13%3A00%20%E2%80%93%2014%3A30-1A1A1A?style=for-the-badge) ![Duração 90 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-90%20min-737373?style=for-the-badge)
 
 > **Categoria:** Descoberta · **Quem trabalha agora:** Todos os 5 pares em paralelo
@@ -49,7 +59,7 @@ Ao final do Estágio 1 sua dupla terá produzido **cinco artefatos verificáveis
 4. `mysteries-found.md` — pelo menos 5 regras escondidas com evidência (arquivo + linha).
 5. `discovery-report.md` — síntese consolidada que vai virar input do Estágio 2.
 
-Um facilitador (cordão azul) passa por volta de **14h20** e valida esses artefatos contra a [`LEGACY-EXPLORATION-CHECKLIST.md`](LEGACY-EXPLORATION-CHECKLIST.md). Se algo estiver vermelho, sua dupla não pode abrir o Estágio 2.
+Um facilitador (cordão azul) passa por volta de **13h50** e valida esses artefatos contra a [`LEGACY-EXPLORATION-CHECKLIST.md`](LEGACY-EXPLORATION-CHECKLIST.md). Se algo estiver vermelho, sua dupla não pode abrir o Estágio 2.
 
 ---
 
@@ -108,7 +118,7 @@ Cada par lidera 3 programas. **Nenhum programa pode ficar sem leitor.**
 
 ---
 
-## Passo a passo (3 horas cronometradas)
+## Passo a passo (2 horas (1h + 30min) cronometradas)
 
 ### Hora 1 — Reconhecimento (09:15 → 10:15)
 
@@ -122,7 +132,7 @@ Cada par lidera 3 programas. **Nenhum programa pode ficar sem leitor.**
 
 4. **Par 4 com Par 3 como revisor:** abra os 4 DDMs em [`../legado-natural/adabas-ddms/`](../legado-natural/adabas-ddms/). Para cada DDM, liste todos os campos com tipo e tamanho, marcando `MU` (multi-valor) e `PE` (grupo periódico). **Por que isso importa:** esses dois construtos não existem em PostgreSQL relacional puro. Onde você ver `MU TELEFONES`, sabe que vai virar uma tabela `beneficiary_phone` no Estágio 3.
 
-> **Ao fim da Hora 1**, faça um stand-up de 2 minutos: cada par diz em uma frase o que descobriu. Se um par está perdido, esse é o momento de pedir ajuda — não às 11h30.
+> **Ao fim da Hora 1**, faça um stand-up de 2 minutos: cada par diz em uma frase o que descobriu. Se um par está perdido, esse é o momento de pedir ajuda — não às —11h30 (removido).
 
 ### Hora 2 — Extração (10:15 → 11:15)
 
@@ -242,7 +252,7 @@ Se sua dupla travar depois de 90 minutos sem achar nenhum mistério, levante a m
 
 ## Como saber que terminou (Definição de Pronto)
 
-Antes do facilitador chegar às 14h20, sua dupla deve poder marcar **todas** essas caixas:
+Antes do facilitador chegar às 13h50, sua dupla deve poder marcar **todas** essas caixas:
 
 - [ ] [`glossary.md`](glossary.md) com 30+ termos, cada um com definição em 1 frase.
 - [ ] [`business-rules-catalog.md`](business-rules-catalog.md) com ≥ 15 regras, **100% com `Programa Fonte` preenchido**.
@@ -256,7 +266,7 @@ Se houver vermelho em qualquer item, o time **não abre o Estágio 2**. Não é 
 
 ## Próximo passo
 
-Quando o facilitador validar o checklist às 14h20, o **Par 2 (Arquitetura)** lidera o Estágio 2 com os artefatos do Estágio 1 como entrada. O **Par 1 (Visão)** acompanha o sign-off de escopo. Os demais pares continuam contribuindo conforme [`02-spec-moderna/GUIDE.md`](../02-spec-moderna/GUIDE.md).
+Quando o facilitador validar o checklist às 13h50, o **Par 2 (Arquitetura)** lidera o Estágio 2 com os artefatos do Estágio 1 como entrada. O **Par 1 (Visão)** acompanha o sign-off de escopo. Os demais pares continuam contribuindo conforme [`02-spec-moderna/GUIDE.md`](../02-spec-moderna/GUIDE.md).
 
 O `business-rules-catalog.md` que vocês produziram agora **é** o input do `SPECIFICATION.md`. Cada regra vira (ou não, com justificativa) uma REQ-ID. Sem o catálogo bem feito, o Estágio 2 vira chute.
 
@@ -289,7 +299,7 @@ Modelo certo (Haiku/Sonnet)? → cheat-sheets/model-routing.md
 <td width="50%" valign="top" align="right">
 <sub><strong>PRÓXIMO →</strong></sub><br/>
 <a href="../02-spec-moderna/GUIDE.md"><strong>Estágio 2 — Spec Moderna</strong></a><br/>
-<sub>14:45–16:00 · Escrever EARS, ADRs e diagramas C4.</sub>
+<sub>14:00–15:00 · Escrever EARS, ADRs e diagramas C4.</sub>
 </td>
 </tr>
 </table>

@@ -14,6 +14,16 @@ tags: ["personas", "overview", "didatico", "pt-br"]
 
 # OVERVIEW das 10 Personas — Em Uma Página
 
+
+> **Para quem é isto?** Para escolher seu par sem precisar abrir 10 PERSONA.md, ou comparar papéis rapidamente.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Os 5 pares em uma página com a distribuição visual
+> 2. Quem lidera cada estágio e quem apoia
+> 3. Default de emergência de cada uma das 10 personas
+> 4. Critério para escolher seu par com base no perfil
+
 > **Use esta página para:** comparar os 10 papéis sem precisar abrir 10 `PERSONA.md`, escolher seu par com a pessoa-dupla, ou consultar rapidamente quem lidera o quê.
 >
 > Cada pessoa do time veste **2 personas** (1 par). O par fica junto o dia inteiro — sem passagem interna entre as duas personas.
@@ -41,10 +51,10 @@ tags: ["personas", "overview", "didatico", "pt-br"]
 
 | Estágio | Horário | Lidera | Apoia |
 |---|---|---|---|
-| **1 · Arqueologia** | 13:00–14:30 | Todos os 5 pares em paralelo (cada um com 3 programas) | — |
-| **2 · Spec Moderna** | 14:45–16:00 | Par 2 (EA + SA) | Par 1 (escopo), Par 5 (revisão) |
-| **3 · Implementação** | 16:15–17:30 | Pares 3 (TL + Dev) e 4 (DBA + QA) | Par 5 (esqueleto CI) |
-| **4 · Evolução** | 17:45–18:15 | Par 5 (DevOps + TW) | Par 3 (Issues + revisão de PRs do Agent) |
+| **1 · Arqueologia** | 11:00–12:00 + 13:30–14:00 | Todos os 5 pares em paralelo (cada um com 3 programas) | — |
+| **2 · Spec Moderna** | 14:00–15:00 | Par 2 (EA + SA) | Par 1 (escopo), Par 5 (revisão) |
+| **3 · Implementação** | 15:00–16:10 | Pares 3 (TL + Dev) e 4 (DBA + QA) | Par 5 (esqueleto CI) |
+| **4 · Evolução** | 16:10–16:50 | Par 5 (DevOps + TW) | Par 3 (Issues + revisão de PRs do Agent) |
 
 ## Quem depende de quem (cadeia do dia)
 
@@ -90,7 +100,7 @@ Cada `PERSONA.md` tem uma seção "Se travar (defaults de emergência)". Aqui es
 <td width="50%" valign="top" align="right">
 <sub><strong>PRÓXIMO →</strong></sub><br/>
 <a href="../01-arqueologia/GUIDE.md"><strong>Estágio 1 — Arqueologia</strong></a><br/>
-<sub>13:00–14:30 · Ler o legado e catalogar regras de negócio.</sub>
+<sub>11:00–12:00 + 13:30–14:00 · Ler o legado e catalogar regras de negócio.</sub>
 </td>
 </tr>
 </table>

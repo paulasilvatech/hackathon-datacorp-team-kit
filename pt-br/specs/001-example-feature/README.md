@@ -12,6 +12,15 @@ tags: ["spec-kit", "sdd", "example", "pt-br"]
 
 # 001 — Funcionalidade de Exemplo
 
+
+> **Para quem é isto?** Quem quer ver um exemplo concreto da estrutura `specs/NNN-feature/` antes de criar a sua.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Estrutura mínima de uma feature em Spec-Kit
+> 2. Como `spec.md`, `plan.md` e `tasks.md` se conectam
+> 3. Onde colocar contratos OpenAPI e modelos
+
 > Esta pasta é um modelo. Renomeie quando o time escolher uma funcionalidade real no Estágio 2.
 
 ## Para que serve
@@ -92,7 +101,7 @@ Acceptance: 10 ativos + 2 suspensos geram 10 pagamentos.
 <td width="50%" valign="top" align="right">
 <sub><strong>PRÓXIMO →</strong></sub><br/>
 <a href="../../02-spec-moderna/GUIDE.md"><strong>Estágio 2 — Spec Moderna</strong></a><br/>
-<sub>14:45–16:00 · Escrever EARS, ADRs e diagramas C4.</sub>
+<sub>14:00–15:00 · Escrever EARS, ADRs e diagramas C4.</sub>
 </td>
 </tr>
 </table>

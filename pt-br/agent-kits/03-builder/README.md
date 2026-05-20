@@ -12,6 +12,15 @@ tags: ["agent", "builder", "implementation", "java", "nextjs", "stage-3", "pt-br
 
 # @builder — Estágio 3: Implementação
 
+
+> **Para quem é isto?** Para os Pares 3 e 4 durante o Estágio 3.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Como ativar o agente `@builder` no Copilot Chat
+> 2. Prompts para tradução Natural → Java, JPA, testes
+> 3. Regra: não escreve código sem REQ-ID e teste
+
 > Use este agente quando a spec já existe e o time precisa construir. Ele não substitui design: ele executa `spec.md`, `plan.md` e `tasks.md` com código, testes e rastreabilidade.
 
 ## Objetivo da etapa
@@ -20,7 +29,7 @@ Transformar requisitos em software funcionando: serviços Java, entidades JPA, m
 
 ## Quando usar
 
-- **Horário:** 16:15–17:30.
+- **Horário:** 15:00–16:10.
 - **Protagonista:** Developer.
 - **Suporte forte:** Technical Lead, DBA, QA Engineer e Software Architect.
 - **Pré-requisito:** Passagem #2 com spec, ADRs, C4, modelo de dados e tasks priorizadas.

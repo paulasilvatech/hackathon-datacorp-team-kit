@@ -14,6 +14,16 @@ tags: ["exemplo", "spec", "ears", "estagio-2", "pt-br"]
 
 # SPECIFICATION — SIFAP 2.0 · Módulo Payment (Exemplo Preenchido)
 
+
+> **Para quem é isto?** Para o RE/SA no Estágio 2 — referência de spec EARS pronta com `source_legacy`.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Verá 8 REQ-IDs em formato YAML estruturado
+> 2. Verá os 6 padrões EARS aplicados
+> 3. Entenderá como rastrear cada requisito até `.NSN`
+> 4. Copiará a estrutura, trocará apenas o conteúdo
+
 ![EXEMPLO](https://img.shields.io/badge/EXEMPLO-SPECIFICATION-00A4EF?style=for-the-badge) ![ESTÁGIO](https://img.shields.io/badge/ESTÁGIO-02%20·%20Spec%20Moderna-1A1A1A?style=for-the-badge) ![REFERÊNCIA](https://img.shields.io/badge/REFERÊNCIA-8%20REQ-IDs%20em%20EARS-737373?style=for-the-badge)
 
 > **⚠️ Este é um EXEMPLO** mostrando como uma fatia da spec fica pronta. O seu time deve produzir 12+ REQ-IDs ao longo dos 4 módulos (beneficiary, payment, audit, admin).

@@ -318,7 +318,7 @@ Esse pedido nunca atrapalha — é o trabalho do facilitador.
 <td width="50%" valign="top" align="right">
 <sub><strong>PRÓXIMO →</strong></sub><br/>
 <a href="../01-arqueologia/GUIDE.md"><strong>Estágio 1 — Arqueologia</strong></a><br/>
-<sub>13:00–14:30 · Ler o legado e catalogar regras de negócio.</sub>
+<sub>11:00–12:00 + 13:30–14:00 · Ler o legado e catalogar regras de negócio.</sub>
 </td>
 </tr>
 </table>

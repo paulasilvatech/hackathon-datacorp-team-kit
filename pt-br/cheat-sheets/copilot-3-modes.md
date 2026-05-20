@@ -13,6 +13,15 @@ tags: ["cheat-sheet", "copilot", "workshop", "pt-br"]
 
 # GitHub Copilot em 3 modos — Cartão de referência
 
+
+> **Para quem é isto?** Quem está com dúvida sobre qual modo do Copilot acionar agora.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Saberá quando usar Ask (perguntar), Plan (planejar) ou Agent (delegar)
+> 2. Verá exemplos concretos de cada modo no contexto SIFAP
+> 3. Identificará anti-padrões para cada modo
+
 ![CARTÃO](https://img.shields.io/badge/CART%C3%83O-01%20de%2003-F25022?style=for-the-badge) ![TÓPICO](https://img.shields.io/badge/TÓPICO-Copilot%203%20modos-1A1A1A?style=for-the-badge) ![USE QUANDO](https://img.shields.io/badge/USE%20QUANDO-decidindo%20Ask%2FPlan%2FAgent-737373?style=for-the-badge)
 
 ## Quando usar isso

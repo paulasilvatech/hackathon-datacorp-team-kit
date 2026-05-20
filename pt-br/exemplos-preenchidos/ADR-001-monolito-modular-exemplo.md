@@ -14,6 +14,16 @@ tags: ["exemplo", "adr", "arquitetura", "estagio-2", "pt-br"]
 
 # ADR-001 — Adotar Monolito Modular em vez de Microsserviços
 
+
+> **Para quem é isto?** Para o EA/SA no Estágio 2 — referência de ADR profissional com alternativas rejeitadas.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Verá ADR com Status + Contexto + Decisão + Alternativas + Consequências
+> 2. Entenderá por que alternativas A, B, C foram rejeitadas
+> 3. Saberá registrar critérios de envelhecimento ("quando revisitar")
+> 4. Reproduzirá o mesmo nível para seus ADRs
+
 ![EXEMPLO](https://img.shields.io/badge/EXEMPLO-ADR-001-00A4EF?style=for-the-badge) ![ESTÁGIO](https://img.shields.io/badge/ESTÁGIO-02%20·%20Spec%20Moderna-1A1A1A?style=for-the-badge) ![REFERÊNCIA](https://img.shields.io/badge/REFERÊNCIA-Monolito%20modular%20vs%20microservi%C3%A7os-737373?style=for-the-badge)
 
 > **⚠️ Este é um EXEMPLO** para você ver como uma ADR fica pronta. Seu time vai escrever ADRs reais no Estágio 2 (mínimo 3) sobre as decisões que o time toma.

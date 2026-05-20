@@ -24,6 +24,17 @@ tags:
 
 # Guia de Setup — Do Zero ao Código
 
+
+> **Para quem é isto?** Para a pessoa que vai preparar o ambiente do time antes do dia 2 — líder do time ou cada membro no próprio laptop.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Repositório GitHub do time criado com proteção de branch
+> 2. Spec-Kit oficial + GitHub Copilot funcionando no VS Code
+> 3. Cada pessoa com seu persona-kit copiado e Ask/Plan/Agent validados
+> 4. Estratégia de branches definida (`spec/*`, `impl/*`)
+> 5. Smoke test passando antes das 10:00 do dia 2
+
 > **Vocês são 5 pessoas. Cada pessoa usa 2 personas. Vocês têm um dia de trabalho.** Este guia leva vocês de "ainda não temos nada" até "primeiro commit enviado, Copilot funcionando, todas as personas prontas" em **45 minutos**.
 >
 > **Todas as pessoas do time devem acompanhar no próprio laptop.** Uma pessoa compartilha a tela com os passos, e as outras 4 repetem. Ao final, cada laptop estará totalmente configurado.
@@ -46,7 +57,7 @@ tags:
 - [🎯 Passo 10 — Use o fluxo Spec-Kit (todos)](#-passo-10--use-o-fluxo-spec-kit-todos)
 - [🌿 Passo 11 — Entenda a estratégia de branches](#-passo-11--entenda-a-estratégia-de-branches)
 - [🔄 Passo 12 — Fluxo diário por persona](#-passo-12--fluxo-diário-por-persona)
-- [🚦 Passo 13 — Rode o teste de fumaça (time inteiro, às 09:30)](#-passo-13--rode-o-teste-de-fumaça-time-inteiro-às-0930)
+- [🚦 Passo 13 — Rode o teste de fumaça (time inteiro, às 10:30)](#-passo-13--rode-o-teste-de-fumaça-time-inteiro-às-0930)
 - [🆘 Solução de problemas](#-solução-de-problemas)
 
 ---
@@ -681,7 +692,7 @@ Cada persona tem um **ciclo diário padrão**. Rode-o quantas vezes forem necess
 
 ---
 
-## 🚦 Passo 13 — Rode o teste de fumaça (time inteiro, às 09:30)
+## 🚦 Passo 13 — Rode o teste de fumaça (time inteiro, às 10:30)
 
 A pessoa líder do time lê cada item em voz alta. Cada pessoa confirma no próprio laptop.
 

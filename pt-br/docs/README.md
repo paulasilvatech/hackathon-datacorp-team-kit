@@ -12,6 +12,15 @@ tags: ["docs", "adr", "team"]
 
 # Documentação
 
+
+> **Para quem é isto?** Quem busca documentação transversal — independente de qual estágio está rodando.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Índice da documentação não vinculada a um estágio específico
+> 2. Glossário visual, runbook, persona-agent-matrix, sdlc-flow-guide, ADRs
+> 3. Links rápidos para os recursos consultados a qualquer hora do dia
+
 Esta pasta pertence à persona **Tech Writer**, mas recebe contribuições de todas as pessoas. Ela guarda a documentação curada pela equipe, que se acumula ao longo do workshop.
 
 ## Como usar esta pasta

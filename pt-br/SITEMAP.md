@@ -14,6 +14,15 @@ tags: ["sitemap", "navegacao", "didatico", "pt-br"]
 
 # SITEMAP — Mapa Visual do Kit pt-br
 
+
+> **Para quem é isto?** Para você que se perdeu no meio do dia, ou para alguém perguntando onde está aquele arquivo.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Mapa visual de toda a estrutura do kit
+> 2. Caminho recomendado por persona (PO/RE, EA/SA, TL/Dev, DBA/QA, DevOps/TW)
+> 3. Tabela de "onde mora cada coisa" — pasta a pasta
+
 > **Use esta página quando…** você se perdeu no meio do dia, ou quando alguém pergunta *"onde mesmo está aquele arquivo?"*. Esta é a vista de cima do kit inteiro.
 
 ## Estrutura do kit (em alto nível)
@@ -22,11 +31,11 @@ O fluxo dos 4 estágios está em [`assets/stage-flow.svg`](assets/stage-flow.svg
 
 | Fase | Pasta principal | Consulta também |
 |---|---|---|
-| **Manhã (09:00–12:00)** — Setup | `SETUP.md` · `FIRST-15-MINUTES.md` · `TEAM-FLOW.md` | `persona-kits/` (PERSONA.md do seu par) |
-| **Estágio 1 (13:00–14:30)** — Arqueologia | `01-arqueologia/` | `legado-natural/` · `docs/glossario-visual.md` · `cheat-sheets/` |
-| **Estágio 2 (14:45–16:00)** — Spec Moderna | `02-spec-moderna/` | `exemplos-preenchidos/SPECIFICATION-exemplo.md` · `exemplos-preenchidos/ADR-001-...md` |
-| **Estágio 3 (16:15–17:30)** — Implementação | `03-implementacao/` | `exemplos-preenchidos/PaymentService-exemplo.java` · `V1__init_payment_module-exemplo.sql` |
-| **Estágio 4 (17:45–18:15)** — Evolução | `04-evolucao/` | `exemplos-preenchidos/issue-para-agent-exemplo.md` · `agent-kits/` |
+| **Manhã (10:00–12:00)** — Setup | `SETUP.md` · `FIRST-15-MINUTES.md` · `TEAM-FLOW.md` | `persona-kits/` (PERSONA.md do seu par) |
+| **Estágio 1 (11:00–12:00 + 13:30–14:00)** — Arqueologia | `01-arqueologia/` | `legado-natural/` · `docs/glossario-visual.md` · `cheat-sheets/` |
+| **Estágio 2 (14:00–15:00)** — Spec Moderna | `02-spec-moderna/` | `exemplos-preenchidos/SPECIFICATION-exemplo.md` · `exemplos-preenchidos/ADR-001-...md` |
+| **Estágio 3 (15:00–16:10)** — Implementação | `03-implementacao/` | `exemplos-preenchidos/PaymentService-exemplo.java` · `V1__init_payment_module-exemplo.sql` |
+| **Estágio 4 (16:10–16:50)** — Evolução | `04-evolucao/` | `exemplos-preenchidos/issue-para-agent-exemplo.md` · `agent-kits/` |
 
 ## Caminho recomendado por persona
 
@@ -53,10 +62,10 @@ O fluxo dos 4 estágios está em [`assets/stage-flow.svg`](assets/stage-flow.svg
 | [`SITEMAP.md`](SITEMAP.md) | Este arquivo. Mapa visual | Quando se perder |
 | [`persona-kits/`](persona-kits/) | 10 PERSONAs + agents/prompts/skills + OVERVIEW.md | Após setup, antes do Estágio 1 |
 | [`agent-kits/`](agent-kits/) | 4 agentes Copilot (arch., archit., builder, evolution) | A cada estágio (seletor de agente no Chat) |
-| [`01-arqueologia/`](01-arqueologia/) | GUIDE + 5 templates do Estágio 1 | 13:00–14:30 |
-| [`02-spec-moderna/`](02-spec-moderna/) | GUIDE + ADR template + scope decisions | 14:45–16:00 |
-| [`03-implementacao/`](03-implementacao/) | GUIDE do Estágio 3 (código + testes) | 16:15–17:30 |
-| [`04-evolucao/`](04-evolucao/) | GUIDE + relatório do Agent | 17:45–18:15 |
+| [`01-arqueologia/`](01-arqueologia/) | GUIDE + 5 templates do Estágio 1 | 11:00–12:00 + 13:30–14:00 |
+| [`02-spec-moderna/`](02-spec-moderna/) | GUIDE + ADR template + scope decisions | 14:00–15:00 |
+| [`03-implementacao/`](03-implementacao/) | GUIDE do Estágio 3 (código + testes) | 15:00–16:10 |
+| [`04-evolucao/`](04-evolucao/) | GUIDE + relatório do Agent | 16:10–16:50 |
 | [`legado-natural/`](legado-natural/) | 15 .NSN + 4 DDMs + 3 docs históricos + demo terminal | Durante Estágio 1 |
 | [`legado-natural/COMO-LER-NATURAL.md`](legado-natural/COMO-LER-NATURAL.md) | Como ler .NSN sem saber Natural | Antes do Estágio 1 se não-dev |
 | [`exemplos-preenchidos/`](exemplos-preenchidos/) | 6 artefatos completos (catálogo BR, SPEC, ADR, Flyway, Java, Issue) | Sempre que for criar artefato novo |
@@ -72,7 +81,7 @@ O fluxo dos 4 estágios está em [`assets/stage-flow.svg`](assets/stage-flow.svg
 
 O cronograma visual canônico está em [`assets/stage-flow.svg`](assets/stage-flow.svg) — renderizado no `README.md`. Em texto:
 
-> **09:00–12:00** Setup + leitura de PERSONA → **13:00–14:30** Estágio 1 · Arqueologia → **14:45–16:00** Estágio 2 · Spec Moderna → **16:15–17:30** Estágio 3 · Implementação → **17:45–18:15** Estágio 4 · Evolução → **18:15–19:50** Demo + Retro
+> **10:00–12:00** Setup + leitura de PERSONA → **11:00–12:00 + 13:30–14:00** Estágio 1 · Arqueologia → **14:00–15:00** Estágio 2 · Spec Moderna → **15:00–16:10** Estágio 3 · Implementação → **16:10–16:50** Estágio 4 · Evolução → **17:00–18:00** Demo + Retro
 
 ## Se você se perdeu
 

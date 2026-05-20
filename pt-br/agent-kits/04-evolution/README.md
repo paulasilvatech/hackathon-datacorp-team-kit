@@ -12,6 +12,15 @@ tags: ["agent", "evolution", "devops", "terraform", "cicd", "stage-4", "pt-br"]
 
 # @evolution — Estágio 4: Evolução
 
+
+> **Para quem é isto?** Para o Par 5 e Par 3 durante o Estágio 4.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Como ativar o agente `@evolution` no Copilot Chat
+> 2. Como escrever Issues que o Agent implementa bem
+> 3. Critérios de revisão do PR do Agent
+
 > Use este agente quando o protótipo já existe e o time precisa transformar trabalho local em entrega revisável: issues, PRs, CI/CD, IaC, runbook e relatório final.
 
 ## Objetivo da etapa
@@ -20,7 +29,7 @@ Operacionalizar o que foi construído: criar issues claras para o modo Agent, re
 
 ## Quando usar
 
-- **Horário:** 17:45–18:15.
+- **Horário:** 16:10–16:50.
 - **Protagonista:** Technical Lead.
 - **Suporte forte:** DevOps Engineer, Tech Writer, Developer e QA Engineer.
 - **Pré-requisito:** Passagem #3 com backend/frontend funcionando, testes relevantes e pendências conhecidas.

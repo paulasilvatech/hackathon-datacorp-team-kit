@@ -12,6 +12,15 @@ tags: ["agent", "archaeology", "legacy", "natural", "adabas", "stage-1", "pt-br"
 
 # @archaeologist — Estágio 1: Arqueologia
 
+
+> **Para quem é isto?** Para o time durante o Estágio 1 — todos os 5 pares em paralelo.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Como ativar o agente `@archaeologist` no Copilot Chat
+> 2. Prompts típicos para extração de regras
+> 3. O que o agente NÃO faz (não escreve código moderno)
+
 > Use este agente quando a equipe estiver lendo o legado. Ele ajuda a observar, catalogar e perguntar melhor. Ele não reescreve código e não inventa regra de negócio.
 
 ## Objetivo da etapa
@@ -20,7 +29,7 @@ Transformar arquivos Natural/Adabas em evidências úteis para o Estágio 2: glo
 
 ## Quando usar
 
-- **Horário:** 13:00–14:30.
+- **Horário:** 11:00–12:00 + 13:30–14:00.
 - **Protagonista:** Requirements Engineer.
 - **Suporte forte:** Tech Writer, Enterprise Architect e DBA.
 - **Pré-requisito:** pasta `legado-natural/` disponível no workspace.

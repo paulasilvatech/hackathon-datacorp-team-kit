@@ -94,7 +94,7 @@ Existem **10 regras de negócio escondidas**, **3 easter eggs** e **4 inconsist�
 
 ## 5. Verificação Antes de Abrir o Estágio 2
 
-Por volta de 14h20 um facilitador vai checar o trabalho do seu par contra esta matriz. Não dá para passar para o Estágio 2 com linha vermelha.
+Por volta de 13h50 um facilitador vai checar o trabalho do seu par contra esta matriz. Não dá para passar para o Estágio 2 com linha vermelha.
 
 | Artefato                      | Caminho                                    | Critério do portão                                             |
 | ----------------------------- | ------------------------------------------ | -------------------------------------------------------------- |
