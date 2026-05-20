@@ -1,13 +1,3 @@
----
-title: "Matriz Persona × Agente"
-description: "Mapeamento 10×4 completo de como cada persona interage com cada agente de etapa"
-author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-29"
-version: "1.0.0"
-status: "approved"
-tags: ["personas", "agents", "matrix", "roles", "hackathon"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Matriz Persona × Agente

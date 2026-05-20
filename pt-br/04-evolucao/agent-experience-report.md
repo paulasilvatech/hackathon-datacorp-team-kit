@@ -1,15 +1,3 @@
----
-title: "Relatório de Experiência com GitHub Copilot Agent"
-description: "Modelo do relatório final do Estágio 4: o que o Agent fez bem, o que falhou, qualidade dos PRs gerados e recomendações para outras equipes."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/04-evolucao/agent-experience-report.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-status: "template"
-tags: ["estagio-4", "agent", "relatorio", "template", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Relatório de Experiência com GitHub Copilot Agent

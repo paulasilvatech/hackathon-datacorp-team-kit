@@ -1,15 +1,3 @@
----
-title: "Issue para Copilot Agent — Exemplo Preenchido"
-description: "Exemplo de uma GitHub Issue completa e bem escrita, pronta para o Copilot Agent implementar no Estágio 4. Use como modelo de profundidade."
-locale: "pt-br"
-canonical_path: "pt-br/exemplos-preenchidos/issue-para-agent-exemplo.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-19"
-version: "1.0.0"
-status: "approved"
-tags: ["exemplo", "agent", "issue", "estagio-4", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Issue para Copilot Agent — Exemplo Preenchido

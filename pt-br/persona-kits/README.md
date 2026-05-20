@@ -1,13 +1,3 @@
----
-title: "Persona Kits — 10 Pacotes Copilot Para 5 Pessoas"
-description: "Agentes, skills, prompts e configurações MCP para as 10 personas usadas pelas 5 pessoas do workshop SIFAP"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.2.0"
-status: "approved"
-tags: ["personas", "copilot", "agents", "skills", "prompts", "plugins", "mcp", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD033 MD034 MD040 MD051 MD060 -->
 
 # Persona Kits

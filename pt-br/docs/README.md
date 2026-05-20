@@ -1,13 +1,3 @@
----
-title: "Documentação da Equipe"
-description: "Guia didático dos documentos transversais: ADRs, glossário, runbook, matriz persona-agente e fluxo SDLC"
-author: "Tech Writer (time)"
-date: "2026-04-29"
-version: "1.0.0"
-status: "draft"
-tags: ["docs", "adr", "team"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Documentação

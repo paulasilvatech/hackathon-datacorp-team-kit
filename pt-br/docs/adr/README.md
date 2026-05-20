@@ -1,13 +1,3 @@
----
-title: "Índice de ADRs"
-description: "Registros de decisão de arquitetura para a modernização SIFAP 2.0 desta equipe"
-author: "Tech Writer (time)"
-date: "2026-04-29"
-version: "1.0.0"
-status: "draft"
-tags: ["adr", "architecture", "decisions"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Registros de Decisão de Arquitetura (ADRs)

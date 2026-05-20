@@ -1,15 +1,3 @@
----
-title: "Mistérios Encontrados — SIFAP Legado"
-description: "Modelo para registrar lógica, comportamento ou código que o time não conseguiu explicar. Inclui formato detalhado por mistério."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/01-arqueologia/mysteries-found.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-status: "template"
-tags: ["estagio-1", "misterios", "template", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Mistérios Encontrados — SIFAP Legado

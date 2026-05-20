@@ -1,15 +1,3 @@
----
-title: "Estágio 1 — Arqueologia"
-description: "Etapa de análise do código legado: explorar os programas Natural do SIFAP, extrair regras de negócio e construir o glossário do domínio."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/01-arqueologia/README.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["estagio-1", "arqueologia", "legado", "analise", "workshop", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Estágio 1 — Arqueologia

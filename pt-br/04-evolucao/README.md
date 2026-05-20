@@ -1,16 +1,3 @@
----
-title: "Estágio 4 — Evolução"
-description: "Etapa de evolução: adicionar infraestrutura como código (Terraform), pipeline CI/CD (GitHub Actions) e iterar usando workflows com agentes."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/04-evolucao/README.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags:
-  ["estagio-4", "evolution", "terraform", "cicd", "agent", "workshop", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Estágio 4 — Evolução

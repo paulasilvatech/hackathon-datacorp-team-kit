@@ -1,13 +1,3 @@
----
-title: "Funcionalidade de Exemplo — Marcador"
-description: "Exemplo didático de pasta Spec-Kit: o que criar, em que ordem e como saber que a funcionalidade está pronta para implementação"
-author: "Spec-Kit"
-date: "2026-05-18"
-version: "1.0.0"
-status: "placeholder"
-tags: ["spec-kit", "sdd", "example", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # 001 — Funcionalidade de Exemplo

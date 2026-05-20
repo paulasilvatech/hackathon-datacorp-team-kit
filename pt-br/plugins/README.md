@@ -1,10 +1,3 @@
----
-title: Plugins Compartilhados
-author: "Paula Silva, Americas Software GBB, Microsoft"
-version: 1.0.0
-last_updated: 2026-04-23
----
-
 # Plugins Compartilhados
 
 [← Kits de Persona](../persona-kits/) |

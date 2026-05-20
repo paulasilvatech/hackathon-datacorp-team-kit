@@ -1,15 +1,3 @@
----
-title: "Relatório de Descoberta — Estágio 1: Arqueologia Digital"
-description: "Modelo consolidado para encerrar o Estágio 1: o que o time descobriu, o que migrar/descartar/evoluir e o que o Estágio 2 precisa saber antes de começar."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/01-arqueologia/discovery-report.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-status: "template"
-tags: ["estagio-1", "relatorio", "descoberta", "template", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Relatório de Descoberta — Estágio 1: Arqueologia Digital

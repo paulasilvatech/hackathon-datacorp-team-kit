@@ -1,13 +1,3 @@
----
-title: "@architect — Estágio 2: Spec Moderna"
-description: "Guia didático do agente de especificação moderna: EARS, bounded contexts, C4, ADRs e plano técnico com Spec-Kit"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["agent", "architect", "specification", "ears", "adr", "stage-2", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # @architect — Estágio 2: Spec Moderna

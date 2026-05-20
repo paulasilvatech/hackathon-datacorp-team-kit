@@ -1,13 +1,3 @@
----
-title: "Workspace SDD do Spec-Kit"
-description: "Guia didático da pasta de especificações: uma pasta por funcionalidade, com artefatos do GitHub Spec-Kit"
-author: "Requirements Engineer (time)"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["spec-kit", "sdd", "ears", "specifications", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # specs/

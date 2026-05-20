@@ -1,9 +1,3 @@
----
-title: "Modelo de ADR"
-description: "Modelo para registros de decisão de arquitetura"
-status: "template"
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # ADR-NNNN: <Título curto e decisivo>

@@ -1,13 +1,3 @@
----
-title: "Programas Natural - Legado SIFAP"
-description: "Programas-fonte Natural/ADABAS que compõem o sistema legado de processamento de transações do SIFAP"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-04-23"
-version: "1.0.0"
-status: "approved"
-tags: ["natural", "adabas", "legacy", "sifap", "programs"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Programas Natural

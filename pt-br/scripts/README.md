@@ -1,13 +1,3 @@
----
-title: "Scripts Auxiliares"
-description: "Scripts de bootstrap e verificação de qualidade para o repositório da equipe"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-04-29"
-version: "1.0.0"
-status: "approved"
-tags: ["scripts", "bootstrap", "ci", "workshop"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Scripts

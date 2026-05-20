@@ -1,15 +1,3 @@
----
-title: "Estágio 3 — Implementação (70 min)"
-description: "Guia para estender o protótipo SIFAP 2.0 com as features priorizadas no Estágio 2. Foco: código, testes e rastreabilidade até a EARS."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/03-implementacao/GUIDE.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["estagio-3", "implementacao", "codigo", "didatico", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Estágio 3 — Implementação (70 min)

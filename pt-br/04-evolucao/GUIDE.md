@@ -1,15 +1,3 @@
----
-title: "Estágio 4 — Evolução com Agentes (40 min)"
-description: "Guia para usar o modo Agent do GitHub Copilot e Terraform para evoluir o SIFAP 2.0 — delegar funcionalidades completas via Issues e PRs."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/04-evolucao/GUIDE.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["estagio-4", "evolution", "agent", "terraform", "didatico", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Estágio 4 — Evolução com Agentes (40 min)

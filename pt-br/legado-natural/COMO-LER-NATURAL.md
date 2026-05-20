@@ -1,15 +1,3 @@
----
-title: "Como Ler um Programa Natural Sem Saber Natural"
-description: "Guia de leitura visual para qualquer pessoa (mesmo quem nunca programou ou só programou em linguagens modernas) extrair regras de negócio de arquivos .NSN durante o Estágio 1."
-locale: "pt-br"
-canonical_path: "pt-br/legado-natural/COMO-LER-NATURAL.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-19"
-version: "1.0.0"
-status: "approved"
-tags: ["natural", "legado", "didatico", "iniciante", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Como Ler um Programa Natural Sem Saber Natural

@@ -1,10 +1,3 @@
----
-name: Azure Boards
-type: plugin
-description: "Sincroniza itens de trabalho SDD com o Azure DevOps Boards. Cria Epics, Features, User Stories e Tasks com rastreabilidade por REQ-ID."
-audience: persona-kits (todas as funções)
----
-
 # Plugin do Azure Boards
 
 ## O que ele faz

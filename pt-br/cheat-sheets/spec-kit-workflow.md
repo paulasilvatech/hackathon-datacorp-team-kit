@@ -1,14 +1,3 @@
----
-title: "Cartão de referência — Spec-Kit"
-description: "Uma página para usar o Spec-Kit oficial do GitHub no fluxo SDD do workshop."
-locale: "pt-br"
-canonical_path: "pt-br/cheat-sheets/spec-kit-workflow.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "3.0.0"
-tags: ["cheat-sheet", "spec-kit", "sdd", "ears", "workshop", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Spec-Kit — Cartão de Referência

@@ -1,15 +1,3 @@
----
-title: "Exemplos Preenchidos — Veja Como Fica Pronto"
-description: "Coleção de artefatos completos e plausíveis (não templates vazios) que mostram o nível de profundidade esperado em cada estágio. Use como referência ao escrever os seus."
-locale: "pt-br"
-canonical_path: "pt-br/exemplos-preenchidos/README.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-19"
-version: "1.0.0"
-status: "approved"
-tags: ["exemplos", "didatico", "referencia", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Exemplos Preenchidos — Veja Como Fica Pronto

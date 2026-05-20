@@ -1,15 +1,3 @@
----
-title: "Fluxo do Time — Como 5 Pessoas Cobrem 10 Personas"
-description: "Edição: 20 times de 5 pessoas. Cada pessoa veste 2 personas (1 par). Donos de fase no SDLC, passagems e onboarding dos primeiros 30 minutos."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/TEAM-FLOW.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["team", "flow", "passagems", "onboarding", "personas", "workshop"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Fluxo do Time — Como 5 Pessoas Cobrem 10 Personas

@@ -1,13 +1,3 @@
----
-title: "SIFAP - Sistema de Fiscalização e Administração de Pagamentos"
-description: "Documentação técnica do sistema SIFAP - Natural/Adabas, a organização"
-author: "Divisão de Desenvolvimento - SUPDE/DESIF"
-date: "2018-03-15"
-version: "4.1.2"
-status: "production"
-tags: ["sifap", "natural", "adabas", "legado", "pagamentos", "benefícios"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # SIFAP - Sistema de Fiscalização e Administração de Pagamentos

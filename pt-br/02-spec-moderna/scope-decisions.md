@@ -1,15 +1,3 @@
----
-title: "Decisões de Escopo — SIFAP 2.0"
-description: "Modelo para registrar o que migra, descarta ou evolui no SIFAP 2.0. Decisão liderada pelo Par 1 (Product Owner)."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/02-spec-moderna/scope-decisions.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-status: "template"
-tags: ["estagio-2", "escopo", "template", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Decisões de Escopo — SIFAP 2.0

@@ -1,15 +1,3 @@
----
-title: "Mapa de Dependências — SIFAP Legado"
-description: "Modelo para diagramar 'quem chama quem' e 'quem lê/escreve o quê' entre os 15 programas Natural e os 4 DDMs Adabas."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/01-arqueologia/dependency-map.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-status: "template"
-tags: ["estagio-1", "dependencias", "mermaid", "template", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Mapa de Dependências — SIFAP Legado

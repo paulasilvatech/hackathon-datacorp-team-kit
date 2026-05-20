@@ -1,15 +1,3 @@
----
-title: "SPECIFICATION.md — Exemplo Preenchido (Módulo Payment)"
-description: "Exemplo de specificação técnica com EARS, source_legacy e critérios de aceite. Use como referência ao escrever o seu SPECIFICATION.md no Estágio 2."
-locale: "pt-br"
-canonical_path: "pt-br/exemplos-preenchidos/SPECIFICATION-exemplo.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-19"
-version: "1.0.0"
-status: "approved"
-tags: ["exemplo", "spec", "ears", "estagio-2", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # SPECIFICATION — SIFAP 2.0 · Módulo Payment (Exemplo Preenchido)

@@ -1,15 +1,3 @@
----
-title: "Checklist de Exploração do Legado — OBRIGATÓRIO antes do Estágio 2"
-description: "Portão duro: todo time precisa analisar os 15 programas Natural e os 4 DDMs antes de abrir o Estágio 2. Requisitos EARS sem rastreabilidade ao legado são rejeitados."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/01-arqueologia/LEGACY-EXPLORATION-CHECKLIST.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-status: "approved"
-tags: ["legado", "exploracao", "gate", "estagio-1", "obrigatorio", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Checklist de Exploração do Legado

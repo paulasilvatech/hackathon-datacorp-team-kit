@@ -1,15 +1,3 @@
----
-title: "Cartões de Referência — Kit do Time"
-description: "Cartões de referência rápida para participantes do workshop, cobrindo os modos Ask, Plan e Agent do Copilot, o pipeline Spec-Kit e roteamento de modelos."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/cheat-sheets/README.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["cheat-sheet", "copilot", "spec-kit", "model-routing", "workshop", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Cartões de Referência

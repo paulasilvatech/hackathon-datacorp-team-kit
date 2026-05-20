@@ -1,13 +1,3 @@
----
-title: "Arquivos DDM Adabas - Legado SIFAP"
-description: "Arquivos Data Definition Module que descrevem a estrutura do banco Adabas usada pelo sistema SIFAP legado"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-04-23"
-version: "1.0.0"
-status: "approved"
-tags: ["adabas", "ddm", "legacy", "sifap", "database"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Arquivos DDM Adabas

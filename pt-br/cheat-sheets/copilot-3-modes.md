@@ -1,14 +1,3 @@
----
-title: "Cartão de referência — GitHub Copilot em 3 modos"
-description: "Uma página. Quando usar Ask, Plan ou Agent. Frases que funcionam. Erros comuns."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/cheat-sheets/copilot-3-modes.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-tags: ["cheat-sheet", "copilot", "workshop", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # GitHub Copilot em 3 modos — Cartão de referência

@@ -1,25 +1,3 @@
----
-title: "Guia de Setup — Do Zero ao Código"
-description: "Passo a passo completo e amigável para iniciantes: criar o repositório GitHub do time, adicionar membros, ativar o Copilot, instalar o Spec-Kit oficial do GitHub, definir a estratégia de branches e configurar o kit Copilot de cada persona"
-locale: "pt-br"
-canonical_path: "SETUP.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-04-29"
-version: "2.1.0"
-status: "approved"
-tags:
-  [
-    "setup",
-    "onboarding",
-    "github",
-    "copilot",
-    "spec-kit",
-    "hackathon",
-    "datacorp",
-    "iniciante",
-  ]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Guia de Setup — Do Zero ao Código
