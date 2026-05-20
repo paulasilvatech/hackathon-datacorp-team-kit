@@ -1,15 +1,3 @@
----
-title: "Catálogo de Regras de Negócio — Exemplo Preenchido"
-description: "Exemplo de como o business-rules-catalog.md do Estágio 1 fica quando bem feito. Use como referência de profundidade — não copie literalmente."
-locale: "pt-br"
-canonical_path: "pt-br/exemplos-preenchidos/business-rules-catalog-exemplo.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-19"
-version: "1.0.0"
-status: "approved"
-tags: ["exemplo", "business-rules", "estagio-1", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Catálogo de Regras de Negócio — Exemplo Preenchido

@@ -1,15 +1,3 @@
----
-title: "Estágio 1 — Arqueologia Digital"
-description: "Como ler o legado do SIFAP em 3 horas. Esta etapa é obrigatória: o que você descobrir aqui é o que o resto do dia vai poder construir."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/01-arqueologia/GUIDE.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["estagio-1", "arqueologia", "legado", "didatico", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Estágio 1 — Arqueologia Digital

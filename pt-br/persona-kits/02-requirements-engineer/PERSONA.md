@@ -1,15 +1,3 @@
----
-title: "Card de Persona — Requirements Engineer"
-description: "O que o Requirements Engineer faz dentro do time de 10 durante o Dia 2 do Legacy Modernization Workshop."
-locale: "pt-br"
-canonical_path: "pt-br/persona-kits/02-requirements-engineer/PERSONA.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-persona_id: "02"
-tags: ["persona", "requirements-engineer", "workshop", "ears", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Persona — Requirements Engineer

@@ -1,15 +1,3 @@
----
-title: "OVERVIEW das 10 Personas — Em Uma Página"
-description: "Tabela comparativa das 10 personas: par, qual estágio cada uma lidera, ferramentas-chave e default de emergência. Use para escolher seu par ou comparar papéis rapidamente."
-locale: "pt-br"
-canonical_path: "pt-br/persona-kits/OVERVIEW.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-19"
-version: "1.0.0"
-status: "approved"
-tags: ["personas", "overview", "didatico", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # OVERVIEW das 10 Personas — Em Uma Página

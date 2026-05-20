@@ -1,15 +1,3 @@
----
-title: "ADR-XXX: [Título da Decisão]"
-description: "Modelo de Registro de Decisão Arquitetural (ADR). Toda decisão arquitetural importante precisa de um ADR com contexto, alternativas, decisão e consequências."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/02-spec-moderna/ADR-TEMPLATE.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-status: "template"
-tags: ["estagio-2", "adr", "template", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # ADR-XXX: [Título da Decisão]

@@ -1,13 +1,3 @@
----
-title: "Os 4 Agentes do SDLC — Explicados"
-description: "Guia didático sobre por que existem 4 agentes de etapa, como eles se relacionam com persona-kits e como usá-los sem pular o aprendizado"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["agents", "architecture", "instructions", "model-routing", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Os 4 Agentes do SDLC — Explicados

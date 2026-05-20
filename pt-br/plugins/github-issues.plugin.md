@@ -1,10 +1,3 @@
----
-name: GitHub Issues
-type: plugin
-description: "Cria e sincroniza issues do GitHub a partir de tarefas de especificação SDD. Cria issues em lote a partir de TASKS.md, mantém a rastreabilidade por REQ-ID e gerencia labels e milestones."
-audience: persona-kits (todas as funções)
----
-
 # Plugin do GitHub Issues
 
 ## O que ele faz

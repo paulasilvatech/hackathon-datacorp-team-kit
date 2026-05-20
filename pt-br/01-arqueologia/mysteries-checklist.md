@@ -1,15 +1,3 @@
----
-title: "Checklist de Mistérios — Quantos seu time descobriu?"
-description: "Lista dos mistérios plantados no código legado SIFAP. Encontre todos para pontuar!"
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/01-arqueologia/mysteries-checklist.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-status: "approved"
-tags: ["estagio-1", "misterios", "gamificacao", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Checklist de Mistérios do SIFAP

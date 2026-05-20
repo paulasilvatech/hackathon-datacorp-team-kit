@@ -1,15 +1,3 @@
----
-title: "Primeiros 15 Minutos — Comece Aqui"
-description: "Roteiro de 15 minutos para qualquer pessoa do time, independente de conhecimento técnico. Cinco passos numerados que te levam de 'recém-cheguei' até 'sei o que vou fazer hoje'."
-locale: "pt-br"
-canonical_path: "pt-br/FIRST-15-MINUTES.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-19"
-version: "1.0.0"
-status: "approved"
-tags: ["onboarding", "iniciante", "didatico", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Primeiros 15 Minutos — Comece Aqui

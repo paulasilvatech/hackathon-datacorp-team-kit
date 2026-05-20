@@ -1,15 +1,3 @@
----
-title: "Card de Persona — QA Engineer"
-description: "O que o QA Engineer faz dentro do time de 10 durante o Dia 2 do Workshop de Modernização de Legado."
-locale: "pt-br"
-canonical_path: "pt-br/persona-kits/08-qa-engineer/PERSONA.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-persona_id: "08"
-tags: ["persona", "qa-engineer", "workshop", "testing", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Persona — QA Engineer

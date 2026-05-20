@@ -1,15 +1,3 @@
----
-title: "Glossário Visual — Jargão Decodificado"
-description: "Definições curtas, analogias e exemplos para os 30 termos técnicos que aparecem no workshop. Feito para não-técnicos (PO, Tech Writer, analistas) que precisam acompanhar o time sem ficar perdidos."
-locale: "pt-br"
-canonical_path: "pt-br/docs/glossario-visual.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-19"
-version: "1.0.0"
-status: "approved"
-tags: ["glossario", "didatico", "iniciante", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Glossário Visual — Jargão Decodificado

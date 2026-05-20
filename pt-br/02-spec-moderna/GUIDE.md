@@ -1,15 +1,3 @@
----
-title: "Estágio 2 — Spec Moderna (60 min)"
-description: "Guia para construir uma especificação técnica usando EARS, ADRs e C4. Todo requisito PRECISA rastrear até código legado ou ser marcado explicitamente como greenfield."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/02-spec-moderna/GUIDE.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["estagio-2", "especificacao", "ears", "adr", "c4", "didatico", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Estágio 2 — Spec Moderna (60 min)

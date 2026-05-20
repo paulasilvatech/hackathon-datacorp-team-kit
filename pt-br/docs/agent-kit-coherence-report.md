@@ -1,13 +1,3 @@
----
-title: "Relatório de Coerência do Kit de Agentes"
-description: "Verificação de qualidade ponta a ponta do conjunto de ferramentas SDLC de 4 agentes nas ondas 1-3"
-author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-29"
-version: "1.0.0"
-status: "approved"
-tags: ["coherence", "quality", "verification", "agent-kits"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Relatório de Coerência do Kit de Agentes — v1.0.0

@@ -1,13 +1,3 @@
----
-title: "Glossário de Domínio — SIFAP 2.0"
-description: "Glossário autoritativo da equipe. Preenchido durante o Estágio 1 (Arqueologia) pelo Tech Writer + Requirements Engineer."
-author: "Tech Writer (time)"
-date: "2026-04-29"
-version: "0.1.0"
-status: "draft"
-tags: ["glossary", "domain", "sifap", "stage-1"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Glossário de Domínio

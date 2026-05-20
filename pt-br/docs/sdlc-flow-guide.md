@@ -1,13 +1,3 @@
----
-title: "Fluxo SDLC — Personas × Agentes × Etapas"
-description: "O mapa de integração em uma página que mostra quem faz o quê, com qual agente, em qual etapa e o que flui entre eles"
-author: "Paula Silva, AI-Native Software Engineer, Americas Global Black Belt at Microsoft"
-date: "2026-04-29"
-version: "1.0.0"
-status: "approved"
-tags: ["flow", "sdlc", "personas", "agents", "integration", "hackathon"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Fluxo SDLC — Personas × Agentes × Etapas

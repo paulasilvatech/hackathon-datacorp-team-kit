@@ -1,13 +1,3 @@
----
-title: "Agent Kits — 4 Agentes de Etapa do SDLC"
-description: "Camada horizontal de agentes por etapa do workshop, complementar aos 10 persona-kits usados pelas 5 pessoas do time"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["agents", "sdlc", "copilot", "hackathon", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Agent Kits — 4 Agentes de Etapa do SDLC

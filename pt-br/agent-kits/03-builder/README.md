@@ -1,13 +1,3 @@
----
-title: "@builder — Estágio 3: Implementação"
-description: "Guia didático do agente de implementação: Java 21, Spring Boot, JPA, PostgreSQL, Next.js, testes e rastreabilidade"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["agent", "builder", "implementation", "java", "nextjs", "stage-3", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # @builder — Estágio 3: Implementação

@@ -1,17 +1,3 @@
----
-title: "SIFAP Terminal — Roteiro de Demo Interativa"
-description: "Script cena-a-cena para conduzir a demo interativa do simulador SIFAP no Estágio 1 (Arqueologia Digital). Cobre todos os pontos do sistema com comandos exatos, o que aparece na tela e falas-chave de narração. Pensado para uso ao vivo lado a lado com o simulador projetado. Versão alinhada ao terminal v1.1 com fidelidade SIAFI/SIAPE."
-author: "Paula Silva — Americas Software GBB, Microsoft"
-date: 2026-04-25
-version: 1.1.0
-status: ready
-artifact: sifap-terminal.html (v1.1)
-audience: Paula (facilitadora principal)
-duration: 18-22 min (versão completa) | 8-10 min (versão reduzida)
-event: Legacy Modernization Workshop — Estágio 1 Arqueologia Digital
-tags: [workshop, sifap, demo-script, facilitacao, estagio-1]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # SIFAP Terminal — Roteiro de Demo Interativa

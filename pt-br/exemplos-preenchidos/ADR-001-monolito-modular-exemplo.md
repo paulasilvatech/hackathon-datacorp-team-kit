@@ -1,15 +1,3 @@
----
-title: "ADR-001 — Monolito Modular vs. Microsserviços (Exemplo Preenchido)"
-description: "Exemplo de ADR completo, com Contexto, Decisão, Alternativas rejeitadas e Consequências. Use como modelo de profundidade ao escrever seus ADRs no Estágio 2."
-locale: "pt-br"
-canonical_path: "pt-br/exemplos-preenchidos/ADR-001-monolito-modular-exemplo.md"
-author: "Time Beta (exemplo)"
-date: "2026-05-19"
-version: "1.0.0"
-status: "approved"
-tags: ["exemplo", "adr", "arquitetura", "estagio-2", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # ADR-001 — Adotar Monolito Modular em vez de Microsserviços

@@ -1,13 +1,3 @@
----
-title: "Runbook — Repositório da Equipe SIFAP 2.0"
-description: "Como executar o sistema localmente, em CI e no Azure"
-author: "DevOps Engineer (time)"
-date: "2026-04-29"
-version: "1.0.0"
-status: "draft"
-tags: ["runbook", "operations", "devops", "deploy"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Runbook

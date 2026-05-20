@@ -1,14 +1,3 @@
----
-title: "Cartão de referência — Roteamento de modelos Claude no Copilot"
-description: "Uma página. Quando usar Claude Haiku 4.5, Sonnet 4.6 ou Opus 4.6 dentro do GitHub Copilot. Regras simples, casos comuns."
-locale: "pt-br"
-canonical_path: "06-kit-repositorio-times/cheat-sheets/model-routing.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "1.0.0"
-tags: ["cheat-sheet", "copilot", "claude", "model-routing", "workshop", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # Roteamento de modelos Claude — Cartão de referência

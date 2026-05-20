@@ -1,13 +1,3 @@
----
-title: "@evolution — Estágio 4: Evolução"
-description: "Guia didático do agente de evolução: issues para Copilot Agent, revisão de PR, CI/CD, Terraform e passagem operacional"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-18"
-version: "2.0.0"
-status: "approved"
-tags: ["agent", "evolution", "devops", "terraform", "cicd", "stage-4", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # @evolution — Estágio 4: Evolução

@@ -1,15 +1,3 @@
----
-title: "SITEMAP — Mapa Visual do Kit pt-br"
-description: "Mapa visual de toda a estrutura do kit em uma página: o que tem onde, como navegar, e qual é o caminho recomendado para cada persona/situação."
-locale: "pt-br"
-canonical_path: "pt-br/SITEMAP.md"
-author: "Paula Silva, Americas Software GBB, Microsoft"
-date: "2026-05-19"
-version: "1.0.0"
-status: "approved"
-tags: ["sitemap", "navegacao", "didatico", "pt-br"]
----
-
 <!-- markdownlint-disable MD013 MD025 MD026 MD028 MD029 MD034 MD040 MD051 MD060 -->
 
 # SITEMAP — Mapa Visual do Kit pt-br
