@@ -28,8 +28,8 @@ O workshop roda em **stack fixa**. Misturar ferramentas alternativas fragmenta o
 | Use                                                                    | Não use                                                                           |
 | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | **VS Code** (ou Insiders)                                              | Cursor, Windsurf, Antigravity, IntelliJ, Eclipse, Sublime, plugins de Neovim      |
-| **GitHub Copilot** — modos Ask + Plan + Agent (Copilot Workspace OK)   | Codex, Claude Code, Cline, Continue, Aider, Codeium, Tabnine                      |
-| **GitHub Copilot CLI** _(opcional)_                                    | ChatGPT / Claude.ai na web para gerar código (quebra o histórico do Copilot Chat) |
+| **GitHub Copilot** — modos Ask + Plan + Agent (Copilot Workspace OK)   | Codex, Cline, Continue, Aider, Codeium, Tabnine e outros assistentes              |
+| **GitHub Copilot CLI** _(opcional)_                                    | UIs web de chat para gerar código (quebram o histórico do Copilot Chat)           |
 | **Spec-Kit** oficial do GitHub (`Specify CLI` + `/speckit.*`)           | Kiro, frameworks SDD alternativos e pipelines de SDD em YAML custom               |
 | **GitHub** (Issues, PRs, Actions, Projects)                            | —                                                                                 |
 | **Docker / Docker Compose**                                            | instalações locais de Postgres/Node/Java que divergem do devcontainer             |

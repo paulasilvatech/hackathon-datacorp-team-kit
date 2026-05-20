@@ -20,8 +20,8 @@ Este workshop roda com uma **toolchain fixa**. Usar qualquer outra coisa fragmen
 
 **Não use** outros assistentes de IA, IDEs ou frameworks de SDD durante o workshop. Especificamente:
 
-- ❌ Sem Cursor, Windsurf, Antigravity, Codex, Claude Code, Cline, Continue, Aider, Codeium, Tabnine ou outros concorrentes do Copilot
-- ❌ Sem UIs web do ChatGPT / Claude.ai para geração de código (seus prompts e saídas devem permanecer rastreáveis pelo histórico do Copilot Chat)
+- ❌ Sem Cursor, Windsurf, Antigravity, Codex, Cline, Continue, Aider, Codeium, Tabnine ou outros concorrentes do Copilot
+- ❌ Sem UIs web de chat para geração de código (seus prompts e saídas devem permanecer rastreáveis pelo histórico do Copilot Chat)
 - ❌ Sem IntelliJ, Eclipse, Sublime ou plugins do Neovim como editor principal
 - ❌ Sem frameworks alternativos de SDD (Kiro, pipelines YAML customizados etc.). O GitHub Spec-Kit oficial é permitido e obrigatório.
 
