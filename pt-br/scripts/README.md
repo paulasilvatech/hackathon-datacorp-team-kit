@@ -36,8 +36,21 @@ chmod +x scripts/*.sh
 - `check.sh` ignora qualquer verificação cuja pasta ainda não exista (assim ele funciona durante os estágios iniciais).
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **VEM DE**<br/>[Kit PT-BR](../README.md) | [Kit PT-BR](../README.md) | **EM SEGUIDA**<br/>[Setup completo](../SETUP.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../README.md"><strong>Kit PT-BR</strong></a><br/>
+<sub>Hub deste folder: comece aqui se nunca abriu o kit.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../SETUP.md"><strong>SETUP</strong></a><br/>
+<sub>Setup do laptop: Git, VS Code, Copilot, Spec-Kit, branch protection.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>

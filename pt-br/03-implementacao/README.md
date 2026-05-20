@@ -30,10 +30,25 @@ tags: ["estagio-3", "implementacao", "codigo", "prototipo", "workshop", "pt-br"]
 | ---------------------- | -------------------------------- |
 | [`GUIDE.md`](GUIDE.md) | Guia passo a passo deste estágio |
 
-## Navegação
+---
 
-| Anterior                                                 | Início                    | Próximo                                           |
-| -------------------------------------------------------- | ------------------------- | ------------------------------------------------- |
-| [Estágio 2 — Spec Moderna](../02-spec-moderna/README.md) | [Kit PT-BR](../README.md) | [Estágio 4 — Evolução](../04-evolucao/README.md) |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../02-spec-moderna/README.md"><strong>Estágio 2 — Visão geral</strong></a><br/>
+<sub>Resumo da spec moderna + links para templates ADR.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="GUIDE.md"><strong>Estágio 3 — Implementação</strong></a><br/>
+<sub>16:15–17:30 · Java 21 + Spring Boot + Next.js, com testes.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

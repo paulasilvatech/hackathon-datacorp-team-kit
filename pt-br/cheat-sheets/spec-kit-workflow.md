@@ -175,10 +175,23 @@ flowchart LR
 - [Spec-Driven Development](https://github.com/github/spec-kit/blob/main/spec-driven.md)
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **CARTÃO ANTERIOR**<br/>[Copilot em 3 modos](copilot-3-modes.md) | [Kit PT-BR](../README.md) | **PRÓXIMO CARTÃO**<br/>[Roteamento de modelos](model-routing.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="copilot-3-modes.md"><strong>Copilot em 3 modos</strong></a><br/>
+<sub>Quando usar Ask, Plan ou Agent — tabela situação → modo.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="model-routing.md"><strong>Roteamento de modelos</strong></a><br/>
+<sub>Quando usar Haiku, Sonnet ou Opus — matriz custo × precisão.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

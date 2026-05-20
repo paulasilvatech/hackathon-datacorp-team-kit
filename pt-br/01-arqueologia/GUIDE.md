@@ -14,11 +14,9 @@ tags: ["estagio-1", "arqueologia", "legado", "didatico", "pt-br"]
 
 # Estágio 1 — Arqueologia Digital
 
-> **ESTÁGIO 01 DE 04 · DESCOBERTA**
->
-> 13:00 – 14:30 · 90 minutos
->
-> Todos os 5 pares trabalham em paralelo — 3 programas Natural por par.
+![ESTÁGIO 01 de 04](https://img.shields.io/badge/EST%C3%81GIO-01%20de%2004-F25022?style=for-the-badge) ![Horário 13:00 – 14:30](https://img.shields.io/badge/HOR%C3%81RIO-13%3A00%20%E2%80%93%2014%3A30-1A1A1A?style=for-the-badge) ![Duração 90 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-90%20min-737373?style=for-the-badge)
+
+> **Categoria:** Descoberta · **Quem trabalha agora:** Todos os 5 pares em paralelo
 
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
@@ -28,7 +26,10 @@ tags: ["estagio-1", "arqueologia", "legado", "didatico", "pt-br"]
 > - **Quer ver como fica o entregável**? [`../exemplos-preenchidos/business-rules-catalog-exemplo.md`](../exemplos-preenchidos/business-rules-catalog-exemplo.md) mostra um catálogo bem feito.
 > - **Cheat-sheet do Copilot** (Ask vs Plan vs Agent): [`../cheat-sheets/copilot-3-modes.md`](../cheat-sheets/copilot-3-modes.md).
 
-> **Esta é a única etapa do dia que você não pode pular.** Tudo o que vem depois — a especificação, o código, o deploy — depende do que sua dupla extrair daqui. Na edição anterior do workshop, vários times escreveram especificações sem ler o legado e descobriram tarde demais que perderam regras de negócio de 29 anos. Desta vez, o portão é obrigatório: o CI e a rubrica não deixam você seguir sem rastrear cada requisito até um arquivo `.NSN` ou `.ddm`.
+> [!IMPORTANT]
+> **Esta é a única etapa do dia que você não pode pular.** Tudo o que vem depois — a especificação, o código, o deploy — depende do que sua dupla extrair daqui.
+>
+> Na edição anterior do workshop, vários times escreveram especificações sem ler o legado e descobriram tarde demais que perderam regras de negócio de 29 anos. Desta vez, o portão é obrigatório: o CI e a rubrica não deixam você seguir sem rastrear cada requisito até um arquivo `.NSN` ou `.ddm`.
 
 **Você está no Estágio 1 (Descoberta do SDLC).** A saída deste estágio alimenta diretamente o Estágio 2 (Especificação). Sem entrega clara aqui, o passagem #1 falha e o time inteiro empaca.
 
@@ -152,7 +153,8 @@ Cada par lidera 3 programas. **Nenhum programa pode ficar sem leitor.**
 - Campos DDM envolvidos
 - Nível de risco (CRÍTICO / ALTO / MÉDIO / BAIXO)
 
-**Linhas com `Programa Fonte` vazio são inválidas e derrubam o time na rubrica.** Sem exceção.
+> [!WARNING]
+> **Linhas com `Programa Fonte` vazio são inválidas e derrubam o time na rubrica.** Sem exceção.
 
 ### Hora 3 — Síntese (11:15 → 12:00)
 
@@ -222,7 +224,8 @@ Se sua dupla travar depois de 90 minutos sem achar nenhum mistério, levante a m
 
 ---
 
-## Armadilhas comuns (o que NÃO fazer)
+<details>
+<summary><strong>Armadilhas comuns</strong> — clique para expandir</summary>
 
 | ❌ Se você está fazendo isso                                   | ✅ Faça assim                                                                              |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
@@ -232,6 +235,8 @@ Se sua dupla travar depois de 90 minutos sem achar nenhum mistério, levante a m
 | Ignorando os 3 documentos antigos em `legacy-docs/`            | Eles estão desatualizados, mas mostram o que o time original _pensava_ na época. Vale ler. |
 | Deixando para a Hora 3 começar a escrever no catálogo          | Documente conforme descobre. Memória de curto prazo trai.                                  |
 | Considerando "regra de negócio" qualquer linha de código       | Regra de negócio = decisão do **domínio**, não da implementação.                           |
+
+</details>
 
 ---
 
@@ -270,10 +275,25 @@ Modelo certo (Haiku/Sonnet)? → cheat-sheets/model-routing.md
 
 ---
 
-## Navegação
+---
 
-| Anterior                                             | Início                                    | Próximo                                                                 |
-| ---------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------------------------- |
-| [Fluxo do Time (PT-BR)](../TEAM-FLOW.md) _(em produção)_ | [Kit PT-BR](../README.md) _(em produção)_ | [Estágio 2 — Spec Moderna](../02-spec-moderna/GUIDE.md) _(em produção)_ |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../persona-kits/OVERVIEW.md"><strong>OVERVIEW das 10 personas</strong></a><br/>
+<sub>Tabela comparativa: par, líder de estágio, defaults de emergência.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../02-spec-moderna/GUIDE.md"><strong>Estágio 2 — Spec Moderna</strong></a><br/>
+<sub>14:45–16:00 · Escrever EARS, ADRs e diagramas C4.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

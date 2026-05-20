@@ -256,10 +256,25 @@ Qual comando do Spec-Kit? → cheat-sheets/spec-kit-workflow.md
 
 ---
 
-## Navegação
+---
 
-| Pai                              | Início                       |
-| -------------------------------- | ---------------------------- |
-| [Kit do Time (PT-BR)](README.md) | [Workspace](../../README.md) |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="FIRST-15-MINUTES.md"><strong>Primeiros 15 Minutos</strong></a><br/>
+<sub>Roteiro inicial — 5 passos numerados para qualquer pessoa começar.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="SETUP.md"><strong>SETUP</strong></a><br/>
+<sub>Setup do laptop: Git, VS Code, Copilot, Spec-Kit, branch protection.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

@@ -14,11 +14,9 @@ tags: ["estagio-4", "evolution", "agent", "terraform", "didatico", "pt-br"]
 
 # Estágio 4 — Evolução com Agentes (3 horas)
 
-> **ESTÁGIO 04 DE 04 · EVOLUÇÃO COM AGENTES**
->
-> 17:45 – 18:15 · 30 minutos
->
-> Par 5 (Operações) lidera. Par 3 (Implementação) escreve Issues e revisa PRs do Agent.
+![ESTÁGIO 04 de 04](https://img.shields.io/badge/EST%C3%81GIO-04%20de%2004-FFB900?style=for-the-badge) ![Horário 17:45 – 18:15](https://img.shields.io/badge/HOR%C3%81RIO-17%3A45%20%E2%80%93%2018%3A15-1A1A1A?style=for-the-badge) ![Duração 30 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-30%20min-737373?style=for-the-badge)
+
+> **Categoria:** Evolução · **Quem trabalha agora:** Par 5 lidera · Par 3 co-lidera
 
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
@@ -245,7 +243,8 @@ Plan: 12 to add, 0 to change, 0 to destroy.
  ...
 ```
 
-> **Escopo do workshop**: explore e entenda os módulos. NÃO faça `terraform apply` — isso criaria recursos Azure reais com custo real. `terraform plan` é suficiente para demonstrar conhecimento.
+> [!CAUTION]
+> **Escopo do workshop:** explore e entenda os módulos. **Não execute `terraform apply`** — isso criaria recursos Azure reais com custo real. `terraform plan` é suficiente para demonstrar conhecimento.
 
 ### Quando o Agent falha
 
@@ -259,7 +258,8 @@ O Copilot Agent não é perfeito. Problemas comuns:
 | PR com lógica errada              | Requisito ambíguo                 | Reescreva o requisito em EARS e abra nova Issue                                         |
 | Agent trava ou demora demais      | Codebase grande demais            | Estreite o escopo: aponte para arquivos específicos na Issue                            |
 
-**Regra de ouro**: quando o Agent erra, a causa quase sempre está na Issue. Melhore a Issue antes de tentar de novo.
+> [!TIP]
+> **Regra de ouro:** quando o Agent erra, a causa quase sempre está na Issue. Melhore a Issue antes de tentar de novo.
 
 ### CI/CD: GitHub Actions
 
@@ -285,7 +285,8 @@ Os workflows de CI/CD ficam em:
 
 ---
 
-## Armadilhas comuns
+<details>
+<summary><strong>Armadilhas comuns</strong> — clique para expandir</summary>
 
 | ❌ Se você está fazendo isso             | ✅ Faça assim                                                    |
 | ---------------------------------------- | ---------------------------------------------------------------- |
@@ -294,6 +295,8 @@ Os workflows de CI/CD ficam em:
 | Disparar Agent para tarefa de 5 minutos  | Use Ask ou Plan para tarefas pequenas. Agent é para funcionalidades completas |
 | Rodar `terraform apply` no workshop      | Só `plan`. Não criar recursos Azure reais                        |
 | Hardcode de SMTP_HOST no application.yml | Sempre via env var, com fallback em Key Vault                    |
+
+</details>
 
 ---
 
@@ -312,7 +315,8 @@ Ao final do Estágio 4, seu time deve ter:
 
 Demo (18:30) + Retrospectiva (19:10). Cada time tem ~3 minutos. O Par 1 (PO) conduz o demo; todos preparam 30 segundos cada. Veja [`../../07-playbook-facilitacao/DAY-SCRIPT.md`](../../../07-playbook-facilitacao/DAY-SCRIPT.md) para o roteiro completo.
 
-## Prompts para Copilot Chat
+<details>
+<summary><strong>Prompts úteis para Copilot Chat</strong> — clique para expandir</summary>
 
 1. _"Crie uma GitHub Issue para o Copilot Agent implementar [funcionalidade]. Use o formato com requisitos funcionais, requisitos técnicos e critérios de aceite."_
 2. _"Revise este PR gerado pelo Agent e liste problemas de qualidade."_
@@ -322,16 +326,34 @@ Demo (18:30) + Retrospectiva (19:10). Cada time tem ~3 minutos. O Par 1 (PO) con
 6. _"Como este workflow CI/CD garante qualidade antes do deploy?"_
 7. _"Sugira melhorias de segurança para esta configuração Terraform."_
 
+</details>
+
 ## Dica de ouro
 
-O Agent é só tão bom quanto a Issue que você escreve. Gaste **mais tempo na Issue** e **menos tempo consertando o PR**. Uma Issue com contexto claro, requisitos específicos e referências a arquivos produz PRs muito melhores.
+> [!TIP]
+> O Agent é só tão bom quanto a Issue que você escreve. Gaste **mais tempo na Issue** e **menos tempo consertando o PR**. Uma Issue com contexto claro, requisitos específicos e referências a arquivos produz PRs muito melhores.
 
 ---
 
-## Navegação
+---
 
-| Anterior                                          | Início                    | Próximo                                          |
-| ------------------------------------------------- | ------------------------- | ------------------------------------------------ |
-| [Estágio 3 — GUIDE](../03-implementacao/GUIDE.md) | [Kit PT-BR](../README.md) | [Relatório do Agent](agent-experience-report.md) |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../03-implementacao/GUIDE.md"><strong>Estágio 3 — Implementação</strong></a><br/>
+<sub>16:15–17:30 · Java 21 + Spring Boot + Next.js, com testes.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../SITEMAP.md"><strong>SITEMAP</strong></a><br/>
+<sub>Mapa visual do kit + caminho recomendado por persona.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

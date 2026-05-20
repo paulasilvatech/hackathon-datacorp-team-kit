@@ -294,8 +294,21 @@ Essa cadeia é a **rastreabilidade** que o CI verifica. Sempre que tiver dúvida
 
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **VEM DE**<br/>[Documentação](README.md) | [Kit PT-BR](../README.md) | **EM SEGUIDA**<br/>[Como ler Natural](../legado-natural/COMO-LER-NATURAL.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="README.md"><strong>Documentação transversal</strong></a><br/>
+<sub>glossário, sdlc-flow, persona-agent-matrix, runbook.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../legado-natural/COMO-LER-NATURAL.md"><strong>Como Ler Natural</strong></a><br/>
+<sub>Extrair regras de .NSN sem saber a sintaxe.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>

@@ -32,10 +32,25 @@ tags: ["estagio-2", "especificacao", "ears", "adr", "workshop", "pt-br"]
 | [`ADR-TEMPLATE.md`](ADR-TEMPLATE.md)       | Modelo de Registro de Decisão Arquitetural |
 | [`scope-decisions.md`](scope-decisions.md) | Modelo de decisões de escopo           |
 
-## Navegação
+---
 
-| Anterior                                               | Início                    | Próximo                                                    |
-| ------------------------------------------------------ | ------------------------- | ---------------------------------------------------------- |
-| [Estágio 1 — Arqueologia](../01-arqueologia/README.md) | [Kit PT-BR](../README.md) | [Estágio 3 — Implementação](../03-implementacao/README.md) |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../01-arqueologia/README.md"><strong>Estágio 1 — Visão geral</strong></a><br/>
+<sub>Resumo da arqueologia + links para o GUIDE detalhado.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="GUIDE.md"><strong>Estágio 2 — Spec Moderna</strong></a><br/>
+<sub>14:45–16:00 · Escrever EARS, ADRs e diagramas C4.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

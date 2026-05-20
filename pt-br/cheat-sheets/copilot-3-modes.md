@@ -119,10 +119,23 @@ flowchart LR
 > Se você não soubesse que era IA, aceitaria esse código no seu projeto? Se não, rejeite ou refine. O Copilot acelera quem sabe; não substitui julgamento.
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **ÍNDICE**<br/>[Cartões de Referência](README.md) | [Kit PT-BR](../README.md) | **PRÓXIMO CARTÃO**<br/>[Spec-Kit em 1 página](spec-kit-workflow.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="README.md"><strong>Cartões de Referência</strong></a><br/>
+<sub>3 cartões de 1 página: Copilot, Spec-Kit, modelos.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="spec-kit-workflow.md"><strong>Spec-Kit em 1 página</strong></a><br/>
+<sub>Sequência specify → clarify → plan → tasks → analyze.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

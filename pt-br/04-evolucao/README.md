@@ -32,10 +32,25 @@ tags:
 | [`GUIDE.md`](GUIDE.md)                                     | Guia passo a passo deste estágio                 |
 | [`agent-experience-report.md`](agent-experience-report.md) | Modelo de relatório de experiência com o Agent |
 
-## Navegação
+---
 
-| Anterior                                                   | Início                    | Próximo              |
-| ---------------------------------------------------------- | ------------------------- | -------------------- |
-| [Estágio 3 — Implementação](../03-implementacao/README.md) | [Kit PT-BR](../README.md) | Demo + Retrospectiva |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../03-implementacao/README.md"><strong>Estágio 3 — Visão geral</strong></a><br/>
+<sub>Resumo da implementação + estrutura do protótipo.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="GUIDE.md"><strong>Estágio 4 — Evolução</strong></a><br/>
+<sub>17:45–18:15 · Copilot Agent + Terraform + CI/CD.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

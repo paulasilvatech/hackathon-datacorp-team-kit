@@ -108,15 +108,25 @@ Transformar spec em código rodando. Usar o Copilot deliberadamente — Ask para
 - Rubrica A3 (Integridade Técnica): endpoints funcionais, testes passando
 - Rubrica A4 (Uso Consciente do Copilot): troca deliberada entre Ask, Plan e Agent
 - Critério: "Commits pequenos, PRs revisáveis, testes escritos junto do código"
-
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
-| :--- | :---: | :---: | ---: |
-| **PERSONA ANTERIOR**<br/>[Technical Lead](../05-technical-lead/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[DBA](../07-dba/PERSONA.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../05-technical-lead/PERSONA.md"><strong>Technical Lead</strong></a><br/>
+<sub>Par 3 · Implementação · padrões e revisão.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../07-dba/PERSONA.md"><strong>DBA</strong></a><br/>
+<sub>Par 4 · Qualidade · migrações Flyway + queries.</sub>
+</td>
+</tr>
+</table>
 
-> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
+<sub>↑ <a href="../../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

@@ -170,7 +170,7 @@ Só dê uma olhada nos nomes das variáveis para se familiarizar (`VLR-BRUTO`, `
 
 ### Passo 3 — Procure os `IF` (3–5 min)
 
-Use o atalho do VS Code: `Ctrl+F` → digite `IF`.
+Use o atalho do VS Code: <kbd>Ctrl</kbd>+<kbd>F</kbd> → digite `IF`.
 
 Cada `IF` é uma regra candidata. Anote linha + condição:
 
@@ -181,7 +181,7 @@ Cada `IF` é uma regra candidata. Anote linha + condição:
 
 ### Passo 4 — Procure constantes numéricas (2 min)
 
-Use `Ctrl+F` com `0.` (procura `0.30`, `0.075`, etc.).
+Use <kbd>Ctrl</kbd>+<kbd>F</kbd> com `0.` (procura `0.30`, `0.075`, etc.).
 
 Cada constante sem explicação é provavelmente uma alíquota ou um percentual de regra.
 
@@ -246,11 +246,11 @@ Quando você abrir os DDMs ou as variáveis de um `.NSN`, vai ver coisas assim:
 
 | Atalho | O que faz |
 |---|---|
-| `Ctrl+F` | Buscar dentro do arquivo |
-| `Ctrl+Shift+F` | Buscar em **todos** os arquivos |
-| `Ctrl+G` + número | Pular para a linha N |
+| <kbd>Ctrl</kbd>+<kbd>F</kbd> | Buscar dentro do arquivo |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Buscar em **todos** os arquivos |
+| <kbd>Ctrl</kbd>+<kbd>G</kbd> + número | Pular para a linha N |
 | `F2` | Renomear (não use em legado — só leia!) |
-| `Ctrl+Alt+→` | Próximo `IF` (se tiver navegação de símbolos) |
+| <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>→</kbd> | Próximo `IF` (se tiver navegação de símbolos) |
 | Selecionar + Copilot Chat | Cola e pergunta direto sobre o trecho |
 
 > **Dica de ouro do Copilot Chat:**
@@ -280,7 +280,7 @@ Quando você abrir os DDMs ou as variáveis de um `.NSN`, vai ver coisas assim:
 | ❌ Erro | ✅ Correção |
 |---|---|
 | Tentar entender cada linha | Foque só em `IF`, `COMPUTE` com constantes e comentários |
-| Ler na ordem do arquivo | Vá direto para os `IF` (use Ctrl+F) |
+| Ler na ordem do arquivo | Vá direto para os `IF` (use <kbd>Ctrl</kbd>+<kbd>F</kbd>) |
 | Confundir variável (`#VLR`) com campo de DDM (`VLR-BRUTO`) | `#` no início = variável local. Sem `#` = campo do banco |
 | Achar que todo `MOVE` é regra | `MOVE` é só atribuição. Regra é o `IF` que decidiu o `MOVE` |
 | Anotar regra sem citar linha | Sempre anote `arquivo.NSN#L<início>-L<fim>`. **Sem isso o CI rejeita.** |
@@ -299,8 +299,21 @@ Esse pedido nunca atrapalha — é o trabalho do facilitador.
 
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **VEM DE**<br/>[Legado Natural](README.md) | [Kit PT-BR](../README.md) | **EM SEGUIDA**<br/>[Estágio 1 — Arqueologia](../01-arqueologia/GUIDE.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../docs/glossario-visual.md"><strong>Glossário Visual</strong></a><br/>
+<sub>30+ termos técnicos com analogia em 3 linhas.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../01-arqueologia/GUIDE.md"><strong>Estágio 1 — Arqueologia</strong></a><br/>
+<sub>13:00–14:30 · Ler o legado e catalogar regras de negócio.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>

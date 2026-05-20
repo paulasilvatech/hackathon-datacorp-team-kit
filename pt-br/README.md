@@ -166,10 +166,21 @@ cp -r persona-kits/YY-persona-B/.github/* .github/
 cat pt-br/01-arqueologia/GUIDE.md
 ```
 
-## Navegação
+---
 
-| Anterior               | Início                            | Próximo                   |
-| ---------------------- | --------------------------------- | ------------------------- |
-| [Kit PT-BR](README.md) | [Workspace raiz](../../README.md) | [Team Flow](TEAM-FLOW.md) |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top"></td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="FIRST-15-MINUTES.md"><strong>Primeiros 15 Minutos</strong></a><br/>
+<sub>Roteiro inicial — 5 passos numerados para qualquer pessoa começar.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

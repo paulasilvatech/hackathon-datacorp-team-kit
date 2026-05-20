@@ -120,15 +120,25 @@ Tech Writer é a persona mais transversal do time — você participa de todos o
 - Rubrica A2 (Spec): documentação consistente, terminologia padronizada
 - Rubrica A7 (Agent): relatório honesto e detalhado
 - Critério: "README evoluiu a cada hora. ADRs têm contexto, decisão e consequências. Nada diz TODO."
-
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
-| :--- | :---: | :---: | ---: |
-| **PERSONA ANTERIOR**<br/>[DevOps Engineer](../09-devops-engineer/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **FIM DA SEQUÊNCIA**<br/>[OVERVIEW das personas](../OVERVIEW.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../09-devops-engineer/PERSONA.md"><strong>DevOps Engineer</strong></a><br/>
+<sub>Par 5 · Operações · Terraform + CI/CD + runbook.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../../01-arqueologia/GUIDE.md"><strong>Estágio 1 — Arqueologia</strong></a><br/>
+<sub>13:00–14:30 · Ler o legado e catalogar regras de negócio.</sub>
+</td>
+</tr>
+</table>
 
-> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
+<sub>↑ <a href="../../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

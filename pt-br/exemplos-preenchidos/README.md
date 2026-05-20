@@ -45,11 +45,23 @@ Olhe estes critérios em qualquer artefato:
 - [ ] **Decisão explícita.** ADR registra o que foi rejeitado, não só o que foi escolhido.
 - [ ] **Sem placeholders.** Se você vê `TODO`, `XXX`, `???`, o artefato não está pronto.
 - [ ] **Nomes consistentes.** Se chamou "ciclo" uma vez, não chama "rodada" depois.
-
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **ÍNDICE**<br/>[Kit PT-BR](../README.md) | [Kit PT-BR](../README.md) | **PRIMEIRO EXEMPLO**<br/>[Catálogo de Regras](business-rules-catalog-exemplo.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../README.md"><strong>Kit PT-BR</strong></a><br/>
+<sub>Hub deste folder: comece aqui se nunca abriu o kit.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="business-rules-catalog-exemplo.md"><strong>Catálogo de Regras (exemplo)</strong></a><br/>
+<sub>Como BR-001 a BR-005 ficam bem documentadas.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>

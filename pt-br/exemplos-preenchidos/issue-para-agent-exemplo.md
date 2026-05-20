@@ -174,8 +174,21 @@ Quando um pagamento é aprovado (transição `PENDING → APPROVED`), o sistema 
 5. **Comente correções** no PR — o Agent re-itera com os comentários.
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **EXEMPLO ANTERIOR**<br/>[PaymentService (Java)](PaymentService-exemplo.java) | [Kit PT-BR](../README.md) | **EM SEGUIDA**<br/>[Estágio 4 — Evolução](../04-evolucao/GUIDE.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="PaymentService-exemplo.java"><strong>PaymentService.java (exemplo)</strong></a><br/>
+<sub>Service Java implementando REQ-PAY-001/002.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../04-evolucao/GUIDE.md"><strong>Estágio 4 — Evolução</strong></a><br/>
+<sub>17:45–18:15 · Copilot Agent + Terraform + CI/CD.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>

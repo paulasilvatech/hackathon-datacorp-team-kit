@@ -41,10 +41,25 @@ Todos os 5 pares trabalham em paralelo, cada um responsável por 3 programas Nat
 
 O código legado em si fica em [`../legado-natural/`](../legado-natural/) (compartilhado pelo kit).
 
-## Navegação
+---
 
-| Anterior                     | Início                    | Próximo                                                  |
-| ---------------------------- | ------------------------- | -------------------------------------------------------- |
-| [Fluxo do Time](../TEAM-FLOW.md) | [Kit PT-BR](../README.md) | [Estágio 2 — Spec Moderna](../02-spec-moderna/README.md) |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../README.md"><strong>Kit PT-BR</strong></a><br/>
+<sub>Hub deste folder: comece aqui se nunca abriu o kit.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="GUIDE.md"><strong>Estágio 1 — Arqueologia</strong></a><br/>
+<sub>13:00–14:30 · Ler o legado e catalogar regras de negócio.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

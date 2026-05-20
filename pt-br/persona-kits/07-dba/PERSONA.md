@@ -104,15 +104,25 @@ Traduzir o modelo Adabas para um schema relacional que funciona. Garantir migra�
 - Rubrica A3 (Integridade Técnica): migrações idempotentes, schema consistente com entidades JPA
 - Rubrica A1 (Arqueologia): mapa DDM → entidade relacional documentado
 - Critério: "Audit store é append-only. Nenhum DELETE no schema de auditoria."
-
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
-| :--- | :---: | :---: | ---: |
-| **PERSONA ANTERIOR**<br/>[Developer](../06-developer/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[QA Engineer](../08-qa-engineer/PERSONA.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../06-developer/PERSONA.md"><strong>Developer</strong></a><br/>
+<sub>Par 3 · Implementação · Java + Next.js + testes.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../08-qa-engineer/PERSONA.md"><strong>QA Engineer</strong></a><br/>
+<sub>Par 4 · Qualidade · testes BDD e cobertura.</sub>
+</td>
+</tr>
+</table>
 
-> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
+<sub>↑ <a href="../../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

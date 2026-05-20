@@ -14,11 +14,9 @@ tags: ["estagio-3", "implementacao", "codigo", "didatico", "pt-br"]
 
 # Estágio 3 — Implementação (3 horas)
 
-> **ESTÁGIO 03 DE 04 · IMPLEMENTAÇÃO**
->
-> 16:15 – 17:30 · 75 minutos
->
-> Pares 3 (Implementação) + 4 (Qualidade) lideram. Par 5 monta esqueleto do CI.
+![ESTÁGIO 03 de 04](https://img.shields.io/badge/EST%C3%81GIO-03%20de%2004-7FBA00?style=for-the-badge) ![Horário 16:15 – 17:30](https://img.shields.io/badge/HOR%C3%81RIO-16%3A15%20%E2%80%93%2017%3A30-1A1A1A?style=for-the-badge) ![Duração 75 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-75%20min-737373?style=for-the-badge)
+
+> **Categoria:** Implementação · **Quem trabalha agora:** Pares 3 + 4 lideram
 
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
@@ -67,7 +65,8 @@ Isso sobe:
 - **Backend (Java 21 + Spring Boot 3)** na porta 8080
 - **Frontend (Next.js 15)** na porta **3000** (local) ou **3001** (docker-compose do root)
 
-> **ATENÇÃO**: se você rodou `docker compose up` no ROOT do workspace (recomendado), o frontend está em **http://localhost:3001**. Se rodou de dentro de `04-prototipo-sifap-moderno/`, está em **http://localhost:3000**.
+> [!WARNING]
+> Se você rodou `docker compose up` no **ROOT** do workspace (recomendado), o frontend está em **`http://localhost:3001`**. Se rodou de dentro de `04-prototipo-sifap-moderno/`, está em **`http://localhost:3000`**.
 
 ### 2. Verifique que tudo está no ar
 
@@ -177,7 +176,8 @@ public class PaymentController {
 ALTER TABLE payments ADD COLUMN status VARCHAR(20) DEFAULT 'PENDING';
 ```
 
-> **Importante**: use Flyway. Nunca modifique migrações existentes — sempre crie novas (V2**, V3**, etc.).
+> [!CAUTION]
+> **Use Flyway. Nunca modifique migrações existentes.** Sempre crie novas (`V2__`, `V3__`, etc.). Editar uma migração antiga corrompe o histórico de schema e quebra deploys.
 
 ### Passo 5: escreva os testes
 
@@ -306,7 +306,8 @@ Pronto. Rastreabilidade fechada.
 
 ---
 
-## Armadilhas comuns
+<details>
+<summary><strong>Armadilhas comuns</strong> — clique para expandir</summary>
 
 | ❌ Se você está fazendo isso                                         | ✅ Faça assim                                                 |
 | -------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -318,9 +319,12 @@ Pronto. Rastreabilidade fechada.
 | Importar classes de `payment.infrastructure` em `beneficiary.domain` | Bounded contexts não se cruzam                                |
 | Commit sem `Implements REQ-XXX`                                      | Rastreabilidade é o que valida o trabalho do estágio anterior |
 
+</details>
+
 ---
 
-## Troubleshooting
+<details>
+<summary><strong>Troubleshooting</strong> — clique para expandir</summary>
 
 | Problema                            | Solução                                                                                                             |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -332,6 +336,8 @@ Pronto. Rastreabilidade fechada.
 | Migração falha no startup           | NUNCA edite uma migração existente. Crie uma nova (V5**, V6**...)                                                   |
 | `mvn test-compile` erro de import   | Verifique que o pacote segue a estrutura: domain/ → application/ → infrastructure/                                  |
 | Swagger UI não aparece              | Tente: http://localhost:8080/swagger-ui/index.html (caminho alternativo)                                            |
+
+</details>
 
 ---
 
@@ -352,7 +358,8 @@ Ao final do Estágio 3, seu time deve ter:
 
 No Passagem #3 (~17:00), o **Par 3 (Implementação)** entrega o código rodando para o **Par 5 (Operações)**, que vai cuidar de Terraform e CI/CD no Estágio 4. O Par 4 (Qualidade) continua os testes finais. Veja [`../04-evolucao/GUIDE.md`](../04-evolucao/GUIDE.md).
 
-## Prompts para Copilot Chat
+<details>
+<summary><strong>Prompts úteis para Copilot Chat</strong> — clique para expandir</summary>
 
 1. _"Crie um endpoint REST para [funcionalidade] seguindo a arquitetura existente."_
 2. _"Escreva um teste de integração para o endpoint [endpoint]."_
@@ -363,16 +370,34 @@ No Passagem #3 (~17:00), o **Par 3 (Implementação)** entrega o código rodando
 7. _"Adicione tratamento de erro para o caso de [cenário]."_
 8. _"Refatore este service para separar a lógica de [responsabilidade]."_
 
+</details>
+
 ## Dica de ouro
 
-Não tente implementar tudo. Foque em **qualidade sobre quantidade**. Um endpoint bem feito, com testes, validação e documentação, vale mais que 5 endpoints quebrados.
+> [!TIP]
+> Não tente implementar tudo. Foque em **qualidade sobre quantidade**. Um endpoint bem feito — com testes, validação e documentação — vale mais que 5 endpoints quebrados.
 
 ---
 
-## Navegação
+---
 
-| Anterior                                         | Início                    | Próximo                                      |
-| ------------------------------------------------ | ------------------------- | -------------------------------------------- |
-| [Estágio 2 — GUIDE](../02-spec-moderna/GUIDE.md) | [Kit PT-BR](../README.md) | [Estágio 4 — GUIDE](../04-evolucao/GUIDE.md) |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../02-spec-moderna/GUIDE.md"><strong>Estágio 2 — Spec Moderna</strong></a><br/>
+<sub>14:45–16:00 · Escrever EARS, ADRs e diagramas C4.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../04-evolucao/GUIDE.md"><strong>Estágio 4 — Evolução</strong></a><br/>
+<sub>17:45–18:15 · Copilot Agent + Terraform + CI/CD.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

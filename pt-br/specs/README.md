@@ -84,10 +84,23 @@ mv specs/001-example-feature specs/001-geracao-ciclo-pagamento
 - [Spec-Driven Development](https://github.com/github/spec-kit/blob/main/spec-driven.md)
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **VEM DE**<br/>[Cartão Spec-Kit](../cheat-sheets/spec-kit-workflow.md) | [Kit PT-BR](../README.md) | **EXEMPLO**<br/>[001-example-feature](001-example-feature/README.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../cheat-sheets/spec-kit-workflow.md"><strong>Spec-Kit em 1 página</strong></a><br/>
+<sub>Sequência specify → clarify → plan → tasks → analyze.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="001-example-feature/README.md"><strong>Exemplo: 001-example-feature</strong></a><br/>
+<sub>Como uma feature fica estruturada em specs/.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula
