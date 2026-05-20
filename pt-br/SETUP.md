@@ -24,6 +24,17 @@ tags:
 
 # Guia de Setup — Do Zero ao Código
 
+
+> **Para quem é isto?** Para a pessoa que vai preparar o ambiente do time antes do dia 2 — líder do time ou cada membro no próprio laptop.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Repositório GitHub do time criado com proteção de branch
+> 2. Spec-Kit oficial + GitHub Copilot funcionando no VS Code
+> 3. Cada pessoa com seu persona-kit copiado e Ask/Plan/Agent validados
+> 4. Estratégia de branches definida (`spec/*`, `impl/*`)
+> 5. Smoke test passando antes das 10:00 do dia 2
+
 > **Vocês são 5 pessoas. Cada pessoa usa 2 personas. Vocês têm um dia de trabalho.** Este guia leva vocês de "ainda não temos nada" até "primeiro commit enviado, Copilot funcionando, todas as personas prontas" em **45 minutos**.
 >
 > **Todas as pessoas do time devem acompanhar no próprio laptop.** Uma pessoa compartilha a tela com os passos, e as outras 4 repetem. Ao final, cada laptop estará totalmente configurado.

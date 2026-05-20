@@ -12,6 +12,16 @@ tags: ["personas", "copilot", "agents", "skills", "prompts", "plugins", "mcp", "
 
 # Persona Kits
 
+
+> **Para quem é isto?** Quem vai instalar os persona-kits Copilot no laptop.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Saber identificar suas 2 personas
+> 2. Copiar `.github/*` do kit certo para o repositório do time
+> 3. Validar que slash commands aparecem no Copilot Chat
+> 4. Saber para onde ir depois (Estágio 1 às 11:00)
+
 > Esta pasta contém **somente os 10 kits usados neste workshop**. O time tem 5 pessoas; cada pessoa usa 2 kits do mesmo par. Cada kit é a fonte única da persona: `PERSONA.md` descreve o papel, e os artefatos `.github/`, `mcp.json`, prompts e skills configuram o Copilot para esse mesmo papel.
 
 ![Visão geral das personas por par no hackathon SIFAP](../assets/personas-team.svg)

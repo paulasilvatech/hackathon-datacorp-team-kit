@@ -14,6 +14,17 @@ tags: ["estagio-4", "evolution", "agent", "terraform", "didatico", "pt-br"]
 
 # Estágio 4 — Evolução com Agentes (40 min)
 
+
+> **Para quem é isto?** Para o par 5 (DevOps+TW) que lidera + par 3 que co-lidera (escreve Issues e revisa PRs do Agent).
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. 1+ Issue bem escrita para o Copilot Agent
+> 2. 1+ PR gerado pelo Agent, revisado e mergeado
+> 3. `terraform plan` rodando sem erro (sem `apply` real)
+> 4. CI verde em `develop`
+> 5. Relatório honesto da experiência com o Agent
+
 ![ESTÁGIO 04 de 04](https://img.shields.io/badge/EST%C3%81GIO-04%20de%2004-FFB900?style=for-the-badge) ![Horário 16:10 – 16:50](https://img.shields.io/badge/HOR%C3%81RIO-17%3A45%20%E2%80%93%2018%3A15-1A1A1A?style=for-the-badge) ![Duração 30 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-30%20min-737373?style=for-the-badge)
 
 > **Categoria:** Evolução · **Quem trabalha agora:** Par 5 lidera · Par 3 co-lidera

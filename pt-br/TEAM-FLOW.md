@@ -14,6 +14,16 @@ tags: ["team", "flow", "passagems", "onboarding", "personas", "workshop"]
 
 # Fluxo do Time — Como 5 Pessoas Cobrem 10 Personas
 
+
+> **Para quem é isto?** Para todo participante do workshop. Fixe na tela durante o dia.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Saberá qual fase do SDLC cada uma das suas 2 personas lidera
+> 2. Saberá quem alimenta o trabalho do seu par (par anterior)
+> 3. Saberá para quem você faz a passagem (par seguinte)
+> 4. Saberá quando pedir ajuda — a regra dos 20 minutos
+
 > **Leia este documento antes de ler os cards de persona.** Suas duas personas só fazem sentido dentro do fluxo do time.
 
 **Edição: 20 times · 5 pessoas por time · 2 personas por pessoa · 5 pares cobrindo todo o SDLC.**

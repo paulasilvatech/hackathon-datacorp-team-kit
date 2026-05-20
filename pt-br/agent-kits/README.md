@@ -12,6 +12,15 @@ tags: ["agents", "sdlc", "copilot", "hackathon", "pt-br"]
 
 # Agent Kits — 4 Agentes de Etapa do SDLC
 
+
+> **Para quem é isto?** Para o time inteiro entender como os 4 agentes de estágio funcionam.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Diferença entre persona-kits (coluna) e agent-kits (linha)
+> 2. Os 4 agentes: @archaeologist, @architect, @builder, @evolution
+> 3. Quando trocar de agente durante o dia
+
 > Se os [persona-kits](../persona-kits/) são as **colunas** do time (um kit por papel), os agent-kits são as **linhas do tempo** (um agente por etapa). Cada pessoa usa suas duas personas o dia inteiro, mas o agente de etapa muda conforme o relógio avança.
 
 ## Por que isso existe

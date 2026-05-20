@@ -14,6 +14,16 @@ tags: ["exemplo", "business-rules", "estagio-1", "pt-br"]
 
 # Catálogo de Regras de Negócio — Exemplo Preenchido
 
+
+> **Para quem é isto?** Para o time durante o Estágio 1 — referência de como o catálogo de regras de negócio fica quando bem feito.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Verá 5 regras documentadas com `Programa Fonte` rastreável
+> 2. Saberá o padrão de classificação de risco
+> 3. Entenderá quais campos do DDM cada regra toca
+> 4. Reproduzirá o mesmo nível para suas regras
+
 ![EXEMPLO](https://img.shields.io/badge/EXEMPLO-Cat%C3%A1logo%20de%20Regras-F25022?style=for-the-badge) ![ESTÁGIO](https://img.shields.io/badge/ESTÁGIO-01%20·%20Arqueologia-1A1A1A?style=for-the-badge) ![REFERÊNCIA](https://img.shields.io/badge/REFERÊNCIA-5%20regras%20documentadas-737373?style=for-the-badge)
 
 > **⚠️ Este é um EXEMPLO** para você ver como fica pronto. **O seu** `01-arqueologia/business-rules-catalog.md` deve ter no mínimo **15 regras** ao final do Estágio 1.

@@ -12,6 +12,15 @@ tags: ["scripts", "bootstrap", "ci", "workshop"]
 
 # Scripts
 
+
+> **Para quem é isto?** Quem precisa rodar `setup.sh` ou `check.sh` no terminal.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. O que `setup.sh` faz (clona materiais, cria symlinks)
+> 2. O que `check.sh` faz (mirror do CI localmente)
+> 3. Variáveis de ambiente opcionais para customizar
+
 | Script                 | O que ele faz                                                                                                           |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | [`setup.sh`](setup.sh) | Faz o bootstrap do repositório da equipe — verifica pré-requisitos, clona materiais de referência, inicializa `specs/` |

@@ -14,6 +14,16 @@ tags: ["estagio-2", "especificacao", "ears", "adr", "c4", "didatico", "pt-br"]
 
 # Estágio 2 — Spec Moderna (60 min)
 
+
+> **Para quem é isto?** Para o par 2 (EA+SA) que lidera + par 1 (escopo) + par 5 (revisão de clareza).
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Escreverá requisitos EARS com `source_legacy:` obrigatório
+> 2. Produzirá 3+ ADRs estruturais
+> 3. Desenhará C4 L1 e L2 do sistema moderno
+> 4. Receberá sign-off do PO antes do Passagem #2 às 15:00
+
 ![ESTÁGIO 02 de 04](https://img.shields.io/badge/EST%C3%81GIO-02%20de%2004-00A4EF?style=for-the-badge) ![Horário 14:00 – 16:00](https://img.shields.io/badge/HOR%C3%81RIO-14%3A45%20%E2%80%93%2016%3A00-1A1A1A?style=for-the-badge) ![Duração 75 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-75%20min-737373?style=for-the-badge)
 
 > **Categoria:** Especificação · **Quem trabalha agora:** Par 2 lidera · Par 1 assina escopo

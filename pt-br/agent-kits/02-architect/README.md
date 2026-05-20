@@ -12,6 +12,15 @@ tags: ["agent", "architect", "specification", "ears", "adr", "stage-2", "pt-br"]
 
 # @architect — Estágio 2: Spec Moderna
 
+
+> **Para quem é isto?** Para o Par 2 (EA+SA) durante o Estágio 2.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Como ativar o agente `@architect` no Copilot Chat
+> 2. Prompts para EARS, ADR, C4, bounded contexts
+> 3. Regra: não aceita requisito sem evidência no legado
+
 > Use este agente quando o time já tem descobertas do legado e precisa transformá-las em especificação moderna. Ele ajuda a decidir limites, escrever EARS, registrar ADRs e preparar o terreno para implementação.
 
 ## Objetivo da etapa

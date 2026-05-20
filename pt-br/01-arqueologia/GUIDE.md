@@ -14,6 +14,16 @@ tags: ["estagio-1", "arqueologia", "legado", "didatico", "pt-br"]
 
 # Estágio 1 — Arqueologia Digital
 
+
+> **Para quem é isto?** Para o par 1 (PO+RE) que lidera + todos os outros 4 pares trabalhando em paralelo. Este estágio é obrigatório.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Saberá quais 3 programas Natural seu par lê
+> 2. Saberá como extrair regras de negócio com rastreabilidade `arquivo.NSN#L<linha>`
+> 3. Entregará 5 artefatos: glossário, catálogo BR, mapa de dependências, mistérios, discovery report
+> 4. Saberá o que fazer no Passagem #1 às 14:00
+
 ![ESTÁGIO 01 de 04](https://img.shields.io/badge/EST%C3%81GIO-01%20de%2004-F25022?style=for-the-badge) ![Horário 13:00 – 14:30](https://img.shields.io/badge/HOR%C3%81RIO-13%3A00%20%E2%80%93%2014%3A30-1A1A1A?style=for-the-badge) ![Duração 90 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-90%20min-737373?style=for-the-badge)
 
 > **Categoria:** Descoberta · **Quem trabalha agora:** Todos os 5 pares em paralelo

@@ -14,6 +14,17 @@ tags: ["persona", "technical-lead", "workshop", "pt-br"]
 
 # Persona — Technical Lead
 
+
+> **Para quem é isto?** Para a pessoa que vai vestir a persona **Technical Lead** no workshop. Foco: padrões, revisão, orquestração do agente.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Saberá em qual par está e qual fase do SDLC lidera
+> 2. Conhecerá a missão da persona no Dia 2
+> 3. Verá em qual estágio você lidera, apoia ou observa
+> 4. Terá 3 prompts de Copilot prontos para usar
+> 5. Saberá o default se travar ("se não souber o que fazer, faça X")
+
 ![Par 3 · Implementação](https://img.shields.io/badge/PAR-Par%203%20%E2%80%A2%20Implementação-7FBA00?style=for-the-badge) ![Lidera estágio 3, 4](https://img.shields.io/badge/LIDERA%20EST%C3%81GIO-3%2C%204-1A1A1A?style=for-the-badge) ![Apoia estágio 2](https://img.shields.io/badge/APOIA-2-737373?style=for-the-badge)
 
 ## Onde você atua no SDLC

@@ -14,6 +14,16 @@ tags: ["personas", "overview", "didatico", "pt-br"]
 
 # OVERVIEW das 10 Personas — Em Uma Página
 
+
+> **Para quem é isto?** Para escolher seu par sem precisar abrir 10 PERSONA.md, ou comparar papéis rapidamente.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Os 5 pares em uma página com a distribuição visual
+> 2. Quem lidera cada estágio e quem apoia
+> 3. Default de emergência de cada uma das 10 personas
+> 4. Critério para escolher seu par com base no perfil
+
 > **Use esta página para:** comparar os 10 papéis sem precisar abrir 10 `PERSONA.md`, escolher seu par com a pessoa-dupla, ou consultar rapidamente quem lidera o quê.
 >
 > Cada pessoa do time veste **2 personas** (1 par). O par fica junto o dia inteiro — sem passagem interna entre as duas personas.

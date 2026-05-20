@@ -13,6 +13,15 @@ tags: ["cheat-sheet", "copilot", "claude", "model-routing", "workshop", "pt-br"]
 
 # Roteamento de modelos Claude — Cartão de referência
 
+
+> **Para quem é isto?** Quem precisa decidir entre Haiku, Sonnet ou Opus para a próxima tarefa.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Matriz custo × latência × precisão dos 3 modelos
+> 2. Recomendação por tipo de tarefa (revisão, escrita, decisão)
+> 3. Tabela por persona com modelo default
+
 ![CARTÃO](https://img.shields.io/badge/CART%C3%83O-03%20de%2003-7FBA00?style=for-the-badge) ![TÓPICO](https://img.shields.io/badge/TÓPICO-Roteamento%20de%20modelos-1A1A1A?style=for-the-badge) ![USE QUANDO](https://img.shields.io/badge/USE%20QUANDO-Haiku%20vs%20Sonnet%20vs%20Opus-737373?style=for-the-badge)
 
 ## Quando usar isso

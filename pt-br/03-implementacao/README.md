@@ -14,6 +14,16 @@ tags: ["estagio-3", "implementacao", "codigo", "prototipo", "workshop", "pt-br"]
 
 # Estágio 3 — Implementação
 
+
+> **Para quem é isto?** Quem está chegando no estágio de implementação e quer a visão geral.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Estrutura do protótipo modular (4 módulos × 3 camadas)
+> 2. Stack: Java 21 + Spring Boot 3 + Next.js 15 + PostgreSQL 16
+> 3. Como subir local com `docker compose up`
+> 4. Link direto para o GUIDE com os 5 passos por feature
+
 > Construa o protótipo do SIFAP 2.0 — backend Java 21 + Spring Boot 3, frontend Next.js 15, PostgreSQL 16 — usando o modo Agent do GitHub Copilot.
 
 ## Onde isso encaixa no SDLC

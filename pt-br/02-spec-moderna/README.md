@@ -14,6 +14,16 @@ tags: ["estagio-2", "especificacao", "ears", "adr", "workshop", "pt-br"]
 
 # Estágio 2 — Spec Moderna
 
+
+> **Para quem é isto?** Quem está chegando no estágio de spec moderna e quer a visão geral.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Saberá quem lidera (Par 2) e quem apoia
+> 2. Verá quais entregáveis: EARS + ADRs + C4 L1/L2
+> 3. Encontrará o template ADR e exemplos preenchidos
+> 4. Link direto para o GUIDE detalhado
+
 > Escreva a especificação modernizada do SIFAP usando notação EARS, crie Arquitetura Decision Records (ADRs) e defina as fronteiras de escopo.
 
 ## Onde isso encaixa no SDLC

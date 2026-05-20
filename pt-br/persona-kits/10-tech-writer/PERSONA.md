@@ -14,6 +14,17 @@ tags: ["persona", "tech-writer", "workshop", "pt-br"]
 
 # Persona — Tech Writer
 
+
+> **Para quem é isto?** Para a pessoa que vai vestir a persona **Tech Writer** no workshop. Foco: glossário, ADRs, runbook, README evolutivo.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Saberá em qual par está e qual fase do SDLC lidera
+> 2. Conhecerá a missão da persona no Dia 2
+> 3. Verá em qual estágio você lidera, apoia ou observa
+> 4. Terá 3 prompts de Copilot prontos para usar
+> 5. Saberá o default se travar ("se não souber o que fazer, faça X")
+
 ![Par 5 · Operações](https://img.shields.io/badge/PAR-Par%205%20%E2%80%A2%20Operações-1A1A1A?style=for-the-badge) ![Lidera estágio 4](https://img.shields.io/badge/LIDERA%20EST%C3%81GIO-4-1A1A1A?style=for-the-badge) ![Apoia estágio transversal](https://img.shields.io/badge/APOIA-transversal-737373?style=for-the-badge)
 
 ## Onde você atua no SDLC

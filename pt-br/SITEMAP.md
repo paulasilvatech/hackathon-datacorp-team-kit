@@ -14,6 +14,15 @@ tags: ["sitemap", "navegacao", "didatico", "pt-br"]
 
 # SITEMAP — Mapa Visual do Kit pt-br
 
+
+> **Para quem é isto?** Para você que se perdeu no meio do dia, ou para alguém perguntando onde está aquele arquivo.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Mapa visual de toda a estrutura do kit
+> 2. Caminho recomendado por persona (PO/RE, EA/SA, TL/Dev, DBA/QA, DevOps/TW)
+> 3. Tabela de "onde mora cada coisa" — pasta a pasta
+
 > **Use esta página quando…** você se perdeu no meio do dia, ou quando alguém pergunta *"onde mesmo está aquele arquivo?"*. Esta é a vista de cima do kit inteiro.
 
 ## Estrutura do kit (em alto nível)

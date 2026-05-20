@@ -15,6 +15,16 @@ tags:
 
 # Estágio 4 — Evolução
 
+
+> **Para quem é isto?** Quem está chegando no estágio de evolução com Agentes e quer a visão geral.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. O que é o modo Agent do Copilot
+> 2. Como escrever uma Issue que produz PR útil
+> 3. Diferença entre Ask, Plan e Agent
+> 4. Template do relatório de experiência
+
 > Adicione infraestrutura como código (Terraform), pipeline CI/CD (GitHub Actions) e itere usando workflows com o modo Agent do GitHub Copilot.
 
 ## Onde isso encaixa no SDLC

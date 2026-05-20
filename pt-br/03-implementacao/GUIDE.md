@@ -14,6 +14,17 @@ tags: ["estagio-3", "implementacao", "codigo", "didatico", "pt-br"]
 
 # Estágio 3 — Implementação (70 min)
 
+
+> **Para quem é isto?** Para os pares 3 (TL+Dev) e 4 (DBA+QA) que lideram + par 5 que esqueleta o CI.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Backend Java + Spring Boot rodando com Testcontainers
+> 2. Frontend Next.js usável com Server Components
+> 3. Migração Flyway aplicada (mesmo padrão do `V1__init_payment_module-exemplo.sql`)
+> 4. Cobertura de testes ≥70%
+> 5. Cada commit cita `Implements REQ-XXX`
+
 ![ESTÁGIO 03 de 04](https://img.shields.io/badge/EST%C3%81GIO-03%20de%2004-7FBA00?style=for-the-badge) ![Horário 15:00 – 16:10](https://img.shields.io/badge/HOR%C3%81RIO-16%3A15%20%E2%80%93%2017%3A30-1A1A1A?style=for-the-badge) ![Duração 75 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-75%20min-737373?style=for-the-badge)
 
 > **Categoria:** Implementação · **Quem trabalha agora:** Pares 3 + 4 lideram

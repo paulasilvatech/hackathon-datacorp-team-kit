@@ -14,6 +14,16 @@ tags: ["exemplo", "agent", "issue", "estagio-4", "pt-br"]
 
 # Issue para Copilot Agent — Exemplo Preenchido
 
+
+> **Para quem é isto?** Para o Par 3 e Par 5 no Estágio 4 — modelo de Issue que produz PR bom de primeira.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Estrutura: objetivo, contexto, requisitos funcionais/técnicos, aceite, escopo
+> 2. Verá frase fraca vs versão forte (diff syntax)
+> 3. Reproduzirá o nível de detalhe para suas Issues
+> 4. Saberá os critérios de revisão do PR do Agent
+
 ![EXEMPLO](https://img.shields.io/badge/EXEMPLO-Issue%20para%20Agent-FFB900?style=for-the-badge) ![ESTÁGIO](https://img.shields.io/badge/ESTÁGIO-04%20·%20Evolu%C3%A7%C3%A3o-1A1A1A?style=for-the-badge) ![REFERÊNCIA](https://img.shields.io/badge/REFERÊNCIA-Issue%20completa%20pronta%20para%20o%20Agent-737373?style=for-the-badge)
 
 > [!NOTE]

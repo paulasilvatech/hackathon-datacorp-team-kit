@@ -12,6 +12,16 @@ tags: ["sifap", "natural", "adabas", "legado", "pagamentos", "benefícios"]
 
 # SIFAP - Sistema de Fiscalização e Administração de Pagamentos
 
+
+> **Para quem é isto?** Quem vai abrir o legado SIFAP no Estágio 1.
+>
+> **O que você terá ao final desta leitura:**
+>
+> 1. Histórico do sistema SIFAP (1997–2024)
+> 2. Quais 15 programas Natural e 4 DDMs existem
+> 3. Por que o relatório do TCU exige formato específico
+> 4. Link para o guia de leitura de Natural sem saber a sintaxe
+
 > **Classificação:** Documento Interno - a organização / SUPDE / DESIF
 > **Versão do sistema:** 4.1.2
 > **Ambiente:** Produção - Mainframe a organização / Regional Brasília
