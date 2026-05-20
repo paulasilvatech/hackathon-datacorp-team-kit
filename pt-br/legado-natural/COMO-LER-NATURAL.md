@@ -299,8 +299,21 @@ Esse pedido nunca atrapalha — é o trabalho do facilitador.
 
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **VEM DE**<br/>[Legado Natural](README.md) | [Kit PT-BR](../README.md) | **EM SEGUIDA**<br/>[Estágio 1 — Arqueologia](../01-arqueologia/GUIDE.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../docs/glossario-visual.md"><strong>Glossário Visual</strong></a><br/>
+<sub>30+ termos técnicos com analogia em 3 linhas.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../01-arqueologia/GUIDE.md"><strong>Estágio 1 — Arqueologia</strong></a><br/>
+<sub>13:00–14:30 · Ler o legado e catalogar regras de negócio.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>

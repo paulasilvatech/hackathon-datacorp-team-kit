@@ -234,8 +234,21 @@ C4Container
 - ✅ Diagrama C4 L2 do módulo isolado
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **EXEMPLO ANTERIOR**<br/>[Catálogo de Regras](business-rules-catalog-exemplo.md) | [Kit PT-BR](../README.md) | **PRÓXIMO EXEMPLO**<br/>[ADR-001](ADR-001-monolito-modular-exemplo.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="business-rules-catalog-exemplo.md"><strong>Catálogo de Regras (exemplo)</strong></a><br/>
+<sub>Como BR-001 a BR-005 ficam bem documentadas.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="ADR-001-monolito-modular-exemplo.md"><strong>ADR-001 (exemplo)</strong></a><br/>
+<sub>Monolito modular vs microsserviços, com alternativas.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>

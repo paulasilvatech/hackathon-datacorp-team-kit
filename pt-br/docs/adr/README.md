@@ -45,8 +45,21 @@ Não escreva ADR para: nomes de variáveis, configurações de formatter, versõ
 6. Atualize este índice
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **VEM DE**<br/>[Documentação Transversal](../README.md) | [Kit PT-BR](../../README.md) | **EM SEGUIDA**<br/>[Estágio 2 — Spec Moderna](../../02-spec-moderna/GUIDE.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../README.md"><strong>Documentação transversal</strong></a><br/>
+<sub>glossário, sdlc-flow, persona-agent-matrix, runbook.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../../02-spec-moderna/GUIDE.md"><strong>Estágio 2 — Spec Moderna</strong></a><br/>
+<sub>14:45–16:00 · Escrever EARS, ADRs e diagramas C4.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../../README.md">Voltar ao Kit PT-BR</a></sub>

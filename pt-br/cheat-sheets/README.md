@@ -29,13 +29,25 @@ Você abre um cartão de referência quando precisa de **resposta rápida** sem 
 | [`copilot-3-modes.md`](copilot-3-modes.md) | GitHub Copilot: modos Ask, Plan e Agent         | Estiver na dúvida sobre qual modo do Copilot acionar |
 | [`spec-kit-workflow.md`](spec-kit-workflow.md) | Fluxo Spec-Kit de relance                       | Não souber qual comando `/speckit.*` usar            |
 | [`model-routing.md`](model-routing.md)     | Qual modelo de IA usar para cada tipo de tarefa | Estiver decidindo entre Haiku, Sonnet ou Opus        |
-
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **VEM DE**<br/>[Persona Kits](../persona-kits/README.md) | [Kit PT-BR](../README.md) | **PRIMEIRO CARTÃO**<br/>[Copilot em 3 modos](copilot-3-modes.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../persona-kits/README.md"><strong>Persona Kits — Índice</strong></a><br/>
+<sub>10 PERSONA.md com agentes, prompts, skills e MCP por papel.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="copilot-3-modes.md"><strong>Copilot em 3 modos</strong></a><br/>
+<sub>Quando usar Ask, Plan ou Agent — tabela situação → modo.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

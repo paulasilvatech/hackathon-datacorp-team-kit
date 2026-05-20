@@ -106,15 +106,25 @@ Este workshop aplica o framework **Agentic Legacy Modernization** — uma aborda
 - **Rubrica A2 (Coerência de Spec):** escopo claro, não-escopo documentado.
 - **Rubrica A7 (Agent Experience):** issues com contexto suficiente para o Agent produzir PR útil.
 - Avaliado indiretamente em **A6 (Colaboração):** PO que protege o foco do time.
-
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
-| :--- | :---: | :---: | ---: |
-| **VOLTAR AO ÍNDICE**<br/>[OVERVIEW das personas](../OVERVIEW.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[Requirements Engineer](../02-requirements-engineer/PERSONA.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../OVERVIEW.md"><strong>OVERVIEW das 10 personas</strong></a><br/>
+<sub>Tabela comparativa: par, líder de estágio, defaults de emergência.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../02-requirements-engineer/PERSONA.md"><strong>Requirements Engineer</strong></a><br/>
+<sub>Par 1 · Visão · escreve EARS com source_legacy.</sub>
+</td>
+</tr>
+</table>
 
-> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
+<sub>↑ <a href="../../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

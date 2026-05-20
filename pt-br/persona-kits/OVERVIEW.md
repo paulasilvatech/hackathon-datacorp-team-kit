@@ -78,8 +78,21 @@ Cada `PERSONA.md` tem uma seção "Se travar (defaults de emergência)". Aqui es
 - **TW:** Pergunte ao par líder: *"O que você decidiu nos últimos 30 min que ainda não está escrito?"*
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **ÍNDICE**<br/>[Kit PT-BR](../README.md) | [Kit PT-BR](../README.md) | **EM SEGUIDA**<br/>[Estágio 1 — Arqueologia](../01-arqueologia/GUIDE.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../SETUP.md"><strong>SETUP</strong></a><br/>
+<sub>Setup do laptop: Git, VS Code, Copilot, Spec-Kit, branch protection.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../01-arqueologia/GUIDE.md"><strong>Estágio 1 — Arqueologia</strong></a><br/>
+<sub>13:00–14:30 · Ler o legado e catalogar regras de negócio.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>

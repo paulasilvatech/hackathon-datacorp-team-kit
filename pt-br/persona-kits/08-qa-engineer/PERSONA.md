@@ -106,15 +106,25 @@ Definir a estratégia de testes do projeto. Escrever testes críticos (não 100%
 - Rubrica A3 (Integridade Técnica): testes passando, CI verde
 - Rubrica A2 (Spec): todo requisito tem critério de verificação
 - Critério: "Testes que quebram no primeiro bug, não testes que sempre passam"
-
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
-| :--- | :---: | :---: | ---: |
-| **PERSONA ANTERIOR**<br/>[DBA](../07-dba/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[DevOps Engineer](../09-devops-engineer/PERSONA.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../07-dba/PERSONA.md"><strong>DBA</strong></a><br/>
+<sub>Par 4 · Qualidade · migrações Flyway + queries.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../09-devops-engineer/PERSONA.md"><strong>DevOps Engineer</strong></a><br/>
+<sub>Par 5 · Operações · Terraform + CI/CD + runbook.</sub>
+</td>
+</tr>
+</table>
 
-> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
+<sub>↑ <a href="../../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

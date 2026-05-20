@@ -110,10 +110,23 @@ Não trate o Opus como "o bom" e o Haiku como "o ruim". Opus em tarefa mecânica
 
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **CARTÃO ANTERIOR**<br/>[Spec-Kit em 1 página](spec-kit-workflow.md) | [Kit PT-BR](../README.md) | **VOLTAR AO ÍNDICE**<br/>[Cartões de Referência](README.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="spec-kit-workflow.md"><strong>Spec-Kit em 1 página</strong></a><br/>
+<sub>Sequência specify → clarify → plan → tasks → analyze.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="README.md"><strong>Cartões de Referência</strong></a><br/>
+<sub>3 cartões de 1 página: Copilot, Spec-Kit, modelos.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

@@ -104,15 +104,25 @@ Garantir que o SIFAP 2.0 não quebre o mundo ao redor. Desenhar o mapa de depend
 - **Rubrica A1 (Arqueologia):** mapa de dependências legível por não-técnicos.
 - **Rubrica A2 (Coerência de Spec):** ADRs nomeiam o "caminho não tomado".
 - Critério: "C4 L1 entendido em 30 segundos por qualquer pessoa do time."
-
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
-| :--- | :---: | :---: | ---: |
-| **PERSONA ANTERIOR**<br/>[Requirements Engineer](../02-requirements-engineer/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[Software Architect](../04-software-architect/PERSONA.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../02-requirements-engineer/PERSONA.md"><strong>Requirements Engineer</strong></a><br/>
+<sub>Par 1 · Visão · escreve EARS com source_legacy.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../04-software-architect/PERSONA.md"><strong>Software Architect</strong></a><br/>
+<sub>Par 2 · Arquitetura · bounded contexts e módulos.</sub>
+</td>
+</tr>
+</table>
 
-> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
+<sub>↑ <a href="../../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

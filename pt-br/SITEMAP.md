@@ -83,8 +83,21 @@ O cronograma visual canônico está em [`assets/stage-flow.svg`](assets/stage-fl
 5. **Travou há mais de 20 min?** Levante a mão. **Regra do TEAM-FLOW.md §6.**
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **ÍNDICE**<br/>[Kit PT-BR](README.md) | [Kit PT-BR](README.md) | **EM SEGUIDA**<br/>[FIRST-15-MINUTES](FIRST-15-MINUTES.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="README.md"><strong>Kit PT-BR</strong></a><br/>
+<sub>Hub deste folder: comece aqui se nunca abriu o kit.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="FIRST-15-MINUTES.md"><strong>Primeiros 15 Minutos</strong></a><br/>
+<sub>Roteiro inicial — 5 passos numerados para qualquer pessoa começar.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="README.md">Voltar ao Kit PT-BR</a></sub>

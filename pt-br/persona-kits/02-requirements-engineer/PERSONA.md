@@ -104,15 +104,25 @@ Converter o que foi descoberto no Estágio 1 em requisitos formais e testáveis 
 - **Rubrica A2 (Coerência de Spec):** requisitos em EARS, numerados, rastreáveis ao legado.
 - **Rubrica A1 (Arqueologia):** catálogo de regras com classificação.
 - Critério: "Todo requisito tem verbo ativo e é testável."
-
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
-| :--- | :---: | :---: | ---: |
-| **PERSONA ANTERIOR**<br/>[Product Owner](../01-product-owner/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[Enterprise Architect](../03-enterprise-architect/PERSONA.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../01-product-owner/PERSONA.md"><strong>Product Owner</strong></a><br/>
+<sub>Par 1 · Visão · valida escopo e prioridades.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../03-enterprise-architect/PERSONA.md"><strong>Enterprise Architect</strong></a><br/>
+<sub>Par 2 · Arquitetura · C4 + ADRs estruturais.</sub>
+</td>
+</tr>
+</table>
 
-> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
+<sub>↑ <a href="../../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

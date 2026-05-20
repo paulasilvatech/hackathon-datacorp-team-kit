@@ -57,8 +57,21 @@ Esta pasta pertence à persona **Tech Writer**, mas recebe contribuições de to
 - [Guias de estágio](../01-arqueologia/GUIDE.md)
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **VEM DE**<br/>[Cartões de Referência](../cheat-sheets/README.md) | [Kit PT-BR](../README.md) | **EM SEGUIDA**<br/>[Glossário Visual](glossario-visual.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../cheat-sheets/README.md"><strong>Cartões de Referência</strong></a><br/>
+<sub>3 cartões de 1 página: Copilot, Spec-Kit, modelos.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="glossario-visual.md"><strong>Glossário Visual</strong></a><br/>
+<sub>30+ termos técnicos com analogia em 3 linhas.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>

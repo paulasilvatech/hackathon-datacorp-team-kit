@@ -102,10 +102,25 @@ Cada pasta de persona segue uma estrutura consistente:
 - [ ] Os agentes aparecem ao digitar `@` no Copilot Chat.
 - [ ] Os prompts aparecem ao digitar `/` no Copilot Chat.
 
-## Navegação
+---
 
-| Anterior | Início | Próximo |
-| --- | --- | --- |
-| [Team Flow](../TEAM-FLOW.md) | [Kit PT-BR](../README.md) | [Agent Kits](../agent-kits/README.md) |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../SETUP.md"><strong>SETUP</strong></a><br/>
+<sub>Setup do laptop: Git, VS Code, Copilot, Spec-Kit, branch protection.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="OVERVIEW.md"><strong>OVERVIEW das 10 personas</strong></a><br/>
+<sub>Tabela comparativa: par, líder de estágio, defaults de emergência.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

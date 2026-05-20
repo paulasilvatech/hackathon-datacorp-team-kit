@@ -245,7 +245,8 @@ Plan: 12 to add, 0 to change, 0 to destroy.
  ...
 ```
 
-> **Escopo do workshop**: explore e entenda os módulos. NÃO faça `terraform apply` — isso criaria recursos Azure reais com custo real. `terraform plan` é suficiente para demonstrar conhecimento.
+> [!CAUTION]
+> **Escopo do workshop:** explore e entenda os módulos. **Não execute `terraform apply`** — isso criaria recursos Azure reais com custo real. `terraform plan` é suficiente para demonstrar conhecimento.
 
 ### Quando o Agent falha
 
@@ -259,7 +260,8 @@ O Copilot Agent não é perfeito. Problemas comuns:
 | PR com lógica errada              | Requisito ambíguo                 | Reescreva o requisito em EARS e abra nova Issue                                         |
 | Agent trava ou demora demais      | Codebase grande demais            | Estreite o escopo: aponte para arquivos específicos na Issue                            |
 
-**Regra de ouro**: quando o Agent erra, a causa quase sempre está na Issue. Melhore a Issue antes de tentar de novo.
+> [!TIP]
+> **Regra de ouro:** quando o Agent erra, a causa quase sempre está na Issue. Melhore a Issue antes de tentar de novo.
 
 ### CI/CD: GitHub Actions
 
@@ -324,14 +326,30 @@ Demo (18:30) + Retrospectiva (19:10). Cada time tem ~3 minutos. O Par 1 (PO) con
 
 ## Dica de ouro
 
-O Agent é só tão bom quanto a Issue que você escreve. Gaste **mais tempo na Issue** e **menos tempo consertando o PR**. Uma Issue com contexto claro, requisitos específicos e referências a arquivos produz PRs muito melhores.
+> [!TIP]
+> O Agent é só tão bom quanto a Issue que você escreve. Gaste **mais tempo na Issue** e **menos tempo consertando o PR**. Uma Issue com contexto claro, requisitos específicos e referências a arquivos produz PRs muito melhores.
 
 ---
 
-## Navegação
+---
 
-| Anterior                                          | Início                    | Próximo                                          |
-| ------------------------------------------------- | ------------------------- | ------------------------------------------------ |
-| [Estágio 3 — GUIDE](../03-implementacao/GUIDE.md) | [Kit PT-BR](../README.md) | [Relatório do Agent](agent-experience-report.md) |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../03-implementacao/GUIDE.md"><strong>Estágio 3 — Implementação</strong></a><br/>
+<sub>16:15–17:30 · Java 21 + Spring Boot + Next.js, com testes.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../SITEMAP.md"><strong>SITEMAP</strong></a><br/>
+<sub>Mapa visual do kit + caminho recomendado por persona.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

@@ -758,10 +758,23 @@ Quando os 13 itens estiverem verdes, seu time está pronto para o **Estágio 1: 
 
 ---
 
-## 🧭 Navegação
+### Continuar a leitura
 
-| Pai                 | Home                   | Próximo                      |
-| ------------------- | ---------------------- | ---------------------------- |
-| [README](README.md) | [Kit PT-BR](README.md) | [TEAM-FLOW.md](TEAM-FLOW.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="TEAM-FLOW.md"><strong>TEAM-FLOW</strong></a><br/>
+<sub>Cronograma de 8h, passagens entre pares, regra dos 20 min, DoD.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="persona-kits/OVERVIEW.md"><strong>OVERVIEW das 10 personas</strong></a><br/>
+<sub>Tabela comparativa: par, líder de estágio, defaults de emergência.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

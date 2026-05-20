@@ -117,8 +117,21 @@ tags: ["exemplo", "business-rules", "estagio-1", "pt-br"]
 - ❌ Sem genericismos do tipo *"o sistema deve estar correto"*. Toda regra é específica e testável.
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **ÍNDICE EXEMPLOS**<br/>[Exemplos preenchidos](README.md) | [Kit PT-BR](../README.md) | **PRÓXIMO EXEMPLO**<br/>[SPECIFICATION](SPECIFICATION-exemplo.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="README.md"><strong>Exemplos Preenchidos</strong></a><br/>
+<sub>6 artefatos completos como referência de profundidade.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="SPECIFICATION-exemplo.md"><strong>SPECIFICATION (exemplo)</strong></a><br/>
+<sub>Spec EARS com 8 REQ-IDs e source_legacy.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>

@@ -80,10 +80,23 @@ Acceptance: 10 ativos + 2 suspensos geram 10 pagamentos.
 - [Spec-Kit oficial](https://github.com/github/spec-kit)
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **VEM DE**<br/>[Estrutura specs/](../README.md) | [Kit PT-BR](../../README.md) | **EM SEGUIDA**<br/>[Estágio 2 — Spec Moderna](../../02-spec-moderna/GUIDE.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../README.md"><strong>Estrutura de Specs</strong></a><br/>
+<sub>Padrão do Spec-Kit para organizar specs/NNN-feature/.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../../02-spec-moderna/GUIDE.md"><strong>Estágio 2 — Spec Moderna</strong></a><br/>
+<sub>14:45–16:00 · Escrever EARS, ADRs e diagramas C4.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

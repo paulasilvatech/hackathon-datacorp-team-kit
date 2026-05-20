@@ -173,8 +173,21 @@ Se tudo está marcado, **você está pronto**. Vá para o setup técnico (`SETUP
 | Não programo. Vou ficar perdida(o)? | Não. Veja `legado-natural/COMO-LER-NATURAL.md` (para o Estágio 1) e os defaults da sua `PERSONA.md` |
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **ÍNDICE**<br/>[Kit PT-BR](README.md) | [Kit PT-BR](README.md) | **EM SEGUIDA**<br/>[Team Flow](TEAM-FLOW.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="README.md"><strong>Kit PT-BR</strong></a><br/>
+<sub>Hub deste folder: comece aqui se nunca abriu o kit.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="TEAM-FLOW.md"><strong>TEAM-FLOW</strong></a><br/>
+<sub>Cronograma de 8h, passagens entre pares, regra dos 20 min, DoD.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="README.md">Voltar ao Kit PT-BR</a></sub>

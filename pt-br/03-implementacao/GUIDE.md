@@ -67,7 +67,8 @@ Isso sobe:
 - **Backend (Java 21 + Spring Boot 3)** na porta 8080
 - **Frontend (Next.js 15)** na porta **3000** (local) ou **3001** (docker-compose do root)
 
-> **ATENÇÃO**: se você rodou `docker compose up` no ROOT do workspace (recomendado), o frontend está em **http://localhost:3001**. Se rodou de dentro de `04-prototipo-sifap-moderno/`, está em **http://localhost:3000**.
+> [!WARNING]
+> Se você rodou `docker compose up` no **ROOT** do workspace (recomendado), o frontend está em **`http://localhost:3001`**. Se rodou de dentro de `04-prototipo-sifap-moderno/`, está em **`http://localhost:3000`**.
 
 ### 2. Verifique que tudo está no ar
 
@@ -177,7 +178,8 @@ public class PaymentController {
 ALTER TABLE payments ADD COLUMN status VARCHAR(20) DEFAULT 'PENDING';
 ```
 
-> **Importante**: use Flyway. Nunca modifique migrações existentes — sempre crie novas (V2**, V3**, etc.).
+> [!CAUTION]
+> **Use Flyway. Nunca modifique migrações existentes.** Sempre crie novas (`V2__`, `V3__`, etc.). Editar uma migração antiga corrompe o histórico de schema e quebra deploys.
 
 ### Passo 5: escreva os testes
 
@@ -365,14 +367,30 @@ No Passagem #3 (~17:00), o **Par 3 (Implementação)** entrega o código rodando
 
 ## Dica de ouro
 
-Não tente implementar tudo. Foque em **qualidade sobre quantidade**. Um endpoint bem feito, com testes, validação e documentação, vale mais que 5 endpoints quebrados.
+> [!TIP]
+> Não tente implementar tudo. Foque em **qualidade sobre quantidade**. Um endpoint bem feito — com testes, validação e documentação — vale mais que 5 endpoints quebrados.
 
 ---
 
-## Navegação
+---
 
-| Anterior                                         | Início                    | Próximo                                      |
-| ------------------------------------------------ | ------------------------- | -------------------------------------------- |
-| [Estágio 2 — GUIDE](../02-spec-moderna/GUIDE.md) | [Kit PT-BR](../README.md) | [Estágio 4 — GUIDE](../04-evolucao/GUIDE.md) |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../02-spec-moderna/GUIDE.md"><strong>Estágio 2 — Spec Moderna</strong></a><br/>
+<sub>14:45–16:00 · Escrever EARS, ADRs e diagramas C4.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../04-evolucao/GUIDE.md"><strong>Estágio 4 — Evolução</strong></a><br/>
+<sub>17:45–18:15 · Copilot Agent + Terraform + CI/CD.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

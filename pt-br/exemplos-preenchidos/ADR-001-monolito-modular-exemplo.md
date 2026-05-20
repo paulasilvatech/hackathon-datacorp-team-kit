@@ -137,8 +137,21 @@ Quando 2+ desses sinais coexistirem, abrir ADR-NNN para extrair o primeiro micro
 - ✅ Referências reais e localizáveis (livro + página, canal de chat + horário)
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | Próximo  → |
-| :--- | :---: | ---: |
-| **EXEMPLO ANTERIOR**<br/>[SPECIFICATION](SPECIFICATION-exemplo.md) | [Kit PT-BR](../README.md) | **PRÓXIMO EXEMPLO**<br/>[Flyway V1 (SQL)](V1__init_payment_module-exemplo.sql) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="SPECIFICATION-exemplo.md"><strong>SPECIFICATION (exemplo)</strong></a><br/>
+<sub>Spec EARS com 8 REQ-IDs e source_legacy.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="V1__init_payment_module-exemplo.sql"><strong>Flyway V1 (exemplo)</strong></a><br/>
+<sub>Migração com PE → tabela filha + auditoria imutável.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>

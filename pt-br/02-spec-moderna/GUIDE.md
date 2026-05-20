@@ -28,7 +28,8 @@ tags: ["estagio-2", "especificacao", "ears", "adr", "c4", "didatico", "pt-br"]
 > - **Spec-Kit travado?** [`../cheat-sheets/spec-kit-workflow.md`](../cheat-sheets/spec-kit-workflow.md) cobre `/speckit.specify → clarify → plan → tasks`.
 > - **Confuso entre Ask, Plan e Agent?** [`../cheat-sheets/copilot-3-modes.md`](../cheat-sheets/copilot-3-modes.md).
 
-> **REGRA DURA.** Todo requisito EARS no seu `SPECIFICATION.md` precisa incluir uma linha `source_legacy:` apontando para um arquivo `.NSN` ou `.ddm` dentro de [`../legado-natural/`](../legado-natural/), **ou** ser marcado `source_legacy: "[GREENFIELD] <justificativa de uma linha>"`. O CI rejeita PRs que violem isso. Facilitadores verificam por amostragem no Passagem #2 (~16:00).
+> [!IMPORTANT]
+> **Regra dura — rastreabilidade obrigatória.** Todo requisito EARS no seu `SPECIFICATION.md` precisa incluir uma linha `source_legacy:` apontando para um arquivo `.NSN` ou `.ddm` dentro de [`../legado-natural/`](../legado-natural/), **ou** ser marcado `source_legacy: "[GREENFIELD] <justificativa de uma linha>"`. O CI rejeita PRs que violem isso. Facilitadores verificam por amostragem no Passagem #2 (~16:00).
 >
 > Por quê? Na edição anterior alguns times escreveram specs só a partir do brief de modernização, pulando a leitura do legado. Os protótipos perderam regras de negócio reais. Desta vez, rastreabilidade é o portão.
 
@@ -432,14 +433,30 @@ No Passagem #2 (~16:00), o **Par 2 (Arquitetura)** entrega EARS + ADRs + C4 para
 
 ## Dica de ouro
 
-Não reinvente a roda. A especificação de referência em `03-spec-sifap-moderno/SPECIFICATION.md` já tem a estrutura ideal. Use como base e adapte com as descobertas do seu time.
+> [!TIP]
+> Não reinvente a roda. A especificação de referência em `03-spec-sifap-moderno/SPECIFICATION.md` já tem a estrutura ideal. Use como base e adapte com as descobertas do seu time.
 
 ---
 
-## Navegação
+---
 
-| Anterior                                        | Início                    | Próximo                                           |
-| ----------------------------------------------- | ------------------------- | ------------------------------------------------- |
-| [Estágio 1 — GUIDE](../01-arqueologia/GUIDE.md) | [Kit PT-BR](../README.md) | [Estágio 3 — GUIDE](../03-implementacao/GUIDE.md) |
+### Continuar a leitura
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../01-arqueologia/GUIDE.md"><strong>Estágio 1 — Arqueologia</strong></a><br/>
+<sub>13:00–14:30 · Ler o legado e catalogar regras de negócio.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../03-implementacao/GUIDE.md"><strong>Estágio 3 — Implementação</strong></a><br/>
+<sub>16:15–17:30 · Java 21 + Spring Boot + Next.js, com testes.</sub>
+</td>
+</tr>
+</table>
+
+<sub>↑ <a href="../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

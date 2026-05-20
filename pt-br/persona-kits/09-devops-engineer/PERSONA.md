@@ -114,15 +114,25 @@ Pipeline verde. Build reproduzível. Deploy descrito como código. Observabilida
 - Rubrica A3 (Integridade Técnica): `docker compose up` funciona, CI verde
 - Rubrica A4 (Copilot): uso de Agent para pipelines complexos
 - Critério: "Build reproduzível. Qualquer máquina do time roda o compose em menos de 60s."
-
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
-| :--- | :---: | :---: | ---: |
-| **PERSONA ANTERIOR**<br/>[QA Engineer](../08-qa-engineer/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[Tech Writer](../10-tech-writer/PERSONA.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../08-qa-engineer/PERSONA.md"><strong>QA Engineer</strong></a><br/>
+<sub>Par 4 · Qualidade · testes BDD e cobertura.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../10-tech-writer/PERSONA.md"><strong>Tech Writer</strong></a><br/>
+<sub>Par 5 · Operações · documentação viva + relatório do Agent.</sub>
+</td>
+</tr>
+</table>
 
-> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
+<sub>↑ <a href="../../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula

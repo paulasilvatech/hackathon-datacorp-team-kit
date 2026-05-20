@@ -106,15 +106,25 @@ Manter velocidade de execução no Estágio 3. Escolher as batalhas técnicas qu
 - **Rubrica A3 (Integridade Técnica):** a aplicação sobe com `docker compose up`.
 - **Rubrica A6 (Colaboração):** ninguém travado por mais de 20 minutos.
 - Critério: "`main` verde o tempo todo, PRs revisados em menos de 15 minutos."
-
 ---
 
-### Navegação
+### Continuar a leitura
 
-| ←  Anterior | ↑  Início | →  Próximo no dia | →  Sequência |
-| :--- | :---: | :---: | ---: |
-| **PERSONA ANTERIOR**<br/>[Software Architect](../04-software-architect/PERSONA.md) | [Kit PT-BR](../../README.md) | **ESTÁGIO 01 · 13:00**<br/>[Arqueologia](../../01-arqueologia/GUIDE.md) | **PRÓXIMA PERSONA**<br/>[Developer](../06-developer/PERSONA.md) |
+<table width="100%">
+<tr>
+<td width="50%" valign="top" align="left">
+<sub><strong>← ANTERIOR</strong></sub><br/>
+<a href="../04-software-architect/PERSONA.md"><strong>Software Architect</strong></a><br/>
+<sub>Par 2 · Arquitetura · bounded contexts e módulos.</sub>
+</td>
+<td width="50%" valign="top" align="right">
+<sub><strong>PRÓXIMO →</strong></sub><br/>
+<a href="../06-developer/PERSONA.md"><strong>Developer</strong></a><br/>
+<sub>Par 3 · Implementação · Java + Next.js + testes.</sub>
+</td>
+</tr>
+</table>
 
-> Leu sua persona? Confirme a outra do seu par e abra o Estágio 1 às 13:00.
+<sub>↑ <a href="../../README.md">Voltar ao Kit PT-BR</a></sub>
 
 — Paula
