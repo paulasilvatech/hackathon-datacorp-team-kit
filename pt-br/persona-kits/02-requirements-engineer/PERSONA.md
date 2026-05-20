@@ -14,6 +14,8 @@ tags: ["persona", "requirements-engineer", "workshop", "ears", "pt-br"]
 
 # Persona — Requirements Engineer
 
+![Par 1 · Visão](https://img.shields.io/badge/PAR-Par%201%20%E2%80%A2%20Visão-F25022?style=for-the-badge) ![Lidera estágio 2](https://img.shields.io/badge/LIDERA%20EST%C3%81GIO-2-1A1A1A?style=for-the-badge) ![Apoia estágio 1, 3](https://img.shields.io/badge/APOIA-1%2C%203-737373?style=for-the-badge)
+
 ## Onde você atua no SDLC
 
 ![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)

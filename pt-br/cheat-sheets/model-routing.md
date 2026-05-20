@@ -13,6 +13,8 @@ tags: ["cheat-sheet", "copilot", "claude", "model-routing", "workshop", "pt-br"]
 
 # Roteamento de modelos Claude — Cartão de referência
 
+![CARTÃO](https://img.shields.io/badge/CART%C3%83O-03%20de%2003-7FBA00?style=for-the-badge) ![TÓPICO](https://img.shields.io/badge/TÓPICO-Roteamento%20de%20modelos-1A1A1A?style=for-the-badge) ![USE QUANDO](https://img.shields.io/badge/USE%20QUANDO-Haiku%20vs%20Sonnet%20vs%20Opus-737373?style=for-the-badge)
+
 ## Quando usar isso
 
 Antes de mandar um prompt grande para o Copilot, decida o modelo. **Trocar de modelo é menos custoso do que esperar 30 segundos pelo modelo errado.**

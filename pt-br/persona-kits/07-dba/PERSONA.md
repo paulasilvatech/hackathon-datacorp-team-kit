@@ -14,6 +14,8 @@ tags: ["persona", "dba", "workshop", "postgresql", "pt-br"]
 
 # Persona — DBA
 
+![Par 4 · Qualidade](https://img.shields.io/badge/PAR-Par%204%20%E2%80%A2%20Qualidade-00A4EF?style=for-the-badge) ![Lidera estágio 3](https://img.shields.io/badge/LIDERA%20EST%C3%81GIO-3-1A1A1A?style=for-the-badge) ![Apoia estágio —](https://img.shields.io/badge/APOIA-—-737373?style=for-the-badge)
+
 ## Onde você atua no SDLC
 
 ![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)

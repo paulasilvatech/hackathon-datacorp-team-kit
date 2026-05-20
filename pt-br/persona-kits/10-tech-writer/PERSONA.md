@@ -14,6 +14,8 @@ tags: ["persona", "tech-writer", "workshop", "pt-br"]
 
 # Persona — Tech Writer
 
+![Par 5 · Operações](https://img.shields.io/badge/PAR-Par%205%20%E2%80%A2%20Operações-1A1A1A?style=for-the-badge) ![Lidera estágio 4](https://img.shields.io/badge/LIDERA%20EST%C3%81GIO-4-1A1A1A?style=for-the-badge) ![Apoia estágio transversal](https://img.shields.io/badge/APOIA-transversal-737373?style=for-the-badge)
+
 ## Onde você atua no SDLC
 
 ![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)

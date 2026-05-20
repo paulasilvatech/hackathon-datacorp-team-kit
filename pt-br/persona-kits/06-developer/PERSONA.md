@@ -14,6 +14,8 @@ tags: ["persona", "developer", "workshop", "pt-br"]
 
 # Persona — Developer
 
+![Par 3 · Implementação](https://img.shields.io/badge/PAR-Par%203%20%E2%80%A2%20Implementação-7FBA00?style=for-the-badge) ![Lidera estágio 3](https://img.shields.io/badge/LIDERA%20EST%C3%81GIO-3-1A1A1A?style=for-the-badge) ![Apoia estágio 4](https://img.shields.io/badge/APOIA-4-737373?style=for-the-badge)
+
 ## Onde você atua no SDLC
 
 ![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)

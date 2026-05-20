@@ -14,6 +14,8 @@ tags: ["exemplo", "business-rules", "estagio-1", "pt-br"]
 
 # Catálogo de Regras de Negócio — Exemplo Preenchido
 
+![EXEMPLO](https://img.shields.io/badge/EXEMPLO-Cat%C3%A1logo%20de%20Regras-F25022?style=for-the-badge) ![ESTÁGIO](https://img.shields.io/badge/ESTÁGIO-01%20·%20Arqueologia-1A1A1A?style=for-the-badge) ![REFERÊNCIA](https://img.shields.io/badge/REFERÊNCIA-5%20regras%20documentadas-737373?style=for-the-badge)
+
 > **⚠️ Este é um EXEMPLO** para você ver como fica pronto. **O seu** `01-arqueologia/business-rules-catalog.md` deve ter no mínimo **15 regras** ao final do Estágio 1.
 
 ## Metadados

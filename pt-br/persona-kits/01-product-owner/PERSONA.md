@@ -14,6 +14,8 @@ tags: ["persona", "product-owner", "workshop", "pt-br"]
 
 # Persona — Product Owner
 
+![Par 1 · Visão](https://img.shields.io/badge/PAR-Par%201%20%E2%80%A2%20Visão-F25022?style=for-the-badge) ![Lidera estágio 1, 2](https://img.shields.io/badge/LIDERA%20EST%C3%81GIO-1%2C%202-1A1A1A?style=for-the-badge) ![Apoia estágio 3, 4](https://img.shields.io/badge/APOIA-3%2C%204-737373?style=for-the-badge)
+
 ## Onde você atua no SDLC
 
 ![Linha do tempo do dia mostrando onde esta persona atua](../../assets/timeline-stages.svg)
