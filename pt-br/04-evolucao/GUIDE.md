@@ -14,11 +14,9 @@ tags: ["estagio-4", "evolution", "agent", "terraform", "didatico", "pt-br"]
 
 # Estágio 4 — Evolução com Agentes (3 horas)
 
-> **ESTÁGIO 04 DE 04 · EVOLUÇÃO COM AGENTES**
->
-> 17:45 – 18:15 · 30 minutos
->
-> Par 5 (Operações) lidera. Par 3 (Implementação) escreve Issues e revisa PRs do Agent.
+![ESTÁGIO 04 de 04](https://img.shields.io/badge/EST%C3%81GIO-04%20de%2004-FFB900?style=for-the-badge) ![Horário 17:45 – 18:15](https://img.shields.io/badge/HOR%C3%81RIO-17%3A45%20%E2%80%93%2018%3A15-1A1A1A?style=for-the-badge) ![Duração 30 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-30%20min-737373?style=for-the-badge)
+
+> **Categoria:** Evolução · **Quem trabalha agora:** Par 5 lidera · Par 3 co-lidera
 
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
@@ -287,7 +285,8 @@ Os workflows de CI/CD ficam em:
 
 ---
 
-## Armadilhas comuns
+<details>
+<summary><strong>Armadilhas comuns</strong> — clique para expandir</summary>
 
 | ❌ Se você está fazendo isso             | ✅ Faça assim                                                    |
 | ---------------------------------------- | ---------------------------------------------------------------- |
@@ -296,6 +295,8 @@ Os workflows de CI/CD ficam em:
 | Disparar Agent para tarefa de 5 minutos  | Use Ask ou Plan para tarefas pequenas. Agent é para funcionalidades completas |
 | Rodar `terraform apply` no workshop      | Só `plan`. Não criar recursos Azure reais                        |
 | Hardcode de SMTP_HOST no application.yml | Sempre via env var, com fallback em Key Vault                    |
+
+</details>
 
 ---
 
@@ -314,7 +315,8 @@ Ao final do Estágio 4, seu time deve ter:
 
 Demo (18:30) + Retrospectiva (19:10). Cada time tem ~3 minutos. O Par 1 (PO) conduz o demo; todos preparam 30 segundos cada. Veja [`../../07-playbook-facilitacao/DAY-SCRIPT.md`](../../../07-playbook-facilitacao/DAY-SCRIPT.md) para o roteiro completo.
 
-## Prompts para Copilot Chat
+<details>
+<summary><strong>Prompts úteis para Copilot Chat</strong> — clique para expandir</summary>
 
 1. _"Crie uma GitHub Issue para o Copilot Agent implementar [funcionalidade]. Use o formato com requisitos funcionais, requisitos técnicos e critérios de aceite."_
 2. _"Revise este PR gerado pelo Agent e liste problemas de qualidade."_
@@ -323,6 +325,8 @@ Demo (18:30) + Retrospectiva (19:10). Cada time tem ~3 minutos. O Par 1 (PO) con
 5. _"Crie um diagrama dos recursos Azure definidos neste Terraform."_
 6. _"Como este workflow CI/CD garante qualidade antes do deploy?"_
 7. _"Sugira melhorias de segurança para esta configuração Terraform."_
+
+</details>
 
 ## Dica de ouro
 

@@ -167,7 +167,7 @@ Se tudo está marcado, **você está pronto**. Vá para o setup técnico (`SETUP
 |---|---|
 | Não sei em que par estou | Pergunte ao facilitador da sala |
 | Não acho meu `PERSONA.md` | A pasta é `pt-br/persona-kits/0X-nome/PERSONA.md` — confira o X no Passo 1 |
-| Termo do glossário não está claro | Abra `docs/glossario-visual.md` e use Ctrl+F |
+| Termo do glossário não está claro | Abra `docs/glossario-visual.md` e use <kbd>Ctrl</kbd>+<kbd>F</kbd> |
 | VS Code/Copilot não abre | Vá para `SETUP.md` § "Passo 1 — Pré-requisitos" |
 | O cronograma parece muito apertado | É apertado mesmo. Confie na divisão por par — você não vai fazer tudo sozinho(a) |
 | Não programo. Vou ficar perdida(o)? | Não. Veja `legado-natural/COMO-LER-NATURAL.md` (para o Estágio 1) e os defaults da sua `PERSONA.md` |

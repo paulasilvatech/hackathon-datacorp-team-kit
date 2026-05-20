@@ -170,7 +170,7 @@ Só dê uma olhada nos nomes das variáveis para se familiarizar (`VLR-BRUTO`, `
 
 ### Passo 3 — Procure os `IF` (3–5 min)
 
-Use o atalho do VS Code: `Ctrl+F` → digite `IF`.
+Use o atalho do VS Code: <kbd>Ctrl</kbd>+<kbd>F</kbd> → digite `IF`.
 
 Cada `IF` é uma regra candidata. Anote linha + condição:
 
@@ -181,7 +181,7 @@ Cada `IF` é uma regra candidata. Anote linha + condição:
 
 ### Passo 4 — Procure constantes numéricas (2 min)
 
-Use `Ctrl+F` com `0.` (procura `0.30`, `0.075`, etc.).
+Use <kbd>Ctrl</kbd>+<kbd>F</kbd> com `0.` (procura `0.30`, `0.075`, etc.).
 
 Cada constante sem explicação é provavelmente uma alíquota ou um percentual de regra.
 
@@ -246,11 +246,11 @@ Quando você abrir os DDMs ou as variáveis de um `.NSN`, vai ver coisas assim:
 
 | Atalho | O que faz |
 |---|---|
-| `Ctrl+F` | Buscar dentro do arquivo |
-| `Ctrl+Shift+F` | Buscar em **todos** os arquivos |
-| `Ctrl+G` + número | Pular para a linha N |
+| <kbd>Ctrl</kbd>+<kbd>F</kbd> | Buscar dentro do arquivo |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Buscar em **todos** os arquivos |
+| <kbd>Ctrl</kbd>+<kbd>G</kbd> + número | Pular para a linha N |
 | `F2` | Renomear (não use em legado — só leia!) |
-| `Ctrl+Alt+→` | Próximo `IF` (se tiver navegação de símbolos) |
+| <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>→</kbd> | Próximo `IF` (se tiver navegação de símbolos) |
 | Selecionar + Copilot Chat | Cola e pergunta direto sobre o trecho |
 
 > **Dica de ouro do Copilot Chat:**
@@ -280,7 +280,7 @@ Quando você abrir os DDMs ou as variáveis de um `.NSN`, vai ver coisas assim:
 | ❌ Erro | ✅ Correção |
 |---|---|
 | Tentar entender cada linha | Foque só em `IF`, `COMPUTE` com constantes e comentários |
-| Ler na ordem do arquivo | Vá direto para os `IF` (use Ctrl+F) |
+| Ler na ordem do arquivo | Vá direto para os `IF` (use <kbd>Ctrl</kbd>+<kbd>F</kbd>) |
 | Confundir variável (`#VLR`) com campo de DDM (`VLR-BRUTO`) | `#` no início = variável local. Sem `#` = campo do banco |
 | Achar que todo `MOVE` é regra | `MOVE` é só atribuição. Regra é o `IF` que decidiu o `MOVE` |
 | Anotar regra sem citar linha | Sempre anote `arquivo.NSN#L<início>-L<fim>`. **Sem isso o CI rejeita.** |

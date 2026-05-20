@@ -307,7 +307,7 @@ code .
 O repositório inclui `.devcontainer/devcontainer.json`. O dev container tem Java 21, Node 20, Docker-in-Docker e as extensões do Copilot já fixadas em versões conhecidas e boas.
 
 1. O VS Code mostra um popup no canto inferior direito: **"Folder contains a Dev Container configuration. Reopen in Container?"** → clique em **Reopen in Container**.
-2. Se você perdeu o popup: abra a Command Palette (`Ctrl+Shift+P` no Windows/Linux, `Cmd+Shift+P` no Mac) e escolha **Dev Containers: Reopen in Container**.
+2. Se você perdeu o popup: abra a Command Palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> no Windows/Linux, <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> no Mac) e escolha **Dev Containers: Reopen in Container**.
 3. Aguarde 2 a 5 minutos na primeira vez. O VS Code reconstrói o ambiente.
 4. Quando o canto inferior esquerdo mostrar **"Dev Container: SIFAP 2.0 …"**, você está dentro.
 
@@ -336,8 +336,8 @@ Cada pessoa faz isto no próprio laptop.
 
 | SO              | Atalho       |
 | --------------- | ------------ |
-| Mac             | `Cmd+Ctrl+I` |
-| Windows / Linux | `Ctrl+Alt+I` |
+| Mac             | <kbd>Cmd</kbd>+<kbd>Ctrl</kbd>+<kbd>I</kbd> |
+| Windows / Linux | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> |
 
 Um painel abre à direita.
 

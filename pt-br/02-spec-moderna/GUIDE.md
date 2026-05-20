@@ -14,11 +14,9 @@ tags: ["estagio-2", "especificacao", "ears", "adr", "c4", "didatico", "pt-br"]
 
 # Estágio 2 — Spec Moderna (3 horas)
 
-> **ESTÁGIO 02 DE 04 · ESPECIFICAÇÃO**
->
-> 14:45 – 16:00 · 75 minutos
->
-> Par 2 (Arquitetura) lidera. Par 1 (Visão) assina escopo. Par 5 dá revisão de clareza.
+![ESTÁGIO 02 de 04](https://img.shields.io/badge/EST%C3%81GIO-02%20de%2004-00A4EF?style=for-the-badge) ![Horário 14:45 – 16:00](https://img.shields.io/badge/HOR%C3%81RIO-14%3A45%20%E2%80%93%2016%3A00-1A1A1A?style=for-the-badge) ![Duração 75 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-75%20min-737373?style=for-the-badge)
+
+> **Categoria:** Especificação · **Quem trabalha agora:** Par 2 lidera · Par 1 assina escopo
 
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
@@ -392,7 +390,8 @@ Sem pânico — escreva os requisitos EARS manualmente em SPECIFICATION.md segui
 
 ---
 
-## Armadilhas comuns
+<details>
+<summary><strong>Armadilhas comuns</strong> — clique para expandir</summary>
 
 | ❌ Se você está fazendo isso                               | ✅ Faça assim                                                             |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------- |
@@ -402,6 +401,8 @@ Sem pânico — escreva os requisitos EARS manualmente em SPECIFICATION.md segui
 | ADR de 1 linha ("decidimos usar X")                        | ADR com contexto + decisão + alternativas rejeitadas + consequências      |
 | Pulando `/speckit.clarify` e `/speckit.analyze`             | Rode antes de fazer commit; o CI rejeita PRs com EARS inválidas           |
 | C4 nível 3 antes de finalizar o nível 1                    | L1 e L2 são suficientes para 95% dos casos. L3 só se sobrar tempo         |
+
+</details>
 
 ---
 
@@ -422,7 +423,8 @@ Ao final do Estágio 2, seu time deve ter:
 
 No Passagem #2 (~16:00), o **Par 2 (Arquitetura)** entrega EARS + ADRs + C4 para os **Pares 3 (Implementação) e 4 (Qualidade)**. O Par 1 (PO) assina o escopo. Conversa de 5 minutos por par receptor — não vale "leia o documento depois". Vocês caminham juntos para o Estágio 3 ([`../03-implementacao/GUIDE.md`](../03-implementacao/GUIDE.md)).
 
-## Prompts para Copilot Chat
+<details>
+<summary><strong>Prompts úteis para Copilot Chat</strong> — clique para expandir</summary>
 
 1. _"Converta esta regra de negócio para notação EARS: [descreva a regra]. Identifique qual dos 6 padrões EARS se aplica e justifique."_
 2. _"Crie um ADR para a decisão de usar [tecnologia X] em vez de [tecnologia Y]. Inclua o 'caminho não tomado' e as consequências negativas."_
@@ -430,6 +432,8 @@ No Passagem #2 (~16:00), o **Par 2 (Arquitetura)** entrega EARS + ADRs + C4 para
 4. _"Revise este requisito EARS e sugira melhorias de clareza. Aponte ambiguidades."_
 5. _"Quais atributos de qualidade (NFRs) devemos considerar para este sistema?"_
 6. _"Com base nestas regras de negócio, sugira a estrutura de módulos do backend (bounded contexts)."_
+
+</details>
 
 ## Dica de ouro
 

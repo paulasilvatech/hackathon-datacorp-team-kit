@@ -14,11 +14,9 @@ tags: ["estagio-1", "arqueologia", "legado", "didatico", "pt-br"]
 
 # Estágio 1 — Arqueologia Digital
 
-> **ESTÁGIO 01 DE 04 · DESCOBERTA**
->
-> 13:00 – 14:30 · 90 minutos
->
-> Todos os 5 pares trabalham em paralelo — 3 programas Natural por par.
+![ESTÁGIO 01 de 04](https://img.shields.io/badge/EST%C3%81GIO-01%20de%2004-F25022?style=for-the-badge) ![Horário 13:00 – 14:30](https://img.shields.io/badge/HOR%C3%81RIO-13%3A00%20%E2%80%93%2014%3A30-1A1A1A?style=for-the-badge) ![Duração 90 min](https://img.shields.io/badge/DURA%C3%87%C3%83O-90%20min-737373?style=for-the-badge)
+
+> **Categoria:** Descoberta · **Quem trabalha agora:** Todos os 5 pares em paralelo
 
 > 🧭 **Antes de entrar neste estágio** (1 minuto de leitura):
 >
@@ -226,7 +224,8 @@ Se sua dupla travar depois de 90 minutos sem achar nenhum mistério, levante a m
 
 ---
 
-## Armadilhas comuns (o que NÃO fazer)
+<details>
+<summary><strong>Armadilhas comuns</strong> — clique para expandir</summary>
 
 | ❌ Se você está fazendo isso                                   | ✅ Faça assim                                                                              |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
@@ -236,6 +235,8 @@ Se sua dupla travar depois de 90 minutos sem achar nenhum mistério, levante a m
 | Ignorando os 3 documentos antigos em `legacy-docs/`            | Eles estão desatualizados, mas mostram o que o time original _pensava_ na época. Vale ler. |
 | Deixando para a Hora 3 começar a escrever no catálogo          | Documente conforme descobre. Memória de curto prazo trai.                                  |
 | Considerando "regra de negócio" qualquer linha de código       | Regra de negócio = decisão do **domínio**, não da implementação.                           |
+
+</details>
 
 ---
 
